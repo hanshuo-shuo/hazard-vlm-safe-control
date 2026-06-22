@@ -1,0 +1,327 @@
+"""
+PointHazard-v0: open arena point-mass with random hazards and a random goal.
+
+Key differences from the old PointMaze setup:
+  - No maze walls.  Open square arena with bouncing boundary.
+  - Hazards (lava circles) are sampled fresh every reset.
+  - Single goal per episode, also sampled fresh every reset.
+  - Hazard contact -> terminate with large penalty.
+  - Pure numpy point-mass dynamics (no MuJoCo dependency for the env itself).
+  - Custom PIL renderer (no OpenGL).
+
+Observation layout (default n_hazards=8 -> 30 dims):
+    [ 0] x          agent x
+    [ 1] y          agent y
+    [ 2] vx         agent vx
+    [ 3] vy         agent vy
+    [ 4] gx         goal x
+    [ 5] gy         goal y
+    [ 6] h0_x       hazard 0 center x       <- begin hazard block
+    [ 7] h0_y       hazard 0 center y
+    [ 8] h0_r       hazard 0 radius
+    ...                                      (n_hazards * 3 entries)
+
+Hazards are sorted by distance to agent in the obs vector at every step
+(closest first), so a downstream policy/diffusion can take a fixed prefix of
+"k nearest hazards" without re-sorting.
+
+Action: [fx, fy] in [-1, 1]^2.  Mapped to a 2D force = force_scale * action.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from typing import Any
+
+import numpy as np
+
+
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
+
+@dataclass
+class PointHazardConfig:
+    # Arena geometry (square, centered at origin)
+    arena_half: float = 5.0           # arena spans [-arena_half, +arena_half]^2
+
+    # Dynamics
+    dt: float = 0.1                   # integration timestep
+    drag: float = 0.5                 # linear drag coefficient
+    force_scale: float = 5.0          # action 1.0 -> force 5.0 (arena/sec^2)
+    max_speed: float = 4.0            # |v| clipped to this
+
+    # Sizes
+    agent_radius: float = 0.3         # agent body radius for collision
+    goal_radius: float = 0.5          # success threshold (||p - g|| < this)
+
+    # Hazards
+    n_hazards: int = 8                # number of hazards per episode (fixed)
+    hazard_radius_min: float = 0.2
+    hazard_radius_max: float = 0.5
+
+    # Spawn separation (rejection sampling).  All distances are *center-to-
+    # center*, so the safe separation between objects is roughly
+    # min_separation_extra plus the relevant radii.
+    min_hazard_pair_sep: float = 1.4    # min center distance between two hazards
+    min_start_clearance: float = 0.8    # extra clearance from start to nearest hazard edge
+    min_goal_clearance: float = 0.8     # extra clearance from goal to nearest hazard edge
+    min_start_goal_dist: float = 4.0    # ensure start and goal are far apart
+
+    # Episode
+    max_episode_steps: int = 300
+
+    # Reward
+    step_penalty: float = -0.01
+    hazard_penalty: float = -50.0
+    goal_reward: float = 100.0
+
+    # Sampling safety
+    max_rejection_tries: int = 2000
+
+    # Rendering (read by external renderer)
+    render_size: int = 480
+
+
+# ---------------------------------------------------------------------------
+# Environment
+# ---------------------------------------------------------------------------
+
+class PointHazardEnv:
+    """
+    Minimal gym-like point-mass environment with random hazards and a random goal.
+
+    Methods:
+        reset(seed=None) -> (obs, info)
+        step(action)     -> (obs, reward, terminated, truncated, info)
+        render()         -> RGB numpy array (uses HazardRenderer if attached)
+        close()          -> None
+    """
+
+    metadata = {"render_modes": ["rgb_array"]}
+
+    def __init__(self, cfg: PointHazardConfig | None = None, seed: int | None = None):
+        self.cfg = cfg or PointHazardConfig()
+        self.rng = np.random.default_rng(seed)
+
+        # Spaces (gym-style attributes; we don't depend on gymnasium).
+        self.act_dim = 2
+        self.cond_dim = 4  # [x, y, vx, vy] for diffusion conditioning
+        self.obs_dim = 4 + 2 + 3 * self.cfg.n_hazards
+
+        self.action_low = -np.ones(2, dtype=np.float32)
+        self.action_high = np.ones(2, dtype=np.float32)
+
+        # Episode state (set in reset)
+        self.pos = np.zeros(2, dtype=np.float32)
+        self.vel = np.zeros(2, dtype=np.float32)
+        self.goal = np.zeros(2, dtype=np.float32)
+        self.hazards = np.zeros((self.cfg.n_hazards, 3), dtype=np.float32)  # (x, y, r)
+        self.t = 0
+        self._trail: list[np.ndarray] = []
+
+        # External renderer attached lazily by callers.
+        self._renderer = None
+
+    # ------------------------------------------------------------------
+    # Sampling helpers
+    # ------------------------------------------------------------------
+
+    def _sample_xy(self, margin: float) -> np.ndarray:
+        lo = -self.cfg.arena_half + margin
+        hi = +self.cfg.arena_half - margin
+        return self.rng.uniform(lo, hi, size=2).astype(np.float32)
+
+    def _sample_layout(self) -> None:
+        """Sample hazards, start, goal with rejection on minimum-distance constraints."""
+        cfg = self.cfg
+
+        # 1. Sample hazards with center-to-center separation.
+        hazards: list[np.ndarray] = []
+        tries = 0
+        while len(hazards) < cfg.n_hazards:
+            tries += 1
+            if tries > cfg.max_rejection_tries:
+                raise RuntimeError(
+                    f"Failed to sample {cfg.n_hazards} non-overlapping hazards in "
+                    f"{cfg.max_rejection_tries} tries; relax min_hazard_pair_sep "
+                    f"or shrink hazards."
+                )
+            r = float(self.rng.uniform(cfg.hazard_radius_min, cfg.hazard_radius_max))
+            xy = self._sample_xy(margin=r + 0.1)  # keep hazard fully inside arena
+            ok = True
+            for hx, hy, hr in hazards:
+                d = float(np.linalg.norm(xy - np.array([hx, hy], dtype=np.float32)))
+                # require separation that exceeds both radii by min_hazard_pair_sep
+                if d < (r + hr + cfg.min_hazard_pair_sep - 1.0):
+                    ok = False
+                    break
+            if ok:
+                hazards.append(np.array([xy[0], xy[1], r], dtype=np.float32))
+        self.hazards = np.stack(hazards, axis=0)
+
+        # 2. Sample start position outside any hazard (with clearance).
+        for _ in range(cfg.max_rejection_tries):
+            start = self._sample_xy(margin=cfg.agent_radius + 0.1)
+            if self._clear_of_all_hazards(start, cfg.agent_radius + cfg.min_start_clearance):
+                break
+        else:
+            raise RuntimeError("Failed to sample valid start position.")
+        self.pos = start
+        self.vel = np.zeros(2, dtype=np.float32)
+
+        # 3. Sample goal position outside any hazard AND far from start.
+        for _ in range(cfg.max_rejection_tries):
+            goal = self._sample_xy(margin=cfg.goal_radius + 0.1)
+            if not self._clear_of_all_hazards(goal, cfg.goal_radius + cfg.min_goal_clearance):
+                continue
+            if float(np.linalg.norm(goal - self.pos)) < cfg.min_start_goal_dist:
+                continue
+            break
+        else:
+            raise RuntimeError("Failed to sample valid goal position.")
+        self.goal = goal
+
+    def _clear_of_all_hazards(self, p: np.ndarray, body_radius: float) -> bool:
+        """True if a body of radius `body_radius` centered at p touches no hazard."""
+        for hx, hy, hr in self.hazards:
+            d = float(np.linalg.norm(p - np.array([hx, hy], dtype=np.float32)))
+            if d < (body_radius + hr):
+                return False
+        return True
+
+    # ------------------------------------------------------------------
+    # Obs / collision
+    # ------------------------------------------------------------------
+
+    def _build_obs(self) -> np.ndarray:
+        """[x, y, vx, vy, gx, gy, h0_x, h0_y, h0_r, ...] sorted by distance to agent."""
+        # Sort hazards by distance to current agent position (closest first).
+        d = np.linalg.norm(self.hazards[:, :2] - self.pos[None, :], axis=1)
+        order = np.argsort(d)
+        haz_sorted = self.hazards[order]  # (n_hazards, 3)
+
+        obs = np.empty(self.obs_dim, dtype=np.float32)
+        obs[0:2] = self.pos
+        obs[2:4] = self.vel
+        obs[4:6] = self.goal
+        obs[6:] = haz_sorted.reshape(-1)
+        return obs
+
+    def _hazard_collision(self) -> bool:
+        for hx, hy, hr in self.hazards:
+            d = float(np.linalg.norm(self.pos - np.array([hx, hy], dtype=np.float32)))
+            if d < (self.cfg.agent_radius + float(hr)):
+                return True
+        return False
+
+    def _goal_reached(self) -> bool:
+        return float(np.linalg.norm(self.pos - self.goal)) < self.cfg.goal_radius
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def reset(self, *, seed: int | None = None) -> tuple[np.ndarray, dict[str, Any]]:
+        if seed is not None:
+            self.rng = np.random.default_rng(seed)
+        self._sample_layout()
+        self.t = 0
+        self._trail = [self.pos.copy()]
+        info = {
+            "goal": self.goal.copy(),
+            "hazards": self.hazards.copy(),
+            "start": self.pos.copy(),
+        }
+        return self._build_obs(), info
+
+    def step(self, action: np.ndarray) -> tuple[np.ndarray, float, bool, bool, dict[str, Any]]:
+        action = np.asarray(action, dtype=np.float32).reshape(-1)
+        action = np.clip(action, -1.0, 1.0)
+        force = self.cfg.force_scale * action
+
+        # Semi-implicit Euler integration with linear drag.
+        self.vel = self.vel + (force - self.cfg.drag * self.vel) * self.cfg.dt
+        speed = float(np.linalg.norm(self.vel))
+        if speed > self.cfg.max_speed:
+            self.vel = self.vel * (self.cfg.max_speed / speed)
+        new_pos = self.pos + self.vel * self.cfg.dt
+
+        # Bounce off arena walls (reflect velocity, clamp position).
+        a = self.cfg.arena_half - self.cfg.agent_radius
+        for i in range(2):
+            if new_pos[i] < -a:
+                new_pos[i] = -a
+                self.vel[i] = -self.vel[i] * 0.5
+            elif new_pos[i] > a:
+                new_pos[i] = a
+                self.vel[i] = -self.vel[i] * 0.5
+        self.pos = new_pos.astype(np.float32)
+        self._trail.append(self.pos.copy())
+        self.t += 1
+
+        # Reward + termination.
+        reward = float(self.cfg.step_penalty)
+        terminated = False
+        truncated = False
+        info: dict[str, Any] = {}
+
+        if self._hazard_collision():
+            reward += float(self.cfg.hazard_penalty)
+            terminated = True
+            info["termination_reason"] = "hazard"
+        elif self._goal_reached():
+            reward += float(self.cfg.goal_reward)
+            terminated = True
+            info["termination_reason"] = "goal"
+
+        if self.t >= self.cfg.max_episode_steps and not terminated:
+            truncated = True
+            info["termination_reason"] = "timeout"
+
+        info["dist_to_goal"] = float(np.linalg.norm(self.pos - self.goal))
+        info["goal_success"] = bool(terminated and info.get("termination_reason") == "goal")
+        info["hazard_hit"] = bool(terminated and info.get("termination_reason") == "hazard")
+        info["goal"] = self.goal.copy()
+        info["hazards"] = self.hazards.copy()
+
+        return self._build_obs(), reward, terminated, truncated, info
+
+    def attach_renderer(self, renderer) -> None:
+        """Attach an external renderer (HazardRenderer)."""
+        self._renderer = renderer
+
+    def render(self, info_text: str | None = None) -> np.ndarray | None:
+        if self._renderer is None:
+            return None
+        return self._renderer.render(
+            agent_xy=self.pos,
+            goal_xy=self.goal,
+            hazards=self.hazards,
+            vel_xy=self.vel,
+            trail=self._trail,
+            info_text=info_text,
+        )
+
+    def close(self) -> None:
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Convenience factory
+# ---------------------------------------------------------------------------
+
+def make_env(
+    cfg: PointHazardConfig | None = None,
+    seed: int | None = None,
+    with_renderer: bool = True,
+) -> PointHazardEnv:
+    env = PointHazardEnv(cfg=cfg, seed=seed)
+    if with_renderer:
+        # Lazy import so the env file is importable without PIL.
+        # NOTE: the renderer lives at the repo root (`hazard_renderer.py`), not
+        # inside the `hazard/` data directory — importing `hazard.hazard_renderer`
+        # silently breaks because `hazard/` holds only weights/logs/gifs.
+        from hazard_renderer import HazardRenderer
+        env.attach_renderer(HazardRenderer.from_env(env))
+    return env
