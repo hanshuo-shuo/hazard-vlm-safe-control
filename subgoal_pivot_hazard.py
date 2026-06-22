@@ -346,12 +346,20 @@ VlmFn = Callable[[Image.Image, str, int], VlmCall]
 class _BasePolicy:
     name = "base"
 
-    def reset(self, obs: np.ndarray, info: dict) -> None:
+    def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         self.vlm_calls = 0          # VLM queries issued
         self.vlm_parse_fail = 0     # queries that returned but failed to parse
         self.vlm_api_fail = 0       # queries where the API/network call failed
         self.fallback_used = 0      # decisions that fell back (not a VLM choice)
         self.transcripts: list[dict] = []  # per-call audit log
+
+    @staticmethod
+    def _seed_controller(expert, seed: int | None) -> None:
+        """Seed a low-level controller's RNG from the episode seed so the whole
+        matched-seed run is bit-reproducible. Must be called BEFORE the first
+        plan(), since SafeExpert.plan() draws speed noise from this RNG."""
+        if seed is not None and hasattr(expert, "rng"):
+            expert.rng = np.random.default_rng(seed)
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         raise NotImplementedError
@@ -413,8 +421,9 @@ class ControllerOnlyPolicy(_BasePolicy):
         self.name = f"{low_level}_oracle" if semantic_aware else low_level
         self.expert = make_controller(cfg, low_level, safety_margin)
 
-    def reset(self, obs: np.ndarray, info: dict) -> None:
+    def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         self.vlm_calls = 0
+        self._seed_controller(self.expert, seed)  # before any plan()
         if self.semantic_aware:
             # Oracle: plan with hard hazards AND the (hand-coded) semantic zones
             # folded into the avoid-set. The controllers store this avoid-set at
@@ -461,8 +470,8 @@ class DirectPivotPolicy(_BasePolicy):
         self.fallback = fallback
         self.semantic = semantic
 
-    def reset(self, obs: np.ndarray, info: dict) -> None:
-        super().reset(obs, info)
+    def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
+        super().reset(obs, info, seed)
         self._step = 0
         self._action = np.zeros(2, dtype=np.float32)
 
@@ -536,8 +545,9 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.fallback = fallback
         self.semantic = semantic
 
-    def reset(self, obs: np.ndarray, info: dict) -> None:
-        super().reset(obs, info)
+    def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
+        super().reset(obs, info, seed)
+        self._seed_controller(self.expert, seed)  # before any plan()
         self._steps_on_subgoal = self.subgoal_horizon  # force a query on step 0
         self._subgoal: np.ndarray | None = None
 
@@ -685,7 +695,7 @@ def run_episode(
     max_steps: int,
 ) -> EpisodeResult:
     obs, info = env.reset(seed=seed)
-    policy.reset(obs, info)
+    policy.reset(obs, info, seed=seed)
     agent_radius = env.cfg.agent_radius
 
     pos, _, _, hazards = _obs_parts(obs, env.cfg)

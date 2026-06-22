@@ -49,23 +49,25 @@ Run config: `model=google/gemini-3-flash-preview`, `temperature=0`,
 
 | policy | success [95% CI] | hazard [95% CI] | **sem_viol [95% CI]** | mean min-clr | VLM calls/ep | fb% |
 |---|---|---|---|---|---|---|
-| `mpc` (C1, geometry-blind) | 100% [56.6, 100] | 0% [0, 43.4] | **80%** [37.6, 96.4] | +0.533 | 0 | – |
-| `mpc_oracle` (C2, hand-coded) | 100% [56.6, 100] | 0% [0, 43.4] | **0%** [0, 43.4] | +0.566 | 0 | – |
-| `subgoal` (B, VLM) | 100% [56.6, 100] | 0% [0, 43.4] | **20%** [3.6, 62.4] | +0.283 | 3.2 | 0% |
+| `mpc` (C1, geometry-blind) | 100% [56.6, 100] | 0% [0, 43.4] | **60%** [23.1, 88.2] | +0.475 | 0 | – |
+| `mpc_oracle` (C2, hand-coded) | 100% [56.6, 100] | 0% [0, 43.4] | **0%** [0, 43.4] | +0.494 | 0 | – |
+| `subgoal` (B, VLM) | 100% [56.6, 100] | 0% [0, 43.4] | **20%** [3.6, 62.4] | +0.334 | 3.0 | 0% |
 
 `sem_viol` = fraction of episodes that ever entered the keep-out zone.
-`fb% = 0` ⇒ every subgoal decision was a genuine VLM choice (16 transcripts saved).
+`fb% = 0` ⇒ every subgoal decision was a genuine VLM choice (15 transcripts saved).
+This run is **bit-reproducible** (controller RNG seeded per episode); per-seed
+breakdown — C1 enters the zone on seeds 44/46/47, B only on 47, C2 never.
 
 ## Reading
 
 The qualitative pattern is exactly the Path-B main-result thesis:
 
-- **C1 (pure classical) violates the semantic constraint 80% of the time** — it
+- **C1 (pure classical) violates the semantic constraint 60% of the time** — it
   cannot see the zone and ploughs straight through, just as designed.
 - **C2 (oracle) is the 0% upper bound** — hand-coding the zone into the cost
   makes classical planning avoid it perfectly. (This is the honest answer to
   "why not classical?": classical wins *if* a human labels the semantic.)
-- **B (VLM) cuts violations 4× vs C1 (80% → 20%), approaching the oracle**, with
+- **B (VLM) cuts violations 3× vs C1 (60% → 20%), approaching the oracle**, with
   **zero hand-coded perception** — it reads the zone from pixels. That is the win.
 
 So on this leakage-clean toy the VLM high-level does what Month-1 showed it could
@@ -88,14 +90,13 @@ hand-coded keep-out cost.
 
 ![Trajectory contrast, seed 44 (C1 through, C2/B around)](../outputs/fig_traj_seed44.png)
 
-(Figures regenerated with the MPC RNG seeded for determinism — see the
-reproducibility caveat below — so per-panel in-zone counts are illustrative of
-the seed and can differ slightly from the run-of-record table.)
+(Per-panel in-zone counts match the run-of-record table exactly — the controller
+RNG is seeded per episode, so figures and table share one deterministic path.)
 
 ## The one VLM failure (honest)
 
-Seed 47 is the only `subgoal` violation (7 steps in-zone). Its transcript shows
-the VLM confidently picking waypoint 8 **twice while stating** it was
+Seed 47 is the only `subgoal` violation (5 steps in-zone). Its transcript shows
+the VLM confidently picking waypoint 8 **all three times while stating** it was
 "navigating around the amber restricted zone" — yet it still grazed the zone.
 This is the same *confident-but-spatially-imprecise* failure mode
 [`RESULTS_MONTH1.md`](RESULTS_MONTH1.md) found for the low-level VLM, now at the
@@ -103,7 +104,7 @@ high level. Contributing factor to rule out at scale: subgoal **granularity** �
 between subgoal queries the geometry-only controller can cut a corner through the
 zone even when the chosen waypoint is on the safe side (knobs: `--subgoal_radius`
 smaller = finer, `--subgoal_horizon` smaller = re-query more often).
-B's lower mean min-clearance (+0.283 vs C1 +0.533) reflects these tighter
+B's lower mean min-clearance (+0.334 vs C1 +0.475) reflects these tighter
 detours hugging hazards/zone edges.
 
 ![Trajectory contrast, seed 47 (B grazes the zone near the goal)](../outputs/fig_traj_seed47.png)
@@ -115,7 +116,7 @@ granularity failure described above.
 ## Honest caveats
 
 - **n=5 is a "can it win?" pilot, not a paper figure.** The CIs overlap heavily;
-  B at 20% is not yet statistically separable from C1 at 80% or C2 at 0%. A real
+  B at 20% is not yet statistically separable from C1 at 60% or C2 at 0%. A real
   figure needs ~100 matched seeds (and ideally ≥2 VLM backbones).
 - Single model, single zone, single arena difficulty. Scale zone count/placement
   and `n_hazards` before any claim goes in the paper.
@@ -123,13 +124,11 @@ granularity failure described above.
   marked zone). A stronger, future version makes the zone's meaning *implicit*
   (appearance only, no naming) to test commonsense rather than instruction-
   following.
-- **Reproducibility gap (fix before the 100-seed run):** `MPCExpert`'s CEM RNG
-  is currently unseeded (`np.random.default_rng()` with no seed), so the low-
-  level controller is not bit-reproducible run-to-run. It shows up as the same
-  seed giving slightly different in-zone counts on re-runs (e.g. seed 47 `B`:
-  7 steps in the table vs 5 in the seeded figure). The qualitative result is
-  stable, but the paper run must seed the controller RNG per episode (e.g. from
-  the episode seed) so the matched-seed table is exactly reproducible.
+- **Reproducibility (fixed).** The low-level controllers (`MPCExpert`,
+  `SafeExpert`) now seed their RNG from the episode seed at `policy.reset`, so
+  the whole matched-seed pipeline is bit-reproducible (verified: two identical-
+  config offline runs match exactly). The only residual nondeterminism is the
+  VLM provider itself at `temperature=0`, which is external to the pipeline.
 
 ## Reproduce
 

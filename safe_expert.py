@@ -69,6 +69,10 @@ class SafeExpert:
         self.path_idx: int = 0
         self.last_plan_ok: bool = False
         self._episode_speed: float = cfg.desired_speed if cfg else 2.5
+        # Own RNG (not the global np.random) so per-episode speed noise is
+        # reproducible: callers can reseed self.rng from the episode seed. Using
+        # the global RNG here would make runs non-reproducible and pollute it.
+        self.rng = np.random.default_rng()
 
     # ------------------------------------------------------------------
     # Grid / world conversions
@@ -206,10 +210,10 @@ class SafeExpert:
         self.path = wps
         self.path_idx = 0
         self.last_plan_ok = True
-        # Sample a new speed for this episode
+        # Sample a new speed for this episode (own RNG, reproducible)
         self._episode_speed = max(
             0.5,
-            self.cfg.desired_speed + np.random.randn() * self.cfg.speed_noise_std,
+            self.cfg.desired_speed + float(self.rng.standard_normal()) * self.cfg.speed_noise_std,
         )
         return True
 

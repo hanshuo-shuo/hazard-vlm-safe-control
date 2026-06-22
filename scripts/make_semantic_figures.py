@@ -78,15 +78,11 @@ def build_policy(name: str, cfg: PointHazardConfig, renderer, vlm_fn):
 def run_and_render(env: PointHazardEnv, policy, seed: int) -> tuple[Image.Image, int]:
     """Run one episode to completion, return (final frame with full trail, sem_steps).
 
-    The MPC controller's CEM RNG is unseeded in the experiment (a known
-    reproducibility gap, see RESULTS_SEMANTIC.md), so for a DETERMINISTIC figure
-    we seed it here from the episode seed. The figure's in-zone counts are thus
-    illustrative of this seed; the paper table is the run of record.
+    policy.reset(seed=seed) seeds the controller RNG from the episode seed, so
+    these figures reproduce the run-of-record table exactly (same seeding path).
     """
     obs, info = env.reset(seed=seed)
-    policy.reset(obs, info)
-    if hasattr(policy, "expert") and hasattr(policy.expert, "rng"):
-        policy.expert.rng = np.random.default_rng(seed)
+    policy.reset(obs, info, seed=seed)
     sem_steps = 0
     for _ in range(env.cfg.max_episode_steps):
         action = policy.act(obs, env)
