@@ -39,13 +39,11 @@
 ## 5. PIVOT 方法脚本（entry points）
 | 文件 | 状态 | 说明 |
 |---|---|---|
-| `subgoal_pivot_hazard.py` | ★ CORE | **第 1 月信心实验主脚本**：matched-seed 三方对照 `direct`（VLM 直接选低层 force，去泄漏）vs `subgoal`（VLM 选离散 subgoal → 低层控制器执行）vs 纯低层控制器（`mpc` 默认 / `safe_expert`，`--low_level` 切换；B 内部也用同一个）。prompt 严格不含 clearance/safe-label/score。`--pilot_mode heuristic` 可无 API key 离线冒烟；`--pilot_mode vlm` 走 OpenRouter。输出 success/hazard/timeout/min-clearance/VLM-calls 对照表。冒烟结果：mpc & subgoal 100%/0 碰撞，direct ~70%/~30% 碰撞 —— 正是 Path B 第一张图。 |
-| `shared_autonomy_hazard_learned_physics_pivot.py` | REUSE | 在线 learned-physics PIVOT（本地 VLM）。**结论受泄漏污染，需重跑零泄漏版。** |
-| `shared_autonomy_hazard_learned_physics_pivot_openrouter.py` | REUSE | 同上，OpenRouter VLM 版。 |
-| `shared_autonomy_hazard_dual_mlp_pivot_openrouter.py` | REUSE | dual-MLP physics 变体。 |
-| `shared_autonomy_pointpush_hazard_learned_physics_pivot.py` | REUSE | PointPush 版 learned-physics PIVOT（96KB，最大）。 |
+| `subgoal_pivot_hazard.py` | ★ CORE | **第 1 月信心实验主脚本（已跑通真实 VLM，见 `docs/RESULTS_MONTH1.md`）**：matched-seed 三方对照 `direct`（VLM 直接选低层 force，去泄漏）vs `subgoal`（VLM 选离散 subgoal → 低层控制器执行）vs 纯低层控制器（`mpc` 默认 / `safe_expert`）。prompt + 图像标注严格不含 clearance/safe-label/score；硬化项：去掉静默 heuristic 兜底（改 `--vlm_fallback hold` 中性 no-op，并记 fb%）、Wilson 95% CI、`--log_transcripts` 原始响应审计、retry/API-error 区分、temp 默认 0。`--pilot_mode heuristic` 离线冒烟；`--pilot_mode vlm` 走 OpenRouter。n=5 真实结果：mpc & subgoal 100%/0 碰撞、direct 80%/20% 碰撞、fb%=0 —— 正是 Path B 第一张图（n=5 仅验证链路，正式图需 ~100 seeds）。 |
+| `shared_autonomy_pointpush_hazard_learned_physics_pivot.py` | REUSE | PointPush 版 learned-physics PIVOT（96KB，最大）。结论受泄漏污染，代码留作第 3–4 月接触环境复用。`test_push_render.py` 依赖它。 |
 
-> ⚠️ 这 4 个脚本都要做**泄漏审计**：prompt 里有没有混入 clearance / safe-unsafe label / score（参见 `docs/FAILURE_MODE_ANALYSIS.md` 第 8 节的审计表）。
+> ⚠️ 泄漏审计：prompt 里有没有混入 clearance / safe-unsafe label / score（参见 `docs/FAILURE_MODE_ANALYSIS.md` 第 8 节的审计表）。
+> 📦 三个 PointHazard learned-physics/dual-MLP PIVOT 脚本（`shared_autonomy_hazard_learned_physics_pivot[_openrouter].py`、`shared_autonomy_hazard_dual_mlp_pivot_openrouter.py`）**已归档到 `legacy/`**：结论受泄漏污染，且其 PointHazard 环境已被干净的 `subgoal_pivot_hazard.py` 取代，无人 import。
 
 ## 6. Direct VLA 基线
 | 文件 | 状态 | 说明 |
@@ -87,7 +85,12 @@
 - 修 `safe_expert.reset_from_obs`：相对坐标 → 绝对坐标，匹配当前 env（之前纯 SafeExpert 从 obs 重规划会规划到错误位置）。
 - 清掉 root `__pycache__/`。
 
-## 10. Path B 下一步（§5 的 `subgoal_pivot_hazard.py` 已落地）
-- 跑 `--pilot_mode vlm` 的真实三方对照，存进 `outputs/`，作为转向的第一张实证图。
+**2026-06-21（Month-1 跑通 + 整理）**
+- `subgoal_pivot_hazard.py` 硬化到可发表标准（去静默兜底 / Wilson CI / transcript 审计 / temp0 / hold 兜底）。
+- 跑通真实 VLM 三方对照（n=5，gemini-3-flash），结果记到 `docs/RESULTS_MONTH1.md`。
+- 归档 3 个泄漏污染的 PointHazard PIVOT 脚本到 `legacy/`（见 §5）。
+
+## 10. Path B 下一步
+- **扩到 ~100 matched seeds（+可选 2–3 个 VLM backbone）**，把 `docs/RESULTS_MONTH1.md` 的 n=5 pilot 升级成正式第一张图。
 - 第 2–3 月：给环境加 A\* 写不出 cost 的语义/语言约束（偏好侧、禁区语义、子任务顺序），让 VLM 高层真正赢过纯经典规划。
 </content>
