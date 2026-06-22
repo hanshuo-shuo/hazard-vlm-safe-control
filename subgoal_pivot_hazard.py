@@ -96,36 +96,75 @@ def _image_to_base64(image: Image.Image) -> str:
     return base64.b64encode(buf.getvalue()).decode("utf-8")
 
 
+@dataclass
+class VlmCall:
+    """One VLM query, with everything needed to audit it later.
+
+    A clean paper run must be able to (a) prove no leakage by showing the exact
+    raw response, and (b) distinguish a genuine VLM choice from a parse failure
+    or an API/network error — because a silent fallback would otherwise inject
+    the classical pilot's competence into a "VLM" row and confound the table.
+    """
+
+    choice: int | None       # 0-indexed candidate, or None if not usable
+    reason: str | None
+    raw: str                 # raw VLM text (or the exception string)
+    parsed_ok: bool          # the response parsed into a valid choice
+    api_error: bool          # the API/network call itself failed
+    attempts: int            # how many requests were issued (incl. retries)
+
+
 def make_openrouter_vlm(
-    api_key: str, model: str, *, max_new_tokens: int = 256, temperature: float = 0.3
-) -> Callable[[Image.Image, str, int], tuple[int | None, str | None, str, bool]]:
-    """Return a `vlm_fn(image, prompt, n_candidates) -> (choice, reason, raw, ok)`."""
+    api_key: str,
+    model: str,
+    *,
+    max_new_tokens: int = 256,
+    temperature: float = 0.3,
+    retries: int = 1,
+) -> Callable[[Image.Image, str, int], VlmCall]:
+    """Return a `vlm_fn(image, prompt, n_candidates) -> VlmCall`.
+
+    Retries on *parse* failure (re-asks for JSON); on an API exception it stops
+    and reports `api_error=True` rather than silently degrading.
+    """
     from openai import OpenAI
 
     client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
 
-    def vlm_fn(image: Image.Image, prompt: str, n_candidates: int):
+    def vlm_fn(image: Image.Image, prompt: str, n_candidates: int) -> VlmCall:
         b64 = _image_to_base64(image)
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
+        last_raw = ""
+        last_reason: str | None = None
+        last_choice: int | None = None
+        for attempt in range(max(1, retries + 1)):
+            p_text = prompt
+            if attempt > 0:
+                p_text += "\nREMINDER: Output ONLY the JSON object, starting with '{'.\n"
+            try:
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=[
                         {
-                            "type": "image_url",
-                            "image_url": {"url": f"data:image/png;base64,{b64}"},
-                        },
-                        {"type": "text", "text": prompt},
+                            "role": "user",
+                            "content": [
+                                {
+                                    "type": "image_url",
+                                    "image_url": {"url": f"data:image/png;base64,{b64}"},
+                                },
+                                {"type": "text", "text": p_text},
+                            ],
+                        }
                     ],
-                }
-            ],
-            max_tokens=max_new_tokens,
-            temperature=temperature,
-        )
-        raw = response.choices[0].message.content or ""
-        choice, reason, ok = _parse_pivot_selection(raw, n_candidates)
-        return choice, reason, raw, ok
+                    max_tokens=max_new_tokens,
+                    temperature=temperature,
+                )
+            except Exception as exc:  # network / rate-limit / provider error
+                return VlmCall(None, None, f"<api_error: {exc!r}>", False, True, attempt + 1)
+            last_raw = response.choices[0].message.content or ""
+            last_choice, last_reason, ok = _parse_pivot_selection(last_raw, n_candidates)
+            if ok:
+                return VlmCall(last_choice, last_reason, last_raw, True, False, attempt + 1)
+        return VlmCall(last_choice, last_reason, last_raw, False, False, max(1, retries + 1))
 
     return vlm_fn
 
@@ -246,17 +285,40 @@ def annotate_subgoals(
 # Policies
 # ---------------------------------------------------------------------------
 
-VlmFn = Callable[[Image.Image, str, int], "tuple[int | None, str | None, str, bool]"]
+VlmFn = Callable[[Image.Image, str, int], VlmCall]
 
 
 class _BasePolicy:
     name = "base"
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
-        self.vlm_calls = 0
+        self.vlm_calls = 0          # VLM queries issued
+        self.vlm_parse_fail = 0     # queries that returned but failed to parse
+        self.vlm_api_fail = 0       # queries where the API/network call failed
+        self.fallback_used = 0      # decisions that fell back (not a VLM choice)
+        self.transcripts: list[dict] = []  # per-call audit log
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         raise NotImplementedError
+
+    def _log_call(self, kind: str, call: VlmCall, *, used_fallback: bool) -> None:
+        """Record one VLM query for later auditing (leakage proof + failure modes)."""
+        self.vlm_calls += 1
+        self.vlm_parse_fail += int((not call.parsed_ok) and (not call.api_error))
+        self.vlm_api_fail += int(call.api_error)
+        self.fallback_used += int(used_fallback)
+        self.transcripts.append(
+            {
+                "kind": kind,
+                "choice": call.choice,
+                "reason": call.reason,
+                "parsed_ok": call.parsed_ok,
+                "api_error": call.api_error,
+                "attempts": call.attempts,
+                "used_fallback": used_fallback,
+                "raw": call.raw,
+            }
+        )
 
 
 def make_controller(cfg: PointHazardConfig, low_level: str, safety_margin: float):
@@ -300,6 +362,7 @@ class DirectPivotPolicy(_BasePolicy):
         n_mags: int,
         arrow_len: float,
         vlm_every: int,
+        fallback: str = "heuristic",
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -308,24 +371,14 @@ class DirectPivotPolicy(_BasePolicy):
         self.candidates = generate_candidates(n_dirs, n_mags)
         self.arrow_len = arrow_len
         self.vlm_every = max(1, vlm_every)
+        self.fallback = fallback
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
-        self.vlm_calls = 0
+        super().reset(obs, info)
         self._step = 0
         self._action = np.zeros(2, dtype=np.float32)
 
-    def _choose(self, obs: np.ndarray, env: PointHazardEnv) -> int:
-        pos, _, goal, _ = _obs_parts(obs, self.cfg)
-        if self.pilot_mode == "vlm" and self.vlm_fn is not None:
-            base = Image.fromarray(env.render())
-            ann = annotate_candidates(base, self.candidates, self.renderer, pos, self.arrow_len)
-            self.vlm_calls += 1
-            choice, _reason, _raw, ok = self.vlm_fn(
-                ann, build_direct_prompt(len(self.candidates)), len(self.candidates)
-            )
-            if ok and choice is not None:
-                return choice
-        # Heuristic stand-in: greedy alignment with the goal direction.
+    def _heuristic_idx(self, pos: np.ndarray, goal: np.ndarray) -> int:
         gdir = goal - pos
         gn = float(np.linalg.norm(gdir))
         if gn < 1e-6:
@@ -334,9 +387,27 @@ class DirectPivotPolicy(_BasePolicy):
         scores = [float(np.dot(c / (np.linalg.norm(c) + 1e-9), gdir)) for c in self.candidates]
         return int(np.argmax(scores))
 
+    def _choose(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
+        """Return the force action for this decision (and log any VLM call)."""
+        pos, _, goal, _ = _obs_parts(obs, self.cfg)
+        if self.pilot_mode == "vlm" and self.vlm_fn is not None:
+            base = Image.fromarray(env.render())
+            ann = annotate_candidates(base, self.candidates, self.renderer, pos, self.arrow_len)
+            call = self.vlm_fn(ann, build_direct_prompt(len(self.candidates)), len(self.candidates))
+            if call.parsed_ok and call.choice is not None:
+                self._log_call("direct", call, used_fallback=False)
+                return self.candidates[call.choice].copy()
+            # VLM unusable -> explicit, logged fallback (never a silent one).
+            self._log_call("direct", call, used_fallback=True)
+            if self.fallback == "hold":
+                return np.zeros(2, dtype=np.float32)  # neutral: no force
+            return self.candidates[self._heuristic_idx(pos, goal)].copy()
+        # Offline heuristic stand-in pilot (no VLM in the loop at all).
+        return self.candidates[self._heuristic_idx(pos, goal)].copy()
+
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         if self._step % self.vlm_every == 0:
-            self._action = self.candidates[self._choose(obs, env)].copy()
+            self._action = self._choose(obs, env)
         self._step += 1
         return np.clip(self._action, -1.0, 1.0).astype(np.float32)
 
@@ -359,6 +430,7 @@ class SubgoalPivotPolicy(_BasePolicy):
         subgoal_radius: float,
         subgoal_horizon: int,
         subgoal_reach: float,
+        fallback: str = "heuristic",
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -369,39 +441,43 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.subgoal_radius = subgoal_radius
         self.subgoal_horizon = max(1, subgoal_horizon)
         self.subgoal_reach = subgoal_reach
+        self.fallback = fallback
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
-        self.vlm_calls = 0
+        super().reset(obs, info)
         self._steps_on_subgoal = self.subgoal_horizon  # force a query on step 0
         self._subgoal: np.ndarray | None = None
+
+    def _heuristic_idx(self, pos: np.ndarray, goal: np.ndarray, subgoals: list[np.ndarray]) -> int:
+        gdir = goal - pos
+        gdir = gdir / (float(np.linalg.norm(gdir)) + 1e-9)
+        scores = [
+            float(np.dot((sg - pos) / (np.linalg.norm(sg - pos) + 1e-9), gdir))
+            for sg in subgoals
+        ]
+        return int(np.argmax(scores))
 
     def _choose_subgoal(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         pos, _, goal, _ = _obs_parts(obs, self.cfg)
         subgoals = generate_subgoals(pos, self.n_dirs, self.subgoal_radius, self.cfg.arena_half)
-        # If the real goal is within reach, just aim straight at it.
+        # If the real goal is within reach, just aim straight at it (no VLM call).
         if float(np.linalg.norm(goal - pos)) <= self.subgoal_radius:
             return goal.astype(np.float32)
 
-        choice: int | None = None
         if self.pilot_mode == "vlm" and self.vlm_fn is not None:
             base = Image.fromarray(env.render())
             ann = annotate_subgoals(base, subgoals, self.renderer, pos)
-            self.vlm_calls += 1
-            choice, _reason, _raw, ok = self.vlm_fn(
-                ann, build_subgoal_prompt(len(subgoals)), len(subgoals)
-            )
-            if not (ok and choice is not None):
-                choice = None
-        if choice is None:
-            # Heuristic stand-in: waypoint best aligned with the goal direction.
-            gdir = goal - pos
-            gdir = gdir / (float(np.linalg.norm(gdir)) + 1e-9)
-            scores = [
-                float(np.dot((sg - pos) / (np.linalg.norm(sg - pos) + 1e-9), gdir))
-                for sg in subgoals
-            ]
-            choice = int(np.argmax(scores))
-        return subgoals[choice]
+            call = self.vlm_fn(ann, build_subgoal_prompt(len(subgoals)), len(subgoals))
+            if call.parsed_ok and call.choice is not None:
+                self._log_call("subgoal", call, used_fallback=False)
+                return subgoals[call.choice]
+            # VLM unusable -> explicit, logged fallback (never a silent one).
+            self._log_call("subgoal", call, used_fallback=True)
+            if self.fallback == "hold" and self._subgoal is not None:
+                return self._subgoal  # keep the current subgoal, gain no new info
+            return subgoals[self._heuristic_idx(pos, goal, subgoals)]
+        # Offline heuristic stand-in pilot (no VLM in the loop at all).
+        return subgoals[self._heuristic_idx(pos, goal, subgoals)]
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         pos, _, goal, hazards = _obs_parts(obs, self.cfg)
@@ -440,6 +516,20 @@ class EpisodeResult:
     steps: int
     min_clearance: float
     vlm_calls: int
+    vlm_parse_fail: int = 0
+    vlm_api_fail: int = 0
+    fallback_used: int = 0
+
+
+def _wilson_ci(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score 95% CI for a binomial proportion (fractions in [0, 1])."""
+    if n == 0:
+        return (float("nan"), float("nan"))
+    p = k / n
+    denom = 1.0 + z * z / n
+    center = (p + z * z / (2 * n)) / denom
+    half = (z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / denom
+    return (max(0.0, center - half), min(1.0, center + half))
 
 
 @dataclass
@@ -451,6 +541,9 @@ class Aggregate:
     timeout: int = 0
     min_clearances: list[float] = field(default_factory=list)
     vlm_calls: list[int] = field(default_factory=list)
+    parse_fail: int = 0
+    api_fail: int = 0
+    fallback_used: int = 0
 
     def add(self, r: EpisodeResult) -> None:
         self.n += 1
@@ -459,16 +552,27 @@ class Aggregate:
         self.timeout += int(r.outcome == "timeout")
         self.min_clearances.append(r.min_clearance)
         self.vlm_calls.append(r.vlm_calls)
+        self.parse_fail += r.vlm_parse_fail
+        self.api_fail += r.vlm_api_fail
+        self.fallback_used += r.fallback_used
+
+    @property
+    def total_calls(self) -> int:
+        return int(np.sum(self.vlm_calls)) if self.vlm_calls else 0
 
     def row(self) -> str:
-        def pct(x: int) -> str:
-            return f"{100.0 * x / max(1, self.n):5.1f}%"
+        def pct_ci(k: int) -> str:
+            lo, hi = _wilson_ci(k, self.n)
+            return f"{100.0 * k / max(1, self.n):5.1f}% [{100*lo:4.1f},{100*hi:4.1f}]"
 
         mc = float(np.mean(self.min_clearances)) if self.min_clearances else float("nan")
         vc = float(np.mean(self.vlm_calls)) if self.vlm_calls else 0.0
+        fb = self.fallback_used
+        calls = self.total_calls
+        fb_str = f"{100.0 * fb / calls:4.1f}%" if calls else "  -  "
         return (
-            f"{self.policy:<12} {pct(self.success)} {pct(self.hazard)} "
-            f"{pct(self.timeout)}   {mc:+7.3f}   {vc:7.1f}"
+            f"{self.policy:<12} {pct_ci(self.success)}  {pct_ci(self.hazard)}  "
+            f"{mc:+7.3f}  {vc:6.1f}  {fb_str}"
         )
 
 
@@ -504,6 +608,9 @@ def run_episode(
         steps=steps,
         min_clearance=min_clear,
         vlm_calls=int(getattr(policy, "vlm_calls", 0)),
+        vlm_parse_fail=int(getattr(policy, "vlm_parse_fail", 0)),
+        vlm_api_fail=int(getattr(policy, "vlm_api_fail", 0)),
+        fallback_used=int(getattr(policy, "fallback_used", 0)),
     )
 
 
@@ -529,6 +636,7 @@ def evaluate(args: argparse.Namespace) -> None:
         vlm_fn = make_openrouter_vlm(
             api_key, args.model,
             max_new_tokens=args.max_new_tokens, temperature=args.temperature,
+            retries=args.vlm_retries,
         )
 
     # One env + renderer, reused across policies (each reset re-seeds layout).
@@ -548,18 +656,21 @@ def evaluate(args: argparse.Namespace) -> None:
                 low_level=args.low_level, safety_margin=args.safety_margin,
                 n_dirs=args.subgoal_n_dirs, subgoal_radius=args.subgoal_radius,
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
+                fallback=args.vlm_fallback,
             )
         if name == "direct":
             return DirectPivotPolicy(
                 cfg, renderer, pilot_mode=args.pilot_mode, vlm_fn=vlm_fn,
                 n_dirs=args.pivot_n_dirs, n_mags=args.pivot_n_mags,
                 arrow_len=args.pivot_arrow_len, vlm_every=args.vlm_every,
+                fallback=args.vlm_fallback,
             )
         raise ValueError(f"unknown policy '{name}'")
 
     seeds = [args.seed + i for i in range(args.episodes)]
     aggregates = {name: Aggregate(policy=name) for name in which}
     records: list[EpisodeResult] = []
+    transcripts: list[dict] = []  # per-episode VLM audit logs (when requested)
 
     for name in which:
         policy = build(name)
@@ -567,6 +678,10 @@ def evaluate(args: argparse.Namespace) -> None:
             r = run_episode(env, policy, seed, args.max_steps)
             aggregates[name].add(r)
             records.append(r)
+            if args.log_transcripts and getattr(policy, "transcripts", None):
+                transcripts.append(
+                    {"policy": name, "seed": seed, "calls": list(policy.transcripts)}
+                )
             if args.verbose:
                 print(
                     f"  [{name:<11} seed={seed}] {r.outcome:<7} "
@@ -577,15 +692,19 @@ def evaluate(args: argparse.Namespace) -> None:
     # ---- table -----------------------------------------------------------
     print()
     print(f"PointHazard matched-seed comparison  "
-          f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode})")
-    print("-" * 64)
-    print(f"{'policy':<12} {'succ':>6} {'haz':>6} {'time':>6}   {'min_clr':>7}   {'vlm/ep':>7}")
-    print("-" * 64)
+          f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode}, "
+          f"model={args.model if args.pilot_mode == 'vlm' else '-'})")
+    print("-" * 78)
+    print(f"{'policy':<12} {'success [95% CI]':>22}  {'hazard [95% CI]':>22}  "
+          f"{'min_clr':>7}  {'vlm/ep':>6}  {'fb%':>5}")
+    print("-" * 78)
     for name in which:
         print(aggregates[name].row())
-    print("-" * 64)
-    print("min_clr = mean over episodes of the per-episode minimum edge-to-body")
-    print("clearance to the nearest hazard (negative => a collision occurred).")
+    print("-" * 78)
+    print("success/hazard = % of episodes, with Wilson 95% CI.")
+    print("min_clr = mean per-episode min edge-to-body clearance (negative => collision).")
+    print("vlm/ep = mean VLM queries per episode; fb% = fraction of those queries that")
+    print("         fell back (parse/API failure) — a clean run keeps this near 0.")
 
     if args.out:
         payload = {
@@ -593,13 +712,22 @@ def evaluate(args: argparse.Namespace) -> None:
                 "episodes": args.episodes, "seed0": args.seed,
                 "pilot_mode": args.pilot_mode, "model": args.model,
                 "n_hazards": args.n_hazards, "max_steps": args.max_steps,
+                "low_level": args.low_level, "temperature": args.temperature,
+                "vlm_fallback": args.vlm_fallback, "vlm_retries": args.vlm_retries,
             },
             "summary": {
                 name: {
                     "n": agg.n, "success": agg.success, "hazard": agg.hazard,
                     "timeout": agg.timeout,
+                    "success_rate": agg.success / max(1, agg.n),
+                    "success_ci95": _wilson_ci(agg.success, agg.n),
+                    "hazard_rate": agg.hazard / max(1, agg.n),
+                    "hazard_ci95": _wilson_ci(agg.hazard, agg.n),
                     "mean_min_clearance": float(np.mean(agg.min_clearances)),
                     "mean_vlm_calls": float(np.mean(agg.vlm_calls)),
+                    "total_vlm_calls": agg.total_calls,
+                    "parse_fail": agg.parse_fail, "api_fail": agg.api_fail,
+                    "fallback_used": agg.fallback_used,
                 }
                 for name, agg in aggregates.items()
             },
@@ -609,6 +737,12 @@ def evaluate(args: argparse.Namespace) -> None:
         with open(args.out, "w") as f:
             json.dump(payload, f, indent=2)
         print(f"\nWrote per-episode records to {args.out}")
+        if args.log_transcripts and transcripts:
+            tpath = os.path.splitext(args.out)[0] + ".transcripts.json"
+            with open(tpath, "w") as f:
+                json.dump(transcripts, f, indent=2)
+            print(f"Wrote {sum(len(t['calls']) for t in transcripts)} VLM "
+                  f"transcripts to {tpath}")
 
 
 # ---------------------------------------------------------------------------
@@ -633,7 +767,17 @@ def parse_args() -> argparse.Namespace:
                    help="OpenRouter API key (or set OPENROUTER_API_KEY)")
     p.add_argument("--model", type=str, default="google/gemini-3-flash-preview")
     p.add_argument("--max_new_tokens", type=int, default=256)
-    p.add_argument("--temperature", type=float, default=0.3)
+    p.add_argument("--temperature", type=float, default=0.0,
+                   help="VLM sampling temperature (0 = greedy, for a reproducible run)")
+    p.add_argument("--vlm_retries", type=int, default=1,
+                   help="re-ask the VLM this many times on a parse failure")
+    p.add_argument("--vlm_fallback", type=str, default="heuristic",
+                   choices=["heuristic", "hold"],
+                   help="what a VLM policy does when the VLM is unusable: 'heuristic' "
+                        "(goal-greedy pilot) or 'hold' (neutral: no force / keep subgoal). "
+                        "Always logged via fb%; use 'hold' for the most conservative claim.")
+    p.add_argument("--log_transcripts", action="store_true",
+                   help="dump every raw VLM response next to --out (leakage audit trail)")
 
     # Shared low-level safety
     p.add_argument("--safety_margin", type=float, default=0.15)
