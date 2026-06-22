@@ -39,6 +39,8 @@ class HazardRenderer:
         goal_color: tuple[int, int, int] = (50, 180, 50),
         trail_color: tuple[int, int, int] = (90, 130, 220),
         vel_color: tuple[int, int, int] = (30, 30, 120),
+        semantic_fill: tuple[int, int, int, int] = (250, 205, 50, 80),  # translucent amber
+        semantic_outline: tuple[int, int, int] = (180, 130, 0),         # dark amber
     ):
         self.arena_half = float(arena_half)
         self.agent_radius = float(agent_radius)
@@ -61,6 +63,8 @@ class HazardRenderer:
         self.goal_color = goal_color
         self.trail_color = trail_color
         self.vel_color = vel_color
+        self.semantic_fill = semantic_fill
+        self.semantic_outline = semantic_outline
 
     @classmethod
     def from_env(cls, env, **kwargs) -> "HazardRenderer":
@@ -102,6 +106,7 @@ class HazardRenderer:
         vel_xy: np.ndarray | None = None,
         trail: Sequence[np.ndarray] | None = None,
         info_text: str | None = None,
+        semantic_zones: np.ndarray | None = None,
     ) -> np.ndarray:
         img = Image.new("RGB", (self.img_size, self.img_size), self.bg_color)
         draw = ImageDraw.Draw(img)
@@ -125,6 +130,31 @@ class HazardRenderer:
             px0, py0 = self.world_to_pixel(-self.arena_half, wy)
             px1, py1 = self.world_to_pixel(+self.arena_half, wy)
             draw.line([(px0, py0), (px1, py1)], fill=self.grid_color, width=1)
+
+        # ---- semantic keep-out zones (off-limits regions) -------------
+        # Drawn UNDER the hazards/agent so those stay readable.  A translucent
+        # amber disk + a bold "X" reads as "restricted / do not enter" and is
+        # visually unlike the solid red hazards.  Compose via an RGBA overlay so
+        # the fill is see-through.
+        if semantic_zones is not None and len(semantic_zones) > 0:
+            overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+            odraw = ImageDraw.Draw(overlay)
+            for zx, zy, zr in np.asarray(semantic_zones):
+                cx, cy = self.world_to_pixel(float(zx), float(zy))
+                pr = self.world_scale(float(zr))
+                odraw.ellipse(
+                    [cx - pr, cy - pr, cx + pr, cy + pr],
+                    fill=self.semantic_fill,
+                    outline=self.semantic_outline + (255,),
+                    width=3,
+                )
+                # "X" from two chords that stay inside the circle (0.65*r corners)
+                k = int(0.65 * pr)
+                xline = self.semantic_outline + (255,)
+                odraw.line([(cx - k, cy - k), (cx + k, cy + k)], fill=xline, width=3)
+                odraw.line([(cx - k, cy + k), (cx + k, cy - k)], fill=xline, width=3)
+            img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+            draw = ImageDraw.Draw(img)
 
         # ---- hazards (lava circles) -----------------------------------
         if hazards is not None and len(hazards) > 0:

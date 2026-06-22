@@ -1,19 +1,44 @@
 """
-subgoal_pivot_hazard.py — Month-1 "confidence experiment" for Path B.
+subgoal_pivot_hazard.py — Path-B comparison harness for PointHazard.
 
-Three-way, matched-seed comparison on the *pure-geometry* PointHazard task:
+Two tasks share this script:
+
+(1) MONTH-1 "confidence experiment" — the *pure-geometry* task (default,
+    --n_semantic_zones 0). Three-way, matched-seed:
 
     A. direct      — VLM picks a low-level force directly (de-leaked PIVOT).
-    B. subgoal     — VLM picks a discrete high-level subgoal, then the
-                     provably-safe A*+PD controller (SafeExpert) executes it.
-    C. safe_expert — pure SafeExpert (no VLM at all), the classical planner.
+    B. subgoal     — VLM picks a discrete high-level subgoal, then a
+                     provably-safe controller (MPC / A*+PD) executes it.
+    C. mpc/safe_expert — pure controller (no VLM), the classical planner.
 
-The point of this experiment is *deliberately* to show that on a fully
-observable geometric toy the classical planner (C) is already near-100% safe,
-that routing it with a VLM high-level (B) keeps that safety but adds nothing,
-and that using the VLM as the low-level controller (A) is the unreliable one.
-That negative result is the first figure of the Path B story (see
-docs/PROJECT_PLAN.md §1–§2 and docs/FAILURE_MODE_ANALYSIS.md).
+    The point is *deliberately* to show that on a fully observable geometric
+    toy the classical planner (C) is already near-100% safe, routing it with a
+    VLM high-level (B) keeps that safety but adds nothing, and the VLM as a
+    low-level controller (A) is the unreliable one. That negative result is the
+    first figure of the Path B story (docs/PROJECT_PLAN.md §1–§2,
+    docs/FAILURE_MODE_ANALYSIS.md).
+
+(2) SEMANTIC task — the Path-B *main result* (--n_semantic_zones >= 1). The
+    arena gains an off-limits "keep-out" zone (amber ✕ disk) that the agent
+    must route around. It is NOT a geometric hazard: it never terminates and is
+    NOT in the obs vector, so a geometric cost cannot express it. Three-way:
+
+    C1. mpc / safe_expert         — geometry-only controller, BLIND to the zone:
+                                    ploughs straight through it.
+    C2. mpc_oracle / *_oracle     — controller HANDED the zone as an obstacle
+                                    (a human hand-coded the keep-out cost): the
+                                    upper bound, avoids it perfectly.
+    B.  subgoal                   — VLM SEES the zone in the rendered image and
+                                    picks subgoals that detour; the underlying
+                                    controller stays geometry-only, so the VLM is
+                                    the ONLY zone-aware part.
+
+    The win condition: B's semantic-violation rate collapses toward C2's (~0)
+    while C1's stays high — i.e. the VLM matches the hand-coded oracle WITHOUT
+    any hand-coded perception. That is the SayCan/VoxPoser value proposition on
+    a leakage-clean toy, and the honest answer to "why not classical?" (C2 shows
+    classical wins *if* you hand-code the semantic; B shows the VLM removes that
+    per-semantic hand-coding).
 
 ANTI-LEAKAGE CONTRACT
 ---------------------
@@ -28,12 +53,22 @@ USAGE
     # Offline smoke test (no API key; uses a geometric heuristic stand-in pilot)
     python subgoal_pivot_hazard.py --pilot_mode heuristic --episodes 5
 
-    # Real run against an OpenRouter VLM
+    # Real run against an OpenRouter VLM (geometric Month-1 task)
     OPENROUTER_API_KEY=sk-... python subgoal_pivot_hazard.py \
         --pilot_mode vlm --model google/gemini-3-flash-preview --episodes 30
 
-Outputs a comparison table (success / hazard / timeout / mean-min-clearance /
-mean VLM calls) and, with --out, a JSON dump of per-episode records.
+    # Semantic main-result task — offline sanity (validates C1/C2/B plumbing;
+    # B looks like C1 here because the heuristic stand-in is zone-blind)
+    python subgoal_pivot_hazard.py --pilot_mode heuristic --n_semantic_zones 1 --episodes 20
+
+    # Semantic main-result task — the real 5-seed "can the VLM win?" check
+    OPENROUTER_API_KEY=sk-... python subgoal_pivot_hazard.py \
+        --pilot_mode vlm --n_semantic_zones 1 --episodes 5 --seed 43 \
+        --model google/gemini-3-flash-preview --temperature 0 \
+        --vlm_fallback hold --log_transcripts --out outputs/semantic_pilot.json
+
+Outputs a comparison table (success / hazard / semantic-violation / mean-min-
+clearance / mean VLM calls) and, with --out, a JSON dump of per-episode records.
 """
 
 from __future__ import annotations
@@ -173,12 +208,29 @@ def make_openrouter_vlm(
 # Prompts — IMAGE + generic task only.  No clearance / label / score. (no leak)
 # ---------------------------------------------------------------------------
 
-def build_direct_prompt(n_candidates: int) -> str:
+# A generic, image-agnostic description of the semantic constraint. This is a
+# TASK/LANGUAGE spec (like "reach the green goal"), NOT a safety oracle: it never
+# says where the zone is, which candidate enters it, or any clearance/score. The
+# VLM must still perceive the zone's location in the image and reason about which
+# candidate avoids it. (See ANTI-LEAKAGE CONTRACT above.)
+_SEMANTIC_CLAUSE = (
+    "- Amber/yellow shaded circle marked with an X = a RESTRICTED ZONE you are "
+    "not allowed to travel through (off-limits). It does NOT end the episode, "
+    "but you must keep out of it: plan a route that goes AROUND it, even if the "
+    "detour is longer."
+)
+
+
+def build_direct_prompt(n_candidates: int, semantic: bool = False) -> str:
+    haz_line = "- Red filled circles = HAZARDS — touching any of them ends the episode"
+    sem = ("\n" + _SEMANTIC_CLAUSE) if semantic else ""
+    avoid = ("any red hazard circle and stay out of the amber restricted zone"
+             if semantic else "any red hazard circle")
     return f"""You see a 2D arena from above.
 
 Visual elements:
 - Gray bordered square = arena boundary
-- Red filled circles = HAZARDS — touching any of them ends the episode
+{haz_line}{sem}
 - Blue dot = YOU (the agent you control)
 - Green circle with "G" = GOAL (your destination)
 - Blue line = your past trajectory
@@ -187,20 +239,23 @@ Visual elements:
 Each arrow is a force you could apply this step; longer = stronger.
 
 YOUR TASK: pick the single numbered arrow that best moves you toward the
-green goal "G" without running into any red hazard circle. If the straight
-line to the goal passes through a hazard, pick an arrow that routes around it.
+green goal "G" without running into {avoid}. If the straight
+line to the goal is blocked, pick an arrow that routes around it.
 
 OUTPUT JSON only:
 {{"choice": <number>, "reason": "brief explanation"}}
 """
 
 
-def build_subgoal_prompt(n_candidates: int) -> str:
+def build_subgoal_prompt(n_candidates: int, semantic: bool = False) -> str:
+    sem = ("\n" + _SEMANTIC_CLAUSE) if semantic else ""
+    avoid = ("keeping clear of the red hazards AND staying out of the amber "
+             "restricted zone" if semantic else "keeping clear of the red hazards")
     return f"""You see a 2D arena from above.
 
 Visual elements:
 - Gray bordered square = arena boundary
-- Red filled circles = HAZARDS — the route must not cross them
+- Red filled circles = HAZARDS — the route must not cross them{sem}
 - Blue dot = YOU (the agent)
 - Green circle with "G" = GOAL (your final destination)
 - Blue line = your past trajectory
@@ -210,9 +265,9 @@ A low-level controller will drive you to whichever waypoint you choose,
 following a collision-free path. You only decide the general DIRECTION of travel.
 
 YOUR TASK: pick the single numbered waypoint that makes the best next step of
-a route from you to the green goal "G" while keeping clear of the red hazards.
-Choose the waypoint that heads toward the goal, detouring around hazards if the
-direct heading is blocked.
+a route from you to the green goal "G" while {avoid}.
+Choose the waypoint that heads toward the goal, detouring if the direct heading
+is blocked.
 
 OUTPUT JSON only:
 {{"choice": <number>, "reason": "brief explanation"}}
@@ -332,15 +387,46 @@ def make_controller(cfg: PointHazardConfig, low_level: str, safety_margin: float
 
 
 class ControllerOnlyPolicy(_BasePolicy):
-    """C — pure low-level controller driving straight to the goal, no VLM."""
+    """C — pure low-level controller driving straight to the goal, no VLM.
 
-    def __init__(self, cfg: PointHazardConfig, low_level: str, safety_margin: float):
-        self.name = low_level
+    Two variants:
+      - C1 (semantic_aware=False): the *geometric* planner. It only ever sees
+        the hard hazards (from obs); it is blind to the semantic keep-out zones,
+        so it ploughs straight through them. This is "pure classical planning."
+      - C2 (semantic_aware=True): the *oracle* planner. It is handed the semantic
+        zones as extra obstacles, i.e. a human has hand-coded the keep-out region
+        into the planner's cost. This is the upper bound the VLM must match
+        WITHOUT any hand-coded perception.
+    """
+
+    def __init__(
+        self,
+        cfg: PointHazardConfig,
+        low_level: str,
+        safety_margin: float,
+        *,
+        semantic_aware: bool = False,
+    ):
+        self.cfg = cfg
+        self.low_level = low_level
+        self.semantic_aware = semantic_aware
+        self.name = f"{low_level}_oracle" if semantic_aware else low_level
         self.expert = make_controller(cfg, low_level, safety_margin)
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
         self.vlm_calls = 0
-        self.expert.reset_from_obs(obs)
+        if self.semantic_aware:
+            # Oracle: plan with hard hazards AND the (hand-coded) semantic zones
+            # folded into the avoid-set. The controllers store this avoid-set at
+            # plan() time and reuse it every act() step, so one plan suffices.
+            pos, _, goal, hazards = _obs_parts(obs, self.cfg)
+            zones = np.asarray(
+                info.get("semantic_zones", np.zeros((0, 3))), dtype=np.float32
+            ).reshape(-1, 3)
+            avoid = np.concatenate([hazards, zones], axis=0) if zones.size else hazards
+            self.expert.plan(pos, goal, avoid)
+        else:
+            self.expert.reset_from_obs(obs)
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         return self.expert.act(obs)
@@ -363,6 +449,7 @@ class DirectPivotPolicy(_BasePolicy):
         arrow_len: float,
         vlm_every: int,
         fallback: str = "heuristic",
+        semantic: bool = False,
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -372,6 +459,7 @@ class DirectPivotPolicy(_BasePolicy):
         self.arrow_len = arrow_len
         self.vlm_every = max(1, vlm_every)
         self.fallback = fallback
+        self.semantic = semantic
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
         super().reset(obs, info)
@@ -393,7 +481,10 @@ class DirectPivotPolicy(_BasePolicy):
         if self.pilot_mode == "vlm" and self.vlm_fn is not None:
             base = Image.fromarray(env.render())
             ann = annotate_candidates(base, self.candidates, self.renderer, pos, self.arrow_len)
-            call = self.vlm_fn(ann, build_direct_prompt(len(self.candidates)), len(self.candidates))
+            call = self.vlm_fn(
+                ann, build_direct_prompt(len(self.candidates), semantic=self.semantic),
+                len(self.candidates),
+            )
             if call.parsed_ok and call.choice is not None:
                 self._log_call("direct", call, used_fallback=False)
                 return self.candidates[call.choice].copy()
@@ -431,6 +522,7 @@ class SubgoalPivotPolicy(_BasePolicy):
         subgoal_horizon: int,
         subgoal_reach: float,
         fallback: str = "heuristic",
+        semantic: bool = False,
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -442,6 +534,7 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.subgoal_horizon = max(1, subgoal_horizon)
         self.subgoal_reach = subgoal_reach
         self.fallback = fallback
+        self.semantic = semantic
 
     def reset(self, obs: np.ndarray, info: dict) -> None:
         super().reset(obs, info)
@@ -467,7 +560,10 @@ class SubgoalPivotPolicy(_BasePolicy):
         if self.pilot_mode == "vlm" and self.vlm_fn is not None:
             base = Image.fromarray(env.render())
             ann = annotate_subgoals(base, subgoals, self.renderer, pos)
-            call = self.vlm_fn(ann, build_subgoal_prompt(len(subgoals)), len(subgoals))
+            call = self.vlm_fn(
+                ann, build_subgoal_prompt(len(subgoals), semantic=self.semantic),
+                len(subgoals),
+            )
             if call.parsed_ok and call.choice is not None:
                 self._log_call("subgoal", call, used_fallback=False)
                 return subgoals[call.choice]
@@ -519,6 +615,8 @@ class EpisodeResult:
     vlm_parse_fail: int = 0
     vlm_api_fail: int = 0
     fallback_used: int = 0
+    semantic_violated: int = 0   # 1 if the agent ever entered a keep-out zone
+    semantic_steps: int = 0      # number of steps spent inside a keep-out zone
 
 
 def _wilson_ci(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
@@ -544,6 +642,8 @@ class Aggregate:
     parse_fail: int = 0
     api_fail: int = 0
     fallback_used: int = 0
+    semantic_violated: int = 0
+    semantic_steps: list[int] = field(default_factory=list)
 
     def add(self, r: EpisodeResult) -> None:
         self.n += 1
@@ -555,6 +655,8 @@ class Aggregate:
         self.parse_fail += r.vlm_parse_fail
         self.api_fail += r.vlm_api_fail
         self.fallback_used += r.fallback_used
+        self.semantic_violated += r.semantic_violated
+        self.semantic_steps.append(r.semantic_steps)
 
     @property
     def total_calls(self) -> int:
@@ -571,8 +673,8 @@ class Aggregate:
         calls = self.total_calls
         fb_str = f"{100.0 * fb / calls:4.1f}%" if calls else "  -  "
         return (
-            f"{self.policy:<12} {pct_ci(self.success)}  {pct_ci(self.hazard)}  "
-            f"{mc:+7.3f}  {vc:6.1f}  {fb_str}"
+            f"{self.policy:<18} {pct_ci(self.success)}  {pct_ci(self.hazard)}  "
+            f"{pct_ci(self.semantic_violated)}  {mc:+7.3f}  {vc:6.1f}  {fb_str}"
         )
 
 
@@ -591,12 +693,14 @@ def run_episode(
 
     outcome = "timeout"
     steps = 0
+    semantic_steps = 0
     for t in range(max_steps):
         action = policy.act(obs, env)
         obs, _r, terminated, truncated, info = env.step(action)
         steps = t + 1
         pos, _, _, hazards = _obs_parts(obs, env.cfg)
         min_clear = min(min_clear, _min_clearance(pos, hazards, agent_radius))
+        semantic_steps = int(info.get("semantic_steps", semantic_steps))
         if terminated or truncated:
             outcome = info.get("termination_reason", "timeout")
             break
@@ -611,6 +715,8 @@ def run_episode(
         vlm_parse_fail=int(getattr(policy, "vlm_parse_fail", 0)),
         vlm_api_fail=int(getattr(policy, "vlm_api_fail", 0)),
         fallback_used=int(getattr(policy, "fallback_used", 0)),
+        semantic_violated=int(semantic_steps > 0),
+        semantic_steps=semantic_steps,
     )
 
 
@@ -622,7 +728,12 @@ def evaluate(args: argparse.Namespace) -> None:
     cfg = PointHazardConfig(
         n_hazards=args.n_hazards,
         max_episode_steps=args.max_steps,
+        n_semantic_zones=args.n_semantic_zones,
+        semantic_radius_min=args.semantic_radius_min,
+        semantic_radius_max=args.semantic_radius_max,
+        semantic_step_penalty=args.semantic_step_penalty,
     )
+    semantic = args.n_semantic_zones > 0
 
     api_key = args.api_key or os.environ.get("OPENROUTER_API_KEY", "")
     vlm_fn: VlmFn | None = None
@@ -644,26 +755,40 @@ def evaluate(args: argparse.Namespace) -> None:
     renderer = HazardRenderer.from_env(env)
     env.attach_renderer(renderer)
 
-    # Policy "C" is the pure low-level controller; it is named after --low_level.
-    which = args.policies.split(",") if args.policies else [args.low_level, "subgoal", "direct"]
+    # Default policy set. In the semantic task the headline triple is
+    #   C1 = geometry-only controller (blind to zones, ploughs through),
+    #   C2 = oracle controller (zones hand-coded as obstacles — upper bound),
+    #   B  = VLM picks subgoals (sees the zone in the image, routes around).
+    # In the plain geometric task it stays the Month-1 triple {C, subgoal, direct}.
+    if args.policies:
+        which = args.policies.split(",")
+    elif semantic:
+        which = [args.low_level, f"{args.low_level}_oracle", "subgoal"]
+    else:
+        which = [args.low_level, "subgoal", "direct"]
 
     def build(name: str) -> _BasePolicy:
         if name in ("mpc", "safe_expert"):
             return ControllerOnlyPolicy(cfg, low_level=name, safety_margin=args.safety_margin)
+        if name in ("mpc_oracle", "safe_expert_oracle"):
+            base = name[: -len("_oracle")]
+            return ControllerOnlyPolicy(
+                cfg, low_level=base, safety_margin=args.safety_margin, semantic_aware=True
+            )
         if name == "subgoal":
             return SubgoalPivotPolicy(
                 cfg, renderer, pilot_mode=args.pilot_mode, vlm_fn=vlm_fn,
                 low_level=args.low_level, safety_margin=args.safety_margin,
                 n_dirs=args.subgoal_n_dirs, subgoal_radius=args.subgoal_radius,
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
-                fallback=args.vlm_fallback,
+                fallback=args.vlm_fallback, semantic=semantic,
             )
         if name == "direct":
             return DirectPivotPolicy(
                 cfg, renderer, pilot_mode=args.pilot_mode, vlm_fn=vlm_fn,
                 n_dirs=args.pivot_n_dirs, n_mags=args.pivot_n_mags,
                 arrow_len=args.pivot_arrow_len, vlm_every=args.vlm_every,
-                fallback=args.vlm_fallback,
+                fallback=args.vlm_fallback, semantic=semantic,
             )
         raise ValueError(f"unknown policy '{name}'")
 
@@ -693,15 +818,19 @@ def evaluate(args: argparse.Namespace) -> None:
     print()
     print(f"PointHazard matched-seed comparison  "
           f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode}, "
+          f"semantic_zones={args.n_semantic_zones}, "
           f"model={args.model if args.pilot_mode == 'vlm' else '-'})")
-    print("-" * 78)
-    print(f"{'policy':<12} {'success [95% CI]':>22}  {'hazard [95% CI]':>22}  "
-          f"{'min_clr':>7}  {'vlm/ep':>6}  {'fb%':>5}")
-    print("-" * 78)
+    width = 100
+    print("-" * width)
+    print(f"{'policy':<18} {'success [95% CI]':>22}  {'hazard [95% CI]':>22}  "
+          f"{'sem_viol [95% CI]':>22}  {'min_clr':>7}  {'vlm/ep':>6}  {'fb%':>5}")
+    print("-" * width)
     for name in which:
         print(aggregates[name].row())
-    print("-" * 78)
-    print("success/hazard = % of episodes, with Wilson 95% CI.")
+    print("-" * width)
+    print("success/hazard/sem_viol = % of episodes, with Wilson 95% CI.")
+    print("sem_viol = fraction of episodes that ever entered a semantic keep-out zone")
+    print("           (only meaningful when --n_semantic_zones > 0).")
     print("min_clr = mean per-episode min edge-to-body clearance (negative => collision).")
     print("vlm/ep = mean VLM queries per episode; fb% = fraction of those queries that")
     print("         fell back (parse/API failure) — a clean run keeps this near 0.")
@@ -714,6 +843,8 @@ def evaluate(args: argparse.Namespace) -> None:
                 "n_hazards": args.n_hazards, "max_steps": args.max_steps,
                 "low_level": args.low_level, "temperature": args.temperature,
                 "vlm_fallback": args.vlm_fallback, "vlm_retries": args.vlm_retries,
+                "n_semantic_zones": args.n_semantic_zones,
+                "semantic_step_penalty": args.semantic_step_penalty,
             },
             "summary": {
                 name: {
@@ -728,6 +859,10 @@ def evaluate(args: argparse.Namespace) -> None:
                     "total_vlm_calls": agg.total_calls,
                     "parse_fail": agg.parse_fail, "api_fail": agg.api_fail,
                     "fallback_used": agg.fallback_used,
+                    "semantic_violated": agg.semantic_violated,
+                    "semantic_violation_rate": agg.semantic_violated / max(1, agg.n),
+                    "semantic_violation_ci95": _wilson_ci(agg.semantic_violated, agg.n),
+                    "mean_semantic_steps": float(np.mean(agg.semantic_steps)) if agg.semantic_steps else 0.0,
                 }
                 for name, agg in aggregates.items()
             },
@@ -775,9 +910,20 @@ def parse_args() -> argparse.Namespace:
                    choices=["heuristic", "hold"],
                    help="what a VLM policy does when the VLM is unusable: 'heuristic' "
                         "(goal-greedy pilot) or 'hold' (neutral: no force / keep subgoal). "
-                        "Always logged via fb%; use 'hold' for the most conservative claim.")
+                        "Always logged via fb%%; use 'hold' for the most conservative claim.")
     p.add_argument("--log_transcripts", action="store_true",
                    help="dump every raw VLM response next to --out (leakage audit trail)")
+
+    # Semantic keep-out zones (Path-B main-result task). >0 enables them and, if
+    # --policies is unset, switches the default triple to C1/C2/B (geometry-only
+    # controller / oracle controller / VLM-subgoal). 0 = plain geometric task.
+    p.add_argument("--n_semantic_zones", type=int, default=0,
+                   help=">0 enables off-limits zones the VLM must route around")
+    p.add_argument("--semantic_radius_min", type=float, default=0.8)
+    p.add_argument("--semantic_radius_max", type=float, default=1.2)
+    p.add_argument("--semantic_step_penalty", type=float, default=0.0,
+                   help="optional soft reward cost per step inside a zone (metric is "
+                        "independent of this; default 0 keeps success comparable)")
 
     # Shared low-level safety
     p.add_argument("--safety_margin", type=float, default=0.15)

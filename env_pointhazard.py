@@ -68,6 +68,24 @@ class PointHazardConfig:
     min_goal_clearance: float = 0.8     # extra clearance from goal to nearest hazard edge
     min_start_goal_dist: float = 4.0    # ensure start and goal are far apart
 
+    # Semantic keep-out zones (Path-B "main-result" task).  These are off-limits
+    # regions that are deliberately UNLIKE the geometric hazards:
+    #   - they NEVER terminate the episode (entering one is a soft violation),
+    #   - they are NOT written into the obs vector,
+    # so a purely geometric controller is blind to them.  Only a controller that
+    # is explicitly *told* the zone (the hand-coded "oracle" upper bound) or a
+    # VLM that *sees* the zone drawn in the rendered image can route around it.
+    # That asymmetry is the whole point: avoiding the zone needs a semantic/
+    # language constraint that an A*/MPC cost cannot express without a human
+    # first labelling the region.  Disabled when n_semantic_zones == 0.
+    n_semantic_zones: int = 0
+    semantic_radius_min: float = 0.8
+    semantic_radius_max: float = 1.2
+    semantic_on_corridor: bool = True   # place zones straddling the start->goal line
+    semantic_corridor_t_min: float = 0.4  # fractional position along start->goal
+    semantic_corridor_t_max: float = 0.6
+    semantic_step_penalty: float = 0.0  # optional soft reward cost per step inside a zone
+
     # Episode
     max_episode_steps: int = 300
 
@@ -117,6 +135,8 @@ class PointHazardEnv:
         self.vel = np.zeros(2, dtype=np.float32)
         self.goal = np.zeros(2, dtype=np.float32)
         self.hazards = np.zeros((self.cfg.n_hazards, 3), dtype=np.float32)  # (x, y, r)
+        self.semantic_zones = np.zeros((0, 3), dtype=np.float32)  # (x, y, r) off-limits
+        self._semantic_steps = 0  # steps spent inside any semantic zone this episode
         self.t = 0
         self._trail: list[np.ndarray] = []
 
@@ -182,6 +202,78 @@ class PointHazardEnv:
             raise RuntimeError("Failed to sample valid goal position.")
         self.goal = goal
 
+        # 4. Sample semantic keep-out zones (after start+goal so they can be
+        #    placed on the corridor between them — see _sample_semantic_zones).
+        self.semantic_zones = self._sample_semantic_zones()
+
+    def _sample_semantic_zones(self) -> np.ndarray:
+        """Sample off-limits zones, by default straddling the start->goal line.
+
+        Placing a zone so the straight start->goal segment passes through it
+        guarantees a geometry-only controller (which heads roughly straight at
+        the goal) will cut through it — making the semantic constraint actually
+        *bite*.  Zones are rejected if they would swallow the start/goal or
+        overlap a hard hazard or another zone, so there is always room to detour
+        around them.
+        """
+        cfg = self.cfg
+        if cfg.n_semantic_zones <= 0:
+            return np.zeros((0, 3), dtype=np.float32)
+
+        seg = self.goal - self.pos
+        seg_len = float(np.linalg.norm(seg))
+        seg_dir = seg / (seg_len + 1e-9)
+        perp = np.array([-seg_dir[1], seg_dir[0]], dtype=np.float32)
+
+        zones: list[np.ndarray] = []
+        for _ in range(cfg.n_semantic_zones):
+            placed = False
+            for _try in range(cfg.max_rejection_tries):
+                r = float(self.rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
+                if cfg.semantic_on_corridor:
+                    t = float(self.rng.uniform(cfg.semantic_corridor_t_min,
+                                               cfg.semantic_corridor_t_max))
+                    # lateral offset < r keeps the segment intersecting the zone
+                    lateral = float(self.rng.uniform(-0.4, 0.4)) * r
+                    center = self.pos + seg_dir * (t * seg_len) + perp * lateral
+                else:
+                    center = self._sample_xy(margin=r + 0.1)
+                lim = cfg.arena_half - r - 0.1
+                center = np.clip(center, -lim, lim).astype(np.float32)
+
+                # Keep start and goal outside the zone (need clear endpoints).
+                if float(np.linalg.norm(center - self.pos)) < r + cfg.agent_radius + 0.3:
+                    continue
+                if float(np.linalg.norm(center - self.goal)) < r + cfg.goal_radius + 0.3:
+                    continue
+                # Leave a gap to hard hazards so an avoider can slip past.
+                ok = True
+                for hx, hy, hr in self.hazards:
+                    if float(np.linalg.norm(center - np.array([hx, hy], dtype=np.float32))) < r + hr + 0.3:
+                        ok = False
+                        break
+                if ok:
+                    for zx, zy, zr in zones:
+                        if float(np.linalg.norm(center - np.array([zx, zy], dtype=np.float32))) < r + zr + 0.3:
+                            ok = False
+                            break
+                if ok:
+                    zones.append(np.array([center[0], center[1], r], dtype=np.float32))
+                    placed = True
+                    break
+            if not placed:
+                # Fallback: drop a small zone at the segment midpoint regardless.
+                mid = (self.pos + self.goal) / 2.0
+                zones.append(np.array([mid[0], mid[1], cfg.semantic_radius_min], dtype=np.float32))
+        return np.stack(zones, axis=0)
+
+    def _in_semantic_zone(self, p: np.ndarray) -> bool:
+        """True if the agent's *center* lies inside any semantic keep-out zone."""
+        for zx, zy, zr in self.semantic_zones:
+            if float(np.linalg.norm(p - np.array([zx, zy], dtype=np.float32))) < float(zr):
+                return True
+        return False
+
     def _clear_of_all_hazards(self, p: np.ndarray, body_radius: float) -> bool:
         """True if a body of radius `body_radius` centered at p touches no hazard."""
         for hx, hy, hr in self.hazards:
@@ -227,10 +319,12 @@ class PointHazardEnv:
             self.rng = np.random.default_rng(seed)
         self._sample_layout()
         self.t = 0
+        self._semantic_steps = 0
         self._trail = [self.pos.copy()]
         info = {
             "goal": self.goal.copy(),
             "hazards": self.hazards.copy(),
+            "semantic_zones": self.semantic_zones.copy(),
             "start": self.pos.copy(),
         }
         return self._build_obs(), info
@@ -266,6 +360,13 @@ class PointHazardEnv:
         truncated = False
         info: dict[str, Any] = {}
 
+        # Semantic keep-out zones: a soft violation (optional reward cost), never
+        # a termination — the geometric controller can plough straight through.
+        in_zone = self._in_semantic_zone(self.pos)
+        if in_zone:
+            self._semantic_steps += 1
+            reward += float(self.cfg.semantic_step_penalty)
+
         if self._hazard_collision():
             reward += float(self.cfg.hazard_penalty)
             terminated = True
@@ -282,8 +383,11 @@ class PointHazardEnv:
         info["dist_to_goal"] = float(np.linalg.norm(self.pos - self.goal))
         info["goal_success"] = bool(terminated and info.get("termination_reason") == "goal")
         info["hazard_hit"] = bool(terminated and info.get("termination_reason") == "hazard")
+        info["in_semantic_zone"] = bool(in_zone)
+        info["semantic_steps"] = int(self._semantic_steps)
         info["goal"] = self.goal.copy()
         info["hazards"] = self.hazards.copy()
+        info["semantic_zones"] = self.semantic_zones.copy()
 
         return self._build_obs(), reward, terminated, truncated, info
 
@@ -301,6 +405,7 @@ class PointHazardEnv:
             vel_xy=self.vel,
             trail=self._trail,
             info_text=info_text,
+            semantic_zones=self.semantic_zones,
         )
 
     def close(self) -> None:

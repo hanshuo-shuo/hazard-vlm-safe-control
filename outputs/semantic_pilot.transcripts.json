@@ -1,0 +1,192 @@
+[
+  {
+    "policy": "subgoal",
+    "seed": 43,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while successfully navigating around the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while successfully navigating around the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while successfully avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while successfully avoiding the red hazards and the amber restricted zone.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 44,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path to the goal while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path to the goal while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while successfully avoiding the red hazards and the amber restricted zone surrounding waypoint 1.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while successfully avoiding the red hazards and the amber restricted zone surrounding waypoint 1.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 45,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the amber restricted zone.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 46,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the best choice as it moves the agent towards the goal while safely avoiding the amber restricted zone and the red hazards. Waypoint 4 is inside the restricted zone, and Waypoint 5 is blocked by it.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 is the best choice as it moves the agent towards the goal while safely avoiding the amber restricted zone and the red hazards. Waypoint 4 is inside the restricted zone, and Waypoint 5 is blocked by it.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while successfully navigating around the red hazards and completely avoiding the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while successfully navigating around the red hazards and completely avoiding the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazard directly in front of the agent and staying clear of the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazard directly in front of the agent and staying clear of the amber restricted zone.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 47,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal while safely avoiding the red hazards and the amber restricted zone.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while successfully navigating around the amber restricted zone and avoiding all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while successfully navigating around the amber restricted zone and avoiding all red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 is the most direct path toward the goal 'G' that avoids both the red hazards and the amber restricted zone.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Waypoint 1 is the most direct path toward the goal 'G' that avoids both the red hazards and the amber restricted zone.\"}"
+      }
+    ]
+  }
+]

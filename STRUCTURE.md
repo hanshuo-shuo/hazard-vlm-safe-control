@@ -92,5 +92,15 @@
 
 ## 10. Path B 下一步
 - **扩到 ~100 matched seeds（+可选 2–3 个 VLM backbone）**，把 `docs/RESULTS_MONTH1.md` 的 n=5 pilot 升级成正式第一张图。
-- 第 2–3 月：给环境加 A\* 写不出 cost 的语义/语言约束（偏好侧、禁区语义、子任务顺序），让 VLM 高层真正赢过纯经典规划。
+- 第 2–3 月（**主结果，5-seed pilot 已赢，见 `docs/RESULTS_SEMANTIC.md`**）：给环境加 A\* 写不出 cost 的语义约束，让 VLM 高层真正赢过纯经典规划。
+  - **n=5 真 VLM（gemini-3-flash）结果**：sem_viol C1 80% / C2 0% / **B 20%**，goal 全 100%、0 碰撞、fb%=0。VLM 把违规砍到 1/4、逼近 oracle，零手工感知 → 方向性赢。唯一一次违规（seed 47）是"自信但空间不精"——transcript 里它两次声称在绕开 amber 区却仍擦进去（同 Month-1 低层失败模式）。n=5 CI 重叠大，正式图需 ~100 seeds。
+  - **图**：`scripts/make_semantic_figures.py` 生成 `outputs/fig_vlm_view_seed*.png`（VLM 实际看到的输入）+ `outputs/fig_traj_seed*.png`（C1 直穿 / C2 绕 / B 绕 三连轨迹）。seed44 是 win 图、seed47 是失败图。已嵌入 `docs/RESULTS_SEMANTIC.md`。
+  - **⚠️ 复现性待修（100-seed 正式跑前）**：`mpc_expert.MPCExpert` 的 CEM `rng` 没播种（`default_rng()` 无 seed）→ 低层不是逐位可复现（seed47 B 在表里 7 步、图里 5 步）。正式跑前要按 episode seed 给控制器 rng 播种，让 matched-seed 表精确可复现。
+  - **已实现「禁区语义」轴**：`env_pointhazard.py` 加了 `semantic` keep-out 区（amber ✕ 圆，`--n_semantic_zones>=1`）——**不终止、不进 obs**，故纯几何 cost 写不出它；采样在 start→goal 走廊上，保证几何规划器会直穿。`hazard_renderer.py` 画它，VLM 从图里自己看见。
+  - `subgoal_pivot_hazard.py` 三方对照：**C1** `mpc`/`safe_expert`（几何盲，直穿）vs **C2** `mpc_oracle`/`*_oracle`（把禁区手工喂成障碍 = 上界）vs **B** `subgoal`（VLM 看图绕行，底层控制器仍纯几何 → 唯一懂禁区的是 VLM）。新指标 `sem_viol`（进过禁区的 episode 比例，Wilson CI）。
+  - 防泄漏延续：prompt 只给「避开 amber 禁区」这种**语言/任务约束**（类比「到绿色 goal」），绝不给坐标/哪个候选在区内/clearance/score。
+  - **离线 heuristic 验证已通过**（n=20）：C1 sem_viol 95%、C2 0%、B（盲 stand-in）85% —— 指标与 oracle 都对。**赢的判据**：真 VLM 跑时 B 的 sem_viol 从 ~85% 塌向 C2 的 ~0%，C1 仍 ~95%。
+  - 复现：`python subgoal_pivot_hazard.py --pilot_mode vlm --n_semantic_zones 1 --episodes 5 --seed 43 --model google/gemini-3-flash-preview --temperature 0 --vlm_fallback hold --log_transcripts --out outputs/semantic_pilot.json`
+  - 若真 VLM 想绕却绕不开（底层控制器在两次 subgoal 之间抄近路穿区），调 `--subgoal_radius`（调小=更细）和 `--subgoal_horizon`（调小=更勤重选）。
+  - 后续轴（未做）：偏好侧、子任务顺序。子任务顺序要改 episode 结构与 success 定义，放禁区跑通之后。
 </content>
