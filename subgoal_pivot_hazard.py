@@ -208,24 +208,66 @@ def make_openrouter_vlm(
 # Prompts — IMAGE + generic task only.  No clearance / label / score. (no leak)
 # ---------------------------------------------------------------------------
 
-# A generic, image-agnostic description of the semantic constraint. This is a
-# TASK/LANGUAGE spec (like "reach the green goal"), NOT a safety oracle: it never
-# says where the zone is, which candidate enters it, or any clearance/score. The
-# VLM must still perceive the zone's location in the image and reason about which
-# candidate avoids it. (See ANTI-LEAKAGE CONTRACT above.)
-_SEMANTIC_CLAUSE = (
-    "- Amber/yellow shaded circle marked with an X = a RESTRICTED ZONE you are "
-    "not allowed to travel through (off-limits). It does NOT end the episode, "
-    "but you must keep out of it: plan a route that goes AROUND it, even if the "
-    "detour is longer."
-)
+# Each semantic MODE pairs a render appearance (in hazard_renderer) with a
+# TASK/LANGUAGE clause here. Both clauses are image-agnostic specs (like "reach
+# the green goal"), NOT safety oracles: neither says where the zone is, which
+# candidate enters it, or any clearance/score. (See ANTI-LEAKAGE CONTRACT above.)
+#   "explicit"  — the zone is an amber-X "restricted" symbol and the prompt names
+#       that marker. Tests INSTRUCTION-FOLLOWING: the VLM is told what it means.
+#   "implicit"  — the zone is rendered as water-like unsafe terrain and the
+#       prompt gives only a CATEGORY hint ("avoid terrain that looks unsafe to
+#       drive over"), never naming the appearance ("water"/"teal"/"X"), its
+#       location, or which candidate enters it. The VLM must map appearance ->
+#       meaning itself. A strictly stronger, leakage-cleaner claim (commonsense,
+#       not rule-following).
+@dataclass(frozen=True)
+class SemanticSpec:
+    renderer_style: str   # passed to HazardRenderer(semantic_style=...)
+    clause: str           # bullet appended to the "Visual elements" list
+    avoid_direct: str     # tail of the direct-task "without running into ..."
+    avoid_subgoal: str    # tail of the subgoal-task "while keeping clear of ..."
 
 
-def build_direct_prompt(n_candidates: int, semantic: bool = False) -> str:
+SEMANTIC_SPECS: dict[str, SemanticSpec] = {
+    "explicit": SemanticSpec(
+        renderer_style="restricted",
+        clause=(
+            "- Amber/yellow shaded circle marked with an X = a RESTRICTED ZONE "
+            "you are not allowed to travel through (off-limits). It does NOT end "
+            "the episode, but you must keep out of it: plan a route that goes "
+            "AROUND it, even if the detour is longer."
+        ),
+        avoid_direct="any red hazard circle and stay out of the amber restricted zone",
+        avoid_subgoal=(
+            "keeping clear of the red hazards AND staying out of the amber "
+            "restricted zone"
+        ),
+    ),
+    "implicit": SemanticSpec(
+        renderer_style="water",
+        clause=(
+            "- Not all ground is drivable: some regions are unsafe terrain the "
+            "robot must NOT cross. Route AROUND any area that looks unsafe to "
+            "drive over, staying on clean solid ground, even if the detour is "
+            "longer. (Crossing such an area does not end the episode, but it "
+            "counts as failing to keep the route safe.)"
+        ),
+        avoid_direct="any red hazard circle and any area that looks unsafe to drive over",
+        avoid_subgoal=(
+            "keeping clear of the red hazards AND off any terrain that looks "
+            "unsafe to drive over"
+        ),
+    ),
+}
+
+
+def build_direct_prompt(
+    n_candidates: int, semantic: bool = False, zone_mode: str = "explicit"
+) -> str:
+    spec = SEMANTIC_SPECS[zone_mode] if semantic else None
     haz_line = "- Red filled circles = HAZARDS — touching any of them ends the episode"
-    sem = ("\n" + _SEMANTIC_CLAUSE) if semantic else ""
-    avoid = ("any red hazard circle and stay out of the amber restricted zone"
-             if semantic else "any red hazard circle")
+    sem = ("\n" + spec.clause) if spec else ""
+    avoid = spec.avoid_direct if spec else "any red hazard circle"
     return f"""You see a 2D arena from above.
 
 Visual elements:
@@ -247,10 +289,12 @@ OUTPUT JSON only:
 """
 
 
-def build_subgoal_prompt(n_candidates: int, semantic: bool = False) -> str:
-    sem = ("\n" + _SEMANTIC_CLAUSE) if semantic else ""
-    avoid = ("keeping clear of the red hazards AND staying out of the amber "
-             "restricted zone" if semantic else "keeping clear of the red hazards")
+def build_subgoal_prompt(
+    n_candidates: int, semantic: bool = False, zone_mode: str = "explicit"
+) -> str:
+    spec = SEMANTIC_SPECS[zone_mode] if semantic else None
+    sem = ("\n" + spec.clause) if spec else ""
+    avoid = spec.avoid_subgoal if spec else "keeping clear of the red hazards"
     return f"""You see a 2D arena from above.
 
 Visual elements:
@@ -459,6 +503,7 @@ class DirectPivotPolicy(_BasePolicy):
         vlm_every: int,
         fallback: str = "heuristic",
         semantic: bool = False,
+        zone_mode: str = "explicit",
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -469,6 +514,7 @@ class DirectPivotPolicy(_BasePolicy):
         self.vlm_every = max(1, vlm_every)
         self.fallback = fallback
         self.semantic = semantic
+        self.zone_mode = zone_mode
 
     def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         super().reset(obs, info, seed)
@@ -491,7 +537,10 @@ class DirectPivotPolicy(_BasePolicy):
             base = Image.fromarray(env.render())
             ann = annotate_candidates(base, self.candidates, self.renderer, pos, self.arrow_len)
             call = self.vlm_fn(
-                ann, build_direct_prompt(len(self.candidates), semantic=self.semantic),
+                ann,
+                build_direct_prompt(
+                    len(self.candidates), semantic=self.semantic, zone_mode=self.zone_mode
+                ),
                 len(self.candidates),
             )
             if call.parsed_ok and call.choice is not None:
@@ -532,6 +581,7 @@ class SubgoalPivotPolicy(_BasePolicy):
         subgoal_reach: float,
         fallback: str = "heuristic",
         semantic: bool = False,
+        zone_mode: str = "explicit",
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -544,6 +594,7 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.subgoal_reach = subgoal_reach
         self.fallback = fallback
         self.semantic = semantic
+        self.zone_mode = zone_mode
 
     def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         super().reset(obs, info, seed)
@@ -571,7 +622,10 @@ class SubgoalPivotPolicy(_BasePolicy):
             base = Image.fromarray(env.render())
             ann = annotate_subgoals(base, subgoals, self.renderer, pos)
             call = self.vlm_fn(
-                ann, build_subgoal_prompt(len(subgoals), semantic=self.semantic),
+                ann,
+                build_subgoal_prompt(
+                    len(subgoals), semantic=self.semantic, zone_mode=self.zone_mode
+                ),
                 len(subgoals),
             )
             if call.parsed_ok and call.choice is not None:
@@ -761,8 +815,12 @@ def evaluate(args: argparse.Namespace) -> None:
         )
 
     # One env + renderer, reused across policies (each reset re-seeds layout).
+    # The renderer's zone appearance follows --zone_semantics (amber-X marker for
+    # 'explicit', water-like terrain for 'implicit').
     env = PointHazardEnv(cfg=cfg)
-    renderer = HazardRenderer.from_env(env)
+    renderer = HazardRenderer.from_env(
+        env, semantic_style=SEMANTIC_SPECS[args.zone_semantics].renderer_style
+    )
     env.attach_renderer(renderer)
 
     # Default policy set. In the semantic task the headline triple is
@@ -792,6 +850,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 n_dirs=args.subgoal_n_dirs, subgoal_radius=args.subgoal_radius,
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
                 fallback=args.vlm_fallback, semantic=semantic,
+                zone_mode=args.zone_semantics,
             )
         if name == "direct":
             return DirectPivotPolicy(
@@ -799,6 +858,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 n_dirs=args.pivot_n_dirs, n_mags=args.pivot_n_mags,
                 arrow_len=args.pivot_arrow_len, vlm_every=args.vlm_every,
                 fallback=args.vlm_fallback, semantic=semantic,
+                zone_mode=args.zone_semantics,
             )
         raise ValueError(f"unknown policy '{name}'")
 
@@ -828,7 +888,8 @@ def evaluate(args: argparse.Namespace) -> None:
     print()
     print(f"PointHazard matched-seed comparison  "
           f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode}, "
-          f"semantic_zones={args.n_semantic_zones}, "
+          f"semantic_zones={args.n_semantic_zones}"
+          f"{('/' + args.zone_semantics) if semantic else ''}, "
           f"model={args.model if args.pilot_mode == 'vlm' else '-'})")
     width = 100
     print("-" * width)
@@ -854,6 +915,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 "low_level": args.low_level, "temperature": args.temperature,
                 "vlm_fallback": args.vlm_fallback, "vlm_retries": args.vlm_retries,
                 "n_semantic_zones": args.n_semantic_zones,
+                "zone_semantics": args.zone_semantics,
                 "semantic_step_penalty": args.semantic_step_penalty,
             },
             "summary": {
@@ -929,6 +991,16 @@ def parse_args() -> argparse.Namespace:
     # controller / oracle controller / VLM-subgoal). 0 = plain geometric task.
     p.add_argument("--n_semantic_zones", type=int, default=0,
                    help=">0 enables off-limits zones the VLM must route around")
+    p.add_argument("--zone_semantics", type=str, default="explicit",
+                   choices=["explicit", "implicit"],
+                   help="how the keep-out zone is presented to the VLM. "
+                        "'explicit' = amber-X marker and the prompt names it a "
+                        "restricted zone (instruction-following). 'implicit' = the "
+                        "zone is rendered as water-like unsafe terrain and the "
+                        "prompt only gives a category hint ('avoid terrain that "
+                        "looks unsafe to drive over'), never naming or locating it "
+                        "(commonsense; strictly leakage-cleaner). No effect when "
+                        "--n_semantic_zones 0.")
     p.add_argument("--semantic_radius_min", type=float, default=0.8)
     p.add_argument("--semantic_radius_max", type=float, default=1.2)
     p.add_argument("--semantic_step_penalty", type=float, default=0.0,

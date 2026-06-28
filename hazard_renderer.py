@@ -41,6 +41,10 @@ class HazardRenderer:
         vel_color: tuple[int, int, int] = (30, 30, 120),
         semantic_fill: tuple[int, int, int, int] = (250, 205, 50, 80),  # translucent amber
         semantic_outline: tuple[int, int, int] = (180, 130, 0),         # dark amber
+        semantic_style: str = "restricted",  # "restricted" (amber X) | "water"
+        water_fill: tuple[int, int, int, int] = (90, 170, 205, 95),     # translucent teal
+        water_outline: tuple[int, int, int] = (40, 110, 150),           # deep teal
+        water_ripple: tuple[int, int, int, int] = (240, 250, 255, 175), # light ripples
     ):
         self.arena_half = float(arena_half)
         self.agent_radius = float(agent_radius)
@@ -65,6 +69,10 @@ class HazardRenderer:
         self.vel_color = vel_color
         self.semantic_fill = semantic_fill
         self.semantic_outline = semantic_outline
+        self.semantic_style = semantic_style
+        self.water_fill = water_fill
+        self.water_outline = water_outline
+        self.water_ripple = water_ripple
 
     @classmethod
     def from_env(cls, env, **kwargs) -> "HazardRenderer":
@@ -132,27 +140,54 @@ class HazardRenderer:
             draw.line([(px0, py0), (px1, py1)], fill=self.grid_color, width=1)
 
         # ---- semantic keep-out zones (off-limits regions) -------------
-        # Drawn UNDER the hazards/agent so those stay readable.  A translucent
-        # amber disk + a bold "X" reads as "restricted / do not enter" and is
-        # visually unlike the solid red hazards.  Compose via an RGBA overlay so
-        # the fill is see-through.
+        # Drawn UNDER the hazards/agent so those stay readable, via a see-through
+        # RGBA overlay.  Two appearances:
+        #   "restricted" — a translucent amber disk + bold "X": an abstract
+        #       "do not enter" symbol the prompt names explicitly (instruction-
+        #       following test).
+        #   "water" — a translucent teal disk with wavy ripple lines: terrain
+        #       that *looks* unsafe to drive across, with NO symbol or label, so
+        #       the VLM must recognise it from appearance (commonsense test).
+        # Both are visually unlike the solid red hazards.
         if semantic_zones is not None and len(semantic_zones) > 0:
             overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
             odraw = ImageDraw.Draw(overlay)
             for zx, zy, zr in np.asarray(semantic_zones):
                 cx, cy = self.world_to_pixel(float(zx), float(zy))
                 pr = self.world_scale(float(zr))
-                odraw.ellipse(
-                    [cx - pr, cy - pr, cx + pr, cy + pr],
-                    fill=self.semantic_fill,
-                    outline=self.semantic_outline + (255,),
-                    width=3,
-                )
-                # "X" from two chords that stay inside the circle (0.65*r corners)
-                k = int(0.65 * pr)
-                xline = self.semantic_outline + (255,)
-                odraw.line([(cx - k, cy - k), (cx + k, cy + k)], fill=xline, width=3)
-                odraw.line([(cx - k, cy + k), (cx + k, cy - k)], fill=xline, width=3)
+                if self.semantic_style == "water":
+                    odraw.ellipse(
+                        [cx - pr, cy - pr, cx + pr, cy + pr],
+                        fill=self.water_fill,
+                        outline=self.water_outline + (255,),
+                        width=3,
+                    )
+                    # Wavy ripple lines read as a water surface — no symbol, no
+                    # label; the meaning lives entirely in the appearance.
+                    for frac in (-0.4, -0.1, 0.2, 0.5):
+                        yy = cy + frac * pr
+                        half = 0.78 * pr
+                        pts = []
+                        for i in range(25):
+                            t = i / 24.0
+                            xx = cx - half + 2.0 * half * t
+                            yo = yy + 0.13 * pr * np.sin(t * 4.0 * np.pi)
+                            if (xx - cx) ** 2 + (yo - cy) ** 2 <= (0.92 * pr) ** 2:
+                                pts.append((int(xx), int(yo)))
+                        if len(pts) >= 2:
+                            odraw.line(pts, fill=self.water_ripple, width=2, joint="curve")
+                else:  # "restricted": amber disk + bold X
+                    odraw.ellipse(
+                        [cx - pr, cy - pr, cx + pr, cy + pr],
+                        fill=self.semantic_fill,
+                        outline=self.semantic_outline + (255,),
+                        width=3,
+                    )
+                    # "X" from two chords that stay inside the circle (0.65*r corners)
+                    k = int(0.65 * pr)
+                    xline = self.semantic_outline + (255,)
+                    odraw.line([(cx - k, cy - k), (cx + k, cy + k)], fill=xline, width=3)
+                    odraw.line([(cx - k, cy + k), (cx + k, cy - k)], fill=xline, width=3)
             img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
             draw = ImageDraw.Draw(img)
 

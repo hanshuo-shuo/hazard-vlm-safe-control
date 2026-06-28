@@ -90,6 +90,12 @@
 - 跑通真实 VLM 三方对照（n=5，gemini-3-flash），结果记到 `docs/RESULTS_MONTH1.md`。
 - 归档 3 个泄漏污染的 PointHazard PIVOT 脚本到 `legacy/`（见 §5）。
 
+**2026-06-28（隐式语义轴）**
+- `hazard_renderer.py`：加 `semantic_style="water"`（水洼外观，默认仍 `"restricted"` amber-X）。
+- `subgoal_pivot_hazard.py`：加 `--zone_semantics {explicit,implicit}` + `SemanticSpec`（render 样式 + prompt clause 配对，默认 explicit 向后兼容）。
+- `scripts/make_semantic_figures.py`：加 `--zone_semantics`，implicit 图加后缀防覆盖 explicit 主结果图。
+- 跑通 5-seed implicit 真 VLM：B 仍 20%（赢），transcript 自发认出"water"。详见 §10 与 `RESULTS_SEMANTIC.md` §10。
+
 ## 10. Path B 下一步
 - **扩到 ~100 matched seeds（+可选 2–3 个 VLM backbone）**，把 `docs/RESULTS_MONTH1.md` 的 n=5 pilot 升级成正式第一张图。
 - 第 2–3 月（**主结果，5-seed pilot 已赢，见 `docs/RESULTS_SEMANTIC.md`**）：给环境加 A\* 写不出 cost 的语义约束，让 VLM 高层真正赢过纯经典规划。
@@ -102,5 +108,11 @@
   - **离线 heuristic 验证已通过**（n=20）：C1 sem_viol 95%、C2 0%、B（盲 stand-in）85% —— 指标与 oracle 都对。**赢的判据**：真 VLM 跑时 B 的 sem_viol 从 ~85% 塌向 C2 的 ~0%，C1 仍 ~95%。
   - 复现：`python subgoal_pivot_hazard.py --pilot_mode vlm --n_semantic_zones 1 --episodes 5 --seed 43 --model google/gemini-3-flash-preview --temperature 0 --vlm_fallback hold --log_transcripts --out outputs/semantic_pilot.json`
   - 若真 VLM 想绕却绕不开（底层控制器在两次 subgoal 之间抄近路穿区），调 `--subgoal_radius`（调小=更细）和 `--subgoal_horizon`（调小=更勤重选）。
-  - 后续轴（未做）：偏好侧、子任务顺序。子任务顺序要改 episode 结构与 success 定义，放禁区跑通之后。
+  - **✅ 隐式语义升级已跑通（2026-06-28，见 `RESULTS_SEMANTIC.md` §10）**：新 flag `--zone_semantics {explicit,implicit}`。`implicit` 把禁区从「amber ✕ 抽象禁止符 + prompt 点名」换成「**水洼外观**（`hazard_renderer.semantic_style="water"`，青碧半透明 + 波纹，无符号无标签）+ prompt 只给类别提示『避开看起来不该开过去的地形』，绝不提 water/teal/X/坐标/哪个候选」。把 instruction-following 升级成真常识。
+    - **结果与 explicit 完全一致**：C1 60% / C2 0% / **B 20%**，全 100% goal / 0 碰撞 / fb%=0。去掉标签没让 VLM 掉链子。
+    - **决定性证据**：transcript 里 VLM **自发**把它叫 "blue water-like unsafe terrain" / "unsafe water terrain"——prompt 从没说过 water/blue → 是认出来的，不是被告知。
+    - 图：`fig_vlm_view_implicit_seed44.png`（waypoint 7 落在水塘里）、`fig_traj_implicit_seed{44,47}.png`（44 win：C1 直穿 / C2 左绕 / B 右绕；47 fail：B 仍擦水塘下缘）。explicit 的图用无后缀名,不被覆盖。
+    - 数据：`outputs/semantic_implicit_pilot.json` + `.transcripts.json`。
+    - 仍是 L1（类别提示）；L2（prompt 完全不提地形）未做。n=5 caveat 同 explicit。
+  - 后续轴（未做）：L2 全隐式、偏好侧、子任务顺序。子任务顺序要改 episode 结构与 success 定义，放禁区跑通之后。
 </content>

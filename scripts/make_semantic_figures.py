@@ -61,7 +61,8 @@ def _titled(img: Image.Image, title: str, subtitle: str) -> Image.Image:
     return out
 
 
-def build_policy(name: str, cfg: PointHazardConfig, renderer, vlm_fn):
+def build_policy(name: str, cfg: PointHazardConfig, renderer, vlm_fn,
+                 zone_mode: str = "explicit"):
     if name == "mpc":
         return S.ControllerOnlyPolicy(cfg, "mpc", SAFETY_MARGIN)
     if name == "mpc_oracle":
@@ -71,6 +72,7 @@ def build_policy(name: str, cfg: PointHazardConfig, renderer, vlm_fn):
             cfg, renderer, pilot_mode="vlm", vlm_fn=vlm_fn, low_level="mpc",
             safety_margin=SAFETY_MARGIN, n_dirs=8, subgoal_radius=2.5,
             subgoal_horizon=15, subgoal_reach=0.6, fallback="hold", semantic=True,
+            zone_mode=zone_mode,
         )
     raise ValueError(name)
 
@@ -106,11 +108,16 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seeds", type=int, nargs="+", default=[43, 47])
     ap.add_argument("--outdir", type=str, default="outputs")
+    ap.add_argument("--zone_semantics", type=str, default="explicit",
+                    choices=["explicit", "implicit"],
+                    help="must match the run being illustrated (amber-X marker vs "
+                         "water-like terrain)")
     args = ap.parse_args()
 
+    spec = S.SEMANTIC_SPECS[args.zone_semantics]
     cfg = PointHazardConfig(n_semantic_zones=1, max_episode_steps=300)
     env = PointHazardEnv(cfg=cfg)
-    renderer = HazardRenderer.from_env(env)
+    renderer = HazardRenderer.from_env(env, semantic_style=spec.renderer_style)
     env.attach_renderer(renderer)
 
     key = os.environ.get("OPENROUTER_API_KEY", "")
@@ -124,19 +131,26 @@ def main() -> None:
         ("subgoal", "B  VLM subgoal", "reads zone from the image"),
     ]
 
+    # Tag implicit figures so they never overwrite the explicit run-of-record
+    # figures embedded in RESULTS_SEMANTIC.md.
+    sfx = "" if args.zone_semantics == "explicit" else f"_{args.zone_semantics}"
+
     os.makedirs(args.outdir, exist_ok=True)
     for seed in args.seeds:
         # What the VLM sees.
         view = vlm_view(env, renderer, seed)
-        vpath = os.path.join(args.outdir, f"fig_vlm_view_seed{seed}.png")
+        vpath = os.path.join(args.outdir, f"fig_vlm_view{sfx}_seed{seed}.png")
+        zone_cap = ("amber X = keep-out zone" if args.zone_semantics == "explicit"
+                    else "teal pond = unsafe terrain (no label — VLM must recognise it)")
         _titled(view, f"What the subgoal-VLM sees (seed {seed})",
-                "amber X = keep-out zone · purple 1-8 = candidate waypoints").save(vpath)
+                f"{zone_cap} · purple 1-8 = candidate waypoints").save(vpath)
         print("wrote", vpath)
 
         # Trajectory contrast.
         rendered = []
         for name, title, sub in panels:
-            frame, sem_steps = run_and_render(env, build_policy(name, cfg, renderer, vlm_fn), seed)
+            frame, sem_steps = run_and_render(
+                env, build_policy(name, cfg, renderer, vlm_fn, args.zone_semantics), seed)
             sub2 = f"{sub} · in-zone steps: {sem_steps}"
             rendered.append(_titled(frame, title, sub2))
             print(f"  seed {seed} {name}: in-zone steps = {sem_steps}")
@@ -148,7 +162,7 @@ def main() -> None:
         for p in rendered:
             canvas.paste(p, (x, 0))
             x += p.width + gap
-        tpath = os.path.join(args.outdir, f"fig_traj_seed{seed}.png")
+        tpath = os.path.join(args.outdir, f"fig_traj{sfx}_seed{seed}.png")
         canvas.save(tpath)
         print("wrote", tpath)
 

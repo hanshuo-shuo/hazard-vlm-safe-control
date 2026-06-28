@@ -16,6 +16,12 @@ perception**. Reproducible 5-seed pilot: keep-out-zone violation rate
 collision. This is the first positive Path-B figure (n=5 pilot; a paper figure
 needs ~100 seeds).
 
+**Update (2026-06-28, §10):** the win survives going fully *implicit* — render
+the zone as **water** (no marker) and **never name it in the prompt** (only "avoid
+terrain that looks unsafe to drive over"). Same 60/0/**20**, and the VLM's
+transcripts **spontaneously call it "water-like unsafe terrain"** though never
+told — recognition, not instruction-following. See §10.
+
 ---
 
 ## 1. The question
@@ -235,4 +241,111 @@ OPENROUTER_API_KEY=... python subgoal_pivot_hazard.py \
 
 # 3) regenerate the figures in this doc (matches the table exactly)
 python scripts/make_semantic_figures.py --seeds 44 47
+```
+
+---
+
+## 10. Stronger version — *implicit* zone (commonsense, no label)
+
+Date: 2026-06-28 · flag: `--zone_semantics implicit`
+
+### 10.1 Why
+
+Sections 1–9 are honest but carry one soft spot flagged in §8: the constraint is
+a **language** constraint. The prompt *names* the marker ("Amber/yellow circle
+marked with an X = a RESTRICTED ZONE … keep out of it"), so B's win could be mere
+**instruction-following** — the VLM is told what the symbol means and obeys. A
+reviewer can fairly ask: did it *reason*, or just follow a rule?
+
+The implicit version removes that escape hatch. Two coordinated changes, same
+anti-leakage discipline:
+
+1. **Appearance carries the meaning.** The zone is rendered as a **water-like
+   patch** (translucent teal disk with ripple lines) — no "X", no amber, no
+   symbol. A wheeled robot avoiding water is world-knowledge, not a drawn rule.
+2. **The prompt never names it.** The only zone instruction is a generic
+   **category** hint, verbatim:
+
+   ```
+   - Not all ground is drivable: some regions are unsafe terrain the robot must
+     NOT cross. Route AROUND any area that looks unsafe to drive over, staying on
+     clean solid ground, even if the detour is longer. (Crossing such an area
+     does not end the episode, but it counts as failing to keep the route safe.)
+   ```
+
+   It never says *water*, *teal*, *blue*, *X*, where the patch is, or which
+   candidate enters it. The VLM must look at the pixels, recognise the patch as
+   water-like unsafe terrain, and route around it — pure appearance→meaning.
+
+What the subgoal-VLM sees on seed 44 (note candidate **7 sits inside the pond**,
+on the straight line to **G** — there is *no* label anywhere):
+
+![What the subgoal-VLM sees, implicit, seed 44](../outputs/fig_vlm_view_implicit_seed44.png)
+
+### 10.2 Result (5-seed VLM, identical protocol to §4c)
+
+`model=google/gemini-3-flash-preview`, `temperature=0`, `vlm_fallback=hold`,
+seeds 43–47, `n_hazards=8`.
+
+| policy | success [95% CI] | hazard [95% CI] | **sem_viol [95% CI]** | mean min-clr | VLM/ep | fb% |
+|---|---|---|---|---|---|---|
+| `mpc` (C1, geometry-blind) | 100% [56.6, 100] | 0% [0, 43.4] | **60%** [23.1, 88.2] | +0.475 | 0 | – |
+| `mpc_oracle` (C2, hand-coded) | 100% [56.6, 100] | 0% [0, 43.4] | **0%** [0, 43.4] | +0.494 | 0 | – |
+| `subgoal` (B, VLM) | 100% [56.6, 100] | 0% [0, 43.4] | **20%** [3.6, 62.4] | +0.334 | 3.0 | 0% |
+
+**The numbers are identical to the explicit pilot** (C1 60 / C2 0 / B 20, all
+100% goal / 0% collision / fb% 0). Taking the label away did **not** cost the VLM
+its win: it cuts violations 3× vs blind classical, approaching the oracle —
+**now with zero naming of the zone**. Per-seed: C1 enters on 44/46/47, **B only
+on 47**, C2 never (same pattern as explicit).
+
+![Trajectory contrast, implicit, seed 44 — C1 through the pond, C2/B around](../outputs/fig_traj_implicit_seed44.png)
+
+### 10.3 The crux: the VLM *spontaneously* names water
+
+The transcripts (`outputs/semantic_implicit_pilot.transcripts.json`) are the
+direct evidence that this is recognition, not rule-following. **Although the
+prompt never said "water" or "blue", the VLM's own free-text reasons do** — it
+saw the pond and identified it:
+
+> seed 43: "…avoiding the red hazards and the **blue water-like unsafe terrain**
+> area." seed 44: "…avoids the red hazards and the **unsafe blue water-like
+> terrain** area containing waypoint 1." seed 45: "…safely avoiding the red
+> hazards and the **blue water-like terrain** in the center." seed 47: "…avoiding
+> the red hazards and the **unsafe water terrain** directly in the path."
+
+The VLM is reading the appearance and supplying the semantics from world
+knowledge — exactly the SayCan/VoxPoser value proposition, now demonstrated on a
+leakage-clean toy with an auditable trail.
+
+### 10.4 The same honest failure (seed 47)
+
+B's one violation is again seed 47: it picks waypoint 8 all three times, each time
+stating it is "avoiding the unsafe water terrain", yet still grazes the pond's
+lower edge near the goal — the *confident-but-spatially-imprecise* failure mode
+from Month-1 and §6, unchanged by the appearance swap.
+
+![Trajectory contrast, implicit, seed 47 — B grazes the pond near the goal](../outputs/fig_traj_implicit_seed47.png)
+
+### 10.5 What it adds, and caveats
+
+- **Stronger claim than §1–9:** the win survives removing the instruction. B avoids
+  a zone it was never told how to identify, and its transcripts prove it perceived
+  "water". This closes the §8 "it's only following a language rule" gap.
+- **Still L1, not L2.** The prompt still gives a *category* hint ("avoid unsafe
+  terrain"). A future L2 version would say nothing about terrain at all ("reach
+  the goal sensibly") and test whether the VLM avoids the pond unprompted.
+- **n=5 caveats from §8 all carry over.** CIs overlap; a paper figure needs ~100
+  matched seeds and ≥2 backbones. This pilot only shows the win is *robust to
+  delabeling*, which is the point.
+
+Reproduce:
+
+```bash
+OPENROUTER_API_KEY=... python subgoal_pivot_hazard.py \
+  --pilot_mode vlm --n_semantic_zones 1 --zone_semantics implicit \
+  --episodes 5 --seed 43 --model google/gemini-3-flash-preview \
+  --temperature 0 --vlm_fallback hold --log_transcripts \
+  --out outputs/semantic_implicit_pilot.json
+python scripts/make_semantic_figures.py --zone_semantics implicit --seeds 44 47
 ```
