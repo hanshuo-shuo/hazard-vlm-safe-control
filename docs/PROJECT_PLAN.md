@@ -4,6 +4,7 @@
 状态：从"learned-physics PIVOT"转向 **Path B**。半年内出主结果。
 
 相关文档：
+- `WHY_VLM.md` —— **简明英文图解：VLM 的优势到底在哪**（给导师/论文 intro，先读这个）
 - `FAILURE_MODE_ANALYSIS.md` —— 泄漏发现 + Path A/B 对比（动机来源）
 - `EXPERIMENT_NOTES.md` —— 旧实验记录（结论受泄漏污染，代码可复用）
 - `VLM_PHYSICS_LITERATURE_REVIEW.md` —— 相关工作版图

@@ -66,7 +66,7 @@
 | `data/` | `augmented_hazard_demos.npz`、`diffusion_hazard/` | 训练数据。 |
 | `outputs/` | 论文图、render 输出 png | 结果图。 |
 | `scripts/` | 分析/画图脚本 + `.sh` 运行脚本 | 保持原位（内部有相对路径）。 |
-| `docs/` | 三份研究笔记（失败分析 / 实验记录 / 文献综述） | 本次从 root 移入。 |
+| `docs/` | 研究笔记 + `WHY_VLM.md`（简明英文图解：VLM 优势在哪，先读）+ 结果记录（Month1 / Semantic）/ 失败分析 / 文献综述 | 本次从 root 移入。 |
 | `legacy/` | 旧版 PIVOT（momentum/primitive/self-iterating）、diffusion/SAC 训练、`env_hazard_gym.py`（本次新增，已坏的 gym wrapper） | 归档，不再用。 |
 
 ---

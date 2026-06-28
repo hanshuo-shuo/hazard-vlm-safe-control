@@ -5,6 +5,8 @@ Script: [`../subgoal_pivot_hazard.py`](../subgoal_pivot_hazard.py)
 Figures: [`../scripts/make_semantic_figures.py`](../scripts/make_semantic_figures.py)
 Plan: [`PROJECT_PLAN.md`](PROJECT_PLAN.md) §4 (Month 2–3, the main result).
 Builds on the Month-1 negative figure in [`RESULTS_MONTH1.md`](RESULTS_MONTH1.md).
+**New to the project? Read [`WHY_VLM.md`](WHY_VLM.md) first** — a plain-English,
+picture-led explainer of *where the VLM's advantage actually is*.
 
 ## TL;DR
 
