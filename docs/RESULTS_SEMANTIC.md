@@ -1,5 +1,13 @@
 # Semantic-Constraint Experiment — Results (Path-B main result, pilot)
 
+> ⚠️ **Partly superseded (2026-06-29).** §11–§12 claim B+ "reaches / out-robusts the
+> oracle". That used a *hard* oracle; against a **fair soft oracle** and a **CV
+> detector** baseline, B+ only **ties** (single zone), and the L1 "commonsense" win is
+> ~half instruction-following (L2 violations 20%→40%). Corrected 5-seed VLM results +
+> figures: [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md); repositioning:
+> [`ICLR_PLAN.md`](ICLR_PLAN.md). §1–§10 (C1 vs B, leakage discipline, spontaneous
+> naming) stand.
+
 Date: 2026-06-22
 Script: [`../subgoal_pivot_hazard.py`](../subgoal_pivot_hazard.py)
 Figures: [`../scripts/make_semantic_figures.py`](../scripts/make_semantic_figures.py)

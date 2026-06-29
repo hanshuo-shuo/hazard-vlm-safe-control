@@ -112,6 +112,13 @@
 - `scripts/make_semantic_figures.py`：加 `--zone_semantics`，implicit 图加后缀防覆盖 explicit 主结果图。
 - 跑通 5-seed implicit 真 VLM：B 仍 20%（赢），transcript 自发认出"water"。详见 §10 与 `RESULTS_SEMANTIC.md` §10。
 
+**2026-06-29（kill-shots：公平 baseline + L2 常识 + 投稿 reframe）**
+- 竞品/可发表性调研 + 代码核实 → `docs/ICLR_PLAN.md`（重定位为「无泄漏可替代性研究 + 诊断 benchmark」，弃 MCP 主框架；CORE/LaC/HazardArena 为主要威胁）。
+- `subgoal_pivot_hazard.py`：新增 **C2-soft `mpc_oracle_soft`**（真禁区几何 + 与 B+ 同款软机制的**公平** oracle，`--oracle_soft_mode bplus|pure`）；新增 **`--prompt_level L0/L1/L2`**（prompt 文本与渲染外观解耦，L2=完全不提地形=真常识测试，L2 自动去掉 B+）；新增 **`--seed_list`**（tuning/eval 种子互斥，防 tuning-on-test）。语义默认臂集扩成 C1/C2-hard/C2-soft/detector/B/B+。
+- **`zone_detector.py`**（新）：颜色 blob 检测器 baseline（每地形一个颜色规则，IoU≈0.9），从像素读禁区喂同一控制器 → **`mpc_detector`** 臂（「为什么不直接写检测器」的对照）。
+- `scripts/make_killshot_figures.py`（新）：bar/轨迹/检测器叠加/L2 图，复用 replay。
+- **5-seed 真 VLM 结果**（见 `docs/RESULTS_FAIR_BASELINES.md`）：单区 B+ 0% 但**公平 soft oracle 与 CV 检测器同样 0%**——「B+ 反超 oracle」作废；检测器在干净 toy 上≈oracle ⇒ VLM 优势不在性能；**L2 无提示 B 违规 20%→40%**（仍 < C1 60%），但 VLM 仍自发叫它 "water hazard/blue obstacle" ⇒ 常识真实但 L1 一半是 instruction-following。
+
 ## 10. Path B 下一步
 - **扩到 ~100 matched seeds（+可选 2–3 个 VLM backbone）**，把 `docs/RESULTS_MONTH1.md` 的 n=5 pilot 升级成正式第一张图。
 - 第 2–3 月（**主结果，5-seed pilot 已赢，见 `docs/RESULTS_SEMANTIC.md`**）：给环境加 A\* 写不出 cost 的语义约束，让 VLM 高层真正赢过纯经典规划。

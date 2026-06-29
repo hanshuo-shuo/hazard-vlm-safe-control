@@ -1,5 +1,13 @@
 # Amplifying the VLM advantage — detailed, image-rich results
 
+> ⚠️ **Superseded (2026-06-29).** The "B+ matches / out-robusts the hand-coded
+> oracle" claim below was measured against a *hard* oracle that over-constrains.
+> Against a **fair soft oracle** (true geometry, B+'s own soft mechanism) **and** a
+> trivial **CV detector**, B+ only **ties** — it does not beat them. See the
+> correction + 5-seed VLM rerun in [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md)
+> and the repositioning in [`ICLR_PLAN.md`](ICLR_PLAN.md). This doc is kept for the
+> mechanism walkthrough and figures, not its headline comparison.
+
 *How the Path-B win went from "3× better than blind classical" to "matches (and
 on multi-constraint scenes out-robusts) the hand-coded oracle, with zero
 hand-coding".*

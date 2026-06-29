@@ -102,6 +102,7 @@ from hazard_renderer import HazardRenderer
 from mpc_expert import MPCConfig, MPCExpert
 from pivot_vlm import _parse_pivot_selection, annotate_candidates, generate_candidates
 from safe_expert import SafeExpert, SafeExpertConfig
+from zone_detector import estimate_zones_from_image
 
 
 # ---------------------------------------------------------------------------
@@ -505,14 +506,23 @@ def make_controller(
 class ControllerOnlyPolicy(_BasePolicy):
     """C — pure low-level controller driving straight to the goal, no VLM.
 
-    Two variants:
+    Three variants:
       - C1 (semantic_aware=False): the *geometric* planner. It only ever sees
         the hard hazards (from obs); it is blind to the semantic keep-out zones,
         so it ploughs straight through them. This is "pure classical planning."
-      - C2 (semantic_aware=True): the *oracle* planner. It is handed the semantic
-        zones as extra obstacles, i.e. a human has hand-coded the keep-out region
-        into the planner's cost. This is the upper bound the VLM must match
-        WITHOUT any hand-coded perception.
+      - C2-hard (semantic_aware=True, soft_oracle=False): the *hard* oracle. The
+        hand-coded semantic zones are folded into the avoid-set as HARD obstacles
+        (collision_penalty). It never enters a zone (0% violation) but
+        hard-avoiding every zone + every hazard over-constrains the planner, so
+        on crowded scenes it times out. The over-constrained upper bound.
+      - C2-soft (soft_oracle=True): the *fair* oracle. The hand-coded TRUE zone
+        geometry is fed as a SOFT cost via set_soft_zones — the SAME mechanism and
+        weight B+ uses — so it strongly avoids zones yet always keeps a feasible
+        path (no timeout). This is the apples-to-apples baseline for B+: it
+        isolates exactly one variable (human-labelled TRUE zone vs the VLM's
+        ESTIMATED zone), holding the soft keep-out mechanism fixed. It is the
+        honest answer to "does B+ really beat the oracle, or only a hard one we
+        over-constrained?" — still zero VLM, zero learned perception.
     """
 
     def __init__(
@@ -522,30 +532,140 @@ class ControllerOnlyPolicy(_BasePolicy):
         safety_margin: float,
         *,
         semantic_aware: bool = False,
+        soft_oracle: bool = False,
+        soft_zone_weight: float = 30.0,
+        oracle_soft_mode: str = "bplus",
+        vlm_zone_core: float = 0.8,
     ):
         self.cfg = cfg
         self.low_level = low_level
-        self.semantic_aware = semantic_aware
-        self.name = f"{low_level}_oracle" if semantic_aware else low_level
-        self.expert = make_controller(cfg, low_level, safety_margin)
+        # Both oracle variants are zone-aware; only the enforcement differs.
+        self.semantic_aware = semantic_aware or soft_oracle
+        self.soft_oracle = soft_oracle
+        self.oracle_soft_mode = oracle_soft_mode  # "bplus" | "pure"
+        self.vlm_zone_core = vlm_zone_core
+        if soft_oracle:
+            self.name = f"{low_level}_oracle_soft"
+        elif semantic_aware:
+            self.name = f"{low_level}_oracle"
+        else:
+            self.name = low_level
+        self.expert = make_controller(cfg, low_level, safety_margin, soft_zone_weight)
 
     def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         self.vlm_calls = 0
         self._seed_controller(self.expert, seed)  # before any plan()
-        if self.semantic_aware:
-            # Oracle: plan with hard hazards AND the (hand-coded) semantic zones
-            # folded into the avoid-set. The controllers store this avoid-set at
-            # plan() time and reuse it every act() step, so one plan suffices.
-            pos, _, goal, hazards = _obs_parts(obs, self.cfg)
-            zones = np.asarray(
-                info.get("semantic_zones", np.zeros((0, 3))), dtype=np.float32
-            ).reshape(-1, 3)
+        if not self.semantic_aware:
+            self.expert.reset_from_obs(obs)
+            return
+        # Oracle: read the hand-coded TRUE zones (x, y, r). The controller stores
+        # its avoid-set / soft-zones at plan() time and reuses them every act()
+        # step, so one plan suffices.
+        pos, _, goal, hazards = _obs_parts(obs, self.cfg)
+        zones = np.asarray(
+            info.get("semantic_zones", np.zeros((0, 3))), dtype=np.float32
+        ).reshape(-1, 3)
+        if self.soft_oracle:
+            # C2-soft: TRUE geometry fed via the SOFT mechanism, so a path always
+            # exists (no hard-oracle over-constraint/timeout). Two modes:
+            #   "pure"  — true (x, y, r) as a pure soft cost, no hard core. The
+            #             canonical "soft-cost oracle": strongly avoids but, like
+            #             any soft cost, still grazes zones sometimes.
+            #   "bplus" — mirror B+'s exact enforcement (a small hard CORE of
+            #             vlm_zone_core + a soft HALO at the true radius), but at
+            #             the human-labelled TRUE centre. This is the apples-to-
+            #             apples baseline for B+: same mechanism, only the geometry
+            #             source differs (true vs VLM-estimated), so B+-vs-this
+            #             isolates exactly the cost of perceiving rather than
+            #             knowing the zone.
+            if not hasattr(self.expert, "set_soft_zones"):
+                raise ValueError(
+                    f"soft oracle needs a controller with set_soft_zones; "
+                    f"'{self.low_level}' has none (use --low_level mpc)."
+                )
+            if zones.size == 0:
+                self.expert.set_soft_zones(np.zeros((0, 3), dtype=np.float32))
+                self.expert.plan(pos, goal, hazards)
+            elif self.oracle_soft_mode == "pure":
+                self.expert.set_soft_zones(zones)            # true (x, y, r), soft
+                self.expert.plan(pos, goal, hazards)
+            else:  # "bplus": hard core (vlm_zone_core) + soft halo (true radius)
+                cores = np.column_stack(
+                    [zones[:, :2], np.full(len(zones), self.vlm_zone_core, np.float32)]
+                ).astype(np.float32)
+                self.expert.set_soft_zones(zones)            # true radius soft halo
+                self.expert.plan(pos, goal, np.concatenate([hazards, cores], axis=0))
+        else:
+            # C2-hard: zones folded into the avoid-set as HARD obstacles.
             avoid = np.concatenate([hazards, zones], axis=0) if zones.size else hazards
             self.expert.plan(pos, goal, avoid)
-        else:
-            self.expert.reset_from_obs(obs)
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
+        return self.expert.act(obs)
+
+
+class DetectorControllerPolicy(_BasePolicy):
+    """C+det — a hand-coded CV colour detector reads the keep-out zones straight
+    off the rendered image and feeds them to the SAME soft controller B+ uses.
+
+    This is the standard perception-stack competitor a roboticist reaches for
+    before a VLM: zero VLM, deterministic, ~free. On a clean rendered toy it is
+    near-perfect — which is the point. It needs a per-appearance colour detector
+    hand-coded for EVERY terrain (water/mud/grass/amber); add a new terrain and it
+    is blind until a human adds its colour. So it is the literal 'N hand-coded
+    detectors' baseline against which the 'one VLM, zero-shot' claim is measured.
+    The zone source is detection (estimated geometry), so it is apples-to-apples
+    with B+ (VLM-estimated) and the soft oracle (true geometry): same controller,
+    different perception."""
+
+    def __init__(
+        self,
+        cfg: PointHazardConfig,
+        renderer: HazardRenderer,
+        low_level: str,
+        safety_margin: float,
+        *,
+        soft_zone_weight: float = 30.0,
+        oracle_soft_mode: str = "bplus",
+        vlm_zone_core: float = 0.8,
+        detect_styles: tuple[str, ...] = (),
+        color_thresh: float = 33.0,
+    ):
+        self.cfg = cfg
+        self.renderer = renderer
+        self.low_level = low_level
+        self.name = f"{low_level}_detector"
+        self.expert = make_controller(cfg, low_level, safety_margin, soft_zone_weight)
+        self.oracle_soft_mode = oracle_soft_mode
+        self.vlm_zone_core = vlm_zone_core
+        self.detect_styles = tuple(detect_styles)
+        self.color_thresh = color_thresh
+
+    def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
+        self.vlm_calls = 0
+        self._seed_controller(self.expert, seed)
+        self._planned = False  # detect + plan once on the first act (needs env)
+
+    def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
+        if not self._planned:
+            pos, _, goal, hazards = _obs_parts(obs, self.cfg)
+            zones = estimate_zones_from_image(
+                env.render(), self.renderer,
+                color_thresh=self.color_thresh,
+                styles=self.detect_styles or None,
+            )
+            if zones.size and hasattr(self.expert, "set_soft_zones"):
+                self.expert.set_soft_zones(zones)  # detected (x,y,r), soft halo
+                if self.oracle_soft_mode == "pure":
+                    self.expert.plan(pos, goal, hazards)
+                else:  # mirror B+/soft-oracle: small hard core + soft halo
+                    cores = np.column_stack(
+                        [zones[:, :2], np.full(len(zones), self.vlm_zone_core, np.float32)]
+                    ).astype(np.float32)
+                    self.expert.plan(pos, goal, np.concatenate([hazards, cores], axis=0))
+            else:
+                self.expert.plan(pos, goal, hazards)
+            self._planned = True
         return self.expert.act(obs)
 
 
@@ -968,6 +1088,15 @@ def evaluate(args: argparse.Namespace) -> None:
     )
     semantic = args.n_semantic_zones > 0
 
+    # Prompt level: what the PROMPT says, decoupled from the rendered appearance.
+    # Default derives from --zone_semantics for back-compat (explicit->L0, implicit
+    # ->L1). L2 says NOTHING about terrain (plain geometry prompt) while the zone is
+    # still rendered + scored — the true commonsense test. The env still scores
+    # violations regardless of what the prompt says.
+    prompt_level = args.prompt_level or ({"explicit": "L0", "implicit": "L1"}[args.zone_semantics])
+    prompt_semantic = semantic and (prompt_level != "L2")
+    prompt_zone_mode = "explicit" if prompt_level == "L0" else "implicit"
+
     api_key = args.api_key or os.environ.get("OPENROUTER_API_KEY", "")
     vlm_fn: VlmFn | None = None
     if args.pilot_mode == "vlm":
@@ -1000,13 +1129,38 @@ def evaluate(args: argparse.Namespace) -> None:
     if args.policies:
         which = args.policies.split(",")
     elif semantic:
-        which = [args.low_level, f"{args.low_level}_oracle", "subgoal", "subgoal_perceive"]
+        # C1 / C2-hard / C2-soft (the fair oracle) / B / B+. Under L2 the B+ avoid-
+        # report would itself hint at "unsafe terrain", so drop B+ from the default.
+        which = [
+            args.low_level, f"{args.low_level}_oracle",
+            f"{args.low_level}_oracle_soft", f"{args.low_level}_detector", "subgoal",
+        ]
+        if prompt_level != "L2":
+            which.append("subgoal_perceive")
     else:
         which = [args.low_level, "subgoal", "direct"]
 
     def build(name: str) -> _BasePolicy:
         if name in ("mpc", "safe_expert"):
             return ControllerOnlyPolicy(cfg, low_level=name, safety_margin=args.safety_margin)
+        if name in ("mpc_oracle_soft", "safe_expert_oracle_soft"):
+            base = name[: -len("_oracle_soft")]
+            return ControllerOnlyPolicy(
+                cfg, low_level=base, safety_margin=args.safety_margin,
+                soft_oracle=True, soft_zone_weight=args.vlm_soft_weight,
+                oracle_soft_mode=args.oracle_soft_mode, vlm_zone_core=args.vlm_zone_core,
+            )
+        if name in ("mpc_detector", "safe_expert_detector"):
+            base = name[: -len("_detector")]
+            det_styles = tuple(s for s in args.semantic_styles.split(",") if s) or (
+                SEMANTIC_SPECS[args.zone_semantics].renderer_style,
+            )
+            return DetectorControllerPolicy(
+                cfg, renderer, low_level=base, safety_margin=args.safety_margin,
+                soft_zone_weight=args.vlm_soft_weight,
+                oracle_soft_mode=args.oracle_soft_mode, vlm_zone_core=args.vlm_zone_core,
+                detect_styles=det_styles,
+            )
         if name in ("mpc_oracle", "safe_expert_oracle"):
             base = name[: -len("_oracle")]
             return ControllerOnlyPolicy(
@@ -1018,8 +1172,8 @@ def evaluate(args: argparse.Namespace) -> None:
                 low_level=args.low_level, safety_margin=args.safety_margin,
                 n_dirs=args.subgoal_n_dirs, subgoal_radius=args.subgoal_radius,
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
-                fallback=args.vlm_fallback, semantic=semantic,
-                zone_mode=args.zone_semantics,
+                fallback=args.vlm_fallback, semantic=prompt_semantic,
+                zone_mode=prompt_zone_mode,
                 perceive_zones=(name == "subgoal_perceive"),
                 vlm_zone_radius=args.vlm_zone_radius,
                 vlm_zone_core=args.vlm_zone_core,
@@ -1030,12 +1184,20 @@ def evaluate(args: argparse.Namespace) -> None:
                 cfg, renderer, pilot_mode=args.pilot_mode, vlm_fn=vlm_fn,
                 n_dirs=args.pivot_n_dirs, n_mags=args.pivot_n_mags,
                 arrow_len=args.pivot_arrow_len, vlm_every=args.vlm_every,
-                fallback=args.vlm_fallback, semantic=semantic,
-                zone_mode=args.zone_semantics,
+                fallback=args.vlm_fallback, semantic=prompt_semantic,
+                zone_mode=prompt_zone_mode,
             )
         raise ValueError(f"unknown policy '{name}'")
 
-    seeds = [args.seed + i for i in range(args.episodes)]
+    # Seeds: a contiguous block by default, OR an explicit --seed_list so a
+    # tuning seed set can be kept strictly DISJOINT from the eval set (kills the
+    # "B+ knobs were tuned on the eval seeds" objection — tune on one block,
+    # report on a held-out block). --seed_list overrides --seed/--episodes.
+    if args.seed_list:
+        seeds = [int(s) for s in args.seed_list.split(",") if s.strip() != ""]
+        args.episodes = len(seeds)  # keep header/JSON consistent
+    else:
+        seeds = [args.seed + i for i in range(args.episodes)]
     aggregates = {name: Aggregate(policy=name) for name in which}
     records: list[EpisodeResult] = []
     transcripts: list[dict] = []  # per-episode VLM audit logs (when requested)
@@ -1062,7 +1224,7 @@ def evaluate(args: argparse.Namespace) -> None:
     print(f"PointHazard matched-seed comparison  "
           f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode}, "
           f"semantic_zones={args.n_semantic_zones}"
-          f"{('/' + args.zone_semantics) if semantic else ''}, "
+          f"{('/' + args.zone_semantics + '/' + prompt_level) if semantic else ''}, "
           f"model={args.model if args.pilot_mode == 'vlm' else '-'})")
     width = 100
     print("-" * width)
@@ -1089,6 +1251,8 @@ def evaluate(args: argparse.Namespace) -> None:
                 "vlm_fallback": args.vlm_fallback, "vlm_retries": args.vlm_retries,
                 "n_semantic_zones": args.n_semantic_zones,
                 "zone_semantics": args.zone_semantics,
+                "prompt_level": prompt_level,
+                "oracle_soft_mode": args.oracle_soft_mode,
                 "semantic_step_penalty": args.semantic_step_penalty,
             },
             "summary": {
@@ -1133,6 +1297,11 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--episodes", type=int, default=20)
     p.add_argument("--seed", type=int, default=43)
+    p.add_argument("--seed_list", type=str, default="",
+                   help="explicit comma-list of episode seeds, e.g. '43,44,90,91'. "
+                        "Overrides --seed/--episodes. Use to keep a TUNING seed set "
+                        "strictly disjoint from the EVAL set (anti tuning-on-test): "
+                        "lock B+ knobs on one block, then report on a held-out block.")
     p.add_argument("--max_steps", type=int, default=300)
     p.add_argument("--n_hazards", type=int, default=8)
     p.add_argument("--policies", type=str, default="",
@@ -1174,6 +1343,19 @@ def parse_args() -> argparse.Namespace:
                         "looks unsafe to drive over'), never naming or locating it "
                         "(commonsense; strictly leakage-cleaner). No effect when "
                         "--n_semantic_zones 0.")
+    p.add_argument("--prompt_level", type=str, default="",
+                   choices=["", "L0", "L1", "L2"],
+                   help="what the PROMPT says about the keep-out, decoupled from the "
+                        "rendered appearance (--zone_semantics). 'L0' = name it "
+                        "explicitly (amber restricted zone); 'L1' = category hint only "
+                        "('avoid terrain that looks unsafe'); 'L2' = say NOTHING about "
+                        "terrain at all (plain 'reach the goal, avoid red hazards') — the "
+                        "TRUE commonsense test: does the VLM route around water/mud it was "
+                        "never told to avoid? Default '' derives the level from "
+                        "--zone_semantics (explicit->L0, implicit->L1) for back-compat. "
+                        "NOTE: B+ ('subgoal_perceive') asks which markers sit on unsafe "
+                        "terrain, which is itself a hint, so L2 drops B+ from the default "
+                        "arm set (run C1/C2/B under L2).")
     p.add_argument("--semantic_radius_min", type=float, default=0.8)
     p.add_argument("--semantic_radius_max", type=float, default=1.2)
     p.add_argument("--semantic_styles", type=str, default="",
@@ -1219,6 +1401,14 @@ def parse_args() -> argparse.Namespace:
                         "inside a VLM-perceived keep-out disk. Higher = avoids harder "
                         "(toward the oracle) but a too-high value can over-detour. The "
                         "zone is a SOFT cost, never a hard wall, so it can't livelock.")
+    p.add_argument("--oracle_soft_mode", type=str, default="bplus",
+                   choices=["bplus", "pure"],
+                   help="C2-soft (policy '<low>_oracle_soft'), the FAIR oracle that "
+                        "feeds the hand-coded TRUE zone via the soft mechanism (no "
+                        "hard-oracle timeout). 'bplus' mirrors B+'s exact enforcement "
+                        "(hard core vlm_zone_core + soft halo at the true radius) at "
+                        "the true centre, so B+-vs-oracle isolates true-vs-estimated "
+                        "geometry; 'pure' uses the true (x,y,r) as a pure soft cost.")
 
     p.add_argument("--out", type=str, default="",
                    help="optional path to write a JSON dump of per-episode records")
