@@ -1,0 +1,209 @@
+{
+  "config": {
+    "episodes": 5,
+    "seed0": 43,
+    "pilot_mode": "vlm",
+    "model": "google/gemini-3-flash-preview",
+    "n_hazards": 8,
+    "max_steps": 300,
+    "low_level": "mpc",
+    "temperature": 0.0,
+    "vlm_fallback": "hold",
+    "vlm_retries": 1,
+    "n_semantic_zones": 1,
+    "zone_semantics": "implicit",
+    "semantic_step_penalty": 0.0
+  },
+  "summary": {
+    "subgoal": {
+      "n": 5,
+      "success": 5,
+      "hazard": 0,
+      "timeout": 0,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "hazard_rate": 0.0,
+      "hazard_ci95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "mean_min_clearance": 0.33011982440948484,
+      "mean_vlm_calls": 3.0,
+      "total_vlm_calls": 15,
+      "parse_fail": 0,
+      "api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 1,
+      "semantic_violation_rate": 0.2,
+      "semantic_violation_ci95": [
+        0.03622316096978745,
+        0.6244717358814613
+      ],
+      "mean_semantic_steps": 1.0
+    },
+    "subgoal_perceive": {
+      "n": 5,
+      "success": 5,
+      "hazard": 0,
+      "timeout": 0,
+      "success_rate": 1.0,
+      "success_ci95": [
+        0.5655085052479191,
+        1.0
+      ],
+      "hazard_rate": 0.0,
+      "hazard_ci95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "mean_min_clearance": 0.23896365761756896,
+      "mean_vlm_calls": 3.4,
+      "total_vlm_calls": 17,
+      "parse_fail": 0,
+      "api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_violation_rate": 0.0,
+      "semantic_violation_ci95": [
+        0.0,
+        0.43449149475208104
+      ],
+      "mean_semantic_steps": 0.0
+    }
+  },
+  "episodes": [
+    {
+      "policy": "subgoal",
+      "seed": 43,
+      "outcome": "goal",
+      "steps": 44,
+      "min_clearance": 0.23927682638168335,
+      "vlm_calls": 3,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal",
+      "seed": 44,
+      "outcome": "goal",
+      "steps": 34,
+      "min_clearance": 0.5211523175239563,
+      "vlm_calls": 3,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal",
+      "seed": 45,
+      "outcome": "goal",
+      "steps": 49,
+      "min_clearance": 0.2010434865951538,
+      "vlm_calls": 4,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal",
+      "seed": 46,
+      "outcome": "goal",
+      "steps": 28,
+      "min_clearance": 0.318428099155426,
+      "vlm_calls": 2,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal",
+      "seed": 47,
+      "outcome": "goal",
+      "steps": 31,
+      "min_clearance": 0.37069839239120483,
+      "vlm_calls": 3,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 1,
+      "semantic_steps": 5
+    },
+    {
+      "policy": "subgoal_perceive",
+      "seed": 43,
+      "outcome": "goal",
+      "steps": 44,
+      "min_clearance": 0.20055478811264038,
+      "vlm_calls": 3,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal_perceive",
+      "seed": 44,
+      "outcome": "goal",
+      "steps": 40,
+      "min_clearance": 0.37606579065322876,
+      "vlm_calls": 3,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal_perceive",
+      "seed": 45,
+      "outcome": "goal",
+      "steps": 59,
+      "min_clearance": 0.26743894815444946,
+      "vlm_calls": 5,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal_perceive",
+      "seed": 46,
+      "outcome": "goal",
+      "steps": 45,
+      "min_clearance": 0.15302863717079163,
+      "vlm_calls": 2,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    },
+    {
+      "policy": "subgoal_perceive",
+      "seed": 47,
+      "outcome": "goal",
+      "steps": 51,
+      "min_clearance": 0.19773012399673462,
+      "vlm_calls": 4,
+      "vlm_parse_fail": 0,
+      "vlm_api_fail": 0,
+      "fallback_used": 0,
+      "semantic_violated": 0,
+      "semantic_steps": 0
+    }
+  ]
+}

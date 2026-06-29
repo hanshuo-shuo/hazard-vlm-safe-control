@@ -1,0 +1,31 @@
+  [mpc         seed=43] goal    steps=25  min_clear=+0.226 vlm=0
+  [mpc         seed=44] goal    steps=20  min_clear=+1.201 vlm=0
+  [mpc         seed=45] goal    steps=26  min_clear=+0.303 vlm=0
+  [mpc         seed=46] goal    steps=19  min_clear=+0.351 vlm=0
+  [mpc         seed=47] goal    steps=21  min_clear=+0.591 vlm=0
+  [subgoal     seed=43] goal    steps=48  min_clear=+0.279 vlm=4
+  [subgoal     seed=44] goal    steps=28  min_clear=+1.201 vlm=2
+  [subgoal     seed=45] goal    steps=41  min_clear=+0.590 vlm=4
+  [subgoal     seed=46] goal    steps=25  min_clear=+0.470 vlm=2
+  [subgoal     seed=47] goal    steps=32  min_clear=+0.628 vlm=3
+  [direct      seed=43] hazard  steps=12  min_clear=-0.144 vlm=12
+  [direct      seed=44] goal    steps=19  min_clear=+1.201 vlm=19
+  [direct      seed=45] goal    steps=29  min_clear=+0.161 vlm=29
+  [direct      seed=46] goal    steps=19  min_clear=+0.583 vlm=19
+  [direct      seed=47] goal    steps=22  min_clear=+0.262 vlm=22
+
+PointHazard matched-seed comparison  (episodes=5, seed0=43, pilot=vlm, model=google/gemini-3-flash-preview)
+------------------------------------------------------------------------------
+policy             success [95% CI]         hazard [95% CI]  min_clr  vlm/ep    fb%
+------------------------------------------------------------------------------
+mpc          100.0% [56.6,100.0]    0.0% [ 0.0,43.4]   +0.534     0.0    -  
+subgoal      100.0% [56.6,100.0]    0.0% [ 0.0,43.4]   +0.634     3.0   0.0%
+direct        80.0% [37.6,96.4]   20.0% [ 3.6,62.4]   +0.413    20.2   0.0%
+------------------------------------------------------------------------------
+success/hazard = % of episodes, with Wilson 95% CI.
+min_clr = mean per-episode min edge-to-body clearance (negative => collision).
+vlm/ep = mean VLM queries per episode; fb% = fraction of those queries that
+         fell back (parse/API failure) — a clean run keeps this near 0.
+
+Wrote per-episode records to outputs/month1_confidence.json
+Wrote 116 VLM transcripts to outputs/month1_confidence.transcripts.json

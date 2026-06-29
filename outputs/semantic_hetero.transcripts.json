@@ -1,0 +1,462 @@
+[
+  {
+    "policy": "subgoal",
+    "seed": 43,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the safest path to the left, avoiding the water hazard and red circles, allowing for a clear route upward toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the safest path to the left, avoiding the water hazard and red circles, allowing for a clear route upward toward the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoints 2-8 are blocked by hazards (red circles) or unsafe terrain (water and rocky areas). Waypoint 1 is the only safe direction to begin a detour around these obstacles toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Waypoints 2-8 are blocked by hazards (red circles) or unsafe terrain (water and rocky areas). Waypoint 1 is the only safe direction to begin a detour around these obstacles toward the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 is the best choice as it moves toward the goal while avoiding the water hazard directly in front (waypoint 3) and the red hazard to the left (waypoint 5).",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 is the best choice as it moves toward the goal while avoiding the water hazard directly in front (waypoint 3) and the red hazard to the left (waypoint 5).\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown cratered area) to the left.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown cratered area) to the left.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown cratered area).",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown cratered area).\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 44,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoints 6, 7, and 8 lead directly into unsafe terrain (water, mud, and tall grass). Waypoint 5 provides a safe path around these obstacles to reach the goal 'G' on the other side.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 5, \"reason\": \"Waypoints 6, 7, and 8 lead directly into unsafe terrain (water, mud, and tall grass). Waypoint 5 provides a safe path around these obstacles to reach the goal 'G' on the other side.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the safest path toward the goal by steering clear of the red hazards to the left and the unsafe terrain (water, mud, and grass patches) directly between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the safest path toward the goal by steering clear of the red hazards to the left and the unsafe terrain (water, mud, and grass patches) directly between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal while avoiding the red hazards and the unsafe terrain (water, mud, and grass) located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal while avoiding the red hazards and the unsafe terrain (water, mud, and grass) located between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 provides the most direct path to the goal 'G' while avoiding the red hazards and the unsafe terrain (water, mud, and grass areas) located to the right of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 provides the most direct path to the goal 'G' while avoiding the red hazards and the unsafe terrain (water, mud, and grass areas) located to the right of the agent.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 45,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoints 4 and 5 lead directly into the water/unsafe terrain. Waypoint 6 provides a safe path around the water and hazards toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoints 4 and 5 lead directly into the water/unsafe terrain. Waypoint 6 provides a safe path around the water and hazards toward the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal while safely avoiding the water-like terrain and the red hazards located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal while safely avoiding the water-like terrain and the red hazards located between the current position and the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoints 3, 4, and 5 are blocked by red hazards or unsafe terrain (the brown cratered area). Waypoint 6 provides a safe path around these obstacles to eventually reach the goal 'G' on the left.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoints 3, 4, and 5 are blocked by red hazards or unsafe terrain (the brown cratered area). Waypoint 6 provides a safe path around these obstacles to eventually reach the goal 'G' on the left.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the unsafe terrain (the brown cratered area and the green striped area) in the center of the arena.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the unsafe terrain (the brown cratered area and the green striped area) in the center of the arena.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown rocky area).",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazards and the unsafe terrain (the striped green area and the brown rocky area).\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 46,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoints 4 and 5 are blocked by unsafe terrain (water and mud). Waypoint 3 provides the most direct path toward the goal while safely bypassing the hazards and unsafe terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoints 4 and 5 are blocked by unsafe terrain (water and mud). Waypoint 3 provides the most direct path toward the goal while safely bypassing the hazards and unsafe terrain.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the unsafe terrain (mud and water) located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely avoiding the red hazards and the unsafe terrain (mud and water) located between the agent and the goal.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 47,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 is the most direct path toward the goal that avoids the water hazard and the red obstacles. Waypoints 8 and 7 would lead into unsafe terrain (water) or obstacles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Waypoint 1 is the most direct path toward the goal that avoids the water hazard and the red obstacles. Waypoints 8 and 7 would lead into unsafe terrain (water) or obstacles.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 is the most direct path toward the goal that avoids the red hazards and the unsafe terrain (water and mud) located to the south and southwest.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Waypoint 1 is the most direct path toward the goal that avoids the red hazards and the unsafe terrain (water and mud) located to the south and southwest.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal_perceive",
+    "seed": 43,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 4 is on the water-like unsafe terrain. Waypoint 5 provides the safest path to bypass the hazards and the unsafe terrain to reach the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"avoid\": [4], \"reason\": \"Waypoint 4 is on the water-like unsafe terrain. Waypoint 5 provides the safest path to bypass the hazards and the unsafe terrain to reach the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the safest path toward the goal while avoiding the red hazards and the water-like terrain (marker 2).",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"avoid\": [2], \"reason\": \"Waypoint 4 provides the safest path toward the goal while avoiding the red hazards and the water-like terrain (marker 2).\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoints 1 and 2 are located on unsafe terrain (water and mud/rock). Waypoint 3 provides the safest and most direct path toward the goal while avoiding all hazards and unsafe terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"avoid\": [1, 2], \"reason\": \"Waypoints 1 and 2 are located on unsafe terrain (water and mud/rock). Waypoint 3 provides the safest and most direct path toward the goal while avoiding all hazards and unsafe terrain.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoints 1 and 2 are located on unsafe terrain (the cratered and striped areas). Waypoint 3 provides the most direct path to the goal while staying on safe ground and avoiding red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"avoid\": [1, 2], \"reason\": \"Waypoints 1 and 2 are located on unsafe terrain (the cratered and striped areas). Waypoint 3 provides the most direct path to the goal while staying on safe ground and avoiding red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal_perceive",
+    "seed": 44,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "The direct path to the goal is blocked by water, mud, and tall grass terrain. Waypoints 6 and 7 are located on this unsafe terrain. Waypoint 5 provides the best detour to the left to navigate around these obstacles and the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"avoid\": [6, 7], \"reason\": \"The direct path to the goal is blocked by water, mud, and tall grass terrain. Waypoints 6 and 7 are located on this unsafe terrain. Waypoint 5 provides the best detour to the left to navigate around these obstacles and the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 8 is on water/unsafe terrain. Waypoint 7 is blocked by a cluster of unsafe terrain (mud/grass) between it and the goal. Waypoint 6 provides the safest path to detour around these obstacles toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"avoid\": [8], \"reason\": \"Waypoint 8 is on water/unsafe terrain. Waypoint 7 is blocked by a cluster of unsafe terrain (mud/grass) between it and the goal. Waypoint 6 provides the safest path to detour around these obstacles toward the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal while avoiding the red hazards and the unsafe terrain (water, mud, and grates). Waypoint 1 is located on the water/unsafe terrain and must be avoided.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"avoid\": [1], \"reason\": \"Waypoint 8 provides the most direct path toward the goal while avoiding the red hazards and the unsafe terrain (water, mud, and grates). Waypoint 1 is located on the water/unsafe terrain and must be avoided.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoints 1, 2, and 8 are located on unsafe terrain (water, mud, and tall grass). Waypoint 7 provides the safest and most direct path toward the goal 'G' while avoiding all hazards and unsafe terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"avoid\": [1, 2, 8], \"reason\": \"Waypoints 1, 2, and 8 are located on unsafe terrain (water, mud, and tall grass). Waypoint 7 provides the safest and most direct path toward the goal 'G' while avoiding all hazards and unsafe terrain.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal_perceive",
+    "seed": 45,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 5 is located on the water/pool terrain, which is unsafe to cross. Waypoint 4 provides the best path to navigate around the water and the red hazards toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"avoid\": [5], \"reason\": \"Waypoint 5 is located on the water/pool terrain, which is unsafe to cross. Waypoint 4 provides the best path to navigate around the water and the red hazards toward the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoints 6 and 7 are located on the water/unsafe terrain. Waypoint 5 is blocked by a red hazard. Waypoint 4 provides the most direct path toward the goal while safely avoiding both the hazards and the unsafe terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"avoid\": [6, 7], \"reason\": \"Waypoints 6 and 7 are located on the water/unsafe terrain. Waypoint 5 is blocked by a red hazard. Waypoint 4 provides the most direct path toward the goal while safely avoiding both the hazards and the unsafe terrain.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoints 6 and 7 are located on the brown rocky/muddy terrain which is unsafe to drive over. Waypoint 5 provides the most direct path toward the goal 'G' while staying on clean ground and avoiding the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 5, \"avoid\": [6, 7], \"reason\": \"Waypoints 6 and 7 are located on the brown rocky/muddy terrain which is unsafe to drive over. Waypoint 5 provides the most direct path toward the goal 'G' while staying on clean ground and avoiding the red hazards.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path toward the goal 'G' that stays on clear ground. Waypoints 7 and 8 must be avoided as they are located on the brown rocky terrain, which is unsafe to drive over.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"avoid\": [7, 8], \"reason\": \"Waypoint 6 is the most direct path toward the goal 'G' that stays on clear ground. Waypoints 7 and 8 must be avoided as they are located on the brown rocky terrain, which is unsafe to drive over.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal_perceive",
+    "seed": 46,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoints 4 and 5 are located on water and mud terrain, which are off-limits. Waypoint 4 is chosen as the next step because it heads toward the goal while initiating a path around the hazards, though the controller must navigate the edge of the unsafe terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"avoid\": [4, 5], \"reason\": \"Waypoints 4 and 5 are located on water and mud terrain, which are off-limits. Waypoint 4 is chosen as the next step because it heads toward the goal while initiating a path around the hazards, though the controller must navigate the edge of the unsafe terrain.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoints 6 and 7 are on unsafe terrain (mud and water). Waypoint 5 is blocked by a red hazard. Waypoint 4 provides the safest path to navigate around the hazards toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"avoid\": [6, 7], \"reason\": \"Waypoints 6 and 7 are on unsafe terrain (mud and water). Waypoint 5 is blocked by a red hazard. Waypoint 4 provides the safest path to navigate around the hazards toward the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards and the unsafe terrain (the brown and blue areas). Waypoint 7 is located on the unsafe brown terrain and must be avoided.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"avoid\": [7], \"reason\": \"Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards and the unsafe terrain (the brown and blue areas). Waypoint 7 is located on the unsafe brown terrain and must be avoided.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal_perceive",
+    "seed": 47,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 8 is located on the water/unsafe terrain, so it must be avoided. Waypoint 1 provides the most direct path toward the goal 'G' while staying on safe ground and avoiding the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"avoid\": [8], \"reason\": \"Waypoint 8 is located on the water/unsafe terrain, so it must be avoided. Waypoint 1 provides the most direct path toward the goal 'G' while staying on safe ground and avoiding the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoints 6 and 8 are located on unsafe terrain (water and mud/sand). Waypoint 1 provides the most direct path toward the goal 'G' while staying on safe ground and avoiding the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"avoid\": [6, 8], \"reason\": \"Waypoints 6 and 8 are located on unsafe terrain (water and mud/sand). Waypoint 1 provides the most direct path toward the goal 'G' while staying on safe ground and avoiding the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoints 5 and 6 are on water, while 7 and 8 are on mud/grass terrain which should be avoided. Waypoint 1 provides the safest path toward the goal while avoiding the red hazard to the right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"avoid\": [5, 6, 7, 8], \"reason\": \"Waypoints 5 and 6 are on water, while 7 and 8 are on mud/grass terrain which should be avoided. Waypoint 1 provides the safest path toward the goal while avoiding the red hazard to the right.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoints 5 and 6 are located on water and mud/rough terrain, which are unsafe. Waypoint 7 provides the most direct path to the goal while staying on clean ground and avoiding the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"avoid\": [5, 6], \"reason\": \"Waypoints 5 and 6 are located on water and mud/rough terrain, which are unsafe. Waypoint 7 provides the most direct path to the goal while staying on clean ground and avoiding the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 is the most direct path toward the goal 'G'. Waypoint 6 must be avoided as it sits on the unsafe brown/green terrain.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"avoid\": [6], \"reason\": \"Waypoint 7 is the most direct path toward the goal 'G'. Waypoint 6 must be avoided as it sits on the unsafe brown/green terrain.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "The goal is to the south-east. Waypoints 6 and 7 are located on unsafe terrain (the brown and green textured areas), so they must be avoided. Waypoint 8 provides the safest and most direct path toward the goal while staying on clear ground and avoiding the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"avoid\": [6, 7], \"reason\": \"The goal is to the south-east. Waypoints 6 and 7 are located on unsafe terrain (the brown and green textured areas), so they must be avoided. Waypoint 8 provides the safest and most direct path toward the goal while staying on clear ground and avoiding the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "The goal is directly south. Waypoint 7 is on the goal but sits on a green textured area that looks like unsafe terrain (grass/swamp). Waypoint 6 is also on unsafe terrain (brown/green circles). Waypoint 8 provides the safest path around these areas toward the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"avoid\": [6, 7], \"reason\": \"The goal is directly south. Waypoint 7 is on the goal but sits on a green textured area that looks like unsafe terrain (grass/swamp). Waypoint 6 is also on unsafe terrain (brown/green circles). Waypoint 8 provides the safest path around these areas toward the goal.\"}"
+      }
+    ]
+  }
+]

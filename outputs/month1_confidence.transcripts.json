@@ -1,0 +1,1222 @@
+[
+  {
+    "policy": "subgoal",
+    "seed": 43,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and above.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and above.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards. Waypoint 3 is blocked by a hazard, and Waypoint 5 moves further away from the target.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards. Waypoint 3 is blocked by a hazard, and Waypoint 5 moves further away from the target.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path toward the goal 'G' and is clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path toward the goal 'G' and is clear of any red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 44,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and right.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 is the most direct path toward the green goal 'G' and provides a clear, hazard-free route.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 is the most direct path toward the green goal 'G' and provides a clear, hazard-free route.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 45,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards located in the center of the arena.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards located in the center of the arena.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while maintaining a safe distance from the surrounding red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while maintaining a safe distance from the surrounding red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while avoiding all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while avoiding all red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards above and below it.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards above and below it.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 46,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while maintaining a safe distance from the red hazards located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while maintaining a safe distance from the red hazards located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards above and to the left of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards above and to the left of the agent.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 47,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards. Waypoint 1 is also in the general direction but leads closer to a cluster of hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards. Waypoint 1 is also in the general direction but leads closer to a cluster of hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 is the most direct path toward the goal 'G' that avoids immediate red hazards. Waypoint 8 is blocked by a small hazard, and Waypoint 2 leads toward a cluster of hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Waypoint 1 is the most direct path toward the goal 'G' that avoids immediate red hazards. Waypoint 8 is blocked by a small hazard, and Waypoint 2 leads toward a cluster of hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 is the closest to the goal 'G' and provides a clear, direct path that avoids all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 is the closest to the goal 'G' and provides a clear, direct path that avoids all red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "direct",
+    "seed": 43,
+    "calls": [
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards located to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards located to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the goal 'G' while safely navigating between the red hazards to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the goal 'G' while safely navigating between the red hazards to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazard circles located to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazard circles located to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the right and directly above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the right and directly above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely navigating between the red hazards to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely navigating between the red hazards to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 2,
+        "reason": "Arrow 3 provides the most direct vertical movement toward the goal while maintaining a safe distance from the red hazards to the left and right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Arrow 3 provides the most direct vertical movement toward the goal while maintaining a safe distance from the red hazards to the left and right.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located directly above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located directly above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 points most directly toward the green goal 'G' while providing a clear path that avoids the red hazards immediately above and to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 points most directly toward the green goal 'G' while providing a clear path that avoids the red hazards immediately above and to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 1,
+        "reason": "Arrow 2 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circles immediately to the left and above the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Arrow 2 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circles immediately to the left and above the agent.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 2,
+        "reason": "Arrow 3 provides the most direct path toward the green goal 'G' while moving away from the immediate red hazards located to the left and top-right of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Arrow 3 provides the most direct path toward the green goal 'G' while moving away from the immediate red hazards located to the left and top-right of the agent's current position.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "direct",
+    "seed": 44,
+    "calls": [
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 provides a direct diagonal path toward the green goal 'G' while maintaining a safe distance from the red hazards to the left and right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 provides a direct diagonal path toward the green goal 'G' while maintaining a safe distance from the red hazards to the left and right.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 provides the most direct path toward the green goal 'G' while moving away from the nearby red hazards to the right and top-right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 provides the most direct path toward the green goal 'G' while moving away from the nearby red hazards to the right and top-right.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 provides the most direct path toward the green goal 'G' while moving away from the nearby red hazards to the right and above.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 provides the most direct path toward the green goal 'G' while moving away from the nearby red hazards to the right and above.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}\n```"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows the current momentum of the trajectory without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows the current momentum of the trajectory without intersecting any red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows the current downward momentum without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows the current downward momentum without intersecting any red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows the shortest path without any hazards in the immediate way.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows the shortest path without any hazards in the immediate way.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' and follows the shortest path without any hazards in the immediate way.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' and follows the shortest path without any hazards in the immediate way.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal circle located immediately below the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal circle located immediately below the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal circle located immediately behind the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal circle located immediately behind the agent's current position.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "direct",
+    "seed": 45,
+    "calls": [
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides a direct diagonal path toward the goal 'G' while safely clearing the red hazards located in the center of the arena.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides a direct diagonal path toward the goal 'G' while safely clearing the red hazards located in the center of the arena.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 provides the most direct horizontal force toward the green goal 'G' while avoiding the red hazards located above and below the direct path.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 provides the most direct horizontal force toward the green goal 'G' while avoiding the red hazards located above and below the direct path.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Direction 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazards located in the center of the arena.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Direction 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazards located in the center of the arena.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Direction 5 points directly toward the green goal 'G' and the path is currently clear of red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 5, \"reason\": \"Direction 5 points directly toward the green goal 'G' and the path is currently clear of red hazards.\"}\n```"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 provides the most direct path toward the green goal 'G' while avoiding all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 provides the most direct path toward the green goal 'G' while avoiding all red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides a strong force directed towards the goal while steering clear of the red hazards located directly to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides a strong force directed towards the goal while steering clear of the red hazards located directly to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 provides the most direct path toward the goal 'G' while avoiding the red hazards located above and below the direct line of travel.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 provides the most direct path toward the goal 'G' while avoiding the red hazards located above and below the direct line of travel.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard circles located directly to the left and above the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard circles located directly to the left and above the agent.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides the most efficient path while avoiding the red hazards immediately to the left.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides the most efficient path while avoiding the red hazards immediately to the left.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard immediately to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard immediately to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circle immediately to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circle immediately to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard circle located immediately to the left and below the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the goal 'G' while steering clear of the red hazard circle located immediately to the left and below the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows the shortest path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows the shortest path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and follows a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 provides the most direct path toward the goal 'G' while steering clear of the red hazard circle located immediately to the left (near arrow 5).",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 provides the most direct path toward the goal 'G' while steering clear of the red hazard circle located immediately to the left (near arrow 5).\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 provides a direct path toward the green goal 'G' while steering clear of the red hazard circle located immediately to the upper-left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 provides a direct path toward the green goal 'G' while steering clear of the red hazard circle located immediately to the upper-left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 points most directly toward the green goal 'G' while avoiding the red hazard circle immediately above the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 points most directly toward the green goal 'G' while avoiding the red hazard circle immediately above the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 points directly toward the green goal 'G' and provides the shortest path to it without intersecting any red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 points directly toward the green goal 'G' and provides the shortest path to it without intersecting any red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 5,
+        "reason": "Arrow 6 points directly toward the green goal 'G' and provides the shortest path to it without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Arrow 6 points directly toward the green goal 'G' and provides the shortest path to it without intersecting any red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal circle, which is located immediately below the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal circle, which is located immediately below the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 6,
+        "reason": "Arrow 7 points directly toward the green goal 'G' from the current position of the blue agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Arrow 7 points directly toward the green goal 'G' from the current position of the blue agent.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal 'G' and provides the most efficient path to reach it while remaining clear of all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal 'G' and provides the most efficient path to reach it while remaining clear of all red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "direct",
+    "seed": 46,
+    "calls": [
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located to the right and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located to the right and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct diagonal path toward the green goal 'G' while maintaining a safe distance from the red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct diagonal path toward the green goal 'G' while maintaining a safe distance from the red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located directly to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circles located directly to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while avoiding the red hazard circles located to the left and above the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while avoiding the red hazard circles located to the left and above the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely navigating between the red hazards located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely navigating between the red hazards located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circle located immediately to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circle located immediately to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circle located immediately to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while steering clear of the red hazard circle located immediately to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while safely avoiding the red hazard circles located above and to the left of the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 provides the most direct path toward the green goal 'G' while avoiding the red hazard circle located immediately to the left of the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 provides the most direct path toward the green goal 'G' while avoiding the red hazard circle located immediately to the left of the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides the shortest path without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides the shortest path without intersecting any red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 3,
+        "reason": "Arrow 4 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Arrow 4 points directly toward the green goal 'G' and provides a clear path that avoids all red hazard circles.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal 'G' and provides the shortest path without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal 'G' and provides the shortest path without intersecting any red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 4,
+        "reason": "Arrow 5 points directly toward the green goal circle, which is the shortest path and does not intersect any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Arrow 5 points directly toward the green goal circle, which is the shortest path and does not intersect any red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "direct",
+    "seed": 47,
+    "calls": [
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the green goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 points most directly toward the goal 'G' while avoiding all red hazards in the immediate path.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 points most directly toward the goal 'G' while avoiding all red hazards in the immediate path.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the right and below.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the right and below.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides a direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles to the right and below.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides a direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles to the right and below.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while avoiding the red hazard circles located to the right and below the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while avoiding the red hazard circles located to the right and below the current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while safely avoiding the small red hazard located directly below the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while safely avoiding the small red hazard located directly below the agent.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 provides the most direct path toward the goal 'G' while avoiding the small hazard immediately below the agent's current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 provides the most direct path toward the goal 'G' while avoiding the small hazard immediately below the agent's current position.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while moving away from the nearest red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while moving away from the nearest red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 provides the most direct path toward the goal 'G' while moving away from the immediate hazard located near arrow 6.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 provides the most direct path toward the goal 'G' while moving away from the immediate hazard located near arrow 6.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while avoiding all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while avoiding all red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while avoiding the small red hazard immediately to the left of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while avoiding the small red hazard immediately to the left of the agent.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 7,
+        "reason": "Arrow 8 provides the most direct path toward the goal 'G' while avoiding the nearby red hazard to the left.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Arrow 8 provides the most direct path toward the goal 'G' while avoiding the nearby red hazard to the left.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal 'G' and has a clear path free of red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal 'G' and has a clear path free of red hazards.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal 'G' with no hazards in the immediate path.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal 'G' with no hazards in the immediate path.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal 'G' and there are no red hazards in the immediate path between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal 'G' and there are no red hazards in the immediate path between the current position and the goal.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal circle, which is immediately adjacent to the agent's current position with no hazards in the direct path.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal circle, which is immediately adjacent to the agent's current position with no hazards in the direct path.\"}"
+      },
+      {
+        "kind": "direct",
+        "choice": 0,
+        "reason": "Arrow 1 points directly toward the green goal 'G' which is immediately to the right of the agent's current position, with no hazards in the direct path.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 1, \"reason\": \"Arrow 1 points directly toward the green goal 'G' which is immediately to the right of the agent's current position, with no hazards in the direct path.\"}"
+      }
+    ]
+  }
+]

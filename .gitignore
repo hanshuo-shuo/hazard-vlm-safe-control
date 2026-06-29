@@ -13,10 +13,10 @@ __pycache__/
 # Large / reproducible binary artifacts (code-only repo)
 # hazard/ = model weights (.pt), gifs, run logs
 # data/   = demos (.npz), diffusion checkpoints
-# outputs/ = rendered pngs, result figures
+# NOTE: outputs/ (result figures + small JSON logs, ~1.4M) IS tracked so the
+# figures embedded in docs/ render on GitHub. Large binaries below stay ignored.
 hazard/
 data/
-outputs/
 *.pt
 *.npz
 *.gif
