@@ -45,6 +45,12 @@ class HazardRenderer:
         water_fill: tuple[int, int, int, int] = (90, 170, 205, 95),     # translucent teal
         water_outline: tuple[int, int, int] = (40, 110, 150),           # deep teal
         water_ripple: tuple[int, int, int, int] = (240, 250, 255, 175), # light ripples
+        mud_fill: tuple[int, int, int, int] = (120, 85, 50, 120),       # translucent brown
+        mud_outline: tuple[int, int, int] = (80, 55, 30),               # dark brown
+        mud_blotch: tuple[int, int, int, int] = (70, 48, 26, 170),      # darker mud spots
+        grass_fill: tuple[int, int, int, int] = (95, 165, 70, 95),      # translucent green
+        grass_outline: tuple[int, int, int] = (55, 110, 40),            # dark green
+        grass_blade: tuple[int, int, int, int] = (45, 95, 35, 200),     # blade strokes
     ):
         self.arena_half = float(arena_half)
         self.agent_radius = float(agent_radius)
@@ -73,6 +79,12 @@ class HazardRenderer:
         self.water_fill = water_fill
         self.water_outline = water_outline
         self.water_ripple = water_ripple
+        self.mud_fill = mud_fill
+        self.mud_outline = mud_outline
+        self.mud_blotch = mud_blotch
+        self.grass_fill = grass_fill
+        self.grass_outline = grass_outline
+        self.grass_blade = grass_blade
 
     @classmethod
     def from_env(cls, env, **kwargs) -> "HazardRenderer":
@@ -103,6 +115,60 @@ class HazardRenderer:
         return max(1, int(frac * self.img_size))
 
     # ------------------------------------------------------------------
+    # Semantic keep-out appearances (one per style)
+    # ------------------------------------------------------------------
+
+    def _draw_semantic_zone(self, odraw, cx: int, cy: int, pr: int, style: str) -> None:
+        """Draw one off-limits zone onto the RGBA overlay in the given style.
+
+        Styles other than "restricted" carry their meaning purely in appearance
+        (no symbol, no label) so a VLM must recognise the terrain — the implicit/
+        commonsense test. "restricted" is the explicit amber-X symbol. All styles
+        are visually unlike the solid red hazards. Heterogeneous scenes mix styles
+        so that no single hand-coded detector could flag every zone — but one VLM,
+        zero-shot, can."""
+        if style == "water":
+            odraw.ellipse([cx - pr, cy - pr, cx + pr, cy + pr],
+                          fill=self.water_fill, outline=self.water_outline + (255,), width=3)
+            for frac in (-0.4, -0.1, 0.2, 0.5):
+                yy = cy + frac * pr
+                half = 0.78 * pr
+                pts = []
+                for i in range(25):
+                    t = i / 24.0
+                    xx = cx - half + 2.0 * half * t
+                    yo = yy + 0.13 * pr * np.sin(t * 4.0 * np.pi)
+                    if (xx - cx) ** 2 + (yo - cy) ** 2 <= (0.92 * pr) ** 2:
+                        pts.append((int(xx), int(yo)))
+                if len(pts) >= 2:
+                    odraw.line(pts, fill=self.water_ripple, width=2, joint="curve")
+        elif style == "mud":
+            # Brown bog with a few darker blotches — terrain a wheeled robot bogs in.
+            odraw.ellipse([cx - pr, cy - pr, cx + pr, cy + pr],
+                          fill=self.mud_fill, outline=self.mud_outline + (255,), width=3)
+            for dx, dy, rr in ((-0.35, -0.2, 0.28), (0.3, 0.1, 0.34), (-0.05, 0.4, 0.22),
+                               (0.15, -0.4, 0.2)):
+                bx, by, br = cx + dx * pr, cy + dy * pr, rr * pr
+                odraw.ellipse([bx - br, by - br, bx + br, by + br], fill=self.mud_blotch)
+        elif style == "grass":
+            # Green patch with short blade strokes — "keep off the grass".
+            odraw.ellipse([cx - pr, cy - pr, cx + pr, cy + pr],
+                          fill=self.grass_fill, outline=self.grass_outline + (255,), width=3)
+            for gx in range(-3, 4):
+                for gy in range(-3, 4):
+                    bx, by = cx + gx * 0.26 * pr, cy + gy * 0.26 * pr
+                    if (bx - cx) ** 2 + (by - cy) ** 2 <= (0.82 * pr) ** 2:
+                        odraw.line([(bx, by + 0.16 * pr), (bx, by - 0.16 * pr)],
+                                   fill=self.grass_blade, width=2)
+        else:  # "restricted": amber disk + bold X (explicit symbol)
+            odraw.ellipse([cx - pr, cy - pr, cx + pr, cy + pr],
+                          fill=self.semantic_fill, outline=self.semantic_outline + (255,), width=3)
+            k = int(0.65 * pr)
+            xline = self.semantic_outline + (255,)
+            odraw.line([(cx - k, cy - k), (cx + k, cy + k)], fill=xline, width=3)
+            odraw.line([(cx - k, cy + k), (cx + k, cy - k)], fill=xline, width=3)
+
+    # ------------------------------------------------------------------
     # Render
     # ------------------------------------------------------------------
 
@@ -115,6 +181,7 @@ class HazardRenderer:
         trail: Sequence[np.ndarray] | None = None,
         info_text: str | None = None,
         semantic_zones: np.ndarray | None = None,
+        semantic_styles: Sequence[str] | None = None,
     ) -> np.ndarray:
         img = Image.new("RGB", (self.img_size, self.img_size), self.bg_color)
         draw = ImageDraw.Draw(img)
@@ -152,42 +219,16 @@ class HazardRenderer:
         if semantic_zones is not None and len(semantic_zones) > 0:
             overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
             odraw = ImageDraw.Draw(overlay)
-            for zx, zy, zr in np.asarray(semantic_zones):
+            zones = np.asarray(semantic_zones)
+            for i, (zx, zy, zr) in enumerate(zones):
                 cx, cy = self.world_to_pixel(float(zx), float(zy))
                 pr = self.world_scale(float(zr))
-                if self.semantic_style == "water":
-                    odraw.ellipse(
-                        [cx - pr, cy - pr, cx + pr, cy + pr],
-                        fill=self.water_fill,
-                        outline=self.water_outline + (255,),
-                        width=3,
-                    )
-                    # Wavy ripple lines read as a water surface — no symbol, no
-                    # label; the meaning lives entirely in the appearance.
-                    for frac in (-0.4, -0.1, 0.2, 0.5):
-                        yy = cy + frac * pr
-                        half = 0.78 * pr
-                        pts = []
-                        for i in range(25):
-                            t = i / 24.0
-                            xx = cx - half + 2.0 * half * t
-                            yo = yy + 0.13 * pr * np.sin(t * 4.0 * np.pi)
-                            if (xx - cx) ** 2 + (yo - cy) ** 2 <= (0.92 * pr) ** 2:
-                                pts.append((int(xx), int(yo)))
-                        if len(pts) >= 2:
-                            odraw.line(pts, fill=self.water_ripple, width=2, joint="curve")
-                else:  # "restricted": amber disk + bold X
-                    odraw.ellipse(
-                        [cx - pr, cy - pr, cx + pr, cy + pr],
-                        fill=self.semantic_fill,
-                        outline=self.semantic_outline + (255,),
-                        width=3,
-                    )
-                    # "X" from two chords that stay inside the circle (0.65*r corners)
-                    k = int(0.65 * pr)
-                    xline = self.semantic_outline + (255,)
-                    odraw.line([(cx - k, cy - k), (cx + k, cy + k)], fill=xline, width=3)
-                    odraw.line([(cx - k, cy + k), (cx + k, cy - k)], fill=xline, width=3)
+                style = (
+                    semantic_styles[i]
+                    if semantic_styles is not None and i < len(semantic_styles)
+                    else self.semantic_style
+                )
+                self._draw_semantic_zone(odraw, cx, cy, pr, style)
             img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
             draw = ImageDraw.Draw(img)
 

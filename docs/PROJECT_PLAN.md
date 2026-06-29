@@ -5,6 +5,7 @@
 
 相关文档：
 - `WHY_VLM.md` —— **简明英文图解：VLM 的优势到底在哪**（给导师/论文 intro，先读这个）
+- `RESULTS_AMPLIFY.md` —— **带图详细结果分析**：杠杆 1（B+ 把 VLM 感知喂给低层 → 追平 oracle）+ 杠杆 2（异质 water/mud/grass → 一个 VLM 顶 N 个手写检测器）
 - `FAILURE_MODE_ANALYSIS.md` —— 泄漏发现 + Path A/B 对比（动机来源）
 - `EXPERIMENT_NOTES.md` —— 旧实验记录（结论受泄漏污染，代码可复用）
 - `VLM_PHYSICS_LITERATURE_REVIEW.md` —— 相关工作版图

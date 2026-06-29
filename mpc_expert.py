@@ -48,6 +48,9 @@ class MPCConfig:
     clearance_weight: float = 4.0   # penalty for getting within safety_margin
     effort_weight: float = 0.01     # control magnitude penalty
     collision_penalty: float = 1e4  # one-off penalty when a rollout hits a hazard
+    soft_zone_weight: float = 30.0  # per-step penalty for being inside a SOFT zone
+                                    # (a VLM-perceived keep-out: strongly avoided
+                                    # but never forbidden, so it cannot livelock)
 
 
 # ---------------------------------------------------------------------------
@@ -64,8 +67,19 @@ class MPCExpert:
 
         self.goal = np.zeros(2, dtype=np.float32)
         self.hazards = np.zeros((0, 3), dtype=np.float32)
+        # Soft keep-out zones (x, y, r): strongly penalized but NOT hard-rejected.
+        # Used to feed an uncertain VLM-perceived zone to the planner without the
+        # livelock a mis-placed hard obstacle can cause. Empty for plain/oracle use.
+        self.soft_zones = np.zeros((0, 3), dtype=np.float32)
         self._nominal = np.zeros((self.cfg.horizon, 2), dtype=np.float32)
         self.last_plan_ok = False
+
+    def set_soft_zones(self, zones: np.ndarray) -> None:
+        """Set soft keep-out disks (x, y, r). They add a per-step cost inside the
+        disk but never the hard collision penalty, so the planner skirts them when
+        it can yet always retains a feasible path to the target."""
+        z = np.asarray(zones, dtype=np.float32).reshape(-1, 3) if len(zones) else np.zeros((0, 3), np.float32)
+        self.soft_zones = z
 
     # ------------------------------------------------------------------
     # Target setup (mirrors SafeExpert's API)
@@ -150,6 +164,16 @@ class MPCExpert:
                 # Shaping: discourage hugging the inflated hazard boundary.
                 shaping = np.maximum(0.0, cfg.safety_margin - np.maximum(clearance, 0.0))
                 cost[alive] += cfg.clearance_weight * shaping[alive]
+
+            # Soft keep-out zones: per-step penalty for being inside, scaled by how
+            # deep, but never the hard collision penalty (so a path always exists).
+            if self.soft_zones.shape[0] > 0:
+                sz_xy = self.soft_zones[:, :2]
+                sz_r = self.soft_zones[:, 2]
+                sdiff = pos[:, None, :] - sz_xy[None, :, :]      # (K, M, 2)
+                sdist = np.linalg.norm(sdiff, axis=2)            # (K, M)
+                inside = np.maximum(0.0, sz_r[None, :] - sdist)  # depth past edge
+                cost[alive] += cfg.soft_zone_weight * np.max(inside, axis=1)[alive]
 
             d_goal = np.linalg.norm(pos - self.goal[None, :], axis=1)
             cost[alive] += cfg.goal_weight * d_goal[alive]

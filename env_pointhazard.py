@@ -85,6 +85,13 @@ class PointHazardConfig:
     semantic_corridor_t_min: float = 0.4  # fractional position along start->goal
     semantic_corridor_t_max: float = 0.6
     semantic_step_penalty: float = 0.0  # optional soft reward cost per step inside a zone
+    # Heterogeneous appearances: a pool of per-zone render styles (e.g.
+    # ("water","mud","grass")) assigned round-robin by zone index. Empty = all zones
+    # use the renderer's single default style (homogeneous, backward-compatible).
+    # When set with >1 zone, zones also SPREAD along the corridor (per-zone t-band)
+    # so multiple distinct terrains line the route. Only consulted when non-empty,
+    # so single-zone homogeneous runs keep their exact RNG sequence.
+    semantic_styles: tuple[str, ...] = ()
 
     # Episode
     max_episode_steps: int = 300
@@ -136,6 +143,7 @@ class PointHazardEnv:
         self.goal = np.zeros(2, dtype=np.float32)
         self.hazards = np.zeros((self.cfg.n_hazards, 3), dtype=np.float32)  # (x, y, r)
         self.semantic_zones = np.zeros((0, 3), dtype=np.float32)  # (x, y, r) off-limits
+        self.semantic_zone_styles = None  # per-zone render styles, or None = uniform
         self._semantic_steps = 0  # steps spent inside any semantic zone this episode
         self.t = 0
         self._trail: list[np.ndarray] = []
@@ -225,14 +233,23 @@ class PointHazardEnv:
         seg_dir = seg / (seg_len + 1e-9)
         perp = np.array([-seg_dir[1], seg_dir[0]], dtype=np.float32)
 
+        n = cfg.n_semantic_zones
         zones: list[np.ndarray] = []
-        for _ in range(cfg.n_semantic_zones):
+        for zi in range(n):
             placed = False
             for _try in range(cfg.max_rejection_tries):
                 r = float(self.rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
                 if cfg.semantic_on_corridor:
-                    t = float(self.rng.uniform(cfg.semantic_corridor_t_min,
-                                               cfg.semantic_corridor_t_max))
+                    if n > 1:
+                        # Spread zones along the route: zone zi gets its own t-band
+                        # tiling [0.18, 0.82], so multiple terrains line the path
+                        # rather than piling at the midpoint (and rejecting).
+                        lo = 0.18 + 0.64 * zi / n
+                        hi = 0.18 + 0.64 * (zi + 1) / n
+                        t = float(self.rng.uniform(lo, hi))
+                    else:
+                        t = float(self.rng.uniform(cfg.semantic_corridor_t_min,
+                                                   cfg.semantic_corridor_t_max))
                     # lateral offset < r keeps the segment intersecting the zone
                     lateral = float(self.rng.uniform(-0.4, 0.4)) * r
                     center = self.pos + seg_dir * (t * seg_len) + perp * lateral
@@ -262,9 +279,21 @@ class PointHazardEnv:
                     placed = True
                     break
             if not placed:
-                # Fallback: drop a small zone at the segment midpoint regardless.
-                mid = (self.pos + self.goal) / 2.0
-                zones.append(np.array([mid[0], mid[1], cfg.semantic_radius_min], dtype=np.float32))
+                # Fallback: drop a small zone at this zone's OWN corridor position
+                # (spread by zi) so failed placements don't pile into duplicates.
+                if cfg.semantic_on_corridor and n > 1:
+                    tf = 0.18 + 0.64 * (zi + 0.5) / n
+                else:
+                    tf = 0.5
+                c = self.pos + seg_dir * (tf * seg_len)
+                zones.append(np.array([c[0], c[1], cfg.semantic_radius_min], dtype=np.float32))
+        # Per-zone appearance styles (parallel to `zones`). Assigned by index from
+        # the pool — no RNG draw, so single-zone homogeneous runs are unaffected.
+        # None when no pool is set => renderer uses its single default style.
+        pool = cfg.semantic_styles
+        self.semantic_zone_styles = (
+            [pool[i % len(pool)] for i in range(len(zones))] if pool else None
+        )
         return np.stack(zones, axis=0)
 
     def _in_semantic_zone(self, p: np.ndarray) -> bool:
@@ -406,6 +435,7 @@ class PointHazardEnv:
             trail=self._trail,
             info_text=info_text,
             semantic_zones=self.semantic_zones,
+            semantic_styles=self.semantic_zone_styles,
         )
 
     def close(self) -> None:

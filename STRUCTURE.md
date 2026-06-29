@@ -66,7 +66,7 @@
 | `data/` | `augmented_hazard_demos.npz`、`diffusion_hazard/` | 训练数据。 |
 | `outputs/` | 论文图、render 输出 png | 结果图。 |
 | `scripts/` | 分析/画图脚本 + `.sh` 运行脚本 | 保持原位（内部有相对路径）。 |
-| `docs/` | 研究笔记 + `WHY_VLM.md`（简明英文图解：VLM 优势在哪，先读）+ 结果记录（Month1 / Semantic）/ 失败分析 / 文献综述 | 本次从 root 移入。 |
+| `docs/` | 研究笔记 + `WHY_VLM.md`（简明英文图解：VLM 优势在哪，先读）+ `RESULTS_AMPLIFY.md`（**带图详细分析：杠杆 1 B+ + 杠杆 2 异质区**）+ 结果记录（Month1 / Semantic §11/§12）/ 失败分析 / 文献综述 | 本次从 root 移入。 |
 | `legacy/` | 旧版 PIVOT（momentum/primitive/self-iterating）、diffusion/SAC 训练、`env_hazard_gym.py`（本次新增，已坏的 gym wrapper） | 归档，不再用。 |
 
 ---
@@ -89,6 +89,22 @@
 - `subgoal_pivot_hazard.py` 硬化到可发表标准（去静默兜底 / Wilson CI / transcript 审计 / temp0 / hold 兜底）。
 - 跑通真实 VLM 三方对照（n=5，gemini-3-flash），结果记到 `docs/RESULTS_MONTH1.md`。
 - 归档 3 个泄漏污染的 PointHazard PIVOT 脚本到 `legacy/`（见 §5）。
+
+**2026-06-28（杠杆 2：异质多语义区——一个 VLM 顶 N 个手写检测器）**
+- `hazard_renderer.py`：抽出 `_draw_semantic_zone(odraw,cx,cy,pr,style)`，新增 **mud（棕色斑块）/ grass（绿色草叶）** 两种外观（+原 water/restricted）。`render()` 加 `semantic_styles` per-zone 参数。
+- `env_pointhazard.py`：config 加 `semantic_styles` 池（round-robin 分配，空=同质，**单区同质 RNG 序列不变**，已验证 90/0/85/35 逐位一致）；多区时沿走廊 t-band 铺开（[0.18,0.82]），fallback 也按 zi 分散防重叠。`render()` 透传 styles。
+- `subgoal_pivot_hazard.py`：CLI `--semantic_styles water,mud,grass`。B+ 的质心聚类**天然支持多区**（每区一簇），无需改。
+- **真 VLM n=5 结果**（3 区 water/mud/grass，implicit）：**C1 100% / C2 oracle 0%(但 success 仅 60%) / B 40% / B+ 20%**，B/B+ 全 100% success、0 碰撞。两个亮点：① B+ 比 B 砍半（40→20）、比盲经典砍 5×（100→20）；② **B+ 100% success 反超 oracle 的 60%**——oracle 硬避 3 区+8 hazard 过约束超时，B+ 软感知区永远有可行路 → 多约束下感知路线比手编更鲁棒。
+- **决定性证据**：transcript 里 VLM **自发**点名三种地形 water 28×/mud 18×/grass 9×（"water, mud, and tall grass"、"brown cratered area"），prompt 从没提过 → 一个模型零样本顶替 N 个手写检测器。详见 `docs/RESULTS_SEMANTIC.md` §12。
+- 图：`outputs/fig_hetero_seed{43,44,45}.png`。数据：`outputs/semantic_hetero.json`(+transcripts)。
+
+**2026-06-28（杠杆 1：B+ 把 VLM 感知喂给低层，逼近 oracle）**
+- `subgoal_pivot_hazard.py`：新增第四臂 **B+ `subgoal_perceive`**。VLM 在同一次调用里额外输出 `"avoid":[markers]`（纯感知，绝不告诉它答案 → 防泄漏不变），脚本把 flagged markers **按质心聚类**估计禁区，喂给低层当 **hard core（≈真区尺度 0.8）+ soft halo（1.5，软代价永不成墙）**。低层只通过 VLM 的感知得知禁区，仍零手工标注（这是 B+ 与 oracle C2 的本质区别）。
+  - 新 flag：`--vlm_zone_radius`（halo/聚类半径）、`--vlm_zone_core`（hard core）、`--vlm_soft_weight`（soft 权重）。`mpc_expert.py` 加 `set_soft_zones()` + `soft_zone_weight`（per-step 软代价，非硬拒绝）。
+  - **真 VLM n=5 结果**：**implicit B+ = 0% sem_viol / 100% goal**（追平 oracle，赢过 B 的 20%），仅 +0.4 VLM 调用/ep；explicit B+ 0% on 43–46，但 seed47 是「选择失败」（VLM 自信选错 waypoint，喂感知救不了）故与 B 并列 20%。详见 `docs/RESULTS_SEMANTIC.md` §11。
+  - 三个设计坑（都由实测逼出，见 §11.2）：① 散布 disk→质心聚类（否则封死 seed45 gauntlet 活锁）；② hard+soft 分层（软代价防活锁）；③ prompt 只标地形不标 hazard（否则 success 崩到 40%）。
+  - 语义任务**默认策略集**改为四臂 C1/C2/B/B+。数据：`outputs/semantic_bplus_{explicit,implicit}.json`(+`.transcripts.json`)。
+  - n=5 caveat：explicit 下 B+ 与 B 不可统计区分（唯一违规是选择失败种子）；机制证据来自离线 stand-in（完美感知+盲选）把 corner-cut 违规 85%→35%。真正分离需 ~100 seeds（杠杆 4）。
 
 **2026-06-28（隐式语义轴）**
 - `hazard_renderer.py`：加 `semantic_style="water"`（水洼外观，默认仍 `"restricted"` amber-X）。

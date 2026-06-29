@@ -32,13 +32,21 @@ Two tasks share this script:
                                     picks subgoals that detour; the underlying
                                     controller stays geometry-only, so the VLM is
                                     the ONLY zone-aware part.
+    B+. subgoal_perceive          — B, plus the VLM REPORTS which markers sit on the
+                                    off-limits terrain (a leakage-clean "avoid"
+                                    array); that perception is fed to the controller
+                                    as an estimated keep-out (hard core + soft halo)
+                                    so it stops corner-cutting through the zone.
+                                    Closes B's residual gap to the oracle with still
+                                    ZERO hand-coded perception. See docs §11.
 
     The win condition: B's semantic-violation rate collapses toward C2's (~0)
     while C1's stays high — i.e. the VLM matches the hand-coded oracle WITHOUT
     any hand-coded perception. That is the SayCan/VoxPoser value proposition on
     a leakage-clean toy, and the honest answer to "why not classical?" (C2 shows
     classical wins *if* you hand-code the semantic; B shows the VLM removes that
-    per-semantic hand-coding).
+    per-semantic hand-coding). B+ closes the loop end-to-end: on the implicit task
+    it reaches the oracle (0% violations, 100% success) vs B's 20%.
 
 ANTI-LEAKAGE CONTRACT
 ---------------------
@@ -79,6 +87,7 @@ import io
 import json
 import math
 import os
+import re
 import sys
 from dataclasses import dataclass, field
 from typing import Callable
@@ -110,6 +119,33 @@ def _obs_parts(
     goal = obs[4:6].copy()
     hazards = obs[6 : 6 + 3 * n].reshape(n, 3).copy()
     return pos, vel, goal, hazards
+
+
+def _parse_avoid_list(raw: str, n_candidates: int) -> list[int]:
+    """Extract the VLM's optional "avoid" array (markers it judges unsafe).
+
+    Returns 0-indexed candidate indices in range, deduplicated. Tolerant: a
+    missing/garbled array just yields [] (the controller then gets no extra
+    keep-out estimate this step — honest degradation, never a crash)."""
+    match = re.search(r'\{.*\}', raw, re.DOTALL)
+    if not match:
+        return []
+    try:
+        obj = json.loads(match.group())
+    except (json.JSONDecodeError, ValueError):
+        return []
+    arr = obj.get("avoid")
+    if not isinstance(arr, list):
+        return []
+    out: list[int] = []
+    for v in arr:
+        try:
+            i = int(v)
+        except (ValueError, TypeError):
+            continue
+        if 1 <= i <= n_candidates and (i - 1) not in out:
+            out.append(i - 1)
+    return out
 
 
 def _min_clearance(pos: np.ndarray, hazards: np.ndarray, agent_radius: float) -> float:
@@ -290,11 +326,35 @@ OUTPUT JSON only:
 
 
 def build_subgoal_prompt(
-    n_candidates: int, semantic: bool = False, zone_mode: str = "explicit"
+    n_candidates: int,
+    semantic: bool = False,
+    zone_mode: str = "explicit",
+    ask_avoid: bool = False,
 ) -> str:
     spec = SEMANTIC_SPECS[zone_mode] if semantic else None
     sem = ("\n" + spec.clause) if spec else ""
     avoid = spec.avoid_subgoal if spec else "keeping clear of the red hazards"
+    # When ask_avoid, we additionally ask the VLM to REPORT which markers sit on
+    # terrain the route must keep off. This is the VLM's own perception (we never
+    # tell it which markers are unsafe), and it is fed to the low-level controller
+    # as an estimated keep-out region — so the controller stops cutting corners
+    # through a zone only the VLM can see. Still leakage-clean: the answer flows
+    # OUT of the VLM, never in. (See ANTI-LEAKAGE CONTRACT.)
+    report = (
+        "\nAlso report which markers, if any, sit ON the off-limits terrain you "
+        "must route around — do NOT include markers that are merely on or near the "
+        "red hazard circles (those are handled separately). List only the numbers "
+        "of markers standing on the off-limits terrain; use an empty list if none "
+        "do.\n"
+        if ask_avoid
+        else "\n"
+    )
+    out = (
+        '{{"choice": <number>, "avoid": [<numbers of markers on the off-limits '
+        'terrain, may be empty>], "reason": "brief explanation"}}'
+        if ask_avoid
+        else '{{"choice": <number>, "reason": "brief explanation"}}'
+    )
     return f"""You see a 2D arena from above.
 
 Visual elements:
@@ -311,10 +371,9 @@ following a collision-free path. You only decide the general DIRECTION of travel
 YOUR TASK: pick the single numbered waypoint that makes the best next step of
 a route from you to the green goal "G" while {avoid}.
 Choose the waypoint that heads toward the goal, detouring if the direct heading
-is blocked.
-
+is blocked.{report}
 OUTPUT JSON only:
-{{"choice": <number>, "reason": "brief explanation"}}
+{out}
 """
 
 
@@ -428,11 +487,16 @@ class _BasePolicy:
         )
 
 
-def make_controller(cfg: PointHazardConfig, low_level: str, safety_margin: float):
+def make_controller(
+    cfg: PointHazardConfig, low_level: str, safety_margin: float,
+    soft_zone_weight: float = 30.0,
+):
     """Build a low-level safe controller (drop-in API: plan/reset_from_obs/act)."""
     dummy = _DummyEnv(cfg)
     if low_level == "mpc":
-        return MPCExpert(dummy, cfg=MPCConfig(safety_margin=safety_margin))
+        return MPCExpert(
+            dummy, cfg=MPCConfig(safety_margin=safety_margin, soft_zone_weight=soft_zone_weight)
+        )
     if low_level == "safe_expert":
         return SafeExpert(dummy, cfg=SafeExpertConfig(safety_margin=safety_margin))
     raise ValueError(f"unknown low_level controller '{low_level}'")
@@ -562,7 +626,16 @@ class DirectPivotPolicy(_BasePolicy):
 
 
 class SubgoalPivotPolicy(_BasePolicy):
-    """B — VLM (or heuristic) picks a discrete subgoal; SafeExpert executes it."""
+    """B — VLM (or heuristic) picks a discrete subgoal; SafeExpert executes it.
+
+    Optional B+ mode (`perceive_zones=True`): the VLM ALSO reports which markers
+    sit on terrain to keep off; we reconstruct an estimated keep-out region from
+    those flagged markers and feed it to the low-level controller as an extra
+    obstacle. This closes the gap to the oracle (C2) WITHOUT any hand-coded
+    perception — the controller only ever learns about the zone through the VLM's
+    own report. Plain B leaves the controller geometry-blind, so even a correct
+    waypoint choice can be undercut by the controller cutting a corner through a
+    zone it cannot see; B+ removes that failure mode."""
 
     name = "subgoal"
 
@@ -582,12 +655,16 @@ class SubgoalPivotPolicy(_BasePolicy):
         fallback: str = "heuristic",
         semantic: bool = False,
         zone_mode: str = "explicit",
+        perceive_zones: bool = False,
+        vlm_zone_radius: float = 1.5,
+        vlm_zone_core: float = 0.8,
+        soft_zone_weight: float = 30.0,
     ):
         self.cfg = cfg
         self.renderer = renderer
         self.pilot_mode = pilot_mode
         self.vlm_fn = vlm_fn
-        self.expert = make_controller(cfg, low_level, safety_margin)
+        self.expert = make_controller(cfg, low_level, safety_margin, soft_zone_weight)
         self.n_dirs = n_dirs
         self.subgoal_radius = subgoal_radius
         self.subgoal_horizon = max(1, subgoal_horizon)
@@ -595,12 +672,34 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.fallback = fallback
         self.semantic = semantic
         self.zone_mode = zone_mode
+        self.perceive_zones = perceive_zones
+        self.vlm_zone_radius = vlm_zone_radius
+        self.vlm_zone_core = vlm_zone_core
+        if perceive_zones:
+            self.name = "subgoal_perceive"
 
     def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         super().reset(obs, info, seed)
         self._seed_controller(self.expert, seed)  # before any plan()
         self._steps_on_subgoal = self.subgoal_horizon  # force a query on step 0
         self._subgoal: np.ndarray | None = None
+        # Estimated keep-out disks (x, y, r) the VLM has flagged so far this
+        # episode. The zone is static, so accumulating across decision steps (and
+        # viewing angles) only sharpens the estimate. Empty in plain-B mode.
+        # Each cluster is [sum_x, sum_y, count]; its centroid sum/count estimates
+        # one keep-out zone. Flagged markers (all inside the true zone) are averaged
+        # into the nearest cluster, so the estimate is a single stable disk near the
+        # true centre rather than a scatter of ring-marker disks that over-covers a
+        # tight gauntlet. New far-away flags open a new cluster (handles >1 zone).
+        self._clusters: list[np.ndarray] = []
+        if hasattr(self.expert, "set_soft_zones"):
+            self.expert.set_soft_zones(np.zeros((0, 3), dtype=np.float32))
+
+    def _est_centres(self) -> np.ndarray:
+        """Current zone-centre estimates (one per cluster), shape (K, 2)."""
+        if not self._clusters:
+            return np.zeros((0, 2), dtype=np.float32)
+        return np.stack([c[:2] / c[2] for c in self._clusters]).astype(np.float32)
 
     def _heuristic_idx(self, pos: np.ndarray, goal: np.ndarray, subgoals: list[np.ndarray]) -> int:
         gdir = goal - pos
@@ -610,6 +709,32 @@ class SubgoalPivotPolicy(_BasePolicy):
             for sg in subgoals
         ]
         return int(np.argmax(scores))
+
+    def _add_est_zones(self, subgoals: list[np.ndarray], flagged: list[int]) -> None:
+        """Fold the VLM-flagged markers into the running keep-out estimate.
+
+        Every flagged marker lies (per the VLM) on off-limits terrain, so its world
+        position is a sample INSIDE a true zone. We average such samples into the
+        nearest cluster centroid (association radius `vlm_zone_radius`) to recover a
+        single stable centre per zone — a far better footprint than a disk per
+        marker, which scatters and over-covers tight passages. We never read the
+        true zone geometry; this is pure perception (leakage-clean)."""
+        for idx in flagged:
+            if not (0 <= idx < len(subgoals)):
+                continue
+            c = subgoals[idx].astype(np.float32)
+            best = None
+            best_d = self.vlm_zone_radius
+            for cl in self._clusters:
+                d = float(np.linalg.norm(c - cl[:2] / cl[2]))
+                if d < best_d:
+                    best, best_d = cl, d
+            if best is None:
+                self._clusters.append(np.array([c[0], c[1], 1.0], dtype=np.float32))
+            else:
+                best[0] += c[0]
+                best[1] += c[1]
+                best[2] += 1.0
 
     def _choose_subgoal(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
         pos, _, goal, _ = _obs_parts(obs, self.cfg)
@@ -624,11 +749,16 @@ class SubgoalPivotPolicy(_BasePolicy):
             call = self.vlm_fn(
                 ann,
                 build_subgoal_prompt(
-                    len(subgoals), semantic=self.semantic, zone_mode=self.zone_mode
+                    len(subgoals), semantic=self.semantic, zone_mode=self.zone_mode,
+                    ask_avoid=self.perceive_zones,
                 ),
                 len(subgoals),
             )
             if call.parsed_ok and call.choice is not None:
+                if self.perceive_zones:
+                    self._add_est_zones(
+                        subgoals, _parse_avoid_list(call.raw, len(subgoals))
+                    )
                 self._log_call("subgoal", call, used_fallback=False)
                 return subgoals[call.choice]
             # VLM unusable -> explicit, logged fallback (never a silent one).
@@ -636,7 +766,22 @@ class SubgoalPivotPolicy(_BasePolicy):
             if self.fallback == "hold" and self._subgoal is not None:
                 return self._subgoal  # keep the current subgoal, gain no new info
             return subgoals[self._heuristic_idx(pos, goal, subgoals)]
-        # Offline heuristic stand-in pilot (no VLM in the loop at all).
+        # Offline heuristic stand-in pilot (no VLM in the loop at all). The subgoal
+        # CHOICE stays zone-blind (the null B must beat). In perceive mode we add a
+        # ground-truth "perfect perception" stand-in for the AVOID report only, to
+        # validate the plumbing end-to-end (does feeding flagged markers to the
+        # controller actually drop sem_viol?) — clearly NOT a VLM test.
+        if self.perceive_zones:
+            zones = np.asarray(
+                getattr(env, "semantic_zones", np.zeros((0, 3))), dtype=np.float32
+            ).reshape(-1, 3)
+            flagged = [
+                i for i, sg in enumerate(subgoals)
+                if zones.size and np.any(
+                    np.linalg.norm(zones[:, :2] - sg[None, :], axis=1) <= zones[:, 2]
+                )
+            ]
+            self._add_est_zones(subgoals, flagged)
         return subgoals[self._heuristic_idx(pos, goal, subgoals)]
 
     def act(self, obs: np.ndarray, env: PointHazardEnv) -> np.ndarray:
@@ -648,10 +793,32 @@ class SubgoalPivotPolicy(_BasePolicy):
         )
         if need_new:
             self._subgoal = self._choose_subgoal(obs, env)
+            # In B+ mode, hand the controller the VLM-perceived keep-out estimate
+            # so it stops cutting corners through a zone only the VLM can see. The
+            # real (sensor) hazards stay HARD; the perceived zone is fed as a SOFT
+            # cost (uncertain perception) so a mis-placed estimate can never wall
+            # the agent in. Plain B leaves `_est_zones` empty (no soft zones set).
+            avoid = hazards
+            centres = self._est_centres()
+            if len(centres):
+                # Hard CORE (small, ~true zone scale): blocks driving through the
+                # zone centre / corner-cutting, but small enough not to seal a tight
+                # hazard-zone-hazard gauntlet (which a big disk does -> livelock).
+                cores = np.column_stack(
+                    [centres, np.full(len(centres), self.vlm_zone_core, np.float32)]
+                ).astype(np.float32)
+                avoid = np.concatenate([hazards, cores], axis=0)
+                # Soft HALO (wider): extra avoidance pressure with no hard wall, so
+                # the agent skirts the zone yet always keeps a feasible path.
+                if hasattr(self.expert, "set_soft_zones"):
+                    halos = np.column_stack(
+                        [centres, np.full(len(centres), self.vlm_zone_radius, np.float32)]
+                    ).astype(np.float32)
+                    self.expert.set_soft_zones(halos)
             # Plan a collision-free path to the chosen subgoal; if that subgoal
             # is unreachable, fall back to planning straight to the real goal.
-            if not self.expert.plan(pos, self._subgoal, hazards):
-                self.expert.plan(pos, goal, hazards)
+            if not self.expert.plan(pos, self._subgoal, avoid):
+                self.expert.plan(pos, goal, avoid)
             self._steps_on_subgoal = 0
         self._steps_on_subgoal += 1
         return self.expert.act(obs)
@@ -796,6 +963,8 @@ def evaluate(args: argparse.Namespace) -> None:
         semantic_radius_min=args.semantic_radius_min,
         semantic_radius_max=args.semantic_radius_max,
         semantic_step_penalty=args.semantic_step_penalty,
+        semantic_styles=tuple(s for s in args.semantic_styles.split(",") if s)
+        if args.semantic_styles else (),
     )
     semantic = args.n_semantic_zones > 0
 
@@ -831,7 +1000,7 @@ def evaluate(args: argparse.Namespace) -> None:
     if args.policies:
         which = args.policies.split(",")
     elif semantic:
-        which = [args.low_level, f"{args.low_level}_oracle", "subgoal"]
+        which = [args.low_level, f"{args.low_level}_oracle", "subgoal", "subgoal_perceive"]
     else:
         which = [args.low_level, "subgoal", "direct"]
 
@@ -843,7 +1012,7 @@ def evaluate(args: argparse.Namespace) -> None:
             return ControllerOnlyPolicy(
                 cfg, low_level=base, safety_margin=args.safety_margin, semantic_aware=True
             )
-        if name == "subgoal":
+        if name in ("subgoal", "subgoal_perceive"):
             return SubgoalPivotPolicy(
                 cfg, renderer, pilot_mode=args.pilot_mode, vlm_fn=vlm_fn,
                 low_level=args.low_level, safety_margin=args.safety_margin,
@@ -851,6 +1020,10 @@ def evaluate(args: argparse.Namespace) -> None:
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
                 fallback=args.vlm_fallback, semantic=semantic,
                 zone_mode=args.zone_semantics,
+                perceive_zones=(name == "subgoal_perceive"),
+                vlm_zone_radius=args.vlm_zone_radius,
+                vlm_zone_core=args.vlm_zone_core,
+                soft_zone_weight=args.vlm_soft_weight,
             )
         if name == "direct":
             return DirectPivotPolicy(
@@ -1003,6 +1176,13 @@ def parse_args() -> argparse.Namespace:
                         "--n_semantic_zones 0.")
     p.add_argument("--semantic_radius_min", type=float, default=0.8)
     p.add_argument("--semantic_radius_max", type=float, default=1.2)
+    p.add_argument("--semantic_styles", type=str, default="",
+                   help="comma-list of per-zone appearances assigned round-robin, e.g. "
+                        "'water,mud,grass' (lever 2: HETEROGENEOUS keep-out terrains). "
+                        "Each would need its own hand-coded detector for a classical "
+                        "oracle, but one VLM recognises all zero-shot. Empty = all zones "
+                        "use the single --zone_semantics style. Use with implicit mode "
+                        "and --n_semantic_zones >= len(list).")
     p.add_argument("--semantic_step_penalty", type=float, default=0.0,
                    help="optional soft reward cost per step inside a zone (metric is "
                         "independent of this; default 0 keeps success comparable)")
@@ -1024,6 +1204,21 @@ def parse_args() -> argparse.Namespace:
                    help="re-query the subgoal pilot at most every N steps")
     p.add_argument("--subgoal_reach", type=float, default=0.6,
                    help="treat a subgoal as reached within this distance")
+    p.add_argument("--vlm_zone_radius", type=float, default=1.5,
+                   help="B+ (policy 'subgoal_perceive'): radius of the estimated "
+                        "keep-out disk placed at each VLM-flagged marker and fed to "
+                        "the controller as a soft obstacle. A guessed radius (not the "
+                        "true zone size), so B+ stays below the hand-coded oracle.")
+    p.add_argument("--vlm_zone_core", type=float, default=0.8,
+                   help="B+: radius of the HARD keep-out core placed at each "
+                        "VLM-flagged marker (≈ true zone scale). Small enough not to "
+                        "seal a tight hazard-zone gauntlet, big enough to block "
+                        "corner-cutting through the zone centre.")
+    p.add_argument("--vlm_soft_weight", type=float, default=30.0,
+                   help="B+ (policy 'subgoal_perceive'): per-step MPC cost for being "
+                        "inside a VLM-perceived keep-out disk. Higher = avoids harder "
+                        "(toward the oracle) but a too-high value can over-detour. The "
+                        "zone is a SOFT cost, never a hard wall, so it can't livelock.")
 
     p.add_argument("--out", type=str, default="",
                    help="optional path to write a JSON dump of per-episode records")
