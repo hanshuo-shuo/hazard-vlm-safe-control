@@ -1,22 +1,20 @@
 # hazard-vlm-safe-control
 
-Safety-critical, low-data shared autonomy on a 2D point-mass **PointHazard** task:
-a VLM makes **high-level** (semantic / routing) decisions while a **provably-safe
-low-level controller** guarantees collision-free execution.
+Research prototype for auditing semantic safety in VLM-guided robot control.
+The current system uses a VLM for high-level semantic/routing decisions and an
+exact-model, safety-oriented sampling controller for low-level execution.
 
-This is the **Path B** line of the project — see [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md)
-for the thesis plan and [`STRUCTURE.md`](STRUCTURE.md) for a full file-by-file map.
+> 🧭 **文档从哪读起 → [`docs/README.md`](docs/README.md)（索引，先看这个）。**
+> 当前真相源：[`docs/RESEARCH_REVIEW_COMMENTS.md`](docs/RESEARCH_REVIEW_COMMENTS.md)
+> （必须修改项）+ [`docs/ICLR_PLAN.md`](docs/ICLR_PLAN.md)（覆盖旧计划的新路线）。
+> 现有 semantic 结果因场景 sampler 与对照混淆待重跑，不应作为论文数字。
+> 代码逐文件地图见 [`STRUCTURE.md`](STRUCTURE.md)。
 
-## Core idea
+## Current research question
 
-> The VLM picks a semantic/strategic **subgoal**; an online-learned local physics
-> model renders the **counterfactual consequence** of each choice for it to select;
-> a safe low-level controller guarantees execution never hits a hazard.
-
-The Month-1 "confidence experiment" deliberately shows that on a **pure-geometry**
-task a classical controller is already near-perfect, so a VLM low-level is redundant
-(and unreliable) — motivating moving the VLM **up** to semantic decisions a geometric
-cost function can't express.
+> Which part of a modular VLM-control pipeline deserves credit for apparent
+> closed-loop safety: visual recognition, task/norm interpretation, spatial
+> grounding, routing, privileged cues, or low-level execution?
 
 ## Key files
 
@@ -24,7 +22,7 @@ cost function can't express.
 |---|---|
 | `env_pointhazard.py` | Point-mass env: random hazards + random goal, exact numpy dynamics |
 | `hazard_renderer.py` | PIL top-down renderer |
-| `mpc_expert.py` | **CEM-MPC** safe low-level controller (rolls the exact dynamics, rejects colliding rollouts) |
+| `mpc_expert.py` | **CEM-MPC** safety-oriented low-level controller using exact discrete dynamics; no formal safety guarantee |
 | `safe_expert.py` | A\*+PD safe controller (older/weaker baseline low-level) |
 | `pivot_vlm.py` | PIVOT visual-prompting core (candidate generation / annotation / VLM select) |
 | `subgoal_pivot_hazard.py` | **Month-1 experiment**: matched-seed 3-way comparison (see below) |

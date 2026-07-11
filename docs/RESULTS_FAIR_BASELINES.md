@@ -1,5 +1,13 @@
 # Fair baselines + commonsense (L2) — results of the kill-shot fixes
 
+> ⚠️ **INVALIDATED AS PAPER EVIDENCE (2026-07-11).** These runs remain useful for
+> debugging the VLM path and transcripts, but the semantic-zone fallback can place
+> a zone overlapping a red hazard, and the C2/CV versus B+ comparison changes both
+> zone source and router. Do not quote the n=5/n=20 rates as final results. Required
+> fixes and rerun criteria are in
+> [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md); the active strategy is
+> [ICLR_PLAN.md](ICLR_PLAN.md).
+
 Date: 2026-06-29 · Model: `google/gemini-3-flash-preview`, `temperature=0`,
 `vlm_fallback=hold`, 5 matched seeds (43–47), `n_hazards=8`.
 Script: [`../subgoal_pivot_hazard.py`](../subgoal_pivot_hazard.py) ·
