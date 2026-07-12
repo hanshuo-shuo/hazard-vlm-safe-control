@@ -1,5 +1,12 @@
 # Why use a VLM at all?
 
+> **状态：SUPERSEDED FRAMING（2026-07-11 复核）。** 本文保留“为什么需要语义层”的
+> 直觉，但“一个 VLM 顶 N 个 detector”“自发命名即理解”都还是待验证假设；现有 semantic
+> 数字因 sampler bug 和 router confound 已失效。当前贡献路线是按层归因的 **Safety
+> Accounting**，不是“VLM 打败经典规划”。写作以 [`ICLR_PLAN.md`](ICLR_PLAN.md)、
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md) 和
+> [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md) 为准。
+
 *Plain-English explainer. Read this first if the project's point is unclear.*
 *Companion to [`RESULTS_SEMANTIC.md`](RESULTS_SEMANTIC.md) (the numbers) and
 [`PROJECT_PLAN.md`](PROJECT_PLAN.md) (the roadmap).*

@@ -20,3 +20,6 @@ data/
 *.pt
 *.npz
 *.gif
+
+# Small GIFs are part of the documented legacy research record.
+!legacy/assets/*.gif

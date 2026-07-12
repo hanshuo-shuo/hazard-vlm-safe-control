@@ -189,9 +189,9 @@ curve (with a held-out unseen terrain), and ≥1 more backbone.
   not a paper number.
 - **Single model** (`gemini-3-flash`), single arena, single zone (plus offline hetero).
 - **Tuning-seed overlap.** Seeds 43–47 reuse the seeds B+'s knobs were tuned on
-  (45/47). The fix is built (`--seed_list` for a disjoint held-out set) but this pilot
-  prioritised comparability to the historical runs; the held-out evaluation is the
-  next run.
+  (45/47). A later run used disjoint seeds 100–119, but it **does not discharge this
+  evidence gap**: 7/20 sampled semantic zones overlapped red hazards and the policy
+  comparison still changed the router. Section 8 is retained only as a forensic record.
 - **L0 not re-run here** (explicit amber-X). We have L1 (category hint) and L2 (no
   hint); the full L0→L1→L2 ladder is a one-command add.
 - **Detector is hand-coded to the renderer palette** — that *is* the baseline (a
@@ -229,3 +229,94 @@ python subgoal_pivot_hazard.py --pilot_mode vlm --n_semantic_zones 1 \
   --model google/gemini-3-flash-preview --temperature 0 --vlm_fallback hold \
   --log_transcripts --out outputs/vlm_heldout.json
 ```
+
+---
+
+## 8. Held-out n=20 run — INVALIDATED FORENSIC RECORD (2026-07-01)
+
+This run did use a **disjoint block (seeds 100–119)** with unchanged knobs, but it
+cannot be used as held-out confirmation. Post-run audit found that the unchecked
+semantic-zone fallback placed zones on red hazards in **7/20 episodes**; those seven
+episodes were also exactly the C1 non-violations. In addition, C2/CV used direct-goal
+control while B/B+ used VLM subgoals and MPC restarts, so the comparison changed both
+the zone source and the router. Model `google/gemini-3-flash-preview`,
+`temperature=0`, `--vlm_fallback hold`, `--log_transcripts`; these configuration facts
+and `fb%=0` remain useful for debugging, but do not repair the causal comparison.
+
+Original records are preserved under
+`outputs/invalidated/2026-07-11/` and indexed in
+[`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md). The tables below report what the old
+pipeline emitted; they are **not paper results, not a Pareto estimate, and not evidence
+that the headline survived**.
+
+> **Invalidation note:** disjoint seeds alone do not make a run leakage-clean or
+> causally interpretable. Do not aggregate or quote these rates as evidence.
+
+### 8.1 L1 — category hint ("avoid terrain that looks unsafe"), 6 arms
+
+| arm | success [95% CI] | **sem_viol [95% CI]** | dwell | vlm/ep | fb% |
+|---|---|---|---|---|---|
+| `mpc` (C1, blind) | 95% [76.4,99.1] | **65% [43.3,81.9]** | 2.90 | 0 | — |
+| `mpc_oracle` (C2-hard) | 95% [76.4,99.1] | **0% [0,16.1]** | 0 | 0 | — |
+| `mpc_oracle_soft` (C2-soft, FAIR) | 90% [69.9,97.2] | **0% [0,16.1]** | 0 | 0 | — |
+| `mpc_detector` (CV) | 90% [69.9,97.2] | **0% [0,16.1]** | 0 | 0 | — |
+| `subgoal` (B, VLM) | **100% [83.9,100]** | 15% [5.2,36.0] | 1.10 | 3.4 | 0.0% |
+| `subgoal_perceive` (B+, VLM) | **100% [83.9,100]** | 10% [2.8,30.1] | 1.15 | 3.3 | 0.0% |
+
+### 8.2 L2 — no terrain hint at all (true commonsense test), 5 arms
+
+| arm | success | **sem_viol [95% CI]** | dwell |
+|---|---|---|---|
+| `mpc` (C1) | 95% | **65% [43.3,81.9]** | 2.90 |
+| `mpc_oracle` / `_soft` / `mpc_detector` | 86–90% | **0% [0,16.1]** | 0 |
+| `subgoal` (B, VLM) | 95% | **50% [29.9,70.1]** (L1 was 15%) | 3.05 |
+
+### 8.3 What the invalid run suggested — hypotheses only
+
+1. **The apparent success-vs-safety frontier is not established.** The emitted table
+   showed 0% semantic violation with ~90% success for C2-soft/CV and 10–15% violation
+   with 100% success for B/B+. Because the sampler and router are confounded, this is
+   only a hypothesis to test after B01–B07 are closed—not a Pareto-frontier claim.
+2. **The L1→L2 prompt effect is a useful preregistered hypothesis.** Stripping the hint
+   moves B from **15% → 50%** violation — only 15 points under blind C1 (65%), and the
+   CIs ([29.9,70.1] vs [43.3,81.9]) overlap heavily. **Most of the L1 win was
+   instruction-following, not world knowledge** is a possible explanation, not a result.
+   A corrected paired rerun must test it.
+3. **Free-text recognition is qualitative evidence, not a causal mechanism result.** Under
+   L2 — the prompt naming no terrain — the VLM **spontaneously names the patch in 15/20
+   episodes (25/70 calls)**: *"the blue obstacle area"*, *"the large water hazard"*,
+   *"the water feature"*, *"the blue zone"*. The mechanism is now visible: it often
+   **recognises the water but crosses it anyway** when not instructed to avoid it —
+   > seed 103: *"Waypoint 2 … avoids the red hazards. **While it passes through the blue
+   > zone**, it provides the clearest line …"*
+
+   This transcript pattern motivates a recognise-versus-avoid annotation, but spontaneous
+   naming alone does not prove correct grounding or explain the trajectory.
+
+### 8.4 Reproduce (§8)
+
+```bash
+# offline n=100 pipeline validation (no API)
+python subgoal_pivot_hazard.py --pilot_mode heuristic --n_semantic_zones 1 \
+  --zone_semantics implicit --episodes 100 --out outputs/invalidated/2026-07-11/offline_n100_l1.json
+python subgoal_pivot_hazard.py --pilot_mode heuristic --n_semantic_zones 1 \
+  --zone_semantics implicit --prompt_level L2 --episodes 100 --out outputs/invalidated/2026-07-11/offline_n100_l2.json
+
+# the held-out n=20 real-VLM runs of record (seeds 100–119)
+OPENROUTER_API_KEY=... python subgoal_pivot_hazard.py --pilot_mode vlm \
+  --n_semantic_zones 1 --zone_semantics implicit --seed 100 --episodes 20 \
+  --model google/gemini-3-flash-preview --temperature 0 --vlm_fallback hold \
+  --log_transcripts --out outputs/invalidated/2026-07-11/vlm20_l1_heldout.json
+OPENROUTER_API_KEY=... python subgoal_pivot_hazard.py --pilot_mode vlm \
+  --n_semantic_zones 1 --zone_semantics implicit --prompt_level L2 --seed 100 --episodes 20 \
+  --model google/gemini-3-flash-preview --temperature 0 --vlm_fallback hold \
+  --log_transcripts --out outputs/invalidated/2026-07-11/vlm20_l2_heldout.json
+```
+
+### 8.5 Next
+
+Do **not** scale this pipeline to n=100 yet. First close B01–B07 in
+[`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md): enforce non-overlap,
+hold the router/controller fixed across information sources, freeze the task contract,
+add provenance, and preregister paired tests. Only then run the full L0→L1→L2 matrix;
+the apparent frontier and L2 gap above are hypotheses for that corrected experiment.

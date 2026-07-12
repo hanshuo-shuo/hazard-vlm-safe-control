@@ -1,0 +1,822 @@
+[
+  {
+    "policy": "subgoal",
+    "seed": 100,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 moves the agent toward the goal while navigating around the red hazards directly in the path of waypoints 3 and 5.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 4, \"reason\": \"Waypoint 4 moves the agent toward the goal while navigating around the red hazards directly in the path of waypoints 3 and 5.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while avoiding the red hazards immediately surrounding the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while avoiding the red hazards immediately surrounding the agent.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely navigating between the two red hazards immediately in front of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely navigating between the two red hazards immediately in front of the agent.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path toward the green goal 'G' and is clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path toward the green goal 'G' and is clear of any red hazards.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 101,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the red hazards and the blue obstacle area.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the red hazards and the blue obstacle area.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 is the most direct path toward the goal 'G' and is clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 is the most direct path toward the goal 'G' and is clear of any red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 102,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 moves the agent toward the goal while avoiding the large water hazard and the red hazard circles. Waypoint 8 is blocked by the water hazard, and Waypoint 2 leads away from the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 1, \"reason\": \"Waypoint 1 moves the agent toward the goal while avoiding the large water hazard and the red hazard circles. Waypoint 8 is blocked by the water hazard, and Waypoint 2 leads away from the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the large blue obstacle directly below and the red hazards to the right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the large blue obstacle directly below and the red hazards to the right.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 is the most direct path toward the green goal 'G' and avoids all red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 7, \"reason\": \"Waypoint 7 is the most direct path toward the green goal 'G' and avoids all red hazards.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 is directly on top of the green goal 'G' and provides a clear path from the current position without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 is directly on top of the green goal 'G' and provides a clear path from the current position without intersecting any red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 103,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 is the most direct path toward the goal that avoids the red hazards. While it passes through the blue zone, it provides the clearest line of sight to the green goal 'G' compared to other options.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 is the most direct path toward the goal that avoids the red hazards. While it passes through the blue zone, it provides the clearest line of sight to the green goal 'G' compared to other options.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between waypoints 1 and 2.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between waypoints 1 and 2.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path to the goal 'G' and is clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path to the goal 'G' and is clear of any red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 104,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal while safely navigating around the central cluster of hazards and the water feature.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal while safely navigating around the central cluster of hazards and the water feature.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards. Waypoint 5 is blocked by a hazard, and waypoint 7 heads too far south.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards. Waypoint 5 is blocked by a hazard, and waypoint 7 heads too far south.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while successfully navigating between the red hazards located above and below the blue water area.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while successfully navigating between the red hazards located above and below the blue water area.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely bypassing the cluster of red hazards and the blue obstacle in the center.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely bypassing the cluster of red hazards and the blue obstacle in the center.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circles. Waypoint 7 is also in the general direction but is slightly further from the direct line to the goal, and waypoint 5 moves away from it.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circles. Waypoint 7 is also in the general direction but is slightly further from the direct line to the goal, and waypoint 5 moves away from it.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard directly below the current position.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard directly below the current position.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the current position and the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circle located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circle located between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circles located between the current position and the goal.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circle located between the agent and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while avoiding the red hazard circle located between the agent and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circle located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazard circle located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazard circle located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazard circle located between the current position and the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the current position and the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the red hazard circle located between the current position and the goal.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 105,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the only option that moves directly toward the goal 'G' while avoiding all red hazards. Other waypoints either lead away from the goal or are blocked by hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 is the only option that moves directly toward the goal 'G' while avoiding all red hazards. Other waypoints either lead away from the goal or are blocked by hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path to the green goal 'G' and is completely clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 6, \"reason\": \"Waypoint 6 is the most direct path to the green goal 'G' and is completely clear of any red hazards.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 106,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 is the most direct path toward the goal 'G' that avoids all red hazards. While it passes through a blue zone, it provides the clearest line of sight to the final destination compared to other options.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 is the most direct path toward the goal 'G' that avoids all red hazards. While it passes through a blue zone, it provides the clearest line of sight to the final destination compared to other options.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 is the closest to the goal 'G' and provides a direct, unobstructed path to it.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 is the closest to the goal 'G' and provides a direct, unobstructed path to it.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 107,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 moves toward the goal while avoiding the red hazards to the right and bottom. It positions the agent to navigate around the blue obstacle and toward the green goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 moves toward the goal while avoiding the red hazards to the right and bottom. It positions the agent to navigate around the blue obstacle and toward the green goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the large blue obstacle and the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the large blue obstacle and the red hazards.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 provides the most direct path toward the goal 'G' while avoiding the large hazard directly to the right and the smaller hazard to the left.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 provides the most direct path toward the goal 'G' while avoiding the large hazard directly to the right and the smaller hazard to the left.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 108,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the large hazard to the right and the water hazard directly below.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while safely avoiding the large hazard to the right and the water hazard directly below.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 provides the most direct path toward the green goal 'G' while avoiding the red hazards and the blue obstacle.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 provides the most direct path toward the green goal 'G' while avoiding the red hazards and the blue obstacle.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 109,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely navigating between the water hazard and the red hazard to the north.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely navigating between the water hazard and the red hazard to the north.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the large blue obstacle and the red hazards to the right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the large blue obstacle and the red hazards to the right.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between waypoints 2 and 3.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while safely avoiding the red hazard located between waypoints 2 and 3.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 110,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path toward the goal 'G' that avoids all red hazards. While it passes through a blue zone, it provides the clearest line of sight to the final destination compared to other options.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path toward the goal 'G' that avoids all red hazards. While it passes through a blue zone, it provides the clearest line of sight to the final destination compared to other options.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path toward the goal 'G' that is completely clear of red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path toward the goal 'G' that is completely clear of red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 111,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while safely avoiding the large water hazard and the red hazard circles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while safely avoiding the large water hazard and the red hazard circles.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 6,
+        "reason": "Waypoint 7 provides the most direct path toward the goal 'G' while avoiding the large water hazard and the red hazard near waypoint 8.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 7, \"reason\": \"Waypoint 7 provides the most direct path toward the goal 'G' while avoiding the large water hazard and the red hazard near waypoint 8.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 112,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through a blue zone, it provides the best heading to reach the destination efficiently.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through a blue zone, it provides the best heading to reach the destination efficiently.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 5,
+        "reason": "Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and right.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 6, \"reason\": \"Waypoint 6 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards to the left and right.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 113,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through the blue water-like area, it provides the best heading to reach the goal efficiently.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through the blue water-like area, it provides the best heading to reach the goal efficiently.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 provides the most direct path toward the goal 'G' while avoiding the red hazards and the blue obstacle directly in front of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 provides the most direct path toward the goal 'G' while avoiding the red hazards and the blue obstacle directly in front of the agent.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 114,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 provides the most direct path toward the goal while maintaining a safe distance from the red hazards to the north and east.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 provides the most direct path toward the goal while maintaining a safe distance from the red hazards to the north and east.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 provides the most direct path toward the goal while avoiding the red hazards immediately to the right and above the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 provides the most direct path toward the goal while avoiding the red hazards immediately to the right and above the agent.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 is the most direct path toward the goal 'G' that avoids the red hazard directly in front of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 3, \"reason\": \"Waypoint 3 is the most direct path toward the goal 'G' that avoids the red hazard directly in front of the agent.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 115,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely navigating between the hazards located in the center and bottom-right of the arena.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely navigating between the hazards located in the center and bottom-right of the arena.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely navigating between the red hazards located directly in front of and to the left of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely navigating between the red hazards located directly in front of and to the left of the agent.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while maintaining a safe distance from the red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 116,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through the blue area, it provides the best heading to navigate around the central red obstacles.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes through the blue area, it provides the best heading to navigate around the central red obstacles.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal 'G' while safely clearing the large red hazard to the left of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal 'G' while safely clearing the large red hazard to the left of the agent.\"}\n```"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 is the most direct path to the green goal 'G' and is completely clear of any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 4, \"reason\": \"Waypoint 4 is the most direct path to the green goal 'G' and is completely clear of any red hazards.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 117,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while safely bypassing the large red hazard directly to the right of the agent.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while safely bypassing the large red hazard directly to the right of the agent.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 7,
+        "reason": "Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the red hazards. Waypoint 1 is blocked by a hazard, and other waypoints lead away from the target.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 8, \"reason\": \"Waypoint 8 provides the most direct path toward the goal 'G' while avoiding the red hazards. Waypoint 1 is blocked by a hazard, and other waypoints lead away from the target.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 0,
+        "reason": "Waypoint 1 provides the most direct path to the goal 'G' without intersecting any red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "```json\n{\"choice\": 1, \"reason\": \"Waypoint 1 provides the most direct path to the goal 'G' without intersecting any red hazards.\"}\n```"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 118,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 3,
+        "reason": "Waypoint 4 provides the most direct path toward the goal while safely navigating between the central red hazards and avoiding the water obstacle.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 4, \"reason\": \"Waypoint 4 provides the most direct path toward the goal while safely navigating between the central red hazards and avoiding the water obstacle.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 1,
+        "reason": "Waypoint 2 is the most direct path toward the goal 'G' that avoids the red hazards and the blue obstacle. Waypoint 3 is blocked by a hazard, and Waypoint 1 leads away from the goal.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 2, \"reason\": \"Waypoint 2 is the most direct path toward the goal 'G' that avoids the red hazards and the blue obstacle. Waypoint 3 is blocked by a hazard, and Waypoint 1 leads away from the goal.\"}"
+      },
+      {
+        "kind": "subgoal",
+        "choice": 2,
+        "reason": "Waypoint 3 provides the most direct path toward the goal 'G' while avoiding the large blue obstacle and nearby red hazards.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 3, \"reason\": \"Waypoint 3 provides the most direct path toward the goal 'G' while avoiding the large blue obstacle and nearby red hazards.\"}"
+      }
+    ]
+  },
+  {
+    "policy": "subgoal",
+    "seed": 119,
+    "calls": [
+      {
+        "kind": "subgoal",
+        "choice": 4,
+        "reason": "Waypoint 5 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes near the blue circular area, it provides the clearest line of sight to the goal compared to the other options.",
+        "parsed_ok": true,
+        "api_error": false,
+        "attempts": 1,
+        "used_fallback": false,
+        "raw": "{\"choice\": 5, \"reason\": \"Waypoint 5 is the most direct path toward the goal 'G' that avoids the red hazards. While it passes near the blue circular area, it provides the clearest line of sight to the goal compared to the other options.\"}"
+      }
+    ]
+  }
+]

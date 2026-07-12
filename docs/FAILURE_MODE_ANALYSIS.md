@@ -1,5 +1,10 @@
 # Failure Mode Analysis: What Physical Information Does a VLM Need?
 
+> **状态：ARCHIVED（2026-07-11 复核）。** 这是 learned-physics PIVOT 阶段的泄漏发现与
+> Path A/B 对比，仍有历史和实验纪律价值。当前路线见 [`ICLR_PLAN.md`](ICLR_PLAN.md)，
+> blockers 见 [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)，结果状态见
+> [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md)。下文的旧路线判断不再作为执行计划。
+
 Date: 2026-06-09
 
 This note replaces the earlier optimistic story about learned-physics PIVOT.

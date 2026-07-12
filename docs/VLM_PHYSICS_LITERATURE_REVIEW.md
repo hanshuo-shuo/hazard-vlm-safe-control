@@ -1,5 +1,10 @@
 # VLM + Physics / PIVOT 文献调研与下一步路线
 
+> **状态：ARCHIVED（2026-07-11 复核）。** learned-physics PIVOT 阶段的 2026-06-04
+> 调研，保留作研究轨迹，不代表完整或最新 related work。当前投稿定位和需要复核的文献锚点见
+> [`ICLR_PLAN.md`](ICLR_PLAN.md) §2.1；方法审计见
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)。
+
 日期：2026-06-04
 
 这份笔记的目标不是做一个泛泛的 robotics foundation model survey，而是回答一个更具体的问题：

@@ -1,12 +1,12 @@
 # Semantic-Constraint Experiment — Results (Path-B main result, pilot)
 
-> ⚠️ **Partly superseded (2026-06-29).** §11–§12 claim B+ "reaches / out-robusts the
-> oracle". That used a *hard* oracle; against a **fair soft oracle** and a **CV
-> detector** baseline, B+ only **ties** (single zone), and the L1 "commonsense" win is
-> ~half instruction-following (L2 violations 20%→40%). Corrected 5-seed VLM results +
-> figures: [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md); repositioning:
-> [`ICLR_PLAN.md`](ICLR_PLAN.md). §1–§10 (C1 vs B, leakage discipline, spontaneous
-> naming) stand.
+> **状态：INVALIDATED AS PAPER EVIDENCE（2026-07-11 复核）。** 本文的 semantic
+> n=5 数字受 semantic-zone fallback 与 hazard 重叠、router confound 和小样本影响；
+> §1–§12 均只保留为历史 pipeline/机制假设，不能再认为 §1–§10 “stand”。
+> [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md) 也已作为 forensic record
+> 失效，不是本文的有效替代结果。当前状态见 [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md)，
+> 修复项见 [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)，新路线见
+> [`ICLR_PLAN.md`](ICLR_PLAN.md)。下文数字和叙事按原样保留，以记录研究如何演进。
 
 Date: 2026-06-22
 Script: [`../subgoal_pivot_hazard.py`](../subgoal_pivot_hazard.py)

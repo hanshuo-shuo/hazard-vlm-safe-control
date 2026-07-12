@@ -1,5 +1,11 @@
 # Month-1 Confidence Experiment — Results
 
+> **状态：PILOT_ONLY（2026-07-11 复核）。** Path-B 第 1 月的 pure-geometry n=5
+> 链路验证；它不依赖后来出错的 semantic-zone sampler，但样本小、单模型，不能作为论文
+> 效果量。当前路线见 [`ICLR_PLAN.md`](ICLR_PLAN.md)，审计见
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)，状态登记见
+> [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md)。
+
 Date: 2026-06-21
 Script: [`../subgoal_pivot_hazard.py`](../subgoal_pivot_hazard.py)
 Plan: [`PROJECT_PLAN.md`](PROJECT_PLAN.md) §4 (Month 1), motivation in

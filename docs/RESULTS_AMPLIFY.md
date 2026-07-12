@@ -1,12 +1,12 @@
 # Amplifying the VLM advantage — detailed, image-rich results
 
-> ⚠️ **Superseded (2026-06-29).** The "B+ matches / out-robusts the hand-coded
-> oracle" claim below was measured against a *hard* oracle that over-constrains.
-> Against a **fair soft oracle** (true geometry, B+'s own soft mechanism) **and** a
-> trivial **CV detector**, B+ only **ties** — it does not beat them. See the
-> correction + 5-seed VLM rerun in [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md)
-> and the repositioning in [`ICLR_PLAN.md`](ICLR_PLAN.md). This doc is kept for the
-> mechanism walkthrough and figures, not its headline comparison.
+> **状态：INVALIDATED AS PAPER EVIDENCE（2026-07-11 复核）。** 本文用于记录当时如何
+> 形成 B+、heterogeneous-zone 和“放大优势”的假设；其 n=5 semantic 数字受 sampler
+> overlap、router confound 和弱 perception baseline 影响。后来的
+> [`RESULTS_FAIR_BASELINES.md`](RESULTS_FAIR_BASELINES.md) 也已失效，不能作为“修正版
+> 结果”。当前状态见 [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md)，修复项见
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)，新路线见
+> [`ICLR_PLAN.md`](ICLR_PLAN.md)。正文与图片保留为历史记录，不代表当前 claim。
 
 *How the Path-B win went from "3× better than blind classical" to "matches (and
 on multi-constraint scenes out-robusts) the hand-coded oracle, with zero

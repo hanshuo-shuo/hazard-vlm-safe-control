@@ -1,11 +1,18 @@
 # 项目路线 Plan（博士论文主线）
 
+> **状态：SUPERSEDED（2026-07-11 复核）。** 这是转向 Path B 时的旧六个月路线，仅保留
+> 无泄漏纪律与“几何已知时 VLM 多余”的动机。战略和投稿路线已由
+> [`ICLR_PLAN.md`](ICLR_PLAN.md) 的 **Safety Accounting** 计划覆盖。下文关于 B+、oracle、
+> CV detector 和“可证明安全低层”的表述均未经当前审计支持；不要按本文扩大实验。先处理
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md) 的 blockers，并以
+> [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md) 判断哪些数字可引用。
+
 日期：2026-06-18
 状态：从"learned-physics PIVOT"转向 **Path B**。半年内出主结果。
 
 相关文档：
 - `WHY_VLM.md` —— **简明英文图解：VLM 的优势到底在哪**（给导师/论文 intro，先读这个）
-- `RESULTS_AMPLIFY.md` —— **带图详细结果分析**：杠杆 1（B+ 把 VLM 感知喂给低层 → 追平 oracle）+ 杠杆 2（异质 water/mud/grass → 一个 VLM 顶 N 个手写检测器）
+- `RESULTS_AMPLIFY.md` —— **历史结果分析**；其中“追平 oracle / 一个 VLM 顶 N 个 detector”是待重新验证的旧假设
 - `FAILURE_MODE_ANALYSIS.md` —— 泄漏发现 + Path A/B 对比（动机来源）
 - `EXPERIMENT_NOTES.md` —— 旧实验记录（结论受泄漏污染，代码可复用）
 - `VLM_PHYSICS_LITERATURE_REVIEW.md` —— 相关工作版图

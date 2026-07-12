@@ -1,5 +1,11 @@
 # Hazard PIVOT Experiment Notes
 
+> **状态：ARCHIVED（2026-07-11 复核）。** learned-physics PIVOT 阶段的旧实验记录
+> （2026-05-18）；结论受 prompt 泄漏污染，仅代码、失败模式和环境可复用。当前路线见
+> [`ICLR_PLAN.md`](ICLR_PLAN.md)，blockers 见
+> [`RESEARCH_REVIEW_COMMENTS.md`](RESEARCH_REVIEW_COMMENTS.md)，结果状态见
+> [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md)。下文保留原始判断，不代表当前结论。
+
 ## Core Claim
 
 In inertial hazard navigation, telling the VLM which actions are unsafe is not
