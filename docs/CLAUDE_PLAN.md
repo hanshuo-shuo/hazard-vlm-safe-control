@@ -113,10 +113,10 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 
 07-11 的整套审计成果（RESULTS_REGISTRY.md、legacy/ 归档、outputs/invalidated/、12 个文档的状态标注）**还没有 commit**，现在是裸奔状态。
 
-- [ ] 🧑 `git add -A && git commit`（branch `fair-baselines-l2-reframe`），merge 回 `main`，打 tag `audit-2026-07-11`；
-- [ ] 🧑 把本文档一起提交。
+- [x] 🧑 `git add -A && git commit`（branch `fair-baselines-l2-reframe`），merge 回 `main`，打 tag `audit-2026-07-11`；
+- [x] 🧑 把本文档一起提交。
 
-**验收：`git status` 干净；tag 存在。半小时内完成，不做任何其他事。**
+**验收：`git status` 干净；tag 存在。半小时内完成，不做任何其他事。✅ 已完成（07-13 核对：tag 存在，工作树干净）。**
 
 ### W1（07-13 → 07-19）— 环境可信，estimand 冻结
 
@@ -130,12 +130,14 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 
 **验收**：同 seed 两次 reset 布局逐位相同；10 个手工 seed 目测无重叠。
 
+> ⚠️ **一刀切纪律**：修复后合法布局是对采样的重新定义，**任何修复前跑出的数字与修复后一律不可比**（包括"看起来没受影响"的 arm）。不允许出现"新旧混排"的表格；需要对照时全部用修复后环境重跑。
+
 #### WP-1.2（周二）🤖 建 tests/：layout 不变量
 - 新建 `tests/test_layout_invariants.py`（pytest）：10,000 seeds × {单区 implicit, 3 区 hetero} × {corridor on/off}，断言 zone-hazard / zone-zone / zone 吞 start/goal 重叠数 **= 0**；
 - golden 布局回归测试（固定 5 个 seed 的布局快照）；
 - 顺手：`pip freeze > requirements.lock`（M07 的一半）。
 
-**验收**：`pytest tests/ -x` 全绿，10k 用例 < 2 分钟。**B01 状态改 RESOLVED。**
+**验收**：`pytest tests/ -x` 全绿，10k 用例 < 5 分钟（取决于 reset 速度；超时就放宽阈值或降到 5k seeds，**不要**为测试速度去优化 reset）。**B01 状态改 RESOLVED。**
 
 #### WP-1.3（周三上午）🤖 修 B02：措辞降级
 - 全仓 grep：`provably|guarantee|collision-free|shared autonomy|oracle-matching|commonsense understanding`；
@@ -153,6 +155,7 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 - 因子向量 schema：`{appearance, task_spec_version, capability, privilege_level, annotation_scheme, evaluator_version, protocol_version}`；
 - evaluator 规则：violation ⟺ zone 类别与 capability card 不相容（机器可推导，B05 验收条件）；
 - 次级轴（诚实版旧 L2）：task-spec-present vs -absent，仅在 P0 上做 instruction ablation；
+- **replay 反事实的切换语义**（W2 的 replay 模式是图 A 配对对照的支柱，语义必须在这里冻结，不能留给实现时即兴）：重放 subgoal 序列时换 zone_source 会换 cost map → 轨迹分叉 → 必须明确下一个 subgoal 是**按时间步切换**还是**按到达切换**。建议：按到达切换 + 记录每次切换时刻与位置，重放轨迹与原轨迹的分叉度（首次分叉步 + 终点距离）作为诊断量随结果一起报告；分叉过大（阈值写死在 protocol）的 episode 在配对分析里单独标记；
 - seed 分配：dev=0–49（调试可看），pilot=200–299，formal=300–499（冻结不许看）。旧 43–47 与 100–119 **烧掉不再用**（调参污染 + 无效 sampler）。
 
 **验收**：另一个人（或 Claude 扮演审稿人）只读 PROTOCOL.md 能唯一推出任何场景任何条件下的 evaluator 判定。**周五发导师过目。**
@@ -173,11 +176,11 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 - `--zone_source {none, oracle, cv_detector, openvocab, vlm}`；
 - enforcement 参数（hard-core/soft-halo 权重、halo 半径规则）收敛为**单一共享配置**，所有 arm 同值；
 - 所有 router 走同一 `plan_to(target, cost_map)` 入口，MPC restart 策略对齐；
-- **replay 模式**：把某次 VLM run 的 subgoal 序列存盘重放 → 固定 routing、只换 zone_source 的配对反事实。
+- **replay 模式**：把某次 VLM run 的 subgoal 序列存盘重放 → 固定 routing、只换 zone_source 的配对反事实。切换语义（按到达 vs 按时间步）**照 PROTOCOL.md v1 冻结的定义实现**（见 WP-1.4），并落盘分叉诊断量；这是全新构件，仓库里目前没有任何 replay 代码，工作量按新写估。
 
 现有 arm 的映射：C1=(direct,none)，C2-soft=(direct,oracle)，CV=(direct,cv_detector)，B=(vlm,none)，B+=(vlm,vlm)。**新增关键 arm**：(vlm-replay, oracle) 和 (vlm-replay, cv/openvocab) —— 这才是"只差 zone source"的对照。
 
-**验收**：offline heuristic 模式下 router×zone_source 全组合各跑 20 episodes 无崩溃；(direct,oracle) 与旧 C2-soft 数字一致（回归）。**降级预案**：若周二晚全因子仍不稳，砍到 `direct` + `replay` 两个 router——足够支撑图 A/图 B。
+**验收**：offline heuristic 模式下 router×zone_source 全组合各跑 20 episodes 无崩溃；回归对照 = **旧 arm 代码与新三元组代码跑在同一个修复后（post-B01）环境、同一批 seed 上，(direct,oracle) 与旧 C2-soft 代码路径逐 episode 一致**。⚠️ 不要和历史数字比——B01 修复改变了 sampler，旧数字必然对不上，对不上不等于重构失败。**降级预案**：若周二晚全因子仍不稳，砍到 `direct` + `replay` 两个 router——足够支撑图 A/图 B。
 
 #### WP-2.2（周三）🤖 M05+M01：最小权限接口 + STC 指标
 - policy 只接收 `(obs, render, task_card, capability_card, privilege_payload)`；`semantic_zones`/violation 等移进 evaluator-only 对象；
@@ -242,7 +245,7 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 
 #### WP-4.3（周四）🤖 统计与图定稿
 - 图 A：P0→P4 violation/STC 曲线（3 模型，配对 CI）；
-- 图 B：识别准确率 vs 条件安全行动率，阶段归因条形（recognition / norm / grounding / routing / execution 各吃掉多少失败）；
+- 图 B **v1 范围收窄为两段**：识别准确率 vs 条件安全行动率（recognize-but-cross）。五段归因（recognition / norm / grounding / routing / execution）是**因果归因，需要逐阶段反事实干预**，M04 最小版的 logged JSON 只支撑相关性分解——五段版降级为附图（明确标注 exploratory / correlational），完整版随 forced-choice 量表延后；
 - 附表：router×zone_source 交互、text-only 与 open-vocab 基线位置、阴性对照。
 
 #### WP-4.4（周五）🧑 go/no-go memo + registry 更新
@@ -325,3 +328,5 @@ Gate 判据（源自 ICLR_PLAN Phase 3，预注册，不许事后改）：
 ---
 
 *本计划由 Claude（Fable 5）基于 2026-07-12 的仓库状态起草；战略依据 = ICLR_PLAN.md（2026-07-11）+ RESEARCH_REVIEW_COMMENTS.md 的 15 条审查意见 + RESULTS_FAIR_BASELINES.md 的 pilot 证据。修改本计划 = 修改承诺，请在周五 memo 里留痕。*
+
+*修订 2026-07-13（合理性复查后，estimand 未动，只改验收条件与范围）：① Day 0 勾选完成；② WP-1.1 增加"修复前后数字一刀切不可比"纪律；③ WP-1.2 测试时长验收放宽到 5 分钟；④ WP-1.4 冻结清单新增 replay 切换语义（按到达 vs 按时间步 + 分叉诊断量）；⑤ WP-2.1 回归验收改为"新旧代码同跑 post-B01 环境逐 episode 对照"，明确不与历史数字比；⑥ WP-4.3 图 B v1 收窄为两段分解，五段归因降级为 exploratory 附图。*
