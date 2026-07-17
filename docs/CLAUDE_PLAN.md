@@ -123,12 +123,14 @@ GATE 08-10(一)     go/no-go memo + 导师决策会
 **本周问题：修完之后，环境生成的每一个场景都合法吗？我们到底在测什么？**
 
 #### WP-1.1（周一）🤖 修 B01：semantic-zone fallback
-- 重写 `env_pointhazard.py:281–289`：放置失败 → 整体 layout 重采样（用 seed 派生子流保持确定性，最多 K 次），仍失败 → raise，**绝不放置未检查的 zone**；
-- 抽出独立函数 `zone_layout_valid(hazards, zones, start, goal, cfg) -> (bool, reasons)`，`reset()` 末尾 assert；
-- 修 `env_pointhazard.py:184` 的 `- 1.0`：公式与 `min_hazard_pair_sep` 配置语义对齐（或改名配置项），注释同步；
-- 每个场景记录 `layout_valid` / `placement_attempts` / `resample_count`。
+- [x] 重写 `env_pointhazard.py:281–289`：放置失败 → 整体 layout 重采样（用 seed 派生子流保持确定性，最多 K 次），仍失败 → raise，**绝不放置未检查的 zone**；
+- [x] 抽出独立函数 `zone_layout_valid(hazards, zones, start, goal, cfg) -> (bool, reasons)`，`reset()` 末尾 assert；
+- [x] 修 `env_pointhazard.py:184` 的 `- 1.0`：公式与 `min_hazard_pair_sep` 配置语义对齐（或改名配置项），注释同步；
+- [x] 每个场景记录 `layout_valid` / `placement_attempts` / `resample_count`。
 
 **验收**：同 seed 两次 reset 布局逐位相同；10 个手工 seed 目测无重叠。
+
+**进度记录（2026-07-17）**：WP-1.1 实现完成。修复后单区 seed 0–9 重复 reset 逐位一致，三区异质配置在 corridor on/off 下各 10/10 生成合法布局；单区 10 个渲染场景已目测无重叠。`py_compile` 与 `git diff --check` 通过。`pytest` 尚未可用（环境未安装），WP-1.2 的大规模不变量测试仍待单独补齐；B01 在完成 WP-1.2 验收前不标记为 RESOLVED。修复前结果不与修复后结果混用。
 
 > ⚠️ **一刀切纪律**：修复后合法布局是对采样的重新定义，**任何修复前跑出的数字与修复后一律不可比**（包括"看起来没受影响"的 arm）。不允许出现"新旧混排"的表格；需要对照时全部用修复后环境重跑。
 

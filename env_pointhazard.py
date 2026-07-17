@@ -61,9 +61,9 @@ class PointHazardConfig:
     hazard_radius_max: float = 0.5
 
     # Spawn separation (rejection sampling).  All distances are *center-to-
-    # center*, so the safe separation between objects is roughly
-    # min_separation_extra plus the relevant radii.
-    min_hazard_pair_sep: float = 1.4    # min center distance between two hazards
+    # center*.  `min_hazard_pair_sep` is the required extra gap between the
+    # hazard edges, so the center-distance threshold is r_i + r_j + this value.
+    min_hazard_pair_sep: float = 1.4    # extra edge-to-edge gap between hazards
     min_start_clearance: float = 0.8    # extra clearance from start to nearest hazard edge
     min_goal_clearance: float = 0.8     # extra clearance from goal to nearest hazard edge
     min_start_goal_dist: float = 4.0    # ensure start and goal are far apart
@@ -103,6 +103,7 @@ class PointHazardConfig:
 
     # Sampling safety
     max_rejection_tries: int = 2000
+    max_layout_resamples: int = 100     # complete layout retries after placement failure
 
     # Rendering (read by external renderer)
     render_size: int = 480
@@ -111,6 +112,128 @@ class PointHazardConfig:
 # ---------------------------------------------------------------------------
 # Environment
 # ---------------------------------------------------------------------------
+
+
+def zone_layout_valid(
+    hazards: np.ndarray,
+    zones: np.ndarray,
+    start: np.ndarray,
+    goal: np.ndarray,
+    cfg: PointHazardConfig,
+) -> tuple[bool, list[str]]:
+    """Validate the complete sampled layout, including semantic zones.
+
+    This is intentionally independent of ``PointHazardEnv`` so callers and
+    tests can validate a recorded scene without recreating the environment.
+    The checks mirror the rejection predicates used by the sampler.  In
+    particular, no caller may treat an unverified fallback zone as valid.
+    """
+    reasons: list[str] = []
+    hazards = np.asarray(hazards, dtype=np.float32)
+    zones = np.asarray(zones, dtype=np.float32)
+    start = np.asarray(start, dtype=np.float32)
+    goal = np.asarray(goal, dtype=np.float32)
+    tol = 1e-6
+
+    if hazards.ndim != 2 or hazards.shape != (int(cfg.n_hazards), 3):
+        reasons.append(f"hazards_shape={hazards.shape}")
+    if zones.ndim != 2 or zones.shape != (max(0, int(cfg.n_semantic_zones)), 3):
+        reasons.append(f"zones_shape={zones.shape}")
+    if start.shape != (2,):
+        reasons.append(f"start_shape={start.shape}")
+    if goal.shape != (2,):
+        reasons.append(f"goal_shape={goal.shape}")
+    if reasons:
+        return False, reasons
+
+    if not np.isfinite(hazards).all():
+        reasons.append("hazards_nonfinite")
+    if not np.isfinite(zones).all():
+        reasons.append("zones_nonfinite")
+    if not np.isfinite(start).all():
+        reasons.append("start_nonfinite")
+    if not np.isfinite(goal).all():
+        reasons.append("goal_nonfinite")
+
+    def check_inside(objects: np.ndarray, label: str) -> None:
+        for i, (x, y, r) in enumerate(objects):
+            if r < 0.0:
+                reasons.append(f"{label}[{i}]_negative_radius")
+            if label == "hazard" and not (
+                float(cfg.hazard_radius_min) - tol
+                <= float(r)
+                <= float(cfg.hazard_radius_max) + tol
+            ):
+                reasons.append(f"{label}[{i}]_radius_range")
+            if label == "zone" and not (
+                float(cfg.semantic_radius_min) - tol
+                <= float(r)
+                <= float(cfg.semantic_radius_max) + tol
+            ):
+                reasons.append(f"{label}[{i}]_radius_range")
+            if abs(float(x)) + float(r) > float(cfg.arena_half) - 0.1 + tol:
+                reasons.append(f"{label}[{i}]_outside_arena")
+
+    check_inside(hazards, "hazard")
+    check_inside(zones, "zone")
+    if np.isfinite(start).all() and (
+        np.any(np.abs(start) > float(cfg.arena_half) - float(cfg.agent_radius) - 0.1 + tol)
+    ):
+        reasons.append("start_outside_arena")
+    if np.isfinite(goal).all() and (
+        np.any(np.abs(goal) > float(cfg.arena_half) - float(cfg.goal_radius) - 0.1 + tol)
+    ):
+        reasons.append("goal_outside_arena")
+
+    for i in range(len(hazards)):
+        hx, hy, hr = hazards[i]
+        for j in range(i):
+            jx, jy, jr = hazards[j]
+            d = float(np.linalg.norm(np.array([hx - jx, hy - jy], dtype=np.float32)))
+            if d < float(hr + jr + cfg.min_hazard_pair_sep) - tol:
+                reasons.append(f"hazard[{j},{i}]_pair_sep")
+        if float(np.linalg.norm(start - hazards[i, :2])) < float(
+            cfg.agent_radius + cfg.min_start_clearance + hr
+        ) - tol:
+            reasons.append(f"start_hazard[{i}]_clearance")
+        if float(np.linalg.norm(goal - hazards[i, :2])) < float(
+            cfg.goal_radius + cfg.min_goal_clearance + hr
+        ) - tol:
+            reasons.append(f"goal_hazard[{i}]_clearance")
+
+    for i, (zx, zy, zr) in enumerate(zones):
+        zxy = np.array([zx, zy], dtype=np.float32)
+        if float(np.linalg.norm(zxy - start)) < float(
+            zr + cfg.agent_radius + 0.3
+        ) - tol:
+            reasons.append(f"zone[{i}]_contains_start")
+        if float(np.linalg.norm(zxy - goal)) < float(
+            zr + cfg.goal_radius + 0.3
+        ) - tol:
+            reasons.append(f"zone[{i}]_contains_goal")
+        for j, (hx, hy, hr) in enumerate(hazards):
+            if float(np.linalg.norm(zxy - np.array([hx, hy], dtype=np.float32))) < float(
+                zr + hr + 0.3
+            ) - tol:
+                reasons.append(f"zone[{i}]_hazard[{j}]_overlap")
+        for j in range(i):
+            jxy = zones[j, :2]
+            if float(np.linalg.norm(zxy - jxy)) < float(zr + zones[j, 2] + 0.3) - tol:
+                reasons.append(f"zone[{j},{i}]_overlap")
+
+    if float(np.linalg.norm(goal - start)) < float(cfg.min_start_goal_dist) - tol:
+        reasons.append("start_goal_distance")
+
+    return not reasons, reasons
+
+
+class _LayoutSamplingFailure(RuntimeError):
+    """Internal signal to discard one complete candidate layout."""
+
+    def __init__(self, message: str, placement_attempts: int = 0):
+        super().__init__(message)
+        self.placement_attempts = int(placement_attempts)
+
 
 class PointHazardEnv:
     """
@@ -144,6 +267,9 @@ class PointHazardEnv:
         self.hazards = np.zeros((self.cfg.n_hazards, 3), dtype=np.float32)  # (x, y, r)
         self.semantic_zones = np.zeros((0, 3), dtype=np.float32)  # (x, y, r) off-limits
         self.semantic_zone_styles = None  # per-zone render styles, or None = uniform
+        self.layout_valid = False
+        self.placement_attempts = 0
+        self.resample_count = 0
         self._semantic_steps = 0  # steps spent inside any semantic zone this episode
         self.t = 0
         self._trail: list[np.ndarray] = []
@@ -155,66 +281,97 @@ class PointHazardEnv:
     # Sampling helpers
     # ------------------------------------------------------------------
 
-    def _sample_xy(self, margin: float) -> np.ndarray:
+    def _sample_xy(self, margin: float, rng: np.random.Generator | None = None) -> np.ndarray:
+        rng = self.rng if rng is None else rng
         lo = -self.cfg.arena_half + margin
         hi = +self.cfg.arena_half - margin
-        return self.rng.uniform(lo, hi, size=2).astype(np.float32)
+        return rng.uniform(lo, hi, size=2).astype(np.float32)
 
-    def _sample_layout(self) -> None:
-        """Sample hazards, start, goal with rejection on minimum-distance constraints."""
+    def _sample_hazards(self, rng: np.random.Generator) -> np.ndarray:
+        """Sample one hard-hazard layout, or fail without a partial layout."""
         cfg = self.cfg
-
-        # 1. Sample hazards with center-to-center separation.
         hazards: list[np.ndarray] = []
         tries = 0
         while len(hazards) < cfg.n_hazards:
             tries += 1
             if tries > cfg.max_rejection_tries:
-                raise RuntimeError(
+                raise _LayoutSamplingFailure(
                     f"Failed to sample {cfg.n_hazards} non-overlapping hazards in "
                     f"{cfg.max_rejection_tries} tries; relax min_hazard_pair_sep "
                     f"or shrink hazards."
                 )
-            r = float(self.rng.uniform(cfg.hazard_radius_min, cfg.hazard_radius_max))
-            xy = self._sample_xy(margin=r + 0.1)  # keep hazard fully inside arena
+            r = float(rng.uniform(cfg.hazard_radius_min, cfg.hazard_radius_max))
+            xy = self._sample_xy(margin=r + 0.1, rng=rng)  # keep hazard fully inside arena
             ok = True
             for hx, hy, hr in hazards:
                 d = float(np.linalg.norm(xy - np.array([hx, hy], dtype=np.float32)))
-                # require separation that exceeds both radii by min_hazard_pair_sep
-                if d < (r + hr + cfg.min_hazard_pair_sep - 1.0):
+                # min_hazard_pair_sep is an edge-to-edge gap, so the center
+                # distance must exceed both radii plus that configured gap.
+                if d < (r + hr + cfg.min_hazard_pair_sep):
                     ok = False
                     break
             if ok:
                 hazards.append(np.array([xy[0], xy[1], r], dtype=np.float32))
-        self.hazards = np.stack(hazards, axis=0)
+        return np.stack(hazards, axis=0) if hazards else np.zeros((0, 3), dtype=np.float32)
 
-        # 2. Sample start position outside any hazard (with clearance).
+    def _sample_start_goal(
+        self, rng: np.random.Generator, hazards: np.ndarray
+    ) -> tuple[np.ndarray, np.ndarray]:
+        """Sample valid start and goal positions for one hazard candidate."""
+        cfg = self.cfg
         for _ in range(cfg.max_rejection_tries):
-            start = self._sample_xy(margin=cfg.agent_radius + 0.1)
-            if self._clear_of_all_hazards(start, cfg.agent_radius + cfg.min_start_clearance):
+            start = self._sample_xy(margin=cfg.agent_radius + 0.1, rng=rng)
+            if self._clear_of_all_hazards(
+                start, cfg.agent_radius + cfg.min_start_clearance, hazards
+            ):
                 break
         else:
-            raise RuntimeError("Failed to sample valid start position.")
-        self.pos = start
-        self.vel = np.zeros(2, dtype=np.float32)
+            raise _LayoutSamplingFailure("Failed to sample valid start position.")
 
-        # 3. Sample goal position outside any hazard AND far from start.
         for _ in range(cfg.max_rejection_tries):
-            goal = self._sample_xy(margin=cfg.goal_radius + 0.1)
-            if not self._clear_of_all_hazards(goal, cfg.goal_radius + cfg.min_goal_clearance):
+            goal = self._sample_xy(margin=cfg.goal_radius + 0.1, rng=rng)
+            if not self._clear_of_all_hazards(
+                goal, cfg.goal_radius + cfg.min_goal_clearance, hazards
+            ):
                 continue
-            if float(np.linalg.norm(goal - self.pos)) < cfg.min_start_goal_dist:
+            if float(np.linalg.norm(goal - start)) < cfg.min_start_goal_dist:
                 continue
             break
         else:
-            raise RuntimeError("Failed to sample valid goal position.")
+            raise _LayoutSamplingFailure("Failed to sample valid goal position.")
+        return start, goal
+
+    def _sample_layout(self, rng: np.random.Generator | None = None) -> dict[str, Any]:
+        """Sample one complete layout; a failed zone placement is atomic."""
+        rng = self.rng if rng is None else rng
+        hazards = self._sample_hazards(rng)
+        start, goal = self._sample_start_goal(rng, hazards)
+        zones, styles, placement_attempts = self._sample_semantic_zones(
+            rng, hazards, start, goal
+        )
+        valid, reasons = zone_layout_valid(hazards, zones, start, goal, self.cfg)
+        if not valid:
+            raise _LayoutSamplingFailure(
+                "Sampled layout failed validation: " + "; ".join(reasons),
+                placement_attempts=placement_attempts,
+            )
+
+        # Commit state only after the complete candidate has passed validation.
+        self.hazards = hazards
+        self.pos = start
         self.goal = goal
+        self.vel = np.zeros(2, dtype=np.float32)
+        self.semantic_zones = zones
+        self.semantic_zone_styles = styles
+        return {"placement_attempts": placement_attempts}
 
-        # 4. Sample semantic keep-out zones (after start+goal so they can be
-        #    placed on the corridor between them — see _sample_semantic_zones).
-        self.semantic_zones = self._sample_semantic_zones()
-
-    def _sample_semantic_zones(self) -> np.ndarray:
+    def _sample_semantic_zones(
+        self,
+        rng: np.random.Generator,
+        hazards: np.ndarray,
+        start: np.ndarray,
+        goal: np.ndarray,
+    ) -> tuple[np.ndarray, list[str] | None, int]:
         """Sample off-limits zones, by default straddling the start->goal line.
 
         Placing a zone so the straight start->goal segment passes through it
@@ -222,23 +379,26 @@ class PointHazardEnv:
         the goal) will cut through it — making the semantic constraint actually
         *bite*.  Zones are rejected if they would swallow the start/goal or
         overlap a hard hazard or another zone, so there is always room to detour
-        around them.
+        around them.  There is deliberately no unchecked fallback: failure
+        discards the whole candidate layout in ``reset``.
         """
         cfg = self.cfg
         if cfg.n_semantic_zones <= 0:
-            return np.zeros((0, 3), dtype=np.float32)
+            return np.zeros((0, 3), dtype=np.float32), None, 0
 
-        seg = self.goal - self.pos
+        seg = goal - start
         seg_len = float(np.linalg.norm(seg))
         seg_dir = seg / (seg_len + 1e-9)
         perp = np.array([-seg_dir[1], seg_dir[0]], dtype=np.float32)
 
         n = cfg.n_semantic_zones
         zones: list[np.ndarray] = []
+        placement_attempts = 0
         for zi in range(n):
             placed = False
             for _try in range(cfg.max_rejection_tries):
-                r = float(self.rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
+                placement_attempts += 1
+                r = float(rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
                 if cfg.semantic_on_corridor:
                     if n > 1:
                         # Spread zones along the route: zone zi gets its own t-band
@@ -246,26 +406,26 @@ class PointHazardEnv:
                         # rather than piling at the midpoint (and rejecting).
                         lo = 0.18 + 0.64 * zi / n
                         hi = 0.18 + 0.64 * (zi + 1) / n
-                        t = float(self.rng.uniform(lo, hi))
+                        t = float(rng.uniform(lo, hi))
                     else:
-                        t = float(self.rng.uniform(cfg.semantic_corridor_t_min,
-                                                   cfg.semantic_corridor_t_max))
+                        t = float(rng.uniform(cfg.semantic_corridor_t_min,
+                                              cfg.semantic_corridor_t_max))
                     # lateral offset < r keeps the segment intersecting the zone
-                    lateral = float(self.rng.uniform(-0.4, 0.4)) * r
-                    center = self.pos + seg_dir * (t * seg_len) + perp * lateral
+                    lateral = float(rng.uniform(-0.4, 0.4)) * r
+                    center = start + seg_dir * (t * seg_len) + perp * lateral
                 else:
-                    center = self._sample_xy(margin=r + 0.1)
+                    center = self._sample_xy(margin=r + 0.1, rng=rng)
                 lim = cfg.arena_half - r - 0.1
                 center = np.clip(center, -lim, lim).astype(np.float32)
 
                 # Keep start and goal outside the zone (need clear endpoints).
-                if float(np.linalg.norm(center - self.pos)) < r + cfg.agent_radius + 0.3:
+                if float(np.linalg.norm(center - start)) < r + cfg.agent_radius + 0.3:
                     continue
-                if float(np.linalg.norm(center - self.goal)) < r + cfg.goal_radius + 0.3:
+                if float(np.linalg.norm(center - goal)) < r + cfg.goal_radius + 0.3:
                     continue
                 # Leave a gap to hard hazards so an avoider can slip past.
                 ok = True
-                for hx, hy, hr in self.hazards:
+                for hx, hy, hr in hazards:
                     if float(np.linalg.norm(center - np.array([hx, hy], dtype=np.float32))) < r + hr + 0.3:
                         ok = False
                         break
@@ -279,22 +439,17 @@ class PointHazardEnv:
                     placed = True
                     break
             if not placed:
-                # Fallback: drop a small zone at this zone's OWN corridor position
-                # (spread by zi) so failed placements don't pile into duplicates.
-                if cfg.semantic_on_corridor and n > 1:
-                    tf = 0.18 + 0.64 * (zi + 0.5) / n
-                else:
-                    tf = 0.5
-                c = self.pos + seg_dir * (tf * seg_len)
-                zones.append(np.array([c[0], c[1], cfg.semantic_radius_min], dtype=np.float32))
+                raise _LayoutSamplingFailure(
+                    f"Failed to place semantic zone {zi} in "
+                    f"{cfg.max_rejection_tries} tries",
+                    placement_attempts=placement_attempts,
+                )
         # Per-zone appearance styles (parallel to `zones`). Assigned by index from
         # the pool — no RNG draw, so single-zone homogeneous runs are unaffected.
         # None when no pool is set => renderer uses its single default style.
         pool = cfg.semantic_styles
-        self.semantic_zone_styles = (
-            [pool[i % len(pool)] for i in range(len(zones))] if pool else None
-        )
-        return np.stack(zones, axis=0)
+        styles = [pool[i % len(pool)] for i in range(len(zones))] if pool else None
+        return np.stack(zones, axis=0), styles, placement_attempts
 
     def _in_semantic_zone(self, p: np.ndarray) -> bool:
         """True if the agent's *center* lies inside any semantic keep-out zone."""
@@ -303,9 +458,15 @@ class PointHazardEnv:
                 return True
         return False
 
-    def _clear_of_all_hazards(self, p: np.ndarray, body_radius: float) -> bool:
+    def _clear_of_all_hazards(
+        self,
+        p: np.ndarray,
+        body_radius: float,
+        hazards: np.ndarray | None = None,
+    ) -> bool:
         """True if a body of radius `body_radius` centered at p touches no hazard."""
-        for hx, hy, hr in self.hazards:
+        hazards = self.hazards if hazards is None else hazards
+        for hx, hy, hr in hazards:
             d = float(np.linalg.norm(p - np.array([hx, hy], dtype=np.float32)))
             if d < (body_radius + hr):
                 return False
@@ -344,9 +505,42 @@ class PointHazardEnv:
     # ------------------------------------------------------------------
 
     def reset(self, *, seed: int | None = None) -> tuple[np.ndarray, dict[str, Any]]:
+        # Each complete layout attempt gets its own child stream.  With an
+        # explicit seed this makes retries deterministic and prevents a failed
+        # candidate from shifting the random stream used by later candidates.
         if seed is not None:
-            self.rng = np.random.default_rng(seed)
-        self._sample_layout()
+            root_sequence = np.random.SeedSequence(seed)
+        else:
+            root_seed = int(self.rng.integers(0, 2**63 - 1, dtype=np.uint64))
+            root_sequence = np.random.SeedSequence(root_seed)
+        n_resample_slots = max(0, int(self.cfg.max_layout_resamples))
+        child_sequences = root_sequence.spawn(n_resample_slots + 1)
+
+        last_failure: _LayoutSamplingFailure | None = None
+        placement_attempts = 0
+        for resample_count, child_sequence in enumerate(child_sequences):
+            try:
+                metadata = self._sample_layout(np.random.default_rng(child_sequence))
+                placement_attempts += int(metadata["placement_attempts"])
+                break
+            except _LayoutSamplingFailure as exc:
+                last_failure = exc
+                placement_attempts += int(exc.placement_attempts)
+        else:
+            assert last_failure is not None
+            raise RuntimeError(
+                f"Failed to sample a valid layout after {len(child_sequences)} attempts "
+                f"({n_resample_slots} resamples): {last_failure}"
+            ) from last_failure
+
+        self.layout_valid = True
+        self.placement_attempts = placement_attempts
+        self.resample_count = resample_count
+        valid, reasons = zone_layout_valid(
+            self.hazards, self.semantic_zones, self.pos, self.goal, self.cfg
+        )
+        self.layout_valid = bool(valid)
+        assert self.layout_valid, "reset produced an invalid layout: " + "; ".join(reasons)
         self.t = 0
         self._semantic_steps = 0
         self._trail = [self.pos.copy()]
@@ -355,6 +549,9 @@ class PointHazardEnv:
             "hazards": self.hazards.copy(),
             "semantic_zones": self.semantic_zones.copy(),
             "start": self.pos.copy(),
+            "layout_valid": self.layout_valid,
+            "placement_attempts": self.placement_attempts,
+            "resample_count": self.resample_count,
         }
         return self._build_obs(), info
 
@@ -414,6 +611,9 @@ class PointHazardEnv:
         info["hazard_hit"] = bool(terminated and info.get("termination_reason") == "hazard")
         info["in_semantic_zone"] = bool(in_zone)
         info["semantic_steps"] = int(self._semantic_steps)
+        info["layout_valid"] = self.layout_valid
+        info["placement_attempts"] = self.placement_attempts
+        info["resample_count"] = self.resample_count
         info["goal"] = self.goal.copy()
         info["hazards"] = self.hazards.copy()
         info["semantic_zones"] = self.semantic_zones.copy()
