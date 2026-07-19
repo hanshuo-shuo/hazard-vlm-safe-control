@@ -55,7 +55,7 @@ def build_cond_from_obs(obs: np.ndarray, n_hazards: int) -> np.ndarray:
     """
     Drop goal (obs[:, 4:6]) and return (N, 4 + 3*n_hazards) cond array.
 
-    This is the architectural guarantee that diffusion never sees the goal.
+    This assertion documents the architectural separation: diffusion never sees the goal.
     Any future code that accidentally passes goal info here must break this
     assertion:
         assert cond.shape[1] == 4 + 3 * n_hazards  # no goal allowed

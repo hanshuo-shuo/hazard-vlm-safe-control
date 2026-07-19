@@ -19,8 +19,8 @@
 
 | ID | 严重度 | 主题 | 当前状态 | 是否阻止 paid run |
 |---|---|---|---|---|
-| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | OPEN | 是 |
-| B02 | BLOCKER | “provably safe MPC” 与实现不符 | OPEN | 是 |
+| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | RESOLVED | 是 |
+| B02 | BLOCKER | MPC 强安全措辞与实现不符 | RESOLVED（降级路线） | 否 |
 | B03 | BLOCKER | C2/CV 与 B+ 的 planner/router 不一致 | OPEN | 是 |
 | B04 | BLOCKER | 现有 semantic n=5/n=20 结果必须重跑 | OPEN | 是 |
 | B05 | BLOCKER | task specification 与 leakage 混为一谈 | OPEN | 是 |
@@ -31,7 +31,7 @@
 | M03 | MAJOR | 缺现代 open-vocabulary perception baseline | OPEN | 否 |
 | M04 | MAJOR | free-text naming 不能当 grounded understanding | OPEN | 否 |
 | M05 | MAJOR | policy interface 未实现信息流隔离 | OPEN | 否 |
-| M06 | MAJOR | shared autonomy / guarantee 等术语过强 | OPEN | 否 |
+| M06 | MAJOR | 协作/保证类术语过强 | OPEN | 否 |
 | M07 | MAJOR | run manifest 与仓库复现性不完整 | OPEN | 否 |
 | M08 | MAJOR | PointPush/VLA 目前只是 scaffold | OPEN | 否 |
 
@@ -40,6 +40,10 @@
 ## Blocking comments
 
 ### [B01] semantic-zone fallback 跳过有效性检查
+
+**状态：RESOLVED（2026-07-17）**
+
+WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确定性子流重采样，并在 `reset()` 末尾执行独立 validity assertion。WP-1.2 新增 `tests/test_layout_invariants.py`，覆盖单区 implicit/三区 hetero 与 corridor on/off 四种配置，逐类断言 zone-hazard、zone-zone、zone-start、zone-goal 重叠数为零，并加入固定 seed 的 golden snapshot。依赖环境记录在 `requirements.lock`。
 
 **位置**
 
@@ -67,30 +71,34 @@
 
 ---
 
-### [B02] MPC 不能声称 provably safe
+### [B02] MPC 采用 empirical safety-oriented sampling MPC 表述
+
+**状态：RESOLVED（降级路线，2026-07-17）**
+
+已将代码、docstring、README、结构说明和当前研究计划中的强安全表述统一降级为
+**safety-oriented sampling MPC（empirical）**。MPC 的安全表现只作为 sampled rollout
+上的 hazard、semantic violation、success 和 clearance 等 empirical metrics 报告；当前实现
+没有 feasibility shield、backup policy、recursive feasibility 或 terminal invariant set，
+因此不建立形式化安全性质。
 
 **位置**
 
 - mpc_expert.py:105–109；
 - mpc_expert.py:153–166；
 - mpc_expert.py:191–215；
-- README.md、STRUCTURE.md、subgoal_pivot_hazard.py 中所有 guarantee/provably-safe 文案。
+- README.md、STRUCTURE.md、subgoal_pivot_hazard.py 以及相关 docstring 中的强安全文案。
 
 **问题**
 
 当前 CEM-MPC 对预测碰撞只加有限 penalty，没有 feasibility mask、无安全样本检测、backup action、recursive feasibility 或 terminal invariant set。即使所有 sampled rollout 都碰撞，act() 仍会执行最低 cost 序列的第一个动作。环境和 MPC 也只检查离散时刻碰撞。
 
-**要求修改**
+**已执行与验收**
 
-二选一：
-
-1. **降级 claim（推荐，适合 measurement paper）**：统一改为 exact-model, safety-oriented sampling MPC，并把碰撞安全作为 empirical metric；
-2. **真正做 formal safety**：增加经过证明的 shield/CBF/reachability safety filter、可行 backup 和明确假设。
-
-**验收条件**
-
-- 若走降级路线：仓库中不再出现 “provably safe”“guarantees collision-free”；
-- 若走 formal 路线：论文和代码给出定理、假设、证明、离散实现说明和 adversarial tests。
+- 统一为 exact-model, safety-oriented sampling MPC（empirical）；
+- collision、semantic violation、success 和 clearance 只作为 sampled rollout 的 empirical
+  metrics 报告；
+- 未引入形式化 safety shield，因此不作形式化安全声称；
+- 当前仓库目标词 grep 仅剩明确标为 INVALIDATED 的历史结果原文。
 
 ---
 
@@ -300,9 +308,9 @@ policy.reset 当前接收含 true semantic_zones 的 info，policy.act 接收完
 
 ### [M06] 统一术语
 
-- 没有人类 joystick/operator intent/user study，不称 shared autonomy；
+- 没有人类 joystick/operator intent/user study，不称人机协作系统；
 - 推荐称 hierarchical VLM-guided autonomy；
-- 不再使用 oracle-matching、commonsense understanding、guaranteed safety 等未经结果支持的词。
+- 不再使用 oracle 对齐、常识理解、保证安全等未经结果支持的词。
 
 ---
 

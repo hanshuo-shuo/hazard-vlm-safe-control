@@ -1,6 +1,6 @@
 # docs/ 索引 — 先读这个
 
-更新于 2026-07-11。这个仓库经历了多次方向纠偏；下表区分当前战略、待重跑结果和历史材料。
+更新于 2026-07-17。这个仓库经历了多次方向纠偏；下表区分当前战略、待重跑结果和历史材料。
 
 项目当前一句话：
 
@@ -12,9 +12,11 @@
 
 | 文档 | 是什么 |
 |---|---|
+| [PROTOCOL.md](PROTOCOL.md) | **实验语义真相源（v1）。** 冻结信息类型、capability twins、task spec、P0–P4、factor schema、evaluator、replay 切换语义与 seed split；实现和正式 run 必须服从它。 |
 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | **修改清单。** 按 BLOCKER/MAJOR review comment 写明位置、问题、要求修改与验收条件。先处理 B01–B07，未解决前暂停 paid scaling。 |
 | [ICLR_PLAN.md](ICLR_PLAN.md) | **新战略主文档。** 覆盖 2026-06-29 旧计划；主线改为 Safety Accounting / causal attribution，包含 protocol、factorial design、实验矩阵、go/no-go gate、ICLR/CoRL 分流与 definition of done。 |
 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | **30 天执行计划（2026-07-13 → 2026-08-10）。** 把 ICLR_PLAN Phase 0–3 展开成按周/按日、带验收条件的工作包；含"继续 vs pivot"的战略结论、预算上限与 Day-30 决策树。 |
+| [MEMO_01.md](MEMO_01.md) | **W1 gate memo #1（2026-07-19）。** 记录 protocol v1.2.1 冻结、因子正交 snapshot 与测试验收。 |
 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | **结果状态真相源。** 区分 VALIDATED / PILOT_ONLY / INVALIDATED / ARCHIVED，记录失效原因、归档位置和新结果准入条件。 |
 
 **一句话现状：** 现有代码是强 pilot，但 semantic-zone sampler、MPC safety claim 和 router baseline 存在阻断性问题；旧 semantic n=5/n=20 只能作 debugging evidence，修复 protocol 前不再扩量。
@@ -56,9 +58,10 @@
 
 ## 推荐阅读顺序
 
-1. RESEARCH_REVIEW_COMMENTS：先看什么必须修；
-2. ICLR_PLAN：再看新研究问题和执行路线；
-3. CLAUDE_PLAN：本月每天做什么、做到什么算完成；
-4. RESULTS_REGISTRY：确认哪些数字还能用；
-5. RESULTS_FAIR_BASELINES：理解旧 pilot 暴露了哪些机制，但不要把数字当最终结果；
-6. STRUCTURE：定位需要修改的代码。
+1. PROTOCOL：先看当前实验语义与不可更改的判定规则；
+2. RESEARCH_REVIEW_COMMENTS：再看什么必须修；
+3. ICLR_PLAN：理解新研究问题和完整路线；
+4. CLAUDE_PLAN：本月每天做什么、做到什么算完成；
+5. RESULTS_REGISTRY：确认哪些数字还能用；
+6. RESULTS_FAIR_BASELINES：理解旧 pilot 暴露了哪些机制，但不要把数字当最终结果；
+7. STRUCTURE：定位需要修改的代码。

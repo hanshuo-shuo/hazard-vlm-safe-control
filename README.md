@@ -2,7 +2,7 @@
 
 Research prototype for auditing semantic safety in VLM-guided robot control.
 The current system uses a VLM for high-level semantic/routing decisions and an
-exact-model, safety-oriented sampling controller for low-level execution.
+exact-model, safety-oriented sampling MPC (empirical) controller for low-level execution.
 
 > 🧭 **文档从哪读起 → [`docs/README.md`](docs/README.md)（索引，先看这个）。**
 > 当前真相源：[`docs/RESEARCH_REVIEW_COMMENTS.md`](docs/RESEARCH_REVIEW_COMMENTS.md)
@@ -22,7 +22,7 @@ exact-model, safety-oriented sampling controller for low-level execution.
 |---|---|
 | `env_pointhazard.py` | Point-mass env: random hazards + random goal, exact numpy dynamics |
 | `hazard_renderer.py` | PIL top-down renderer |
-| `mpc_expert.py` | **CEM-MPC** safety-oriented low-level controller using exact discrete dynamics; no formal safety guarantee |
+| `mpc_expert.py` | **CEM-MPC** safety-oriented sampling MPC (empirical) using exact discrete dynamics; safety is reported from rollout metrics |
 | `safe_expert.py` | A\*+PD safe controller (older/weaker baseline low-level) |
 | `pivot_vlm.py` | PIVOT visual-prompting core (candidate generation / annotation / VLM select) |
 | `subgoal_pivot_hazard.py` | **Month-1 experiment**: matched-seed 3-way comparison (see below) |
@@ -31,6 +31,15 @@ exact-model, safety-oriented sampling controller for low-level execution.
 
 `legacy/` holds archived earlier variants; `docs/` holds the plan, failure-mode
 analysis, experiment notes, and literature review.
+
+## Claim boundary
+
+| 当前支持的 claim | 当前不支持的 claim |
+|---|---|
+| CEM-MPC 是基于 exact discrete dynamics 的 safety-oriented sampling MPC（empirical）。 | 形式化安全定理、递归可行性或可证明的安全性质。 |
+| 可报告 sampled rollouts 的 hazard、semantic violation、success 和 clearance 等 empirical metrics。 | 仅凭采样结果就宣称所有执行轨迹都不会碰撞。 |
+| VLM 负责高层语义/路由选择，低层控制器负责执行；两层贡献可按 protocol 分开测量。 | 人机协作、人类 operator intent 或 user-study 结论（当前没有这些实验）。 |
+| 当前仓库是用于 safety accounting 的研究原型，历史结果按 registry 状态管理。 | oracle 对齐、常识理解或超越 classical planning 的 headline claim。 |
 
 ## Quick start
 

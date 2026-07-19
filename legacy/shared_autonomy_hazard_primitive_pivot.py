@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: safety-filtered motion-primitive PIVOT.
+VLM-guided control for PointHazardEnv: safety-filtered motion-primitive PIVOT.
 
 This is the local Qwen variant of shared_autonomy_hazard_primitive_pivot_openrouter.py:
 the VLM chooses among numbered short trajectory primitives, while a local

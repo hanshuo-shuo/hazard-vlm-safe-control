@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: PIVOT VLM pilot via OpenRouter API.
+VLM-guided control for PointHazardEnv: PIVOT VLM pilot via OpenRouter API.
 
 Same logic as shared_autonomy_hazard_pivot.py but the VLM call is made
 through the OpenRouter API (Gemini Flash) instead of a local model.
@@ -177,7 +177,7 @@ def _load_ddpm_ckpt(path: str, *, device: torch.device) -> ConditionalDDPM:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="PIVOT shared autonomy via OpenRouter Gemini Flash API")
+        description="PIVOT VLM-guided control via OpenRouter Gemini Flash API")
 
     # Episodes
     parser.add_argument("--episodes", type=int, default=10)

@@ -181,8 +181,8 @@ the leaked quantities are removed:
 
 This is exactly the consensus design in the literature (SayCan, VoxPoser, VLM-MPC): *VLM for
 semantics, physics/MPC for low-level safety.* So the negative result is not a blemish — it is the
-**motivation for the follow-up project**, where the VLM picks a high-level subgoal and a provably-safe
-controller guarantees execution. See [`docs/LEAKAGE_AND_LIMITATIONS.md`](docs/LEAKAGE_AND_LIMITATIONS.md)
+**motivation for the follow-up project**, where the VLM picks a high-level subgoal and a
+safety-oriented sampling MPC controller (empirical) executes it. See [`docs/LEAKAGE_AND_LIMITATIONS.md`](docs/LEAKAGE_AND_LIMITATIONS.md)
 for the full audit table and the information-level taxonomy (L0–L6) it produced.
 
 ---
@@ -199,7 +199,7 @@ physics-grounded-vlm/   (this directory)
 │   ├── LEAKAGE_AND_LIMITATIONS.md     the leakage audit + L0–L6 taxonomy
 │   └── STRUCTURE.md                   file-by-file map
 │
-├── Shared autonomy (VLM intent + diffusion safety copilot)
+├── VLM-guided control (VLM intent + diffusion safety copilot)
 │   ├── shared_autonomy_hazard.py              VLM force-intent + guided-diffusion safety prior
 │   ├── test.py                                proximity-adaptive copilot strength
 │   ├── ddpm.py                                minimal conditional DDPM for vectors
@@ -258,7 +258,7 @@ python shared_autonomy_hazard_learned_physics_pivot.py \
 ### Follow-up work
 
 This study directly motivated a follow-up where the VLM is promoted to a **high-level planner** and a
-**provably-safe MPC controller** owns low-level collision avoidance — the design the leakage audit
+**safety-oriented sampling MPC controller (empirical)** owns low-level hazard avoidance — the design the leakage audit
 pointed to. See [`docs/METHOD.md`](docs/METHOD.md) and [`docs/LEAKAGE_AND_LIMITATIONS.md`](docs/LEAKAGE_AND_LIMITATIONS.md).
 
 ## Related work

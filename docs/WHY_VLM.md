@@ -16,7 +16,7 @@
 ## The honest worry this project answers
 
 A reasonable advisor asks: **"We already have classical motion planners (A\*,
-MPC) that are fast, safe, and provably correct. Why bring a big slow VLM into the
+MPC) that are fast and often effective empirically. Why bring a big slow VLM into the
 control loop at all?"**
 
 That worry is correct — *most of the time*. This project's whole job is to find

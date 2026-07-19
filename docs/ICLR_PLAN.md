@@ -69,8 +69,8 @@
 - “B+ matches/outperforms oracle”；
 - “one VLM replaces N detectors”，除非未来完成现代 open-vocab baseline 和 terrain scaling；
 - “spontaneously says water proves understanding”；
-- “provably safe MPC / collision-free guarantee”；
-- “shared autonomy”，除非加入真实 human input、minimal intervention metric 和 user study。
+- “形式化安全 MPC / 全轨迹无碰撞”；
+- “人机协作”，除非加入真实 human input、minimal intervention metric 和 user study。
 
 允许保留的资产：
 
@@ -231,9 +231,9 @@ Headline comparison 必须固定 router 和 enforcement，只改变 zone source�
 
 ### 5.3 低层安全措辞
 
-ICLR MVP 采用 empirical safety-oriented executor，不做 formal guarantee。
+ICLR MVP 采用 safety-oriented sampling MPC（empirical），不作形式化安全声称。
 
-若转 CoRL method paper，再加入带清晰假设的 safety filter/CBF/reachability layer。formal guarantee 只能覆盖已正确 grounded 的约束，不能把 VLM 感知正确性偷渡进保证。
+若转 CoRL method paper，再加入带清晰假设的 safety filter/CBF/reachability layer。形式化安全结论只能覆盖已正确 grounded 的约束，不能把 VLM 感知正确性偷渡进结论。
 
 ---
 
@@ -341,7 +341,7 @@ ICLR MVP 采用 empirical safety-oriented executor，不做 formal guarantee。
 - [ ] 核对 hazard separation；
 - [ ] 增加 10k-seed layout invariants；
 - [ ] 将旧 semantic results 标为 invalidated；
-- [ ] 删除 provably-safe/shared-autonomy 过强措辞；
+- [x] 删除过强安全/人机协作措辞，统一使用 empirical 表述；
 - [ ] 暂停 paid scaling。
 
 **Gate 0**：所有 layout tests 通过，B01/B02 resolved。

@@ -341,13 +341,22 @@ class PointHazardEnv:
             raise _LayoutSamplingFailure("Failed to sample valid goal position.")
         return start, goal
 
-    def _sample_layout(self, rng: np.random.Generator | None = None) -> dict[str, Any]:
+    def _sample_layout(
+        self,
+        rng: np.random.Generator | None = None,
+        *,
+        allow_zone_fallback: bool = False,
+    ) -> dict[str, Any]:
         """Sample one complete layout; a failed zone placement is atomic."""
         rng = self.rng if rng is None else rng
         hazards = self._sample_hazards(rng)
         start, goal = self._sample_start_goal(rng, hazards)
         zones, styles, placement_attempts = self._sample_semantic_zones(
-            rng, hazards, start, goal
+            rng,
+            hazards,
+            start,
+            goal,
+            allow_fallback=allow_zone_fallback,
         )
         valid, reasons = zone_layout_valid(hazards, zones, start, goal, self.cfg)
         if not valid:
@@ -371,13 +380,15 @@ class PointHazardEnv:
         hazards: np.ndarray,
         start: np.ndarray,
         goal: np.ndarray,
+        *,
+        allow_fallback: bool = False,
     ) -> tuple[np.ndarray, list[str] | None, int]:
         """Sample off-limits zones, by default straddling the start->goal line.
 
         Placing a zone so the straight start->goal segment passes through it
-        guarantees a geometry-only controller (which heads roughly straight at
-        the goal) will cut through it — making the semantic constraint actually
-        *bite*.  Zones are rejected if they would swallow the start/goal or
+        makes it likely that a geometry-only controller (which heads roughly
+        straight at the goal) will cut through it — making the semantic
+        constraint actually *bite*. Zones are rejected if they would swallow the start/goal or
         overlap a hard hazard or another zone, so there is always room to detour
         around them.  There is deliberately no unchecked fallback: failure
         discards the whole candidate layout in ``reset``.
@@ -439,10 +450,26 @@ class PointHazardEnv:
                     placed = True
                     break
             if not placed:
-                raise _LayoutSamplingFailure(
-                    f"Failed to place semantic zone {zi} in "
-                    f"{cfg.max_rejection_tries} tries",
-                    placement_attempts=placement_attempts,
+                if not allow_fallback:
+                    raise _LayoutSamplingFailure(
+                        f"Failed to place semantic zone {zi} in "
+                        f"{cfg.max_rejection_tries} tries",
+                        placement_attempts=placement_attempts,
+                    )
+                # The corridor is a preferred placement policy, not an
+                # invariant of the evaluator.  A hard hazard can occasionally
+                # block one narrow t-band for an otherwise valid layout.  In
+                # that case use a checked secondary sampler before discarding
+                # the complete layout.  This branch is enabled only after all
+                # complete-layout resamples have been exhausted, preserving
+                # the existing golden resample sequence.
+                return self._fallback_semantic_zones(
+                    rng,
+                    hazards,
+                    start,
+                    goal,
+                    placement_attempts,
+                    failed_zone=zi,
                 )
         # Per-zone appearance styles (parallel to `zones`). Assigned by index from
         # the pool — no RNG draw, so single-zone homogeneous runs are unaffected.
@@ -450,6 +477,72 @@ class PointHazardEnv:
         pool = cfg.semantic_styles
         styles = [pool[i % len(pool)] for i in range(len(zones))] if pool else None
         return np.stack(zones, axis=0), styles, placement_attempts
+
+    def _fallback_semantic_zones(
+        self,
+        rng: np.random.Generator,
+        hazards: np.ndarray,
+        start: np.ndarray,
+        goal: np.ndarray,
+        placement_attempts: int,
+        *,
+        failed_zone: int,
+    ) -> tuple[np.ndarray, list[str] | None, int]:
+        """Find a valid zone layout after a preferred corridor band is blocked.
+
+        This is not an unchecked fallback: every joint candidate is validated
+        by ``zone_layout_valid`` before it is returned.  The first phase keeps
+        zones in their assigned corridor bands but allows a wider lateral
+        offset; the second phase relaxes only the presentation preference and
+        samples the open arena.  The evaluator geometry and all rejection
+        predicates remain unchanged.
+        """
+        cfg = self.cfg
+        n = int(cfg.n_semantic_zones)
+        seg = goal - start
+        seg_len = float(np.linalg.norm(seg))
+        seg_dir = seg / (seg_len + 1e-9)
+        perp = np.array([-seg_dir[1], seg_dir[0]], dtype=np.float32)
+        phases = (True, False) if cfg.semantic_on_corridor else (False,)
+
+        for keep_corridor in phases:
+            for _try in range(cfg.max_rejection_tries):
+                placement_attempts += 1
+                candidates: list[np.ndarray] = []
+                for zi in range(n):
+                    r = float(rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
+                    if keep_corridor:
+                        if n > 1:
+                            lo = 0.18 + 0.64 * zi / n
+                            hi = 0.18 + 0.64 * (zi + 1) / n
+                            t = float(rng.uniform(lo, hi))
+                        else:
+                            t = float(rng.uniform(
+                                cfg.semantic_corridor_t_min,
+                                cfg.semantic_corridor_t_max,
+                            ))
+                        # Widen only the lateral search.  The route remains the
+                        # primary axis, while blocked strips can be bypassed.
+                        lateral = float(rng.uniform(-1.5, 1.5)) * r
+                        center = start + seg_dir * (t * seg_len) + perp * lateral
+                    else:
+                        center = self._sample_xy(margin=r + 0.1, rng=rng)
+                    lim = cfg.arena_half - r - 0.1
+                    center = np.clip(center, -lim, lim).astype(np.float32)
+                    candidates.append(np.array([center[0], center[1], r], dtype=np.float32))
+
+                zones = np.stack(candidates, axis=0)
+                valid, _reasons = zone_layout_valid(hazards, zones, start, goal, cfg)
+                if valid:
+                    pool = cfg.semantic_styles
+                    styles = [pool[i % len(pool)] for i in range(n)] if pool else None
+                    return zones, styles, placement_attempts
+
+        raise _LayoutSamplingFailure(
+            f"Failed to place semantic zone {failed_zone} after preferred and "
+            f"checked fallback sampling",
+            placement_attempts=placement_attempts,
+        )
 
     def _in_semantic_zone(self, p: np.ndarray) -> bool:
         """True if the agent's *center* lies inside any semantic keep-out zone."""
@@ -520,7 +613,10 @@ class PointHazardEnv:
         placement_attempts = 0
         for resample_count, child_sequence in enumerate(child_sequences):
             try:
-                metadata = self._sample_layout(np.random.default_rng(child_sequence))
+                metadata = self._sample_layout(
+                    np.random.default_rng(child_sequence),
+                    allow_zone_fallback=(resample_count == n_resample_slots),
+                )
                 placement_attempts += int(metadata["placement_attempts"])
                 break
             except _LayoutSamplingFailure as exc:

@@ -5,12 +5,9 @@ Unlike `safe_expert.py` (A* on a coarse grid + PD pure-pursuit, which ignores
 the agent's momentum and so can overshoot into a hazard), this controller rolls
 candidate action sequences through the *exact* env dynamics — semi-implicit
 Euler with linear drag, force scaling, speed clipping, and wall bounce — and
-only ever commits actions whose predicted rollout stays clear of every hazard.
-
-Because the rollout model IS the env's transition function, a rollout that the
-MPC certifies collision-free is collision-free in the env (up to the receding
-re-plan, which only ever improves on the committed first action). That makes it
-both stronger and more honest than the grid planner.
+scores candidate rollouts by predicted hazard and soft-zone costs. It is a
+safety-oriented sampling MPC controller (empirical): sampled rollout behavior
+is reported as an observed metric, not as a formal safety property.
 
 Optimizer: cross-entropy method (CEM) with a warm-started nominal sequence.
 

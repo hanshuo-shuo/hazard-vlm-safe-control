@@ -49,7 +49,7 @@
 - 已建立 success–safety Pareto frontier；
 - L2 证明 commonsense avoidance；
 - tuning-disjoint 已经使结果达到 paper-grade；
-- 当前 MPC 有 formal safety guarantee。
+- 当前 MPC 采用 safety-oriented sampling MPC（empirical）表述，不含形式化安全性质。
 
 ---
 

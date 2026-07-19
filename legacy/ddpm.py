@@ -372,7 +372,7 @@ class ConditionalDDPM:
         use_ema: bool = True,
     ) -> torch.Tensor:
         """
-        Shared autonomy primitive:
+        VLM-guided control primitive:
         - build x0=[copilot_obs, pilot_action] in data space
         - forward diffuse to timestep k (keeping condition dims fixed)
         - reverse sample back to x0_hat
@@ -426,4 +426,3 @@ class ConditionalDDPM:
             mean = sd["norm"]["mean"].float()
             std = sd["norm"]["std"].float()
             self.norm = RunningNorm(mean=mean, std=std)
-

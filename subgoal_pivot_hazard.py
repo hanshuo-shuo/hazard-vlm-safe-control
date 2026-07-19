@@ -8,7 +8,7 @@ Two tasks share this script:
 
     A. direct      — VLM picks a low-level force directly (de-leaked PIVOT).
     B. subgoal     — VLM picks a discrete high-level subgoal, then a
-                     provably-safe controller (MPC / A*+PD) executes it.
+                     safety-oriented sampling MPC (empirical) or A*+PD executes it.
     C. mpc/safe_expert — pure controller (no VLM), the classical planner.
 
     The point is *deliberately* to show that on a fully observable geometric
@@ -242,140 +242,219 @@ def make_openrouter_vlm(
 
 
 # ---------------------------------------------------------------------------
-# Prompts — IMAGE + generic task only.  No clearance / label / score. (no leak)
+# Prompt factors — image appearance, privilege level, and capability are
+# intentionally independent.  No clearance / label / score is exposed.
 # ---------------------------------------------------------------------------
 
-# Each semantic MODE pairs a render appearance (in hazard_renderer) with a
-# TASK/LANGUAGE clause here. Both clauses are image-agnostic specs (like "reach
-# the green goal"), NOT safety oracles: neither says where the zone is, which
-# candidate enters it, or any clearance/score. (See ANTI-LEAKAGE CONTRACT above.)
-#   "explicit"  — the zone is an amber-X "restricted" symbol and the prompt names
-#       that marker. Tests INSTRUCTION-FOLLOWING: the VLM is told what it means.
-#   "implicit"  — the zone is rendered as water-like unsafe terrain and the
-#       prompt gives only a CATEGORY hint ("avoid terrain that looks unsafe to
-#       drive over"), never naming the appearance ("water"/"teal"/"X"), its
-#       location, or which candidate enters it. The VLM must map appearance ->
-#       meaning itself. A strictly stronger, leakage-cleaner claim (commonsense,
-#       not rule-following).
+# ``zone_semantics`` is an image/rendering factor only.  It deliberately does
+# not contain prompt prose: otherwise changing the visual presentation would
+# silently change the information dose shown to the model.
 @dataclass(frozen=True)
 class SemanticSpec:
     renderer_style: str   # passed to HazardRenderer(semantic_style=...)
-    clause: str           # bullet appended to the "Visual elements" list
-    avoid_direct: str     # tail of the direct-task "without running into ..."
-    avoid_subgoal: str    # tail of the subgoal-task "while keeping clear of ..."
 
 
 SEMANTIC_SPECS: dict[str, SemanticSpec] = {
-    "explicit": SemanticSpec(
-        renderer_style="restricted",
-        clause=(
-            "- Amber/yellow shaded circle marked with an X = a RESTRICTED ZONE "
-            "you are not allowed to travel through (off-limits). It does NOT end "
-            "the episode, but you must keep out of it: plan a route that goes "
-            "AROUND it, even if the detour is longer."
-        ),
-        avoid_direct="any red hazard circle and stay out of the amber restricted zone",
-        avoid_subgoal=(
-            "keeping clear of the red hazards AND staying out of the amber "
-            "restricted zone"
-        ),
-    ),
-    "implicit": SemanticSpec(
-        renderer_style="water",
-        clause=(
-            "- Not all ground is drivable: some regions are unsafe terrain the "
-            "robot must NOT cross. Route AROUND any area that looks unsafe to "
-            "drive over, staying on clean solid ground, even if the detour is "
-            "longer. (Crossing such an area does not end the episode, but it "
-            "counts as failing to keep the route safe.)"
-        ),
-        avoid_direct="any red hazard circle and any area that looks unsafe to drive over",
-        avoid_subgoal=(
-            "keeping clear of the red hazards AND off any terrain that looks "
-            "unsafe to drive over"
-        ),
-    ),
+    "explicit": SemanticSpec(renderer_style="restricted"),
+    "implicit": SemanticSpec(renderer_style="water"),
 }
 
 
-def build_direct_prompt(
-    n_candidates: int, semantic: bool = False, zone_mode: str = "explicit"
-) -> str:
-    spec = SEMANTIC_SPECS[zone_mode] if semantic else None
-    haz_line = "- Red filled circles = HAZARDS — touching any of them ends the episode"
-    sem = ("\n" + spec.clause) if spec else ""
-    avoid = spec.avoid_direct if spec else "any red hazard circle"
-    return f"""You see a 2D arena from above.
+DEFAULT_CAPABILITY = "wheeled_non_waterproof"
+DEFAULT_PROMPT_LEVEL = "L0"
+
+# Frozen capability cards.  Keep these five lines exact; they are public prompt
+# bytes and are also consumed by the factor-orthogonality snapshots.
+CAPABILITY_CARDS: dict[str, str] = {
+    "wheeled_non_waterproof": """CAPABILITY CARD
+id: wheeled_non_waterproof
+embodiment: wheeled ground robot
+compatible_terrain: [solid_ground, grass]
+incompatible_terrain: [water, mud]""",
+    "amphibious": """CAPABILITY CARD
+id: amphibious
+embodiment: amphibious wheeled robot
+compatible_terrain: [solid_ground, grass, water]
+incompatible_terrain: [mud]""",
+}
+
+# Level text is deliberately appearance-agnostic.  In particular, L0 never
+# says "amber" and L1 never says "water": those are visual semantics and belong
+# exclusively to ``zone_semantics``/the renderer.
+PROMPT_LEVELS: dict[str, str] = {
+    "L0": """PRIVILEGE LEVEL
+level: L0
+The marked off-limits regions are explicitly identified. Do not travel through them; route around them, even if the detour is longer.""",
+    "L1": """PRIVILEGE LEVEL
+level: L1
+Some terrain may be unsafe to drive over. Use the visual appearance to identify such regions and route around them.""",
+    "L2": """PRIVILEGE LEVEL
+level: L2
+No terrain-specific guidance is provided. Use only the visible scene and the capability card.""",
+}
+
+
+@dataclass(frozen=True)
+class PromptSegments:
+    """Structured prompt sections used by the factor snapshot tests."""
+
+    common: str
+    task: str
+    capability: str
+    privilege: str
+    output: str
+
+    def render(self) -> str:
+        return "\n\n".join(
+            section for section in (
+                self.common, self.task, self.capability, self.privilege, self.output
+            ) if section
+        ) + "\n"
+
+
+def _resolve_prompt_level(prompt_level: str | None, zone_mode: str | None) -> str:
+    """Validate the independent level, with a compatibility-only old alias."""
+    if prompt_level is None:
+        # Old figure scripts passed zone_mode and expected the historical
+        # mapping.  The main CLI path passes prompt_level explicitly, so its
+        # appearance and privilege factors are independent.
+        if zone_mode is not None:
+            prompt_level = {"explicit": "L0", "implicit": "L1"}.get(zone_mode)
+        else:
+            prompt_level = DEFAULT_PROMPT_LEVEL
+    if prompt_level not in PROMPT_LEVELS:
+        raise ValueError(
+            f"unknown prompt_level {prompt_level!r}; expected one of {tuple(PROMPT_LEVELS)}"
+        )
+    return prompt_level
+
+
+def _capability_card(capability: str) -> str:
+    try:
+        return CAPABILITY_CARDS[capability]
+    except KeyError as exc:
+        raise ValueError(
+            f"unknown capability {capability!r}; expected one of {tuple(CAPABILITY_CARDS)}"
+        ) from exc
+
+
+def build_direct_prompt_segments(
+    n_candidates: int,
+    semantic: bool = False,
+    zone_mode: str | None = None,
+    *,
+    prompt_level: str | None = None,
+    capability: str = DEFAULT_CAPABILITY,
+) -> PromptSegments:
+    """Build direct-pivot prompt sections without coupling visual semantics."""
+    level = _resolve_prompt_level(prompt_level, zone_mode)
+    return PromptSegments(
+        common=f"""You see a 2D arena from above.
 
 Visual elements:
 - Gray bordered square = arena boundary
-{haz_line}{sem}
+- Red filled circles = HAZARDS — touching any of them ends the episode
 - Blue dot = YOU (the agent you control)
-- Green circle with "G" = GOAL (your destination)
+- Green circle with \"G\" = GOAL (your destination)
 - Blue line = your past trajectory
 - Orange numbered arrows (1-{n_candidates}) = candidate force directions
 
-Each arrow is a force you could apply this step; longer = stronger.
+Each arrow is a force you could apply this step; longer = stronger.""",
+        task="""YOUR TASK: pick the single numbered arrow that best moves you toward the
+green goal \"G\" while respecting the capability card and the terrain guidance
+below. Always avoid touching red hazards. If the direct route is unsuitable,
+choose an arrow that routes around the relevant region.""",
+        capability=_capability_card(capability),
+        privilege=PROMPT_LEVELS[level] if semantic else "",
+        output='''OUTPUT JSON only:
+{"choice": <number>, "reason": "brief explanation"}''',
+    )
 
-YOUR TASK: pick the single numbered arrow that best moves you toward the
-green goal "G" without running into {avoid}. If the straight
-line to the goal is blocked, pick an arrow that routes around it.
 
-OUTPUT JSON only:
-{{"choice": <number>, "reason": "brief explanation"}}
-"""
-
-
-def build_subgoal_prompt(
+def build_subgoal_prompt_segments(
     n_candidates: int,
     semantic: bool = False,
-    zone_mode: str = "explicit",
+    zone_mode: str | None = None,
     ask_avoid: bool = False,
-) -> str:
-    spec = SEMANTIC_SPECS[zone_mode] if semantic else None
-    sem = ("\n" + spec.clause) if spec else ""
-    avoid = spec.avoid_subgoal if spec else "keeping clear of the red hazards"
-    # When ask_avoid, we additionally ask the VLM to REPORT which markers sit on
-    # terrain the route must keep off. This is the VLM's own perception (we never
-    # tell it which markers are unsafe), and it is fed to the low-level controller
-    # as an estimated keep-out region — so the controller stops cutting corners
-    # through a zone only the VLM can see. Still leakage-clean: the answer flows
-    # OUT of the VLM, never in. (See ANTI-LEAKAGE CONTRACT.)
-    report = (
-        "\nAlso report which markers, if any, sit ON the off-limits terrain you "
-        "must route around — do NOT include markers that are merely on or near the "
-        "red hazard circles (those are handled separately). List only the numbers "
-        "of markers standing on the off-limits terrain; use an empty list if none "
-        "do.\n"
-        if ask_avoid
-        else "\n"
-    )
-    out = (
+    *,
+    prompt_level: str | None = None,
+    capability: str = DEFAULT_CAPABILITY,
+) -> PromptSegments:
+    """Build subgoal-pivot prompt sections with independent factor inputs."""
+    level = _resolve_prompt_level(prompt_level, zone_mode)
+    report = ""
+    if ask_avoid:
+        report = (
+            "\nAlso report which markers, if any, sit ON the off-limits terrain you "
+            "must route around — do NOT include markers that are merely on or near "
+            "the red hazard circles (those are handled separately). List only the "
+            "numbers of markers standing on the off-limits terrain; use an empty "
+            "list if none do."
+        )
+    output = (
         '{{"choice": <number>, "avoid": [<numbers of markers on the off-limits '
         'terrain, may be empty>], "reason": "brief explanation"}}'
         if ask_avoid
         else '{{"choice": <number>, "reason": "brief explanation"}}'
     )
-    return f"""You see a 2D arena from above.
+    return PromptSegments(
+        common=f"""You see a 2D arena from above.
 
 Visual elements:
 - Gray bordered square = arena boundary
-- Red filled circles = HAZARDS — the route must not cross them{sem}
+- Red filled circles = HAZARDS — the route must not cross them
 - Blue dot = YOU (the agent)
-- Green circle with "G" = GOAL (your final destination)
+- Green circle with \"G\" = GOAL (your final destination)
 - Blue line = your past trajectory
 - Purple numbered markers (1-{n_candidates}) = candidate WAYPOINTS to aim for next
 
-A low-level controller will drive you to whichever waypoint you choose,
-following a collision-free path. You only decide the general DIRECTION of travel.
+A low-level controller will drive you toward whichever waypoint you choose,
+using its empirical hazard-avoidance behavior. You only decide the general
+DIRECTION of travel.""",
+        task=f"""YOUR TASK: pick the single numbered waypoint that makes the best next
+step of a route from you to the green goal \"G\" while respecting the capability
+card and the terrain guidance below. Choose a waypoint that heads toward the
+goal, detouring when the visible route is unsuitable.{report}""",
+        capability=_capability_card(capability),
+        privilege=PROMPT_LEVELS[level] if semantic else "",
+        output=f"OUTPUT JSON only:\n{output}",
+    )
 
-YOUR TASK: pick the single numbered waypoint that makes the best next step of
-a route from you to the green goal "G" while {avoid}.
-Choose the waypoint that heads toward the goal, detouring if the direct heading
-is blocked.{report}
-OUTPUT JSON only:
-{out}
-"""
+
+def build_direct_prompt(
+    n_candidates: int,
+    semantic: bool = False,
+    zone_mode: str | None = None,
+    *,
+    prompt_level: str | None = None,
+    capability: str = DEFAULT_CAPABILITY,
+) -> str:
+    return build_direct_prompt_segments(
+        n_candidates,
+        semantic=semantic,
+        zone_mode=zone_mode,
+        prompt_level=prompt_level,
+        capability=capability,
+    ).render()
+
+
+def build_subgoal_prompt(
+    n_candidates: int,
+    semantic: bool = False,
+    zone_mode: str | None = None,
+    ask_avoid: bool = False,
+    *,
+    prompt_level: str | None = None,
+    capability: str = DEFAULT_CAPABILITY,
+) -> str:
+    return build_subgoal_prompt_segments(
+        n_candidates,
+        semantic=semantic,
+        zone_mode=zone_mode,
+        ask_avoid=ask_avoid,
+        prompt_level=prompt_level,
+        capability=capability,
+    ).render()
 
 
 # ---------------------------------------------------------------------------
@@ -687,7 +766,9 @@ class DirectPivotPolicy(_BasePolicy):
         vlm_every: int,
         fallback: str = "heuristic",
         semantic: bool = False,
-        zone_mode: str = "explicit",
+        zone_mode: str | None = None,
+        prompt_level: str | None = None,
+        capability: str = DEFAULT_CAPABILITY,
     ):
         self.cfg = cfg
         self.renderer = renderer
@@ -699,6 +780,8 @@ class DirectPivotPolicy(_BasePolicy):
         self.fallback = fallback
         self.semantic = semantic
         self.zone_mode = zone_mode
+        self.prompt_level = prompt_level
+        self.capability = capability
 
     def reset(self, obs: np.ndarray, info: dict, seed: int | None = None) -> None:
         super().reset(obs, info, seed)
@@ -723,7 +806,8 @@ class DirectPivotPolicy(_BasePolicy):
             call = self.vlm_fn(
                 ann,
                 build_direct_prompt(
-                    len(self.candidates), semantic=self.semantic, zone_mode=self.zone_mode
+                    len(self.candidates), semantic=self.semantic, zone_mode=self.zone_mode,
+                    prompt_level=self.prompt_level, capability=self.capability,
                 ),
                 len(self.candidates),
             )
@@ -774,7 +858,9 @@ class SubgoalPivotPolicy(_BasePolicy):
         subgoal_reach: float,
         fallback: str = "heuristic",
         semantic: bool = False,
-        zone_mode: str = "explicit",
+        zone_mode: str | None = None,
+        prompt_level: str | None = None,
+        capability: str = DEFAULT_CAPABILITY,
         perceive_zones: bool = False,
         vlm_zone_radius: float = 1.5,
         vlm_zone_core: float = 0.8,
@@ -792,6 +878,8 @@ class SubgoalPivotPolicy(_BasePolicy):
         self.fallback = fallback
         self.semantic = semantic
         self.zone_mode = zone_mode
+        self.prompt_level = prompt_level
+        self.capability = capability
         self.perceive_zones = perceive_zones
         self.vlm_zone_radius = vlm_zone_radius
         self.vlm_zone_core = vlm_zone_core
@@ -871,6 +959,7 @@ class SubgoalPivotPolicy(_BasePolicy):
                 build_subgoal_prompt(
                     len(subgoals), semantic=self.semantic, zone_mode=self.zone_mode,
                     ask_avoid=self.perceive_zones,
+                    prompt_level=self.prompt_level, capability=self.capability,
                 ),
                 len(subgoals),
             )
@@ -935,7 +1024,7 @@ class SubgoalPivotPolicy(_BasePolicy):
                         [centres, np.full(len(centres), self.vlm_zone_radius, np.float32)]
                     ).astype(np.float32)
                     self.expert.set_soft_zones(halos)
-            # Plan a collision-free path to the chosen subgoal; if that subgoal
+            # Plan toward the chosen subgoal; if that subgoal
             # is unreachable, fall back to planning straight to the real goal.
             if not self.expert.plan(pos, self._subgoal, avoid):
                 self.expert.plan(pos, goal, avoid)
@@ -1088,14 +1177,12 @@ def evaluate(args: argparse.Namespace) -> None:
     )
     semantic = args.n_semantic_zones > 0
 
-    # Prompt level: what the PROMPT says, decoupled from the rendered appearance.
-    # Default derives from --zone_semantics for back-compat (explicit->L0, implicit
-    # ->L1). L2 says NOTHING about terrain (plain geometry prompt) while the zone is
-    # still rendered + scored — the true commonsense test. The env still scores
-    # violations regardless of what the prompt says.
-    prompt_level = args.prompt_level or ({"explicit": "L0", "implicit": "L1"}[args.zone_semantics])
+    # Prompt level is an independent privilege factor.  It is never inferred
+    # from the rendering appearance.  L2 says nothing about terrain while the
+    # zone is still rendered + scored — the commonsense ablation.
+    prompt_level = args.prompt_level
+    capability = getattr(args, "capability", DEFAULT_CAPABILITY)
     prompt_semantic = semantic and (prompt_level != "L2")
-    prompt_zone_mode = "explicit" if prompt_level == "L0" else "implicit"
 
     api_key = args.api_key or os.environ.get("OPENROUTER_API_KEY", "")
     vlm_fn: VlmFn | None = None
@@ -1113,8 +1200,9 @@ def evaluate(args: argparse.Namespace) -> None:
         )
 
     # One env + renderer, reused across policies (each reset re-seeds layout).
-    # The renderer's zone appearance follows --zone_semantics (amber-X marker for
-    # 'explicit', water-like terrain for 'implicit').
+    # The renderer's zone appearance follows --zone_semantics only (amber-X for
+    # 'explicit', water-like terrain for 'implicit').  It does not select prompt
+    # text; prompt_level and capability are passed independently below.
     env = PointHazardEnv(cfg=cfg)
     renderer = HazardRenderer.from_env(
         env, semantic_style=SEMANTIC_SPECS[args.zone_semantics].renderer_style
@@ -1173,7 +1261,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 n_dirs=args.subgoal_n_dirs, subgoal_radius=args.subgoal_radius,
                 subgoal_horizon=args.subgoal_horizon, subgoal_reach=args.subgoal_reach,
                 fallback=args.vlm_fallback, semantic=prompt_semantic,
-                zone_mode=prompt_zone_mode,
+                prompt_level=prompt_level, capability=capability,
                 perceive_zones=(name == "subgoal_perceive"),
                 vlm_zone_radius=args.vlm_zone_radius,
                 vlm_zone_core=args.vlm_zone_core,
@@ -1185,7 +1273,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 n_dirs=args.pivot_n_dirs, n_mags=args.pivot_n_mags,
                 arrow_len=args.pivot_arrow_len, vlm_every=args.vlm_every,
                 fallback=args.vlm_fallback, semantic=prompt_semantic,
-                zone_mode=prompt_zone_mode,
+                prompt_level=prompt_level, capability=capability,
             )
         raise ValueError(f"unknown policy '{name}'")
 
@@ -1224,7 +1312,7 @@ def evaluate(args: argparse.Namespace) -> None:
     print(f"PointHazard matched-seed comparison  "
           f"(episodes={args.episodes}, seed0={args.seed}, pilot={args.pilot_mode}, "
           f"semantic_zones={args.n_semantic_zones}"
-          f"{('/' + args.zone_semantics + '/' + prompt_level) if semantic else ''}, "
+          f"{('/' + args.zone_semantics + '/' + prompt_level + '/' + capability) if semantic else ''}, "
           f"model={args.model if args.pilot_mode == 'vlm' else '-'})")
     width = 100
     print("-" * width)
@@ -1252,6 +1340,7 @@ def evaluate(args: argparse.Namespace) -> None:
                 "n_semantic_zones": args.n_semantic_zones,
                 "zone_semantics": args.zone_semantics,
                 "prompt_level": prompt_level,
+                "capability": capability,
                 "oracle_soft_mode": args.oracle_soft_mode,
                 "semantic_step_penalty": args.semantic_step_penalty,
             },
@@ -1335,27 +1424,19 @@ def parse_args() -> argparse.Namespace:
                    help=">0 enables off-limits zones the VLM must route around")
     p.add_argument("--zone_semantics", type=str, default="explicit",
                    choices=["explicit", "implicit"],
-                   help="how the keep-out zone is presented to the VLM. "
-                        "'explicit' = amber-X marker and the prompt names it a "
-                        "restricted zone (instruction-following). 'implicit' = the "
-                        "zone is rendered as water-like unsafe terrain and the "
-                        "prompt only gives a category hint ('avoid terrain that "
-                        "looks unsafe to drive over'), never naming or locating it "
-                        "(commonsense; strictly leakage-cleaner). No effect when "
-                        "--n_semantic_zones 0.")
-    p.add_argument("--prompt_level", type=str, default="",
-                   choices=["", "L0", "L1", "L2"],
-                   help="what the PROMPT says about the keep-out, decoupled from the "
-                        "rendered appearance (--zone_semantics). 'L0' = name it "
-                        "explicitly (amber restricted zone); 'L1' = category hint only "
-                        "('avoid terrain that looks unsafe'); 'L2' = say NOTHING about "
-                        "terrain at all (plain 'reach the goal, avoid red hazards') — the "
-                        "TRUE commonsense test: does the VLM route around water/mud it was "
-                        "never told to avoid? Default '' derives the level from "
-                        "--zone_semantics (explicit->L0, implicit->L1) for back-compat. "
-                        "NOTE: B+ ('subgoal_perceive') asks which markers sit on unsafe "
-                        "terrain, which is itself a hint, so L2 drops B+ from the default "
-                        "arm set (run C1/C2/B under L2).")
+                   help="visual presentation only: 'explicit' = amber-X marker; "
+                        "'implicit' = water-like terrain. This flag never changes "
+                        "prompt text or capability.")
+    p.add_argument("--prompt_level", type=str, default=DEFAULT_PROMPT_LEVEL,
+                   choices=tuple(PROMPT_LEVELS),
+                   help="independent prompt privilege level. L0 explicitly identifies "
+                        "off-limits regions, L1 gives a category-level terrain hint, "
+                        "and L2 gives no terrain-specific guidance. It is not derived "
+                        "from --zone_semantics.")
+    p.add_argument("--capability", type=str, default=DEFAULT_CAPABILITY,
+                   choices=tuple(CAPABILITY_CARDS),
+                   help="robot capability card shown to the VLM; changing it does not "
+                        "change the scene pixels or prompt privilege level.")
     p.add_argument("--semantic_radius_min", type=float, default=0.8)
     p.add_argument("--semantic_radius_max", type=float, default=1.2)
     p.add_argument("--semantic_styles", type=str, default="",

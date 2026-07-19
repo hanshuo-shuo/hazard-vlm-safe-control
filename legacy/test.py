@@ -1,5 +1,5 @@
 """
-Proximity-adaptive shared autonomy for PointHazardEnv.
+Proximity-adaptive VLM-guided control for PointHazardEnv.
 
 Same as shared_autonomy_hazard.py, but fwd_ratio (i.e. diffusion k) is
 dynamically adapted based on the agent's distance to the nearest hazard:
@@ -243,7 +243,7 @@ def vlm_choose_intent(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Proximity-adaptive shared autonomy on PointHazardEnv")
+        description="Proximity-adaptive VLM-guided control on PointHazardEnv")
 
     parser.add_argument("--episodes", type=int, default=100)
     parser.add_argument("--max_steps", type=int, default=300)

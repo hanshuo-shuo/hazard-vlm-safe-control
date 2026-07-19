@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: PIVOT VLM pilot + diffusion safety copilot.
+VLM-guided control for PointHazardEnv: PIVOT pilot + diffusion safety copilot.
 
 This is the PIVOT variant of shared_autonomy_hazard.py. Instead of asking the
 VLM to output continuous [fx, fy] values (regression), we render numbered
@@ -79,7 +79,7 @@ def _load_ddpm_ckpt(path: str, *, device: torch.device) -> ConditionalDDPM:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="PIVOT shared autonomy on PointHazardEnv: VLM selects from visual candidates + diffusion copilot")
+        description="PIVOT VLM-guided control on PointHazardEnv: VLM selects from visual candidates + diffusion copilot")
 
     # Episodes
     parser.add_argument("--episodes", type=int, default=100)

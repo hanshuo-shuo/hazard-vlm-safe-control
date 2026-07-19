@@ -91,7 +91,7 @@ The result (see [`RESULTS.md`](RESULTS.md)): **counterfactual rollout** is the d
 Constraints keep you safe but timid; history makes you aggressive but unsafe; *showing the future*
 gives both progress and safety.
 
-## A separate baseline family: shared autonomy with a diffusion safety prior
+## A separate baseline family: VLM-guided control with a diffusion safety prior
 
 Before the PIVOT family, an earlier design (`shared_autonomy_hazard.py`, `test.py`) let the VLM emit a
 **force intent** while a **conditional DDPM** acted as a *safety copilot* — a diffusion model trained
@@ -99,7 +99,7 @@ Before the PIVOT family, an earlier design (`shared_autonomy_hazard.py`, `test.p
 **not** where the goal is, so it only ever nudges the agent away from danger. VLM uncertainty (or
 proximity to the nearest hazard, in `test.py`) controls how much the copilot intervenes. This is kept
 as a baseline and as a second, independent take on the same question: *how do you let a VLM drive
-while guaranteeing it stays safe?*
+while improving empirical hazard metrics?*
 
 ## Honest caveat
 

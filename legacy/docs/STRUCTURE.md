@@ -22,7 +22,7 @@ role. Two backends recur: a **local Qwen2-VL** path and an **OpenRouter API** pa
 | `shared_autonomy_hazard_openrouter.py` | API shared-autonomy entry point. |
 | `pivot_primitive.py` | Library: builds safety-filtered motion-primitive candidates, rolls them out under the env dynamics, draws numbered trajectory candidates. |
 
-## Entry points — shared autonomy with a diffusion safety copilot
+## Entry points — VLM-guided control with a diffusion safety copilot
 
 | File | Role |
 |---|---|
@@ -61,5 +61,5 @@ This directory is the **original research line** (learned-physics PIVOT, diffusi
 baselines). Its strongest numbers were later found to be leakage-contaminated — see
 [`LEAKAGE_AND_LIMITATIONS.md`](LEAKAGE_AND_LIMITATIONS.md) — which is exactly why it is presented as an
 *analysis of how to connect VLMs to safe physical control*, not as a clean benchmark. The corrected
-conclusion motivated a separate follow-up project (VLM high-level planner + provably-safe MPC
-controller).
+conclusion motivated a separate follow-up project (VLM high-level planner + safety-oriented
+sampling MPC, evaluated empirically).

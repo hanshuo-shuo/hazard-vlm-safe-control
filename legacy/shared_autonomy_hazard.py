@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: VLM pilot + diffusion safety copilot.
+VLM-guided control for PointHazardEnv: VLM pilot + diffusion safety copilot.
 
 Architecture (B-② guided diffusion):
     VLM sees arena image → outputs force intent (fx, fy) ∈ [-1,1]²
@@ -232,7 +232,7 @@ def vlm_choose_intent(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Shared autonomy on PointHazardEnv: VLM pilot + diffusion safety copilot")
+        description="VLM-guided control on PointHazardEnv: VLM pilot + diffusion safety copilot")
 
     # Episodes
     parser.add_argument("--episodes", type=int, default=100)

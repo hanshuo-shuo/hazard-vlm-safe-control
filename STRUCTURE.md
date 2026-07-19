@@ -34,7 +34,7 @@ control**：把感知、语义判断、路由和执行层的安全责任拆开�
 
 | 文件 | 状态 | 当前用途与限制 |
 |---|---|---|
-| `mpc_expert.py` | `ACTIVE · BLOCKED B02` | 基于已知环境动力学的 CEM-MPC。它使用有限采样和有限碰撞/软区代价，**没有**可行性屏蔽、backup policy 或形式化安全保证；不得再写成“硬拒绝后只执行无碰撞动作”或“provably safe”。 |
+| `mpc_expert.py` | `ACTIVE` | 基于已知环境动力学的 safety-oriented sampling MPC（empirical）。它使用有限采样和有限碰撞/软区代价，**没有**可行性屏蔽、backup policy 或形式化安全性质；安全表现必须按 rollout metrics 报告。 |
 | `safe_expert.py` | `BASELINE` | A* + PD 的历史低层基线。grid path 安全不代表惯性跟踪轨迹安全，保留作比较。 |
 | `pointpush_expert.py` | `INFRA` | PointPush demo/expert scaffold，需独立验证其成功率和碰撞率。 |
 
@@ -85,7 +85,6 @@ control**：把感知、语义判断、路由和执行层的安全责任拆开�
 编号与详细复现见 `docs/RESEARCH_REVIEW_COMMENTS.md`：
 
 - `B01`：semantic-zone fallback 可能与 red hazard 重叠，破坏任务语义和因果解释。
-- `B02`：MPC 没有论文中曾暗示的形式化/硬安全保证。
 - `B03`：C2/CV 与 B+ 不只改变感知源，还改变 router，比较不公平。
 - `B04`：success、hazard、semantic violation 的任务口径需统一并报告联合失败。
 - `B05`：旧统计规模小，且 paired design 没有完整使用 paired inference。

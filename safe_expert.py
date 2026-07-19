@@ -5,9 +5,9 @@ A* on a grid of the arena, with hazards inflated by (agent_radius +
 safety_margin), then a PD-with-feedforward tracking controller that converts
 the planned waypoint sequence into bounded force commands.
 
-Provably safe: any path returned by A* keeps the agent's center at distance
-> hazard_radius from every hazard center, so the agent body (radius
-agent_radius) never overlaps a hazard.
+Empirical baseline: A* inflates hazards on the planning grid, but the
+continuous-time tracking behavior is not formally certified and must be
+evaluated from observed rollout metrics.
 
 Public API:
     expert = SafeExpert(env, cfg=SafeExpertConfig())

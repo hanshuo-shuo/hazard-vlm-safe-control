@@ -110,6 +110,7 @@ physics/MPC for low-level safety.* So the leakage finding is not a dead end — 
 ## Where this led
 
 The corrected conclusion directly motivated a follow-up: promote the VLM to a **high-level planner**
-that picks a semantic subgoal, and let a **provably-safe controller** (CEM-MPC over the exact
-dynamics) own collision avoidance — the leakage-free design this audit pointed to. Reporting the
+that picks a semantic subgoal, and let a **safety-oriented sampling MPC controller (empirical)**
+(CEM-MPC over the exact dynamics) own low-level hazard avoidance — the leakage-free design this
+audit pointed to. Reporting the
 deflated numbers and pivoting on them is the point: *the negative result is the contribution.*

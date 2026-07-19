@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: safety-filtered motion-primitive PIVOT.
+VLM-guided control for PointHazardEnv: safety-filtered motion-primitive PIVOT.
 
 This is the OpenRouter/Gemini variant for the new PIVOT story:
 the VLM chooses among numbered short trajectory primitives, while a local

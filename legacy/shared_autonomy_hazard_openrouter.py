@@ -1,5 +1,5 @@
 """
-Shared autonomy for PointHazardEnv: VLM pilot via OpenRouter API + diffusion copilot.
+VLM-guided control for PointHazardEnv: VLM pilot via OpenRouter API + diffusion copilot.
 
 Same logic as shared_autonomy_hazard.py but uses the OpenRouter API (Gemini Flash)
 instead of a local model. No PIVOT — VLM outputs continuous [fx, fy] directly.
@@ -165,7 +165,7 @@ def _load_ddpm_ckpt(path: str, *, device: torch.device) -> ConditionalDDPM:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Shared autonomy on PointHazardEnv: OpenRouter VLM pilot + diffusion copilot")
+        description="VLM-guided control on PointHazardEnv: OpenRouter VLM pilot + diffusion copilot")
 
     # Episodes
     parser.add_argument("--episodes", type=int, default=10)
