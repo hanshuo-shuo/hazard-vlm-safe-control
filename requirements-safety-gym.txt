@@ -1,0 +1,7 @@
+# Optional Gate-A backend; PointHazard does not require these packages.
+# Safety-Gymnasium 1.0.0 is the newest release available from the package
+# index used by this project and pins the two simulator dependencies below.
+safety-gymnasium==1.0.0
+gymnasium==0.28.1
+mujoco==2.3.3
+numpy>=1.21,<1.24
