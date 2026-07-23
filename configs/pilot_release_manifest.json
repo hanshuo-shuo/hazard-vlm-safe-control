@@ -1,0 +1,56 @@
+{
+  "schema_version": "point-hazard-pilot-release-v1",
+  "status": "BLOCKED",
+  "provider_calls_enabled": false,
+  "release": {
+    "release_date": null,
+    "implementation_git_sha": "e353b92b2cc8a297202d2560df30b5505b6848f2",
+    "authorized_operator": null,
+    "estimated_maximum_spend_usd": null
+  },
+  "protocol": {
+    "version": "1.2.2",
+    "document": {
+      "path": "docs/PROTOCOL.md",
+      "sha256": "d9ea8a7032764c1b609a70b57d47d2e1bac612677c5025e47bbf2cf753e277ce"
+    },
+    "structured_prompt_version": "point-hazard-structured-router-v1.2.2"
+  },
+  "offline_gate": {
+    "schema_version": "point-hazard-offline-gate-v1",
+    "entry_count": 14,
+    "matrix_sha256": "3bf69114eb74e5bba0248b26e526c6dd1a254eeb8452c5ad429087950bc15725",
+    "provider_calls_enabled": false
+  },
+  "reproducibility": {
+    "python_version": "3.10.18",
+    "platform": "macos-arm64",
+    "dependency_lock": {
+      "path": "requirements.lock",
+      "sha256": "2097feb031890c281a9c8e5e9b76ce1aae9e202f700c3fd0a25d4a07012e1418"
+    }
+  },
+  "pilot": {
+    "split": "pilot",
+    "allocated_range": [
+      200,
+      299
+    ],
+    "scene_seeds": [],
+    "family_count_bounds": [
+      30,
+      50
+    ]
+  },
+  "analysis": {
+    "primary_metric": "safe_task_completion",
+    "statistical_unit": "scenario_family",
+    "pilot_use": [
+      "go_no_go",
+      "power_estimation",
+      "prespecified_tuning"
+    ],
+    "formal_pooling_allowed": false
+  },
+  "models": []
+}

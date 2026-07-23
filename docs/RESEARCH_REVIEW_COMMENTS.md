@@ -33,7 +33,7 @@
 | M04 | MAJOR | free-text naming 不能当 grounded understanding | OPEN | 否 |
 | M05 | MAJOR | policy interface 未实现信息流隔离 | OPEN | 否 |
 | M06 | MAJOR | 协作/保证类术语过强 | OPEN | 否 |
-| M07 | MAJOR | run manifest 与仓库复现性不完整 | OPEN | 否 |
+| M07 | MAJOR | run manifest 与仓库复现性不完整 | PARTIAL | 否 |
 | M08 | MAJOR | PointPush/VLA 目前只是 scaffold | OPEN | 否 |
 
 ---
@@ -337,6 +337,12 @@ policy.reset 当前接收含 true semantic_zones 的 info，policy.act 接收完
 ### [M07] 固化复现环境
 
 增加依赖锁定、测试入口、run manifest、统计脚本、protocol version 和 README 中的有效/无效结果标记。闭源模型 alias 必须记录日期和 provider revision，并用开放权重模型作为主要复现路径之一。
+
+Task 11 已增加机器可校验的 `configs/pilot_release_manifest.json`、portable
+exact-pin `requirements.lock` 和 fail-closed release/code-state gate。当前
+manifest 因模型 revision、精确 pilot subset、预算、日期和 operator 未冻结而
+保持 `BLOCKED`。M07 仍为 PARTIAL：真实 provider request 接线、单一实验入口和
+统计脚本尚未完成。
 
 ---
 

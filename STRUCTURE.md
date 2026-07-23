@@ -21,6 +21,8 @@ dependencies.
 | `evaluation/vlm_router.py` | `ACTIVE` | Offline P0–P4 candidates, annotated PNG, versioned prompt and decision audit |
 | `evaluation/harness.py` | `ACTIVE` | Direct/replay × none/oracle vertical slice |
 | `evaluation/schemas.py` | `ACTIVE` | Reproducible episode artifacts |
+| `evaluation/release_manifest.py` | `ACTIVE` | Fail-closed pilot release and dependency-lock audit |
+| `configs/pilot_release_manifest.json` | `ACTIVE/BLOCKED` | Machine-readable release state; provider calls disabled |
 | `evaluation/semantic_evaluator.py` | `ACTIVE` | Evaluator-only semantic accounting |
 | `mpc_expert.py` | `ACTIVE` | Shared empirical CEM-MPC executor |
 | `tests/` | `ACTIVE` | Offline acceptance and regression gates |
@@ -62,10 +64,11 @@ records remain available through `outputs/` and the registry.
 
 ## Current gate
 
-Tasks 1–10 are complete: B01 layout validation, unified condition contract,
+Tasks 1–11 are complete: B01 layout validation, unified condition contract,
 direct/replay vertical slice, minimal-permission policy boundary, STC reduction,
 the offline structured-output/per-call artifact gate, and the P0–P4 local
 fixture request adapter. Registered semantic terrain, the P0–P4 offline VLM
 episode harness and the frozen 14-condition offline matrix are also complete.
 Detector integration and paid runs remain gated by `docs/CLAUDE_PLAN.md`; the
-blocked authorization record is `docs/PAID_RUN_RELEASE.md`.
+blocked authorization record is `docs/PAID_RUN_RELEASE.md`; its machine-readable
+counterpart is `configs/pilot_release_manifest.json`.

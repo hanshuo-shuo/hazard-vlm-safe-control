@@ -27,6 +27,8 @@ The code map is [../STRUCTURE.md](../STRUCTURE.md).
 - The public candidate/PNG adapter completes zero-cost structured fixture decisions.
 - Protocol 1.2.2 registers the four-field structured output and cumulative P0–P4 prompt ladder.
 - The frozen 14-condition zero-provider offline matrix passes.
+- The pilot release manifest and portable core dependency lock audit pass, but
+  the manifest remains `BLOCKED` with provider calls disabled.
 - Detector integration and paid API runs remain gated.
 - No semantic-safety result is currently `VALIDATED`.
 

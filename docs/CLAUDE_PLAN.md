@@ -875,7 +875,7 @@ Phase-5 method contribution
 
 > 在当前 `safety` HEAD 上确定 B01 的真实 stress 状态，冻结 post-B01 PointHazard 环境，并完成统一 condition abstraction 及 `direct + replay` 最小 harness，不调用任何 VLM/API，不扩展任何环境。
 
-当前 gate：Task 1–10 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
+当前 gate：Task 1–11 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
 已显式解决旧 `choice/reason` 与 M04 四字段 schema 的版本冲突，正式 P0–P4
 privilege prompt adapter、PointHazard semantic-terrain registry 与完整本地
 fixture episode harness、14-condition offline matrix 与阻塞态 release-readiness
@@ -1315,6 +1315,45 @@ fail-closed。
 remaining gap：Phase 4 technical offline matrix 已闭合，但 detector baseline、
 dependency lock 与五个授权字段仍未完成。没有网络/API 调用，没有产生论文结果；
 paid-run gate 与 Phase 5 保持 `BLOCKED`。
+
+### Task 11 — Pilot release manifest + reproducibility lock
+
+状态：`DONE`（工作树基线 SHA
+`e353b92b2cc8a297202d2560df30b5505b6848f2`；Task 11 实现尚未提交）。
+
+`configs/pilot_release_manifest.json` 现在是机器可校验的 pilot release
+状态源，固定 protocol 1.2.2、structured prompt version、14-condition offline
+matrix identity、pilot allocation、STC/scenario-family 分析口径，以及核心
+dependency lock 的精确字节 hash。`evaluation/release_manifest.py` 严格检查
+schema、引用文件 hash、30–50-family pilot subset、模型 provider/revision/date
+和至少一个开放权重模型；只有全部授权字段闭合时
+`provider_calls_enabled` 才能为 true，且真正的授权断言还要求 release git
+SHA 字段对应当前 `HEAD`、工作树干净。
+
+原 `requirements.lock` 中不可移植的本机/CI `file://` 路径已移除。新 core
+lock 固定 CPython 3.10.18 下 PointHazard provider-free harness/render/test
+所需的 10 个 direct/transitive pins，并由测试拒绝 local path、editable
+install 和版本范围。Safety-Gymnasium 的旧 simulator stack 继续隔离在
+`requirements-safety-gym.txt`，不混入当前 PointHazard pilot lock。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_release_manifest.py \
+  tests/test_offline_matrix.py \
+  tests/test_condition_contract.py
+28 passed in 1.78s
+```
+
+测试位置：`tests/test_release_manifest.py`。覆盖 checked-in blocked manifest、
+lock hash、portable exact pins、引用文件篡改、partial authorization、
+30-family/2-model/open-weight 完整字段，以及 release SHA/dirty-tree gate。
+
+remaining gap：模型清单、精确 pilot seeds、预算、日期和 operator 仍未由用户
+授权，detector baseline 也未完成。因此 machine manifest 保持
+`BLOCKED`/`provider_calls_enabled=false`；没有网络/API 调用，没有实验结果，
+paid-run gate 与 Phase 5 仍为 `BLOCKED`。
 
 ---
 

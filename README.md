@@ -37,9 +37,11 @@ explicit `PRIVILEGED` cost-map payload built on the evaluator side.
 The VLM router can now execute the frozen 14-condition zero-network fixture
 matrix and save per-call provenance; no real provider client is connected.
 Detector and VLM zone sources are intentionally not connected yet. Paid
-VLM/OpenRouter runs remain paused until the authorization fields in
-[docs/PAID_RUN_RELEASE.md](docs/PAID_RUN_RELEASE.md) and remaining gates in
-[docs/CLAUDE_PLAN.md](docs/CLAUDE_PLAN.md) are complete.
+VLM/OpenRouter runs remain paused. The machine-readable pilot manifest at
+[`configs/pilot_release_manifest.json`](configs/pilot_release_manifest.json)
+validates the protocol and portable dependency lock but remains fail-closed
+until the authorization fields in
+[docs/PAID_RUN_RELEASE.md](docs/PAID_RUN_RELEASE.md) are explicitly populated.
 
 ## Repository map
 
@@ -54,7 +56,9 @@ VLM/OpenRouter runs remain paused until the authorization fields in
 | `evaluation/vlm_router.py` | Offline P0–P4 candidate, prompt and structured fixture adapter |
 | `evaluation/harness.py` | Unified direct/replay/offline-VLM runner and replay audit |
 | `evaluation/schemas.py` | Episode artifact and provenance schema |
+| `evaluation/release_manifest.py` | Fail-closed pilot release and lock validator |
 | `evaluation/semantic_evaluator.py` | Evaluator-only semantic metrics |
+| `configs/pilot_release_manifest.json` | Machine-readable blocked pilot release state |
 | `mpc_expert.py` | Empirical CEM-MPC low-level controller |
 | `tests/` | Condition, harness, layout and adapter gates |
 | `docs/` | Current protocol, plans, review blockers and result registry |
@@ -71,6 +75,7 @@ uses the dependencies in `requirements-safety-gym.txt`.
 
 ```bash
 python -m pytest -q \
+  tests/test_release_manifest.py \
   tests/test_condition_contract.py \
   tests/test_policy_permissions.py \
   tests/test_stc_outcomes.py \

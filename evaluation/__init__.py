@@ -51,6 +51,12 @@ from evaluation.offline_matrix import (
     OfflineMatrixEntry,
     build_offline_gate_matrix,
 )
+from evaluation.release_manifest import (
+    PILOT_RELEASE_SCHEMA_VERSION,
+    PilotReleaseManifest,
+    sha256_file,
+    validate_dependency_lock,
+)
 from evaluation.vlm_artifacts import (
     ParseStatus,
     StructuredStageOutput,
@@ -86,7 +92,9 @@ __all__ = [
     "OFFLINE_MATRIX_SCHEMA_VERSION",
     "OfflineGateMatrix",
     "OfflineMatrixEntry",
+    "PILOT_RELEASE_SCHEMA_VERSION",
     "PRIMARY_CAPABILITY",
+    "PilotReleaseManifest",
     "PrivilegeLevel",
     "ReplaySource",
     "Router",
@@ -128,5 +136,7 @@ __all__ = [
     "parse_structured_stage_output",
     "prepare_vlm_request",
     "run_offline_fixture_decision",
+    "sha256_file",
     "terrain_is_applicable",
+    "validate_dependency_lock",
 ]
