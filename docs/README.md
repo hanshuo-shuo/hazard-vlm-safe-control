@@ -11,7 +11,8 @@ execution state and result validity each have one owner.
 | 2 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Blockers and required fixes |
 | 3 | [ICLR_PLAN.md](ICLR_PLAN.md) | Research question, experiment design and publication gates |
 | 4 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Current implementation plan and acceptance evidence |
-| 5 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
+| 5 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
+| 6 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
@@ -25,7 +26,8 @@ The code map is [../STRUCTURE.md](../STRUCTURE.md).
 - Structured VLM output and exact prompt/image/policy bytes have an offline audit gate.
 - The public candidate/PNG adapter completes zero-cost structured fixture decisions.
 - Protocol 1.2.2 registers the four-field structured output and cumulative P0–P4 prompt ladder.
-- Detector/VLM integration and paid API runs remain gated.
+- The frozen 14-condition zero-provider offline matrix passes.
+- Detector integration and paid API runs remain gated.
 - No semantic-safety result is currently `VALIDATED`.
 
 ## Historical evidence

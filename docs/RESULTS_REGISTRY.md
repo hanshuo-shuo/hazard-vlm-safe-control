@@ -46,7 +46,7 @@ run 暂停。
 | Safety-Gymnasium semantic variant | `BLOCKED` | 语义 variant 的 protocol gate 与 evidence 尚未完成；不进入当前 MVF。 |
 | B01 sampler | **RESOLVED** | checked final-attempt grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过。 |
 | Unified direct/replay harness | **INFRA / PASSED** | `direct/replay × none/oracle` vertical slice、shared enforcement、artifact reconstruction 和 STC audit 已通过专项测试。 |
-| Paid VLM/OpenRouter/API runs | **PAUSED** | B01、最小权限、artifact、正式 P0–P4 prompt、PointHazard semantic-terrain registration 与本地 fixture episode gate 已关闭；完整 offline matrix 和 release record 完成前保持零付费调用。 |
+| Paid VLM/OpenRouter/API runs | **PAUSED** | 14-condition offline matrix 已通过；`PAID_RUN_RELEASE.md` 仍为 `BLOCKED / NOT AUTHORIZED`，model list、pilot subset、预算、日期和 operator 未冻结。 |
 
 ---
 

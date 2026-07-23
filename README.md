@@ -34,10 +34,11 @@ Replay uses absolute world-coordinate targets, arrival-based switching at
 trajectory-divergence diagnostics. Oracle geometry enters only through an
 explicit `PRIVILEGED` cost-map payload built on the evaluator side.
 
-The VLM router can now execute complete zero-network fixture episodes and save
-per-call provenance; no real provider client is connected. Detector and VLM
-zone sources are intentionally not connected yet. Paid VLM/OpenRouter runs
-remain paused until the offline matrix and release gates in
+The VLM router can now execute the frozen 14-condition zero-network fixture
+matrix and save per-call provenance; no real provider client is connected.
+Detector and VLM zone sources are intentionally not connected yet. Paid
+VLM/OpenRouter runs remain paused until the authorization fields in
+[docs/PAID_RUN_RELEASE.md](docs/PAID_RUN_RELEASE.md) and remaining gates in
 [docs/CLAUDE_PLAN.md](docs/CLAUDE_PLAN.md) are complete.
 
 ## Repository map

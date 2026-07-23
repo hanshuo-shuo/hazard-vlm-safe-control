@@ -875,11 +875,11 @@ Phase-5 method contribution
 
 > 在当前 `safety` HEAD 上确定 B01 的真实 stress 状态，冻结 post-B01 PointHazard 环境，并完成统一 condition abstraction 及 `direct + replay` 最小 harness，不调用任何 VLM/API，不扩展任何环境。
 
-当前 gate：Task 1–9 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
+当前 gate：Task 1–10 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
 已显式解决旧 `choice/reason` 与 M04 四字段 schema 的版本冲突，正式 P0–P4
 privilege prompt adapter、PointHazard semantic-terrain registry 与完整本地
-fixture episode harness 已通过离线 gate。下一步是冻结完整 offline condition
-matrix 与 release record；真实 provider 接线仍受 paid-run gate 阻断。
+fixture episode harness、14-condition offline matrix 与阻塞态 release-readiness
+record 已通过离线 gate。真实 provider 接线仍受 paid-run gate 阻断。
 
 执行顺序：
 
@@ -1257,6 +1257,64 @@ factor drift 拒绝。
 remaining gap：本任务没有 provider client、没有网络/API 调用、没有产生论文
 结果，也没有解锁 paid run。完整 offline condition matrix、detector baseline、
 release record 与 dependency lock 仍未完成；paid-run gate 保持 `BLOCKED`。
+
+上述 Task 9 遗留的完整 offline condition matrix 与 release-readiness record
+已由 Task 10 闭合。Detector baseline 和 dependency lock 仍未完成。
+
+### Task 10 — Frozen offline matrix + blocked release record
+
+状态：`DONE`（实现提交
+`dd3d8c228494190ae3e32140d9bc67d85b20efba`）。
+
+`evaluation/offline_matrix.py` 冻结
+`point-hazard-offline-gate-v1` 的 14 个零 provider 条件：
+
+```text
+direct/replay × none/oracle × P0 primary capability = 4
+VLM × none × P0–P4 × primary capability            = 5
+VLM × none × P0–P4 × capability twin               = 5
+```
+
+matrix manifest 保存唯一 entry ID、完整 condition、condition SHA-256 与
+`provider_calls_enabled=false`；canonical matrix SHA-256 为
+`3bf69114eb74e5bba0248b26e526c6dd1a254eeb8452c5ad429087950bc15725`。
+集成测试实际执行全部 14 条路径并验证非 VLM arm 无 call、VLM arm 仅产生
+`offline-fixture`、零成本、provider-disabled artifact。
+
+`docs/PAID_RUN_RELEASE.md` 记录实现 SHA、protocol、passed gates、matrix hash
+及所有授权字段。由于 model list、exact pilot subset、maximum spend、release
+date 和 authorized operator 尚未填写，该记录明确为
+`BLOCKED / NOT AUTHORIZED`，不会自动启动 Phase 5。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_offline_matrix.py \
+  tests/test_unified_harness.py \
+  tests/test_condition_contract.py
+34 passed in 3.19s
+
+python -m compileall -q env_pointhazard.py envs evaluation tests
+git diff --check
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+88 passed in 87.48s
+
+python -m pytest -q tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+5 passed, 1 deselected in 0.33s
+```
+
+测试位置：`tests/test_offline_matrix.py`。覆盖 exact axes、14 个唯一
+condition hash、canonical matrix hash、全部路径执行及 provider enablement
+fail-closed。
+
+remaining gap：Phase 4 technical offline matrix 已闭合，但 detector baseline、
+dependency lock 与五个授权字段仍未完成。没有网络/API 调用，没有产生论文结果；
+paid-run gate 与 Phase 5 保持 `BLOCKED`。
 
 ---
 
