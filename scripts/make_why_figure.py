@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the opener figure for docs/WHY_VLM.md.
+"""Regenerate the archived geometry-vs-semantic explainer figure.
 
 Same scene, two panels (matched seed): (1) geometry only — a classical planner
 reaches the goal cleanly; (2) the same scene + a water patch the robot cannot

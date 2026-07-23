@@ -12,6 +12,16 @@
 counterfactuals. PointPush is out of scope until it receives its own evaluator
 geometry appendix.
 
+**WP-2.0 freeze note (2026-07-20):** Protocol `1.2.1` is frozen for the
+current month. No further normative JSON lexical, binary64, or serialization
+detail will be added during W2. The duplicate-member, per-operation numeric,
+fused-operation, and unique-output-byte requirements already recorded below
+are retained as a future release conformance appendix. They are not a mandate
+to implement a complete standard JSON/numeric/serialization interpreter in the
+current MVF; W2 implementation work is limited to the minimum artifact and
+evaluator path needed by the registered finding, with any partial conformance
+clearly labeled.
+
 This document is normative. “MUST”, “MUST NOT”, “SHOULD”, and “MAY” have their
 usual requirements meaning. A change to any exact string, compatibility row,
 privilege payload, evaluator predicate, replay switch rule, divergence threshold,

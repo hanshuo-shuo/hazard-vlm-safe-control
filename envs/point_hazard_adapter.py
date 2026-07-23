@@ -83,10 +83,9 @@ class PointHazardAdapter:
         self._actions.append(np.asarray(action, dtype=np.float32).copy())
         self._rewards.append(float(reward))
         self._native_costs.append(native_cost)
-        # Legacy PointHazard semantic zones are not part of this backend's
-        # frozen evaluator; do not turn their internal label into a native
-        # Safety-Gym semantic result.
-        self._semantic_violations.append(False)
+        # Evaluator-only semantic accounting.  This label is retained in the
+        # detached evaluator context and is never returned to the policy.
+        self._semantic_violations.append(bool(raw_info.get("in_semantic_zone", False)))
         self._trajectory.append({
             "state_index": len(self._trajectory),
             "agent_center": self._env.pos.copy(),

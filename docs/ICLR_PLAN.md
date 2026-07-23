@@ -6,7 +6,9 @@
 
 配套审查：[RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md)
 
-历史结果：[RESULTS_FAIR_BASELINES.md](RESULTS_FAIR_BASELINES.md)（仅作 pilot/debug，semantic 数字待重跑）
+历史结果状态与原始 artifact 位置见
+[RESULTS_REGISTRY.md](RESULTS_REGISTRY.md)；旧 semantic 数字只作
+pilot/debug，必须在当前 protocol 下重跑。
 
 ---
 
@@ -342,7 +344,7 @@ ICLR MVP 采用 safety-oriented sampling MPC（empirical），不作形式化安
 - [ ] 增加 10k-seed layout invariants；
 - [ ] 将旧 semantic results 标为 invalidated；
 - [x] 删除过强安全/人机协作措辞，统一使用 empirical 表述；
-- [ ] 暂停 paid scaling。
+- [x] 暂停 paid scaling（WP-2.0 起所有付费 VLM/OpenRouter/API run 暂停）。
 
 **Gate 0**：所有 layout tests 通过，B01/B02 resolved。
 

@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 
 from envs import PointHazardAdapter, SafetyGymGoalAdapter, SemanticSafetyPointGoalAdapter
+from evaluation.conditions import EnforcementConfig, ExperimentCondition, FactorVector
 from evaluation.schemas import build_episode_artifact
 from evaluation.semantic_evaluator import capability_twin_labels, evaluate_scene_manifest
 
@@ -146,7 +147,32 @@ def test_artifact_is_json_serializable_and_fields_are_separate(tmp_path: Path) -
     adapter = PointHazardAdapter()
     initial, _ = adapter.reset(seed=0)
     adapter.step(np.zeros(2, dtype=np.float32))
-    artifact = build_episode_artifact(adapter.evaluator_context(), seed=0, initial_observation=initial)
+    condition = ExperimentCondition(
+        router="direct",
+        zone_source="none",
+        enforcement=EnforcementConfig(
+            enforcement_id="none-v1",
+            hard_core_radius=0.0,
+            soft_halo_radius=0.0,
+            soft_zone_weight=0.0,
+            replan_interval_steps=1,
+            restart_on_target_change=False,
+            arrival_radius=0.35,
+            planner_id="direct-goal-v1",
+            executor_id="point-mass-v1",
+        ),
+        privilege_level="P0",
+        factor_vector=FactorVector(),
+        seed=0,
+        split="dev",
+    )
+    artifact = build_episode_artifact(
+        adapter.evaluator_context(),
+        seed=0,
+        initial_observation=initial,
+        protocol_version="1.2.1",
+        condition=condition,
+    )
     path = artifact.write(tmp_path / "episode.json")
     loaded = json.loads(path.read_text())
     assert loaded["native_costs"] == [0.0]
@@ -156,6 +182,10 @@ def test_artifact_is_json_serializable_and_fields_are_separate(tmp_path: Path) -
     assert loaded["git_sha"]
     assert "python" in loaded["dependency_versions"]
     assert "semantic_violation" in loaded and "native_costs" in loaded
+    assert loaded["condition"]["router"] == "direct"
+    assert loaded["condition"]["factor_vector"] == FactorVector().to_dict()
+    assert loaded["condition_sha256"] == condition.condition_sha256
+    assert loaded["enforcement"] == "none-v1"
     adapter.close()
 
 

@@ -13,6 +13,7 @@ from typing import Any, Mapping, Sequence
 import numpy as np
 
 from envs.protocol_env import EvaluatorContext, jsonable
+from evaluation.conditions import ExperimentCondition
 
 
 ARTIFACT_SCHEMA_VERSION = "safety-accounting-episode-v1"
@@ -101,6 +102,13 @@ class EpisodeArtifact:
     router: str = "direct_goal"
     zone_source: str = "none"
     enforcement: str = "none"
+    condition: dict[str, Any] | None = None
+    condition_sha256: str | None = None
+    target_sequence: list[dict[str, Any]] = field(default_factory=list)
+    planner_events: list[dict[str, Any]] = field(default_factory=list)
+    replay_diagnostics: dict[str, Any] | None = None
+    cost_map: dict[str, Any] | None = None
+    stc_audit: dict[str, Any] | None = None
     artifact_schema_version: str = ARTIFACT_SCHEMA_VERSION
 
     def to_dict(self) -> dict[str, Any]:
@@ -129,6 +137,13 @@ class EpisodeArtifact:
             "router": self.router,
             "zone_source": self.zone_source,
             "enforcement": self.enforcement,
+            "condition": self.condition,
+            "condition_sha256": self.condition_sha256,
+            "target_sequence": self.target_sequence,
+            "planner_events": self.planner_events,
+            "replay_diagnostics": self.replay_diagnostics,
+            "cost_map": self.cost_map,
+            "stc_audit": self.stc_audit,
             "git_sha": self.git_sha,
             "git_dirty": self.git_dirty,
             "dependency_versions": self.dependency_versions,
@@ -154,7 +169,21 @@ def build_episode_artifact(
     router: str = "direct_goal",
     zone_source: str = "none",
     enforcement: str = "none",
+    condition: ExperimentCondition | None = None,
+    target_sequence: Sequence[Mapping[str, Any]] = (),
+    planner_events: Sequence[Mapping[str, Any]] = (),
+    replay_diagnostics: Mapping[str, Any] | None = None,
+    cost_map: Mapping[str, Any] | None = None,
+    stc_audit: Mapping[str, Any] | None = None,
 ) -> EpisodeArtifact:
+    if condition is not None:
+        if condition.seed != int(seed):
+            raise ValueError("artifact seed must match condition seed")
+        if condition.factor_vector.protocol_version != protocol_version:
+            raise ValueError("artifact protocol_version must match condition factor vector")
+        router = condition.router.value
+        zone_source = condition.zone_source.value
+        enforcement = condition.enforcement.enforcement_id
     git_sha, git_dirty = git_provenance()
     violation_steps = [
         index + 1 for index, violated in enumerate(context.semantic_violations) if violated
@@ -190,4 +219,11 @@ def build_episode_artifact(
         router=router,
         zone_source=zone_source,
         enforcement=enforcement,
+        condition=None if condition is None else condition.to_dict(),
+        condition_sha256=None if condition is None else condition.condition_sha256,
+        target_sequence=[dict(item) for item in target_sequence],
+        planner_events=[dict(item) for item in planner_events],
+        replay_diagnostics=None if replay_diagnostics is None else dict(replay_diagnostics),
+        cost_map=None if cost_map is None else dict(cost_map),
+        stc_audit=None if stc_audit is None else dict(stc_audit),
     )

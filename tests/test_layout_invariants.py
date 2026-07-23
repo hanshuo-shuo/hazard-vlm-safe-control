@@ -8,6 +8,7 @@ sweep specified by WP-1.2.
 
 from __future__ import annotations
 
+from concurrent.futures import ProcessPoolExecutor
 import hashlib
 import os
 
@@ -18,7 +19,9 @@ from env_pointhazard import PointHazardConfig, PointHazardEnv, zone_layout_valid
 
 
 SEED_COUNT = int(os.environ.get("LAYOUT_TEST_SEEDS", "10000"))
+MAX_SWEEP_WORKERS = int(os.environ.get("LAYOUT_TEST_WORKERS", "8"))
 GOLDEN_SEEDS = (0, 1, 2, 3, 4)
+FALLBACK_REGRESSION_SEEDS = (157, 1347)
 
 
 def _layout_cases() -> tuple[object, ...]:
@@ -113,13 +116,17 @@ def _layout_digest(env: PointHazardEnv) -> str:
     return hashlib.sha256(layout.tobytes()).hexdigest()
 
 
-@pytest.mark.parametrize("case_name,cfg", _layout_cases())
-def test_layout_invariants_over_fixed_seed_sweep(case_name: str, cfg: PointHazardConfig) -> None:
-    """No sampled semantic zone may overlap hazards, zones, start, or goal."""
+def _sweep_layout_range(
+    case_name: str,
+    cfg: PointHazardConfig,
+    seed_start: int,
+    seed_stop: int,
+) -> dict[str, int]:
+    """Validate one disjoint seed range and return its overlap totals."""
     env = PointHazardEnv(cfg=cfg)
     totals = {"zone_hazard": 0, "zone_zone": 0, "zone_start": 0, "zone_goal": 0}
 
-    for seed in range(SEED_COUNT):
+    for seed in range(seed_start, seed_stop):
         _, info = env.reset(seed=seed)
         assert info["layout_valid"] is True, (case_name, seed, info)
         assert info["semantic_zones"].shape == (cfg.n_semantic_zones, 3)
@@ -137,6 +144,40 @@ def test_layout_invariants_over_fixed_seed_sweep(case_name: str, cfg: PointHazar
         for key, count in counts.items():
             totals[key] += count
             assert count == 0, (case_name, seed, key, count)
+    return totals
+
+
+@pytest.mark.parametrize("case_name,cfg", _layout_cases())
+def test_layout_invariants_over_fixed_seed_sweep(case_name: str, cfg: PointHazardConfig) -> None:
+    """No sampled semantic zone may overlap hazards, zones, start, or goal."""
+    # The three-zone corridor case takes hours when swept serially.  Keep small
+    # developer runs simple, but shard the formal gate into disjoint processes.
+    # Each worker still exercises the public reset path over exactly the same
+    # seeds and assertions; only execution order changes.
+    worker_count = 1
+    if SEED_COUNT >= 1000:
+        worker_count = max(1, min(MAX_SWEEP_WORKERS, SEED_COUNT))
+
+    ranges = []
+    for worker_index in range(worker_count):
+        start = SEED_COUNT * worker_index // worker_count
+        stop = SEED_COUNT * (worker_index + 1) // worker_count
+        ranges.append((start, stop))
+
+    if worker_count == 1:
+        partial_totals = [_sweep_layout_range(case_name, cfg, *ranges[0])]
+    else:
+        with ProcessPoolExecutor(max_workers=worker_count) as pool:
+            futures = [
+                pool.submit(_sweep_layout_range, case_name, cfg, start, stop)
+                for start, stop in ranges
+            ]
+            partial_totals = [future.result() for future in futures]
+
+    totals = {"zone_hazard": 0, "zone_zone": 0, "zone_start": 0, "zone_goal": 0}
+    for partial in partial_totals:
+        for key, count in partial.items():
+            totals[key] += count
 
     assert totals == {
         "zone_hazard": 0,
@@ -189,3 +230,36 @@ def test_golden_layout_snapshots(case_name: str, cfg: PointHazardConfig) -> None
         env.reset(seed=seed)
         actual.append(_layout_digest(env))
     assert tuple(actual) == GOLDEN_LAYOUT_SHA256[case_name]
+
+
+@pytest.mark.parametrize("seed", FALLBACK_REGRESSION_SEEDS)
+def test_checked_fallback_closes_known_layout_liveness_failures(seed: int) -> None:
+    """Known exhausted layouts must return valid zones, never an unchecked one."""
+    cfg = PointHazardConfig(
+        n_semantic_zones=3,
+        semantic_on_corridor=True,
+        semantic_styles=("water", "mud", "grass"),
+    )
+    env = PointHazardEnv(cfg=cfg)
+
+    _, info = env.reset(seed=seed)
+
+    valid, reasons = zone_layout_valid(
+        env.hazards,
+        env.semantic_zones,
+        env.pos,
+        env.goal,
+        cfg,
+    )
+    assert info["layout_valid"] is True
+    assert valid, reasons
+    assert _overlap_counts(env) == {
+        "zone_hazard": 0,
+        "zone_zone": 0,
+        "zone_start": 0,
+        "zone_goal": 0,
+    }
+    # Both fixtures exhausted the normal deterministic child streams before
+    # the checked final-attempt fallback was introduced.  Keeping this
+    # assertion ensures an earlier RNG path is not silently changed.
+    assert info["resample_count"] == cfg.max_layout_resamples

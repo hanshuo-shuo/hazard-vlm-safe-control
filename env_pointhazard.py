@@ -538,11 +538,88 @@ class PointHazardEnv:
                     styles = [pool[i % len(pool)] for i in range(n)] if pool else None
                     return zones, styles, placement_attempts
 
+        # The joint rejection sampler above can be needlessly pessimistic in a
+        # crowded layout: it rejects an otherwise useful first zone because a
+        # later independently sampled zone is invalid.  As a final checked
+        # fallback, place zones sequentially on a deterministic grid.  This is
+        # reached only after the complete-layout retry budget is exhausted, so
+        # the normal sampler and its golden layouts are unchanged.  Every
+        # candidate is checked against the same start/goal/hazard/zone margins
+        # before it is committed, and the completed layout is validated again
+        # by the caller.
+        grid_limit = max(
+            0.0,
+            float(cfg.arena_half) - 0.1 - float(cfg.semantic_radius_max),
+        )
+        grid = np.linspace(-grid_limit, grid_limit, 37)
+        grid_points = [
+            np.asarray((x, y), dtype=np.float32)
+            for x in grid
+            for y in grid
+        ]
+        if cfg.semantic_on_corridor:
+            grid_points.sort(
+                key=lambda point: abs(
+                    float(seg[0] * (point - start)[1] - seg[1] * (point - start)[0])
+                    / max(seg_len, 1e-9)
+                )
+            )
+        grid_array = np.stack(grid_points, axis=0)
+        sequential: list[np.ndarray] = []
+        for zi in range(n):
+            radius = float(rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
+            center = self._first_valid_grid_zone(
+                grid_array, radius, hazards, start, goal, sequential
+            )
+            placement_attempts += len(grid_points)
+            if center is None:
+                # The minimum registered radius gives the constructive fallback
+                # the largest feasible search region while remaining in-range.
+                radius = float(cfg.semantic_radius_min)
+                center = self._first_valid_grid_zone(
+                    grid_array, radius, hazards, start, goal, sequential
+                )
+                placement_attempts += len(grid_points)
+            if center is None:
+                break
+            sequential.append(np.array([center[0], center[1], radius], dtype=np.float32))
+        if len(sequential) == n:
+            zones = np.stack(sequential, axis=0)
+            valid, _reasons = zone_layout_valid(hazards, zones, start, goal, cfg)
+            if valid:
+                pool = cfg.semantic_styles
+                styles = [pool[i % len(pool)] for i in range(n)] if pool else None
+                return zones, styles, placement_attempts
+
         raise _LayoutSamplingFailure(
             f"Failed to place semantic zone {failed_zone} after preferred and "
             f"checked fallback sampling",
             placement_attempts=placement_attempts,
         )
+
+    @staticmethod
+    def _first_valid_grid_zone(
+        centers: np.ndarray,
+        radius: float,
+        hazards: np.ndarray,
+        start: np.ndarray,
+        goal: np.ndarray,
+        existing: list[np.ndarray],
+    ) -> np.ndarray | None:
+        """Return the first valid grid point using vectorized geometry checks."""
+        valid = np.ones(len(centers), dtype=bool)
+        valid &= np.linalg.norm(centers - start[None, :], axis=1) >= radius + 0.3 + 0.3
+        valid &= np.linalg.norm(centers - goal[None, :], axis=1) >= radius + 0.5 + 0.3
+        for hx, hy, hr in hazards:
+            valid &= np.linalg.norm(
+                centers - np.asarray((hx, hy), dtype=np.float32)[None, :], axis=1
+            ) >= radius + float(hr) + 0.3
+        for zx, zy, zr in existing:
+            valid &= np.linalg.norm(
+                centers - np.asarray((zx, zy), dtype=np.float32)[None, :], axis=1
+            ) >= radius + float(zr) + 0.3
+        indices = np.flatnonzero(valid)
+        return None if len(indices) == 0 else centers[int(indices[0])].copy()
 
     def _in_semantic_zone(self, p: np.ndarray) -> bool:
         """True if the agent's *center* lies inside any semantic keep-out zone."""

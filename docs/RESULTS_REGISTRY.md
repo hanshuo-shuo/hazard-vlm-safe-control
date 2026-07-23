@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-07-11
+更新：2026-07-23
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -10,6 +10,10 @@
 - **ARCHIVED**：属于已放弃路线，仅用于保存研究历史。
 
 当前没有任何 semantic-safety 结果达到 VALIDATED。
+
+WP-2.0 状态边界：`PROTOCOL.md` 1.2.1 已冻结；本月不再增加 JSON lexical、binary64
+或 serialization 细节，也不在 W2 实现完整标准解释器。所有付费 VLM/OpenRouter/API
+run 暂停。
 
 ---
 
@@ -30,6 +34,18 @@
 | zone_detector self-test | PILOT_ONLY | 证明 renderer-palette detector plumbing；不代表 open-vocabulary baseline | 可重新生成 |
 | PointPush expert smoke | PILOT_ONLY | 只验证环境/专家可运行，尚未接入新 protocol | 可重新生成 |
 | outputs/*.png 旧结果图 | ARCHIVED | 图片用于理解历史路线，但不能支撑当前 claim | 是，文档需标注状态 |
+
+## 当前 backend 与运行状态
+
+这些是仓库/基础设施状态，不是论文结果状态：
+
+| Backend / run gate | 状态 | 说明 |
+|---|---|---|
+| Safety-Gymnasium native Goal adapter | `INFRA` | `SafetyPointGoal1-v0` native vertical slice 可复用，但尚无论文级结果。 |
+| Safety-Gymnasium semantic variant | `BLOCKED` | 语义 variant 的 protocol gate 与 evidence 尚未完成；不进入当前 MVF。 |
+| B01 sampler | **RESOLVED** | checked final-attempt grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过。 |
+| Unified direct/replay harness | **INFRA / PASSED** | `direct/replay × none/oracle` vertical slice、shared enforcement、artifact reconstruction 和 STC audit 已通过专项测试。 |
+| Paid VLM/OpenRouter/API runs | **PAUSED** | B01 与最小 W2 harness 已关闭；detector/VLM、policy permission boundary 和 artifact gate 完成前保持零付费调用。 |
 
 ---
 

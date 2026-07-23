@@ -36,7 +36,7 @@ success = [
     0.634,   # VLA + LoRA 1k (nosame)
     0.100,   # VLA + Flow head only (heldout)
     0.661,   # VLA + Flow + LoRA (heldout)
-    0.280,   # VLM+PIVOT no physics (EXPERIMENT_NOTES, 7B)
+    0.280,   # historical VLM+PIVOT no-physics run, 7B
     0.740,   # VLM+PIVOT+Physics 7B no LoRA (200ep, run 20260504_161135)
     0.850,   # VLM+PIVOT+Physics 32B no LoRA (100ep, run 20260504_002548)
     0.878,   # VLM+PIVOT+Physics+LoRA 7B (1000ep, run 20260504_193226)

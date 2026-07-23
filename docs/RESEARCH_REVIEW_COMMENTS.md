@@ -11,6 +11,7 @@
 - OPEN：尚未修改；
 - IN PROGRESS：正在修改，但验收条件未全部满足；
 - RESOLVED：代码、测试和新结果均满足验收条件；
+- bounded pass，10k stress pending：历史状态；bounded acceptance 已通过但当时 10k formal stress 尚未通过；
 - WONTFIX：明确放弃对应 claim，并在所有文档中删除。
 
 ---
@@ -19,9 +20,9 @@
 
 | ID | 严重度 | 主题 | 当前状态 | 是否阻止 paid run |
 |---|---|---|---|---|
-| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | RESOLVED | 是 |
+| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | RESOLVED（2026-07-22） | 是 |
 | B02 | BLOCKER | MPC 强安全措辞与实现不符 | RESOLVED（降级路线） | 否 |
-| B03 | BLOCKER | C2/CV 与 B+ 的 planner/router 不一致 | OPEN | 是 |
+| B03 | BLOCKER | C2/CV 与 B+ 的 planner/router 不一致 | PARTIAL | 是 |
 | B04 | BLOCKER | 现有 semantic n=5/n=20 结果必须重跑 | OPEN | 是 |
 | B05 | BLOCKER | task specification 与 leakage 混为一谈 | OPEN | 是 |
 | B06 | BLOCKER | L0/L1/L2 不是受控的单变量干预 | OPEN | 是 |
@@ -41,9 +42,9 @@
 
 ### [B01] semantic-zone fallback 跳过有效性检查
 
-**状态：RESOLVED（2026-07-17）**
+**状态：RESOLVED（2026-07-22）**
 
-WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确定性子流重采样，并在 `reset()` 末尾执行独立 validity assertion。WP-1.2 新增 `tests/test_layout_invariants.py`，覆盖单区 implicit/三区 hetero 与 corridor on/off 四种配置，逐类断言 zone-hazard、zone-zone、zone-start、zone-goal 重叠数为零，并加入固定 seed 的 golden snapshot。依赖环境记录在 `requirements.lock`。
+WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确定性子流重采样，并在 `reset()` 末尾执行独立 validity assertion。最终一次完整 layout 尝试现在使用 checked sequential grid fallback；每个候选都按 start、goal、hazard、zone 间距验证，返回前再调用 `zone_layout_valid`。该分支只在原有 deterministic resample 序列耗尽后启用，因此现有 golden snapshots 不变。WP-1.2 的正式 gate 覆盖单区 implicit/三区 hetero 与 corridor on/off 四种配置，各 10,000 seeds；2026-07-22 结果为 `10 passed in 2989.78s`。seed 157/1347 另有专门 liveness 回归。B01 正确性与 liveness 验收均已关闭；paid run 仍由 B03/W2 等后续 gate 阻塞。依赖环境记录在 `requirements.lock`。
 
 **位置**
 
@@ -104,6 +105,13 @@ WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确
 
 ### [B03] C2/CV 与 B+ 不是只差 zone source
 
+**状态：PARTIAL（2026-07-23）**
+
+`evaluation/harness.py` 已完成 `direct/replay × none/oracle` 的统一边界，
+固定 environment、target identity、executor 和 enforcement，并保存 replay
+diagnostics。该 vertical slice 关闭了 none/oracle plumbing 问题；detector/VLM
+尚未接入，因此完整 B03 仍未关闭。
+
 **位置**
 
 - subgoal_pivot_hazard.py:555–601；
@@ -140,9 +148,7 @@ C2-soft/CV 一次性直接 plan 到真实 goal；B+ 每隔若干步由 VLM 选�
 - outputs/semantic_*.json；
 - outputs/vlm20_l1_heldout.json；
 - outputs/vlm20_l2_heldout.json；
-- docs/RESULTS_SEMANTIC.md；
-- docs/RESULTS_AMPLIFY.md；
-- docs/RESULTS_FAIR_BASELINES.md。
+- docs/RESULTS_REGISTRY.md 中登记的历史/失效 artifacts。
 
 **问题**
 

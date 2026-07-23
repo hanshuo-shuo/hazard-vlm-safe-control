@@ -131,8 +131,8 @@ def main() -> None:
         ("subgoal", "B  VLM subgoal", "reads zone from the image"),
     ]
 
-    # Tag implicit figures so they never overwrite the explicit run-of-record
-    # figures embedded in RESULTS_SEMANTIC.md.
+    # Tag implicit figures so they never overwrite the archived explicit
+    # run-of-record figures.
     sfx = "" if args.zone_semantics == "explicit" else f"_{args.zone_semantics}"
 
     os.makedirs(args.outdir, exist_ok=True)

@@ -15,8 +15,8 @@ Two tasks share this script:
     toy the classical planner (C) is already near-100% safe, routing it with a
     VLM high-level (B) keeps that safety but adds nothing, and the VLM as a
     low-level controller (A) is the unreliable one. That negative result is the
-    first figure of the Path B story (docs/PROJECT_PLAN.md §1–§2,
-    docs/FAILURE_MODE_ANALYSIS.md).
+    first historical Path-B figure. It is retained for provenance; the current
+    research question and claim boundary live in docs/ICLR_PLAN.md.
 
 (2) SEMANTIC task — the Path-B *main result* (--n_semantic_zones >= 1). The
     arena gains an off-limits "keep-out" zone (amber ✕ disk) that the agent
