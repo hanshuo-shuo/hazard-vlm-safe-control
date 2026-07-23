@@ -170,7 +170,7 @@ def test_artifact_is_json_serializable_and_fields_are_separate(tmp_path: Path) -
         adapter.evaluator_context(),
         seed=0,
         initial_observation=initial,
-        protocol_version="1.2.1",
+        protocol_version="1.2.2",
         condition=condition,
     )
     path = artifact.write(tmp_path / "episode.json")

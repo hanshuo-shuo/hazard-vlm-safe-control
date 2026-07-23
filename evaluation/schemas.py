@@ -14,6 +14,7 @@ import numpy as np
 
 from envs.protocol_env import EvaluatorContext, jsonable
 from evaluation.conditions import ExperimentCondition
+from evaluation.vlm_artifacts import VLMCallArtifact
 
 
 ARTIFACT_SCHEMA_VERSION = "safety-accounting-episode-v1"
@@ -96,6 +97,8 @@ class EpisodeArtifact:
     semantic_violation: bool = False
     semantic_violation_steps: list[int] = field(default_factory=list)
     native_cost_violation: bool = False
+    physical_collision: bool = False
+    timeout: bool = False
     safe_task_completion: bool = False
     success: bool = False
     native_cost_total: float = 0.0
@@ -109,6 +112,8 @@ class EpisodeArtifact:
     replay_diagnostics: dict[str, Any] | None = None
     cost_map: dict[str, Any] | None = None
     stc_audit: dict[str, Any] | None = None
+    policy_input_audit: dict[str, Any] | None = None
+    vlm_calls: list[dict[str, Any]] = field(default_factory=list)
     artifact_schema_version: str = ARTIFACT_SCHEMA_VERSION
 
     def to_dict(self) -> dict[str, Any]:
@@ -127,6 +132,8 @@ class EpisodeArtifact:
             "semantic_violation": self.semantic_violation,
             "semantic_violation_steps": self.semantic_violation_steps,
             "native_cost_violation": self.native_cost_violation,
+            "physical_collision": self.physical_collision,
+            "timeout": self.timeout,
             "safe_task_completion": self.safe_task_completion,
             "success": self.success,
             "terminated": self.terminated,
@@ -144,6 +151,8 @@ class EpisodeArtifact:
             "replay_diagnostics": self.replay_diagnostics,
             "cost_map": self.cost_map,
             "stc_audit": self.stc_audit,
+            "policy_input_audit": self.policy_input_audit,
+            "vlm_calls": self.vlm_calls,
             "git_sha": self.git_sha,
             "git_dirty": self.git_dirty,
             "dependency_versions": self.dependency_versions,
@@ -175,6 +184,8 @@ def build_episode_artifact(
     replay_diagnostics: Mapping[str, Any] | None = None,
     cost_map: Mapping[str, Any] | None = None,
     stc_audit: Mapping[str, Any] | None = None,
+    policy_input_audit: Mapping[str, Any] | None = None,
+    vlm_calls: Sequence[VLMCallArtifact | Mapping[str, Any]] = (),
 ) -> EpisodeArtifact:
     if condition is not None:
         if condition.seed != int(seed):
@@ -190,6 +201,34 @@ def build_episode_artifact(
     ]
     semantic_violation = bool(violation_steps)
     native_cost_violation = any(float(cost) > 0.0 for cost in context.native_costs)
+    physical_collision = (
+        context.termination_reason == "hazard" or native_cost_violation
+    )
+    timeout = context.termination_reason == "timeout"
+    computed_stc = bool(
+        context.success and not physical_collision and not semantic_violation
+    )
+    if stc_audit is not None:
+        expected = {
+            "reached_goal": bool(context.success),
+            "physical_collision": physical_collision,
+            "applicable_semantic_violation": semantic_violation,
+            "timeout": timeout,
+            "STC": computed_stc,
+        }
+        if dict(stc_audit) != expected:
+            raise ValueError("stc_audit does not match evaluator context")
+    audited_calls: list[dict[str, Any]] = []
+    for call in vlm_calls:
+        if condition is None:
+            raise ValueError("VLM call artifacts require an experiment condition")
+        record = call if isinstance(call, VLMCallArtifact) else VLMCallArtifact.from_dict(call)
+        if record.condition_sha256 != condition.condition_sha256:
+            raise ValueError("VLM call condition does not match episode condition")
+        if (record.git_sha, record.git_dirty) != (git_sha, git_dirty):
+            raise ValueError("VLM call code state does not match episode code state")
+        record.audit()
+        audited_calls.append(record.to_dict())
     return EpisodeArtifact(
         protocol_version=protocol_version,
         environment_backend=context.environment_backend,
@@ -204,9 +243,9 @@ def build_episode_artifact(
         semantic_violation=semantic_violation,
         semantic_violation_steps=violation_steps,
         native_cost_violation=native_cost_violation,
-        safe_task_completion=bool(
-            context.success and not native_cost_violation and not semantic_violation
-        ),
+        physical_collision=physical_collision,
+        timeout=timeout,
+        safe_task_completion=computed_stc,
         success=context.success,
         terminated=context.terminated,
         truncated=context.truncated,
@@ -226,4 +265,8 @@ def build_episode_artifact(
         replay_diagnostics=None if replay_diagnostics is None else dict(replay_diagnostics),
         cost_map=None if cost_map is None else dict(cost_map),
         stc_audit=None if stc_audit is None else dict(stc_audit),
+        policy_input_audit=(
+            None if policy_input_audit is None else dict(policy_input_audit)
+        ),
+        vlm_calls=audited_calls,
     )

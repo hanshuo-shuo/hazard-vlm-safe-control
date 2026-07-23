@@ -14,10 +14,19 @@ import numpy as np
 
 from env_pointhazard import PointHazardConfig, PointHazardEnv, make_env
 from envs.protocol_env import EvaluatorContext, copy_public_value, jsonable
+from evaluation.semantic_evaluator import CAPABILITY_INCOMPATIBLE_TERRAIN
 
 
 def _version() -> str:
     return "repository-point-hazard"
+
+
+_STYLE_APPEARANCE_PROFILE = {
+    "water": "water-render-v1",
+    "mud": "mud-render-v1",
+    "grass": "grass-render-v1",
+    "restricted": "restricted-render-dev-v0",
+}
 
 
 class PointHazardAdapter:
@@ -135,6 +144,19 @@ class PointHazardAdapter:
         )
 
     def _build_scene_manifest(self, raw_info: Mapping[str, Any]) -> dict[str, Any]:
+        registered_classes = tuple(self.cfg.semantic_terrain_classes)
+        known_classes = frozenset(
+            terrain
+            for values in CAPABILITY_INCOMPATIBLE_TERRAIN.values()
+            for terrain in values
+        ) | {"solid_ground", "grass"}
+        unknown = sorted(set(registered_classes) - known_classes)
+        if unknown:
+            raise ValueError(f"unknown semantic terrain classes: {unknown}")
+        if registered_classes and not self._env.semantic_zones.size:
+            raise ValueError(
+                "semantic terrain classes require at least one semantic zone"
+            )
         legacy_zones = [
             {
                 "region_id": f"zone_{i}",
@@ -143,6 +165,22 @@ class PointHazardAdapter:
             }
             for i, row in enumerate(np.asarray(raw_info.get("semantic_zones", [])))
         ]
+        appearances = self._env.semantic_zone_styles
+        appearance_profiles = [
+            _STYLE_APPEARANCE_PROFILE.get(
+                appearances[i] if appearances is not None else "restricted",
+                appearances[i] if appearances is not None else "restricted-render-dev-v0",
+            )
+            for i in range(len(legacy_zones))
+        ]
+        semantic_terrain = [
+            {
+                **zone,
+                "terrain_class": registered_classes[i % len(registered_classes)],
+                "appearance_profile": appearance_profiles[i],
+            }
+            for i, zone in enumerate(legacy_zones)
+        ] if registered_classes else []
         return {
             "environment_backend": self.backend,
             "environment_id": self.environment_id,
@@ -154,10 +192,9 @@ class PointHazardAdapter:
                 {"hazard_id": f"hazard_{i}", "center_xy": row[:2], "radius": row[2]}
                 for i, row in enumerate(self._env.hazards)
             ],
-            # PointHazard's legacy zones have no frozen terrain-class registry;
-            # retain their geometry for audit without pretending they are the
-            # new Safety-Gymnasium water terrain.
-            "semantic_terrain": [],
+            # Terrain truth and appearance are parallel, independently
+            # configured registries.  No evaluator may infer class from style.
+            "semantic_terrain": semantic_terrain,
             "legacy_semantic_zones": legacy_zones,
             "layout_valid": bool(raw_info.get("layout_valid", False)),
             "placement_attempts": int(raw_info.get("placement_attempts", 0)),

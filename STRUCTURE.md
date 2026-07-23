@@ -15,6 +15,10 @@ dependencies.
 | `envs/protocol_env.py` | `ACTIVE` | Public environment boundary and evaluator-only context |
 | `envs/point_hazard_adapter.py` | `ACTIVE` | PointHazard protocol adapter |
 | `evaluation/conditions.py` | `ACTIVE` | Frozen condition and enforcement identity |
+| `evaluation/policy_interface.py` | `ACTIVE` | Immutable task/capability/policy payload and permission audit |
+| `evaluation/outcomes.py` | `ACTIVE` | Headline STC component reduction and truth table |
+| `evaluation/vlm_artifacts.py` | `ACTIVE` | Structured recognition/action parse and audited per-call bytes |
+| `evaluation/vlm_router.py` | `ACTIVE` | Offline P0–P4 candidates, annotated PNG, versioned prompt and decision audit |
 | `evaluation/harness.py` | `ACTIVE` | Direct/replay × none/oracle vertical slice |
 | `evaluation/schemas.py` | `ACTIVE` | Reproducible episode artifacts |
 | `evaluation/semantic_evaluator.py` | `ACTIVE` | Evaluator-only semantic accounting |
@@ -58,6 +62,9 @@ records remain available through `outputs/` and the registry.
 
 ## Current gate
 
-Tasks 1–3 are complete: B01 layout validation, unified condition contract and
-the direct/replay vertical slice. Detector/VLM integration, the minimal policy
-payload boundary and paid runs remain gated by `docs/CLAUDE_PLAN.md`.
+Tasks 1–9 are complete: B01 layout validation, unified condition contract,
+direct/replay vertical slice, minimal-permission policy boundary, STC reduction,
+the offline structured-output/per-call artifact gate, and the P0–P4 local
+fixture request adapter. Registered semantic terrain and the P0–P4 offline VLM
+episode harness are also complete. The full offline matrix, detector integration
+and paid runs remain gated by `docs/CLAUDE_PLAN.md`.

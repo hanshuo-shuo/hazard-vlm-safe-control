@@ -2,9 +2,10 @@
 
 Research prototype for auditing where closed-loop safety comes from in modular
 VLM-guided robot control. The current validated development slice is
-PointHazard with a unified condition contract and a shared direct/replay
-harness. Historical VLM experiments remain in the repository for provenance,
-but their reported semantic results are not paper-valid.
+PointHazard with a unified condition contract, registered semantic terrain and
+a shared direct/replay/offline-VLM harness. Historical VLM experiments remain
+in the repository for provenance, but their reported semantic results are not
+paper-valid.
 
 ## Current scope
 
@@ -13,6 +14,12 @@ The active offline matrix is:
 ```text
 router      = direct | replay
 zone_source = none   | oracle
+
+offline development gate:
+router          = vlm
+zone_source     = none
+privilege_level = P0 | P1 | P2 | P3 | P4
+provider        = local structured fixture only
 ```
 
 All four conditions use the same PointHazard environment, executor and
@@ -27,8 +34,10 @@ Replay uses absolute world-coordinate targets, arrival-based switching at
 trajectory-divergence diagnostics. Oracle geometry enters only through an
 explicit `PRIVILEGED` cost-map payload built on the evaluator side.
 
-Detector and VLM zone sources are intentionally not connected yet. Paid
-VLM/OpenRouter runs remain paused until the offline gates in
+The VLM router can now execute complete zero-network fixture episodes and save
+per-call provenance; no real provider client is connected. Detector and VLM
+zone sources are intentionally not connected yet. Paid VLM/OpenRouter runs
+remain paused until the offline matrix and release gates in
 [docs/CLAUDE_PLAN.md](docs/CLAUDE_PLAN.md) are complete.
 
 ## Repository map
@@ -38,7 +47,11 @@ VLM/OpenRouter runs remain paused until the offline gates in
 | `env_pointhazard.py` | Frozen PointHazard dynamics and checked layout sampler |
 | `envs/` | Permission-bounded environment adapters |
 | `evaluation/conditions.py` | Canonical condition, enforcement and factor-vector contract |
-| `evaluation/harness.py` | Unified direct/replay runner and replay audit |
+| `evaluation/policy_interface.py` | Immutable minimal-permission routing-policy boundary |
+| `evaluation/outcomes.py` | Shared Safe Task Completion reduction |
+| `evaluation/vlm_artifacts.py` | Strict structured output and byte-reconstructable call provenance |
+| `evaluation/vlm_router.py` | Offline P0–P4 candidate, prompt and structured fixture adapter |
+| `evaluation/harness.py` | Unified direct/replay/offline-VLM runner and replay audit |
 | `evaluation/schemas.py` | Episode artifact and provenance schema |
 | `evaluation/semantic_evaluator.py` | Evaluator-only semantic metrics |
 | `mpc_expert.py` | Empirical CEM-MPC low-level controller |
@@ -58,6 +71,10 @@ uses the dependencies in `requirements-safety-gym.txt`.
 ```bash
 python -m pytest -q \
   tests/test_condition_contract.py \
+  tests/test_policy_permissions.py \
+  tests/test_stc_outcomes.py \
+  tests/test_vlm_artifacts.py \
+  tests/test_vlm_router.py \
   tests/test_unified_harness.py
 
 LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \

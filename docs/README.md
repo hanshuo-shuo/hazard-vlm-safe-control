@@ -20,6 +20,11 @@ The code map is [../STRUCTURE.md](../STRUCTURE.md).
 - PointHazard B01 layout validation is complete.
 - The condition contract is complete.
 - `direct/replay × none/oracle` runs through the unified harness.
+- Direct/replay routing uses an immutable, audited minimal-permission input.
+- Episode artifacts use the shared STC component reduction as the headline metric.
+- Structured VLM output and exact prompt/image/policy bytes have an offline audit gate.
+- The public candidate/PNG adapter completes zero-cost structured fixture decisions.
+- Protocol 1.2.2 registers the four-field structured output and cumulative P0–P4 prompt ladder.
 - Detector/VLM integration and paid API runs remain gated.
 - No semantic-safety result is currently `VALIDATED`.
 

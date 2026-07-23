@@ -132,7 +132,7 @@ def _thaw_json(value: Any) -> Any:
 
 @dataclass(frozen=True)
 class FactorVector:
-    """The exact seven-key factor vector frozen by protocol 1.2.1."""
+    """The exact seven-key factor vector frozen by protocol 1.2.2."""
 
     appearance: str = "water-render-v1"
     task_spec_version: str = "task-spec-v1"
@@ -140,7 +140,7 @@ class FactorVector:
     privilege_level: PrivilegeLevel = PrivilegeLevel.P0
     annotation_scheme: str = "subgoal-ring-8-r2.5-v1"
     evaluator_version: str = "point-center-discrete-v1.2.1"
-    protocol_version: str = "1.2.1"
+    protocol_version: str = "1.2.2"
 
     def __post_init__(self) -> None:
         try:
@@ -160,7 +160,7 @@ class FactorVector:
             raise ValueError(f"unregistered annotation_scheme: {self.annotation_scheme}")
         if self.evaluator_version != "point-center-discrete-v1.2.1":
             raise ValueError(f"unregistered evaluator_version: {self.evaluator_version}")
-        if self.protocol_version != "1.2.1":
+        if self.protocol_version != "1.2.2":
             raise ValueError(f"unregistered protocol_version: {self.protocol_version}")
 
     def to_dict(self) -> dict[str, str]:

@@ -85,7 +85,7 @@ def test_privilege_and_seed_split_cross_constraints() -> None:
     assert formal.split is SeedSplit.FORMAL
 
 
-def test_factor_vector_enforces_protocol_1_2_1_domains() -> None:
+def test_factor_vector_enforces_protocol_1_2_2_domains() -> None:
     with pytest.raises(ValueError, match="permitted only at P0"):
         FactorVector(
             task_spec_version="task-spec-absent-p0-v1",
@@ -93,6 +93,8 @@ def test_factor_vector_enforces_protocol_1_2_1_domains() -> None:
         )
     with pytest.raises(ValueError, match="unregistered appearance"):
         FactorVector(appearance="unknown-render")
+    with pytest.raises(ValueError, match="unregistered protocol_version"):
+        FactorVector(protocol_version="1.2.1")
 
 
 def test_enforcement_is_explicit_finite_and_frozen() -> None:

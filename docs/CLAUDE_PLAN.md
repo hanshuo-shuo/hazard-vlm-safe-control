@@ -21,7 +21,10 @@ Safety-Gymnasium 当前只保留 native adapter 和 smoke infrastructure，角�
 BLOCKED / NOT PAPER EVIDENCE
 ```
 
-本月不再声称 W2 已完成，也不安排立即付费实验。`docs/PROTOCOL.md` 的 protocol `1.2.1` 保持冻结；当前阶段不继续扩写 JSON lexical、binary64、fused operation 或 serialization conformance 细节。
+本月不再声称 W2 已完成，也不安排立即付费实验。`docs/PROTOCOL.md` 的
+protocol `1.2.1` numeric/evaluator 语义保持冻结；`1.2.2` 只登记 M04
+structured prompt amendment。当前阶段不继续扩写 JSON lexical、binary64、
+fused operation 或 serialization conformance 细节。
 
 当前总体判断是：
 
@@ -39,17 +42,17 @@ BLOCKED / NOT PAPER EVIDENCE
 |---|---|---|
 | W1 sampler 修复（B01） | DONE | checked final-attempt sequential grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过，seed 157/1347 有专门 liveness 回归。 |
 | W1 措辞降级（B02） | DONE | 代码和文档已改为 safety-oriented sampling MPC 的 empirical 表述，不再声称形式化安全保证。 |
-| W1 协议书面定义 | DONE | `PROTOCOL.md 1.2.1` 已定义 task/capability、P0–P4、STC、replay、seed split 和 evaluator 规则。正式 conformance interpreter 不属于当前 MVF。 |
-| W1 基础 factor snapshot | PARTIAL | appearance、prompt level 和 capability 的基础正交测试已存在；严格 condition contract、P0–P4 factor vector、seed split、canonical serialization/hash 已完成并接入 episode artifact，主 harness 尚未切换。 |
+| W1 协议书面定义 | DONE | `PROTOCOL.md 1.2.2` 已定义 task/capability、P0–P4 structured prompt、STC、replay、seed split 和 evaluator 规则；evaluator 仍为 v1.2.1。正式 conformance interpreter 不属于当前 MVF。 |
+| W1 基础 factor snapshot | PARTIAL | appearance、prompt level 和 capability 的基础正交测试已存在；严格 condition contract、P0–P4 factor vector、seed split、canonical serialization/hash 已完成并接入主 harness；完整 detector/VLM 因素矩阵尚未接入。 |
 | B03 router / zone source 解耦 | PARTIAL | `direct/replay × none/oracle` 已通过统一 harness；detector/VLM 尚未接入，完整矩阵仍 gated。 |
 | B04 旧结果管理 | PARTIAL | 旧 semantic 结果已降级为历史或调试材料，不能作为当前论文数字；post-B01 新 seed block 尚未生成。 |
-| B05 task/capability interface | OPEN | 文档中已有 task card 和 capability card，但主 harness 仍通过 legacy 参数和环境对象分散传递信息。 |
+| B05 task/capability interface | DONE | 冻结 task/capability card 由 `PolicyInput` 显式投影；direct/replay target policy 只接收该不可变对象。 |
 | B06 完整因素正交 | PARTIAL | appearance、prompt 和 capability 的基础 snapshot 已有；privilege level、candidate annotation、zone source、evaluator applicability 和主 harness 尚未统一。 |
-| B07 输入侧 provenance | OPEN | 当前 transcript 未完整保存 exact prompt、input PNG/hash、candidate metadata、authorized information tags、model revision、latency、tokens、cost 和完整 config。 |
-| M01 STC 主指标 | OPEN | 当前主结果仍分别报告 success、hazard 和 semantic violation，STC 尚未成为统一 headline metric。 |
-| M04 structured stage output | OPEN | 尚无稳定、机器可判的 recognition、unsafe-candidate identification 和 selected-action schema。 |
-| M05 最小权限 interface | OPEN | 旧 policy 仍可接收裸 `env` 或通过环境路径访问 simulator truth；`ProtocolEnvironment` 尚未成为主入口。 |
-| M07 复现性 | PARTIAL | git SHA、dirty state、部分 artifact 和依赖基础设施已存在；完整 VLM call artifact 和 replay 仍未闭合。 |
+| B07 输入侧 provenance | DONE | `VLMCallArtifact` 保存 exact prompt/PNG/policy bytes 与 hash、candidate world/pixel metadata、authorized tags、model/request/config/latency/token/cost、raw/parse/fallback、code state、condition、target 和 trajectory，并支持离线重建与篡改检测。 |
+| M01 STC 主指标 | DONE | `evaluation/outcomes.py` 统一 reduction；artifact 显式保存 reached goal、physical collision、applicable semantic violation、timeout 与 STC。 |
+| M04 structured stage output | DONE | 严格四字段 parser 保存 recognition、unsafe-candidate IDs、selected candidate 与 parse status；失败不暴露 partial quantitative labels，free-text 仅作定性审计。 |
+| M05 最小权限 interface | DONE | `evaluation/policy_interface.py` 拒绝 raw env、simulator、forbidden fields 与 EVAL_ONLY tag；主 harness 保存每次 policy input hash 和权限计数。 |
+| M07 复现性 | PARTIAL | episode 与 VLM call artifact 已闭合离线字节重建、code-state/condition 一致性和 replay audit；真实 provider request 接线与 dependency lock 尚未完成。 |
 | M03 open-vocabulary baseline | DEFERRED | 当前 detector 仅作为 sanity path；pilot 前不扩展为正式 baseline。 |
 | M08 PointPush / VLA | DEFERRED | 现有内容只作为 scaffold 或历史资产，不进入当前科学证据。 |
 
@@ -290,7 +293,7 @@ seed and split
 - PointHazard 设为当前唯一 scientific environment；
 - native Safety-Gym 设为 `INFRA`；
 - Safety-Gym semantic extension 设为 `BLOCKED`；
-- 冻结 protocol `1.2.1`；
+- 冻结 protocol `1.2.1` numeric/evaluator baseline；后续 1.2.2 仅修订 prompt schema；
 - 暂停所有付费 VLM/API；
 - 暂停新环境、PointPush、direct VLA、正式 seed block 和第三模型；
 - 不修改历史结果资格。
@@ -688,7 +691,7 @@ pilot 前不要求 capability twin 大规模经验实验。
 - 所有 gate 保存 exact command、日志和 git SHA；
 - 任何失败只作为 development evidence；
 - protocol、prompt、factor、seed split 或 metric 发生实质变化时，必须显式更新版本；
-- 不允许静默修改 protocol `1.2.1` 后继续沿用原版本号。
+- 不允许静默修改 protocol `1.2.2` 后继续沿用原版本号。
 
 ---
 
@@ -872,8 +875,11 @@ Phase-5 method contribution
 
 > 在当前 `safety` HEAD 上确定 B01 的真实 stress 状态，冻结 post-B01 PointHazard 环境，并完成统一 condition abstraction 及 `direct + replay` 最小 harness，不调用任何 VLM/API，不扩展任何环境。
 
-当前 gate：Task 1–3 已为 `DONE`。下一步在接入 detector/VLM 前完成
-minimal-permission policy interface 与对应静态/动态边界测试。
+当前 gate：Task 1–9 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
+已显式解决旧 `choice/reason` 与 M04 四字段 schema 的版本冲突，正式 P0–P4
+privilege prompt adapter、PointHazard semantic-terrain registry 与完整本地
+fixture episode harness 已通过离线 gate。下一步是冻结完整 offline condition
+matrix 与 release record；真实 provider 接线仍受 paid-run gate 阻断。
 
 执行顺序：
 
@@ -900,7 +906,9 @@ minimal-permission policy interface 与对应静态/动态边界测试。
 
 ### Task 2 — Unified condition contract
 
-状态：`DONE`。`evaluation/conditions.py` 定义严格枚举、protocol 1.2.1 七键 factor vector、完整 enforcement、seed split、provenance、canonical JSON/hash；`build_episode_artifact` 已保存并交叉验证 condition。
+状态：`DONE`。`evaluation/conditions.py` 定义严格枚举、protocol 1.2.2 七键
+factor vector、完整 enforcement、seed split、provenance、canonical JSON/hash；
+`build_episode_artifact` 已保存并交叉验证 condition。
 
 定义：
 
@@ -973,6 +981,282 @@ vertical slice 重跑；当前沙箱禁止 multiprocessing semaphore sysconf，�
 初始化/关闭阶段长时间不返回，不影响本任务限定的 PointHazard 验收。
 
 完成上述三项后，再决定是否接入 VLM router。
+
+### Task 4 — Minimal-permission policy interface
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`evaluation/policy_interface.py` 定义不可变 `PolicyInput`、`PUBLIC /
+AUTHORIZED_PRIVILEGE / EVAL_ONLY` 标签、冻结 task/capability card、fail-fast
+forbidden-field/object audit，以及不持有环境引用的 direct/replay target
+policy。`evaluation/harness.py` 的路由目标选择已切换到该边界，并在 episode
+artifact 中保存每次 policy input SHA-256 和权限计数。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_policy_permissions.py \
+  tests/test_condition_contract.py \
+  tests/test_unified_harness.py
+29 passed in 0.59s
+
+python -m compileall -q evaluation tests/test_policy_permissions.py
+git diff --check
+```
+
+测试位置：`tests/test_policy_permissions.py` 和
+`tests/test_unified_harness.py`。覆盖静态 signature/schema、无环境引用、嵌套
+对象拒绝、EVAL_ONLY/P0 privilege fail-fast、输入 detach/immutability、
+evaluator truth non-interference、replay 显式 target payload、capability twin
+以及 P0 artifact 零 forbidden tag。
+
+剩余 gap：此任务只闭合当前 direct/replay 路由边界；Phase 3 的完整 VLM call
+provenance、structured output 和 detector/VLM 接入仍为后续 gate。
+
+### Task 5 — Shared STC reduction
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`evaluation/outcomes.py` 将 headline metric 固定为 reached goal、physical
+collision、applicable semantic violation 和 timeout 四个正交 component 的
+reduction。`EpisodeArtifact` 现显式保存 physical collision 与 timeout，且构建
+时交叉验证 harness 的 `stc_audit`，不再把 native cost channel 当成 STC 的名称
+或唯一来源。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_stc_outcomes.py \
+  tests/test_policy_permissions.py \
+  tests/test_condition_contract.py \
+  tests/test_unified_harness.py \
+  tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+40 passed, 1 deselected in 0.62s
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+51 passed in 86.23s
+```
+
+`tests/test_stc_outcomes.py` 覆盖 safe completion、goal reached but semantic
+violation、physical collision、timeout、联合失败和不合法 timeout overlap。
+
+Task 5 完成时遗留的 M04 structured output 与 B07 per-call provenance 已由
+Task 6 闭合；PointHazard protocol 的正式 lexical/conformance interpreter
+仍不属于当前 MVF。
+
+### Task 6 — Structured output and per-call provenance
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`evaluation/vlm_artifacts.py` 定义严格、无 provider 依赖的四字段 structured
+parser 和 `VLMCallArtifact`。每条 call 保存 prompt、PNG、policy input 和 raw
+response 的可逆 base64 与 SHA-256，candidate world/pixel 坐标、授权标签、
+model/request/config/latency/token/cost、fallback、code state、selected target、
+condition 和 trajectory。构建及 episode 嵌入时会重新校验字节 hash、policy
+tags、P0 privilege、candidate identity、selected target、structured reparse、
+condition 与 git state。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_vlm_artifacts.py \
+  tests/test_stc_outcomes.py \
+  tests/test_policy_permissions.py \
+  tests/test_condition_contract.py \
+  tests/test_unified_harness.py
+48 passed in 0.62s
+
+python -m compileall -q evaluation tests/test_vlm_artifacts.py
+git diff --check
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+64 passed in 86.03s
+
+python -m pytest -q tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+5 passed, 1 deselected in 0.39s
+```
+
+测试位置：`tests/test_vlm_artifacts.py`。覆盖 valid parse、invalid JSON、
+duplicate keys、schema/type/unknown-candidate failure、失败时无 partial labels、
+UTF-8 prompt/PNG/raw response 逐字节重建、offline reparse、hash/candidate/
+selected-target 篡改、secret/EVAL_ONLY 拒绝，以及 episode condition/code-state
+一致性。
+
+Task 6 当时遗留的公共 candidate renderer 与 P0 local fixture adapter 已由
+Task 7 闭合；在 Task 6 结束时，正式 P0–P4 prompt/version、完整 harness 与
+provider client 尚未接入。因此没有调用 API、没有产生新实验结果，paid-run
+gate 仍为 `BLOCKED`。
+PointHazard protocol 的正式 lexical/conformance interpreter 仍不属于当前 MVF。
+
+### Task 7 — Offline P0 VLM request fixture
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`evaluation/vlm_router.py` 冻结 `subgoal-ring-8-r2.5-v1` 的八候选顺序、绝对
+world clipping、public world-to-pixel 投影、紫色编号 marker/connector PNG，
+并仅从 `PolicyInput` 构建 P0 development structured prompt。请求绑定 exact
+condition hash；本地四字段 fixture response 经严格 parser 后选择唯一 target，
+并产生零 cost、无 provider call、可重建的 `VLMCallArtifact`。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_vlm_router.py \
+  tests/test_vlm_artifacts.py \
+  tests/test_policy_permissions.py \
+  tests/test_condition_contract.py \
+  tests/test_unified_harness.py
+49 passed
+
+python -m compileall -q evaluation tests/test_vlm_router.py
+git diff --check
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+71 passed in 85.04s
+
+python -m pytest -q tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+5 passed, 1 deselected in 0.29s
+```
+
+`tests/test_vlm_router.py` 覆盖八方向与 clipping、重复构建 byte stability、
+真实 PointHazard public RGB、capability twin image/candidate parity、P0
+permission、condition identity、invalid response fail-closed，以及 fixture
+response → selected target → audited call artifact 的本地 vertical slice。此任务
+没有调用网络或 provider，也没有产生论文结果。
+
+Task 7 当时遗留的 `choice/reason` 版本冲突与 P1–P4 gap 已由 Task 8 闭合。
+PointHazard 当前 scene manifest 仍只把 legacy zone geometry 存为
+`legacy_semantic_zones`，没有独立于 appearance 的正式 `terrain_class`；因此
+非空 P1–P4 目前只在合成 fixture 上验收，完整 harness 与 paid-run gate 仍为
+`BLOCKED`。
+
+### Task 8 — Protocol 1.2.2 structured P0–P4 prompt ladder
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`PROTOCOL.md` 将 prompt/output-only amendment 登记为 `1.2.2`，明确保留
+evaluator `point-center-discrete-v1.2.1`、几何、STC、replay 与 seed 语义。
+`FactorVector` 只接受新 protocol version，旧 1.2.1 artifact 不会自动升级或与
+新条件混合。
+
+`evaluation/vlm_router.py` 现从 evaluator-side semantic terrain 构建严格累加
+的 privilege projection：P1 class set、P2 region world/pixel geometry、P3
+capability-conditioned safe/unsafe labels、P4 binary64 segment clearance、
+`decimal3` token、dense rank。P0 禁止接收 scene truth；所有级别共享完全相同的
+public RGB、candidate IDs/world/pixel metadata 和 annotation bytes。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_vlm_router.py \
+  tests/test_vlm_artifacts.py \
+  tests/test_condition_contract.py \
+  tests/test_policy_permissions.py \
+  tests/test_unified_harness.py \
+  tests/test_stc_outcomes.py
+61 passed in 0.76s
+
+python -m compileall -q evaluation tests/test_vlm_router.py
+git diff --check
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+77 passed in 86.78s
+
+python -m pytest -q tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+5 passed, 1 deselected in 0.36s
+```
+
+`tests/test_vlm_router.py` 保存 P0–P4 exact prompt SHA-256，覆盖 additive block、
+region numeric ordering、three-place serialization、P3 labels、P4 INF/shared
+rank、capability twin、P0 truth rejection、duplicate/noncanonical region ID 和
+unknown class rejection。
+
+remaining gap：当前 PointHazard `legacy_semantic_zones` 没有注册
+`terrain_class`，而 protocol 禁止从 appearance 推断 class。因此 Task 8 只关闭
+prompt/version/privilege arithmetic gate；下一步必须建立显式 semantic-terrain
+scene configuration 和 twin test，再把 VLM router 接入完整 episode harness。
+paid-run gate 保持 `BLOCKED`。
+
+上述 Task 8 遗留的 semantic-terrain registration、capability/appearance twin
+与完整离线 episode harness 已由 Task 9 闭合。
+
+### Task 9 — Registered semantic terrain + offline VLM episode harness
+
+状态：`DONE`（实现基线 SHA
+`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
+
+`PointHazardConfig.semantic_terrain_classes` 现独立于
+`semantic_styles` 注册 evaluator-side terrain truth，不消耗 RNG，也不允许从
+renderer appearance 反推 class。`PointHazardAdapter` 将 geometry、
+`terrain_class` 与版本化 `appearance_profile` 写入 scene manifest；完整 harness
+会拒绝 appearance factor/profile 漂移，并按 frozen capability card 重新计算
+semantic violation。
+
+`run_point_hazard_episode` 现支持 `router=vlm` 的零网络闭环：每次 candidate
+decision 都从当时的 public observation/RGB 生成八候选和 P0–P4 request，经调用
+方提供的本地 structured responder 选择 subgoal，复用同一 MPC executor，并把
+exact request/response、target sequence、permission audit、trajectory prefix 和
+零成本 call artifact 嵌入 episode artifact。P0 不接收 scene truth；P1–P4 只接收
+各自允许的累加 privilege projection。未注册 terrain、非 `zone_source=none`、
+缺失 local responder、invalid response、condition/appearance drift 均 fail
+closed。
+
+验收证据：
+
+```text
+python -m pytest -q \
+  tests/test_unified_harness.py \
+  tests/test_vlm_router.py \
+  tests/test_vlm_artifacts.py \
+  tests/test_policy_permissions.py \
+  tests/test_stc_outcomes.py \
+  tests/test_condition_contract.py
+69 passed in 2.08s
+
+python -m compileall -q \
+  env_pointhazard.py envs evaluation tests/test_unified_harness.py
+git diff --check
+
+LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
+  python -m pytest -q tests \
+  --ignore=tests/test_safety_gym_goal_integration.py
+85 passed
+
+python -m pytest -q tests/test_safety_gym_goal_integration.py \
+  -k 'not real_safety_gym_adapter_smoke_if_installed'
+5 passed, 1 deselected
+```
+
+测试位置：`tests/test_unified_harness.py`。新增覆盖 appearance twin（同
+geometry/class、不同 RGB/profile）、P0–P4 完整离线 episode、call/target/
+permission artifact 一致性、capability twin evaluator 标签，以及 appearance
+factor drift 拒绝。
+
+remaining gap：本任务没有 provider client、没有网络/API 调用、没有产生论文
+结果，也没有解锁 paid run。完整 offline condition matrix、detector baseline、
+release record 与 dependency lock 仍未完成；paid-run gate 保持 `BLOCKED`。
 
 ---
 

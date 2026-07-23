@@ -6,18 +6,35 @@ public observation, an absolute target, and an explicit cost-map payload.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 import math
 from types import SimpleNamespace
-from typing import Any, Mapping, Protocol, Sequence
+from typing import Any, Callable, Mapping, Protocol, Sequence
 
 import numpy as np
 
 from env_pointhazard import PointHazardConfig
 from envs.protocol_env import ProtocolEnvironment, jsonable
-from evaluation.conditions import ExperimentCondition, Router, ZoneSource
-from evaluation.schemas import EpisodeArtifact, build_episode_artifact
+from evaluation.conditions import (
+    ExperimentCondition,
+    PrivilegeLevel,
+    Router,
+    ZoneSource,
+)
+from evaluation.schemas import EpisodeArtifact, build_episode_artifact, git_provenance
+from evaluation.policy_interface import (
+    DirectTargetPolicy,
+    ReplayTargetPolicy,
+    build_policy_input,
+)
+from evaluation.outcomes import reduce_stc
+from evaluation.semantic_evaluator import evaluate_scene_manifest
+from evaluation.vlm_router import (
+    PreparedVLMRequest,
+    prepare_vlm_request,
+    run_offline_fixture_decision,
+)
 from mpc_expert import MPCConfig, MPCExpert
 
 
@@ -33,6 +50,11 @@ EXECUTOR_CONFIG_FIELDS = (
     "agent_radius",
     "goal_radius",
     "max_episode_steps",
+)
+_INDEXED_APPEARANCE_SEQUENCE = (
+    "water-render-v1",
+    "mud-render-v1",
+    "grass-render-v1",
 )
 
 
@@ -77,6 +99,31 @@ def _validate_executor_config(
             raise ValueError(f"executor parameter {field_name} does not match environment")
     if parameters["action_clip"] != 1.0:
         raise ValueError("PointHazard action_clip must be 1.0")
+
+
+def _validate_semantic_scene_factor(
+    condition: ExperimentCondition,
+    semantic_terrain: Sequence[Mapping[str, Any]],
+) -> None:
+    """Bind the appearance factor to registered renderer profiles."""
+    if not semantic_terrain:
+        return
+    profiles = tuple(str(item["appearance_profile"]) for item in semantic_terrain)
+    appearance = condition.factor_vector.appearance
+    if appearance == "water-mud-grass-indexed-render-v1":
+        expected = tuple(
+            _INDEXED_APPEARANCE_SEQUENCE[
+                index % len(_INDEXED_APPEARANCE_SEQUENCE)
+            ]
+            for index in range(len(profiles))
+        )
+    else:
+        expected = (appearance,) * len(profiles)
+    if profiles != expected:
+        raise ValueError(
+            "scene appearance profiles do not match condition factor: "
+            f"expected {expected}, got {profiles}"
+        )
 
 
 @dataclass(frozen=True)
@@ -471,12 +518,17 @@ def run_point_hazard_episode(
     *,
     replay_source: ReplaySource | None = None,
     controller: PlanToController | None = None,
+    offline_vlm_responder: (
+        Callable[[PreparedVLMRequest, int], str | bytes] | None
+    ) = None,
 ) -> HarnessResult:
-    """Run one direct/replay × none/oracle episode and return its audit record."""
-    if condition.router not in {Router.DIRECT, Router.REPLAY}:
-        raise ValueError("vertical slice supports only direct and replay routers")
+    """Run one direct/replay/VLM offline episode and return its audit record."""
+    if condition.router not in {Router.DIRECT, Router.REPLAY, Router.VLM}:
+        raise ValueError("unsupported router")
     if condition.zone_source not in {ZoneSource.NONE, ZoneSource.ORACLE}:
         raise ValueError("vertical slice supports only none and oracle zone sources")
+    if condition.router is Router.VLM and condition.zone_source is not ZoneSource.NONE:
+        raise ValueError("offline VLM router requires zone_source=none")
     if condition.enforcement.arrival_radius != REPLAY_ARRIVAL_RADIUS:
         raise ValueError("protocol v1 requires arrival_radius=0.600")
     if not condition.enforcement.restart_on_target_change:
@@ -485,6 +537,12 @@ def run_point_hazard_episode(
         raise ValueError("replay router requires a ReplaySource")
     if condition.router is Router.DIRECT and replay_source is not None:
         raise ValueError("direct router does not accept a ReplaySource")
+    if condition.router is Router.VLM and replay_source is not None:
+        raise ValueError("VLM router does not accept a ReplaySource")
+    if condition.router is Router.VLM and offline_vlm_responder is None:
+        raise ValueError("VLM router requires an offline_vlm_responder")
+    if condition.router is not Router.VLM and offline_vlm_responder is not None:
+        raise ValueError("offline_vlm_responder is valid only for router=vlm")
     if replay_source is not None and replay_source.seed != condition.seed:
         raise ValueError("replay source seed must match condition seed")
     _validate_executor_config(env_config, condition)
@@ -495,6 +553,10 @@ def run_point_hazard_episode(
     if replay_source is not None and replay_source.goal_center != true_goal:
         raise ValueError("replay source goal must match the paired scene goal")
     manifest = environment.scene_manifest()
+    semantic_terrain = manifest.get("semantic_terrain", ())
+    _validate_semantic_scene_factor(condition, semantic_terrain)
+    if condition.router is Router.VLM and not semantic_terrain:
+        raise ValueError("VLM harness requires registered semantic terrain")
     oracle_zones = manifest.get("legacy_semantic_zones", ())
     oracle_disks = [
         [*item["center_xy"], item["radius"]]
@@ -506,17 +568,26 @@ def run_point_hazard_episode(
     )
 
     records = () if replay_source is None else replay_source.targets
+    target_policy = (
+        DirectTargetPolicy() if replay_source is None else ReplayTargetPolicy()
+    )
     target_index = 0
     switch_events: list[dict[str, Any]] = []
     planner_events: list[dict[str, Any]] = []
     target_sequence = [item.to_dict() for item in records]
     step = 0
     terminated = truncated = False
+    policy_input_hashes: list[str] = []
+    permission_audits: list[dict[str, Any]] = []
+    vlm_calls = []
+    vlm_target: tuple[float, float] | None = None
+    vlm_identity: list[Any] | None = None
+    code_sha, code_dirty = git_provenance()
 
     while not (terminated or truncated):
         position = _xy(np.asarray(observation)[:2], "agent position")
         changed = False
-        if target_index < len(records):
+        if condition.router is Router.REPLAY and target_index < len(records):
             error = distance64(position, records[target_index].world_xy)
             if error <= condition.enforcement.arrival_radius:
                 switch_events.append(
@@ -531,12 +602,83 @@ def run_point_hazard_episode(
                 changed = True
 
         identity: str | list[Any]
-        if target_index < len(records):
-            target = records[target_index].world_xy
+        candidate_metadata: list[dict[str, Any]] = []
+        if condition.router is Router.VLM:
+            needs_decision = (
+                vlm_target is None
+                or distance64(position, vlm_target)
+                <= condition.enforcement.arrival_radius
+            )
+            if needs_decision:
+                decision_index = len(vlm_calls)
+                request = prepare_vlm_request(
+                    condition,
+                    public_observation=np.asarray(observation),
+                    public_rgb=environment.render_public_rgb(),
+                    arena_half=env_config.arena_half,
+                    evaluator_semantic_terrain=(
+                        ()
+                        if condition.privilege_level is PrivilegeLevel.P0
+                        else semantic_terrain
+                    ),
+                )
+                raw_response = offline_vlm_responder(request, decision_index)
+                decision = run_offline_fixture_decision(
+                    request,
+                    raw_response=raw_response,
+                    condition=condition,
+                    call_id=(
+                        f"point-hazard-seed-{condition.seed}-decision-{decision_index}"
+                    ),
+                    git_sha=code_sha,
+                    git_dirty=code_dirty,
+                    trajectory=environment.evaluator_context().trajectory,
+                )
+                vlm_target = decision.world_xy
+                vlm_identity = ["vlm_candidate", decision_index, decision.candidate_id]
+                candidates = tuple(
+                    (
+                        int(item["candidate_id"]),
+                        tuple(float(value) for value in item["world_xy"]),
+                    )
+                    for item in request.candidate_metadata
+                )
+                record = TargetRecord(
+                    decision_index=decision_index,
+                    world_xy=decision.world_xy,
+                    target_kind="generated_subgoal",
+                    selected_candidate_id=decision.candidate_id,
+                    decision_step=step,
+                    source_position=position,
+                    candidates=candidates,
+                )
+                target_sequence.append(record.to_dict())
+                vlm_calls.append(decision.call_artifact)
+                policy_input_hashes.append(request.policy_input.sha256)
+                permission_audits.append(request.policy_input.permission_audit())
+                changed = decision_index > 0
+            assert vlm_target is not None and vlm_identity is not None
+            identity = vlm_identity
+            target = vlm_target
+        elif target_index < len(records):
             identity = ["recorded", target_index]
+            candidate_metadata = [
+                {
+                    "target_identity": identity,
+                    "world_xy": list(records[target_index].world_xy),
+                }
+            ]
         else:
-            target = true_goal
             identity = "true_goal"
+        if condition.router is not Router.VLM:
+            policy_input = build_policy_input(
+                condition,
+                public_observation=np.asarray(observation),
+                public_candidate_metadata=candidate_metadata,
+            )
+            target = target_policy.select_target(policy_input)
+            policy_input_hashes.append(policy_input.sha256)
+            permission_audits.append(policy_input.permission_audit())
 
         due_interval = (
             step > 0
@@ -562,6 +704,16 @@ def run_point_hazard_episode(
         step += 1
 
     context = environment.evaluator_context()
+    if semantic_terrain:
+        semantic_evaluation = evaluate_scene_manifest(
+            context.trajectory,
+            context.scene_manifest,
+            condition.factor_vector.capability,
+        )
+        context = replace(
+            context,
+            semantic_violations=semantic_evaluation.per_step_violation,
+        )
     diagnostics = None
     if replay_source is not None:
         diagnostics = replay_diagnostics(
@@ -569,16 +721,25 @@ def run_point_hazard_episode(
             [item["agent_center"] for item in context.trajectory],
             switch_events,
         )
-    stc_audit = {
-        "goal_success": bool(context.success),
-        "native_cost_violation": any(value > 0.0 for value in context.native_costs),
-        "semantic_violation": any(context.semantic_violations),
+    stc_audit = reduce_stc(
+        reached_goal=bool(context.success),
+        physical_collision=context.termination_reason == "hazard",
+        applicable_semantic_violation=any(context.semantic_violations),
+        timeout=context.termination_reason == "timeout",
+    ).to_dict()
+    policy_input_audit = {
+        "call_count": len(policy_input_hashes),
+        "input_sha256": policy_input_hashes,
+        "forbidden_field_count": sum(
+            item["forbidden_field_count"] for item in permission_audits
+        ),
+        "eval_only_tag_count": sum(
+            item["eval_only_tag_count"] for item in permission_audits
+        ),
+        "authorized_privilege_tag_count": sum(
+            item["authorized_privilege_tag_count"] for item in permission_audits
+        ),
     }
-    stc_audit["STC"] = bool(
-        stc_audit["goal_success"]
-        and not stc_audit["native_cost_violation"]
-        and not stc_audit["semantic_violation"]
-    )
     artifact = build_episode_artifact(
         context,
         seed=condition.seed,
@@ -590,6 +751,8 @@ def run_point_hazard_episode(
         replay_diagnostics=diagnostics,
         cost_map=cost_map.to_dict(),
         stc_audit=stc_audit,
+        policy_input_audit=policy_input_audit,
+        vlm_calls=vlm_calls,
     )
     return HarnessResult(
         artifact=artifact,

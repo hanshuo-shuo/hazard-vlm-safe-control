@@ -11,8 +11,9 @@
 
 当前没有任何 semantic-safety 结果达到 VALIDATED。
 
-WP-2.0 状态边界：`PROTOCOL.md` 1.2.1 已冻结；本月不再增加 JSON lexical、binary64
-或 serialization 细节，也不在 W2 实现完整标准解释器。所有付费 VLM/OpenRouter/API
+WP-2.0 状态边界：`PROTOCOL.md` 1.2.1 的 numeric/evaluator 语义保持冻结；
+1.2.2 只登记 M04 structured prompt amendment。本月不再增加 JSON lexical、
+binary64 或 serialization 细节，也不在 W2 实现完整标准解释器。所有付费 VLM/OpenRouter/API
 run 暂停。
 
 ---
@@ -45,7 +46,7 @@ run 暂停。
 | Safety-Gymnasium semantic variant | `BLOCKED` | 语义 variant 的 protocol gate 与 evidence 尚未完成；不进入当前 MVF。 |
 | B01 sampler | **RESOLVED** | checked final-attempt grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过。 |
 | Unified direct/replay harness | **INFRA / PASSED** | `direct/replay × none/oracle` vertical slice、shared enforcement、artifact reconstruction 和 STC audit 已通过专项测试。 |
-| Paid VLM/OpenRouter/API runs | **PAUSED** | B01 与最小 W2 harness 已关闭；detector/VLM、policy permission boundary 和 artifact gate 完成前保持零付费调用。 |
+| Paid VLM/OpenRouter/API runs | **PAUSED** | B01、最小权限、artifact、正式 P0–P4 prompt、PointHazard semantic-terrain registration 与本地 fixture episode gate 已关闭；完整 offline matrix 和 release record 完成前保持零付费调用。 |
 
 ---
 

@@ -92,6 +92,10 @@ class PointHazardConfig:
     # so multiple distinct terrains line the route. Only consulted when non-empty,
     # so single-zone homogeneous runs keep their exact RNG sequence.
     semantic_styles: tuple[str, ...] = ()
+    # Evaluator-side terrain identity, deliberately independent of
+    # ``semantic_styles``.  Entries are assigned round-robin by zone index,
+    # without consuming RNG.  Empty preserves legacy, unregistered zones.
+    semantic_terrain_classes: tuple[str, ...] = ()
 
     # Episode
     max_episode_steps: int = 300
