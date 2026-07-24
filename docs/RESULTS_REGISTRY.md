@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-07-23
+更新：2026-07-24
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -32,8 +32,10 @@ run 暂停。
 | offline_n100_l1/l2 | INVALIDATED | heuristic plumbing run，VLM calls=0；sampler 问题 | 是，移入 invalidated archive |
 | vlm20_l1/l2_heldout* | INVALIDATED | 7/20 zone-hazard overlap；router confound；输入 artifact 不完整 | 是，移入 invalidated archive |
 | vlm2_smoke* | INVALIDATED | 被 n=20 覆盖且使用同一无效 sampler | 是，移入 invalidated archive |
-| zone_detector self-test | PILOT_ONLY | 证明 renderer-palette detector plumbing；不代表 open-vocabulary baseline | 可重新生成 |
-| PointPush expert smoke | PILOT_ONLY | 只验证环境/专家可运行，尚未接入新 protocol | 可重新生成 |
+| zone_detector self-test | ARCHIVED | 只证明 renderer-palette plumbing；明确不作为 perception baseline，不再扩展 | 是，历史 |
+| PointPush expert smoke | ARCHIVED | 只验证环境/专家可运行；PointPush 不进入当前科学主线 | 是，历史 |
+| direct VLA / PointPush VLA scaffolds | ARCHIVED | 保留代码和旧图作 provenance；当前阶段停止训练、调参和性能比较 | 是，历史 |
+| old PIVOT/B+ figures and replays | ARCHIVED | 旧 router/enforcement/scene confounds；不得包装为当前 baseline 或新结果 | 是，历史 |
 | outputs/*.png 旧结果图 | ARCHIVED | 图片用于理解历史路线，但不能支撑当前 claim | 是，文档需标注状态 |
 
 ## 当前 backend 与运行状态
@@ -94,7 +96,7 @@ C2/CV 直接 plan 到 goal；B/B+ 使用 VLM subgoal 和周期性 MPC restart。
 
 必须同时满足：
 
-1. RESEARCH_REVIEW_COMMENTS 的 B01–B07 全部 RESOLVED；
+1. [review_status_registry.json](review_status_registry.json) 中 B01–B07 全部为 `DONE`；
 2. layout invariant tests 通过；
 3. task/capability/appearance/privileged cue 正交；
 4. router 与 zone source 分离；

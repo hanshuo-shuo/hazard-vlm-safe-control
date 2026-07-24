@@ -30,6 +30,11 @@ fused operation 或 serialization conformance 细节。
 
 > 协议设计已经领先于实现，基础设施建设也开始超出当前科学问题。下一阶段不再增加环境和规范，而是先在一个环境中完成单变量、可审计、可复现的实验主链。
 
+review item 的当前状态唯一以
+[`review_status_registry.json`](review_status_registry.json) 为准。本计划中的 review
+item 行只保留执行证据和缺口，不另行维护状态；实现任务的 `DONE` 不自动等于对应 review
+item fully resolved。
+
 ---
 
 ## 2. Actual repository status
@@ -40,21 +45,21 @@ fused operation 或 serialization conformance 细节。
 
 | 项目 | 状态 | 当前证据与缺口 |
 |---|---|---|
-| W1 sampler 修复（B01） | DONE | checked final-attempt sequential grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过，seed 157/1347 有专门 liveness 回归。 |
-| W1 措辞降级（B02） | DONE | 代码和文档已改为 safety-oriented sampling MPC 的 empirical 表述，不再声称形式化安全保证。 |
+| W1 sampler 修复（B01） | 见 registry | checked final-attempt sequential grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过，seed 157/1347 有专门 liveness 回归。 |
+| W1 措辞降级（B02） | 见 registry | 代码和文档已改为 safety-oriented sampling MPC 的 empirical 表述，不再声称形式化安全保证。 |
 | W1 协议书面定义 | DONE | `PROTOCOL.md 1.2.2` 已定义 task/capability、P0–P4 structured prompt、STC、replay、seed split 和 evaluator 规则；evaluator 仍为 v1.2.1。正式 conformance interpreter 不属于当前 MVF。 |
 | W1 基础 factor snapshot | PARTIAL | appearance、prompt level 和 capability 的基础正交测试已存在；严格 condition contract、P0–P4 factor vector、seed split、canonical serialization/hash 已完成并接入主 harness；完整 detector/VLM 因素矩阵尚未接入。 |
-| B03 router / zone source 解耦 | PARTIAL | `direct/replay × none/oracle` 已通过统一 harness；detector/VLM 尚未接入，完整矩阵仍 gated。 |
-| B04 旧结果管理 | PARTIAL | 旧 semantic 结果已降级为历史或调试材料，不能作为当前论文数字；post-B01 新 seed block 尚未生成。 |
-| B05 task/capability interface | DONE | 冻结 task/capability card 由 `PolicyInput` 显式投影；direct/replay target policy 只接收该不可变对象。 |
-| B06 完整因素正交 | PARTIAL | appearance、prompt 和 capability 的基础 snapshot 已有；privilege level、candidate annotation、zone source、evaluator applicability 和主 harness 尚未统一。 |
-| B07 输入侧 provenance | DONE | `VLMCallArtifact` 保存 exact prompt/PNG/policy bytes 与 hash、candidate world/pixel metadata、authorized tags、model/request/config/latency/token/cost、raw/parse/fallback、code state、condition、target 和 trajectory，并支持离线重建与篡改检测。 |
-| M01 STC 主指标 | DONE | `evaluation/outcomes.py` 统一 reduction；artifact 显式保存 reached goal、physical collision、applicable semantic violation、timeout 与 STC。 |
-| M04 structured stage output | DONE | 严格四字段 parser 保存 recognition、unsafe-candidate IDs、selected candidate 与 parse status；失败不暴露 partial quantitative labels，free-text 仅作定性审计。 |
-| M05 最小权限 interface | DONE | `evaluation/policy_interface.py` 拒绝 raw env、simulator、forbidden fields 与 EVAL_ONLY tag；主 harness 保存每次 policy input hash 和权限计数。 |
-| M07 复现性 | PARTIAL | episode 与 VLM call artifact 已闭合离线字节重建、code-state/condition 一致性和 replay audit；真实 provider request 接线与 dependency lock 尚未完成。 |
-| M03 open-vocabulary baseline | DEFERRED | 当前 detector 仅作为 sanity path；pilot 前不扩展为正式 baseline。 |
-| M08 PointPush / VLA | DEFERRED | 现有内容只作为 scaffold 或历史资产，不进入当前科学证据。 |
+| B03 router / zone source 解耦 | 见 registry | `direct/replay × none/oracle` 已通过统一 harness；detector/VLM 尚未接入，完整矩阵仍 gated。 |
+| B04 旧结果管理 | 见 registry | 旧 semantic 结果已降级为历史或调试材料，不能作为当前论文数字；post-B01 新 seed block 尚未生成。 |
+| B05 task/capability interface | 见 registry | 冻结 task/capability card 由 `PolicyInput` 显式投影；direct/replay target policy 只接收该不可变对象。 |
+| B06 完整因素正交 | 见 registry | appearance、prompt 和 capability 的基础 snapshot 已有；privilege level、candidate annotation、zone source、evaluator applicability 和主 harness 尚未统一。 |
+| B07 输入侧 provenance | 见 registry | `VLMCallArtifact` 保存 exact prompt/PNG/policy bytes 与 hash、candidate world/pixel metadata、authorized tags、model/request/config/latency/token/cost、raw/parse/fallback、code state、condition、target 和 trajectory，并支持离线重建与篡改检测。 |
+| M01 STC 主指标 | 见 registry | `evaluation/outcomes.py` 统一 reduction；artifact 显式保存 reached goal、physical collision、applicable semantic violation、timeout 与 STC。 |
+| M04 structured stage output | 见 registry | 严格四字段 parser 保存 recognition、unsafe-candidate IDs、selected candidate 与 parse status；失败不暴露 partial quantitative labels，free-text 仅作定性审计。 |
+| M05 最小权限 interface | 见 registry | `evaluation/policy_interface.py` 拒绝 raw env、simulator、forbidden fields 与 EVAL_ONLY tag；主 harness 保存每次 policy input hash 和权限计数。 |
+| M07 复现性 | 见 registry | episode 与 VLM call artifact 已闭合离线字节重建、code-state/condition 一致性和 replay audit；真实 provider request 接线与 dependency lock 尚未完成。 |
+| M03 open-vocabulary baseline | 见 registry | 当前 detector 仅作为 sanity path；pilot 前不扩展为正式 baseline。 |
+| M08 PointPush / VLA | 见 registry | 现有内容只作为 scaffold 或历史资产，不进入当前科学证据。 |
 
 ### 2.2 B01 当前证据纪律
 
@@ -114,7 +119,7 @@ python  = 3.10.18
 后续完成证据：
 
 ```text
-B01 = DONE
+review status = docs/review_status_registry.json
 formal command = LAYOUT_TEST_SEEDS=10000 LAYOUT_TEST_WORKERS=8 python -m pytest -q tests/test_layout_invariants.py -p no:cacheprovider -r a
 formal result = 10 passed in 2989.78s
 ```
@@ -136,14 +141,15 @@ formal result = 10 passed in 2989.78s
 `STRUCTURE.md`、review comments、results registry、旧计划和当前代码之间仍存在状态漂移。后续文档整理应遵循：
 
 ```text
-RESEARCH_REVIEW_COMMENTS.md = blocker 与 review truth
+review_status_registry.json  = machine-readable review status truth
+RESEARCH_REVIEW_COMMENTS.md = blocker narrative and rendered status snapshot
 RESULTS_REGISTRY.md          = result validity truth
 PROTOCOL.md                  = frozen experiment definition
 CLAUDE_PLAN.md               = execution order and gates
 STRUCTURE.md                 = file responsibilities only
 ```
 
-本次只更新本文件，不修改其他文档，也不升级任何历史结果的证据资格。
+本计划不升级任何历史结果的证据资格。
 
 ---
 
@@ -875,7 +881,8 @@ Phase-5 method contribution
 
 > 在当前 `safety` HEAD 上确定 B01 的真实 stress 状态，冻结 post-B01 PointHazard 环境，并完成统一 condition abstraction 及 `direct + replay` 最小 harness，不调用任何 VLM/API，不扩展任何环境。
 
-当前 gate：Task 1–11 与 Phase 3 的 M01/M04/B07 已为 `DONE`。Protocol 1.2.2
+当前 gate：review registry 中 M01、B07 已为 `DONE`，M04 为 `PARTIAL`；Task 1–11
+中的 structured-output implementation 已完成，但不自动改变 M04 review status。Protocol 1.2.2
 已显式解决旧 `choice/reason` 与 M04 四字段 schema 的版本冲突，正式 P0–P4
 privilege prompt adapter、PointHazard semantic-terrain registry 与完整本地
 fixture episode harness、14-condition offline matrix 与阻塞态 release-readiness
@@ -1048,7 +1055,7 @@ LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
 violation、physical collision、timeout、联合失败和不合法 timeout overlap。
 
 Task 5 完成时遗留的 M04 structured output 与 B07 per-call provenance 已由
-Task 6 闭合；PointHazard protocol 的正式 lexical/conformance interpreter
+Task 6 完成其当前实现范围；M04 review item 仍缺完整四阶段端到端验收。PointHazard protocol 的正式 lexical/conformance interpreter
 仍不属于当前 MVF。
 
 ### Task 6 — Structured output and per-call provenance

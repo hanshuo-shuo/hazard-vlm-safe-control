@@ -1,11 +1,12 @@
 # Project structure and status
 
-Last reviewed: 2026-07-23.
+Last reviewed: 2026-07-24.
 
-The repository keeps top-level experiment modules in place because historical
-scripts import them directly. New protocol-facing work belongs in `envs/`,
-`evaluation/`, `tests/` and `docs/`; legacy experiments should not gain new
-dependencies.
+The repository keeps a small number of historical top-level modules in place
+because old scripts and factor snapshots import them directly. New
+protocol-facing work belongs in `envs/`, `evaluation/`, `tests/` and `docs/`.
+Anything marked `FROZEN` or `ARCHIVED` is retained for provenance only and must
+not gain new dependencies, claims, or experiment results.
 
 ## Active core
 
@@ -32,18 +33,32 @@ dependencies.
 | Path | Status | Boundary |
 |---|---|---|
 | `envs/safety_gym_goal_adapter.py` | `INFRA/BLOCKED` | Native adapter is reusable; semantic expansion is not a current result |
-| `env_pointpushhazard.py`, `pointpush_*` | `INFRA` | Contact-task scaffold, outside the current PointHazard gate |
-| `safe_expert.py` | `BASELINE` | Historical A* + PD controller |
-| `zone_detector.py` | `BASELINE` | Renderer-specific color sanity baseline |
-| `pivot_vlm.py` | `INFRA` | Candidate annotation and VLM parsing utilities |
-| `direct_vla_*.py` | `BASELINE` | End-to-end VLA scaffolds |
+| `env_pointpushhazard.py`, `pointpush_*` | `FROZEN` | Contact-task scaffold; no independent PointPush science line |
+| `safe_expert.py` | `FROZEN` | Historical A* + PD compatibility controller; not a current claim |
+| `zone_detector.py` | `ARCHIVED` | Renderer-palette sanity plumbing only; not a perception baseline |
+| `pivot_vlm.py`, `subgoal_pivot_hazard.py` | `FROZEN` | Historical PIVOT/B+ compatibility path and factor snapshot support |
+| `direct_vla_*.py` | `ARCHIVED` | End-to-end VLA scaffolds; no training or performance work in this phase |
 
-## Historical paths
+## Frozen and historical paths
 
-`subgoal_pivot_hazard.py`, the PointPush learned-physics script, `scripts/make_*`
-and most committed `outputs/` reproduce earlier experiments. They are retained
-for forensic use and are not the current harness. `legacy/` contains older
-implementations that should remain isolated.
+`subgoal_pivot_hazard.py`, the PointPush learned-physics script, direct-VLA
+scripts, `scripts/make_*`, the renderer-palette detector and most committed
+`outputs/` reproduce earlier experiments. They are retained for forensic use and
+are not the current harness. `legacy/` contains older implementations that
+should remain isolated; its [README](legacy/README.md) is the archive boundary.
+
+The following work is explicitly out of scope for the current phase:
+
+- extending protocol lexical, numeric, P4 precision, or serialization details;
+- optimizing old PIVOT/B+ performance or adding unpaired paid VLM sweeps;
+- turning `zone_detector.py` into a perception baseline;
+- expanding PointPush or direct VLA beyond frozen scaffolds;
+- adding terrain names without a matched scientific control.
+
+The active discovery surface is deliberately smaller: exact prompt/image
+reconstruction, replay identity, capability and appearance twins, STC
+components, layout invariant tests, the unified executor, and registry/run
+manifest discipline.
 
 Invalidated artifacts live under `outputs/invalidated/`; do not delete or move
 them without updating `docs/RESULTS_REGISTRY.md`.
@@ -55,7 +70,8 @@ them without updating `docs/RESULTS_REGISTRY.md`.
 | `docs/PROTOCOL.md` | Frozen experiment semantics |
 | `docs/ICLR_PLAN.md` | Research strategy and go/no-go gates |
 | `docs/CLAUDE_PLAN.md` | Current implementation sequence and acceptance evidence |
-| `docs/RESEARCH_REVIEW_COMMENTS.md` | Open review blockers |
+| `docs/review_status_registry.json` | Machine-readable review-item status authority |
+| `docs/RESEARCH_REVIEW_COMMENTS.md` | Review blocker narrative and rendered status snapshot |
 | `docs/RESULTS_REGISTRY.md` | Artifact validity status |
 
 Superseded roadmaps, old result narratives and implementation prompts were
@@ -69,6 +85,7 @@ direct/replay vertical slice, minimal-permission policy boundary, STC reduction,
 the offline structured-output/per-call artifact gate, and the P0–P4 local
 fixture request adapter. Registered semantic terrain, the P0–P4 offline VLM
 episode harness and the frozen 14-condition offline matrix are also complete.
-Detector integration and paid runs remain gated by `docs/CLAUDE_PLAN.md`; the
+Detector integration and paid runs remain gated by the review registry and
+`docs/CLAUDE_PLAN.md`; the
 blocked authorization record is `docs/PAID_RUN_RELEASE.md`; its machine-readable
 counterpart is `configs/pilot_release_manifest.json`.

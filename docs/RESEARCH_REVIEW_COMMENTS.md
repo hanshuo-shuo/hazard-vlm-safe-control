@@ -1,40 +1,42 @@
 # Research Review Comments — 顶会路线修改清单
 
-日期：2026-07-11
+日期：2026-07-24
 
 适用范围：当前 PointHazard / semantic-zone / VLM subgoal 主线
 
 审查结论：**Request major revision。当前代码是有价值的研究原型，但现有语义结果不能作为论文数字，现有系统叙事不足以支撑 CoRL/ICLR 主会。**
 
-本文件采用类似 PR review comment 的格式。每条 comment 都包含位置、问题、要求修改和验收条件。状态只允许：
-
-- OPEN：尚未修改；
-- IN PROGRESS：正在修改，但验收条件未全部满足；
-- RESOLVED：代码、测试和新结果均满足验收条件；
-- bounded pass，10k stress pending：历史状态；bounded acceptance 已通过但当时 10k formal stress 尚未通过；
-- WONTFIX：明确放弃对应 claim，并在所有文档中删除。
+本文件采用类似 PR review comment 的格式。每条 comment 都包含位置、问题、要求修改和验收条件。
+review item 的状态唯一以 [review_status_registry.json](review_status_registry.json) 为准；
+本文件的总览表是该 registry 的可读快照，不得在其他文档中单独维护同一组状态。
+状态词为：`DONE`、`PARTIAL`、`OPEN`、`BLOCKED`、`DEFERRED`。其中 `DONE` 只表示当前
+实现与本阶段验收证据已具备，不表示 paid run gate 自动放行。
 
 ---
 
 ## 总览
 
+<!-- BEGIN REVIEW STATUS TABLE: generated from review_status_registry.json; do not edit status cells by hand. -->
+
 | ID | 严重度 | 主题 | 当前状态 | 是否阻止 paid run |
 |---|---|---|---|---|
-| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | RESOLVED（2026-07-22） | 是 |
-| B02 | BLOCKER | MPC 强安全措辞与实现不符 | RESOLVED（降级路线） | 否 |
+| B01 | BLOCKER | semantic-zone fallback 产生无效场景 | DONE | 是 |
+| B02 | BLOCKER | MPC 强安全措辞与实现不符 | DONE | 否 |
 | B03 | BLOCKER | C2/CV 与 B+ 的 planner/router 不一致 | PARTIAL | 是 |
-| B04 | BLOCKER | 现有 semantic n=5/n=20 结果必须重跑 | OPEN | 是 |
-| B05 | BLOCKER | task specification 与 leakage 混为一谈 | OPEN | 是 |
-| B06 | BLOCKER | L0/L1/L2 不是受控的单变量干预 | OPEN | 是 |
-| B07 | BLOCKER | audit artifact 没保存输入侧证据 | OPEN | 是 |
-| M01 | MAJOR | 指标没有以 safe task completion 为主 | OPEN | 否 |
-| M02 | MAJOR | “one VLM vs N detectors” 没有实验 | OPEN | 否 |
-| M03 | MAJOR | 缺现代 open-vocabulary perception baseline | OPEN | 否 |
-| M04 | MAJOR | free-text naming 不能当 grounded understanding | OPEN | 否 |
-| M05 | MAJOR | policy interface 未实现信息流隔离 | OPEN | 否 |
+| B04 | BLOCKER | 现有 semantic n=5/n=20 结果必须重跑 | PARTIAL | 是 |
+| B05 | BLOCKER | task specification 与 leakage 混为一谈 | DONE | 是 |
+| B06 | BLOCKER | L0/L1/L2 不是受控的单变量干预 | PARTIAL | 是 |
+| B07 | BLOCKER | transcript audit 缺输入侧证据 | DONE | 是 |
+| M01 | MAJOR | 指标没有以 safe task completion 为主 | DONE | 否 |
+| M02 | MAJOR | one VLM vs N detectors 没有实验 | OPEN | 否 |
+| M03 | MAJOR | 缺现代 open-vocabulary perception baseline | DEFERRED | 否 |
+| M04 | MAJOR | free-text naming 不能当 grounded understanding | PARTIAL | 否 |
+| M05 | MAJOR | policy interface 未实现信息流隔离 | DONE | 否 |
 | M06 | MAJOR | 协作/保证类术语过强 | OPEN | 否 |
 | M07 | MAJOR | run manifest 与仓库复现性不完整 | PARTIAL | 否 |
-| M08 | MAJOR | PointPush/VLA 目前只是 scaffold | OPEN | 否 |
+| M08 | MAJOR | PointPush/VLA 目前只是 scaffold | DEFERRED | 否 |
+
+<!-- END REVIEW STATUS TABLE -->
 
 ---
 
@@ -42,7 +44,7 @@
 
 ### [B01] semantic-zone fallback 跳过有效性检查
 
-**状态：RESOLVED（2026-07-22）**
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确定性子流重采样，并在 `reset()` 末尾执行独立 validity assertion。最终一次完整 layout 尝试现在使用 checked sequential grid fallback；每个候选都按 start、goal、hazard、zone 间距验证，返回前再调用 `zone_layout_valid`。该分支只在原有 deterministic resample 序列耗尽后启用，因此现有 golden snapshots 不变。WP-1.2 的正式 gate 覆盖单区 implicit/三区 hetero 与 corridor on/off 四种配置，各 10,000 seeds；2026-07-22 结果为 `10 passed in 2989.78s`。seed 157/1347 另有专门 liveness 回归。B01 正确性与 liveness 验收均已关闭；paid run 仍由 B03/W2 等后续 gate 阻塞。依赖环境记录在 `requirements.lock`。
 
@@ -74,7 +76,7 @@ WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确
 
 ### [B02] MPC 采用 empirical safety-oriented sampling MPC 表述
 
-**状态：RESOLVED（降级路线，2026-07-17）**
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 已将代码、docstring、README、结构说明和当前研究计划中的强安全表述统一降级为
 **safety-oriented sampling MPC（empirical）**。MPC 的安全表现只作为 sampled rollout
@@ -105,12 +107,12 @@ WP-1.1 已移除未经检查的 zone fallback，完整 layout 失败时改为确
 
 ### [B03] C2/CV 与 B+ 不是只差 zone source
 
-**状态：PARTIAL（2026-07-23）**
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 `evaluation/harness.py` 已完成 `direct/replay × none/oracle` 的统一边界，
 固定 environment、target identity、executor 和 enforcement，并保存 replay
 diagnostics。该 vertical slice 关闭了 none/oracle plumbing 问题；detector/VLM
-尚未接入，因此完整 B03 仍未关闭。
+尚未接入，因此完整矩阵仍待完成。
 
 **位置**
 
@@ -143,6 +145,8 @@ C2-soft/CV 一次性直接 plan 到真实 goal；B+ 每隔若干步由 VLM 选�
 
 ### [B04] 当前 semantic 主结果不得继续扩量
 
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
+
 **位置**
 
 - outputs/semantic_*.json；
@@ -168,6 +172,8 @@ C2-soft/CV 一次性直接 plan 到真实 goal；B+ 每隔若干步由 VLM 选�
 ---
 
 ### [B05] 合法任务规格与泄漏必须分开
+
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 **位置**
 
@@ -207,6 +213,8 @@ L2 中 prompt 没要求避水却在 evaluator 中惩罚穿水，还缺少机器�
 
 ### [B06] L0/L1/L2 必须改成正交因子
 
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
+
 **位置**
 
 - subgoal_pivot_hazard.py:268–298；
@@ -235,6 +243,8 @@ renderer appearance 由 zone_semantics 控制，prompt text 由 prompt_level 控
 ---
 
 ### [B07] transcript audit 缺输入侧证据
+
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 **位置**
 
@@ -270,7 +280,7 @@ renderer appearance 由 zone_semantics 控制，prompt text 由 prompt_level 控
 
 ### [M01] 主指标改成 safe task completion
 
-**状态：DONE（2026-07-23）**
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 `evaluation/outcomes.py` 已冻结统一 STC reduction，episode artifact 显式保存
 goal、physical collision、applicable semantic violation、timeout 与 STC。
@@ -304,6 +314,14 @@ renderer-palette detector 是 sanity check，不足以代表当前机器人感�
 
 ### [M04] free-text naming 不能证明理解
 
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
+
+当前已完成的是半程：`StructuredStageOutput` 已提供 recognition、unsafe-candidate IDs、
+selected candidate 和 parse status 的严格 machine-judgeable parser；解析失败时不暴露
+partial quantitative labels，free-text 仅作定性审计。仍未完成完整的 forced-choice
+recognition、norm applicability、mask/marker grounding、action choice 四阶段端到端验收，
+因此本条不能视为 fully resolved。
+
 “说出 water/blue”可能是 post-hoc rationale。现有 L2 中多次出现模型明确提到 blue/water 但仍选择穿越。
 
 **要求修改**：用 forced-choice recognition、norm applicability、mask/marker grounding 和 action choice 四个机器可判阶段；free-text 只作定性例子。
@@ -312,7 +330,7 @@ renderer-palette detector 是 sanity check，不足以代表当前机器人感�
 
 ### [M05] policy interface 需要最小权限
 
-**状态：DONE（2026-07-23）**
+状态由 [review_status_registry.json](review_status_registry.json) 管理。
 
 `evaluation/policy_interface.py` 已提供不可变、带 provenance tag 的
 `PolicyInput`。direct/replay target policy 不再接收裸环境；forbidden field、
@@ -356,7 +374,7 @@ PointPush 环境、专家和 direct-VLA 代码是可复用资产，但还没有�
 
 只有以下条件全部满足后才允许开始正式 API 实验：
 
-- B01–B07 全部 RESOLVED；
+- [review_status_registry.json](review_status_registry.json) 中 B01–B07 全部为 `DONE`；
 - protocol、prompt、factor levels、seed split 和主指标冻结；
 - 至少一个 open-vocabulary baseline 跑通；
 - router × zone-source 全因子离线测试通过；

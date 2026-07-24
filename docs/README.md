@@ -1,6 +1,6 @@
 # Documentation index
 
-Updated: 2026-07-23.
+Updated: 2026-07-24.
 
 The documentation set is intentionally small. Current experiment semantics,
 execution state and result validity each have one owner.
@@ -8,15 +8,20 @@ execution state and result validity each have one owner.
 | Read order | Document | Authority |
 |---:|---|---|
 | 1 | [PROTOCOL.md](PROTOCOL.md) | Frozen task, information, evaluator, replay and seed semantics |
-| 2 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Blockers and required fixes |
-| 3 | [ICLR_PLAN.md](ICLR_PLAN.md) | Research question, experiment design and publication gates |
-| 4 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Current implementation plan and acceptance evidence |
-| 5 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
-| 6 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
+| 2 | [review_status_registry.json](review_status_registry.json) | Machine-readable review-item status authority |
+| 3 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Blockers and required fixes; rendered status snapshot |
+| 4 | [ICLR_PLAN.md](ICLR_PLAN.md) | Research question, experiment design and publication gates |
+| 5 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Current implementation plan and acceptance evidence |
+| 6 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
+| 7 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
 ## Current status
+
+Review-item status is owned by [review_status_registry.json](review_status_registry.json).
+The review comments and execution plan may describe evidence and remaining gaps, but do not
+define a second status source.
 
 - PointHazard B01 layout validation is complete.
 - The condition contract is complete.

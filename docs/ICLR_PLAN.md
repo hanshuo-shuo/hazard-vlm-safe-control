@@ -6,6 +6,10 @@
 
 配套审查：[RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md)
 
+当前 review item 状态唯一见
+[review_status_registry.json](review_status_registry.json)。本计划中的 checklist 和 gate
+是研究路线记录，不维护第二份 review status。
+
 历史结果状态与原始 artifact 位置见
 [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md)；旧 semantic 数字只作
 pilot/debug，必须在当前 protocol 下重跑。
@@ -346,7 +350,8 @@ ICLR MVP 采用 safety-oriented sampling MPC（empirical），不作形式化安
 - [x] 删除过强安全/人机协作措辞，统一使用 empirical 表述；
 - [x] 暂停 paid scaling（WP-2.0 起所有付费 VLM/OpenRouter/API run 暂停）。
 
-**Gate 0**：所有 layout tests 通过，B01/B02 resolved。
+**Gate 0**：所有 layout tests 通过，且
+[review_status_registry.json](review_status_registry.json) 中 B01/B02 为 `DONE`。
 
 ### Phase 1 — Define the estimand（第 2 周）
 

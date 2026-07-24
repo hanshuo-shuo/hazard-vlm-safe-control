@@ -8,6 +8,26 @@
 > [`../docs/RESEARCH_REVIEW_COMMENTS.md`](../docs/RESEARCH_REVIEW_COMMENTS.md), and the
 > evidence status in [`../docs/RESULTS_REGISTRY.md`](../docs/RESULTS_REGISTRY.md).
 
+## Archive boundary
+
+This directory and the frozen experiment modules listed in
+[`../STRUCTURE.md`](../STRUCTURE.md) are historical assets. They are kept for
+forensic reproduction and provenance, not as an active development surface.
+
+Do not add new features, dependencies, claims, paid runs, or performance tuning
+to any of these routes:
+
+- protocol lexical/numeric/serialization expansion or P4 precision work;
+- PointPush as an independent scientific line;
+- direct VLA training/evaluation scaffolds;
+- old PIVOT/B+ performance and renderer-palette detector results;
+- unpaired paid VLM sweeps or terrain-name expansion without matched controls.
+
+The maintained code is the PointHazard accounting slice under `evaluation/`,
+`envs/`, `tests/`, and the shared executor. In particular, preserve exact
+prompt/image bytes, replay identity, capability/appearance twins, STC
+components, layout invariants, and registry/run-manifest provenance.
+
 ### Can a Vision-Language Model fly a point-mass through a hazard field — and what does it actually need to see to do it safely?
 
 A research study on **using a Vision-Language Model (VLM) as a closed-loop controller** for a

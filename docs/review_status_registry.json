@@ -1,0 +1,213 @@
+{
+  "registry_id": "point-hazard-research-review",
+  "registry_version": 1,
+  "updated": "2026-07-24",
+  "status_owner": "docs/review_status_registry.json",
+  "status_vocabulary": {
+    "DONE": "当前实现与本阶段验收证据已具备；不表示 paid run gate 自动放行。",
+    "PARTIAL": "已有实质实现，但 review acceptance 尚未全部满足。",
+    "OPEN": "尚无可接受的当前实现或验收证据。",
+    "BLOCKED": "实现或验收被外部依赖/授权明确阻塞。",
+    "DEFERRED": "明确延后，不进入当前主线验收。"
+  },
+  "items": [
+    {
+      "id": "B01",
+      "severity": "BLOCKER",
+      "title": "semantic-zone fallback 产生无效场景",
+      "status": "DONE",
+      "implementation_level": "complete",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-22",
+      "evidence": [
+        "env_pointhazard.py 的最终 fallback 使用 checked sequential grid，并在 reset 末尾执行 zone_layout_valid assertion。",
+        "四种配置各 10,000 seeds 的 formal invariant sweep 通过；seed 157/1347 有定向 liveness 回归。"
+      ],
+      "remaining_gap": "无 B01 当前验收缺口；paid run 仍受其他 blocker 约束。"
+    },
+    {
+      "id": "B02",
+      "severity": "BLOCKER",
+      "title": "MPC 强安全措辞与实现不符",
+      "status": "DONE",
+      "implementation_level": "complete",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-17",
+      "evidence": [
+        "代码和文档统一使用 safety-oriented sampling MPC（empirical）表述。",
+        "未再作 feasibility shield、recursive feasibility 或形式化安全保证声称。"
+      ],
+      "remaining_gap": "若未来引入形式化安全机制，需要另行建立新的验收条目。"
+    },
+    {
+      "id": "B03",
+      "severity": "BLOCKER",
+      "title": "C2/CV 与 B+ 的 planner/router 不一致",
+      "status": "PARTIAL",
+      "implementation_level": "vertical_slice_only",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "evaluation/harness.py 已覆盖 direct/replay × none/oracle 的统一边界、固定 executor/enforcement 和 replay diagnostics。"
+      ],
+      "remaining_gap": "detector/VLM zone source 尚未接入；完整 router × zone-source 因子矩阵和交互项仍缺失。"
+    },
+    {
+      "id": "B04",
+      "severity": "BLOCKER",
+      "title": "现有 semantic n=5/n=20 结果必须重跑",
+      "status": "PARTIAL",
+      "implementation_level": "historical_result_quarantine",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "旧 semantic 结果已登记为 INVALIDATED、PILOT_ONLY 或 ARCHIVED，不能作为当前论文数字。"
+      ],
+      "remaining_gap": "post-B01、锁定 protocol 和新 seed split 后的正式结果尚未生成。"
+    },
+    {
+      "id": "B05",
+      "severity": "BLOCKER",
+      "title": "task specification 与 leakage 混为一谈",
+      "status": "DONE",
+      "implementation_level": "basic_implemented",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-24",
+      "evidence": [
+        "PolicyInput 显式投影 task card 与 capability card；direct/replay policy 不接收裸环境。",
+        "wheeled_non_waterproof 与 amphibious capability twin 已有独立 policy-permission 测试。"
+      ],
+      "remaining_gap": "正式实验仍需在完整主矩阵中保持 task/capability 固定，只操纵 scene-specific privileged information。"
+    },
+    {
+      "id": "B06",
+      "severity": "BLOCKER",
+      "title": "L0/L1/L2 不是受控的单变量干预",
+      "status": "PARTIAL",
+      "implementation_level": "factor_snapshot_only",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-24",
+      "evidence": [
+        "appearance、prompt level、capability 的基础 byte-level snapshot 和 protocol factor vector 已存在。"
+      ],
+      "remaining_gap": "privilege level、candidate annotation、zone source、evaluator applicability 还未在完整主 harness 中统一为正交因子。"
+    },
+    {
+      "id": "B07",
+      "severity": "BLOCKER",
+      "title": "transcript audit 缺输入侧证据",
+      "status": "DONE",
+      "implementation_level": "basic_implemented",
+      "blocks_paid_run": true,
+      "last_updated": "2026-07-24",
+      "evidence": [
+        "VLMCallArtifact 保存 exact prompt、PNG/policy bytes 与 hash、candidate world/pixel metadata、authorized tags、model/request/config、latency/token/cost、raw/parse/fallback、code state、condition、target 和 trajectory。",
+        "tests/test_vlm_artifacts.py 已覆盖离线字节重建、重解析、权限审计和篡改拒绝。"
+      ],
+      "remaining_gap": "真实 provider request 接线和完整 formal run artifact 尚未形成论文结果。"
+    },
+    {
+      "id": "M01",
+      "severity": "MAJOR",
+      "title": "指标没有以 safe task completion 为主",
+      "status": "DONE",
+      "implementation_level": "complete",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "evaluation/outcomes.py 统一 reached goal、physical collision、applicable semantic violation、timeout 与 STC reduction。",
+        "tests/test_stc_outcomes.py 覆盖 STC truth table，episode artifact 显式保存组件和 STC。"
+      ],
+      "remaining_gap": "正式结果表仍需按冻结 protocol 将 STC 放在 headline metric 第一列。"
+    },
+    {
+      "id": "M02",
+      "severity": "MAJOR",
+      "title": "one VLM vs N detectors 没有实验",
+      "status": "OPEN",
+      "implementation_level": "not_started",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [],
+      "remaining_gap": "缺 terrain-count curve、held-out terrain、公平 baseline 和工程成本定义。"
+    },
+    {
+      "id": "M03",
+      "severity": "MAJOR",
+      "title": "缺现代 open-vocabulary perception baseline",
+      "status": "DEFERRED",
+      "implementation_level": "sanity_detector_only",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "当前 renderer-palette detector 仅证明 plumbing，不作为现代 open-vocabulary baseline。"
+      ],
+      "remaining_gap": "pilot 前需决定并接入至少一个 open-vocabulary detector/segmenter，并复用相同 cost map 和 planner。"
+    },
+    {
+      "id": "M04",
+      "severity": "MAJOR",
+      "title": "free-text naming 不能当 grounded understanding",
+      "status": "PARTIAL",
+      "implementation_level": "structured_parser_half",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-24",
+      "evidence": [
+        "StructuredStageOutput 已提供 recognition、unsafe-candidate IDs、selected candidate 和 parse status 的严格 parser。",
+        "parse failure 不暴露 partial quantitative labels，free-text 只保留为定性审计。"
+      ],
+      "remaining_gap": "尚未完成完整的 forced-choice recognition、norm applicability、mask/marker grounding、action choice 四阶段端到端 machine-judgeable 验收；当前实现不能称 fully resolved。"
+    },
+    {
+      "id": "M05",
+      "severity": "MAJOR",
+      "title": "policy interface 未实现信息流隔离",
+      "status": "DONE",
+      "implementation_level": "complete",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "evaluation/policy_interface.py 的 immutable PolicyInput 拒绝 raw env、simulator、forbidden fields 和 EVAL_ONLY tag。",
+        "主 harness 保存 policy input hash 与权限计数；静态/动态边界和 capability twin 测试通过。"
+      ],
+      "remaining_gap": "真实 provider 分支仍需在正式运行入口中保持同一 permission boundary。"
+    },
+    {
+      "id": "M06",
+      "severity": "MAJOR",
+      "title": "协作/保证类术语过强",
+      "status": "OPEN",
+      "implementation_level": "not_started",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [],
+      "remaining_gap": "需在论文、README 和实验叙事中统一降级为 hierarchical VLM-guided autonomy，并删除无结果支持的 guarantee/collaboration 术语。"
+    },
+    {
+      "id": "M07",
+      "severity": "MAJOR",
+      "title": "run manifest 与仓库复现性不完整",
+      "status": "PARTIAL",
+      "implementation_level": "offline_reproducibility_only",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "episode/VLM artifact 已支持离线重建，release manifest、dependency lock 和 code-state gate 已存在。"
+      ],
+      "remaining_gap": "真实 provider request、单一实验入口、统计脚本和完整 manifest authorization 仍未完成。"
+    },
+    {
+      "id": "M08",
+      "severity": "MAJOR",
+      "title": "PointPush/VLA 目前只是 scaffold",
+      "status": "DEFERRED",
+      "implementation_level": "scaffold_only",
+      "blocks_paid_run": false,
+      "last_updated": "2026-07-23",
+      "evidence": [
+        "PointPush 环境、专家和 direct-VLA 代码可运行，但尚未接入新 protocol 的 semantic twins、factorial baselines 或正式结果。"
+      ],
+      "remaining_gap": "当前论文周期不将其作为科学证据；后续若纳入需单独完成新 protocol 验收。"
+    }
+  ]
+}

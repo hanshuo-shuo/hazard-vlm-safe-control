@@ -43,6 +43,22 @@ validates the protocol and portable dependency lock but remains fail-closed
 until the authorization fields in
 [docs/PAID_RUN_RELEASE.md](docs/PAID_RUN_RELEASE.md) are explicitly populated.
 
+## Development boundary
+
+The current work is discovery on one auditable PointHazard slice. The maintained
+surface is the condition contract, minimal-permission policy interface, exact
+prompt/image reconstruction, replay identity, capability/appearance twins, STC
+accounting, layout invariants, the unified executor, and registry/manifest
+discipline.
+
+The following are frozen archive assets: protocol lexical/numeric/serialization
+expansion, P4 precision tuning, PointPush as an independent line, direct VLA
+scaffolds, old PIVOT/B+ performance, renderer-palette detection, unpaired paid
+VLM sweeps, and adding terrain names for scale. They remain available for
+forensic reproduction, but do not receive new features, results, or baseline
+status. The boundary and file-level ownership are recorded in
+[`STRUCTURE.md`](STRUCTURE.md) and [`legacy/README.md`](legacy/README.md).
+
 ## Repository map
 
 | Path | Role |
@@ -61,11 +77,12 @@ until the authorization fields in
 | `configs/pilot_release_manifest.json` | Machine-readable blocked pilot release state |
 | `mpc_expert.py` | Empirical CEM-MPC low-level controller |
 | `tests/` | Condition, harness, layout and adapter gates |
-| `docs/` | Current protocol, plans, review blockers and result registry |
-| `legacy/` | Archived pre-accounting implementations |
+| `docs/` | Current protocol, review status registry, plans, blockers and result registry |
+| `legacy/` | Frozen archive boundary for superseded implementations and experiments |
 | `outputs/` | Historical artifacts retained for forensic provenance |
 
-The detailed status map is [STRUCTURE.md](STRUCTURE.md). Documentation starts at
+The review-item status map is [docs/review_status_registry.json](docs/review_status_registry.json);
+the repository map is [STRUCTURE.md](STRUCTURE.md). Documentation starts at
 [docs/README.md](docs/README.md).
 
 ## Setup and verification
