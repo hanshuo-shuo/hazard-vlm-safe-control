@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "candidate_order_permutation",
+  "seed": 2,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "created_at": "2026-07-24T05:40:24.474710+00:00",
+  "latency_s": 2.0451253749779426,
+  "usage": {
+    "prompt_tokens": 476,
+    "completion_tokens": 25,
+    "total_tokens": 501,
+    "cost": 0.0001127,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001127,
+      "upstream_inference_prompt_cost": 9.52e-05,
+      "upstream_inference_completions_cost": 1.75e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "34ac40751ad15dab816a2b37d3e88a9f3e15d6567d633450adfa42af1e8ed061",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[4],\"selected_candidate_id\":7,\"parse_status\":\"ok\"}"
+}

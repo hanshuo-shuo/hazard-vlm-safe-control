@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "count_16",
+  "seed": 4,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:37:01.153440+00:00",
+  "latency_s": 2.231117916991934,
+  "usage": {
+    "prompt_tokens": 467,
+    "completion_tokens": 61,
+    "total_tokens": 528,
+    "cost": 7.11e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.11e-05,
+      "upstream_inference_prompt_cost": 4.67e-05,
+      "upstream_inference_completions_cost": 2.44e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "0411d54c42b8b36362b3ab106ad9d98e237502e7f47e4cec1d03924a20ae3b85",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],\"selected_candidate_id\":13}"
+}

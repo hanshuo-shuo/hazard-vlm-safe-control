@@ -1,0 +1,35 @@
+{
+  "experiment": "01_core_information_audit",
+  "variant": "P1",
+  "seed": 4,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:22:10.754607+00:00",
+  "latency_s": 5.092648625024594,
+  "usage": {
+    "prompt_tokens": 473,
+    "completion_tokens": 23,
+    "total_tokens": 496,
+    "cost": 5.65e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.65e-05,
+      "upstream_inference_prompt_cost": 4.73e-05,
+      "upstream_inference_completions_cost": 9.2e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "a06a935bf674132a7ba81b46c1c13c4cb6549e85963a7896b317f0b81657022d",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[7],\"selected_candidate_id\":1}"
+}

@@ -1,0 +1,35 @@
+{
+  "experiment": "03_modern_perception_substitution",
+  "variant": "open_weight_detector_norm1000",
+  "seed": 0,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "SiliconFlow",
+  "created_at": "2026-07-24T05:59:12.868079+00:00",
+  "latency_s": 4.697937457996886,
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 51,
+    "total_tokens": 234,
+    "cost": 0.00010407,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00010407,
+      "upstream_inference_prompt_cost": 5.307e-05,
+      "upstream_inference_completions_cost": 5.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "317fc56cb4de9e2a1015442398a0a52a0bdba3afa38110f6c399d0887cebc538",
+  "raw_response": "```json\n{\"coordinate_frame\":\"norm1000_top_left\",\"regions\":[{\"class\":\"water\",\"center_norm1000_xy\":[250, 695],\"radius_norm1000\":100}]}\n```"
+}

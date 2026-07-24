@@ -1,0 +1,3448 @@
+{
+  "experiment": 2,
+  "name": "Marker/interface robustness",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "models": [
+    "google/gemini-2.5-flash-lite",
+    "qwen/qwen3-vl-30b-a3b-instruct"
+  ],
+  "rows": [
+    {
+      "variant": "baseline_8",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.536933209048584,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "a0763e948120e661f7da4fd9671bf966de33d19781367a80a104dba764ac6e12",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6618433329858817,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.97e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.97e-05,
+          "upstream_inference_prompt_cost": 4.47e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d7396e909cf258e1df6a12d6ba343169f5f479ac0f845148d1a7b925e636ffce",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 5,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 5,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.776071917032823,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 25,
+        "total_tokens": 491,
+        "cost": 5.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.66e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "cfa7c6abbc904db86b12a546fec1fede7b0d367d04dda89627647912dcb7024f",
+      "truth_unsafe_candidate_ids": [
+        8,
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6749905420001596,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 27,
+        "total_tokens": 325,
+        "cost": 5.278e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.278e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.404e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "1153bc26a4750e19ea9889746a7ffa52a54a63282493d58137fa478a05f3ef12",
+      "truth_unsafe_candidate_ids": [
+        8,
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          8
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 5,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.9481764169759117,
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 23,
+        "total_tokens": 683,
+        "cost": 7.52e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.52e-05,
+          "upstream_inference_prompt_cost": 6.6e-05,
+          "upstream_inference_completions_cost": 9.2e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "e47c4fa2722bbc22675fb5c0aa5881958a10ab178f280100935f81614579e09e",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 3.409364832972642,
+      "usage": {
+        "prompt_tokens": 470,
+        "completion_tokens": 27,
+        "total_tokens": 497,
+        "cost": 0.0001633,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001633,
+          "upstream_inference_prompt_cost": 0.0001363,
+          "upstream_inference_completions_cost": 2.7e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "14f3b0a7c40b3fd50f59c11fddb6d0abf1a2cb9a05868ad341164bba0e2c3c8c",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.020920125010889,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "61d8707256bbb72bb8e8c12c75053527c0769061a7170717e69e2f0ab941368e",
+      "truth_unsafe_candidate_ids": [
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.039230457972735,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 29,
+        "total_tokens": 327,
+        "cost": 5.382e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.382e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d24225b548a34bd59098fb462f9e692fd5a310359b761ff4d91df16e954ccf71",
+      "truth_unsafe_candidate_ids": [
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.8856105000013486,
+      "usage": {
+        "prompt_tokens": 467,
+        "completion_tokens": 216,
+        "total_tokens": 683,
+        "cost": 0.0001331,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001331,
+          "upstream_inference_prompt_cost": 4.67e-05,
+          "upstream_inference_completions_cost": 8.64e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "7fbb5a91f35d90d1454a491296d83ae580ee290038a8f9df04767fb5ea57e45d",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2,
+        3
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.2929702079854906,
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 63,
+        "total_tokens": 362,
+        "cost": 0.0001039,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001039,
+          "upstream_inference_prompt_cost": 5.98e-05,
+          "upstream_inference_completions_cost": 4.41e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "04c364763028c6913efc36fe6fd29e90496a471a5dff8b4ddce452f592f9b012",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2,
+        3
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "selected_candidate_id": 16,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 16,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.648167375009507,
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 300,
+        "total_tokens": 960,
+        "cost": 0.000186,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000186,
+          "upstream_inference_prompt_cost": 6.6e-05,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "7e5a8c14d2ce704e777803b790e9199153bbb318c20d9d4b687306211fc8aa2b",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "json_error",
+        "free_text_reason": null,
+        "parse_error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.8109582499600947,
+      "usage": {
+        "prompt_tokens": 470,
+        "completion_tokens": 25,
+        "total_tokens": 495,
+        "cost": 7.41e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.41e-05,
+          "upstream_inference_prompt_cost": 6.11e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "18d54c7ee5a36e4cbba89391a0fd2aa5695c795c029f4d9af75b0f4b376bc3e6",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 0,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.74556999997003,
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 300,
+        "total_tokens": 960,
+        "cost": 0.000186,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000186,
+          "upstream_inference_prompt_cost": 6.6e-05,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "7176a44394700eead209b960b3655832a45be51c08b5e9d5a036094241801bcf",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "json_error",
+        "free_text_reason": null,
+        "parse_error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 0,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 15.47961912502069,
+      "usage": {
+        "prompt_tokens": 470,
+        "completion_tokens": 34,
+        "total_tokens": 504,
+        "cost": 9.09e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.09e-05,
+          "upstream_inference_prompt_cost": 7.05e-05,
+          "upstream_inference_completions_cost": 2.04e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "b8f866146b971a73bc0a66c59dafc4dbeb22efc359a6dbc42b93388d2a4084ad",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.8584126670029946,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 31,
+        "total_tokens": 497,
+        "cost": 5.9e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.9e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.24e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "4fcc608246318cd75ca2dc7c620972aac8e58c2688b7a973676f3cf724282307",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4,
+          5
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.5988271670066752,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.174e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.174e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "e40c85db20e5478728fa8bd353a31ae127638ad8772a4901ccd890a5458c9328",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 4,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 4,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.7752745000179857,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 31,
+        "total_tokens": 497,
+        "cost": 5.9e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.9e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.24e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d71295c07ee141b0dbc5085c805ad29c75b5f6a8bfa8ffbfed2dd4587028c273",
+      "truth_unsafe_candidate_ids": [
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2,
+          5
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 3.4771748749772087,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 30,
+        "total_tokens": 328,
+        "cost": 0.00011642,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00011642,
+          "upstream_inference_prompt_cost": 8.642e-05,
+          "upstream_inference_completions_cost": 3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "9c2e4056b587bf6bb48fa79104fc2bdadad5c632c74ad1942f42d9922c2c2a0c",
+      "truth_unsafe_candidate_ids": [
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 6,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.7755017079762183,
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 31,
+        "total_tokens": 692,
+        "cost": 7.85e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.85e-05,
+          "upstream_inference_prompt_cost": 6.61e-05,
+          "upstream_inference_completions_cost": 1.24e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "415aef8832839e9704e12fdbddf3733ec056cd2eb22e3fca2b69119e37cf407f",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4,
+          5
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.938915917009581,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 24,
+        "total_tokens": 500,
+        "cost": 0.00016204,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00016204,
+          "upstream_inference_prompt_cost": 0.00013804,
+          "upstream_inference_completions_cost": 2.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "fb81623c8f42910c316b53c5c54f9a9058087ca0d853bde290e67f4a816a8b13",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.781207624997478,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "78b4ece2b938d298aaee620d023a517aed2c5c7da5f183bb4809cb728bdcd468",
+      "truth_unsafe_candidate_ids": [],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          3
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 6.455597541003954,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.97e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.97e-05,
+          "upstream_inference_prompt_cost": 4.47e-05,
+          "upstream_inference_completions_cost": 1.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "151e43e41db5d7539df9b69bb9966e33eae2ea19c10ea7c5e7062ad7ce5974b5",
+      "truth_unsafe_candidate_ids": [],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          3
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.3897194580058567,
+      "usage": {
+        "prompt_tokens": 467,
+        "completion_tokens": 69,
+        "total_tokens": 536,
+        "cost": 7.43e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.43e-05,
+          "upstream_inference_prompt_cost": 4.67e-05,
+          "upstream_inference_completions_cost": 2.76e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "14b444ce9b2a7339757fe430c578f18ecd319ba6d4e7af2f43977e97c4f66886",
+      "truth_unsafe_candidate_ids": [
+        7,
+        8
+      ],
+      "parsed": {
+        "recognized_terrain": false,
+        "unsafe_candidate_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "selected_candidate_id": 6,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 6,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.8348681660136208,
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 46,
+        "total_tokens": 345,
+        "cost": 6.279e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.279e-05,
+          "upstream_inference_prompt_cost": 3.887e-05,
+          "upstream_inference_completions_cost": 2.392e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "0cddbafd5b45f66f8a90486fbfa80e7c340c981979ad1feb6b9eafc1da4d7421",
+      "truth_unsafe_candidate_ids": [
+        7,
+        8
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "selected_candidate_id": 5,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 5,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.9486782499589026,
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 33,
+        "total_tokens": 694,
+        "cost": 7.93e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.93e-05,
+          "upstream_inference_prompt_cost": 6.61e-05,
+          "upstream_inference_completions_cost": 1.32e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "f1e2b6bc868e64016ba44e7d282761771417bdcac970f77e9e8b916f9e47a8c9",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4,
+          5,
+          8
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6458390000043437,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 25,
+        "total_tokens": 501,
+        "cost": 7.488e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.488e-05,
+          "upstream_inference_prompt_cost": 6.188e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "433a3705f68ad0f358a8d8a4c6bb003eadcb5319c6254dce4c03d5df058078a7",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 4,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 4,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 1,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.618201791017782,
+      "usage": {
+        "prompt_tokens": 661,
+        "completion_tokens": 41,
+        "total_tokens": 702,
+        "cost": 8.25e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.25e-05,
+          "upstream_inference_prompt_cost": 6.61e-05,
+          "upstream_inference_completions_cost": 1.64e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "99821c46e6def81d20fabfd4a9927f0f4ccfbae4e88df32cd0b0ee4ac9bc0aa4",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": false,
+        "unsafe_candidate_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 1,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 3.006798707996495,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 33,
+        "total_tokens": 509,
+        "cost": 0.00017104,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00017104,
+          "upstream_inference_prompt_cost": 0.00013804,
+          "upstream_inference_completions_cost": 3.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "13efb1a8ac165019110dc1caa7c2fc1e605ec348e9abf1274461a263c061cb55",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.9443695420050062,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 25,
+        "total_tokens": 491,
+        "cost": 5.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.66e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "1a27df197fec5e3f338322bba704b619a3ca4d4b73c7d71bdf5c3117deb1fecf",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.886968040955253,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 24,
+        "total_tokens": 322,
+        "cost": 0.00011042,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00011042,
+          "upstream_inference_prompt_cost": 8.642e-05,
+          "upstream_inference_completions_cost": 2.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "57f11bb4acdf81f7388651dc164188b92e9ea3e0b70dc89ff00090a875658544",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 7,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.470853582955897,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 31,
+        "total_tokens": 497,
+        "cost": 5.9e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.9e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.24e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "fd2f29fd108cde2ea833d7feaccbdd170129079fcb57baa21816d1bd5b53ce46",
+      "truth_unsafe_candidate_ids": [
+        2,
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          7,
+          8
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.802512458001729,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 29,
+        "total_tokens": 327,
+        "cost": 5.382e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.382e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "54e5c37f2a3627dcf138ab151552bc9c5c896a97ec9ae84f41fc5748a7f550a4",
+      "truth_unsafe_candidate_ids": [
+        2,
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          8
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.3826507500489242,
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 27,
+        "total_tokens": 690,
+        "cost": 7.71e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.71e-05,
+          "upstream_inference_prompt_cost": 6.63e-05,
+          "upstream_inference_completions_cost": 1.08e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "cd9ba01c7ceb9852033e1bbcbe8fd4c8c2ea7f6b724e8deb0c89ec8494599c26",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.0451253749779426,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 25,
+        "total_tokens": 501,
+        "cost": 0.0001127,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001127,
+          "upstream_inference_prompt_cost": 9.52e-05,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "34ac40751ad15dab816a2b37d3e88a9f3e15d6567d633450adfa42af1e8ed061",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 7,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.0210935409995727,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 31,
+        "total_tokens": 497,
+        "cost": 5.9e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.9e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.24e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "657b4178bf45e28c48e052fe014c54c715881f280adac034eb94c44cb31a5cd2",
+      "truth_unsafe_candidate_ids": [
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2,
+          4
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.389657708001323,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 29,
+        "total_tokens": 327,
+        "cost": 5.382e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.382e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "55beaa5a9931d8dab16bd234d18ef037d99840c6d7ab97cbc823613e4e634518",
+      "truth_unsafe_candidate_ids": [
+        1
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.4334874160122126,
+      "usage": {
+        "prompt_tokens": 467,
+        "completion_tokens": 105,
+        "total_tokens": 572,
+        "cost": 8.87e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.87e-05,
+          "upstream_inference_prompt_cost": 4.67e-05,
+          "upstream_inference_completions_cost": 4.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "3733bd6f4753c76502184b15811eb9bf51369f53598d3a1d75632b772861fd65",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2,
+        3
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2,
+          3
+        ],
+        "selected_candidate_id": 4,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 4,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.9844240419915877,
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 67,
+        "total_tokens": 366,
+        "cost": 7.371e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.371e-05,
+          "upstream_inference_prompt_cost": 3.887e-05,
+          "upstream_inference_completions_cost": 3.484e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "0ea4cf41db5abc3d0991e13766eef007b3e5db19ca6a930d1f2026d94f5f3681",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2,
+        3
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "selected_candidate_id": 16,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 16,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.077733416983392,
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 113,
+        "total_tokens": 776,
+        "cost": 0.0001115,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001115,
+          "upstream_inference_prompt_cost": 6.63e-05,
+          "upstream_inference_completions_cost": 4.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "35e27cd0be276653dcde7a1e2d5bfc48594d4cd7793cb5e77cd01126d65b79df",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.7799919999670237,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 25,
+        "total_tokens": 501,
+        "cost": 7.488e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.488e-05,
+          "upstream_inference_prompt_cost": 6.188e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d065f33a8585f2cdd0dcc989c113ff916f8a8b0660af92f7ceb30bfe11de9b0d",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 2,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.829759542015381,
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 300,
+        "total_tokens": 963,
+        "cost": 0.0001863,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001863,
+          "upstream_inference_prompt_cost": 6.63e-05,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "2aea0109503aed345d2a212eda3cf3732baef71c9354dfc46bbbcd023c09429c",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "json_error",
+        "free_text_reason": null,
+        "parse_error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 2,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6761770829907618,
+      "usage": {
+        "prompt_tokens": 476,
+        "completion_tokens": 34,
+        "total_tokens": 510,
+        "cost": 7.956e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.956e-05,
+          "upstream_inference_prompt_cost": 6.188e-05,
+          "upstream_inference_completions_cost": 1.768e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "243348b1f2c3cfb96ebe38c78b778cbba4a264f69b7ce89fae3d234550fccfd3",
+      "truth_unsafe_candidate_ids": [
+        1,
+        2
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.8962335000396706,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 23,
+        "total_tokens": 489,
+        "cost": 5.58e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.58e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 9.2e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "f48819d60e4855397fdb0b416ca6162483cd5e4a813fde9c24a024155d453f16",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.7875334999989718,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 33,
+        "total_tokens": 331,
+        "cost": 5.59e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.59e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.716e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "b08edff136cea0112321a6816d3f67471869948ca684eead374966a1eea0dcd2",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.4035044999909587,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d06a98aaaab15579dd6ebb4bb97b5a2844e59c078aef394644e4728d5f9bbd18",
+      "truth_unsafe_candidate_ids": [
+        6
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          6
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6584102920023724,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.174e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.174e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "d749a638dc42b18bb27b387d538087f351d1a4ce7018aeb8934a5a18aa4de8bc",
+      "truth_unsafe_candidate_ids": [
+        6
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.8301281669992022,
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 35,
+        "total_tokens": 688,
+        "cost": 7.93e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.93e-05,
+          "upstream_inference_prompt_cost": 6.53e-05,
+          "upstream_inference_completions_cost": 1.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "153f2b5c48967014105d6567202328db30e2e8bdbf8535af6752e422336bde5c",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.672208416974172,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 29,
+        "total_tokens": 497,
+        "cost": 7.592e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.592e-05,
+          "upstream_inference_prompt_cost": 6.084e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "e6646885757ce105d4eb6a6f533a84fce7181f6f78b54c9619f2b27b2b0e4d73",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          7
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "count_4",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.8979944579768926,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "3480acca85e11651079cbff8139795c6df04ca6e4aa19f63bc5652b2ae1927af",
+      "truth_unsafe_candidate_ids": [],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.7070043339626864,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 29,
+        "total_tokens": 327,
+        "cost": 5.382e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.382e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "7588da6c283cec78987c0f5aea861248906ba94fe5a488c4a0faef9addf4a999",
+      "truth_unsafe_candidate_ids": [],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          2,
+          3,
+          4
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.584124458953738,
+      "usage": {
+        "prompt_tokens": 467,
+        "completion_tokens": 300,
+        "total_tokens": 767,
+        "cost": 0.0001667,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001667,
+          "upstream_inference_prompt_cost": 4.67e-05,
+          "upstream_inference_completions_cost": 0.00012
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "4c88e33b9aea44b71a4465b4eef219c19d3157e3488facfa78f1c2a9e88b4b79",
+      "truth_unsafe_candidate_ids": [
+        6,
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "json_error",
+        "free_text_reason": null,
+        "parse_error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "count_16",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.1592113329679705,
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 50,
+        "total_tokens": 349,
+        "cost": 9.48e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.48e-05,
+          "upstream_inference_prompt_cost": 5.98e-05,
+          "upstream_inference_completions_cost": 3.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "828c1a89fc0ba7f1d5a11c96ab4059feef736091441e7d0c50e8e9e6656faebf",
+      "truth_unsafe_candidate_ids": [
+        6,
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "selected_candidate_id": 5,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 5,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.3828735419665463,
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 35,
+        "total_tokens": 688,
+        "cost": 7.93e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.93e-05,
+          "upstream_inference_prompt_cost": 6.53e-05,
+          "upstream_inference_completions_cost": 1.4e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "fc493b7a47c1b5403936878a2e42197c61598d5f6162d1b77c41f55e4cb50faf",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": false,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.827910416002851,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 29,
+        "total_tokens": 497,
+        "cost": 7.592e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.592e-05,
+          "upstream_inference_prompt_cost": 6.084e-05,
+          "upstream_inference_completions_cost": 1.508e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "9c012346aebe3d493e4ac3ee72dd2b72bd8792c00406675337c52df6562d69ed",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          5,
+          8
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 3,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.110744958044961,
+      "usage": {
+        "prompt_tokens": 653,
+        "completion_tokens": 41,
+        "total_tokens": 694,
+        "cost": 8.17e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.17e-05,
+          "upstream_inference_prompt_cost": 6.53e-05,
+          "upstream_inference_completions_cost": 1.64e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "9a0d3a9813d75ada40689b8ef1d3178a52b5d778a122c4b2d928f8036c21320a",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": false,
+        "unsafe_candidate_ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 3,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.0635330000077374,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 39,
+        "total_tokens": 507,
+        "cost": 9.36e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.36e-05,
+          "upstream_inference_prompt_cost": 7.02e-05,
+          "upstream_inference_completions_cost": 2.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "973d32046a3e08845d604a26afa338c6cec5fd6fc7ade1be76f5fcf579d672b2",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.9795262920088135,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 23,
+        "total_tokens": 489,
+        "cost": 5.58e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.58e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 9.2e-06
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "71b5411591e68b12efb791090cd3115422a12269019f508333b38e99710c732f",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "baseline_8",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 3.3580010830191895,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 7.71e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.71e-05,
+          "upstream_inference_prompt_cost": 5.96e-05,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "8c89054411b701793a787cb4abc18fc3353fd8ac106954e782774d2197b6efa5",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          7
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 5.29893762501888,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "a262206a1f0ec54754effe5caee43bb2ee537fb99bf1ad92f230b4d07d71585d",
+      "truth_unsafe_candidate_ids": [
+        5
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 3,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 6,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "marker_id_permutation",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.721852165996097,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.174e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.174e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "5a8b58053c08a346415d4128248b822e675b1fc57b47bd7116fad103913c62f4",
+      "truth_unsafe_candidate_ids": [
+        5
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          5
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 3,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 4.249766084016301,
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 29,
+        "total_tokens": 679,
+        "cost": 7.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.66e-05,
+          "upstream_inference_prompt_cost": 6.5e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "65e4b47a86e306ab8d8ee0cf4bd3420d33b93b2355d5d90bb9515b97b0878545",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": false,
+        "unsafe_candidate_ids": [
+          7
+        ],
+        "selected_candidate_id": 4,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 4,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "candidate_order_permutation",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.7800232080044225,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 20,
+        "total_tokens": 488,
+        "cost": 8.22e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.22e-05,
+          "upstream_inference_prompt_cost": 7.02e-05,
+          "upstream_inference_completions_cost": 1.2e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "a203f9f35220ff5b6c19cdc4d063306a11725a4fc13e00b2b46a773fa2e1ce7a",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.393974459031597,
+      "usage": {
+        "prompt_tokens": 466,
+        "completion_tokens": 29,
+        "total_tokens": 495,
+        "cost": 5.82e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.82e-05,
+          "upstream_inference_prompt_cost": 4.66e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "be2e57dd9aedd8cb22354a17eeb255659044de9734b1c7ba4e37466588c3a640",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          4
+        ],
+        "selected_candidate_id": 2,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 2,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_4",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6404264160082676,
+      "usage": {
+        "prompt_tokens": 298,
+        "completion_tokens": 25,
+        "total_tokens": 323,
+        "cost": 5.174e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.174e-05,
+          "upstream_inference_prompt_cost": 3.874e-05,
+          "upstream_inference_completions_cost": 1.3e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "6c3d68c8fcb73c8116560cf545ec8f4bc64f2e0d74c40d9625b46e80df0bd9d7",
+      "truth_unsafe_candidate_ids": [
+        4
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1
+        ],
+        "selected_candidate_id": 4,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 4,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "count_16",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 2.231117916991934,
+      "usage": {
+        "prompt_tokens": 467,
+        "completion_tokens": 61,
+        "total_tokens": 528,
+        "cost": 7.11e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.11e-05,
+          "upstream_inference_prompt_cost": 4.67e-05,
+          "upstream_inference_completions_cost": 2.44e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "0411d54c42b8b36362b3ab106ad9d98e237502e7f47e4cec1d03924a20ae3b85",
+      "truth_unsafe_candidate_ids": [
+        13,
+        14
+      ],
+      "parsed": {
+        "recognized_terrain": null,
+        "unsafe_candidate_ids": [],
+        "selected_candidate_id": null,
+        "parse_status": "schema_error",
+        "free_text_reason": null,
+        "parse_error": "response keys must be exactly ['parse_status', 'recognized_terrain', 'selected_candidate_id', 'unsafe_candidate_ids'] plus optional free_text_reason"
+      },
+      "physical_selected_index": null,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "count_16",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 1.6999964169808663,
+      "usage": {
+        "prompt_tokens": 299,
+        "completion_tokens": 27,
+        "total_tokens": 326,
+        "cost": 5.291e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 5.291e-05,
+          "upstream_inference_prompt_cost": 3.887e-05,
+          "upstream_inference_completions_cost": 1.404e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "5c70571a62e40752fa825810828183b280115cfdf1013c8e2abb7f05a4687e79",
+      "truth_unsafe_candidate_ids": [
+        13,
+        14
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          14
+        ],
+        "selected_candidate_id": 13,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 13,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 1.766841167001985,
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 29,
+        "total_tokens": 679,
+        "cost": 7.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.66e-05,
+          "upstream_inference_prompt_cost": 6.5e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "be691ac493249c9afdade82701ed9088c0223dfe7574aadc81ade5739b371407",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          7
+        ],
+        "selected_candidate_id": 8,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 8,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "direct_coordinates",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.557799458038062,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 25,
+        "total_tokens": 493,
+        "cost": 0.0001111,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001111,
+          "upstream_inference_prompt_cost": 9.36e-05,
+          "upstream_inference_completions_cost": 1.75e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "c0e21485aef85657e1db9c422407b33acd997e701a0eaec7d54dfc9ce2b46889",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          7
+        ],
+        "selected_candidate_id": 1,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 1,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": true
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 4,
+      "model_requested": "google/gemini-2.5-flash-lite",
+      "model_returned": "google/gemini-2.5-flash-lite",
+      "latency_s": 3.9734076249878854,
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 29,
+        "total_tokens": 679,
+        "cost": 7.66e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.66e-05,
+          "upstream_inference_prompt_cost": 6.5e-05,
+          "upstream_inference_completions_cost": 1.16e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "16a623b63ed70e9253d2928163baf2c3a313fdb0361511fa7d4ef74ca9c627e3",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          8
+        ],
+        "selected_candidate_id": 7,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 7,
+      "selected_safe": false,
+      "physical_choice_matches_baseline": false
+    },
+    {
+      "variant": "unmarked_image",
+      "seed": 4,
+      "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+      "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+      "latency_s": 2.01779345900286,
+      "usage": {
+        "prompt_tokens": 468,
+        "completion_tokens": 39,
+        "total_tokens": 507,
+        "cost": 9.36e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.36e-05,
+          "upstream_inference_prompt_cost": 7.02e-05,
+          "upstream_inference_completions_cost": 2.34e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "request_sha256": "737b9b4a0f69879f706f9a41c307ec9f660ecce6d29a7efddd496b3cddb0b50b",
+      "truth_unsafe_candidate_ids": [
+        7
+      ],
+      "parsed": {
+        "recognized_terrain": true,
+        "unsafe_candidate_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "selected_candidate_id": 8,
+        "parse_status": "ok",
+        "free_text_reason": null,
+        "parse_error": null
+      },
+      "physical_selected_index": 8,
+      "selected_safe": true,
+      "physical_choice_matches_baseline": false
+    }
+  ],
+  "summary": {
+    "baseline_8": {
+      "n": 10,
+      "selected_safe_rate": 0.5,
+      "physical_choice_matches_baseline_rate": 1.0
+    },
+    "candidate_order_permutation": {
+      "n": 10,
+      "selected_safe_rate": 0.5,
+      "physical_choice_matches_baseline_rate": 0.3
+    },
+    "count_16": {
+      "n": 10,
+      "selected_safe_rate": 0.6,
+      "physical_choice_matches_baseline_rate": 0.2
+    },
+    "count_4": {
+      "n": 10,
+      "selected_safe_rate": 0.8,
+      "physical_choice_matches_baseline_rate": 0.0
+    },
+    "direct_coordinates": {
+      "n": 10,
+      "selected_safe_rate": 0.5,
+      "physical_choice_matches_baseline_rate": 0.4
+    },
+    "marker_id_permutation": {
+      "n": 10,
+      "selected_safe_rate": 0.8,
+      "physical_choice_matches_baseline_rate": 0.2
+    },
+    "unmarked_image": {
+      "n": 10,
+      "selected_safe_rate": 0.4,
+      "physical_choice_matches_baseline_rate": 0.1
+    },
+    "go_no_go": {
+      "marker_match_rate": 0.2,
+      "candidate_order_match_rate": 0.3,
+      "marker_dependency_detected": true,
+      "ICLR_mainline": "TERMINATE",
+      "threshold": 0.8,
+      "order_reference": "direct_coordinates with identical coordinate records in canonical order"
+    }
+  }
+}

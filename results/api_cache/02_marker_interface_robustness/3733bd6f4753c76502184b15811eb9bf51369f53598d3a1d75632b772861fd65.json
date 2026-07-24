@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "count_16",
+  "seed": 2,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:35:59.653582+00:00",
+  "latency_s": 2.4334874160122126,
+  "usage": {
+    "prompt_tokens": 467,
+    "completion_tokens": 105,
+    "total_tokens": 572,
+    "cost": 8.87e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.87e-05,
+      "upstream_inference_prompt_cost": 4.67e-05,
+      "upstream_inference_completions_cost": 4.2e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "3733bd6f4753c76502184b15811eb9bf51369f53598d3a1d75632b772861fd65",
+  "raw_response": "The robot is a wheeled ground robot and cannot traverse water. Candidate subgoals 2 and 3 are located in water. Therefore, candidates 2 and 3 are unsafe. The goal (G) is to the northeast of the robot. Candidate 4 is the closest safe subgoal to the goal.\n\n```json\n{\"recognized_terrain\": true, \"unsafe_candidate_ids\": [2, 3], \"selected_candidate_id\": 4, \"parse_status\": \"ok\"}\n```"
+}

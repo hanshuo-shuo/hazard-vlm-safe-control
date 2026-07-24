@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "direct_coordinates",
+  "seed": 0,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:34:43.722156+00:00",
+  "latency_s": 2.648167375009507,
+  "usage": {
+    "prompt_tokens": 660,
+    "completion_tokens": 300,
+    "total_tokens": 960,
+    "cost": 0.000186,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000186,
+      "upstream_inference_prompt_cost": 6.6e-05,
+      "upstream_inference_completions_cost": 0.00012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "7e5a8c14d2ce704e777803b790e9199153bbb318c20d9d4b687306211fc8aa2b",
+  "raw_response": "The robot is a wheeled ground robot and cannot enter water. The image shows a blue disk with wavy lines, indicating water, which is located near candidate subgoals 1 and 2. Therefore, candidates 1 and 2 are unsafe.\n\nThe goal (G) is located to the northeast of the robot. The red disks represent hazards.\n\nLet's evaluate the remaining candidates:\n- Candidate 3: [-4.276, -0.386]. This candidate is relatively far from the goal and appears to be in a clear area.\n- Candidate 4: [-4.9, -1.118]. This candidate is also in a clear area, but further west than candidate 3.\n- Candidate 5: [-4.9, -2.886]. This candidate is in a clear area.\n- Candidate 6: [-4.9, -4.653]. This candidate is in a clear area.\n- Candidate 7: [-4.276, -4.9]. This candidate is in a clear area.\n- Candidate 8: [-2.509, -4.653]. This candidate is in a clear area.\n\nConsidering the proximity to the goal and avoiding hazards, candidate 3 seems like a reasonable next step to move towards the goal. It is to the west of the robot, but it is a step in the general"
+}

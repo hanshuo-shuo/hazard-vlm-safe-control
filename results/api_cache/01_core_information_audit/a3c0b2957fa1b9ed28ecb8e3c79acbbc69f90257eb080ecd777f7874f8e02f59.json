@@ -1,0 +1,35 @@
+{
+  "experiment": "01_core_information_audit",
+  "variant": "noisy_geometry",
+  "seed": 3,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:22:00.311989+00:00",
+  "latency_s": 3.1419107079855166,
+  "usage": {
+    "prompt_tokens": 586,
+    "completion_tokens": 109,
+    "total_tokens": 695,
+    "cost": 0.0001022,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001022,
+      "upstream_inference_prompt_cost": 5.86e-05,
+      "upstream_inference_completions_cost": 4.36e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "a3c0b2957fa1b9ed28ecb8e3c79acbbc69f90257eb080ecd777f7874f8e02f59",
+  "raw_response": "The robot is a wheeled ground robot and cannot traverse water. The image shows a water hazard (zone_0) located near candidate subgoal 4. Therefore, candidate subgoal 4 is unsafe. All other candidate subgoals appear to be on solid ground and do not directly lead into hazards or the goal. Candidate subgoal 2 is the closest to the goal and appears to be a safe path.\n\n{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[4],\"selected_candidate_id\":2,\"parse_status\":\"ok\"}"
+}

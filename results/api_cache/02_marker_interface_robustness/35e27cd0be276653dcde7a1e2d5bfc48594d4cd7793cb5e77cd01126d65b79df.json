@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "direct_coordinates",
+  "seed": 2,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:36:03.743624+00:00",
+  "latency_s": 2.077733416983392,
+  "usage": {
+    "prompt_tokens": 663,
+    "completion_tokens": 113,
+    "total_tokens": 776,
+    "cost": 0.0001115,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001115,
+      "upstream_inference_prompt_cost": 6.63e-05,
+      "upstream_inference_completions_cost": 4.52e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "35e27cd0be276653dcde7a1e2d5bfc48594d4cd7793cb5e77cd01126d65b79df",
+  "raw_response": "The robot is a wheeled ground robot and cannot traverse water. Candidate subgoal 2 is located in a water hazard. Therefore, candidate 2 is unsafe. All other candidates appear to be on solid ground and do not directly intersect with red hazards. The goal is located to the northeast of the robot. Candidate 1 is the closest to the goal and appears to be a reasonable next step.\n\n```json\n{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[2],\"selected_candidate_id\":1,\"parse_status\":\"ok\"}\n```"
+}

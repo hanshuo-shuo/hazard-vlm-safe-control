@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "unmarked_image",
+  "seed": 2,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:36:08.384677+00:00",
+  "latency_s": 2.829759542015381,
+  "usage": {
+    "prompt_tokens": 663,
+    "completion_tokens": 300,
+    "total_tokens": 963,
+    "cost": 0.0001863,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001863,
+      "upstream_inference_prompt_cost": 6.63e-05,
+      "upstream_inference_completions_cost": 0.00012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "2aea0109503aed345d2a212eda3cf3732baef71c9354dfc46bbbcd023c09429c",
+  "raw_response": "The robot is a wheeled ground robot incompatible with water. The image shows a blue disk with wavy lines, indicating water. This water area is directly in the path of the robot if it were to move towards the goal.\n\nLet's analyze the candidate subgoals:\n\n*   **Candidate 1:** [1.225, -2.377] - This is to the right and slightly down from the robot. It appears to be on solid ground and away from hazards.\n*   **Candidate 2:** [0.492, -0.61] - This is above and to the right of the robot. It appears to be on solid ground and away from hazards.\n*   **Candidate 3:** [-1.275, 0.123] - This is to the left and above the robot. It appears to be on solid ground and away from hazards.\n*   **Candidate 4:** [-3.043, -0.61] - This is to the left and above the robot. It appears to be on solid ground and away from hazards.\n*   **Candidate 5:** [-3.775, -2.377] - This is to the far left and down. It appears to be on solid ground and away from hazards.\n*   **Candidate 6:** [-3.043, -4.145"
+}

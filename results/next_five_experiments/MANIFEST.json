@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-07-24T06:12:27.843691+00:00",
+  "seed_cap_per_experiment": 5,
+  "actual_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "models": [
+    "google/gemini-2.5-flash-lite",
+    "qwen/qwen3-vl-30b-a3b-instruct"
+  ],
+  "provider_calls_this_execution": 0,
+  "cache_hits_this_execution": 180,
+  "provider_requests_in_evidence": 180,
+  "provider_usage_in_evidence": {
+    "prompt_tokens": 79915.0,
+    "completion_tokens": 7721.0,
+    "total_tokens": 87636.0,
+    "cost": 0.013983789999999979,
+    "is_byok": 0.0
+  },
+  "experiments": [
+    {
+      "number": 1,
+      "name": "Core information audit pilot"
+    },
+    {
+      "number": 2,
+      "name": "Marker/interface robustness"
+    },
+    {
+      "number": 3,
+      "name": "Modern perception substitution"
+    },
+    {
+      "number": 4,
+      "name": "Five-stage output + capability/appearance twins"
+    },
+    {
+      "number": 5,
+      "name": "Second environment go/no-go"
+    }
+  ]
+}

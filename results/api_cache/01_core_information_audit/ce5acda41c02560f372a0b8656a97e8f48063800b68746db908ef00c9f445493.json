@@ -1,0 +1,35 @@
+{
+  "experiment": "01_core_information_audit",
+  "variant": "P1",
+  "seed": 3,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "created_at": "2026-07-24T05:21:37.904364+00:00",
+  "latency_s": 1.9690828339662403,
+  "usage": {
+    "prompt_tokens": 307,
+    "completion_tokens": 31,
+    "total_tokens": 338,
+    "cost": 5.603e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.603e-05,
+      "upstream_inference_prompt_cost": 3.991e-05,
+      "upstream_inference_completions_cost": 1.612e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "ce5acda41c02560f372a0b8656a97e8f48063800b68746db908ef00c9f445493",
+  "raw_response": "```json\n{\"recognized_terrain\":false,\"unsafe_candidate_ids\":[1,4],\"selected_candidate_id\":3,\"parse_status\":\"ok\"}\n```"
+}

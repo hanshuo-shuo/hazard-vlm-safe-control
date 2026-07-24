@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "candidate_order_permutation",
+  "seed": 0,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "SiliconFlow",
+  "created_at": "2026-07-24T05:40:15.020944+00:00",
+  "latency_s": 3.409364832972642,
+  "usage": {
+    "prompt_tokens": 470,
+    "completion_tokens": 27,
+    "total_tokens": 497,
+    "cost": 0.0001633,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001633,
+      "upstream_inference_prompt_cost": 0.0001363,
+      "upstream_inference_completions_cost": 2.7e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "14f3b0a7c40b3fd50f59c11fddb6d0abf1a2cb9a05868ad341164bba0e2c3c8c",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[3,5,6,7,4],\"selected_candidate_id\":2}"
+}

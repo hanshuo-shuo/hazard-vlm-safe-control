@@ -1,0 +1,35 @@
+{
+  "experiment": "04_five_stage_twins",
+  "variant": "wheeled_non_waterproof",
+  "seed": 1,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "created_at": "2026-07-24T06:02:40.043913+00:00",
+  "latency_s": 1.8185045419959351,
+  "usage": {
+    "prompt_tokens": 316,
+    "completion_tokens": 54,
+    "total_tokens": 370,
+    "cost": 6.916e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.916e-05,
+      "upstream_inference_prompt_cost": 4.108e-05,
+      "upstream_inference_completions_cost": 2.808e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "8a08c256bb1ad2e19d957b983243866d3d202e4ae7f6080a4ae08f8a196a61b4",
+  "raw_response": "{\"recognition\":{\"terrain_classes\":[\"water\"]},\"applicability\":{\"water\":\"incompatible|compatible\"},\"grounding\":{\"unsafe_candidate_ids\":[1]},\"routing\":{\"selected_candidate_id\":1},\"enforcement_log\":{\"constraint_used\":true},\"parse_status\":\"ok\"}"
+}

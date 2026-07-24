@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "unmarked_image",
+  "seed": 3,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "created_at": "2026-07-24T05:36:38.721731+00:00",
+  "latency_s": 2.0635330000077374,
+  "usage": {
+    "prompt_tokens": 468,
+    "completion_tokens": 39,
+    "total_tokens": 507,
+    "cost": 9.36e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 9.36e-05,
+      "upstream_inference_prompt_cost": 7.02e-05,
+      "upstream_inference_completions_cost": 2.34e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "973d32046a3e08845d604a26afa338c6cec5fd6fc7ade1be76f5fcf579d672b2",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[1,2,3,4,5,6,7,8],\"selected_candidate_id\":1,\"parse_status\":\"ok\"}"
+}

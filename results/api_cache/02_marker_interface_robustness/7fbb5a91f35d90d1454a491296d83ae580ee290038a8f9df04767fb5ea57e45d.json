@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "count_16",
+  "seed": 0,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:34:38.750959+00:00",
+  "latency_s": 2.8856105000013486,
+  "usage": {
+    "prompt_tokens": 467,
+    "completion_tokens": 216,
+    "total_tokens": 683,
+    "cost": 0.0001331,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001331,
+      "upstream_inference_prompt_cost": 4.67e-05,
+      "upstream_inference_completions_cost": 8.64e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "7fbb5a91f35d90d1454a491296d83ae580ee290038a8f9df04767fb5ea57e45d",
+  "raw_response": "The robot is a wheeled ground robot incompatible with water. The image shows a blue disk with wavy lines, representing water, surrounding candidate subgoals 1 and 2. Therefore, candidate subgoals 1 and 2 are unsafe. The goal (G) is located to the northeast of the robot. Candidate subgoals 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, and 16 are all on solid ground and do not appear to be in the vicinity of any red hazards. To reach the goal, the robot should move away from the water. Candidate subgoal 3 is the closest to the robot and is on solid ground, and it is in a direction that moves away from the water and towards the goal.\n\n```json\n{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[1,2],\"selected_candidate_id\":3,\"parse_status\":\"ok\"}\n```"
+}

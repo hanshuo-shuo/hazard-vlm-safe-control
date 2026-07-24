@@ -1,0 +1,35 @@
+{
+  "experiment": "03_modern_perception_substitution",
+  "variant": "open_weight_detector",
+  "seed": 4,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "created_at": "2026-07-24T05:41:37.681620+00:00",
+  "latency_s": 4.97254345897818,
+  "usage": {
+    "prompt_tokens": 156,
+    "completion_tokens": 32,
+    "total_tokens": 188,
+    "cost": 4.26e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.26e-05,
+      "upstream_inference_prompt_cost": 2.34e-05,
+      "upstream_inference_completions_cost": 1.92e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "6f96aa6010f955bb42d45fbcd4106564520439f1a537d5e40a24868ccf72acad",
+  "raw_response": "```json\n{\"regions\":[{\"class\":\"water\",\"center_pixel_xy\":[815, 365],\"radius_pixel\":44}]}\n```"
+}

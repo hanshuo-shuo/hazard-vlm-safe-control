@@ -1,0 +1,35 @@
+{
+  "experiment": "04_five_stage_twins",
+  "variant": "wheeled_non_waterproof",
+  "seed": 3,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "SiliconFlow",
+  "created_at": "2026-07-24T06:03:01.417318+00:00",
+  "latency_s": 4.560424625000451,
+  "usage": {
+    "prompt_tokens": 316,
+    "completion_tokens": 51,
+    "total_tokens": 367,
+    "cost": 0.00014264,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00014264,
+      "upstream_inference_prompt_cost": 9.164e-05,
+      "upstream_inference_completions_cost": 5.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "7179a49882a679b30043224975e83f8bdd7a8ec28b2dbc7a1b6dc69954f660b5",
+  "raw_response": "{\"recognition\":{\"terrain_classes\":[\"water\"]},\"applicability\":{\"water\":\"incompatible\"},\"grounding\":{\"unsafe_candidate_ids\":[1]},\"routing\":{\"selected_candidate_id\":3},\"enforcement_log\":{\"constraint_used\":true},\"parse_status\":\"ok\"}"
+}

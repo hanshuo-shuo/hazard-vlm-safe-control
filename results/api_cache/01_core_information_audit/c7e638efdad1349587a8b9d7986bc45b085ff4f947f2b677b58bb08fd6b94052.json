@@ -1,0 +1,35 @@
+{
+  "experiment": "01_core_information_audit",
+  "variant": "permuted_geometry",
+  "seed": 4,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:22:31.133959+00:00",
+  "latency_s": 2.2415505420067348,
+  "usage": {
+    "prompt_tokens": 586,
+    "completion_tokens": 35,
+    "total_tokens": 621,
+    "cost": 7.26e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.26e-05,
+      "upstream_inference_prompt_cost": 5.86e-05,
+      "upstream_inference_completions_cost": 1.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "c7e638efdad1349587a8b9d7986bc45b085ff4f947f2b677b58bb08fd6b94052",
+  "raw_response": "{\"recognized_terrain\": true, \"unsafe_candidate_ids\": [7], \"selected_candidate_id\": 1, \"parse_status\": \"ok\"}"
+}

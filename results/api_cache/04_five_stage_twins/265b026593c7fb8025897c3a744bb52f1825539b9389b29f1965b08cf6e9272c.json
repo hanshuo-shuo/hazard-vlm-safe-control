@@ -1,0 +1,35 @@
+{
+  "experiment": "04_five_stage_twins",
+  "variant": "amphibious",
+  "seed": 3,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "created_at": "2026-07-24T06:03:07.324508+00:00",
+  "latency_s": 3.945323667023331,
+  "usage": {
+    "prompt_tokens": 315,
+    "completion_tokens": 54,
+    "total_tokens": 369,
+    "cost": 0.0001008,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001008,
+      "upstream_inference_prompt_cost": 6.3e-05,
+      "upstream_inference_completions_cost": 3.78e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "265b026593c7fb8025897c3a744bb52f1825539b9389b29f1965b08cf6e9272c",
+  "raw_response": "{\"recognition\":{\"terrain_classes\":[\"water\"]},\"applicability\":{\"water\":\"incompatible|compatible\"},\"grounding\":{\"unsafe_candidate_ids\":[1]},\"routing\":{\"selected_candidate_id\":3},\"enforcement_log\":{\"constraint_used\":true},\"parse_status\":\"ok\"}"
+}

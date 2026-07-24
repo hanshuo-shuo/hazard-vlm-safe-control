@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "unmarked_image",
+  "seed": 0,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:34:48.316747+00:00",
+  "latency_s": 2.74556999997003,
+  "usage": {
+    "prompt_tokens": 660,
+    "completion_tokens": 300,
+    "total_tokens": 960,
+    "cost": 0.000186,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000186,
+      "upstream_inference_prompt_cost": 6.6e-05,
+      "upstream_inference_completions_cost": 0.00012
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "7176a44394700eead209b960b3655832a45be51c08b5e9d5a036094241801bcf",
+  "raw_response": "The robot is a wheeled ground robot with incompatible terrain being water and mud. The image shows a blue disk representing the robot, a green disk marked 'G' as the goal, and several red disks representing hazards. The robot is currently on a blue disk with wavy lines, indicating it is in water. The task is to reach the goal without entering incompatible terrain and avoiding hazards.\n\nLet's analyze the candidate subgoals:\n\n- Candidate 1: [-1.776, -2.886]\n- Candidate 2: [-2.509, -1.118]\n- Candidate 3: [-4.276, -0.386]\n- Candidate 4: [-4.9, -1.118]\n- Candidate 5: [-4.9, -2.886]\n- Candidate 6: [-4.9, -4.653]\n- Candidate 7: [-4.276, -4.9]\n- Candidate 8: [-2.509, -4.653]\n\nThe robot is currently in the water. To move out of the water, the robot needs to move towards solid ground. Looking at the image, the area to the right and slightly upwards from the robot appears to be solid ground.\n\nLet's consider the positions of the candidate subgoals relative to the"
+}

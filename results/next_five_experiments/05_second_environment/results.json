@@ -1,0 +1,1100 @@
+{
+  "experiment": 5,
+  "name": "Second environment go/no-go",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "environment": "SafetyPointGoal1-v0",
+  "rows": [
+    {
+      "seed": 0,
+      "capability": "wheeled_non_waterproof",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 0,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "f8ef0129dd949499a2c5566a88b5d05e315f4e172adf64245dcb2c95d1148a53"
+        },
+        "goal": [
+          0.40782450838740103,
+          -0.6921856790335202
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              0.7701541005382346,
+              0.07628258814766786
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              0.1796376412879812,
+              1.1235751250926251
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.1324648063575786,
+              -1.0899786487879326
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              -1.2666234307575401,
+              0.8781163922465562
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              0.7343338225076053,
+              0.9768320713716026
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              1.2635524234944968,
+              0.7897786095321504
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -1.0077555157060163,
+              0.36939149630466295
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.9415473212401175,
+              1.1739259410109015
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              -0.4928060072835818,
+              0.9981859109104556
+            ],
+            "radius": 0.6051655281663422,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 0,
+      "capability": "amphibious",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 0,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "f8ef0129dd949499a2c5566a88b5d05e315f4e172adf64245dcb2c95d1148a53"
+        },
+        "goal": [
+          0.40782450838740103,
+          -0.6921856790335202
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              0.7701541005382346,
+              0.07628258814766786
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              0.1796376412879812,
+              1.1235751250926251
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.1324648063575786,
+              -1.0899786487879326
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              -1.2666234307575401,
+              0.8781163922465562
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              0.7343338225076053,
+              0.9768320713716026
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              1.2635524234944968,
+              0.7897786095321504
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -1.0077555157060163,
+              0.36939149630466295
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.9415473212401175,
+              1.1739259410109015
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              -0.4928060072835818,
+              0.9981859109104556
+            ],
+            "radius": 0.6051655281663422,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "capability": "wheeled_non_waterproof",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 1,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "bd71bfa6f048f61070ce04368379bbcc3bf21b38ca0dd349edc182594a5bed70"
+        },
+        "goal": [
+          -0.20511154583070268,
+          -1.0756112331188517
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              -0.9325644482428216,
+              -1.0762261098103738
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.780246060708794,
+              0.9982300320720958
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.247696753957475,
+              0.4500342268709818
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.7939656613034167,
+              1.2362105598992097
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              1.208828359597325,
+              0.08755635232876502
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              0.5065555808292497,
+              -0.4870387341439938
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              0.492362449079381,
+              0.8834117738090643
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              1.290593274713146,
+              0.655157327562776
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.2418478125087664,
+              0.8258530720133284
+            ],
+            "radius": 0.45387707673419037,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "capability": "amphibious",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 1,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "bd71bfa6f048f61070ce04368379bbcc3bf21b38ca0dd349edc182594a5bed70"
+        },
+        "goal": [
+          -0.20511154583070268,
+          -1.0756112331188517
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              -0.9325644482428216,
+              -1.0762261098103738
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.780246060708794,
+              0.9982300320720958
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.247696753957475,
+              0.4500342268709818
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.7939656613034167,
+              1.2362105598992097
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              1.208828359597325,
+              0.08755635232876502
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              0.5065555808292497,
+              -0.4870387341439938
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              0.492362449079381,
+              0.8834117738090643
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              1.290593274713146,
+              0.655157327562776
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.2418478125087664,
+              0.8258530720133284
+            ],
+            "radius": 0.45387707673419037,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "capability": "wheeled_non_waterproof",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 2,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "f7bcba8e695facc2236fd8583a6146503bc71390e8714b37a27f71d848312989"
+        },
+        "goal": [
+          0.05751983196787047,
+          -0.34266796811660627
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              -0.7797276061400958,
+              0.31487535116575227
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.8330787546921437,
+              0.753284790236018
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              0.9344947725682504,
+              -0.015214749311710518
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.9149223213437156,
+              -1.109735940696079
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -0.7233283184048174,
+              -1.037663393421645
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -0.7383916133337224,
+              -0.3964586075912899
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              1.0283329688178224,
+              -0.41813995694827055
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.1669872256092506,
+              0.7301162483923449
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.5708853826903915,
+              0.9643208500397855
+            ],
+            "radius": 0.5901500544394169,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "capability": "amphibious",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 2,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "f7bcba8e695facc2236fd8583a6146503bc71390e8714b37a27f71d848312989"
+        },
+        "goal": [
+          0.05751983196787047,
+          -0.34266796811660627
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              -0.7797276061400958,
+              0.31487535116575227
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.8330787546921437,
+              0.753284790236018
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              0.9344947725682504,
+              -0.015214749311710518
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.9149223213437156,
+              -1.109735940696079
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -0.7233283184048174,
+              -1.037663393421645
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -0.7383916133337224,
+              -0.3964586075912899
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              1.0283329688178224,
+              -0.41813995694827055
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.1669872256092506,
+              0.7301162483923449
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.5708853826903915,
+              0.9643208500397855
+            ],
+            "radius": 0.5901500544394169,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "capability": "wheeled_non_waterproof",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": true,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 3,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "24eaac165ef72b9d2028f63a3728751cb50e6c252fedd22268d00c64115d91b9"
+        },
+        "goal": [
+          -0.49761526960121616,
+          -0.10112950561808276
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              1.0373799594778086,
+              1.0462137547842765
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.9884547803754724,
+              -0.772878801715187
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.1841265832858092,
+              -0.15626201276231977
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.3937402857029684,
+              -0.5847935738093453
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -0.5714937841237185,
+              0.5098841043463103
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -0.1572021853492478,
+              -0.905869170426097
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -0.5112002745268854,
+              -0.7340311864190411
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.2957558800530873,
+              1.1520528356315365
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              -0.2115418213297917,
+              0.3977755593632901
+            ],
+            "radius": 0.5652258600734658,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "capability": "amphibious",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 3,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "24eaac165ef72b9d2028f63a3728751cb50e6c252fedd22268d00c64115d91b9"
+        },
+        "goal": [
+          -0.49761526960121616,
+          -0.10112950561808276
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              1.0373799594778086,
+              1.0462137547842765
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.9884547803754724,
+              -0.772878801715187
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              -1.1841265832858092,
+              -0.15626201276231977
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              0.3937402857029684,
+              -0.5847935738093453
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -0.5714937841237185,
+              0.5098841043463103
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -0.1572021853492478,
+              -0.905869170426097
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -0.5112002745268854,
+              -0.7340311864190411
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              -0.2957558800530873,
+              1.1520528356315365
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              -0.2115418213297917,
+              0.3977755593632901
+            ],
+            "radius": 0.5652258600734658,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "capability": "wheeled_non_waterproof",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 4,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "ddffdc901735261c9669aed87a1add8947d4d60c03c45f5490d626f3920e36d0"
+        },
+        "goal": [
+          0.32888848346112476,
+          -0.23542588981924784
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              1.2573645606092783,
+              -1.3035521262598828
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.652126563307708,
+              -0.17215035445226312
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              0.9583021419819466,
+              1.276177787742826
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              -0.8874564826915954,
+              0.25696161198274825
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -1.296276702157655,
+              -0.2994518138208184
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -1.2034174470608412,
+              1.2055638347655828
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -0.1685728522373342,
+              1.1853000899033257
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              0.7558478028685609,
+              0.9670037482556839
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.5707725706741762,
+              -0.5485847018018679
+            ],
+            "radius": 0.5625277535076952,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "capability": "amphibious",
+      "environment_id": "SafetyPointGoal1-v0",
+      "steps": 40,
+      "native_cost_total": 0.0,
+      "semantic_violation": false,
+      "success": false,
+      "scene": {
+        "environment_backend": "safety_gym_goal",
+        "environment_id": "SafetyPointGoal1-v0",
+        "environment_version": "1.0.0",
+        "seed": 4,
+        "initial_observation_summary": {
+          "shape": [
+            60
+          ],
+          "dtype": "float64",
+          "sha256": "ddffdc901735261c9669aed87a1add8947d4d60c03c45f5490d626f3920e36d0"
+        },
+        "goal": [
+          0.32888848346112476,
+          -0.23542588981924784
+        ],
+        "goal_radius": 0.3,
+        "agent_radius": 0.0,
+        "max_episode_steps": 1000,
+        "dt": 0.002,
+        "physical_hazards": [
+          {
+            "hazard_id": "hazard_0",
+            "center_xy": [
+              1.2573645606092783,
+              -1.3035521262598828
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_1",
+            "center_xy": [
+              -0.652126563307708,
+              -0.17215035445226312
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_2",
+            "center_xy": [
+              0.9583021419819466,
+              1.276177787742826
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_3",
+            "center_xy": [
+              -0.8874564826915954,
+              0.25696161198274825
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_4",
+            "center_xy": [
+              -1.296276702157655,
+              -0.2994518138208184
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_5",
+            "center_xy": [
+              -1.2034174470608412,
+              1.2055638347655828
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_6",
+            "center_xy": [
+              -0.1685728522373342,
+              1.1853000899033257
+            ],
+            "radius": 0.2
+          },
+          {
+            "hazard_id": "hazard_7",
+            "center_xy": [
+              0.7558478028685609,
+              0.9670037482556839
+            ],
+            "radius": 0.2
+          }
+        ],
+        "semantic_terrain": [
+          {
+            "region_id": "zone_0",
+            "center_xy": [
+              0.5707725706741762,
+              -0.5485847018018679
+            ],
+            "radius": 0.5625277535076952,
+            "terrain_class": "water",
+            "appearance_profile": "water-render-v1"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "adapter_ran": true,
+    "matched_capability_geometry": true,
+    "native_cost_semantic_channels_separate": true,
+    "go_no_go": "GO"
+  }
+}

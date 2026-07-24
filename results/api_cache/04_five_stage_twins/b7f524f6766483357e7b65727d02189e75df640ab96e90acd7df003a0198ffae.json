@@ -1,0 +1,35 @@
+{
+  "experiment": "04_five_stage_twins",
+  "variant": "appearance_blue_carpet_wheeled",
+  "seed": 3,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T06:09:47.425021+00:00",
+  "latency_s": 1.9855356250191107,
+  "usage": {
+    "prompt_tokens": 485,
+    "completion_tokens": 65,
+    "total_tokens": 550,
+    "cost": 7.45e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.45e-05,
+      "upstream_inference_prompt_cost": 4.85e-05,
+      "upstream_inference_completions_cost": 2.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "b7f524f6766483357e7b65727d02189e75df640ab96e90acd7df003a0198ffae",
+  "raw_response": "```json\n{\"recognition\":{\"terrain_classes\":[\"observed_class\"]},\"applicability\":{\"constraint_applies\":false},\"grounding\":{\"unsafe_candidate_ids\":[]},\"routing\":{\"selected_candidate_id\":3},\"enforcement_log\":{\"constraint_used\":false},\"parse_status\":\"ok\"}\n```"
+}

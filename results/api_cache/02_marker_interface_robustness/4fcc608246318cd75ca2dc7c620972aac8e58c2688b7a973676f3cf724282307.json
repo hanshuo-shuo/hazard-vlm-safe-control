@@ -1,0 +1,35 @@
+{
+  "experiment": "02_marker_interface_robustness",
+  "variant": "baseline_8",
+  "seed": 1,
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "created_at": "2026-07-24T05:35:05.708262+00:00",
+  "latency_s": 1.8584126670029946,
+  "usage": {
+    "prompt_tokens": 466,
+    "completion_tokens": 31,
+    "total_tokens": 497,
+    "cost": 5.9e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.9e-05,
+      "upstream_inference_prompt_cost": 4.66e-05,
+      "upstream_inference_completions_cost": 1.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "4fcc608246318cd75ca2dc7c620972aac8e58c2688b7a973676f3cf724282307",
+  "raw_response": "{\"recognized_terrain\":true,\"unsafe_candidate_ids\":[4,5],\"selected_candidate_id\":3,\"parse_status\":\"ok\"}"
+}

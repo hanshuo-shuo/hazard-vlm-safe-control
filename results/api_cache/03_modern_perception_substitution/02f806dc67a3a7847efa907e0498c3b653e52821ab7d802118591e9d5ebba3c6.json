@@ -1,0 +1,35 @@
+{
+  "experiment": "03_modern_perception_substitution",
+  "variant": "open_weight_detector_norm1000",
+  "seed": 3,
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "created_at": "2026-07-24T05:59:19.378747+00:00",
+  "latency_s": 1.7655515419901349,
+  "usage": {
+    "prompt_tokens": 183,
+    "completion_tokens": 52,
+    "total_tokens": 235,
+    "cost": 5.083e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.083e-05,
+      "upstream_inference_prompt_cost": 2.379e-05,
+      "upstream_inference_completions_cost": 2.704e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "request_sha256": "02f806dc67a3a7847efa907e0498c3b653e52821ab7d802118591e9d5ebba3c6",
+  "raw_response": "```json\n{\"coordinate_frame\":\"norm1000_top_left\",\"regions\":[{\"class\":\"water\",\"center_norm1000_xy\":[433, 605],\"radius_norm1000\":119}]}\n```"
+}
