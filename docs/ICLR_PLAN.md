@@ -2,7 +2,25 @@
 
 日期：2026-07-11
 
-状态：**ACTIVE — 覆盖 2026-06-29 的旧 ICLR plan**
+状态：**REVISED 2026-07-24 — marker waypoint mainline TERMINATED**
+
+## 2026-07-24 termination amendment
+
+五种子 marker/interface pilot 触发预声明 kill condition：marker-ID physical
+choice consistency 20%，candidate-order consistency 30%，P2 未优于 P0，且未
+观察到模型排名反转。因此 marker-based PointHazard VLM waypoint 不再是 ICLR
+主线，不得通过扩 seeds、改 prompt、重新编号或选择 candidate 数量来挽救。
+
+该 pilot 的 evidence class 为 `PILOT_ONLY / NOT PAPER RESULT`。下文仍保留
+原 protocol 和假设，作为历史决策与 regression 依据；凡涉及 marker ladder
+scale-up 的未完成项均由本 amendment 终止。新主线是：
+
+1. marker-free semantic geometry；
+2. detector/segmenter → shared geometry → fixed planner；
+3. capability-conditioned norm applicability；
+4. perception error × downstream enforcement；
+5. PointHazard 作为 causal unit test；
+6. Safety-Gymnasium 作为下一阶段主要验证环境。
 
 配套审查：[RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md)
 
@@ -18,7 +36,7 @@ pilot/debug，必须在当前 protocol 下重跑。
 
 ## 0. Executive decision
 
-暂停当前 PointHazard 单水区的 n≥100 paid scaling。
+正式终止 PointHazard marker waypoint scaling；所有 provider 实验继续暂停。
 
 现有“VLM 选语义 waypoint → MPC 执行”的系统路线不再作为论文方法贡献，因为 PIVOT、CoNVOI、Language as Cost、CORE 等工作已经覆盖候选选择、语义路径、VLM cost map 和安全过滤。一般 semantic-safety benchmark 也已被 VLSBench、HazardArena、SafeVLA-Bench、LIBERO-Safety 等工作显著挤压。
 

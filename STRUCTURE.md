@@ -2,6 +2,10 @@
 
 Last reviewed: 2026-07-24.
 
+Research mainline status: marker-based PointHazard VLM waypoint is
+`TERMINATED / PILOT_ONLY`. The active implementation surface is marker-free
+semantic geometry plus Safety-Gym capability twins.
+
 The repository keeps a small number of historical top-level modules in place
 because old scripts and factor snapshots import them directly. New
 protocol-facing work belongs in `envs/`, `evaluation/`, `tests/` and `docs/`.
@@ -25,6 +29,12 @@ not gain new dependencies, claims, or experiment results.
 | `evaluation/release_manifest.py` | `ACTIVE` | Fail-closed pilot release and dependency-lock audit |
 | `configs/pilot_release_manifest.json` | `ACTIVE/BLOCKED` | Machine-readable release state; provider calls disabled |
 | `evaluation/semantic_evaluator.py` | `ACTIVE` | Evaluator-only semantic accounting |
+| `evaluation/semantic_geometry.py` | `ACTIVE` | Shared marker-free geometry schema, transforms and adapters |
+| `evaluation/five_stage_audit.py` | `ACTIVE` | Five-stage scoring and multi-label failure taxonomy |
+| `evaluation/geometry_calibration.py` | `ACTIVE` | Detector decomposition metrics and calibration gates |
+| `evaluation/capability_twins.py` | `ACTIVE` | Capability/appearance twin contracts |
+| `scripts/run_semantic_geometry_audit.py` | `ACTIVE` | Unified no-provider audit runner, resume and manifests |
+| `scripts/run_next_five_experiments.py` | `TERMINATED/REGRESSION` | Cached historical replay only; explicit override required |
 | `mpc_expert.py` | `ACTIVE` | Shared empirical CEM-MPC executor |
 | `tests/` | `ACTIVE` | Offline acceptance and regression gates |
 
@@ -32,7 +42,7 @@ not gain new dependencies, claims, or experiment results.
 
 | Path | Status | Boundary |
 |---|---|---|
-| `envs/safety_gym_goal_adapter.py` | `INFRA/BLOCKED` | Native adapter is reusable; semantic expansion is not a current result |
+| `envs/safety_gym_goal_adapter.py` | `ACTIVE/INFRA` | Headless capability-twin harness; no Safety-Gym science result yet |
 | `env_pointpushhazard.py`, `pointpush_*` | `FROZEN` | Contact-task scaffold; no independent PointPush science line |
 | `safe_expert.py` | `FROZEN` | Historical A* + PD compatibility controller; not a current claim |
 | `zone_detector.py` | `ARCHIVED` | Renderer-palette sanity plumbing only; not a perception baseline |
@@ -85,7 +95,9 @@ direct/replay vertical slice, minimal-permission policy boundary, STC reduction,
 the offline structured-output/per-call artifact gate, and the P0–P4 local
 fixture request adapter. Registered semantic terrain, the P0–P4 offline VLM
 episode harness and the frozen 14-condition offline matrix are also complete.
-Detector integration and paid runs remain gated by the review registry and
+Cached detector geometry is now accepted by the shared contract, while
+segmentation masks and calibrated fixed-planner operating curves remain
+unrun/TBD. Paid runs remain gated by the review registry and
 `docs/CLAUDE_PLAN.md`; the
 blocked authorization record is `docs/PAID_RUN_RELEASE.md`; its machine-readable
 counterpart is `configs/pilot_release_manifest.json`.

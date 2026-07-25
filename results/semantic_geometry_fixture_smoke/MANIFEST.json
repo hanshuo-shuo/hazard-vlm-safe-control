@@ -1,0 +1,42 @@
+{
+  "schema_version": "semantic-geometry-audit-manifest-v1",
+  "generated_at": "2026-07-25T02:38:37.764365+00:00",
+  "config": {
+    "environment": "point_hazard",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "scene_family": "water",
+    "geometry_source": "fixture",
+    "applicability_source": "capability_rule",
+    "capability": "wheeled_non_waterproof",
+    "appearance_profile": "water-render-v1",
+    "planner": "fixed-planner-v1",
+    "split": "dev",
+    "cached_detector_results": null,
+    "geometry_arm": "detector_full_geometry",
+    "output": "results/semantic_geometry_fixture_smoke",
+    "dry_run": true,
+    "max_steps": 20,
+    "hard_radius_inflation": 0.25,
+    "soft_halo": 1.0,
+    "semantic_penalty": 35.0,
+    "collision_penalty": 1000.0,
+    "replanning_interval": 5,
+    "arrival_tolerance": 0.6
+  },
+  "config_hash": "a2d8248f65e3bfb49293ff1858e69a2c63f8d514a4098ad5ba1fbc05a60a454a",
+  "row_count": 5,
+  "failed_rows": [],
+  "resumed_rows": 0,
+  "duplicate_request_hashes": [],
+  "missing_artifact_audit": [],
+  "result_digest": "33bda7a26bb6c879298660b8d6d85f35de7dffec38e252c40732802ce4a024c7",
+  "provider_calls": 0,
+  "test_status": "PASSED",
+  "evidence_class": "INTEGRATION_EVIDENCE"
+}

@@ -11,6 +11,57 @@
 
 当前没有任何 semantic-safety 结果达到 VALIDATED。
 
+## Marker mainline termination
+
+- Decision: `TERMINATED`
+- Termination date: `2026-07-24`（pilot report generation date）
+- Evidence class: `PILOT_ONLY / NOT PAPER RESULT`
+- Reason: marker/candidate interface instability triggered the predeclared kill
+  condition.
+- Follow-up: no seed expansion, prompt rescue, marker renumbering, candidate
+  count selection, or paid rerun. Retain only as negative interface evidence,
+  regression, historical pilot and case study.
+
+### Five-pilot registry records
+
+All five records were produced on branch `safety`, commit
+`adcce013721ef7d9bc05893d54167950354f566e`, seeds `[0,1,2,3,4]`.
+Models are Gemini 2.5 Flash Lite and Qwen3-VL-30B-A3B-Instruct except experiment
+5, which has no model. Provider counts below describe requests represented in
+the evidence; the final replay execution had zero new provider calls.
+
+| Experiment ID | Requests | Tokens | Cost USD | Status | Kill condition | Artifact |
+|---|---:|---:|---:|---|---|---|
+| NF-01 core information audit | 70 | 34,438 | 0.005164 | `PILOT_ONLY` | supporting evidence: P2 not monotonic; no rank reversal | `results/next_five_experiments/01_core_information_audit/` |
+| NF-02 marker interface robustness | 70 | 35,856 | 0.005813 | `PILOT_ONLY / TERMINATED` | **TRIGGERED**: marker 20%, order 30% | `results/next_five_experiments/02_marker_interface_robustness/` |
+| NF-03 modern perception substitution | 10 | 3,611 | 0.000674 | `PILOT_ONLY` | not the marker kill test | `results/next_five_experiments/03_modern_perception_substitution/` |
+| NF-04 five-stage twins | 30 | 13,731 | 0.002333 | `PILOT_ONLY` | not the marker kill test | `results/next_five_experiments/04_five_stage_twins/` |
+| NF-05 second environment smoke | 0 | 0 | 0 | `INTEGRATION_EVIDENCE` | not applicable | `results/next_five_experiments/05_second_environment/` |
+
+Allowed claims:
+
+- NF-01: recognition-conditioned selected safety was a strong pilot signal;
+  P2 did not outperform P0; no model rank reversal was observed.
+- NF-02: marker/candidate interface was unstable and the kill condition fired.
+- NF-03: at one pilot operating point detector geometry traded completion for
+  fewer semantic violations; this does not establish detector superiority.
+- NF-04: capability applicability failed in the pilot and motivates, but does
+  not validate, five-stage attribution.
+- NF-05: the headless Safety-Gym adapter ran and preserved twin geometry/native
+  cost separation.
+
+Forbidden claims:
+
+- stable semantic spatial reasoning from marker results;
+- privilege monotonicity or cross-model/environment generalization;
+- detector superiority, a proven applicability bottleneck, or Safety-Gym
+  replication;
+- formal safety, ICLR-grade evidence, or any unrun calibration improvement.
+
+Follow-up action for NF-01/02 is termination and regression-only retention.
+NF-03/04 proceed only through cached marker-free geometry and capability audits.
+NF-05 proceeds as provider-free infrastructure until a new protocol is frozen.
+
 WP-2.0 状态边界：`PROTOCOL.md` 1.2.1 的 numeric/evaluator 语义保持冻结；
 1.2.2 只登记 M04 structured prompt amendment。本月不再增加 JSON lexical、
 binary64 或 serialization 细节，也不在 W2 实现完整标准解释器。所有付费 VLM/OpenRouter/API

@@ -66,6 +66,10 @@ FORBIDDEN_POLICY_FIELD_NAMES = frozenset(
         "collision_labels",
         "semantic_violation_labels",
         "simulator_master_coordinates",
+        "evaluator_truth",
+        "ground_truth",
+        "debug_metadata",
+        "serialized_truth",
     }
 )
 
@@ -77,7 +81,13 @@ class ProvenanceTag(str, Enum):
 
 
 def _freeze(value: Any, path: str) -> Any:
-    if value is None or isinstance(value, (str, bool, int)):
+    if isinstance(value, str):
+        lowered = value.lower()
+        serialized_markers = tuple(f'"{name}"' for name in FORBIDDEN_POLICY_FIELD_NAMES)
+        if any(marker in lowered for marker in serialized_markers):
+            raise PermissionError(f"{path} contains serialized evaluator-only data")
+        return value
+    if value is None or isinstance(value, (bool, int)):
         return value
     if isinstance(value, (float, np.floating)):
         number = float(value)

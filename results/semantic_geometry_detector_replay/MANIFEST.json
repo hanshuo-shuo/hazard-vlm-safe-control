@@ -1,0 +1,42 @@
+{
+  "schema_version": "semantic-geometry-audit-manifest-v1",
+  "generated_at": "2026-07-25T02:39:39.894531+00:00",
+  "config": {
+    "environment": "point_hazard",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "scene_family": "water",
+    "geometry_source": "detector",
+    "applicability_source": "capability_rule",
+    "capability": "wheeled_non_waterproof",
+    "appearance_profile": "water-render-v1",
+    "planner": "fixed-planner-v1",
+    "split": "dev",
+    "cached_detector_results": "results/next_five_experiments/03_modern_perception_substitution/results.json",
+    "geometry_arm": "detector_full_geometry",
+    "output": "results/semantic_geometry_detector_replay",
+    "dry_run": true,
+    "max_steps": 20,
+    "hard_radius_inflation": 0.25,
+    "soft_halo": 1.0,
+    "semantic_penalty": 35.0,
+    "collision_penalty": 1000.0,
+    "replanning_interval": 5,
+    "arrival_tolerance": 0.6
+  },
+  "config_hash": "a6e164e788a962609c41c72c1ff787f9a4d983d9c554f367996bd0ea4e0056ab",
+  "row_count": 5,
+  "failed_rows": [],
+  "resumed_rows": 0,
+  "duplicate_request_hashes": [],
+  "missing_artifact_audit": [],
+  "result_digest": "3f7023711fc28b21280496b5ea9e971a0df678503f444c20359465318ba767f7",
+  "provider_calls": 0,
+  "test_status": "PASSED",
+  "evidence_class": "INTEGRATION_EVIDENCE"
+}

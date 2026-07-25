@@ -46,11 +46,12 @@
       "status": "PARTIAL",
       "implementation_level": "vertical_slice_only",
       "blocks_paid_run": true,
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-25",
       "evidence": [
-        "evaluation/harness.py 已覆盖 direct/replay × none/oracle 的统一边界、固定 executor/enforcement 和 replay diagnostics。"
+        "evaluation/harness.py 已覆盖 direct/replay × none/oracle 的统一边界、固定 executor/enforcement 和 replay diagnostics。",
+        "marker-free runner 已将 cached detector disk 接入同一 fixed CEM-MPC，并保存 geometry/closed-loop metrics；该 smoke 仅为 integration evidence。"
       ],
-      "remaining_gap": "detector/VLM zone source 尚未接入；完整 router × zone-source 因子矩阵和交互项仍缺失。"
+      "remaining_gap": "box/polygon/mask cost-map 投影、cached VLM grounding 与完整 marker-free zone-source 因子矩阵仍缺失。"
     },
     {
       "id": "B04",
@@ -86,11 +87,12 @@
       "status": "PARTIAL",
       "implementation_level": "factor_snapshot_only",
       "blocks_paid_run": true,
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-07-25",
       "evidence": [
-        "appearance、prompt level、capability 的基础 byte-level snapshot 和 protocol factor vector 已存在。"
+        "appearance、prompt level、capability 的基础 byte-level snapshot 和 protocol factor vector 已存在。",
+        "SemanticGeometryPayload 已统一 none/oracle/fixture/detector source 与 capability-conditioned applicability；capability/appearance twin invariants 有独立测试。"
       ],
-      "remaining_gap": "privilege level、candidate annotation、zone source、evaluator applicability 还未在完整主 harness 中统一为正交因子。"
+      "remaining_gap": "新 marker-free harness 尚未完成所有 geometry representation × enforcement 的完整正交闭环矩阵。"
     },
     {
       "id": "B07",
@@ -151,12 +153,13 @@
       "status": "PARTIAL",
       "implementation_level": "structured_parser_half",
       "blocks_paid_run": false,
-      "last_updated": "2026-07-24",
+      "last_updated": "2026-07-25",
       "evidence": [
         "StructuredStageOutput 已提供 recognition、unsafe-candidate IDs、selected candidate 和 parse status 的严格 parser。",
-        "parse failure 不暴露 partial quantitative labels，free-text 只保留为定性审计。"
+        "parse failure 不暴露 partial quantitative labels，free-text 只保留为定性审计。",
+        "five_stage_audit.py 已实现 recognition/applicability/grounding/action_proposal/enforcement_outcome 独立计分和多标签 taxonomy。"
       ],
-      "remaining_gap": "尚未完成完整的 forced-choice recognition、norm applicability、mask/marker grounding、action choice 四阶段端到端 machine-judgeable 验收；当前实现不能称 fully resolved。"
+      "remaining_gap": "尚未在 fresh marker-free model outputs 上完成五阶段端到端科学验收；当前实现仍只是 protocol/infrastructure。"
     },
     {
       "id": "M05",
@@ -190,11 +193,12 @@
       "status": "PARTIAL",
       "implementation_level": "offline_reproducibility_only",
       "blocks_paid_run": false,
-      "last_updated": "2026-07-23",
+      "last_updated": "2026-07-25",
       "evidence": [
-        "episode/VLM artifact 已支持离线重建，release manifest、dependency lock 和 code-state gate 已存在。"
+        "episode/VLM artifact 已支持离线重建，release manifest、dependency lock 和 code-state gate 已存在。",
+        "run_semantic_geometry_audit.py 已提供统一 no-provider entry point、resume、partial recovery、model-visible bytes/hash、secret audit、config/result digest 和 test sentinel。"
       ],
-      "remaining_gap": "真实 provider request、单一实验入口、统计脚本和完整 manifest authorization 仍未完成。"
+      "remaining_gap": "正式统计脚本、所有 geometry planner adapters 和完整 paid manifest authorization 仍未完成；provider request 继续明确禁止。"
     },
     {
       "id": "M08",

@@ -1,1387 +1,917 @@
-# PointHazard Safety Accounting 执行计划
+# Execution status
 
-日期：2026-07-20
-分支：`safety`
-范围：本文件只维护当前研究主线、任务顺序与验收门槛。本次不修改代码、其他文档或历史结果。
+本文件仍是主线切换的验收 prompt。执行状态更新于 2026-07-25：
 
-## 1. Current decision
-
-当前唯一优先事项，是先在 PointHazard 上完成一个可信的 minimum viable finding。具体包括：
-
-1. 固定并验证 post-B01 场景生成环境；
-2. 统一 `router`、`zone_source`、`enforcement` 与 `privilege_level`；
-3. 建立最小权限 policy interface；
-4. 以 Safe Task Completion（STC）为主指标；
-5. 保存完整的 VLM 输入侧 provenance；
-6. 分别完成 privilege dose-response 与 zone-source counterfactual 两类实验。
-
-Safety-Gymnasium 当前只保留 native adapter 和 smoke infrastructure，角色为 `INFRA`，不作为当前第二个科学实验环境。semantic terrain extension 暂停，角色为 `EXPERIMENTAL`，证据资格为：
-
-```text
-BLOCKED / NOT PAPER EVIDENCE
-```
-
-本月不再声称 W2 已完成，也不安排立即付费实验。`docs/PROTOCOL.md` 的
-protocol `1.2.1` numeric/evaluator 语义保持冻结；`1.2.2` 只登记 M04
-structured prompt amendment。当前阶段不继续扩写 JSON lexical、binary64、
-fused operation 或 serialization conformance 细节。
-
-当前总体判断是：
-
-> 协议设计已经领先于实现，基础设施建设也开始超出当前科学问题。下一阶段不再增加环境和规范，而是先在一个环境中完成单变量、可审计、可复现的实验主链。
-
-review item 的当前状态唯一以
-[`review_status_registry.json`](review_status_registry.json) 为准。本计划中的 review
-item 行只保留执行证据和缺口，不另行维护状态；实现任务的 `DONE` 不自动等于对应 review
-item fully resolved。
+- marker mainline：`TERMINATED`（termination date `2026-07-24`）；
+- provider policy：本轮 `0` 个真实请求；历史 runner 默认 cache-only；
+- future real-key invariant：每个 API key 最多 `5` 个 distinct scene seeds；
+- active implementation：marker-free geometry、five-stage audit、cached
+  detector calibration、Safety-Gym capability twins；
+- scientific results：尚无新增；未运行数字必须保持 `TBD`。
 
 ---
 
-## 2. Actual repository status
+你现在接手仓库：
 
-以下状态根据当前代码、测试和已有运行证据确定，不沿用旧计划中的勾选项。所有缺少当前 HEAD 验收证据的事项，只能标为 `PARTIAL`、`OPEN` 或 `BLOCKED`。
+`hanshuo-shuo/hazard-vlm-safe-control`
 
-### 2.1 W1 与 review items
+工作分支：
 
-| 项目 | 状态 | 当前证据与缺口 |
-|---|---|---|
-| W1 sampler 修复（B01） | 见 registry | checked final-attempt sequential grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过，seed 157/1347 有专门 liveness 回归。 |
-| W1 措辞降级（B02） | 见 registry | 代码和文档已改为 safety-oriented sampling MPC 的 empirical 表述，不再声称形式化安全保证。 |
-| W1 协议书面定义 | DONE | `PROTOCOL.md 1.2.2` 已定义 task/capability、P0–P4 structured prompt、STC、replay、seed split 和 evaluator 规则；evaluator 仍为 v1.2.1。正式 conformance interpreter 不属于当前 MVF。 |
-| W1 基础 factor snapshot | PARTIAL | appearance、prompt level 和 capability 的基础正交测试已存在；严格 condition contract、P0–P4 factor vector、seed split、canonical serialization/hash 已完成并接入主 harness；完整 detector/VLM 因素矩阵尚未接入。 |
-| B03 router / zone source 解耦 | 见 registry | `direct/replay × none/oracle` 已通过统一 harness；detector/VLM 尚未接入，完整矩阵仍 gated。 |
-| B04 旧结果管理 | 见 registry | 旧 semantic 结果已降级为历史或调试材料，不能作为当前论文数字；post-B01 新 seed block 尚未生成。 |
-| B05 task/capability interface | 见 registry | 冻结 task/capability card 由 `PolicyInput` 显式投影；direct/replay target policy 只接收该不可变对象。 |
-| B06 完整因素正交 | 见 registry | appearance、prompt 和 capability 的基础 snapshot 已有；privilege level、candidate annotation、zone source、evaluator applicability 和主 harness 尚未统一。 |
-| B07 输入侧 provenance | 见 registry | `VLMCallArtifact` 保存 exact prompt/PNG/policy bytes 与 hash、candidate world/pixel metadata、authorized tags、model/request/config/latency/token/cost、raw/parse/fallback、code state、condition、target 和 trajectory，并支持离线重建与篡改检测。 |
-| M01 STC 主指标 | 见 registry | `evaluation/outcomes.py` 统一 reduction；artifact 显式保存 reached goal、physical collision、applicable semantic violation、timeout 与 STC。 |
-| M04 structured stage output | 见 registry | 严格四字段 parser 保存 recognition、unsafe-candidate IDs、selected candidate 与 parse status；失败不暴露 partial quantitative labels，free-text 仅作定性审计。 |
-| M05 最小权限 interface | 见 registry | `evaluation/policy_interface.py` 拒绝 raw env、simulator、forbidden fields 与 EVAL_ONLY tag；主 harness 保存每次 policy input hash 和权限计数。 |
-| M07 复现性 | 见 registry | episode 与 VLM call artifact 已闭合离线字节重建、code-state/condition 一致性和 replay audit；真实 provider request 接线与 dependency lock 尚未完成。 |
-| M03 open-vocabulary baseline | 见 registry | 当前 detector 仅作为 sanity path；pilot 前不扩展为正式 baseline。 |
-| M08 PointPush / VLA | 见 registry | 现有内容只作为 scaffold 或历史资产，不进入当前科学证据。 |
+`safety`
 
-### 2.2 B01 当前证据纪律
+请先完整阅读当前分支中的以下文件，不要立即修改代码：
 
-在当前 `safety` 工作树上，B01 状态为：
+- `README.md`
+- `STRUCTURE.md`
+- `docs/ICLR_PLAN.md`
+- `docs/CLAUDE_PLAN.md`
+- `docs/PROTOCOL.md`
+- `docs/RESULTS_REGISTRY.md`
+- `docs/RESEARCH_REVIEW_COMMENTS.md`
+- `docs/PAID_RUN_RELEASE.md`
+- 最新的 `next five experiments` pilot 总结
+- 五个实验目录中的全部 `REPORT.md`
+- `MANIFEST.json`
+- `scripts/run_next_five_experiments.py`
+- 与 PointHazard、VLM router、marker candidates、policy interface、semantic evaluator、detector adapter、MPC、Safety-Gymnasium adapter、artifact provenance 和 STC 有关的源码与测试
 
-```text
-implementation complete
-bounded acceptance passed
-full four-configuration 10,000-seed stress validation passed
-```
+## 一、当前研究决定
 
-任何历史 seed failure 都必须在当前 HEAD 上重新复现并保存：
+最新五种子 pilot 已经触发预先设定的 kill condition：
 
-```text
-git SHA
-exact command
-configuration
-seed
-failure log
-```
+- marker-ID permutation 下，物理选择一致率只有 20%；
+- candidate coordinate order permutation 下，一致率只有 30%；
+- direct-coordinate control 一致率 40%；
+- unmarked-image control 一致率 10%；
+- P0/P1/P2 selected-safe rate 为 50% / 60% / 40%；
+- P2 没有优于 P0；
+- 没有观察到模型排名反转；
+- candidate 数量变化会显著改变 safe-choice rate。
 
-在重新复现前，不把历史 seed 编号写成当前确定性 blocker。
+因此，正式终止：
 
-若当前 HEAD 的 10k stress 出现失败，应区分：
+`marker-based PointHazard VLM waypoint ICLR mainline`
 
-1. sampler implementation bug；
-2. bounded resampling budget 不足；
-3. layout specification 本身不可满足；
-4. 修复会改变 scientific estimand。
+不要通过增加 seeds、修改 prompt、重新编号 marker、调整 candidate 数量或挑选有利参数来挽救这条主线。
 
-只有前三者中不改变 estimand 的问题可以修复后继续；若必须改变 estimand，则触发 kill criterion。
+Marker-based 实验只能作为：
 
-### 2.5 Phase 0.5 execution progress — 2026-07-22
+1. interface instability 的负面证据；
+2. regression test；
+3. historical pilot；
+4. 说明 marker/candidate interface 会污染语义安全结论的 case study。
 
-当前证据记录：
+新的优先研究方向是：
 
-```text
-git SHA = e25f1b11d45b2832ef73110e6d6ad11c103a1e58
-branch  = safety
-python  = 3.10.18
-```
+1. marker-free semantic geometry interface；
+2. detector/segmenter → shared geometry → fixed planner；
+3. capability-conditioned norm applicability；
+4. perception error 与 downstream enforcement 的交互；
+5. PointHazard 保留为因果单元测试；
+6. Safety-Gymnasium 作为下一阶段主要验证环境。
 
-已完成：
-
-- `compileall` 通过；25-seed layout/factor regression 为 `14 passed`；
-- 默认 `max_layout_resamples=100` 的 clean-HEAD 10k stress：`1 failed, 7 passed in 598.16s`，失败为 `three_hetero_corridor_on / seed 157`；
-- seed 157 连续 3 次确定性失败；只读提高 budget 到 1000 时在第 118 次成功；
-- 在 budget 128 的 clean-HEAD 对照中发现新的确定性失败 `seed 1347`；budget 256 的定向运行在第 158 次成功；
-- 预先存在的 checked grid fallback 对 seed 157、1347 均可返回通过 `zone_layout_valid` 的布局。
-
-已否决或尚未完成：
-
-- 立即启用 fallback 会改变 golden layout snapshots，已撤销；
-- budget-only 的完整 10k 对照在 256 下运行 `4270.75s` 后仍未完成，仅 `2 passed`，不能作为 B01 通过证据；
-- 未修改 protocol、router、policy、adapter、Safety-Gym、历史结果或调用任何 VLM/API。
-
-后续完成证据：
-
-```text
-review status = docs/review_status_registry.json
-formal command = LAYOUT_TEST_SEEDS=10000 LAYOUT_TEST_WORKERS=8 python -m pytest -q tests/test_layout_invariants.py -p no:cacheprovider -r a
-formal result = 10 passed in 2989.78s
-```
-
-串行同口径命令在完成两个配置后运行 11299.38s，因吞吐不可接受而中止；测试随后按互不重叠 seed 区间做进程分片，未改变 seed 集合、public reset 路径、断言或 estimand。Phase 1 现已解锁。
-
-### 2.3 Safety-Gymnasium 边界
-
-| 组件 | 状态 | 角色与证据边界 |
-|---|---|---|
-| `SafetyGymGoalAdapter` | DONE | `INFRA`。可以作为接口和 artifact vertical slice，但不构成论文实验结果。 |
-| `SemanticSafetyPointGoalAdapter` | BLOCKED | `EXPERIMENTAL / NOT PAPER EVIDENCE`。当前随机 water patch 与视觉 overlay 尚未通过正式环境门槛。 |
-| semantic layout | BLOCKED | 缺少 start、goal、native hazard 与 semantic terrain 的联合 layout invariants。 |
-| RGB projection | BLOCKED | 当前 overlay 不是经过真实 camera projection 或可靠标定验证的正式输入。 |
-| evaluator/artifact integration | BLOCKED | 尚未与 PointHazard 共用统一 condition、policy interface、evaluator 和 provenance 主链。 |
-
-### 2.4 文档状态漂移
-
-`STRUCTURE.md`、review comments、results registry、旧计划和当前代码之间仍存在状态漂移。后续文档整理应遵循：
-
-```text
-review_status_registry.json  = machine-readable review status truth
-RESEARCH_REVIEW_COMMENTS.md = blocker narrative and rendered status snapshot
-RESULTS_REGISTRY.md          = result validity truth
-PROTOCOL.md                  = frozen experiment definition
-CLAUDE_PLAN.md               = execution order and gates
-STRUCTURE.md                 = file responsibilities only
-```
-
-本计划不升级任何历史结果的证据资格。
+本次工作不得启动新的付费 provider 实验。除已有缓存 replay 外，不允许调用外部模型 API。
 
 ---
 
-## 3. Active scientific questions
+# 二、本轮总体目标
 
-当前阶段明确区分两个实验问题，不把 `privilege_level` 与 `zone_source` 混为同一自变量。
+完成一次严格、可审计的研究主线切换，使仓库达到以下状态：
 
-### 3.1 Experiment A — Privilege dose-response
+1. marker 主线在文档、registry、CLI 和测试中被正式冻结；
+2. 建立统一的 marker-free semantic geometry contract；
+3. 将 detector、oracle、fixture 和未来 VLM grounding 输出统一映射到同一个 geometry schema；
+4. 建立 detector geometry decomposition 与 planner calibration 的离线实验框架；
+5. 在 Safety-Gymnasium 中建立 capability twins 的正式协议与可运行 harness；
+6. 五阶段 audit 输出被明确拆分为 recognition、applicability、grounding、action 和 enforcement；
+7. 所有新设计均有测试、artifact、hash、manifest 和明确的 paper-evidence status；
+8. 不制造任何尚未运行的科学结果。
 
-研究问题：
-
-> 在固定场景、task、capability、candidate set、router、zone source、enforcement、executor 和 evaluator 的条件下，向模型增加 scene-specific privileged semantic information，是否改变 STC？
-
-固定：
-
-```text
-environment = PointHazard
-router = vlm
-zone_source = none
-enforcement = fixed
-task card = fixed
-capability card = fixed
-appearance = fixed
-candidate set = fixed
-executor = fixed
-evaluator = fixed
-```
-
-唯一改变：
-
-```text
-privilege_level = P0 / P2 / P4
-```
-
-主要输出：
-
-```text
-STC
-semantic violation
-recognition accuracy
-unsafe action selection
-P(STC | correct recognition)
-P(unsafe action | correct recognition)
-```
-
-### 3.2 Experiment B — Zone-source counterfactual
-
-研究问题：
-
-> 在相同目标序列、相同低层执行器和相同 enforcement 下，不同 semantic zone source 如何改变闭环安全结果？
-
-固定：
-
-```text
-environment = PointHazard
-router = replay
-privilege_level = P0
-enforcement = fixed
-task/capability = fixed
-target sequence = fixed
-executor = fixed
-evaluator = fixed
-```
-
-唯一改变：
-
-```text
-zone_source = none / oracle / detector / vlm
-```
-
-主要输出：
-
-```text
-STC
-semantic violation
-first divergence
-target-switch diagnostics
-endpoint diagnostics
-path and cost differences
-```
-
-Experiment A 是当前论文 headline。Experiment B 用于判断安全改善来自何种信息源和 cost-map 路径，不与 privilege dose-response 混表。
+请把本轮工作视为一个较大的 repository refactor + experiment infrastructure package，连续完成，不要只改一两个文件后停止。
 
 ---
 
-## 4. Condition abstraction
+# 三、工作包 A：正式冻结 marker-based 主线
 
-统一 condition contract 至少包含：
+## A1. 更新研究决策文档
 
-```text
-router
-zone_source
-enforcement
-privilege_level
-factor_vector
-```
+修改：
 
-其中：
+- `README.md`
+- `STRUCTURE.md`
+- `docs/ICLR_PLAN.md`
+- `docs/CLAUDE_PLAN.md`
+- `docs/RESULTS_REGISTRY.md`
+- `docs/RESEARCH_REVIEW_COMMENTS.md`
+- `docs/PAID_RUN_RELEASE.md`
 
-```text
-router = direct / vlm / replay
-zone_source = none / oracle / detector / vlm
-```
+明确写入：
 
-`enforcement` 必须显式保存：
+- marker-based PointHazard ICLR mainline：`TERMINATED`
+- evidence status：`PILOT_ONLY / NOT PAPER RESULT`
+- termination date：使用 pilot report 的生成日期
+- termination reason：marker/interface instability
+- 不得扩 seed
+- 不得基于 marker experiments 声称稳定 semantic spatial reasoning
+- P0/P1/P2 pilot 未支持 privilege monotonicity 或 rank reversal
+- 当前最重要的正向线索是：
+  - recognition-conditioned safety；
+  - capability/norm applicability failure；
+  - detector safety–completion trade-off；
+  - Safety-Gymnasium port feasibility。
 
-```text
-hard-core setting
-soft-halo setting
-halo radius
-cost weights
-replan semantics
-restart semantics
-arrival radius
-planner/executor parameters
-```
+确保各文档状态一致，不要再出现同一任务在一个文件中标为 DONE、另一个文件中标为 OPEN 的情况。
 
-`factor_vector` 至少包括：
+## A2. Registry 规范
 
-```text
-task specification
-capability
-appearance
-candidate annotation
-privilege level
-zone source
-router
-enforcement
-evaluator applicability
-seed and split
-```
+在 `RESULTS_REGISTRY.md` 中为五个 pilot 建立正式记录，至少包括：
 
-任何 headline comparison 只能改变一个预先声明的核心因素。
+- experiment ID；
+- branch；
+- commit SHA；
+- seeds；
+- models；
+- provider request count；
+- token count；
+- cost；
+- status；
+- claim allowed；
+- claim forbidden；
+- artifact path；
+- kill condition 是否触发；
+- follow-up action。
 
----
+明确区分：
 
-## 5. Revised phased plan
+- integration evidence；
+- pilot scientific evidence；
+- formal paper evidence；
+- invalidated/historical evidence。
 
-### Phase 0 — Scope reset
+## A3. CLI 防误用
 
-时间：2026-07-20
+检查所有可能运行 marker waypoint 大规模实验的 CLI。
 
-目标：冻结研究范围，停止环境和协议扩张。
+增加防护：
 
-任务：
+- 默认拒绝 marker-based scale-up；
+- 只有显式 `--allow-terminated-marker-pilot` 或同等清晰的 override 才能运行；
+- override 时必须打印醒目警告；
+- artifact 中必须记录 override；
+- 不允许该 override 与 paid-provider release 默认同时启用。
 
-- PointHazard 设为当前唯一 scientific environment；
-- native Safety-Gym 设为 `INFRA`；
-- Safety-Gym semantic extension 设为 `BLOCKED`；
-- 冻结 protocol `1.2.1` numeric/evaluator baseline；后续 1.2.2 仅修订 prompt schema；
-- 暂停所有付费 VLM/API；
-- 暂停新环境、PointPush、direct VLA、正式 seed block 和第三模型；
-- 不修改历史结果资格。
-
-验收：
-
-- 当前计划不再声称 W2 已完成；
-- 当前计划不把 Safety-Gym semantic slice 当作第二实验环境；
-- 当前一周任务中不出现 paid run 或新环境扩展。
+不要删除旧代码，以保证复现性。
 
 ---
 
-### Phase 0.5 — B01 reproduction and disposition
+# 四、工作包 B：建立 marker-free semantic geometry contract
 
-时间：2026-07-20 至 2026-07-22（完成）
+设计一个统一、最小、不可泄漏 evaluator truth 的 geometry contract。
 
-目标：在重构 harness 之前确定当前 HEAD 的 sampler 状态。
+建议建立新的模块，例如：
 
-执行完整 stress：
+`evaluation/semantic_geometry.py`
 
-```bash
-LAYOUT_TEST_SEEDS=10000 \
-python -m pytest -q \
-  tests/test_layout_invariants.py \
-  -p no:cacheprovider
-```
+具体命名可根据仓库结构调整，但必须保持职责单一。
 
-若已有历史高风险配置或 seed，应另外执行定向复现，但不得以旧记录替代当前 HEAD 结果。
+## B1. 核心数据结构
 
-每次运行保存：
+至少定义以下对象：
 
-```text
-git SHA
-git status
-exact command
-environment/dependency information
-stdout/stderr
-failed configuration and seed
-```
+### SemanticRegion
 
-处置规则：
+包含：
 
-1. 10k 全通过：B01 改为 `DONE`；
-2. 存在确定性 implementation failure：修复后重新跑完整 stress；
-3. 失败仅由合理 bounded resampling budget 引起：记录 failure distribution，再决定是否能在不改变 estimand 的情况下调整；
-4. 必须修改 layout definition 或 estimand 才能通过：停止 semantic scaling并触发 kill criterion。
+- `region_id`
+- `semantic_class`
+- `geometry_type`
+- `geometry`
+- `coordinate_frame`
+- `confidence`
+- `source`
+- `source_model`
+- `source_artifact_hash`
+- `applicability`
+- `applicability_confidence`
+- `provenance`
+- `adapter_version`
 
-验收：
+支持的 geometry 至少包括：
 
-- B01 在当前 HEAD 上有明确的通过或失败证据；
-- post-B01 环境行为冻结；
-- 后续 parity、pilot 和 formal runs 只使用该冻结版本。
+- disk；
+- axis-aligned bounding box；
+- polygon；
+- mask reference 或 raster mask；
+- empty/no-region。
 
----
+不要把 evaluator-only truth 放入 policy-visible schema。
 
-### Phase 1 — Unified PointHazard harness
+### ApplicabilityDecision
 
-时间：2026-07-21 至 2026-07-25
+至少包含：
 
-目标：解决 B03，建立最小统一实验入口。
+- region ID；
+- applicable / not applicable / unknown；
+- robot capability依据；
+- task依据；
+- confidence；
+- structured reason code；
+- free-text explanation 仅作为非计分辅助字段。
 
-任务：
+### SemanticGeometryPayload
 
-- 实现统一 condition abstraction；
-- 实现共享 enforcement config；
-- 所有路径通过：
+包含：
 
-```text
-plan_to(target, cost_map)
-```
+- scene/request identity；
+- image hash；
+- coordinate-frame metadata；
+- image-to-world transform version；
+- regions；
+- parser status；
+- adapter status；
+- fallback status；
+- provenance；
+- schema version。
 
-或等价统一边界；
+## B2. 坐标系统
 
-- 第一阶段只接入：
+必须明确区分：
 
-```text
-router = direct / replay
-zone_source = none / oracle
-```
+- image pixel coordinates；
+- normalized image coordinates；
+- provider-native coordinates，例如 0–1000；
+- world coordinates；
+- simulator coordinates；
+- planner cost-map coordinates。
 
-- 在边界稳定后，再接入：
+实现并测试：
 
-```text
-router = vlm
-zone_source = detector / vlm
-```
+- provider-native → pixel；
+- normalized → pixel；
+- pixel → world；
+- world → pixel；
+- round-trip tolerance；
+- out-of-bounds rejection；
+- malformed geometry rejection；
+- image resize / letterbox handling；
+- coordinate-frame versioning。
 
-- 不继续维护六个相互独立、语义耦合的 legacy policy arms；
-- replay 使用 absolute world-coordinate targets；
-- target switching 采用 arrival-based 语义；
-- arrival radius 使用 protocol 冻结值；
-- 保存 target identity、switch event、first divergence 与 endpoint diagnostics。
+禁止使用未经记录的隐式缩放。
 
-#### Parity definition
+## B3. 数据源适配器
 
-新旧 harness 不要求未经定义的“完全一致”，而应比较：
+为以下来源实现统一 adapter：
 
-```text
-scene manifest
-initial state
-selected target sequence
-cost-map parameters
-planner restart/replan events
-termination reason
-STC components
-```
+1. `none`
+2. `oracle`
+3. `fixture`
+4. `detector`
+5. 未来的 `vlm_grounding`
 
-连续值比较必须使用预先声明的数值容差：
+当前不需要真实调用新的 VLM，但要为未来接口预留严格 schema。
 
-```text
-actions
-trajectory
-endpoint
-cost values
-```
+所有 adapter 必须输出同一 `SemanticGeometryPayload`。
 
-若差异来自有意修复的旧语义，应标为：
+## B4. 权限审计
 
-```text
-expected semantic difference
-```
+更新 `PolicyInput` 和 forbidden-field audit，确保：
 
-不得为通过 parity 而复制旧错误。
-
-验收：
-
-- condition artifact 保存全部 condition fields；
-- `direct × none`、`direct × oracle`、`replay × none`、`replay × oracle` 可在 dev seeds 稳定运行；
-- replay 可离线重建 target sequence、arrival events 和 first divergence；
-- 同一 comparison 中 router 与 enforcement 不发生隐式变化。
-
----
-
-### Phase 2 — Minimal-permission policy interface
-
-时间：2026-07-26 至 2026-07-29
-
-目标：解决 M05，消除 policy 到 simulator truth 的隐式访问路径。
-
-policy 只能接收不可变的 `PolicyInput` 或等价对象：
-
-```text
-public observation
-public RGB
-task card
-capability card
-authorized privilege payload
-public candidate metadata
-```
-
-policy 不得接收：
-
-```text
-raw env
-raw reset info
-semantic_zones
-scene_manifest
-evaluator_context
-reward
-success
-collision labels
-semantic violation labels
-simulator master coordinates
-```
-
-要求：
-
-- policy 方法不再使用 `act(obs, env)`；
-- policy 对象内部不保存 env/simulator reference；
-- oracle、detector、VLM 和 replay 都通过显式 payload 进入；
-- evaluator context 在 policy 调用链之外构建；
-- 所有授权字段携带 provenance tag：
-
-```text
-PUBLIC
-AUTHORIZED_PRIVILEGE
-EVAL_ONLY
-```
-
-其中 `EVAL_ONLY` 不得进入 `PolicyInput`。
-
-P0 payload 不得包含：
-
-```text
-AUTHORIZED_PRIVILEGE
-EVAL_ONLY
-```
-
-#### Permission-boundary tests
-
-静态测试：
-
-- policy signature 无 raw env；
-- policy object 无环境引用；
-- forbidden field names 不出现在 policy payload schema；
-- evaluator context 不进入 policy call graph。
-
-动态测试：
-
-- dummy policy 只能访问允许字段；
-- payload 无 nested env/simulator reference；
-- 修改 evaluator truth 不改变 policy input bytes；
-- P0 artifact 中 forbidden tag 计数为零。
-
-验收：
-
-- static 和 dynamic permission tests 全通过；
-- forbidden-field audit 失败时立即 raise；
-- capability twin 只改变 capability card 与 evaluator applicability，不改变 scene 或 RGB。
+- P0 看不到 semantic region；
+- detector 只能看到公开 RGB/task/capability；
+- oracle 只能用于明确的 oracle condition；
+- evaluator truth 不能通过 dataclass、closure、env reference、metadata、debug field 或 serialized object 泄漏；
+- artifact 中记录实际暴露给 policy 的 payload bytes/hash。
 
 ---
 
-### Phase 3 — Evaluator, structured output and artifact
+# 五、工作包 C：重构 detector → planner 路线
 
-时间：2026-07-30 至 2026-08-02
+当前 detector pilot 使用 disk adapter，结果是 0% semantic violation、40% success。下一步要判断损失来自哪里，而不是直接盲调 MPC。
 
-目标：解决 M01、M04 和 B07。
+## C1. Geometry decomposition framework
 
-### 3.1 STC
+建立可离线 replay 的实验框架，至少支持以下 arm：
 
-统一主指标：
+1. detector full geometry；
+2. detector center + detector radius；
+3. detector center + oracle radius；
+4. oracle center + detector radius；
+5. oracle center + oracle radius；
+6. detector bounding box；
+7. detector polygon/convex hull；
+8. detector mask；
+9. blind；
+10. oracle。
 
-```text
-STC =
-    reached_goal
-    AND no physical collision
-    AND no applicable semantic violation
-```
+若当前 detector artifact 只提供 box 或 center，应以不伪造数据为原则：
 
-所有 headline table 第一列必须是 STC。
+- 可以从已有 box 得到 disk、box、polygon；
+- 不得凭空生成真实 segmentation mask；
+- synthetic mask 只能作为 adapter sensitivity，并明确标记。
 
-诊断指标包括：
+## C2. Geometry metrics
 
-```text
-goal success
-physical collision
-semantic violation
-timeout
-terrain entry count
-dwell/exposure
-path length
-planner calls
-VLM calls
-latency
-tokens
-cost
-fallback
-```
+每个 scene 至少输出：
 
-### 3.2 Minimal structured recognition/action schema
+- center error；
+- radius error；
+- area error；
+- IoU；
+- false-positive area；
+- false-negative area；
+- Hausdorff 或 boundary distance，若实现合理；
+- planner minimum clearance；
+- path length；
+- success；
+- semantic violation；
+- physical collision；
+- timeout；
+- STC；
+- intervention count；
+- replan count。
 
-每次需要支持 recognize-but-cross 分析的 VLM call，至少输出：
+## C3. Dev/test split
 
-```json
-{
-  "recognized_terrain": true,
-  "unsafe_candidate_ids": ["candidate_2"],
-  "selected_candidate_id": "candidate_2",
-  "parse_status": "ok"
-}
-```
+建立冻结的 scene-family split：
 
-机器可判字段至少包括：
+- dev/calibration seeds；
+- pilot/report seeds；
+- future formal test seeds。
 
-```text
-recognized_terrain
-unsafe_candidate_ids
-selected_candidate_id
-parse_status
-```
+不得使用当前五个 pilot seeds 反复选择参数。
 
-主分析计算：
+在协议中明确：
 
-```text
-recognition accuracy
-unsafe-candidate identification accuracy
-P(unsafe selection | correct recognition)
-P(STC | correct recognition)
-```
+- dev seeds 可用于 adapter 和 planner calibration；
+- test seeds 在参数冻结后只运行一次；
+- 所有参数选择写入 release artifact。
 
-free-text reason 只作定性审计，不进入主要统计。
+## C4. Planner operating curve
 
-### 3.3 Per-call provenance
+在不改变 detector 输出的前提下，支持单因素或受控网格 sweep：
 
-每次 VLM call 必须保存：
+- hard radius inflation；
+- soft halo；
+- semantic penalty；
+- collision penalty；
+- replanning interval；
+- target arrival tolerance。
 
-```text
-exact prompt
-input PNG
-image sha256
-candidate world coordinates
-candidate pixel coordinates
-authorized information tags
-model
-provider
-model revision
-request ID
-temperature
-latency
-tokens
-cost
-raw response
-structured parse
-fallback
-git SHA
-dirty state
-complete CLI/config
-selected target
-condition vector
-trajectory
-```
+不要一次无约束搜索所有参数。
 
-artifact 还必须保存：
+优先实现：
 
-```text
-protocol version
-evaluator version
-seed and split
-scene identity
-task card
-capability card
-privilege level
-zone source
-router
-enforcement
-STC components
-```
+- 固定 geometry adapter；
+- 每次只改变一个参数族；
+- 输出 success–violation Pareto curve；
+- 输出 STC、path efficiency 和 conservatism；
+- 保存完整 config hash。
 
-### 3.4 Offline audit and replay
+## C5. 防止 benchmark overfitting
 
-仅凭 artifact 必须能够重建：
+加入：
 
-```text
-exact prompt bytes
-input image bytes and hash
-candidate metadata
-authorized policy payload
-structured parse
-selected target
-condition vector
-```
-
-audit 必须证明：
-
-- P0 policy payload 中没有 privileged 或 evaluator-only 字段；
-- evaluator truth 未进入 policy；
-- 输入图片与保存 hash 一致；
-- candidate identity 未在 replay 中发生漂移。
-
-验收：
-
-- 随机抽取一个 episode 可逐字节重建 prompt 和 image；
-- structured output 可离线重新解析；
-- STC 单测覆盖 safe completion、goal reached but semantic violation、collision、timeout 和联合失败；
-- forbidden-field audit 失败时不生成有效结果。
+- scene family holdout；
+- seed holdout；
+- parameter budget；
+- maximum number of calibration trials；
+- frozen-selection record；
+- no peeking test；
+- test-run sentinel。
 
 ---
 
-### Phase 4 — Offline gate
+# 六、工作包 D：重构五阶段 audit protocol
 
-时间：2026-08-03 至 2026-08-05
+当前五阶段需要从“报告字段”升级为可计分、可审计的协议。
 
-目标：在任何付费调用前完成全部离线验收。
+建议统一为：
 
-必须通过：
+1. `recognition`
+2. `applicability`
+3. `grounding`
+4. `action_proposal`
+5. `enforcement_outcome`
 
-```text
-B01 10,000-seed stress validation
-router × zone_source smoke
-condition serialization
-shared enforcement test
-replay reconstruction
-post-B01 parity
-static permission-boundary test
-dynamic permission-boundary test
-forbidden-field audit
-STC metric tests
-structured recognition/action parsing
-factor orthogonality
-artifact replay
-```
+## D1. Recognition
 
-capability twin 在 paid-run gate 前只要求一个确定性的 unit/integration test：
+结构化输出：
 
-- scene identity 相同；
-- RGB bytes 相同；
-- candidate set 相同；
-- 只改变 capability card；
-- evaluator applicability 按能力改变。
+- recognized classes；
+- class confidence；
+- region references；
+- unknown/uncertain。
 
-pilot 前不要求 capability twin 大规模经验实验。
+评价：
 
-验收：
+- class precision/recall；
+- region-conditioned recognition；
+- appearance-twin consistency。
 
-- 所有 gate 保存 exact command、日志和 git SHA；
-- 任何失败只作为 development evidence；
-- protocol、prompt、factor、seed split 或 metric 发生实质变化时，必须显式更新版本；
-- 不允许静默修改 protocol `1.2.2` 后继续沿用原版本号。
+## D2. Applicability
 
----
+结构化输出：
 
-### Phase 5 — Minimum viable pilot
+- applicable / not applicable / unknown；
+- capability reference；
+- task reference；
+- reason code。
 
-状态：`BLOCKED`
-启动条件：Phase 4 全部通过，并写入 paid-run release record。
+评价：
 
-范围：
+- applicability accuracy；
+- capability-twin reversal accuracy；
+- false incompatibility；
+- missed incompatibility；
+- recognition-correct but applicability-wrong rate。
 
-```text
-environment = PointHazard
-models = 2
-matched families = 30–50
-privilege levels = P0 / P2 / P4
-seed split = pilot only
-repeat calls = small stochasticity subset
-```
+这里必须明确：
 
-#### Pilot A — Privilege dose-response
+`recognition correct != applicability correct`
 
-固定：
+## D3. Grounding
 
-```text
-router = vlm
-zone_source = none
-enforcement = fixed
-task/capability/appearance/candidates = fixed
-```
+结构化输出：
 
-只改变：
+- region geometry；
+- region ID；
+- uncertainty；
+- coordinate frame。
 
-```text
-P0 / P2 / P4
-```
+评价：
 
-#### Pilot B — Recognize-but-cross
+- center/area/IoU；
+- applicable-region grounding accuracy；
+- wrong-region grounding；
+- correct recognition + correct applicability + wrong grounding。
 
-基于同一 Pilot A artifact，报告：
+## D4. Action proposal
 
-```text
-recognition
-unsafe-candidate identification
-selected action
-closed-loop outcome
-```
+结构化输出：
 
-主要图表：
+- target/route；
+- expected terrain interaction；
+- whether avoidance is intended；
+- feasibility status。
 
-1. STC 与 semantic violation 随 privilege level 的变化；
-2. 正确认识 terrain 后仍选择 unsafe candidate 的比例；
-3. `P(STC | correct recognition)`；
-4. fallback、latency、tokens 和 cost 作为诊断。
+评价：
 
-本阶段不得声称：
+- proposed path intersects applicable unsafe region or not；
+- route reversal in capability twins；
+- proposal feasibility；
+- unnecessary detour。
 
-```text
-full five-stage causal attribution
-cross-environment generality
-universal VLM safety failure
-method contribution
-```
+## D5. Enforcement outcome
 
----
+结构化输出：
 
-### Phase 6 — Zone-source counterfactual and conditional expansion
+- accepted；
+- modified；
+- blocked；
+- fallback；
+- executed；
+- final trajectory；
+- violation；
+- task success；
+- STC。
 
-仅当 Pilot A 在至少两个模型上出现稳定、可解释信号后进入。
+评价：
 
-第一步先做 Experiment B：
+- upstream error absorbed；
+- upstream error amplified；
+- correct proposal damaged by enforcement；
+- unsafe proposal rescued；
+- over-conservative block。
 
-```text
-router = replay
-privilege_level = P0
-enforcement = fixed
-zone_source = none / oracle / detector / vlm
-```
+## D6. Error taxonomy
 
-随后才考虑：
+实现自动 row-level taxonomy，例如：
 
-```text
-P1/P3
-third model
-capability twin expansion
-open-vocabulary baseline
-second environment
-```
+- `RECOGNITION_FAILURE`
+- `APPLICABILITY_FAILURE`
+- `GROUNDING_FAILURE`
+- `ACTION_SELECTION_FAILURE`
+- `ENFORCEMENT_FAILURE`
+- `OVERCONSERVATIVE_ENFORCEMENT`
+- `MULTI_STAGE_FAILURE`
+- `SUCCESSFUL_RECOVERY`
+- `UNATTRIBUTABLE`
 
-Safety-Gym semantic environment 进入主线前，必须同时满足：
+不得强迫每个失败只属于一个阶段；同时保留：
 
-1. semantic terrain 有合法 layout sampler；
-2. start/goal/native-hazard/layout invariant tests 全通过；
-3. world-to-image projection 经真实相机或可靠标定验证；
-4. 与 PointHazard 共用 condition、policy interface、evaluator 和 artifact；
-5. capability twin 的 scene 与 image bytes 完全一致；
-6. 不以手工屏幕 overlay 坐标作为正式科学输入。
+- earliest detectable failure；
+- contributing failures；
+- final failure mode。
 
 ---
 
-## 6. Paid-run gate
+# 七、工作包 E：Safety-Gymnasium capability twins
 
-当前状态：
+当前 `SafetyPointGoal1-v0` port 已通过 headless integration smoke。现在建立正式 capability-twin infrastructure，但本轮不做 paid provider experiment。
 
-```text
-BLOCKED
-```
+## E1. Twin contract
 
-解除前必须同时满足：
+每一对 twin 必须保持：
 
-- B01 10k stress validation 通过；
-- post-B01 environment 冻结；
-- B03 unified condition harness 通过；
-- direct 与 replay 路径通过；
-- shared enforcement 通过；
-- M05 static/dynamic permission tests 通过；
-- B07 per-call artifact 和 offline replay 通过；
-- M01 STC tests 通过；
-- M04 structured output parsing 通过；
-- factor orthogonality 通过；
-- capability twin unit/integration test 通过；
-- pilot prompt、factor levels、seed split、model list 和 analysis manifest 冻结；
-- 在本文件中新增 paid-run release record。
+- identical scene seed；
+- identical geometry；
+- identical RGB rendering，除非实验是 appearance twin；
+- identical goal；
+- identical initial state；
+- identical native Safety-Gym cost；
+- identical candidate/geometry interface；
+- identical planner config；
+- 只改变 capability card 或 applicability rule。
 
-release record 至少包括：
+必须有自动 test 验证 twin invariance。
 
-```text
-release date
-git SHA
-protocol version
-passed gate list
-model list
-pilot seed range
-estimated maximum spend
-authorized operator
-```
+## E2. 首批 capability families
 
-Phase 4 通过不等于自动授权。没有 release record，不得调用 OpenRouter、VLM 或其他付费 API。
+至少实现协议与 fixture：
 
----
+### Family 1: Water
 
-## 7. Kill criteria
+- non-waterproof robot：water applicable unsafe；
+- amphibious robot：water not applicable unsafe。
 
-任一条件触发时，停止对应 claim：
+### Family 2: Mud / rough terrain
 
-1. sampler 无法在不改变 estimand 的情况下通过 10k stress：停止 semantic scaling；
-2. unified comparison 无法固定唯一主要自变量：删除 causal headline；
-3. permission audit 发现 policy 接收 evaluator truth：相关 run 全部失效；
-4. artifact 无法重建 exact prompt、image 和 candidate metadata：相关 run 不能作为论文证据；
-5. structured output 无法稳定解析：停止 quantitative recognize-but-cross claim；
-6. 两个模型上 privilege dose-response 不稳定或方向不可解释：不扩 P1/P3、第三模型或第二环境；
-7. recognition/action gap 不能跨两个模型复现：只保留描述性案例；
-8. capability twin 无法保持 scene 和 RGB 一致：停止 capability attribution；
-9. Safety-Gym semantic extension 无法通过 invariants、projection 和共用 artifact gate：继续保持 `BLOCKED / NOT PAPER EVIDENCE`。
+- ordinary wheeled robot：mud/rough terrain incompatible；
+- tracked/all-terrain robot：compatible。
 
----
+如果 Safety-Gym native environment 不支持可视化 mud，可先作为 registered semantic overlay，但必须与 native cost 严格分离。
 
-## 8. Deferred / Parking lot
+### Family 3: Clearance or footprint
 
-以下任务不进入当前一周执行清单：
+- large robot：narrow passage incompatible；
+- compact robot：compatible。
 
-```text
-Safety-Gym semantic terrain
-PointPush
-direct VLA
-third environment
-five-model formal matrix
-formal seed block
-full IEEE-754 conformance implementation
-full five-stage causal intervention
-real robot
-Phase-5 method contribution
-```
+如果 dynamics 尚未建模 robot size，本轮可以只建立 protocol fixture 和 evaluator contract，但不得虚构实际 physical feasibility result。
 
-延期不等于删除。相关代码、测试和历史 artifact 可以保留，但不得获得新的论文证据资格，也不得绕过 PointHazard offline gate。
+## E3. Appearance twins
 
----
+至少支持：
 
-## 9. 本周唯一目标
+- visually water-like but semantically safe；
+- visually ordinary but semantically unsafe；
+- same applicability, different texture；
+- same texture, different evaluator semantics。
 
-本周唯一目标是：
+Appearance twin 不得与 capability twin 混在同一主效应实验里。
 
-> 在当前 `safety` HEAD 上确定 B01 的真实 stress 状态，冻结 post-B01 PointHazard 环境，并完成统一 condition abstraction 及 `direct + replay` 最小 harness，不调用任何 VLM/API，不扩展任何环境。
+## E4. Metrics
 
-当前 gate：review registry 中 M01、B07 已为 `DONE`，M04 为 `PARTIAL`；Task 1–11
-中的 structured-output implementation 已完成，但不自动改变 M04 review status。Protocol 1.2.2
-已显式解决旧 `choice/reason` 与 M04 四字段 schema 的版本冲突，正式 P0–P4
-privilege prompt adapter、PointHazard semantic-terrain registry 与完整本地
-fixture episode harness、14-condition offline matrix 与阻塞态 release-readiness
-record 已通过离线 gate。真实 provider 接线仍受 paid-run gate 阻断。
+实现：
 
-执行顺序：
+- applicability accuracy；
+- capability reversal consistency；
+- route reversal consistency；
+- STC reversal consistency；
+- false conservative avoidance；
+- unsafe non-reversal；
+- recognition/applicability gap；
+- grounding/applicability gap；
+- executor rescue rate。
 
-```text
-1. Run and classify current-HEAD B01 stress status.
-2. Freeze post-B01 environment behavior.
-3. Define condition abstraction.
-4. Define shared enforcement.
-5. Implement direct path.
-6. Implement replay path.
-7. Add replay reconstruction and parity tests.
-8. Review before connecting VLM.
-```
+## E5. Smoke baselines
+
+本轮只需支持无需外部 provider 的 baseline：
+
+- blind；
+- oracle；
+- fixture structured outputs；
+- cached detector replay；
+- zero-action smoke；
+- safe scripted baseline；
+- shortest-path/native planner baseline，若环境允许。
+
+明确标注 zero-action 不是 performance baseline。
 
 ---
 
-## 10. Immediate next task
-
-当前第一任务不是继续扩展 Safety-Gym，也不是直接实现完整 VLM 矩阵，而是：
-
-### Task 1 — B01 current-HEAD verification
-
-状态：`DONE`。seed 157/1347 定向回归、golden snapshots 与四种配置各 10,000 seeds 的 formal validation 均通过。
-
-### Task 2 — Unified condition contract
-
-状态：`DONE`。`evaluation/conditions.py` 定义严格枚举、protocol 1.2.2 七键
-factor vector、完整 enforcement、seed split、provenance、canonical JSON/hash；
-`build_episode_artifact` 已保存并交叉验证 condition。
-
-定义：
-
-```text
-router
-zone_source
-enforcement
-privilege_level
-factor_vector
-```
-
-明确每个字段的合法值、默认值、序列化方式和 provenance。
-
-### Task 3 — Direct + replay vertical slice
-
-状态：`DONE`（工作树基线 SHA
-`e25f1b11d45b2832ef73110e6d6ad11c103a1e58`，实现尚未提交）。
-`evaluation/harness.py` 通过统一的
-`plan_to(public_observation, absolute_target, cost_map_payload)` 边界运行四个
-condition；oracle truth 只由 evaluator-side runner 投影为显式
-`PRIVILEGED` cost-map payload。artifact 保存 target sequence、planner/restart
-event、cost map、STC audit 与 replay diagnostics，并可仅用 source/result
-artifact 离线重建和交叉验证。
-
-在不接 VLM 的情况下，实现：
-
-```text
-direct × none
-direct × oracle
-replay × none
-replay × oracle
-```
-
-并验证：
-
-```text
-same environment
-same target identity
-same enforcement
-reconstructable replay
-auditable STC
-```
-
-验收证据：
-
-```text
-python -m pytest -q tests/test_condition_contract.py tests/test_unified_harness.py
-23 passed in 0.46s
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests --ignore=tests/test_safety_gym_goal_integration.py
-38 passed in 85.65s
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected in 0.28s
-
-python -m compileall -q evaluation envs tests/test_unified_harness.py
-git diff --check
-```
-
-测试位置：`tests/test_unified_harness.py`。覆盖四格 product、同 scene
-manifest、同 enforcement、绝对坐标 target identity、arrival-based switch、
-candidate identity drift rejection、absorbing-endpoint divergence、artifact
-reconstruction 和 STC 一致性。
-
-剩余 gap：完整 10,000-seed layout gate 已在 Task 1 冻结证据中完成，不在本次
-vertical slice 重跑；当前沙箱禁止 multiprocessing semaphore sysconf，因此本次
-仅执行文件声明的 25-seed 单进程 smoke。真实 Safety-Gym 可选 smoke 在 MuJoCo
-初始化/关闭阶段长时间不返回，不影响本任务限定的 PointHazard 验收。
-
-完成上述三项后，再决定是否接入 VLM router。
-
-### Task 4 — Minimal-permission policy interface
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`evaluation/policy_interface.py` 定义不可变 `PolicyInput`、`PUBLIC /
-AUTHORIZED_PRIVILEGE / EVAL_ONLY` 标签、冻结 task/capability card、fail-fast
-forbidden-field/object audit，以及不持有环境引用的 direct/replay target
-policy。`evaluation/harness.py` 的路由目标选择已切换到该边界，并在 episode
-artifact 中保存每次 policy input SHA-256 和权限计数。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_policy_permissions.py \
-  tests/test_condition_contract.py \
-  tests/test_unified_harness.py
-29 passed in 0.59s
-
-python -m compileall -q evaluation tests/test_policy_permissions.py
-git diff --check
-```
-
-测试位置：`tests/test_policy_permissions.py` 和
-`tests/test_unified_harness.py`。覆盖静态 signature/schema、无环境引用、嵌套
-对象拒绝、EVAL_ONLY/P0 privilege fail-fast、输入 detach/immutability、
-evaluator truth non-interference、replay 显式 target payload、capability twin
-以及 P0 artifact 零 forbidden tag。
-
-剩余 gap：此任务只闭合当前 direct/replay 路由边界；Phase 3 的完整 VLM call
-provenance、structured output 和 detector/VLM 接入仍为后续 gate。
-
-### Task 5 — Shared STC reduction
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`evaluation/outcomes.py` 将 headline metric 固定为 reached goal、physical
-collision、applicable semantic violation 和 timeout 四个正交 component 的
-reduction。`EpisodeArtifact` 现显式保存 physical collision 与 timeout，且构建
-时交叉验证 harness 的 `stc_audit`，不再把 native cost channel 当成 STC 的名称
-或唯一来源。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_stc_outcomes.py \
-  tests/test_policy_permissions.py \
-  tests/test_condition_contract.py \
-  tests/test_unified_harness.py \
-  tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-40 passed, 1 deselected in 0.62s
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-51 passed in 86.23s
-```
-
-`tests/test_stc_outcomes.py` 覆盖 safe completion、goal reached but semantic
-violation、physical collision、timeout、联合失败和不合法 timeout overlap。
-
-Task 5 完成时遗留的 M04 structured output 与 B07 per-call provenance 已由
-Task 6 完成其当前实现范围；M04 review item 仍缺完整四阶段端到端验收。PointHazard protocol 的正式 lexical/conformance interpreter
-仍不属于当前 MVF。
-
-### Task 6 — Structured output and per-call provenance
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`evaluation/vlm_artifacts.py` 定义严格、无 provider 依赖的四字段 structured
-parser 和 `VLMCallArtifact`。每条 call 保存 prompt、PNG、policy input 和 raw
-response 的可逆 base64 与 SHA-256，candidate world/pixel 坐标、授权标签、
-model/request/config/latency/token/cost、fallback、code state、selected target、
-condition 和 trajectory。构建及 episode 嵌入时会重新校验字节 hash、policy
-tags、P0 privilege、candidate identity、selected target、structured reparse、
-condition 与 git state。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_vlm_artifacts.py \
-  tests/test_stc_outcomes.py \
-  tests/test_policy_permissions.py \
-  tests/test_condition_contract.py \
-  tests/test_unified_harness.py
-48 passed in 0.62s
-
-python -m compileall -q evaluation tests/test_vlm_artifacts.py
-git diff --check
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-64 passed in 86.03s
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected in 0.39s
-```
-
-测试位置：`tests/test_vlm_artifacts.py`。覆盖 valid parse、invalid JSON、
-duplicate keys、schema/type/unknown-candidate failure、失败时无 partial labels、
-UTF-8 prompt/PNG/raw response 逐字节重建、offline reparse、hash/candidate/
-selected-target 篡改、secret/EVAL_ONLY 拒绝，以及 episode condition/code-state
-一致性。
-
-Task 6 当时遗留的公共 candidate renderer 与 P0 local fixture adapter 已由
-Task 7 闭合；在 Task 6 结束时，正式 P0–P4 prompt/version、完整 harness 与
-provider client 尚未接入。因此没有调用 API、没有产生新实验结果，paid-run
-gate 仍为 `BLOCKED`。
-PointHazard protocol 的正式 lexical/conformance interpreter 仍不属于当前 MVF。
-
-### Task 7 — Offline P0 VLM request fixture
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`evaluation/vlm_router.py` 冻结 `subgoal-ring-8-r2.5-v1` 的八候选顺序、绝对
-world clipping、public world-to-pixel 投影、紫色编号 marker/connector PNG，
-并仅从 `PolicyInput` 构建 P0 development structured prompt。请求绑定 exact
-condition hash；本地四字段 fixture response 经严格 parser 后选择唯一 target，
-并产生零 cost、无 provider call、可重建的 `VLMCallArtifact`。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_vlm_router.py \
-  tests/test_vlm_artifacts.py \
-  tests/test_policy_permissions.py \
-  tests/test_condition_contract.py \
-  tests/test_unified_harness.py
-49 passed
-
-python -m compileall -q evaluation tests/test_vlm_router.py
-git diff --check
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-71 passed in 85.04s
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected in 0.29s
-```
-
-`tests/test_vlm_router.py` 覆盖八方向与 clipping、重复构建 byte stability、
-真实 PointHazard public RGB、capability twin image/candidate parity、P0
-permission、condition identity、invalid response fail-closed，以及 fixture
-response → selected target → audited call artifact 的本地 vertical slice。此任务
-没有调用网络或 provider，也没有产生论文结果。
-
-Task 7 当时遗留的 `choice/reason` 版本冲突与 P1–P4 gap 已由 Task 8 闭合。
-PointHazard 当前 scene manifest 仍只把 legacy zone geometry 存为
-`legacy_semantic_zones`，没有独立于 appearance 的正式 `terrain_class`；因此
-非空 P1–P4 目前只在合成 fixture 上验收，完整 harness 与 paid-run gate 仍为
-`BLOCKED`。
-
-### Task 8 — Protocol 1.2.2 structured P0–P4 prompt ladder
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`PROTOCOL.md` 将 prompt/output-only amendment 登记为 `1.2.2`，明确保留
-evaluator `point-center-discrete-v1.2.1`、几何、STC、replay 与 seed 语义。
-`FactorVector` 只接受新 protocol version，旧 1.2.1 artifact 不会自动升级或与
-新条件混合。
-
-`evaluation/vlm_router.py` 现从 evaluator-side semantic terrain 构建严格累加
-的 privilege projection：P1 class set、P2 region world/pixel geometry、P3
-capability-conditioned safe/unsafe labels、P4 binary64 segment clearance、
-`decimal3` token、dense rank。P0 禁止接收 scene truth；所有级别共享完全相同的
-public RGB、candidate IDs/world/pixel metadata 和 annotation bytes。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_vlm_router.py \
-  tests/test_vlm_artifacts.py \
-  tests/test_condition_contract.py \
-  tests/test_policy_permissions.py \
-  tests/test_unified_harness.py \
-  tests/test_stc_outcomes.py
-61 passed in 0.76s
-
-python -m compileall -q evaluation tests/test_vlm_router.py
-git diff --check
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-77 passed in 86.78s
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected in 0.36s
-```
-
-`tests/test_vlm_router.py` 保存 P0–P4 exact prompt SHA-256，覆盖 additive block、
-region numeric ordering、three-place serialization、P3 labels、P4 INF/shared
-rank、capability twin、P0 truth rejection、duplicate/noncanonical region ID 和
-unknown class rejection。
-
-remaining gap：当前 PointHazard `legacy_semantic_zones` 没有注册
-`terrain_class`，而 protocol 禁止从 appearance 推断 class。因此 Task 8 只关闭
-prompt/version/privilege arithmetic gate；下一步必须建立显式 semantic-terrain
-scene configuration 和 twin test，再把 VLM router 接入完整 episode harness。
-paid-run gate 保持 `BLOCKED`。
-
-上述 Task 8 遗留的 semantic-terrain registration、capability/appearance twin
-与完整离线 episode harness 已由 Task 9 闭合。
-
-### Task 9 — Registered semantic terrain + offline VLM episode harness
-
-状态：`DONE`（实现基线 SHA
-`9aad62d0da9cabde4da6fdabbd1aec19f8bc7237`，实现尚未提交）。
-
-`PointHazardConfig.semantic_terrain_classes` 现独立于
-`semantic_styles` 注册 evaluator-side terrain truth，不消耗 RNG，也不允许从
-renderer appearance 反推 class。`PointHazardAdapter` 将 geometry、
-`terrain_class` 与版本化 `appearance_profile` 写入 scene manifest；完整 harness
-会拒绝 appearance factor/profile 漂移，并按 frozen capability card 重新计算
-semantic violation。
-
-`run_point_hazard_episode` 现支持 `router=vlm` 的零网络闭环：每次 candidate
-decision 都从当时的 public observation/RGB 生成八候选和 P0–P4 request，经调用
-方提供的本地 structured responder 选择 subgoal，复用同一 MPC executor，并把
-exact request/response、target sequence、permission audit、trajectory prefix 和
-零成本 call artifact 嵌入 episode artifact。P0 不接收 scene truth；P1–P4 只接收
-各自允许的累加 privilege projection。未注册 terrain、非 `zone_source=none`、
-缺失 local responder、invalid response、condition/appearance drift 均 fail
-closed。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_unified_harness.py \
-  tests/test_vlm_router.py \
-  tests/test_vlm_artifacts.py \
-  tests/test_policy_permissions.py \
-  tests/test_stc_outcomes.py \
-  tests/test_condition_contract.py
-69 passed in 2.08s
-
-python -m compileall -q \
-  env_pointhazard.py envs evaluation tests/test_unified_harness.py
-git diff --check
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-85 passed
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected
-```
-
-测试位置：`tests/test_unified_harness.py`。新增覆盖 appearance twin（同
-geometry/class、不同 RGB/profile）、P0–P4 完整离线 episode、call/target/
-permission artifact 一致性、capability twin evaluator 标签，以及 appearance
-factor drift 拒绝。
-
-remaining gap：本任务没有 provider client、没有网络/API 调用、没有产生论文
-结果，也没有解锁 paid run。完整 offline condition matrix、detector baseline、
-release record 与 dependency lock 仍未完成；paid-run gate 保持 `BLOCKED`。
-
-上述 Task 9 遗留的完整 offline condition matrix 与 release-readiness record
-已由 Task 10 闭合。Detector baseline 和 dependency lock 仍未完成。
-
-### Task 10 — Frozen offline matrix + blocked release record
-
-状态：`DONE`（实现提交
-`dd3d8c228494190ae3e32140d9bc67d85b20efba`）。
-
-`evaluation/offline_matrix.py` 冻结
-`point-hazard-offline-gate-v1` 的 14 个零 provider 条件：
-
-```text
-direct/replay × none/oracle × P0 primary capability = 4
-VLM × none × P0–P4 × primary capability            = 5
-VLM × none × P0–P4 × capability twin               = 5
-```
-
-matrix manifest 保存唯一 entry ID、完整 condition、condition SHA-256 与
-`provider_calls_enabled=false`；canonical matrix SHA-256 为
-`3bf69114eb74e5bba0248b26e526c6dd1a254eeb8452c5ad429087950bc15725`。
-集成测试实际执行全部 14 条路径并验证非 VLM arm 无 call、VLM arm 仅产生
-`offline-fixture`、零成本、provider-disabled artifact。
-
-`docs/PAID_RUN_RELEASE.md` 记录实现 SHA、protocol、passed gates、matrix hash
-及所有授权字段。由于 model list、exact pilot subset、maximum spend、release
-date 和 authorized operator 尚未填写，该记录明确为
-`BLOCKED / NOT AUTHORIZED`，不会自动启动 Phase 5。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_offline_matrix.py \
-  tests/test_unified_harness.py \
-  tests/test_condition_contract.py
-34 passed in 3.19s
-
-python -m compileall -q env_pointhazard.py envs evaluation tests
-git diff --check
-
-LAYOUT_TEST_SEEDS=25 LAYOUT_TEST_WORKERS=1 \
-  python -m pytest -q tests \
-  --ignore=tests/test_safety_gym_goal_integration.py
-88 passed in 87.48s
-
-python -m pytest -q tests/test_safety_gym_goal_integration.py \
-  -k 'not real_safety_gym_adapter_smoke_if_installed'
-5 passed, 1 deselected in 0.33s
-```
-
-测试位置：`tests/test_offline_matrix.py`。覆盖 exact axes、14 个唯一
-condition hash、canonical matrix hash、全部路径执行及 provider enablement
-fail-closed。
-
-remaining gap：Phase 4 technical offline matrix 已闭合，但 detector baseline、
-dependency lock 与五个授权字段仍未完成。没有网络/API 调用，没有产生论文结果；
-paid-run gate 与 Phase 5 保持 `BLOCKED`。
-
-### Task 11 — Pilot release manifest + reproducibility lock
-
-状态：`DONE`（工作树基线 SHA
-`e353b92b2cc8a297202d2560df30b5505b6848f2`；Task 11 实现尚未提交）。
-
-`configs/pilot_release_manifest.json` 现在是机器可校验的 pilot release
-状态源，固定 protocol 1.2.2、structured prompt version、14-condition offline
-matrix identity、pilot allocation、STC/scenario-family 分析口径，以及核心
-dependency lock 的精确字节 hash。`evaluation/release_manifest.py` 严格检查
-schema、引用文件 hash、30–50-family pilot subset、模型 provider/revision/date
-和至少一个开放权重模型；只有全部授权字段闭合时
-`provider_calls_enabled` 才能为 true，且真正的授权断言还要求 release git
-SHA 字段对应当前 `HEAD`、工作树干净。
-
-原 `requirements.lock` 中不可移植的本机/CI `file://` 路径已移除。新 core
-lock 固定 CPython 3.10.18 下 PointHazard provider-free harness/render/test
-所需的 10 个 direct/transitive pins，并由测试拒绝 local path、editable
-install 和版本范围。Safety-Gymnasium 的旧 simulator stack 继续隔离在
-`requirements-safety-gym.txt`，不混入当前 PointHazard pilot lock。
-
-验收证据：
-
-```text
-python -m pytest -q \
-  tests/test_release_manifest.py \
-  tests/test_offline_matrix.py \
-  tests/test_condition_contract.py
-28 passed in 1.78s
-```
-
-测试位置：`tests/test_release_manifest.py`。覆盖 checked-in blocked manifest、
-lock hash、portable exact pins、引用文件篡改、partial authorization、
-30-family/2-model/open-weight 完整字段，以及 release SHA/dirty-tree gate。
-
-remaining gap：模型清单、精确 pilot seeds、预算、日期和 operator 仍未由用户
-授权，detector baseline 也未完成。因此 machine manifest 保持
-`BLOCKED`/`provider_calls_enabled=false`；没有网络/API 调用，没有实验结果，
-paid-run gate 与 Phase 5 仍为 `BLOCKED`。
+# 八、工作包 F：统一 runner、artifact 和 manifest
+
+不要为每个实验写互不兼容的脚本。
+
+建立或重构一个统一 runner，例如：
+
+`scripts/run_semantic_geometry_audit.py`
+
+支持：
+
+- environment；
+- seed range；
+- scene family；
+- router；
+- geometry source；
+- applicability source；
+- enforcement config；
+- capability profile；
+- appearance profile；
+- cached provider replay；
+- no-provider mode；
+- dev/test split；
+- dry run；
+- artifact output；
+- deterministic hash；
+- resume；
+- failure recovery。
+
+## Artifact 至少保存
+
+- command；
+- git SHA；
+- dirty status；
+- Python/package versions；
+- simulator version；
+- OS；
+- scene seed；
+- environment；
+- task card；
+- capability card；
+- image bytes/hash；
+- model-visible payload bytes/hash；
+- geometry payload；
+- applicability payload；
+- adapter version；
+- planner config；
+- raw/cached provider response；
+- parser status；
+- fallback；
+- trajectory；
+- per-stage output；
+- evaluator output；
+- STC decomposition；
+- token/cost，若适用；
+- timestamps；
+- result status；
+- evidence class。
+
+## Manifest
+
+自动生成：
+
+- experiment-level `MANIFEST.json`；
+- row count；
+- failed rows；
+- resumed rows；
+- duplicate request hashes；
+- missing artifact audit；
+- schema version；
+- config hash；
+- result digest；
+- test status。
 
 ---
 
-本计划仅使用以下状态词：
+# 九、测试要求
 
-```text
-DONE
-PARTIAL
-OPEN
-BLOCKED
-DEFERRED
-```
+请补充系统性测试，而不是只写 happy path。
 
-任何状态更新都必须附：
+至少包括：
 
-```text
-git SHA
-exact command or artifact
-test/result location
-acceptance evidence
-remaining gap
-```
+## Geometry
 
-不得以旧日历勾选、单次 smoke、历史结果或口头判断替代验收。
+- coordinate conversion；
+- malformed box/polygon；
+- out-of-range provider coordinates；
+- letterbox/resize；
+- world↔image round trip；
+- empty detections；
+- multiple detections；
+- confidence ties；
+- deterministic region ordering；
+- adapter version hash。
+
+## Policy boundary
+
+- forbidden evaluator fields；
+- hidden env references；
+- nested objects；
+- debug metadata leakage；
+- serialized truth leakage；
+- P0 no-privilege；
+- oracle only in oracle arm。
+
+## Twins
+
+- identical geometry across capability twins；
+- identical rendering across capability twins；
+- only capability payload differs；
+- appearance twin only changes designated appearance fields；
+- native cost remains unchanged；
+- semantic evaluator changes only where declared。
+
+## Five-stage audit
+
+- recognition correct / applicability wrong；
+- applicability correct / grounding wrong；
+- unsafe proposal rescued；
+- safe proposal blocked；
+- multi-stage failure；
+- parser failure；
+- fallback；
+- unknown state；
+- deterministic taxonomy。
+
+## Runner/artifacts
+
+- resume；
+- duplicate rows；
+- hash stability；
+- partial run recovery；
+- manifest verification；
+- no API key leakage；
+- no authorization header leakage；
+- terminated marker override warning；
+- dev/test sentinel。
+
+---
+
+# 十、文档输出
+
+新增一份清晰的执行文档，例如：
+
+`docs/MARKER_FREE_GEOMETRY_PLAN.md`
+
+内容包括：
+
+1. why marker mainline was terminated；
+2. current scientific hypotheses；
+3. marker-free architecture；
+4. geometry contract；
+5. five-stage protocol；
+6. detector decomposition；
+7. Safety-Gym capability twins；
+8. dev/test discipline；
+9. allowed claims；
+10. forbidden claims；
+11. experiment gates；
+12. ICLR / CoRL / workshop decision criteria。
+
+再新增：
+
+`docs/NEXT_EXECUTION_MEMO.md`
+
+要求写成真实项目 memo，包含：
+
+- 完成了什么；
+- 未完成什么；
+- 当前 blockers；
+- 哪些是 science；
+- 哪些只是 infrastructure；
+- 下一批无需 provider 的命令；
+- 未来 paid run 前置条件；
+- stop criteria。
+
+---
+
+# 十一、当前允许和禁止的结论
+
+## 允许写入文档的结论
+
+- marker/candidate interface 在五种子 pilot 中高度不稳定；
+- 预声明 kill condition 已触发；
+- P2 未显示优于 P0；
+- pilot 未观察到模型 rank reversal；
+- recognition correctness 与 selected-safe 强相关；
+- capability applicability 出现明显失败信号；
+- detector 在 pilot 中消除了 semantic violation，但任务完成率较低；
+- Safety-Gymnasium minimal port 可运行。
+
+## 禁止写入的结论
+
+- VLM 普遍不能进行 norm reasoning；
+- detector 优于 VLM；
+- five-stage audit 已经证明主要瓶颈是 applicability；
+- Safety-Gym 中现象已经复现；
+- geometry calibration 一定会提高 STC；
+- 本方法具有 formal safety guarantee；
+- 当前结果达到 ICLR paper evidence；
+- 任意跨模型、跨环境泛化结论。
+
+所有未运行的数字必须写为 `TBD`，不得补造。
+
+---
+
+# 十二、验收标准
+
+本轮完成后应满足：
+
+1. marker 主线在全仓库状态一致；
+2. 旧结果仍可复现，但默认不能误运行 scale-up；
+3. marker-free geometry schema 完整；
+4. oracle/fixture/detector 使用同一 contract；
+5. provider/native/pixel/world 坐标转换有测试；
+6. detector geometry decomposition 可通过 cached replay 离线运行；
+7. planner calibration 有 dev/test 隔离；
+8. Safety-Gym capability twins 可 headless 运行；
+9. 五阶段输出可自动计分和归因；
+10. artifacts 和 manifest 完整；
+11. 无 API key 或 header 泄漏；
+12. 所有测试通过；
+13. 文档不夸大结果；
+14. 无新的付费 provider 请求。
+
+---
+
+# 十三、执行方式
+
+请按照以下顺序连续工作：
+
+1. 仓库审计与状态梳理；
+2. 写简短 implementation plan；
+3. 冻结 marker 主线；
+4. 实现 geometry schema；
+5. 实现 adapters 和 coordinate transforms；
+6. 重构 harness；
+7. 实现 five-stage audit；
+8. 实现 detector decomposition runner；
+9. 实现 Safety-Gym twins；
+10. 补测试；
+11. 更新文档；
+12. 运行完整验收；
+13. 给出最终执行 memo。
+
+不要中途因为某个非关键问题停下来询问。遇到局部歧义时，优先选择：
+
+- 最小实现；
+- 不夸大科学结论；
+- 保留向后兼容；
+- 明确标记 TODO；
+- 通过测试固定行为。
+
+不要重写整个仓库，不要大规模移动无关文件，不要修改历史结果内容，不要删除已有 artifacts。
+
+---
+
+# 十四、最终回复格式
+
+完成后请按以下结构汇报：
+
+## 1. Executive summary
+
+说明主线切换是否完成。
+
+## 2. Files changed
+
+按模块分类列出关键文件及作用。
+
+## 3. Architecture after refactor
+
+用简洁数据流说明：
+
+`public observation → recognition/applicability/geometry → fixed planner → enforcement → STC`
+
+## 4. Marker termination enforcement
+
+说明 CLI、registry、docs 和 tests 如何防止误用。
+
+## 5. Geometry contract
+
+说明 schema、coordinate transforms 和 adapters。
+
+## 6. Five-stage audit
+
+说明各阶段字段、metrics 和 taxonomy。
+
+## 7. Safety-Gym twins
+
+说明已实现的 twin families、invariants 和 smoke results。
+
+## 8. Detector calibration framework
+
+说明已支持的 geometry arms、metrics、dev/test split 和 operating curves。
+
+## 9. Tests
+
+列出实际执行命令、通过数量、跳过项和失败项。
+
+## 10. Reproducibility
+
+说明 manifests、hash、resume 和 secret audit。
+
+## 11. Remaining blockers
+
+分为：
+
+- science blockers；
+- engineering blockers；
+- paid-run blockers。
+
+## 12. Exact next commands
+
+给出下一位执行者可以直接复制运行的无需 provider 命令。
+
+## 13. Claim boundary
+
+列出现在可以声称和不能声称的内容。
+
+## 14. Final recommendation
+
+明确给出当前状态：
+
+- ready for cached offline calibration；
+- ready/not ready for Safety-Gym provider pilot；
+- ready/not ready for paid formal experiment；
+- ICLR mainline status。

@@ -2,6 +2,16 @@
 
 Status: `BLOCKED / NOT AUTHORIZED`
 
+Research gate amendment (2026-07-24): the marker-based PointHazard VLM-waypoint
+mainline is `TERMINATED`. This release record can no longer authorize marker
+scale-up. Historical replay requires
+`--allow-terminated-marker-pilot` and is cache-only; the override is
+incompatible with provider requests.
+
+Any future, separately approved marker-free provider pilot must enforce a hard
+limit of **five distinct scene seeds per real API key**. This per-key limit is
+an additional ceiling, not authorization to run.
+
 This record documents release readiness only. It does not authorize a provider
 call, expenditure, pilot run, or promotion of fixture artifacts to scientific
 results.
@@ -105,5 +115,6 @@ python -m pytest -q \
 Paid execution remains blocked until the model list (with provider, immutable
 revision and revision date), exact 30–50-family pilot seed subset, maximum spend,
 release date, and authorized operator are explicitly filled in and approved in
-a later clean commit. Phase 4 technical completion and a passing reproducibility
-audit do not grant that authority.
+a later clean commit. The exact seed subset must also be partitioned so no real
+key observes more than five distinct seeds. Phase 4 technical completion and a
+passing reproducibility audit do not grant that authority.

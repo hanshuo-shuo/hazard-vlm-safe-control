@@ -1,15 +1,24 @@
 # hazard-vlm-safe-control
 
 Research prototype for auditing where closed-loop safety comes from in modular
-VLM-guided robot control. The current validated development slice is
-PointHazard with a unified condition contract, registered semantic terrain and
-a shared direct/replay/offline-VLM harness. Historical VLM experiments remain
-in the repository for provenance, but their reported semantic results are not
-paper-valid.
+vision-language robot control. The marker-based PointHazard VLM-waypoint
+mainline is **TERMINATED** as of 2026-07-24 after its predeclared interface
+stability kill condition fired. Those five-seed artifacts are
+`PILOT_ONLY / NOT PAPER RESULT`; they remain for provenance and regression.
+
+The active direction is marker-free semantic geometry:
+
+```text
+public observation
+  → recognition / capability-conditioned applicability / geometry
+  → fixed planner
+  → enforcement
+  → STC and five-stage attribution
+```
 
 ## Current scope
 
-The active offline matrix is:
+The maintained historical offline matrix is:
 
 ```text
 router      = direct | replay
@@ -34,9 +43,14 @@ Replay uses absolute world-coordinate targets, arrival-based switching at
 trajectory-divergence diagnostics. Oracle geometry enters only through an
 explicit `PRIVILEGED` cost-map payload built on the evaluator side.
 
-The VLM router can now execute the frozen 14-condition zero-network fixture
-matrix and save per-call provenance; no real provider client is connected.
-Detector and VLM zone sources are intentionally not connected yet. Paid
+The VLM router can execute the frozen 14-condition zero-network fixture matrix
+and save per-call provenance. It is now a regression surface, not the paper
+mainline. New marker scale-up is refused by default.
+
+`evaluation/semantic_geometry.py` supplies one marker-free schema for
+none/oracle/fixture/detector and future cached VLM grounding. The provider-free
+runner `scripts/run_semantic_geometry_audit.py` records exact model-visible
+bytes, hashes, transforms, split sentinels, resume state and manifests. Paid
 VLM/OpenRouter runs remain paused. The machine-readable pilot manifest at
 [`configs/pilot_release_manifest.json`](configs/pilot_release_manifest.json)
 validates the protocol and portable dependency lock but remains fail-closed
@@ -74,6 +88,11 @@ status. The boundary and file-level ownership are recorded in
 | `evaluation/schemas.py` | Episode artifact and provenance schema |
 | `evaluation/release_manifest.py` | Fail-closed pilot release and lock validator |
 | `evaluation/semantic_evaluator.py` | Evaluator-only semantic metrics |
+| `evaluation/semantic_geometry.py` | Marker-free regions, coordinate transforms and adapters |
+| `evaluation/five_stage_audit.py` | Recognition→enforcement scoring and row taxonomy |
+| `evaluation/geometry_calibration.py` | Detector decomposition metrics and dev/test discipline |
+| `evaluation/capability_twins.py` | Capability/appearance twin invariants |
+| `scripts/run_semantic_geometry_audit.py` | Unified zero-provider runner and manifests |
 | `configs/pilot_release_manifest.json` | Machine-readable blocked pilot release state |
 | `mpc_expert.py` | Empirical CEM-MPC low-level controller |
 | `tests/` | Condition, harness, layout and adapter gates |
@@ -117,3 +136,6 @@ over classical planning.
 
 No semantic result currently has `VALIDATED` status. Check
 [docs/RESULTS_REGISTRY.md](docs/RESULTS_REGISTRY.md) before citing any artifact.
+The current repository is ready for cached offline calibration, not for a new
+provider pilot or a paid formal experiment. A future real API key, if separately
+authorized, is hard-capped at five distinct scene seeds per key.

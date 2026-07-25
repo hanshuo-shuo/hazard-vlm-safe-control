@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Run the five small go/no-go pilots requested for the ICLR safety audit.
+"""Replay the terminated five-seed marker pilot for historical audit.
 
-The script is intentionally self-contained and cache-first.  Provider requests
-are capped at five distinct scene seeds per experiment.  API keys are loaded
-from ``.env`` but are never written to artifacts.
+The marker-based PointHazard mainline terminated on 2026-07-24.  This entry
+point therefore refuses to run unless the historical-pilot override is
+explicit, and remains cache-only.  API keys are never written to artifacts.
 """
 
 from __future__ import annotations
@@ -183,12 +183,21 @@ def extract_json(text: str) -> str:
 
 
 class OpenRouter:
-    def __init__(self, key: str, cache_dir: Path, *, retries: int = 4) -> None:
+    def __init__(
+        self,
+        key: str,
+        cache_dir: Path,
+        *,
+        retries: int = 4,
+        allow_provider_requests: bool = False,
+    ) -> None:
         self.key = key
         self.cache_dir = cache_dir
         self.retries = retries
+        self.allow_provider_requests = allow_provider_requests
         self.calls = 0
         self.cache_hits = 0
+        self._provider_seeds: set[int] = set()
 
     def call(
         self,
@@ -210,6 +219,17 @@ class OpenRouter:
         if path.exists():
             self.cache_hits += 1
             return json.loads(path.read_text(encoding="utf-8"))
+        if not self.allow_provider_requests:
+            raise RuntimeError(
+                f"cache miss for {experiment}/{variant}/seed={seed}; "
+                "terminated marker pilots are cache-only"
+            )
+        if not self.key:
+            raise RuntimeError("OPENROUTER_API_KEY is required for a real provider request")
+        prospective = self._provider_seeds | {int(seed)}
+        if len(prospective) > 5:
+            raise RuntimeError("real API key seed cap exceeded: maximum 5 distinct seeds per key")
+        self._provider_seeds = prospective
         payload = {
             "model": model,
             "temperature": 0,
@@ -1030,6 +1050,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--experiments", nargs="+", type=int, choices=range(1, 6), default=[1, 2, 3, 4, 5])
     parser.add_argument("--models", nargs="+", default=list(DEFAULT_MODELS))
     parser.add_argument("--cache", type=Path, default=Path("results/api_cache"))
+    parser.add_argument(
+        "--allow-terminated-marker-pilot",
+        action="store_true",
+        help="acknowledge that this is historical PILOT_ONLY evidence",
+    )
+    parser.add_argument(
+        "--allow-provider-requests",
+        action="store_true",
+        help="reserved for a separately authorized non-marker runner",
+    )
     return parser.parse_args()
 
 
@@ -1058,14 +1088,30 @@ def aggregate_evidence_usage(value: Any) -> tuple[int, dict[str, float]]:
 
 def main() -> int:
     args = parse_args()
+    if not args.allow_terminated_marker_pilot:
+        raise SystemExit(
+            "REFUSED: marker-based PointHazard VLM waypoint mainline is TERMINATED. "
+            "Use --allow-terminated-marker-pilot only for cached historical replay."
+        )
+    print(
+        "WARNING: TERMINATED marker pilot override enabled; output is "
+        "PILOT_ONLY / NOT PAPER RESULT.",
+        file=sys.stderr,
+        flush=True,
+    )
+    if args.allow_provider_requests:
+        raise SystemExit(
+            "REFUSED: terminated-marker override cannot enable paid/provider requests"
+        )
     if len(SEEDS) > 5:
         raise RuntimeError("provider experiment seed cap exceeded")
     load_dotenv(ROOT / ".env")
     key = os.environ.get("OPENROUTER_API_KEY", "")
-    needs_api = any(number in args.experiments for number in (1, 2, 3, 4))
-    if needs_api and not key:
-        raise SystemExit("OPENROUTER_API_KEY missing from .env")
-    client = OpenRouter(key, args.cache)
+    client = OpenRouter(
+        key,
+        args.cache,
+        allow_provider_requests=args.allow_provider_requests,
+    )
     args.output.mkdir(parents=True, exist_ok=True)
     results = []
     runners = {
@@ -1089,6 +1135,9 @@ def main() -> int:
         "cache_hits_this_execution": client.cache_hits,
         "provider_requests_in_evidence": evidence_calls,
         "provider_usage_in_evidence": evidence_usage,
+        "terminated_marker_override": True,
+        "evidence_class": "PILOT_ONLY",
+        "paper_result": False,
         "experiments": [{"number": r["experiment"], "name": r["name"]} for r in results],
     }
     json_write(args.output / "MANIFEST.json", manifest)

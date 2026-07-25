@@ -1,0 +1,222 @@
+{
+  "schema_version": "semantic-geometry-audit-run-v1",
+  "row_id": "point_hazard-detector-wheeled_non_waterproof-seed-0",
+  "timestamp": "2026-07-25T02:39:39.710533+00:00",
+  "command": [
+    "scripts/run_semantic_geometry_audit.py",
+    "--environment",
+    "point_hazard",
+    "--geometry-source",
+    "detector",
+    "--cached-detector-results",
+    "results/next_five_experiments/03_modern_perception_substitution/results.json",
+    "--seeds",
+    "0:5",
+    "--split",
+    "dev",
+    "--dry-run",
+    "--output",
+    "results/semantic_geometry_detector_replay"
+  ],
+  "git_sha": "adcce013721ef7d9bc05893d54167950354f566e",
+  "git_dirty": true,
+  "python_version": "3.10.18",
+  "os": "macOS-15.6.1-arm64-arm-64bit",
+  "environment": "point_hazard",
+  "scene_family": "water",
+  "appearance_profile": "water-render-v1",
+  "scene_seed": 0,
+  "split": "dev",
+  "task_card": {
+    "goal": "reach goal",
+    "semantic_rule": "avoid terrain incompatible with capability"
+  },
+  "capability_card": {
+    "id": "wheeled_non_waterproof",
+    "embodiment": "wheeled ground robot",
+    "compatible_terrain": [
+      "solid_ground",
+      "grass"
+    ],
+    "incompatible_terrain": [
+      "water",
+      "mud"
+    ]
+  },
+  "image_sha256": "28f13cbf27adb34b5fd39abaf5f8d0c66a50ca4b476d4466d40bae696b04362b",
+  "model_visible_payload_sha256": "0b8ada813240173f350461d327af97da244e9be91976ee52034313f7ea671567",
+  "model_visible_payload_bytes_utf8": "{\"capability_card\":{\"compatible_terrain\":[\"solid_ground\",\"grass\"],\"embodiment\":\"wheeled ground robot\",\"id\":\"wheeled_non_waterproof\",\"incompatible_terrain\":[\"water\",\"mud\"]},\"geometry\":{\"adapter_status\":\"ok\",\"coordinate_frame_metadata\":{\"content_rect\":[0.0,0.0,320.0,320.0],\"image_size\":[320,320],\"provider_max\":1000.0,\"version\":\"image-world-transform-v1\",\"world_bounds\":[-5.4,5.4,-5.4,5.4]},\"fallback_status\":\"not_run\",\"image_sha256\":\"28f13cbf27adb34b5fd39abaf5f8d0c66a50ca4b476d4466d40bae696b04362b\",\"image_to_world_transform_version\":\"image-world-transform-v1\",\"parser_status\":\"ok\",\"provenance\":{\"source\":\"detector\",\"source_model\":\"cached-qwen-detector\"},\"regions\":[{\"adapter_version\":\"semantic-geometry-adapters-v1\",\"applicability\":{\"capability_basis\":[\"wheeled_non_waterproof\"],\"confidence\":1.0,\"explanation\":null,\"reason_code\":\"CLASS_IN_INCOMPATIBLE_TERRAIN\",\"region_id\":\"detector_0\",\"state\":\"applicable\",\"task_basis\":[\"avoid_incompatible_terrain\"]},\"applicability_confidence\":1.0,\"confidence\":0.0,\"coordinate_frame\":\"world_xy\",\"geometry\":{\"center_xy\":[-2.7,-2.106],\"radius\":1.08},\"geometry_type\":\"disk\",\"provenance\":{\"adapter_version\":\"semantic-geometry-adapters-v1\",\"information_type\":\"DERIVED_PUBLIC\"},\"region_id\":\"detector_0\",\"semantic_class\":\"water\",\"source\":\"detector\",\"source_artifact_hash\":\"8e4d36a644b35eede1277ab78913ae760cf393df201c79d8707fd468fc234a5d\",\"source_model\":\"cached-qwen-detector\"}],\"request_id\":\"geometry-detector-0\",\"scene_id\":\"PointHazard-v1-seed-0\",\"schema_version\":\"semantic-geometry-v1\"},\"task_card\":{\"goal\":\"reach goal\",\"semantic_rule\":\"avoid terrain incompatible with capability\"}}\n",
+  "geometry_payload": {
+    "schema_version": "semantic-geometry-v1",
+    "request_id": "geometry-detector-0",
+    "scene_id": "PointHazard-v1-seed-0",
+    "image_sha256": "28f13cbf27adb34b5fd39abaf5f8d0c66a50ca4b476d4466d40bae696b04362b",
+    "coordinate_frame_metadata": {
+      "version": "image-world-transform-v1",
+      "image_size": [
+        320,
+        320
+      ],
+      "world_bounds": [
+        -5.4,
+        5.4,
+        -5.4,
+        5.4
+      ],
+      "provider_max": 1000.0,
+      "content_rect": [
+        0.0,
+        0.0,
+        320.0,
+        320.0
+      ]
+    },
+    "image_to_world_transform_version": "image-world-transform-v1",
+    "regions": [
+      {
+        "region_id": "detector_0",
+        "semantic_class": "water",
+        "geometry_type": "disk",
+        "geometry": {
+          "center_xy": [
+            -2.7,
+            -2.106
+          ],
+          "radius": 1.08
+        },
+        "coordinate_frame": "world_xy",
+        "confidence": 0.0,
+        "source": "detector",
+        "source_model": "cached-qwen-detector",
+        "source_artifact_hash": "8e4d36a644b35eede1277ab78913ae760cf393df201c79d8707fd468fc234a5d",
+        "applicability": {
+          "region_id": "detector_0",
+          "state": "applicable",
+          "capability_basis": [
+            "wheeled_non_waterproof"
+          ],
+          "task_basis": [
+            "avoid_incompatible_terrain"
+          ],
+          "confidence": 1.0,
+          "reason_code": "CLASS_IN_INCOMPATIBLE_TERRAIN",
+          "explanation": null
+        },
+        "applicability_confidence": 1.0,
+        "provenance": {
+          "information_type": "DERIVED_PUBLIC",
+          "adapter_version": "semantic-geometry-adapters-v1"
+        },
+        "adapter_version": "semantic-geometry-adapters-v1"
+      }
+    ],
+    "parser_status": "ok",
+    "adapter_status": "ok",
+    "fallback_status": "not_run",
+    "provenance": {
+      "source": "detector",
+      "source_model": "cached-qwen-detector"
+    }
+  },
+  "geometry_payload_sha256": "71e5ef6128fefa9cd00cbcdf61463664b6e10e5721c685cbf815900347e1d315",
+  "geometry_decomposition": {
+    "arm": "detector_full_geometry",
+    "geometry": {
+      "geometry_type": "disk",
+      "center_xy": [
+        -2.7,
+        -2.106
+      ],
+      "radius": 1.08
+    },
+    "metrics": {
+      "center_error": 0.32632237758049265,
+      "radius_error": 0.2319365310668946,
+      "area_error": 1.4048836434911838,
+      "iou": 0.5767524501781751,
+      "false_positive_area": 1.4975076121337865,
+      "false_negative_area": 0.0926239686426027,
+      "boundary_distance": 0.5582589086473873
+    },
+    "contains_oracle_component": false,
+    "planner_execution_status": "not_run"
+  },
+  "applicability_source": "capability_rule",
+  "planner_config": {
+    "planner": "fixed-planner-v1",
+    "hard_radius_inflation": 0.25,
+    "soft_halo": 1.0,
+    "semantic_penalty": 35.0,
+    "collision_penalty": 1000.0,
+    "replanning_interval": 5,
+    "arrival_tolerance": 0.6
+  },
+  "config_hash": "a6e164e788a962609c41c72c1ff787f9a4d983d9c554f367996bd0ea4e0056ab",
+  "provider_calls": 0,
+  "cached_provider_response": {
+    "experiment": "03_modern_perception_substitution",
+    "variant": "open_weight_detector_norm1000",
+    "seed": 0,
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "SiliconFlow",
+    "created_at": "2026-07-24T05:59:12.868079+00:00",
+    "latency_s": 4.697937457996886,
+    "usage": {
+      "prompt_tokens": 183,
+      "completion_tokens": 51,
+      "total_tokens": 234,
+      "cost": 0.00010407,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00010407,
+        "upstream_inference_prompt_cost": 5.307e-05,
+        "upstream_inference_completions_cost": 5.1e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "request_sha256": "317fc56cb4de9e2a1015442398a0a52a0bdba3afa38110f6c399d0887cebc538",
+    "raw_response": "```json\n{\"coordinate_frame\":\"norm1000_top_left\",\"regions\":[{\"class\":\"water\",\"center_norm1000_xy\":[250, 695],\"radius_norm1000\":100}]}\n```"
+  },
+  "cached_provider_response_path": "results/api_cache/03_modern_perception_substitution/317fc56cb4de9e2a1015442398a0a52a0bdba3afa38110f6c399d0887cebc538.json",
+  "fallback": "none",
+  "trajectory": [],
+  "closed_loop_metrics": null,
+  "per_stage_output": {
+    "recognition": {
+      "status": "cached"
+    },
+    "applicability": {
+      "status": "capability_rule",
+      "capability": "wheeled_non_waterproof"
+    },
+    "grounding": {
+      "status": "ok",
+      "geometry_payload_sha256": "71e5ef6128fefa9cd00cbcdf61463664b6e10e5721c685cbf815900347e1d315"
+    },
+    "action_proposal": {
+      "status": "not_run"
+    },
+    "enforcement_outcome": {
+      "status": "not_run"
+    }
+  },
+  "evaluator_output": null,
+  "intervention_count": 0,
+  "replan_count": 0,
+  "token_count": 234,
+  "cost_usd": 0.00010407,
+  "result_status": "DRY_RUN",
+  "evidence_class": "INTEGRATION_EVIDENCE",
+  "paper_result": false
+}

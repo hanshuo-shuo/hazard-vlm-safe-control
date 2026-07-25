@@ -6,6 +6,13 @@
 
 审查结论：**Request major revision。当前代码是有价值的研究原型，但现有语义结果不能作为论文数字，现有系统叙事不足以支撑 CoRL/ICLR 主会。**
 
+2026-07-24 decision amendment: marker-based PointHazard VLM waypoint ICLR
+mainline is `TERMINATED`. The five-seed results are `PILOT_ONLY / NOT PAPER
+RESULT`. B03/B04/B06 no longer gate marker scale-up because that scale-up is
+forbidden; their unresolved scientific requirements are transferred to the
+marker-free geometry + fixed-planner line. No status cell below should be read
+as permission to revive marker experiments.
+
 本文件采用类似 PR review comment 的格式。每条 comment 都包含位置、问题、要求修改和验收条件。
 review item 的状态唯一以 [review_status_registry.json](review_status_registry.json) 为准；
 本文件的总览表是该 registry 的可读快照，不得在其他文档中单独维护同一组状态。
@@ -371,6 +378,9 @@ PointPush 环境、专家和 direct-VLA 代码是可复用资产，但还没有�
 ---
 
 ## 允许恢复 paid run 的门槛
+
+本节只适用于未来 marker-free provider pilot；不适用于已终止的 marker
+waypoint 主线。另加硬约束：每个真实 API key 最多 5 个 distinct scene seeds。
 
 只有以下条件全部满足后才允许开始正式 API 实验：
 
