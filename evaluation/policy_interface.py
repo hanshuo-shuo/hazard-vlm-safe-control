@@ -80,6 +80,48 @@ class ProvenanceTag(str, Enum):
     EVAL_ONLY = "EVAL_ONLY"
 
 
+class GroundingProvenance(str, Enum):
+    SENSOR_DERIVED = "SENSOR_DERIVED"
+    PROVIDER_ESTIMATE = "PROVIDER_ESTIMATE"
+    EVALUATOR_TRUTH = "EVALUATOR_TRUTH"
+
+
+@dataclass(frozen=True)
+class PlannerGrounding:
+    """Geometry offered to a planner with explicit information provenance."""
+
+    geometry: Mapping[str, Any] | None
+    provenance: GroundingProvenance
+    source_artifact_sha256: str
+
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "provenance", GroundingProvenance(self.provenance))
+        if not isinstance(self.source_artifact_sha256, str) or len(self.source_artifact_sha256) != 64:
+            raise ValueError("planner grounding requires a source artifact SHA-256")
+        if self.geometry is not None:
+            object.__setattr__(self, "geometry", _freeze(self.geometry, "planner grounding"))
+
+
+def validate_planner_grounding(
+    grounding: PlannerGrounding,
+    *,
+    experiment_arm: str,
+) -> PlannerGrounding:
+    """Reject evaluator truth from every headline planner arm."""
+    if experiment_arm == "oracle_upper_bound":
+        if grounding.provenance is not GroundingProvenance.EVALUATOR_TRUTH:
+            raise PermissionError("oracle_upper_bound requires evaluator-truth grounding")
+        return grounding
+    if grounding.provenance is GroundingProvenance.EVALUATOR_TRUTH:
+        raise PermissionError("evaluator-truth grounding is forbidden in the main experiment")
+    if grounding.provenance not in {
+        GroundingProvenance.SENSOR_DERIVED,
+        GroundingProvenance.PROVIDER_ESTIMATE,
+    }:
+        raise PermissionError("headline planner grounding must be DERIVED_PUBLIC")
+    return grounding
+
+
 def _freeze(value: Any, path: str) -> Any:
     if isinstance(value, str):
         lowered = value.lower()

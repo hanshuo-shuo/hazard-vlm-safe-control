@@ -116,6 +116,11 @@ def main() -> int:
     parser.add_argument("--analyze-only", action="store_true")
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
+    if args.allow_provider_requests:
+        raise SystemExit(
+            "legacy replacement provider path is permanently disabled; "
+            "new paid calls must use evaluation.paid_provider_gateway"
+        )
     if args.allow_provider_requests and (args.dry_run or args.analyze_only):
         raise SystemExit("provider requests cannot be combined with dry/analyze-only mode")
     if not 1 <= args.workers <= 8:

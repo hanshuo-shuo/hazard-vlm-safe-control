@@ -35,6 +35,13 @@ class PointHazardAdapter:
     backend = "point_hazard"
     environment_id = "PointHazard-v1"
     environment_version = _version()
+    headless_execution = False
+    native_rgb_source = "PointHazardEnv.render"
+    native_dynamics_source = "PointHazardEnv.step"
+    native_reward_source = "PointHazardEnv.step.reward"
+    native_cost_source = "PointHazardEnv.step.info.hazard_hit"
+    native_termination_source = "PointHazardEnv.step.terminated_truncated"
+    native_coordinate_frame = "PointHazard-world-xy"
 
     def __init__(
         self,
@@ -88,7 +95,10 @@ class PointHazardAdapter:
     def step(self, action: Any) -> tuple[np.ndarray, float, float, bool, bool, dict[str, Any]]:
         obs, reward, terminated, truncated, raw_info = self._env.step(action)
         self._obs = np.asarray(obs, dtype=np.float32).copy()
-        native_cost = 0.0
+        # PointHazard's registered native physical-cost channel is its own
+        # collision signal. It is emitted by PointHazardEnv.step and is not
+        # inferred from semantic evaluator geometry.
+        native_cost = float(bool(raw_info.get("hazard_hit", False)))
         self._actions.append(np.asarray(action, dtype=np.float32).copy())
         self._rewards.append(float(reward))
         self._native_costs.append(native_cost)
@@ -200,6 +210,8 @@ class PointHazardAdapter:
             "placement_attempts": int(raw_info.get("placement_attempts", 0)),
             "resample_count": int(raw_info.get("resample_count", 0)),
             "observation_summary": _observation_summary(self._obs),
+            "native_coordinate_frame": self.native_coordinate_frame,
+            "native_runtime": True,
         }
 
     def close(self) -> None:

@@ -1,0 +1,114 @@
+{
+  "schema_version": "interface-contract-provider-free-dry-run-v1",
+  "protocol_id": "interface-contract-pilot-v1",
+  "status": "INFRA / BLOCKED / PROVIDER_FREE",
+  "provider_calls_enabled": false,
+  "provider_calls": 0,
+  "provider_attempts": 0,
+  "model_slots": [
+    "mistral-small-3.2-24b",
+    "pilot-model-slot-2",
+    "pilot-model-slot-3"
+  ],
+  "environment_count": 2,
+  "block_count": 80,
+  "call_matrix_rows": 1440,
+  "calls_per_model": 480,
+  "paid_seeds_per_model": [
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "maximum_attempts_per_request": 3,
+  "maximum_provider_attempts_per_model": 1440,
+  "compatibility_smoke": {
+    "source": "first_preregistered_matrix_cell_per_model",
+    "successful_smoke_is_formal_data": true,
+    "repeat_call_allowed": false,
+    "failed_smoke_eliminates_model": true,
+    "failed_call_and_attempts_remain_in_ledger": true
+  },
+  "source_manifest": {
+    "path": "configs/interface_contract_pilot_manifest.json",
+    "sha256": "6b89172cfb7499ea45839d3f3c68532cc3b63c57be1b7f97b17ca6a95972212a"
+  },
+  "protocol_document": {
+    "path": "docs/INTERFACE_CONTRACT_PROTOCOL.md",
+    "sha256": "81ec1339c67661f4766273c23907f51dedd1ab30248301c38aac0031c31d42eb"
+  },
+  "artifacts": {
+    "BLOCKS.json": {
+      "path": "BLOCKS.json",
+      "sha256": "e4d2b85d21b52fdf9bc903100bc907c0c3c59ce61c61a158762f8d32b4ffb206"
+    },
+    "CALL_MATRIX.json": {
+      "path": "CALL_MATRIX.json",
+      "sha256": "31f4dc16f829d0443c2a5e8dec072fc9d9b57e1c6e7b418403523b6eed405d0e"
+    },
+    "NATIVE_ENVIRONMENT_GATE.json": {
+      "path": "NATIVE_ENVIRONMENT_GATE.json",
+      "sha256": "a0c2eeb3892121f6f4d9bded66e7e8797de9903bc2665ed556c9d96fc71c4e33"
+    },
+    "PAID_BUDGET_AUDIT.json": {
+      "path": "PAID_BUDGET_AUDIT.json",
+      "sha256": "027fe4a10d5194c1216af88ac5b4d15f41a587d12bdae94c8251bb1f87e76683"
+    },
+    "MATRIX_AUDIT.json": {
+      "path": "MATRIX_AUDIT.json",
+      "sha256": "17ac7b5183df88dd026348863b8d23165b18e4a7dcc87b91c3d48618bf3b1a4e"
+    }
+  },
+  "dependency_versions": {
+    "python": "3.10.18",
+    "numpy": "1.23.5",
+    "gymnasium": "0.28.1",
+    "mujoco": "2.3.3",
+    "safety_gymnasium": "1.0.0"
+  },
+  "provenance": {
+    "git_sha": "efd1a396a611927e3ccd5d6683bb0c2eade740b9",
+    "git_dirty": true,
+    "tracked_diff_sha256": "d82b2093da0e4b98d60dd9f8cde958c28b737dcffc2c6c2350862b2ed3f4e9c2",
+    "source_files": {
+      "configs/interface_contract_pilot_manifest.json": "6b89172cfb7499ea45839d3f3c68532cc3b63c57be1b7f97b17ca6a95972212a",
+      "docs/ICLR_PLAN.md": "7717bc4f851d7eeb1bba14882825a94d0e0df7612adc5720ca4545e84212213f",
+      "docs/INTERFACE_CONTRACT_MAINLINE.md": "74b7cf7ce0aff03b677ce0c477cf2a6bf3648c07374c5029a55417615c3bc68f",
+      "docs/INTERFACE_CONTRACT_PROTOCOL.md": "81ec1339c67661f4766273c23907f51dedd1ab30248301c38aac0031c31d42eb",
+      "docs/RESULTS_REGISTRY.md": "9962487fbdf9ed26491dcb065f6873c39f8d6bc8a727a3aacfe4653c91cb7504",
+      "envs/point_hazard_adapter.py": "12ee3863487056c6f735d4ed3ee79a2397af398480f78c22c885e7ea51cfd014",
+      "envs/safety_gym_goal_adapter.py": "f01c29cbf387cc1beff7ef1da398774a3a1d264ff3927e86aec48c46119d68c1",
+      "evaluation/interface_contracts.py": "ecbcf0031a3f28455389faeb869044ff7c0db4ae1d1e428a759cbc4072ba58a9",
+      "evaluation/interface_metrics.py": "f8385f66b2d579186d67fa8ba3d4ba25a8621cc1b1bcb9cfd9cc42c3eec2e7dd",
+      "evaluation/interface_scenarios.py": "282b22c788433e3cb8076e533eff7bcc200543d4a5fe90dcdb5bc75d68cfb35c",
+      "evaluation/native_environment_gate.py": "423fa742303dcd3525b9b22a15899a34d5a1d6bf3dea5daa6605811dffb92385",
+      "evaluation/paid_provider_gateway.py": "a81d3b31bfc3f2b831346657e9aa315b2f51709ec07f21a97e7214825182d795",
+      "evaluation/policy_interface.py": "44d4d7c9cfeff2ebaab9d000321359587048807cd173c866145198f3e919f59e",
+      "scripts/analyze_interface_contract_pilot.py": "410009178cb8b1e63ffbbbccc71c6f7b1c792803bb63afaf41a43dc710f1b385",
+      "scripts/build_interface_contract_pilot.py": "94cff072529ce47f8c4b3b06565a8f6363c2596bdf7f7f6125492b1010aac96d",
+      "scripts/make_semantic_figures.py": "0c271f9f649ee744e37f497f0ca10e1340999db7e527e231da0bb4c33c416c16",
+      "scripts/run_interface_contract_audit.py": "8e80e69601d987cd3863e02c3bd596c3d67644858420940a1bb3ed07f4f7de0d",
+      "scripts/run_interface_contract_replacement.py": "44cc0dccbe05b15d33c35225137de981b3f857f891f9a5f3559ee1385816055f",
+      "scripts/run_safety_gym_micro_pilot.py": "fb29bf09ea5945c3b6d475535075792b7b5cd85e1a8591f69eb66aaaae7cddc6",
+      "subgoal_pivot_hazard.py": "d411f04bdba12687fe33b581bd99be884f67d7f9c85002141e74129e9997bc34"
+    }
+  },
+  "authorization_blockers": [
+    "model slot 2 unresolved",
+    "model slot 3 unresolved",
+    "all model revisions unresolved",
+    "maximum spend USD unresolved",
+    "candidate-model historical paid-seed backfill pending",
+    "explicit paid-run authorization absent"
+  ],
+  "checks": {
+    "matrix": true,
+    "paid_budget": true,
+    "native_environments": true,
+    "zero_provider_calls": true,
+    "zero_provider_attempts": true,
+    "headless_execution_forbidden": true,
+    "evaluator_truth_grounding_forbidden": true
+  }
+}

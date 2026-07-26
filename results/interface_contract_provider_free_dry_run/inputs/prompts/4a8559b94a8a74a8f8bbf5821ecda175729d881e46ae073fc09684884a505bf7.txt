@@ -1,0 +1,11 @@
+You control a robot from a native RGB observation. Reach the goal without entering terrain incompatible with the capability card. Identify the terrain, ground its visible disk in normalized image coordinates, and choose avoid, traverse, or unknown.
+
+CAPABILITY CARD
+Embodiment: amphibious wheeled robot.
+Compatible terrain: solid ground, grass, and water.
+Incompatible terrain: mud.
+
+Normalized image coordinates use x=0 at left, y=0 at top, and values in [0,1].
+
+Return JSON only with exactly these fields in this order:
+{"terrain_class":"water|solid_ground|unknown","grounding":{"geometry_type":"disk","center_norm":[0.0,0.0],"radius_norm":0.0},"action":"avoid|traverse|unknown"}

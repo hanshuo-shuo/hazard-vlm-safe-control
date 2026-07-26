@@ -1,0 +1,107 @@
+{
+  "schema_version": "interface-contract-pilot-manifest-v1",
+  "protocol_id": "interface-contract-pilot-v1",
+  "status": "BLOCKED",
+  "provider_calls_enabled": false,
+  "paid_budget": {
+    "allowed_paid_seeds": [20, 21, 22, 23, 24],
+    "maximum_distinct_paid_seeds_per_model": 5,
+    "maximum_new_provider_calls_per_model": 480,
+    "maximum_attempts_per_request": 3,
+    "maximum_retries_per_request": 2,
+    "maximum_total_provider_attempts_per_model": 1440,
+    "maximum_spend_usd": null
+  },
+  "models": [
+    {
+      "model_budget_id": "mistral-small-3.2-24b",
+      "provider": "openrouter",
+      "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "revision": "UNRESOLVED",
+      "historical_paid_seeds": [20, 21, 22, 23, 24],
+      "eligibility": "PENDING_REVISION_FREEZE"
+    },
+    {
+      "model_budget_id": "pilot-model-slot-2",
+      "provider": null,
+      "provider_model": null,
+      "revision": null,
+      "historical_paid_seeds": [],
+      "eligibility": "UNRESOLVED"
+    },
+    {
+      "model_budget_id": "pilot-model-slot-3",
+      "provider": null,
+      "provider_model": null,
+      "revision": null,
+      "historical_paid_seeds": [],
+      "eligibility": "UNRESOLVED"
+    }
+  ],
+  "paid_ineligible_historical_models": [
+    {
+      "model_budget_id": "gemini-2.5-flash-lite",
+      "provider_models": ["google/gemini-2.5-flash-lite"],
+      "historical_paid_seed_union": [0, 1, 2, 3, 4, 20, 21, 22, 23, 24],
+      "eligibility": "PAID_INELIGIBLE",
+      "reason": "historical distinct paid-seed union exceeds five"
+    },
+    {
+      "model_budget_id": "qwen3-vl-30b-a3b-instruct",
+      "provider_models": ["qwen/qwen3-vl-30b-a3b-instruct"],
+      "historical_paid_seed_union": [0, 1, 2, 3, 4, 20, 21, 22, 23, 24],
+      "eligibility": "PAID_INELIGIBLE",
+      "reason": "historical distinct paid-seed union exceeds five"
+    }
+  ],
+  "environments": [
+    "point_hazard_native",
+    "safety_gym_goal_native"
+  ],
+  "scenario_families": [
+    "clear_visible_incompatible",
+    "weak_occluded_incompatible",
+    "compatible_lookalike",
+    "capability_reversal",
+    "direct_path_intersection",
+    "near_tangent_path",
+    "multiple_candidate_detours",
+    "irrelevant_terrain_distractor"
+  ],
+  "twin_arms": [
+    "reference",
+    "capability_twin",
+    "appearance_twin",
+    "visibility_twin"
+  ],
+  "equivalent_pair_ids": [
+    "eq_field_order_v1",
+    "eq_structured_free_text_v1",
+    "eq_constraint_polarity_v1",
+    "eq_compatibility_polarity_v1",
+    "eq_constraint_compatibility_v1"
+  ],
+  "ambiguous_contract_id": "ambiguous_applicability_v1",
+  "calls_per_block": 6,
+  "blocks_per_model": 80,
+  "calls_per_model": 480,
+  "total_call_matrix_rows": 1440,
+  "compatibility_smoke": {
+    "source": "first_preregistered_matrix_cell_per_model",
+    "successful_smoke_is_formal_data": true,
+    "repeat_call_allowed": false,
+    "failed_smoke_eliminates_model": true,
+    "failed_call_and_attempts_remain_in_ledger": true
+  },
+  "formal_grounding_policy": "DERIVED_PUBLIC_ONLY",
+  "oracle_geometry_arm": "oracle_upper_bound",
+  "headless_execution_allowed": false,
+  "authorization_blockers": [
+    "model slot 2 unresolved",
+    "model slot 3 unresolved",
+    "all model revisions unresolved",
+    "maximum spend USD unresolved",
+    "candidate-model historical paid-seed backfill pending",
+    "explicit paid-run authorization absent"
+  ]
+}

@@ -773,6 +773,11 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--analyze-only", action="store_true")
     args = parser.parse_args()
+    if args.allow_provider_requests:
+        raise SystemExit(
+            "legacy Safety-Gym micro-pilot provider path is permanently disabled; "
+            "new paid calls must use evaluation.paid_provider_gateway"
+        )
     if args.dry_run and args.allow_provider_requests:
         raise SystemExit("--dry-run and --allow-provider-requests are incompatible")
     protocol = frozen_protocol()

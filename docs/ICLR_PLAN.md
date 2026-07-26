@@ -30,6 +30,15 @@ perception→reasoning→control 的 interface contract。
 `results/interface_contract_combined_analysis/` 和
 `results/interface_contract_execution_bridge/`；状态均为 `PILOT_ONLY`。
 
+Provider-free implementation is now governed by
+`docs/INTERFACE_CONTRACT_PROTOCOL.md` and the blocked
+`configs/interface_contract_pilot_manifest.json`. The generated dry-run under
+`results/interface_contract_provider_free_dry_run/` contains 80 matched blocks
+and a 1,440-row call matrix with zero provider calls/attempts. Both native
+PointHazard and native Safety-Gymnasium RGB/dynamics gates pass locally. This is
+`INFRA`, does not unlock paid execution, and does not change the pilot-only
+status of earlier results.
+
 ## 2026-07-24 termination amendment
 
 五种子 marker/interface pilot 触发预声明 kill condition：marker-ID physical

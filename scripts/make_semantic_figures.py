@@ -114,6 +114,11 @@ def main() -> None:
                          "water-like terrain)")
     args = ap.parse_args()
 
+    sys.exit(
+        "legacy paid figure generation is disabled; replay cached artifacts or "
+        "use evaluation.paid_provider_gateway for any newly authorized call"
+    )
+
     spec = S.SEMANTIC_SPECS[args.zone_semantics]
     cfg = PointHazardConfig(n_semantic_zones=1, max_episode_steps=300)
     env = PointHazardEnv(cfg=cfg)

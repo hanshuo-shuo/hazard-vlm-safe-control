@@ -11,6 +11,34 @@
 
 当前没有任何 semantic-safety 结果达到 VALIDATED。
 
+## Interface-contract provider-free infrastructure
+
+- Decision date: `2026-07-26`
+- Evidence class: `INFRA / BLOCKED / PROVIDER_FREE`
+- Protocol: `docs/INTERFACE_CONTRACT_PROTOCOL.md`
+- Source manifest: `configs/interface_contract_pilot_manifest.json`
+- Artifact: `results/interface_contract_provider_free_dry_run/`
+- Matrix: 80 explicit blocks, 1,440 logical request rows, 480/model
+- Paid seeds frozen per model: `[20,21,22,23,24]`
+- Provider calls/attempts in dry run: `0 / 0`
+- Native gates: PointHazard native RGB/dynamics/reward/cost/termination and
+  Safety-Gymnasium `SafetyPointGoal1-v0` native RGB/dynamics/reward/cost/termination
+- Formal planner: evaluator-truth grounding rejected; oracle geometry restricted
+  to the separate `oracle_upper_bound` arm
+- Authorization: **NOT AUTHORIZED**
+
+The three-layer paid guard caps each canonical model identity at five distinct
+paid seeds, 480 new logical calls, three attempts per request, and 1,440 total
+attempts. Failed, timed-out, empty, schema-invalid, and model-mismatched attempts
+are reserved before transport and remain in the ledger. The compatibility smoke
+is the first formal matrix cell and cannot be repeated.
+
+Under the literal global seed ceiling, Gemini 2.5 Flash-Lite and
+Qwen3-VL-30B-A3B-Instruct are `PAID_INELIGIBLE`: historical evidence contains
+paid seeds `0–4` and `20–24`. Their prior artifacts remain replayable without new
+provider calls. Mistral's historical paid seeds are `20–24`; its revision is not
+yet frozen. Two additional model slots and the maximum spend remain unresolved.
+
 ## Interface-contract recovery pilot
 
 - Decision date: `2026-07-26`

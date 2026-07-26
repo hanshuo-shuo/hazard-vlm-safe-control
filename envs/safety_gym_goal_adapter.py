@@ -40,6 +40,12 @@ class SafetyGymGoalAdapter:
     """Adapter for the native ``SafetyPointGoal1-v0`` six-value API."""
 
     backend = "safety_gym_goal"
+    native_rgb_source = "Safety-Gymnasium.render(rgb_array)"
+    native_dynamics_source = "Safety-Gymnasium.step"
+    native_reward_source = "Safety-Gymnasium.step.reward"
+    native_cost_source = "Safety-Gymnasium.step.cost"
+    native_termination_source = "Safety-Gymnasium.step.terminated_truncated"
+    native_coordinate_frame = "Safety-Gymnasium-world-xy"
 
     def __init__(
         self,
@@ -49,6 +55,7 @@ class SafetyGymGoalAdapter:
         env: Any | None = None,
         env_factory: Callable[..., Any] | None = None,
     ) -> None:
+        self._native_runtime = env is None
         if env is not None:
             self._env = env
         else:
@@ -73,6 +80,12 @@ class SafetyGymGoalAdapter:
         self._truncated = False
         self._termination_reason = "unknown"
         self._seed: int | None = None
+
+    @property
+    def headless_execution(self) -> bool:
+        # Injected stand-ins are accepted for unit tests but can never pass the
+        # formal native-environment gate.
+        return not self._native_runtime
 
     def reset(self, *, seed: int | None = None) -> tuple[Any, dict[str, Any]]:
         self._seed = seed
@@ -183,6 +196,8 @@ class SafetyGymGoalAdapter:
             "dt": timestep,
             "physical_hazards": hazards,
             "semantic_terrain": [],
+            "native_coordinate_frame": self.native_coordinate_frame,
+            "native_runtime": self._native_runtime,
         }
 
     def _agent_position(self) -> list[float] | None:

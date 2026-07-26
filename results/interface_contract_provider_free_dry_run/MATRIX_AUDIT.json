@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": {
+    "block_count_is_80": true,
+    "every_block_has_required_assignments": true,
+    "matrix_rows_are_1440": true,
+    "three_model_slots": true,
+    "calls_per_model_are_480": true,
+    "paid_seeds_are_exactly_20_24": true,
+    "one_reused_smoke_cell_per_model": true,
+    "smoke_is_first_model_cell": true,
+    "all_rows_budgeted_as_formal_logical_calls": true,
+    "no_duplicate_request_hashes": true
+  }
+}

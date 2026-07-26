@@ -1187,6 +1187,10 @@ def evaluate(args: argparse.Namespace) -> None:
     api_key = args.api_key or os.environ.get("OPENROUTER_API_KEY", "")
     vlm_fn: VlmFn | None = None
     if args.pilot_mode == "vlm":
+        sys.exit(
+            "legacy marker-based paid VLM execution is disabled; new provider "
+            "calls must use evaluation.paid_provider_gateway"
+        )
         if not api_key:
             sys.exit(
                 "pilot_mode=vlm requires an API key: pass --api_key or set "

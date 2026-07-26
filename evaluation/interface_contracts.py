@@ -8,6 +8,8 @@ silently normalized: both plausible downstream interpretations are evaluated.
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import dataclass
+from enum import Enum
 import json
 import math
 import re
@@ -52,6 +54,279 @@ _FREE_TEXT = re.compile(
     r"confidence=(0(?:\.\d+)?|1(?:\.0+)?)$",
     re.IGNORECASE,
 )
+
+
+class ContractClass(str, Enum):
+    EQUIVALENT = "equivalent"
+    AMBIGUOUS = "ambiguous"
+
+
+FORMAL_CONTRACT_IDS = (
+    "formal_action_structured",
+    "formal_action_structured_field_reversed",
+    "formal_action_free_text",
+    "formal_constraint_positive",
+    "formal_constraint_negative",
+    "formal_compatibility_positive",
+    "formal_compatibility_negative",
+    "ambiguous_applicability_v1",
+)
+
+EQUIVALENT_PAIRS = {
+    "eq_field_order_v1": (
+        "formal_action_structured",
+        "formal_action_structured_field_reversed",
+    ),
+    "eq_structured_free_text_v1": (
+        "formal_action_structured",
+        "formal_action_free_text",
+    ),
+    "eq_constraint_polarity_v1": (
+        "formal_constraint_positive",
+        "formal_constraint_negative",
+    ),
+    "eq_compatibility_polarity_v1": (
+        "formal_compatibility_positive",
+        "formal_compatibility_negative",
+    ),
+    "eq_constraint_compatibility_v1": (
+        "formal_constraint_positive",
+        "formal_compatibility_positive",
+    ),
+}
+
+AMBIGUOUS_CONTRACT_IDS = ("ambiguous_applicability_v1",)
+
+
+@dataclass(frozen=True)
+class CanonicalGrounding:
+    center_norm: tuple[float, float]
+    radius_norm: float
+
+    def __post_init__(self) -> None:
+        if len(self.center_norm) != 2 or not all(
+            math.isfinite(value) and 0.0 <= value <= 1.0 for value in self.center_norm
+        ):
+            raise ValueError("grounding center_norm must contain two values in [0,1]")
+        if not math.isfinite(self.radius_norm) or not 0.0 < self.radius_norm <= 1.0:
+            raise ValueError("grounding radius_norm must be in (0,1]")
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "geometry_type": "disk",
+            "center_norm": list(self.center_norm),
+            "radius_norm": self.radius_norm,
+        }
+
+
+def formal_contract_class(contract_id: str) -> ContractClass:
+    if contract_id in AMBIGUOUS_CONTRACT_IDS:
+        return ContractClass.AMBIGUOUS
+    if any(contract_id in pair for pair in EQUIVALENT_PAIRS.values()):
+        return ContractClass.EQUIVALENT
+    raise ValueError(f"unknown formal contract: {contract_id}")
+
+
+def _formal_common_prefix(capability: str) -> str:
+    return (
+        "You control a robot from a native RGB observation. Reach the goal without "
+        "entering terrain incompatible with the capability card. Identify the "
+        "terrain, ground its visible disk in normalized image coordinates, and "
+        "choose avoid, traverse, or unknown.\n\nCAPABILITY CARD\n"
+        f"{capability_card(capability)}\n\n"
+        "Normalized image coordinates use x=0 at left, y=0 at top, and values in [0,1].\n\n"
+    )
+
+
+def build_formal_contract_prompt(contract_id: str, capability: str) -> bytes:
+    """Build the preregistered stage-output prompt for a formal contract."""
+    if contract_id not in FORMAL_CONTRACT_IDS:
+        raise ValueError(f"unknown formal contract: {contract_id}")
+    prefix = _formal_common_prefix(capability)
+    grounding = '{"geometry_type":"disk","center_norm":[0.0,0.0],"radius_norm":0.0}'
+    if contract_id == "formal_action_structured":
+        schema = (
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"action":"avoid|traverse|unknown"}'
+        )
+        suffix = "Return JSON only with exactly these fields in this order:\n" + schema + "\n"
+    elif contract_id == "formal_action_structured_field_reversed":
+        schema = (
+            '{"action":"avoid|traverse|unknown","grounding":'
+            + grounding
+            + ',"terrain_class":"water|solid_ground|unknown"}'
+        )
+        suffix = "Return JSON only with exactly these fields in this order:\n" + schema + "\n"
+    elif contract_id == "formal_action_free_text":
+        suffix = (
+            "Return exactly one line:\n"
+            "terrain=water|solid_ground|unknown; cx=0.0; cy=0.0; radius=0.0; "
+            "action=avoid|traverse|unknown\n"
+        )
+    elif contract_id == "formal_constraint_positive":
+        suffix = (
+            "constraint_applies=yes means the terrain must be avoided; no means it may be traversed.\n"
+            "Return JSON only with exactly these fields in this order:\n"
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"constraint_applies":"yes|no|unknown","action":"avoid|traverse|unknown"}\n'
+        )
+    elif contract_id == "formal_constraint_negative":
+        suffix = (
+            "constraint_does_not_apply=yes means the terrain may be traversed; no means it must be avoided.\n"
+            "Return JSON only with exactly these fields in this order:\n"
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"constraint_does_not_apply":"yes|no|unknown","action":"avoid|traverse|unknown"}\n'
+        )
+    elif contract_id == "formal_compatibility_positive":
+        suffix = (
+            "terrain_compatible=yes means the terrain may be traversed; no means it must be avoided.\n"
+            "Return JSON only with exactly these fields in this order:\n"
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"terrain_compatible":"yes|no|unknown","action":"avoid|traverse|unknown"}\n'
+        )
+    elif contract_id == "formal_compatibility_negative":
+        suffix = (
+            "terrain_incompatible=yes means the terrain must be avoided; no means it may be traversed.\n"
+            "Return JSON only with exactly these fields in this order:\n"
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"terrain_incompatible":"yes|no|unknown","action":"avoid|traverse|unknown"}\n'
+        )
+    else:
+        suffix = (
+            "Decide whether the terrain is applicable to the robot's safety constraint. "
+            "No downstream meaning of applicable is specified.\n"
+            "Return JSON only with exactly these fields in this order:\n"
+            '{"terrain_class":"water|solid_ground|unknown","grounding":'
+            + grounding
+            + ',"applicability":"applicable|not_applicable|unknown",'
+            '"action":"avoid|traverse|unknown"}\n'
+        )
+    return (prefix + suffix).encode("utf-8")
+
+
+_FORMAL_FREE_TEXT = re.compile(
+    r"^terrain=(water|solid_ground|unknown);\s*"
+    r"cx=(0(?:\.\d+)?|1(?:\.0+)?);\s*"
+    r"cy=(0(?:\.\d+)?|1(?:\.0+)?);\s*"
+    r"radius=(0(?:\.\d+)?|1(?:\.0+)?);\s*"
+    r"action=(avoid|traverse|unknown)$",
+    re.IGNORECASE,
+)
+
+
+def _formal_expected_keys(contract_id: str) -> tuple[str, ...]:
+    values = {
+        "formal_action_structured": ("terrain_class", "grounding", "action"),
+        "formal_action_structured_field_reversed": ("action", "grounding", "terrain_class"),
+        "formal_constraint_positive": ("terrain_class", "grounding", "constraint_applies", "action"),
+        "formal_constraint_negative": ("terrain_class", "grounding", "constraint_does_not_apply", "action"),
+        "formal_compatibility_positive": ("terrain_class", "grounding", "terrain_compatible", "action"),
+        "formal_compatibility_negative": ("terrain_class", "grounding", "terrain_incompatible", "action"),
+        "ambiguous_applicability_v1": ("terrain_class", "grounding", "applicability", "action"),
+    }
+    return values.get(contract_id, ())
+
+
+def _canonical_safe_to_traverse(contract_id: str, value: Mapping[str, Any]) -> bool | None:
+    mapping = {
+        "formal_constraint_positive": ("constraint_applies", "no"),
+        "formal_constraint_negative": ("constraint_does_not_apply", "yes"),
+        "formal_compatibility_positive": ("terrain_compatible", "yes"),
+        "formal_compatibility_negative": ("terrain_incompatible", "no"),
+    }
+    if contract_id not in mapping:
+        return None
+    key, safe_token = mapping[contract_id]
+    token = value[key]
+    return None if token == "unknown" else token == safe_token
+
+
+def parse_formal_contract_response(contract_id: str, raw: str) -> dict[str, Any]:
+    """Strict parse plus canonical semantics without guessing ambiguous labels."""
+    try:
+        if contract_id == "formal_action_free_text":
+            match = _FORMAL_FREE_TEXT.fullmatch(raw.strip())
+            if match is None:
+                raise ValueError("formal free-text response does not match frozen grammar")
+            value: dict[str, Any] = {
+                "terrain_class": match.group(1).lower(),
+                "grounding": {
+                    "geometry_type": "disk",
+                    "center_norm": [float(match.group(2)), float(match.group(3))],
+                    "radius_norm": float(match.group(4)),
+                },
+                "action": match.group(5).lower(),
+            }
+            emitted_order: tuple[str, ...] = ()
+            field_order_compliant: bool | None = None
+        else:
+            value = _json_value(raw)
+            expected = _formal_expected_keys(contract_id)
+            if not expected or set(value) != set(expected):
+                raise ValueError(f"response fields must be exactly {list(expected)}")
+            emitted_order = tuple(value)
+            field_order_compliant = emitted_order == expected
+        terrain = str(value["terrain_class"]).lower()
+        action = str(value["action"]).lower()
+        if terrain not in {"water", "solid_ground", "unknown"}:
+            raise ValueError("invalid formal terrain_class")
+        if action not in ALLOWED_ACTION:
+            raise ValueError("invalid formal action")
+        raw_grounding = value["grounding"]
+        if not isinstance(raw_grounding, Mapping) or set(raw_grounding) != {
+            "geometry_type", "center_norm", "radius_norm"
+        }:
+            raise ValueError("grounding must match the frozen disk schema")
+        if raw_grounding["geometry_type"] != "disk":
+            raise ValueError("grounding geometry_type must equal disk")
+        grounding = CanonicalGrounding(
+            tuple(float(item) for item in raw_grounding["center_norm"]),
+            float(raw_grounding["radius_norm"]),
+        )
+        if contract_id == "ambiguous_applicability_v1":
+            token = value["applicability"]
+            if token not in {"applicable", "not_applicable", "unknown"}:
+                raise ValueError("invalid ambiguous applicability token")
+            safe = None
+        else:
+            if contract_id not in {
+                "formal_action_structured",
+                "formal_action_structured_field_reversed",
+                "formal_action_free_text",
+            }:
+                label_key = _formal_expected_keys(contract_id)[2]
+                if value[label_key] not in YES_NO_UNKNOWN:
+                    raise ValueError(f"invalid {label_key}")
+            safe = _canonical_safe_to_traverse(contract_id, value)
+        return {
+            "parse_status": "ok",
+            "contract_class": formal_contract_class(contract_id).value,
+            "canonical_semantics": {
+                "terrain_class": terrain,
+                "safe_to_traverse": safe,
+                "action": action,
+            },
+            "canonical_grounding": grounding.to_dict(),
+            "field_order_compliant": field_order_compliant,
+            "emitted_field_order": list(emitted_order),
+            "raw_values": value,
+        }
+    except (json.JSONDecodeError, KeyError, TypeError, ValueError) as exc:
+        return {
+            "parse_status": "error",
+            "contract_class": formal_contract_class(contract_id).value,
+            "parse_error": str(exc),
+            "canonical_semantics": None,
+            "canonical_grounding": None,
+            "field_order_compliant": False,
+            "emitted_field_order": [],
+            "raw_values": {},
+        }
 
 
 def capability_card(capability: str) -> str:

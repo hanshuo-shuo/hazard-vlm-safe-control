@@ -4,6 +4,22 @@ Date: 2026-07-26
 
 Status: **promising exploratory direction; ICLR main result not yet recovered**
 
+## Provider-free implementation status
+
+The new preregistered protocol is
+[`INTERFACE_CONTRACT_PROTOCOL.md`](INTERFACE_CONTRACT_PROTOCOL.md). Its checked-in
+manifest remains `BLOCKED` and fixes paid seeds `20–24`, 480 new logical calls
+per model, three attempts per request, and 1,440 attempts per model. The
+provider-free dry-run artifact is
+`results/interface_contract_provider_free_dry_run/`: 80 explicitly assigned
+blocks, 1,440 logical request rows, zero provider calls/attempts, strict twins,
+and native PointHazard plus native Safety-Gymnasium RGB/dynamics gates.
+
+This is `INFRA`, not a paper result and not paid-run authorization. Gemini 2.5
+Flash-Lite and Qwen3-VL-30B are ineligible for further paid calls under the new
+global ceiling because their historical paid-seed union is `0–4` plus `20–24`.
+Cached replay remains allowed and provider-free.
+
 ## Decision
 
 The marker-only story remains terminated. The norm-applicability failure story
