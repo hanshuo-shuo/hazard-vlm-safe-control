@@ -1,12 +1,12 @@
 {
   "schema_version": "interface-contract-scout-paid-run-v1",
   "status": "COMPLETE",
-  "stage": "smoke",
-  "selected_rows": 2,
-  "completed_rows_this_execution": 2,
-  "cache_hits_this_execution": 0,
-  "cached_formal_responses": 2,
-  "spend_usd": 0.009683299999999999,
+  "stage": "full",
+  "selected_rows": 120,
+  "completed_rows_this_execution": 120,
+  "cache_hits_this_execution": 2,
+  "cached_formal_responses": 120,
+  "spend_usd": 0.7861499000000001,
   "maximum_spend_usd": 1.0,
   "ledger_audit": {
     "schema_version": "paid-provider-budget-audit-v1",
@@ -35,8 +35,8 @@
           23,
           24
         ],
-        "new_provider_calls": 1,
-        "provider_attempts": 1,
+        "new_provider_calls": 60,
+        "provider_attempts": 60,
         "maximum_request_attempts_observed": 1,
         "compatibility_smoke_request_sha256": "942a763d8b0c7172c80a749df49c8034abd4b429acaefe96bcde4eb3a52e7fe3",
         "compatibility_smoke_status": "SUCCEEDED",
@@ -52,10 +52,14 @@
       },
       "qwen3.5-plus-02-15": {
         "paid_seed_union": [
-          20
+          20,
+          21,
+          22,
+          23,
+          24
         ],
-        "new_provider_calls": 1,
-        "provider_attempts": 1,
+        "new_provider_calls": 60,
+        "provider_attempts": 60,
         "maximum_request_attempts_observed": 1,
         "compatibility_smoke_request_sha256": "13ae655704993bd8dab3cec33fa1e6cc54f61b8b17cca5fe8e16fb04d7a624b6",
         "compatibility_smoke_status": "SUCCEEDED",

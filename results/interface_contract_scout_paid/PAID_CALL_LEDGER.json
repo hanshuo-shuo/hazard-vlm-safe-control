@@ -2,7 +2,7 @@
   "schema_version": "paid-provider-ledger-v1",
   "protocol_id": "interface-contract-pilot-v1",
   "created_at": "2026-07-26T11:59:02.440903+00:00",
-  "updated_at": "2026-07-26T12:00:58.440006+00:00",
+  "updated_at": "2026-07-26T14:38:51.855255+00:00",
   "models": {
     "mistral-small-3.2-24b": {
       "historical_paid_seeds": [
@@ -13,10 +13,14 @@
         24
       ],
       "reserved_paid_seeds": [
-        20
+        20,
+        21,
+        22,
+        23,
+        24
       ],
-      "new_provider_calls": 1,
-      "provider_attempts": 1,
+      "new_provider_calls": 60,
+      "provider_attempts": 60,
       "compatibility_smoke_request_sha256": "942a763d8b0c7172c80a749df49c8034abd4b429acaefe96bcde4eb3a52e7fe3",
       "compatibility_smoke_status": "SUCCEEDED",
       "requests": {
@@ -38,16 +42,1141 @@
               "at": "2026-07-26T11:59:05.294708+00:00"
             }
           ]
+        },
+        "78e3aff05327ac85499b92ac9a26f12b6e6afbe25ba54bda89e82ad83778cd71": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:01:59.022954+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:01:59.023673+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:00.995298+00:00"
+            }
+          ]
+        },
+        "bb1a6382cd42e8a8a276f26d2a93df426cb414ba17a2c0de12a187c477483678": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:00.997193+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:00.997801+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:03.241525+00:00"
+            }
+          ]
+        },
+        "c8aad8046a2de76d2ae6bdc8e19f03c6347c0498fcf497c70df673ca315d9659": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:03.246825+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:03.248542+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:05.140249+00:00"
+            }
+          ]
+        },
+        "c09ba14ab46f0ae43e9cb68c9a9db7bfd8462c8345ed72c56820fc68e9bbf214": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:05.142644+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:05.143683+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:07.022071+00:00"
+            }
+          ]
+        },
+        "788a3d9d987088ded4082f649d21253ec8db4933cefecbade17d87264536af23": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:07.023920+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:07.024574+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:08.906823+00:00"
+            }
+          ]
+        },
+        "fcf6e9ac3cdeee2c39d5111d5a6698f6deb2b70ace8c7d1d8b4c0a0b101b2641": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:08.911052+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:08.912174+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:10.688248+00:00"
+            }
+          ]
+        },
+        "34e65af3faf0f3f1eabdc62c84c7c21880129bbb4e50cc514edb527af2ed9d09": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:10.691457+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:10.692494+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:12.747471+00:00"
+            }
+          ]
+        },
+        "82052467722e0e5f254284e586232e521d95fd4594840bdb60f2a16582935747": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:12.753656+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:12.755496+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:14.579854+00:00"
+            }
+          ]
+        },
+        "e13578fb71a204000cfca70662af3acc02971b971ba0f915f6f9280ce8b4b5f9": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:14.585162+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:14.586958+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:16.464025+00:00"
+            }
+          ]
+        },
+        "df21354cd8ee887c8a7374a87cb951cc60c712ed84f870ee16d4bd7d15976e8b": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:16.469626+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:16.471546+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:18.458035+00:00"
+            }
+          ]
+        },
+        "1317b0a93ae814d31a8e8ff8b3210d7b4ac34fcf83eff0fcd69838cdc00d3f08": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:18.463756+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:18.466540+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:20.423306+00:00"
+            }
+          ]
+        },
+        "c798550e0f68a3996e5a696585f90119e2ce6f8f77b9cef47566280934230f55": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:20.429130+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:20.430520+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:22.222587+00:00"
+            }
+          ]
+        },
+        "cc0ee067bf6df222c4996d1193950c990cfc001f85e88d77edef7f7eddcb4518": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:22.224779+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:22.225566+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:24.113390+00:00"
+            }
+          ]
+        },
+        "4998054fac1d80e79f2b2dfa77ccfb897dfb4d17eb3d9ec6f37dc62ff021451c": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:24.116115+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:24.117069+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:26.007304+00:00"
+            }
+          ]
+        },
+        "ff546e2d3ac9af9f48a2aea02902e396af6428756c185ea8ca03f5e9970101cc": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:26.010247+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:26.011358+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:27.779127+00:00"
+            }
+          ]
+        },
+        "dc63180dcaf803c015a65f5ac5b79155ce633774e54612064426b4101861332d": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:27.781812+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:27.782841+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:29.821365+00:00"
+            }
+          ]
+        },
+        "a50f710fc6c5a1715a026cc4f6b4612a552171426934637e0ae7bfb7b1bafc95": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:29.828958+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:29.831226+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:31.838995+00:00"
+            }
+          ]
+        },
+        "6a159425254c8fc4e5db801deb83e45730cedb6abe58106057b05cced2b80a55": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:31.842503+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:31.844067+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:33.806241+00:00"
+            }
+          ]
+        },
+        "72bf8364c32da0456f207b61d586c563665a070c53d105555bf67ca64a850066": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:33.813393+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:33.815345+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:36.120666+00:00"
+            }
+          ]
+        },
+        "c0b454e5184560cd39a7f222e4078b2a1ae6e7e9f231bde74bbb5da7a697b0a7": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:36.123506+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:36.124581+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:38.049699+00:00"
+            }
+          ]
+        },
+        "8fa2b277d915721f5ee939131965c3ecc2237129911725b022684bc4bd3c8874": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:38.053156+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:38.054315+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:41.280195+00:00"
+            }
+          ]
+        },
+        "448d81ffdd8777892fc09d8e46aa8900f27114aba82c2ecc5e57badc5028687e": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:41.283878+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:41.284955+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:43.055219+00:00"
+            }
+          ]
+        },
+        "aff3910e3377c3420e77e9bcdc9e5a157916aaf48810ccb2f080db75b995974d": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:43.060199+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:43.061760+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:44.885023+00:00"
+            }
+          ]
+        },
+        "491d71ce656ba68be51e810ce160ad54b75543723717183761aef30be4387e15": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:44.893496+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:44.895762+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:46.737352+00:00"
+            }
+          ]
+        },
+        "567114655a302ba8346e1685380ef7973fba76e9fa820961ad7140ce3eb1c87e": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:46.745385+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:46.747829+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:48.519572+00:00"
+            }
+          ]
+        },
+        "c2443c344f8ae76c23f3a8f558e26460639bc7fbff94f9e0b5c0876adc9ecbc7": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:48.523398+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:48.524388+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:50.376541+00:00"
+            }
+          ]
+        },
+        "f05565d8a8acba3e44f9faf88ee281fac9fbed3760277bee8614208eeab5b558": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:50.381787+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:50.383646+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:52.213971+00:00"
+            }
+          ]
+        },
+        "187e6347fb2e8cf184f098b071ffcbb7bbc4c7bbf7479e49575920d232cfe1af": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:52.217463+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:52.218491+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:54.062816+00:00"
+            }
+          ]
+        },
+        "9a0cff0f1855dee16bafe041bc172df9604e85a8fd8fd7f250ae58016c6cb412": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:54.071984+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:54.074517+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:56.140578+00:00"
+            }
+          ]
+        },
+        "a91e79625ea93e62a38217e41ed6a4568e42dbfd7586cbe1e8d0b4b2cf4df4e8": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:56.143998+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:56.145037+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:02:59.313321+00:00"
+            }
+          ]
+        },
+        "5921d3a4775dbbb52e8419b51d46230f168fb909bc0a3141bcc34066e75dcf2b": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:02:59.316751+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:02:59.317840+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:02.750630+00:00"
+            }
+          ]
+        },
+        "cc472c2c277a5d23090ef7a6f7c3d79f29dad93b167a3351ac4594ac37c87ae5": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:02.758008+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:02.760814+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:04.939383+00:00"
+            }
+          ]
+        },
+        "b2ea5565dacc069905d20868f0d7b3689821d0eb9d802c326c71b24223d67227": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:04.948366+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:04.950971+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:07.119064+00:00"
+            }
+          ]
+        },
+        "3f3efac63cf905ef3ed4050b23e675b0b7485c6ca157a595247326088db0cc2b": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:07.127791+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:07.130422+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:09.498496+00:00"
+            }
+          ]
+        },
+        "1bc764f856284e2af6bbfb73955e1629170808baf20d42b5b362e451a261dada": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:09.505920+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:09.508270+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:11.661955+00:00"
+            }
+          ]
+        },
+        "a5e24369e843f0553175c75f7dae0407284217b5becab9750b0e5bc64aa2218e": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:11.667924+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:11.670610+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:13.803954+00:00"
+            }
+          ]
+        },
+        "a682a305db0c6e53ca0a404f0c2ae80d22c3bbe7a508402205ee008ad6bdd32d": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:13.813033+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:13.816262+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:18.140572+00:00"
+            }
+          ]
+        },
+        "44526cf24032b8694390f43f3859c6b85f56df4b5c991b19b49d8c8126fe01c9": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:18.150071+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:18.152807+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:21.346515+00:00"
+            }
+          ]
+        },
+        "75935ad3e5ee85d2afc729e0db216b88e95f986064463f7ef774aeee005b93b5": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:21.351534+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:21.352775+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:23.608977+00:00"
+            }
+          ]
+        },
+        "694db117652e60aa2540784902de1d5ab4541a33f883d799ce3631f4af5df9c3": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:23.616376+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:23.618887+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:25.758712+00:00"
+            }
+          ]
+        },
+        "4f7f8863eb19298619c5040b8853f01e491f67174b1302a7dd6bfe8e3b2849ae": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:25.767639+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:25.770130+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:29.736728+00:00"
+            }
+          ]
+        },
+        "1d69db8e1381762447fa6fc5589b495ae3ea5f0c177c8638ea716ebced562aae": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:29.745366+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:29.748618+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:31.893292+00:00"
+            }
+          ]
+        },
+        "e949ad71480ec6577865dde2c67195e2663533812951f763857971a541847a39": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:31.902158+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:31.904800+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:34.682073+00:00"
+            }
+          ]
+        },
+        "b14b70c808dba74e614207cd45a7bcade6a2fa3a72424e4c641d8bdebbe28d1f": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:34.686869+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:34.688809+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:36.949576+00:00"
+            }
+          ]
+        },
+        "69db539f16bddd54c0fa663f142ed8dfa0f7926424be8f4554dce502feb670bf": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:36.959595+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:36.962388+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:39.345852+00:00"
+            }
+          ]
+        },
+        "bc117db40cee512523f0aac2f13ba6a26e7e72d468eb72ca8d5758d02860481c": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:39.355304+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:39.357357+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:41.350325+00:00"
+            }
+          ]
+        },
+        "2438dea3081fc45efbf1b49c2f8beb5eb841d7d7238156be11e60eeb4d06d687": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:41.353906+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:41.355395+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:43.561709+00:00"
+            }
+          ]
+        },
+        "a4c61c7485cc046663cf0d56489f1ba129893736f030a4fedec3dba448418aea": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:43.565665+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:43.567173+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:45.870157+00:00"
+            }
+          ]
+        },
+        "5de0d547095e0e614400fb5ecbd0ff49e65ce6e3e1dae83be2168b0eeb733f24": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:45.874590+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:45.875938+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:50.108287+00:00"
+            }
+          ]
+        },
+        "a1bb021631429ef37ec2ff8dbf68b27dab10c53b49614d09600d329139ac94f8": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:50.116743+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:50.118071+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:52.433689+00:00"
+            }
+          ]
+        },
+        "26f66e862f0fce7cb1400c64d87f2a3aa8d0d7c85618b06fc89f48f9bf4cb14e": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:52.440234+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:52.443747+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:54.697716+00:00"
+            }
+          ]
+        },
+        "5de1b8948f9241e97c834991e35a30f4fa6e53b7ead5cc0f56ecb426fd9767a6": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:54.702282+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:54.703696+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:57.057636+00:00"
+            }
+          ]
+        },
+        "9221536e213f32c11328dab995c1bf356fd183159431917be00feb0240f23671": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:57.067742+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:57.070668+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:03:59.495164+00:00"
+            }
+          ]
+        },
+        "4a6fead2f7e5383383f3b144b7625f42dc483b9d78aa705d0c32ae87b52300b5": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:03:59.506477+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:03:59.510871+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:01.756755+00:00"
+            }
+          ]
+        },
+        "009b10ee51d63473f6824de732ef04487395a5441ba3344bed887efe925fad33": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:01.760923+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:01.762504+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:04.203932+00:00"
+            }
+          ]
+        },
+        "637c3cf9bd1944fdd322c9bd60b2c00d778ad96571dd78cb4a2211da00f2706a": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:04.215373+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:04.219503+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:07.535551+00:00"
+            }
+          ]
+        },
+        "13c5c612ebc6f3ef3c4eef2450bbd19924f7a064f20d75a8901100e06349c1da": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:07.546933+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:07.550417+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:10.388111+00:00"
+            }
+          ]
+        },
+        "3f385265621959fc5dacf4bc7b5b990edae79a861ffe92d95ba6e7e12ec44b96": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:10.399107+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:10.402318+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:12.604209+00:00"
+            }
+          ]
+        },
+        "2b62ac4c6d72892f437ce98ed51ebe6d840ca04478b5fe7c8e5b88f726ff8ed7": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:12.616377+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:12.620125+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:04:14.790493+00:00"
+            }
+          ]
         }
       }
     },
     "qwen3.5-plus-02-15": {
       "historical_paid_seeds": [],
       "reserved_paid_seeds": [
-        20
+        20,
+        21,
+        22,
+        23,
+        24
       ],
-      "new_provider_calls": 1,
-      "provider_attempts": 1,
+      "new_provider_calls": 60,
+      "provider_attempts": 60,
       "compatibility_smoke_request_sha256": "13ae655704993bd8dab3cec33fa1e6cc54f61b8b17cca5fe8e16fb04d7a624b6",
       "compatibility_smoke_status": "SUCCEEDED",
       "requests": {
@@ -67,6 +1196,1127 @@
               "event": "SUCCEEDED",
               "detail": null,
               "at": "2026-07-26T12:00:58.439892+00:00"
+            }
+          ]
+        },
+        "c2cb2aad4bd5546e6412c91b2cbc66f8af80bfe1f752e3a8c0155fdb1ffd438f": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:04:14.798051+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:04:14.799785+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:06:32.172585+00:00"
+            }
+          ]
+        },
+        "79269857b61da23e3aa10fc94d912a24a7a01e4ad49713ec04067316c88c2335": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:06:32.344573+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:06:32.346127+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:08:30.002211+00:00"
+            }
+          ]
+        },
+        "134cacff5e25cd8bbcb5648ff2150dd2606f5550342ab6462a2a89c487c66050": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:08:30.017858+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:08:30.019522+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:10:30.808175+00:00"
+            }
+          ]
+        },
+        "9697cd1f9adb0db4c0b901bb91cd3721eb7f2a7e2e220285e74cb3217181b04d": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:10:30.825346+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:10:30.827376+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:11:41.200452+00:00"
+            }
+          ]
+        },
+        "44769f57b93209a13d6e68e610546fdcc02666ecec798fdb4d40eab4549ea2b0": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:11:41.222947+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:11:41.225443+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:13:40.769590+00:00"
+            }
+          ]
+        },
+        "02223236a852a8f11e84bef94c516b716871c4628a3885824124cd34b092722f": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:13:40.791748+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:13:40.794037+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:15:35.611541+00:00"
+            }
+          ]
+        },
+        "321cb932c64c9792dfabe5d102146e77ccac4159db04dadd804aa19375597d85": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:15:35.631178+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:15:35.633284+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:17:25.979348+00:00"
+            }
+          ]
+        },
+        "183d678a68a853272d52c050b30348480165a4db8d19851c207a31170bf33e78": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:17:25.999963+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:17:26.002361+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:18:27.273840+00:00"
+            }
+          ]
+        },
+        "e6e62fdb7eb1681445efeae4387b54f745d32502dfbceb7968bc87d312807c0d": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:18:27.291531+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:18:27.294427+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:19:46.111959+00:00"
+            }
+          ]
+        },
+        "aaadb2c944b6ff755eeba681b547417fc006d308d2015cdb3c29be8dc8bbe81f": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:19:46.129311+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:19:46.131116+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:23:36.866969+00:00"
+            }
+          ]
+        },
+        "c4de716a0c535d9fadc0e1b4e023fa6806fc66032ddca4cb9d8c678335ade7f3": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:23:36.887390+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:23:36.890157+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:29:19.021451+00:00"
+            }
+          ]
+        },
+        "363ddb583ad1adddb6a77ff5f599009de48f5dad59a2de3d65ee299b3da7deb9": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:29:19.041014+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:29:19.043203+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:31:04.241281+00:00"
+            }
+          ]
+        },
+        "ba0df209b13c9dc25ddfa4ee7f9a929020d41351408ec2e04bbce18df224ed0b": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:31:04.261436+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:31:04.263400+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:34:22.330385+00:00"
+            }
+          ]
+        },
+        "e6a7d5f5065555fca708c140433b4022e09e28d4c5ee688fabd369453d8d86a4": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:34:22.348236+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:34:22.349809+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:35:07.065447+00:00"
+            }
+          ]
+        },
+        "9aa5c898167c77e1c869f9d38188fe7509b4685beba192da8e321f0290d35105": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:35:07.088428+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:35:07.091102+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:39:23.905386+00:00"
+            }
+          ]
+        },
+        "b7bac9f38ee88abe9f49135d238d92063c7a5e418ad298d3de067293d4262ca7": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:39:23.924562+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:39:23.926434+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:41:28.205232+00:00"
+            }
+          ]
+        },
+        "33b89e1d09d7ad12173d5339c2943a39b4b7266f69159a6e2927216d08f074b4": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:41:28.224856+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:41:28.227287+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:43:06.902087+00:00"
+            }
+          ]
+        },
+        "41a97edaeed9e29ec21b4b609b29e9f3f6ea9de3dc7b9449b47e2a29f41e110c": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:43:06.921882+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:43:06.923743+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:44:39.745041+00:00"
+            }
+          ]
+        },
+        "c22c2b38e5f3167565ae25aa08278adf340a12432fab721dc36a662de57cf893": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:44:39.776106+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:44:39.779036+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:48:04.755883+00:00"
+            }
+          ]
+        },
+        "5d6056b0c28bef38d98fe1e702dfab58dd42fd1cb27482d9370088b4be45215c": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:48:04.782263+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:48:04.785906+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:51:08.295909+00:00"
+            }
+          ]
+        },
+        "0068a247ddeb137acbe8610e5af775a682ba52da54758869ac07a66f575d3982": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:51:08.319882+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:51:08.322696+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:52:52.533017+00:00"
+            }
+          ]
+        },
+        "034eff9b4206b478c3fa9bc6d8203cc7b40fecdc7a14baa92ca2561a50095454": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:52:52.552907+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:52:52.555525+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:56:14.376394+00:00"
+            }
+          ]
+        },
+        "679c57681488de6010c38dffd3fa0cb8fb10f76f982baf1efe14a697e44518fb": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:56:14.403636+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:56:14.406855+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T12:58:32.401833+00:00"
+            }
+          ]
+        },
+        "28943621b7a5f85b45a170f801427c731e7eb86a68914ef83d04f1b627c1c44a": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T12:58:32.425260+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T12:58:32.427246+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:01:43.620339+00:00"
+            }
+          ]
+        },
+        "37aafc1c913498d7d216357f4bb6fcfbd28c02b20e8f18c7f26b408d94261819": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:01:43.640318+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:01:43.642376+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:04:19.515154+00:00"
+            }
+          ]
+        },
+        "4697e85278d3c2404803ca2f03a0253cdc67c42b88113c13afa38b043732b02b": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:04:19.539874+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:04:19.542178+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:05:58.118596+00:00"
+            }
+          ]
+        },
+        "36e6dd7835b1cd28af4f6d153e0276cdfcb7cfd03110f3e671fbeb6a82f3ccf6": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:05:58.146896+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:05:58.149904+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:08:17.003231+00:00"
+            }
+          ]
+        },
+        "fd2f2d75509cd4fa4890aa6577d5bdcedaff96e3d0c8cff778c9135a1b1bd5cc": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:08:17.025581+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:08:17.027558+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:11:16.277386+00:00"
+            }
+          ]
+        },
+        "0c6f9de64b608e9280a4f409087be9a883c7a378469bc8e31df6dc0d80abfb31": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:11:16.303079+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:11:16.305867+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:12:37.965639+00:00"
+            }
+          ]
+        },
+        "00b364fbd0cb24e5e778b6c57ffabf830dc643934e5c6591d57be8eb8ef51436": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:12:37.992414+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:12:37.995516+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:14:53.178899+00:00"
+            }
+          ]
+        },
+        "50b1a670bca66d356bb773a9a2bb189b2f38d75fc111cb57d53d3c1b358e5f52": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:14:53.199623+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:14:53.202374+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:16:38.449956+00:00"
+            }
+          ]
+        },
+        "5914acd355d3aedbed217b498e1e10c21d899e61ea9bfe9fd9b11dbb4aa2d2c6": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:16:38.471512+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:16:38.474859+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:20:45.030844+00:00"
+            }
+          ]
+        },
+        "9da29865230b859fceb208713e2947e3854bd405e9ce935b62ab96a0d6f77c4e": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:20:45.052825+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:20:45.054930+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:22:42.993200+00:00"
+            }
+          ]
+        },
+        "aa7d949ac8c841ae05595da27887f2c3e38a13108ade00c1d04661829c3d9350": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:22:43.024226+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:22:43.027328+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:24:37.773414+00:00"
+            }
+          ]
+        },
+        "3b9e97452289ab529378245dc39f0e287a2f179dbd5aa9c87eeb666279358d55": {
+          "paid_seed": 20,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:24:38.067341+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:24:38.069656+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:28:18.348626+00:00"
+            }
+          ]
+        },
+        "a02687c5fdc8049e8ce2cd721cc38479cf06da700edcabecb9b8192d6daf3705": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:28:18.373456+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:28:18.376251+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:32:33.731680+00:00"
+            }
+          ]
+        },
+        "03c093252cd16a4656de510b2db4abd453280b9dad2c63125ccfddedd922edfd": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:32:33.755924+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:32:33.758217+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:34:45.115922+00:00"
+            }
+          ]
+        },
+        "eb6f3f5e0766f6b43d57b796f8c03b00ee960dc743d8e216a63500fd77aface9": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:34:45.140773+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:34:45.143337+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:37:12.524330+00:00"
+            }
+          ]
+        },
+        "d54387bd4a44ec2536bc5ff9a7d790a97ebea4097db0127722eb47bf6005e702": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:37:12.550079+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:37:12.552745+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:39:22.177970+00:00"
+            }
+          ]
+        },
+        "3b65c3e136f6b8dc227c990784699c02159a73e8b281445d90cc2c07a555b038": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:39:22.207888+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:39:22.210960+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:45:08.679787+00:00"
+            }
+          ]
+        },
+        "dc189f3806d86b4a8f164338b6fcdedd3934bdead196668531430acf9b218858": {
+          "paid_seed": 21,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:45:08.725565+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:45:08.728649+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:47:09.900064+00:00"
+            }
+          ]
+        },
+        "36dd2ed1fa19c3b8ecf227b2ff4b6877febd1982e000f9a90b66e3b36cf03d5a": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:47:09.923839+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:47:09.926025+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:52:07.318799+00:00"
+            }
+          ]
+        },
+        "13aa1b5dad3b0fa9347ced6a13eab18672c1fedba89501430c1a1c35e68b6f1c": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:52:07.344507+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:52:07.347068+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T13:54:29.506602+00:00"
+            }
+          ]
+        },
+        "2c6f4721c5eab7dd4337709d5497e6bbb504a93f72b14fe8cdefd10a0153c007": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T13:54:29.540132+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T13:54:29.542928+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:00:11.785575+00:00"
+            }
+          ]
+        },
+        "5503a2076ef42e108424f3c4ac9aad7f08e8adf3fca66739c41034555ff7065e": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:00:11.812187+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:00:11.814554+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:02:11.660753+00:00"
+            }
+          ]
+        },
+        "15997da1854c0e3dd3149f5884dad91bdbfcd4cab08f83e415044e2ddfadaa16": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:02:11.709694+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:02:11.712114+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:06:15.308425+00:00"
+            }
+          ]
+        },
+        "eaea0842aae22adc0d34f37fde804c283510629b8e83272c200727f943cb5382": {
+          "paid_seed": 22,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:06:15.342915+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:06:15.345845+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:11:10.647811+00:00"
+            }
+          ]
+        },
+        "71bc22f2eba1d2ee797e3c4b868f877ede2a0fd2df4b45f2bc694106a7608e86": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:11:10.681927+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:11:10.687383+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:13:32.290566+00:00"
+            }
+          ]
+        },
+        "5bfab2c540df0b6c497bcb170b47d6a70129a23af6d30ac9a16728066720a935": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:13:32.320882+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:13:32.326347+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:14:41.357847+00:00"
+            }
+          ]
+        },
+        "ca9dde5e71548b7cf5e6296f7a937daf8905ed7151528699b2935b369c3de37d": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:14:41.395718+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:14:41.399603+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:15:41.780642+00:00"
+            }
+          ]
+        },
+        "ca01562e8efe4218e16711a448fbf3431fbac5cb36cdc91f2de59309be2bddf8": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:15:41.818143+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:15:41.822388+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:17:29.540681+00:00"
+            }
+          ]
+        },
+        "ac4c4af755c4baa84209ab9c8d8655bd205836ac2e142be628064d2854b1d1b3": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:17:29.578473+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:17:29.581614+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:19:45.287633+00:00"
+            }
+          ]
+        },
+        "79905351df5fa0d34b40c4742c1b5ce0065b03f6b01b3a5f2707d9244f8ff0b9": {
+          "paid_seed": 23,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:19:45.323969+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:19:45.328435+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:22:29.529124+00:00"
+            }
+          ]
+        },
+        "809ecab83049d95d92746275faac156d733428bbf57d28fb7fe444ce43051edd": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:22:29.565875+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:22:29.569360+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:24:44.283264+00:00"
+            }
+          ]
+        },
+        "64c947006d9a0f720eff048884d4e301e2e26673aa65a96eef5ca50f3969382f": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:24:44.310193+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:24:44.312664+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:29:11.765474+00:00"
+            }
+          ]
+        },
+        "d02c1e31cff56f8da7c2cea9931ab068a525fb9a3b81071dfb5aefbc6dc6833c": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:29:11.794132+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:29:11.796648+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:32:32.582152+00:00"
+            }
+          ]
+        },
+        "799cd00a2d66c5361bb4092ae6c0e47e18c45cdbf5934e46effa47b858342453": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:32:32.609253+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:32:32.611779+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:36:03.423190+00:00"
+            }
+          ]
+        },
+        "d8d20b9de6e84c1a88535139dc16e473de39338ead9fcf2e8415689954ef2b75": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:36:03.453080+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:36:03.456631+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:36:39.490280+00:00"
+            }
+          ]
+        },
+        "220867969be210a6d715258a46757658bcf91633ffb69f477a954d88cb5ec8cd": {
+          "paid_seed": 24,
+          "attempts": 1,
+          "status": "SUCCEEDED",
+          "compatibility_smoke": false,
+          "reserved_at": "2026-07-26T14:36:39.514399+00:00",
+          "events": [
+            {
+              "event": "ATTEMPT_RESERVED",
+              "attempt": 1,
+              "at": "2026-07-26T14:36:39.517188+00:00"
+            },
+            {
+              "event": "SUCCEEDED",
+              "detail": null,
+              "at": "2026-07-26T14:38:51.855206+00:00"
             }
           ]
         }

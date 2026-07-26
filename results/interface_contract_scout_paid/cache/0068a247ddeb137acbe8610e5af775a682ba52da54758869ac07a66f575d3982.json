@@ -1,0 +1,67 @@
+{
+  "provider_model": "qwen/qwen3.5-plus-02-15",
+  "provider_endpoint": "Alibaba",
+  "expected_provider_endpoint": "alibaba",
+  "raw_response": "{\n  \"terrain_class\": \"solid_ground\",\n  \"grounding\": {\n    \"geometry_type\": \"disk\",\n    \"center_norm\": [\n      0.5,\n      0.5\n    ],\n    \"radius_norm\": 0.05\n  },\n  \"constraint_applies\": \"no\",\n  \"action\": \"traverse\"\n}",
+  "usage": {
+    "prompt_tokens": 305,
+    "completion_tokens": 5519,
+    "total_tokens": 5824,
+    "cost": 0.00868894,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00868894,
+      "upstream_inference_prompt_cost": 7.93e-05,
+      "upstream_inference_completions_cost": 0.00860964
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5431,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "provider_request_id": "gen-1785070270-BscPFdevgOfAF6oSdBcH",
+  "latency_seconds": 104.2046992079704,
+  "transport_attempt": 1,
+  "request_sha256": "0068a247ddeb137acbe8610e5af775a682ba52da54758869ac07a66f575d3982",
+  "request": {
+    "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-23|visibility_twin|formal_constraint_positive|anchor",
+    "model_budget_id": "qwen3.5-plus-02-15",
+    "provider": "openrouter",
+    "provider_model": "qwen/qwen3.5-plus-02-15",
+    "model_revision": "qwen3.5-plus-20260216",
+    "paid_seed": 23,
+    "prompt_sha256": "88688995530889ee36c2224d64c8f9c06764f5434097d4d46495ce0359411c39",
+    "image_sha256": "7e86ef66688d5a8d9388c9fd9f97782b8331bbb0731eb6362e1efca1ff93327a",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": 220,
+      "seed": 23,
+      "provider": {
+        "order": [
+          "alibaba"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "max_price": {
+          "prompt": 0.26,
+          "completion": 1.56
+        }
+      },
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "compatibility_smoke": false
+  },
+  "call_origin": "provider",
+  "new_provider_call": true,
+  "successful_attempt": 1,
+  "recorded_at": "2026-07-26T12:52:52.530685+00:00"
+}

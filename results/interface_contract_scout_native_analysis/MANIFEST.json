@@ -1,0 +1,23 @@
+{
+  "schema_version": "interface-contract-scout-native-replay-v1",
+  "status": "COMPLETE",
+  "provider_calls": 0,
+  "provider_attempts": 0,
+  "paid_rows": 120,
+  "primary_native_executions": 120,
+  "ambiguous_mapping_executions": 100,
+  "artifacts": {
+    "PRIMARY_EXECUTIONS.json": {
+      "path": "PRIMARY_EXECUTIONS.json",
+      "sha256": "6b57cc5c6b315f744c758a77087dd3abf8a7ee103af4e70eb639e9d7d9d54a1c"
+    },
+    "AMBIGUOUS_MAPPING_EXECUTIONS.json": {
+      "path": "AMBIGUOUS_MAPPING_EXECUTIONS.json",
+      "sha256": "e736d180e821ab1e5a60883e53df04e535b50c85cc7e79b683074fa7dfa0fc1c"
+    },
+    "ANALYSIS.json": {
+      "path": "ANALYSIS.json",
+      "sha256": "858a89c91dd8d5688a71611d70f781fa1b304483398e1874f9e0772c222266c7"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "call_index": 40,
+  "model_call_index": 40,
+  "request_id": "mistral-small-3.2-24b|safety_gym_goal_native|direct_path_intersection|paid-seed-21|capability_twin|formal_action_structured_field_reversed|mate",
+  "model_budget_id": "mistral-small-3.2-24b",
+  "provider": {
+    "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+    "provider_endpoint": "Mistral",
+    "expected_provider_endpoint": "mistral",
+    "raw_response": "{\n  \"action\": \"traverse\",\n  \"grounding\": {\n    \"geometry_type\": \"disk\",\n    \"center_norm\": [0.5, 0.5],\n    \"radius_norm\": 0.3\n  },\n  \"terrain_class\": \"solid_ground\"\n}",
+    "usage": {
+      "prompt_tokens": 281,
+      "completion_tokens": 63,
+      "total_tokens": 344,
+      "cost": 2.648e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 228,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 2.648e-05,
+        "upstream_inference_prompt_cost": 7.58e-06,
+        "upstream_inference_completions_cost": 1.89e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "provider_request_id": "gen-1785067405-kffWRxnUMFoXJ1R7xSWw",
+    "latency_seconds": 2.1343337920261547,
+    "transport_attempt": 1,
+    "request_sha256": "694db117652e60aa2540784902de1d5ab4541a33f883d799ce3631f4af5df9c3",
+    "request": {
+      "request_id": "mistral-small-3.2-24b|safety_gym_goal_native|direct_path_intersection|paid-seed-21|capability_twin|formal_action_structured_field_reversed|mate",
+      "model_budget_id": "mistral-small-3.2-24b",
+      "provider": "openrouter",
+      "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_revision": "mistral-small-3.2-24b-instruct-2506",
+      "paid_seed": 21,
+      "prompt_sha256": "30b674529edf6b8175948d82e9b104129d7abe7fe663ce0bf7a6b93d8d02720e",
+      "image_sha256": "9c20df0fe13d4164fea17c5340bd61b67d3aa7a9d33faaf5f4d82788e1ebf37f",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 220,
+        "seed": 21,
+        "provider": {
+          "order": [
+            "mistral"
+          ],
+          "allow_fallbacks": false,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.1,
+            "completion": 0.3
+          }
+        },
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "compatibility_smoke": false
+    },
+    "call_origin": "provider",
+    "new_provider_call": true,
+    "successful_attempt": 1,
+    "recorded_at": "2026-07-26T12:03:25.757773+00:00"
+  },
+  "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+  "model_revision": "mistral-small-3.2-24b-instruct-2506",
+  "block_id": "safety_gym_goal_native|direct_path_intersection|paid-seed-21",
+  "equivalent_pair_id": "eq_field_order_v1",
+  "equivalent_anchor_arm": "capability_twin",
+  "ambiguous_anchor_arm": "visibility_twin",
+  "scenario_family": "direct_path_intersection",
+  "environment": "safety_gym_goal_native",
+  "paid_seed": 21,
+  "scene_seed": 221,
+  "arm": "capability_twin",
+  "contract_id": "formal_action_structured_field_reversed",
+  "contract_role": "mate",
+  "capability": "amphibious",
+  "terrain_class": "water",
+  "prompt_sha256": "30b674529edf6b8175948d82e9b104129d7abe7fe663ce0bf7a6b93d8d02720e",
+  "image_sha256": "9c20df0fe13d4164fea17c5340bd61b67d3aa7a9d33faaf5f4d82788e1ebf37f",
+  "structured_output": true,
+  "compatibility_smoke": false,
+  "new_provider_call_budgeted": true,
+  "provider_endpoint_slug": "mistral",
+  "source_request_sha256": "0b9c5dc24b91bce78e8544aade0f958a334b4de9fac9e22b7930fe546c8b9421",
+  "request_parameters": {
+    "temperature": 0,
+    "max_tokens": 220,
+    "seed": 21,
+    "provider": {
+      "order": [
+        "mistral"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "max_price": {
+        "prompt": 0.1,
+        "completion": 0.3
+      }
+    },
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "provider_request_sha256": "694db117652e60aa2540784902de1d5ab4541a33f883d799ce3631f4af5df9c3",
+  "request_sha256": "48b66fdb08c0c72871b5dd978800733c4b19437389c022eec7543d1c06c95d7f",
+  "response_sha256": "63e3f27383e7e1f8f7142f047075d19e4892b97f121c2ec021bf5cc337f8ded6",
+  "parsed": {
+    "parse_status": "ok",
+    "contract_class": "equivalent",
+    "canonical_semantics": {
+      "terrain_class": "solid_ground",
+      "safe_to_traverse": null,
+      "action": "traverse"
+    },
+    "canonical_grounding": {
+      "geometry_type": "disk",
+      "center_norm": [
+        0.5,
+        0.5
+      ],
+      "radius_norm": 0.3
+    },
+    "field_order_compliant": true,
+    "emitted_field_order": [
+      "action",
+      "grounding",
+      "terrain_class"
+    ],
+    "raw_values": {
+      "action": "traverse",
+      "grounding": {
+        "geometry_type": "disk",
+        "center_norm": [
+          0.5,
+          0.5
+        ],
+        "radius_norm": 0.3
+      },
+      "terrain_class": "solid_ground"
+    }
+  }
+}

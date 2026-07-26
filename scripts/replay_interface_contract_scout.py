@@ -203,12 +203,93 @@ def complete_parse_pairs(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def metric_bundle(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    planner_action = physical_action_iec(rows)
     return {
         "parse_consistency": parse_consistency(rows),
         "canonical_semantic_consistency": canonical_semantic_consistency(rows),
         "grounding_consistency": grounding_consistency(rows),
-        "physical_action_IEC": physical_action_iec(rows),
+        "planner_action_IEC": planner_action,
+        "physical_action_IEC": exact_execution_consistency(rows, "action_sha256"),
+        "trajectory_IEC": exact_execution_consistency(rows, "trajectory_sha256"),
     }
+
+
+def exact_execution_consistency(
+    rows: list[dict[str, Any]], value_key: str
+) -> dict[str, Any]:
+    grouped: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for row in rows:
+        grouped[str(row["comparison_id"])][str(row["pair_side"])] = row
+    pairs = [
+        group for group in grouped.values()
+        if "anchor" in group and "mate" in group
+    ]
+    agreements = [
+        pair["anchor"][value_key] == pair["mate"][value_key]
+        for pair in pairs
+    ]
+    return {
+        "matched_pairs": len(pairs),
+        "agreements": sum(agreements),
+        "consistency": None if not agreements else sum(agreements) / len(agreements),
+        "compared_value": value_key,
+    }
+
+
+def execution_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    calibrations = [row["calibration"] for row in rows if row["calibration"]]
+    return {
+        "n": len(rows),
+        "nonstationary_rate": sum(bool(row["nonstationary"]) for row in rows) / len(rows),
+        "task_success_rate": sum(bool(row["task_success"]) for row in rows) / len(rows),
+        "STC_rate": sum(bool(row["STC"]) for row in rows) / len(rows),
+        "collision_rate": sum(bool(row["collision"]) for row in rows) / len(rows),
+        "semantic_violation_rate": sum(bool(row["semantic_violation"]) for row in rows) / len(rows),
+        "calibration": {
+            "n": len(calibrations),
+            "center_error_world_mean": sum(
+                float(item["center_error_world"]) for item in calibrations
+            ) / len(calibrations),
+            "center_error_world_max": max(
+                float(item["center_error_world"]) for item in calibrations
+            ),
+            "radius_error_world_mean": sum(
+                float(item["radius_error_world"]) for item in calibrations
+            ) / len(calibrations),
+            "radius_error_world_max": max(
+                float(item["radius_error_world"]) for item in calibrations
+            ),
+        },
+    }
+
+
+def pair_effect_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    grouped: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for row in rows:
+        grouped[str(row["comparison_id"])][str(row["pair_side"])] = row
+    pairs = [
+        group for group in grouped.values()
+        if "anchor" in group and "mate" in group
+    ]
+    result: dict[str, Any] = {}
+    for environment in sorted({row["environment"] for row in rows}):
+        subset = [pair for pair in pairs if pair["anchor"]["environment"] == environment]
+        result[environment] = {
+            "matched_pairs": len(subset),
+            "native_action_changed": sum(
+                pair["anchor"]["action_sha256"] != pair["mate"]["action_sha256"]
+                for pair in subset
+            ),
+            "trajectory_changed": sum(
+                pair["anchor"]["trajectory_sha256"] != pair["mate"]["trajectory_sha256"]
+                for pair in subset
+            ),
+            "STC_mate_minus_anchor": (
+                sum(bool(pair["mate"]["STC"]) for pair in subset)
+                - sum(bool(pair["anchor"]["STC"]) for pair in subset)
+            ) / len(subset),
+        }
+    return result
 
 
 def main() -> int:
@@ -276,6 +357,31 @@ def main() -> int:
             "all_call": metric_bundle(model_eq),
             "parse_compliant": metric_bundle(model_compliant),
         }
+    by_environment = {}
+    for environment in sorted({row["environment"] for row in primary}):
+        subset = [row for row in primary if row["environment"] == environment]
+        environment_eq = [row for row in equivalent if row["environment"] == environment]
+        by_environment[environment] = {
+            **execution_summary(subset),
+            "equivalent_contract_metrics": metric_bundle(environment_eq),
+        }
+    by_equivalent_pair = {}
+    for pair_id in sorted({row["equivalent_pair_id"] for row in equivalent}):
+        pair_rows = [row for row in equivalent if row["equivalent_pair_id"] == pair_id]
+        by_equivalent_pair[pair_id] = {
+            "metrics": metric_bundle(pair_rows),
+            "environment_effects": pair_effect_summary(pair_rows),
+        }
+    all_metrics = metric_bundle(equivalent)
+    c_eq = cisr_eq(equivalent)
+    c_map = cisr_map(ambiguous)
+    cross_environment_action_pairs = [
+        pair_id for pair_id, value in by_equivalent_pair.items()
+        if all(
+            effect["native_action_changed"] > 0
+            for effect in value["environment_effects"].values()
+        )
+    ]
     analysis = {
         "schema_version": "interface-contract-scout-native-analysis-v1",
         "provider_calls": 0,
@@ -283,15 +389,17 @@ def main() -> int:
         "primary_native_executions": len(primary),
         "ambiguous_mapping_executions": len(ambiguous),
         "all_call": {
-            **metric_bundle(equivalent),
-            "CISR_EQ": cisr_eq(equivalent),
+            **all_metrics,
+            "CISR_EQ": c_eq,
         },
         "parse_compliant": {
             **metric_bundle(compliant),
             "CISR_EQ": cisr_eq(compliant),
         },
-        "CISR_MAP": cisr_map(ambiguous),
+        "CISR_MAP": c_map,
         "by_model": by_model,
+        "by_environment": by_environment,
+        "by_equivalent_pair": by_equivalent_pair,
         "outcomes": {
             "primary": outcome_rates(primary),
             "equivalent": outcome_rates(equivalent),
@@ -302,6 +410,34 @@ def main() -> int:
         ),
         "stage_difference_attribution": stage_difference_summary(equivalent),
         "five_stage": summarize_five_stage(primary),
+        "execution_invariants": {
+            "all_provider_groundings_projected_without_evaluator_truth": all(
+                not row["evaluator_geometry_used_by_controller"] for row in primary
+            ),
+            "unknown_rows": sum(row["physical_action"] == "unknown" for row in primary),
+            "unknown_task_failures": sum(
+                row["physical_action"] == "unknown" and row["task_failure"]
+                for row in primary
+            ),
+        },
+        "scout_gate": {
+            "continue": {
+                "physical_action_IEC_below_0_90": (
+                    all_metrics["physical_action_IEC"]["consistency"] < 0.90
+                ),
+                "grounding_below_semantic_consistency": (
+                    all_metrics["grounding_consistency"]["consistency"]
+                    < all_metrics["canonical_semantic_consistency"]["consistency"]
+                ),
+                "CISR_EQ_or_CISR_MAP_at_least_0_10": (
+                    c_eq["mean_range"] >= 0.10 or c_map["mean_range"] >= 0.10
+                ),
+                "same_pair_changes_native_action_in_both_environments": bool(
+                    cross_environment_action_pairs
+                ),
+            },
+            "cross_environment_native_action_pairs": cross_environment_action_pairs,
+        },
     }
     output = args.output.resolve()
     write_json(output / "PRIMARY_EXECUTIONS.json", primary)

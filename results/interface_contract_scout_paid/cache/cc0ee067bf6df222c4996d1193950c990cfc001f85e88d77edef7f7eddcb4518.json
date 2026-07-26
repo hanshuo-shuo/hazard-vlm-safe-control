@@ -1,0 +1,67 @@
+{
+  "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+  "provider_endpoint": "Mistral",
+  "expected_provider_endpoint": "mistral",
+  "raw_response": "{\n  \"terrain_class\": \"solid_ground\",\n  \"grounding\": {\n    \"geometry_type\": \"disk\",\n    \"center_norm\": [0.5, 0.5],\n    \"radius_norm\": 0.1\n  },\n  \"action\": \"traverse\"\n}",
+  "usage": {
+    "prompt_tokens": 327,
+    "completion_tokens": 63,
+    "total_tokens": 390,
+    "cost": 4.26e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 100,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.26e-05,
+      "upstream_inference_prompt_cost": 2.37e-05,
+      "upstream_inference_completions_cost": 1.89e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "provider_request_id": "gen-1785067344-FSr2LBPaw6lFV5NEE2tx",
+  "latency_seconds": 1.8865407499833964,
+  "transport_attempt": 1,
+  "request_sha256": "cc0ee067bf6df222c4996d1193950c990cfc001f85e88d77edef7f7eddcb4518",
+  "request": {
+    "request_id": "mistral-small-3.2-24b|point_hazard_native|direct_path_intersection|paid-seed-22|capability_twin|formal_action_structured|anchor",
+    "model_budget_id": "mistral-small-3.2-24b",
+    "provider": "openrouter",
+    "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+    "model_revision": "mistral-small-3.2-24b-instruct-2506",
+    "paid_seed": 22,
+    "prompt_sha256": "4a8559b94a8a74a8f8bbf5821ecda175729d881e46ae073fc09684884a505bf7",
+    "image_sha256": "eeee83877971e54a1f9f77ccf751e2db421c94a234162ae830dffc00a7c0b278",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": 220,
+      "seed": 22,
+      "provider": {
+        "order": [
+          "mistral"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "max_price": {
+          "prompt": 0.1,
+          "completion": 0.3
+        }
+      },
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "compatibility_smoke": false
+  },
+  "call_origin": "provider",
+  "new_provider_call": true,
+  "successful_attempt": 1,
+  "recorded_at": "2026-07-26T12:02:24.113013+00:00"
+}

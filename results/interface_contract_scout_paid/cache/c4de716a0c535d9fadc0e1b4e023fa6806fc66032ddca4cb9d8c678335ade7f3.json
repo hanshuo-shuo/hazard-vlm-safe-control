@@ -1,0 +1,67 @@
+{
+  "provider_model": "qwen/qwen3.5-plus-02-15",
+  "provider_endpoint": "Alibaba",
+  "expected_provider_endpoint": "alibaba",
+  "raw_response": "{\"terrain_class\":\"water\",\"grounding\":{\"geometry_type\":\"disk\",\"center_norm\":[0.75,0.625],\"radius_norm\":0.0625},\"applicability\":\"not_applicable\",\"action\":\"avoid\"}",
+  "usage": {
+    "prompt_tokens": 310,
+    "completion_tokens": 18316,
+    "total_tokens": 18626,
+    "cost": 0.02865356,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.02865356,
+      "upstream_inference_prompt_cost": 8.06e-05,
+      "upstream_inference_completions_cost": 0.02857296
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 18264,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "provider_request_id": "gen-1785068619-B7TouW2WqgVTbUBKQjYc",
+  "latency_seconds": 342.1296261669486,
+  "transport_attempt": 1,
+  "request_sha256": "c4de716a0c535d9fadc0e1b4e023fa6806fc66032ddca4cb9d8c678335ade7f3",
+  "request": {
+    "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-21|visibility_twin|ambiguous_applicability_v1|ambiguous",
+    "model_budget_id": "qwen3.5-plus-02-15",
+    "provider": "openrouter",
+    "provider_model": "qwen/qwen3.5-plus-02-15",
+    "model_revision": "qwen3.5-plus-20260216",
+    "paid_seed": 21,
+    "prompt_sha256": "0021129f3a99b0502f0b7ea2292573633476e58034223dba39ec1837556baac2",
+    "image_sha256": "e88e0a0bef5f7c1ebdf41ec2eda36124313f44954c03967a6fbccf61cf0cfd1e",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": 220,
+      "seed": 21,
+      "provider": {
+        "order": [
+          "alibaba"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "max_price": {
+          "prompt": 0.26,
+          "completion": 1.56
+        }
+      },
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "compatibility_smoke": false
+  },
+  "call_origin": "provider",
+  "new_provider_call": true,
+  "successful_attempt": 1,
+  "recorded_at": "2026-07-26T12:29:19.019716+00:00"
+}

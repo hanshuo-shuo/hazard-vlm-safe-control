@@ -65,8 +65,8 @@
       },
       "compatibility_smoke": true
     },
-    "call_origin": "provider",
-    "new_provider_call": true,
+    "call_origin": "cache_replay",
+    "new_provider_call": false,
     "successful_attempt": 1,
     "recorded_at": "2026-07-26T11:59:05.294425+00:00"
   },

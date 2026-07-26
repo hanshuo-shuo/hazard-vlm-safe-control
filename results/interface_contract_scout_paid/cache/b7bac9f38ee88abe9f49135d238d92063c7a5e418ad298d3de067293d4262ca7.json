@@ -1,0 +1,64 @@
+{
+  "provider_model": "qwen/qwen3.5-plus-02-15",
+  "provider_endpoint": "Alibaba",
+  "expected_provider_endpoint": "alibaba",
+  "raw_response": "terrain=water; cx=0.25; cy=0.55; radius=0.04; action=avoid",
+  "usage": {
+    "prompt_tokens": 256,
+    "completion_tokens": 6752,
+    "total_tokens": 7008,
+    "cost": 0.01059968,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.01059968,
+      "upstream_inference_prompt_cost": 6.656e-05,
+      "upstream_inference_completions_cost": 0.01053312
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 6720,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "provider_request_id": "gen-1785069566-DDFT5hkYvuLQmhBoy1HC",
+  "latency_seconds": 124.27589841699228,
+  "transport_attempt": 1,
+  "request_sha256": "b7bac9f38ee88abe9f49135d238d92063c7a5e418ad298d3de067293d4262ca7",
+  "request": {
+    "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-22|appearance_twin|formal_action_free_text|mate",
+    "model_budget_id": "qwen3.5-plus-02-15",
+    "provider": "openrouter",
+    "provider_model": "qwen/qwen3.5-plus-02-15",
+    "model_revision": "qwen3.5-plus-20260216",
+    "paid_seed": 22,
+    "prompt_sha256": "ddd85c52f5f257d9ff52d4c3d2db92b26dbd3b19f8dd045936507d6f805bb094",
+    "image_sha256": "c3dffa0a5e505299c9283b1c370e536a78bf394d759ab2c732667d8d0fa56d46",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": 220,
+      "seed": 22,
+      "provider": {
+        "order": [
+          "alibaba"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "max_price": {
+          "prompt": 0.26,
+          "completion": 1.56
+        }
+      }
+    },
+    "compatibility_smoke": false
+  },
+  "call_origin": "provider",
+  "new_provider_call": true,
+  "successful_attempt": 1,
+  "recorded_at": "2026-07-26T12:41:28.203539+00:00"
+}

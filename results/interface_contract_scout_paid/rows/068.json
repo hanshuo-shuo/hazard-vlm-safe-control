@@ -1,0 +1,152 @@
+{
+  "call_index": 68,
+  "model_call_index": 8,
+  "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-21|appearance_twin|formal_action_structured|anchor",
+  "model_budget_id": "qwen3.5-plus-02-15",
+  "provider": {
+    "provider_model": "qwen/qwen3.5-plus-02-15",
+    "provider_endpoint": "Alibaba",
+    "expected_provider_endpoint": "alibaba",
+    "raw_response": "{\"terrain_class\":\"water\",\"grounding\":{\"geometry_type\":\"disk\",\"center_norm\":[0.75,0.625],\"radius_norm\":0.0625},\"action\":\"avoid\"}",
+    "usage": {
+      "prompt_tokens": 275,
+      "completion_tokens": 3203,
+      "total_tokens": 3478,
+      "cost": 0.00506818,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00506818,
+        "upstream_inference_prompt_cost": 7.15e-05,
+        "upstream_inference_completions_cost": 0.00499668
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3158,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "provider_request_id": "gen-1785068247-CXLXCcsPZEMCwUJvHfdq",
+    "latency_seconds": 61.26905383297708,
+    "transport_attempt": 1,
+    "request_sha256": "183d678a68a853272d52c050b30348480165a4db8d19851c207a31170bf33e78",
+    "request": {
+      "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-21|appearance_twin|formal_action_structured|anchor",
+      "model_budget_id": "qwen3.5-plus-02-15",
+      "provider": "openrouter",
+      "provider_model": "qwen/qwen3.5-plus-02-15",
+      "model_revision": "qwen3.5-plus-20260216",
+      "paid_seed": 21,
+      "prompt_sha256": "3c701b01c3b1292e9bea81206f5678d136b277a343490b62a4494d8721900e5b",
+      "image_sha256": "41ceaa4f232b119787b57179ebfc8fe0ba8e28422201ba85ec36eebb3f3bbc7a",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 220,
+        "seed": 21,
+        "provider": {
+          "order": [
+            "alibaba"
+          ],
+          "allow_fallbacks": false,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.26,
+            "completion": 1.56
+          }
+        },
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "compatibility_smoke": false
+    },
+    "call_origin": "provider",
+    "new_provider_call": true,
+    "successful_attempt": 1,
+    "recorded_at": "2026-07-26T12:18:27.272823+00:00"
+  },
+  "provider_model": "qwen/qwen3.5-plus-02-15",
+  "model_revision": "qwen3.5-plus-20260216",
+  "block_id": "point_hazard_native|direct_path_intersection|paid-seed-21",
+  "equivalent_pair_id": "eq_field_order_v1",
+  "equivalent_anchor_arm": "capability_twin",
+  "ambiguous_anchor_arm": "visibility_twin",
+  "scenario_family": "direct_path_intersection",
+  "environment": "point_hazard_native",
+  "paid_seed": 21,
+  "scene_seed": 221,
+  "arm": "appearance_twin",
+  "contract_id": "formal_action_structured",
+  "contract_role": "anchor",
+  "capability": "wheeled_non_waterproof",
+  "terrain_class": "solid_ground",
+  "prompt_sha256": "3c701b01c3b1292e9bea81206f5678d136b277a343490b62a4494d8721900e5b",
+  "image_sha256": "41ceaa4f232b119787b57179ebfc8fe0ba8e28422201ba85ec36eebb3f3bbc7a",
+  "structured_output": true,
+  "compatibility_smoke": false,
+  "new_provider_call_budgeted": true,
+  "provider_endpoint_slug": "alibaba",
+  "source_request_sha256": "9f9e4608d7655b17be65b1dfc4bfcd82cb792286c7731f90800cb0a0e45b9b6c",
+  "request_parameters": {
+    "temperature": 0,
+    "max_tokens": 220,
+    "seed": 21,
+    "provider": {
+      "order": [
+        "alibaba"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "max_price": {
+        "prompt": 0.26,
+        "completion": 1.56
+      }
+    },
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "provider_request_sha256": "183d678a68a853272d52c050b30348480165a4db8d19851c207a31170bf33e78",
+  "request_sha256": "3e78aaea13d5a7ca78a3fa70b3b39c8f7ebf65f98678b68004fc8bb445cb981f",
+  "response_sha256": "beb475ae78fca0ef4653ccbfd926c47aa353b93d79da69fb9d60a944898a8a1a",
+  "parsed": {
+    "parse_status": "ok",
+    "contract_class": "equivalent",
+    "canonical_semantics": {
+      "terrain_class": "water",
+      "safe_to_traverse": null,
+      "action": "avoid"
+    },
+    "canonical_grounding": {
+      "geometry_type": "disk",
+      "center_norm": [
+        0.75,
+        0.625
+      ],
+      "radius_norm": 0.0625
+    },
+    "field_order_compliant": true,
+    "emitted_field_order": [
+      "terrain_class",
+      "grounding",
+      "action"
+    ],
+    "raw_values": {
+      "terrain_class": "water",
+      "grounding": {
+        "geometry_type": "disk",
+        "center_norm": [
+          0.75,
+          0.625
+        ],
+        "radius_norm": 0.0625
+      },
+      "action": "avoid"
+    }
+  }
+}

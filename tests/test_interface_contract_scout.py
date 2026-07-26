@@ -13,6 +13,7 @@ from evaluation.interface_contracts import parse_formal_contract_response
 from evaluation.scout_authorization import load_scout_manifest, provider_request_from_row
 from evaluation.scout_replay import formal_planner_action
 from scripts.run_interface_contract_scout import key_audit
+from scripts.replay_interface_contract_scout import exact_execution_consistency
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +50,24 @@ def test_main_key_requires_explicit_scout_override(monkeypatch: pytest.MonkeyPat
     assert evidence["provider_side_cap_compliant"] is False
     assert evidence["higher_limit_key_override"] is True
     assert evidence["limit_usd"] == 100.0
+
+
+def test_native_execution_consistency_compares_low_level_hashes() -> None:
+    rows = [
+        {
+            "comparison_id": "pair",
+            "pair_side": "anchor",
+            "action_sha256": "same-planner-action-but-first-native-sequence",
+        },
+        {
+            "comparison_id": "pair",
+            "pair_side": "mate",
+            "action_sha256": "same-planner-action-but-second-native-sequence",
+        },
+    ]
+    metric = exact_execution_consistency(rows, "action_sha256")
+    assert metric["matched_pairs"] == 1
+    assert metric["consistency"] == 0.0
 
 
 def test_checked_in_scout_authorization_is_resolved_but_blocked() -> None:

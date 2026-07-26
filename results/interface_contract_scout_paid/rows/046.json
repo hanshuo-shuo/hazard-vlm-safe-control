@@ -1,0 +1,142 @@
+{
+  "call_index": 46,
+  "model_call_index": 46,
+  "request_id": "mistral-small-3.2-24b|safety_gym_goal_native|direct_path_intersection|paid-seed-22|appearance_twin|formal_action_free_text|mate",
+  "model_budget_id": "mistral-small-3.2-24b",
+  "provider": {
+    "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+    "provider_endpoint": "Mistral",
+    "expected_provider_endpoint": "mistral",
+    "raw_response": "terrain=water; cx=0.5; cy=0.5; radius=0.1; action=avoid",
+    "usage": {
+      "prompt_tokens": 261,
+      "completion_tokens": 28,
+      "total_tokens": 289,
+      "cost": 3.45e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 3.45e-05,
+        "upstream_inference_prompt_cost": 2.61e-05,
+        "upstream_inference_completions_cost": 8.4e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "provider_request_id": "gen-1785067421-nuj9p2Vf0VMEftAA6k9l",
+    "latency_seconds": 1.9901814170298167,
+    "transport_attempt": 1,
+    "request_sha256": "bc117db40cee512523f0aac2f13ba6a26e7e72d468eb72ca8d5758d02860481c",
+    "request": {
+      "request_id": "mistral-small-3.2-24b|safety_gym_goal_native|direct_path_intersection|paid-seed-22|appearance_twin|formal_action_free_text|mate",
+      "model_budget_id": "mistral-small-3.2-24b",
+      "provider": "openrouter",
+      "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_revision": "mistral-small-3.2-24b-instruct-2506",
+      "paid_seed": 22,
+      "prompt_sha256": "ddd85c52f5f257d9ff52d4c3d2db92b26dbd3b19f8dd045936507d6f805bb094",
+      "image_sha256": "07e83e3b2bad40cc4b514bb75ecd8e0d84299564b5187ff6d85fc1db150dcb44",
+      "parameters": {
+        "temperature": 0,
+        "max_tokens": 220,
+        "seed": 22,
+        "provider": {
+          "order": [
+            "mistral"
+          ],
+          "allow_fallbacks": false,
+          "require_parameters": true,
+          "max_price": {
+            "prompt": 0.1,
+            "completion": 0.3
+          }
+        }
+      },
+      "compatibility_smoke": false
+    },
+    "call_origin": "provider",
+    "new_provider_call": true,
+    "successful_attempt": 1,
+    "recorded_at": "2026-07-26T12:03:41.350000+00:00"
+  },
+  "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+  "model_revision": "mistral-small-3.2-24b-instruct-2506",
+  "block_id": "safety_gym_goal_native|direct_path_intersection|paid-seed-22",
+  "equivalent_pair_id": "eq_structured_free_text_v1",
+  "equivalent_anchor_arm": "appearance_twin",
+  "ambiguous_anchor_arm": "reference",
+  "scenario_family": "direct_path_intersection",
+  "environment": "safety_gym_goal_native",
+  "paid_seed": 22,
+  "scene_seed": 222,
+  "arm": "appearance_twin",
+  "contract_id": "formal_action_free_text",
+  "contract_role": "mate",
+  "capability": "wheeled_non_waterproof",
+  "terrain_class": "solid_ground",
+  "prompt_sha256": "ddd85c52f5f257d9ff52d4c3d2db92b26dbd3b19f8dd045936507d6f805bb094",
+  "image_sha256": "07e83e3b2bad40cc4b514bb75ecd8e0d84299564b5187ff6d85fc1db150dcb44",
+  "structured_output": false,
+  "compatibility_smoke": false,
+  "new_provider_call_budgeted": true,
+  "provider_endpoint_slug": "mistral",
+  "source_request_sha256": "65fbf2835fa0fe1e05159d317d21cab0ae6b2601a21b174282bfe02f601a23d0",
+  "request_parameters": {
+    "temperature": 0,
+    "max_tokens": 220,
+    "seed": 22,
+    "provider": {
+      "order": [
+        "mistral"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "max_price": {
+        "prompt": 0.1,
+        "completion": 0.3
+      }
+    }
+  },
+  "provider_request_sha256": "bc117db40cee512523f0aac2f13ba6a26e7e72d468eb72ca8d5758d02860481c",
+  "request_sha256": "4283c61d76bed6f351a6ffb9ddfbf1d53142474acfb45c7487b8b370e0d7e6f2",
+  "response_sha256": "c9f55696b07d4831e56c637b72c4e98ef8d7a5464455077d2960d86d5deb6618",
+  "parsed": {
+    "parse_status": "ok",
+    "contract_class": "equivalent",
+    "canonical_semantics": {
+      "terrain_class": "water",
+      "safe_to_traverse": null,
+      "action": "avoid"
+    },
+    "canonical_grounding": {
+      "geometry_type": "disk",
+      "center_norm": [
+        0.5,
+        0.5
+      ],
+      "radius_norm": 0.1
+    },
+    "field_order_compliant": null,
+    "emitted_field_order": [],
+    "raw_values": {
+      "terrain_class": "water",
+      "grounding": {
+        "geometry_type": "disk",
+        "center_norm": [
+          0.5,
+          0.5
+        ],
+        "radius_norm": 0.1
+      },
+      "action": "avoid"
+    }
+  }
+}

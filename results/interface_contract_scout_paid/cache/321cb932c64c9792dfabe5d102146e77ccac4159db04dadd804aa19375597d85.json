@@ -1,0 +1,67 @@
+{
+  "provider_model": "qwen/qwen3.5-plus-02-15",
+  "provider_endpoint": "Alibaba",
+  "expected_provider_endpoint": "alibaba",
+  "raw_response": "{\"terrain_class\":\"water\",\"grounding\":{\"geometry_type\":\"disk\",\"center_norm\":[0.75,0.625],\"radius_norm\":0.0625},\"action\":\"traverse\"}",
+  "usage": {
+    "prompt_tokens": 277,
+    "completion_tokens": 5863,
+    "total_tokens": 6140,
+    "cost": 0.0092183,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0092183,
+      "upstream_inference_prompt_cost": 7.202e-05,
+      "upstream_inference_completions_cost": 0.00914628
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 5817,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "provider_request_id": "gen-1785068138-YddNphnBVLak3icJ3BhW",
+  "latency_seconds": 110.34175112500088,
+  "transport_attempt": 1,
+  "request_sha256": "321cb932c64c9792dfabe5d102146e77ccac4159db04dadd804aa19375597d85",
+  "request": {
+    "request_id": "qwen3.5-plus-02-15|point_hazard_native|direct_path_intersection|paid-seed-21|capability_twin|formal_action_structured|anchor",
+    "model_budget_id": "qwen3.5-plus-02-15",
+    "provider": "openrouter",
+    "provider_model": "qwen/qwen3.5-plus-02-15",
+    "model_revision": "qwen3.5-plus-20260216",
+    "paid_seed": 21,
+    "prompt_sha256": "4a8559b94a8a74a8f8bbf5821ecda175729d881e46ae073fc09684884a505bf7",
+    "image_sha256": "31e875c0c8a254a34284cd629d50840437ee5641085f158d1d6f066144cb1f0d",
+    "parameters": {
+      "temperature": 0,
+      "max_tokens": 220,
+      "seed": 21,
+      "provider": {
+        "order": [
+          "alibaba"
+        ],
+        "allow_fallbacks": false,
+        "require_parameters": true,
+        "max_price": {
+          "prompt": 0.26,
+          "completion": 1.56
+        }
+      },
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "compatibility_smoke": false
+  },
+  "call_origin": "provider",
+  "new_provider_call": true,
+  "successful_attempt": 1,
+  "recorded_at": "2026-07-26T12:17:25.976726+00:00"
+}
