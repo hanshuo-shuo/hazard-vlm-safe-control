@@ -15,6 +15,7 @@ execution state and result validity each have one owner.
 | 6 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
 | 7 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
 | 8 | [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) | Exploratory interface-contract evidence and ICLR recovery gate |
+| 9 | [INTERFACE_CONTRACT_SCOUT_REPORT.md](INTERFACE_CONTRACT_SCOUT_REPORT.md) | Illustrated 120-call scout narrative, native replay evidence and continuation decision |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
