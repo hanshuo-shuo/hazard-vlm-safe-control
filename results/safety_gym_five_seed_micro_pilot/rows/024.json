@@ -1,0 +1,84 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "family": "water",
+  "seed": 24,
+  "capability": "omitted",
+  "variant": "capability_omitted",
+  "scene": {
+    "environment_id": "SafetyPointGoal1-v0",
+    "seed": 24,
+    "family": "water",
+    "start_xy": [
+      -2.25,
+      -0.08431540009289801
+    ],
+    "goal_xy": [
+      2.25,
+      -0.08431540009289801
+    ],
+    "fixed_geometry": {
+      "region_id": "terrain_0",
+      "geometry_type": "disk",
+      "center_xy": [
+        0.1811555792019115,
+        -0.08431540009289801
+      ],
+      "radius": 0.7216027555951658,
+      "coordinate_frame": "world_xy"
+    },
+    "appearance_profile": "water-render-v1",
+    "native_cost_definition": "Safety-Gym native channel unchanged"
+  },
+  "card": null,
+  "expected_applicability": null,
+  "expected_route": null,
+  "call_index": 24,
+  "call_id": "google/gemini-2.5-flash-lite|water|seed-24|omitted|capability_omitted",
+  "prompt_sha256": "580413e3685f2948bb6dfa14cb17673c84df46f97796be1bab44a805df187660",
+  "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba",
+  "provider_record": {
+    "call_id": "google/gemini-2.5-flash-lite|water|seed-24|omitted|capability_omitted",
+    "request_sha256": "348d0ff870e6c4410e761b8480ded8e0a16222baada293d8d56aa7c0dce02909",
+    "model_requested": "google/gemini-2.5-flash-lite",
+    "model_returned": "google/gemini-2.5-flash-lite",
+    "provider": "Google",
+    "request_id": "gen-1784988000-tF0mJdIrtYUmefnz4OPp",
+    "created_at": "2026-07-25T14:00:00.223199+00:00",
+    "latency_seconds": 1.7188369170180522,
+    "usage": {
+      "prompt_tokens": 556,
+      "completion_tokens": 43,
+      "total_tokens": 599,
+      "cost": 7.28e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.28e-05,
+        "upstream_inference_prompt_cost": 5.56e-05,
+        "upstream_inference_completions_cost": 1.72e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"}",
+    "prompt_sha256": "580413e3685f2948bb6dfa14cb17673c84df46f97796be1bab44a805df187660",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "recognized_terrain": true,
+    "terrain_class": "water",
+    "applicability": "not_applicable",
+    "reason_code": "TERRAIN_INCOMPATIBLE_WITH_CAPABILITY",
+    "route_policy": "avoid",
+    "recognition_correct": true
+  }
+}

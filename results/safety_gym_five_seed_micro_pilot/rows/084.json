@@ -1,0 +1,84 @@
+{
+  "model": "qwen/qwen3-vl-30b-a3b-instruct",
+  "family": "mud_rough",
+  "seed": 21,
+  "capability": "omitted",
+  "variant": "capability_omitted",
+  "scene": {
+    "environment_id": "SafetyPointGoal1-v0",
+    "seed": 21,
+    "family": "mud_rough",
+    "start_xy": [
+      -2.25,
+      -0.24898196368041442
+    ],
+    "goal_xy": [
+      2.25,
+      -0.24898196368041442
+    ],
+    "fixed_geometry": {
+      "region_id": "terrain_0",
+      "geometry_type": "disk",
+      "center_xy": [
+        -0.14000887114988292,
+        -0.24898196368041442
+      ],
+      "radius": 0.6237896256708862,
+      "coordinate_frame": "world_xy"
+    },
+    "appearance_profile": "mud-render-v1",
+    "native_cost_definition": "Safety-Gym native channel unchanged"
+  },
+  "card": null,
+  "expected_applicability": null,
+  "expected_route": null,
+  "call_index": 84,
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-21|omitted|capability_omitted",
+  "prompt_sha256": "18a7d74a267b880271fbc1990d63e8b6c9f52a7200158a16f90f5d285c4c62c1",
+  "image_sha256": "28e097713e5cfa0a07b80ebfd7e6ce50dda36b06c1b0fdac1629f76360760bb2",
+  "provider_record": {
+    "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-21|omitted|capability_omitted",
+    "request_sha256": "b9695122060dfd00a425100cc8fc44e9ab5cf156c47861d77f39e076bec697ba",
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "Novita",
+    "request_id": "gen-1784988268-YHOBJ23EYeG60ImQ4vXo",
+    "created_at": "2026-07-25T14:04:28.049299+00:00",
+    "latency_seconds": 1.943084667029325,
+    "usage": {
+      "prompt_tokens": 354,
+      "completion_tokens": 44,
+      "total_tokens": 398,
+      "cost": 0.0001016,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001016,
+        "upstream_inference_prompt_cost": 7.08e-05,
+        "upstream_inference_completions_cost": 3.08e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"\n}",
+    "prompt_sha256": "18a7d74a267b880271fbc1990d63e8b6c9f52a7200158a16f90f5d285c4c62c1",
+    "image_sha256": "28e097713e5cfa0a07b80ebfd7e6ce50dda36b06c1b0fdac1629f76360760bb2"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "recognized_terrain": true,
+    "terrain_class": "mud_rough",
+    "applicability": "not_applicable",
+    "reason_code": "TERRAIN_INCOMPATIBLE_WITH_CAPABILITY",
+    "route_policy": "avoid",
+    "recognition_correct": true
+  }
+}

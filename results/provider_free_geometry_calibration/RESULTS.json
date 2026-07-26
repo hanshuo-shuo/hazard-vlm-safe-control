@@ -1,0 +1,314 @@
+{
+  "schema_version": "provider-free-geometry-calibration-v1",
+  "geometry": {
+    "fresh_dev_split": {
+      "schema_version": "fresh-dev-scene-family-split-v1",
+      "scene_family": "point_hazard_water",
+      "historical_pilot_excluded": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "calibration_seeds": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "attribution_seeds": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "held_out_dev_reserve": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "selection_rule": "maximize STC, then success, then minimize violation, then smaller halo"
+    },
+    "calibration_budget": {
+      "max_trials": 4,
+      "trials_used": 4,
+      "parameters_frozen": true
+    },
+    "operating_curve": [
+      {
+        "parameter_family": "soft_halo",
+        "soft_halo": 0.0,
+        "config_hash": "1ece5ddceb7537e24ffa06b07840ea38f2a7b7932ce6a95bbe26676f7d7d6dd5",
+        "success_rate": 0.8,
+        "semantic_violation_rate": 0.0,
+        "STC_rate": 0.8
+      },
+      {
+        "parameter_family": "soft_halo",
+        "soft_halo": 0.25,
+        "config_hash": "532b9567ea7ee4431b574a7b054a79a7e8b509a5369e9b18098e3527ae34afe2",
+        "success_rate": 0.8,
+        "semantic_violation_rate": 0.0,
+        "STC_rate": 0.8
+      },
+      {
+        "parameter_family": "soft_halo",
+        "soft_halo": 0.5,
+        "config_hash": "cfc7e2a5acff5f3089923cedb96347932e7147a202a0b7b6fe595e98e0112e88",
+        "success_rate": 0.8,
+        "semantic_violation_rate": 0.0,
+        "STC_rate": 0.8
+      },
+      {
+        "parameter_family": "soft_halo",
+        "soft_halo": 0.75,
+        "config_hash": "0402c570491838a96e5ba75fa0ada42105aa59af290fa94a83cb7ccb5221d232",
+        "success_rate": 0.8,
+        "semantic_violation_rate": 0.0,
+        "STC_rate": 0.8
+      }
+    ],
+    "selected_config": {
+      "parameter_family": "soft_halo",
+      "soft_halo": 0.0,
+      "config_hash": "1ece5ddceb7537e24ffa06b07840ea38f2a7b7932ce6a95bbe26676f7d7d6dd5",
+      "success_rate": 0.8,
+      "semantic_violation_rate": 0.0,
+      "STC_rate": 0.8
+    },
+    "attribution": [
+      {
+        "arm": "detector_full_geometry",
+        "center_error": 0.015319202257891077,
+        "area_error": 0.50515948484922,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "detector_center_detector_radius",
+        "center_error": 0.015319202257891077,
+        "area_error": 0.50515948484922,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "detector_center_oracle_radius",
+        "center_error": 0.015319202257891077,
+        "area_error": 0.0,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "oracle_center_detector_radius",
+        "center_error": 0.0,
+        "area_error": 0.50515948484922,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "oracle_center_oracle_radius",
+        "center_error": 0.0,
+        "area_error": 0.0,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "detector_bounding_box",
+        "center_error": 0.011325907801697243,
+        "area_error": 0.09186246648273659,
+        "success": 0.9,
+        "violation": 0.0,
+        "STC": 0.9
+      },
+      {
+        "arm": "detector_polygon_convex_hull",
+        "center_error": 0.011289689442199718,
+        "area_error": 0.5995284028645591,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "detector_mask",
+        "center_error": 0.013880110607529162,
+        "area_error": 1.0110716841145595,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      },
+      {
+        "arm": "blind",
+        "center_error": null,
+        "area_error": null,
+        "success": 1.0,
+        "violation": 1.0,
+        "STC": 0.0
+      },
+      {
+        "arm": "oracle",
+        "center_error": 0.0,
+        "area_error": 0.0,
+        "success": 1.0,
+        "violation": 0.0,
+        "STC": 1.0
+      }
+    ],
+    "provider_calls": 0
+  },
+  "safety_gym_oracle_twins": {
+    "backend": "safety_gym_goal_headless_contract",
+    "rows": [
+      {
+        "family": "water",
+        "capability": "wheeled_non_waterproof",
+        "expected_applicability": "applicable",
+        "applicable_region_ids": [
+          "zone_0"
+        ],
+        "route_mode": "avoid",
+        "entered_water_geometry": false,
+        "success": true,
+        "native_cost_sum": 0.0,
+        "scene": {
+          "environment_backend": "safety_gym_goal",
+          "environment_id": "SafetyPointGoal1-v0",
+          "environment_version": "1.0.0",
+          "seed": 17,
+          "initial_observation_summary": {
+            "shape": [
+              2
+            ],
+            "dtype": "float32",
+            "sha256": "a0282b8cdab8f2c4042ef96395e6f23d0331e0acb9cb0951e6ebdebb9f4fe1bc"
+          },
+          "goal": [
+            2.2326882225632003,
+            0.8662462403023261
+          ],
+          "goal_radius": 0.25,
+          "agent_radius": 0.0,
+          "max_episode_steps": null,
+          "dt": null,
+          "physical_hazards": [],
+          "semantic_terrain": [
+            {
+              "region_id": "zone_0",
+              "center_xy": [
+                0.2326882225632001,
+                0.8662462403023261
+              ],
+              "radius": 0.5978208713218836,
+              "terrain_class": "water",
+              "appearance_profile": "water-render-v1"
+            }
+          ]
+        },
+        "rgb_sha256": "a7cd07aabb0eff7a2948aaf9a218fa3d799e14a64a0ce1f976a69a88fe0f0fc0",
+        "initial_state": [
+          -1.7673117774368,
+          0.8662462403023261
+        ]
+      },
+      {
+        "family": "water",
+        "capability": "amphibious",
+        "expected_applicability": "not_applicable",
+        "applicable_region_ids": [],
+        "route_mode": "direct",
+        "entered_water_geometry": true,
+        "success": true,
+        "native_cost_sum": 0.0,
+        "scene": {
+          "environment_backend": "safety_gym_goal",
+          "environment_id": "SafetyPointGoal1-v0",
+          "environment_version": "1.0.0",
+          "seed": 17,
+          "initial_observation_summary": {
+            "shape": [
+              2
+            ],
+            "dtype": "float32",
+            "sha256": "a0282b8cdab8f2c4042ef96395e6f23d0331e0acb9cb0951e6ebdebb9f4fe1bc"
+          },
+          "goal": [
+            2.2326882225632003,
+            0.8662462403023261
+          ],
+          "goal_radius": 0.25,
+          "agent_radius": 0.0,
+          "max_episode_steps": null,
+          "dt": null,
+          "physical_hazards": [],
+          "semantic_terrain": [
+            {
+              "region_id": "zone_0",
+              "center_xy": [
+                0.2326882225632001,
+                0.8662462403023261
+              ],
+              "radius": 0.5978208713218836,
+              "terrain_class": "water",
+              "appearance_profile": "water-render-v1"
+            }
+          ]
+        },
+        "rgb_sha256": "a7cd07aabb0eff7a2948aaf9a218fa3d799e14a64a0ce1f976a69a88fe0f0fc0",
+        "initial_state": [
+          -1.7673117774368,
+          0.8662462403023261
+        ]
+      }
+    ],
+    "twin_invariants": {
+      "same_twin_id": true,
+      "same_family": true,
+      "same_seed": true,
+      "identical_geometry": true,
+      "identical_rendering": true,
+      "identical_goal": true,
+      "identical_initial_state": true,
+      "identical_native_cost": true,
+      "identical_geometry_interface": true,
+      "identical_planner": true,
+      "appearance_unchanged": true,
+      "capability_differs": true,
+      "applicability_differs": true
+    },
+    "behavior_reversal_observed": true,
+    "provider_calls": 0
+  },
+  "provider_calls": 0
+}

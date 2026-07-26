@@ -30,7 +30,12 @@ from env_pointhazard import PointHazardConfig
 from envs import PointHazardAdapter, SemanticSafetyPointGoalAdapter
 from evaluation.policy_interface import CAPABILITY_CARDS
 from evaluation.semantic_evaluator import evaluate_scene_manifest
-from evaluation.geometry_calibration import GeometryArm, compose_geometry_arm, disk_metrics
+from evaluation.geometry_calibration import (
+    GeometryArm,
+    compose_geometry_arm,
+    disk_metrics,
+    project_geometry_to_planner_disks,
+)
 from evaluation.semantic_geometry import (
     CoordinateFrame,
     GeometrySource,
@@ -286,7 +291,7 @@ def run_fixed_point_planner(
     args: argparse.Namespace,
     seed: int,
 ) -> tuple[int, int]:
-    """Run the same CEM-MPC executor for every disk geometry arm."""
+    """Run the same CEM-MPC executor after the explicit geometry projection."""
     expert = MPCExpert(
         SimpleNamespace(cfg=cfg),
         cfg=MPCConfig(
@@ -299,28 +304,29 @@ def run_fixed_point_planner(
         rng=np.random.default_rng(seed),
     )
     obs = np.asarray(observation, dtype=np.float32)
-    semantic_disk = None
-    if geometry is not None:
-        if geometry.get("geometry_type") != "disk":
-            raise ValueError("fixed planner execution currently supports disk arms only")
-        center = geometry["center_xy"]
-        semantic_disk = (float(center[0]), float(center[1]), float(geometry["radius"]))
+    planner_disks = project_geometry_to_planner_disks(geometry)
     replans = 0
     interventions = 0
     for step in range(args.max_steps):
         if step % args.replanning_interval == 0:
             hazards = obs[6:].reshape(-1, 3)
-            if semantic_disk is None:
+            if not planner_disks:
                 hard = np.empty((0, 3), dtype=np.float32)
                 soft = np.empty((0, 3), dtype=np.float32)
             else:
-                x, y, radius = semantic_disk
                 hard = np.asarray(
-                    [[x, y, radius + args.hard_radius_inflation]],
+                    [
+                        [x, y, radius + args.hard_radius_inflation]
+                        for x, y, radius in planner_disks
+                    ],
                     dtype=np.float32,
                 )
                 soft = np.asarray(
-                    [[x, y, radius + args.soft_halo]], dtype=np.float32
+                    [
+                        [x, y, radius + args.soft_halo]
+                        for x, y, radius in planner_disks
+                    ],
+                    dtype=np.float32,
                 )
                 interventions += 1
             expert.set_soft_zones(soft)

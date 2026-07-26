@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|water|seed-22|amphibious|base",
+  "request_sha256": "9dc0ea24d572bc1a8321e0f36f534a067b99d28451253c93714cf684eca58c18",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "request_id": "gen-1784988178-3jx7rCkbPxgru8IgrGVg",
+  "created_at": "2026-07-25T14:03:05.177821+00:00",
+  "latency_seconds": 11.674602957966272,
+  "usage": {
+    "prompt_tokens": 376,
+    "completion_tokens": 38,
+    "total_tokens": 414,
+    "cost": 6.864e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.864e-05,
+      "upstream_inference_prompt_cost": 4.888e-05,
+      "upstream_inference_completions_cost": 1.976e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"applicable\",\"reason_code\":\"TERRAIN_COMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"traverse\"}",
+  "prompt_sha256": "f6ef657693324158bab2c2f365306625d2442effe5a3236f874c38b5c663c887",
+  "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+}

@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-22|omitted|capability_omitted",
+  "request_sha256": "ef0b1bf4c898df3d8b01dce6c633ac1911cee249a090cad4e9e3381195be08dc",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "request_id": "gen-1784988290-N5VmtY1lNvUsJI6MaWzc",
+  "created_at": "2026-07-25T14:04:51.598512+00:00",
+  "latency_seconds": 4.187819458020385,
+  "usage": {
+    "prompt_tokens": 354,
+    "completion_tokens": 44,
+    "total_tokens": 398,
+    "cost": 0.0001016,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001016,
+      "upstream_inference_prompt_cost": 7.08e-05,
+      "upstream_inference_completions_cost": 3.08e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"\n}",
+  "prompt_sha256": "2094b35c23e2044a493124bab5fa73f94ad82123a50248bce154e10a348f679d",
+  "image_sha256": "306067cee2d8cfa5fa097a1c3d23a3f1e10d397a2034727f9546418082eb63d2"
+}

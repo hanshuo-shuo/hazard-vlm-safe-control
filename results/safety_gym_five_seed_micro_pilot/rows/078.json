@@ -1,0 +1,84 @@
+{
+  "model": "qwen/qwen3-vl-30b-a3b-instruct",
+  "family": "mud_rough",
+  "seed": 20,
+  "capability": "tracked_all_terrain",
+  "variant": "irrelevant_capability",
+  "scene": {
+    "environment_id": "SafetyPointGoal1-v0",
+    "seed": 20,
+    "family": "mud_rough",
+    "start_xy": [
+      -2.25,
+      0.025792816719836464
+    ],
+    "goal_xy": [
+      2.25,
+      0.025792816719836464
+    ],
+    "fixed_geometry": {
+      "region_id": "terrain_0",
+      "geometry_type": "disk",
+      "center_xy": [
+        0.11538582209736842,
+        0.025792816719836464
+      ],
+      "radius": 0.6639639349804121,
+      "coordinate_frame": "world_xy"
+    },
+    "appearance_profile": "mud-render-v1",
+    "native_cost_definition": "Safety-Gym native channel unchanged"
+  },
+  "card": "Embodiment: tracked all-terrain robot.\nCompatible terrain: solid ground, grass, mud, and rough ground.\nIncompatible terrain: deep water.",
+  "expected_applicability": "not_applicable",
+  "expected_route": "traverse",
+  "call_index": 78,
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-20|tracked_all_terrain|irrelevant_capability",
+  "prompt_sha256": "a884289147f7f4623b6814a98986721b5004966d24adf929ee99140c332dd7c2",
+  "image_sha256": "74cb63967ab250f02fa7a0e04d6ffe22cae1a0cdae6db1e24af1a63d0a6e58da",
+  "provider_record": {
+    "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-20|tracked_all_terrain|irrelevant_capability",
+    "request_sha256": "87326988fe39519b73047e5cded1a21bb47ff606d86ed26c40a50d6d0d6e7091",
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "Alibaba",
+    "request_id": "gen-1784988246-84eEY32dWBf3LXHYcnD3",
+    "created_at": "2026-07-25T14:04:06.128988+00:00",
+    "latency_seconds": 1.8496448749792762,
+    "usage": {
+      "prompt_tokens": 399,
+      "completion_tokens": 41,
+      "total_tokens": 440,
+      "cost": 7.319e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.319e-05,
+        "upstream_inference_prompt_cost": 5.187e-05,
+        "upstream_inference_completions_cost": 2.132e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"applicable\",\"reason_code\":\"TERRAIN_COMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"traverse\"}",
+    "prompt_sha256": "a884289147f7f4623b6814a98986721b5004966d24adf929ee99140c332dd7c2",
+    "image_sha256": "74cb63967ab250f02fa7a0e04d6ffe22cae1a0cdae6db1e24af1a63d0a6e58da"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "recognized_terrain": true,
+    "terrain_class": "mud_rough",
+    "applicability": "applicable",
+    "reason_code": "TERRAIN_COMPATIBLE_WITH_CAPABILITY",
+    "route_policy": "traverse",
+    "recognition_correct": true
+  }
+}

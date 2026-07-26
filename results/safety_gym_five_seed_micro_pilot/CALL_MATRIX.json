@@ -1,0 +1,902 @@
+[
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 20,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 20,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 20,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 21,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 21,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 21,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 22,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 22,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 22,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 23,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 23,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 23,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 24,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 24,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "water",
+    "seed": 24,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "google/gemini-2.5-flash-lite",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 20,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 20,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 20,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 21,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 21,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 21,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 22,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 22,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 22,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 23,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 23,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 23,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 24,
+    "capability": "amphibious",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 24,
+    "capability": "amphibious",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "water",
+    "seed": 24,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 20,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 21,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 22,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 23,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "ordinary_wheeled",
+    "variant": "base",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "ordinary_wheeled",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "applicable",
+    "expected_route": "avoid"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "tracked_all_terrain",
+    "variant": "base",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "tracked_all_terrain",
+    "variant": "irrelevant_capability",
+    "expected_applicability": "not_applicable",
+    "expected_route": "traverse"
+  },
+  {
+    "model": "qwen/qwen3-vl-30b-a3b-instruct",
+    "family": "mud_rough",
+    "seed": 24,
+    "capability": "omitted",
+    "variant": "capability_omitted",
+    "expected_applicability": null,
+    "expected_route": null
+  }
+]

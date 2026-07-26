@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-22|ordinary_wheeled|base",
+  "request_sha256": "610ef92cb3f2dcfc633cfc48c20a60b08348ead66809c4baf6ed4554cb2ae86b",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "request_id": "gen-1784988270-JPNgu3q2WtACsfB5JS6Z",
+  "created_at": "2026-07-25T14:04:30.500265+00:00",
+  "latency_seconds": 2.446760708000511,
+  "usage": {
+    "prompt_tokens": 377,
+    "completion_tokens": 43,
+    "total_tokens": 420,
+    "cost": 8.235e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.235e-05,
+      "upstream_inference_prompt_cost": 5.655e-05,
+      "upstream_inference_completions_cost": 2.58e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"}",
+  "prompt_sha256": "88180d58f2834a6756025d66b30f8776605c0aeda9a4596c8bbfd9e533da42fe",
+  "image_sha256": "306067cee2d8cfa5fa097a1c3d23a3f1e10d397a2034727f9546418082eb63d2"
+}

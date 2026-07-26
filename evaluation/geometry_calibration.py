@@ -78,6 +78,141 @@ def compose_geometry_arm(
     raise AssertionError(f"unhandled geometry arm {arm}")
 
 
+def _polygon_area_centroid(
+    points: Sequence[Sequence[float]],
+) -> tuple[float, tuple[float, float]]:
+    vertices = [(float(point[0]), float(point[1])) for point in points]
+    if len(vertices) < 3:
+        raise ValueError("polygon requires at least three points")
+    twice_area = 0.0
+    cx_numerator = 0.0
+    cy_numerator = 0.0
+    for left, right in zip(vertices, vertices[1:] + vertices[:1]):
+        cross = left[0] * right[1] - right[0] * left[1]
+        twice_area += cross
+        cx_numerator += (left[0] + right[0]) * cross
+        cy_numerator += (left[1] + right[1]) * cross
+    if abs(twice_area) <= 1e-12:
+        raise ValueError("polygon area must be positive")
+    return (
+        abs(twice_area) / 2.0,
+        (
+            cx_numerator / (3.0 * twice_area),
+            cy_numerator / (3.0 * twice_area),
+        ),
+    )
+
+
+def geometry_area_centroid(
+    geometry: Mapping[str, Any] | None,
+    *,
+    mask_points_xy: Sequence[Sequence[float]] | None = None,
+    mask_pixel_area: float | None = None,
+) -> tuple[float | None, tuple[float, float] | None]:
+    """Return measured area/centroid without silently turning shapes into disks."""
+    if geometry is None:
+        return None, None
+    kind = str(geometry.get("geometry_type"))
+    if kind == "disk":
+        radius = float(geometry["radius"])
+        center = tuple(float(value) for value in geometry["center_xy"])
+        return math.pi * radius * radius, (center[0], center[1])
+    if kind == "aabb":
+        low = tuple(float(value) for value in geometry["min_xy"])
+        high = tuple(float(value) for value in geometry["max_xy"])
+        if low[0] >= high[0] or low[1] >= high[1]:
+            raise ValueError("aabb min_xy must be below max_xy")
+        return (
+            (high[0] - low[0]) * (high[1] - low[1]),
+            ((low[0] + high[0]) / 2.0, (low[1] + high[1]) / 2.0),
+        )
+    if kind == "polygon":
+        return _polygon_area_centroid(geometry["points"])
+    if kind == "mask_reference":
+        if not mask_points_xy or mask_pixel_area is None:
+            raise ValueError("mask projection requires measured world points and pixel area")
+        points = [(float(point[0]), float(point[1])) for point in mask_points_xy]
+        return (
+            len(points) * float(mask_pixel_area),
+            (
+                sum(point[0] for point in points) / len(points),
+                sum(point[1] for point in points) / len(points),
+            ),
+        )
+    raise ValueError(f"unsupported geometry type {kind!r}")
+
+
+def geometry_metrics(
+    geometry: Mapping[str, Any] | None,
+    oracle_disk: Sequence[float] | None,
+    *,
+    mask_points_xy: Sequence[Sequence[float]] | None = None,
+    mask_pixel_area: float | None = None,
+) -> dict[str, float | None]:
+    """Representation-independent center and area attribution metrics."""
+    if geometry is None or oracle_disk is None:
+        return {"center_error": None, "area_error": None}
+    area, center = geometry_area_centroid(
+        geometry,
+        mask_points_xy=mask_points_xy,
+        mask_pixel_area=mask_pixel_area,
+    )
+    ox, oy, radius = (float(value) for value in oracle_disk)
+    assert area is not None and center is not None
+    return {
+        "center_error": math.hypot(center[0] - ox, center[1] - oy),
+        "area_error": abs(area - math.pi * radius * radius),
+    }
+
+
+def project_geometry_to_planner_disks(
+    geometry: Mapping[str, Any] | None,
+    *,
+    mask_points_xy: Sequence[Sequence[float]] | None = None,
+) -> tuple[tuple[float, float, float], ...]:
+    """Conservatively project every registered geometry kind to fixed-MPC disks.
+
+    The fixed planner consumes disk primitives. AABB and polygon arms use their
+    enclosing circle. A measured mask uses the enclosing circle of its actual
+    foreground pixels; no mask is fabricated when the artifact is absent.
+    """
+    if geometry is None:
+        return ()
+    kind = str(geometry.get("geometry_type"))
+    if kind == "disk":
+        center = geometry["center_xy"]
+        return ((float(center[0]), float(center[1]), float(geometry["radius"])),)
+    if kind == "aabb":
+        low = tuple(float(value) for value in geometry["min_xy"])
+        high = tuple(float(value) for value in geometry["max_xy"])
+        center = ((low[0] + high[0]) / 2.0, (low[1] + high[1]) / 2.0)
+        radius = math.hypot(high[0] - low[0], high[1] - low[1]) / 2.0
+        return ((center[0], center[1], radius),)
+    if kind == "polygon":
+        _area, center = _polygon_area_centroid(geometry["points"])
+        radius = max(
+            math.hypot(float(point[0]) - center[0], float(point[1]) - center[1])
+            for point in geometry["points"]
+        )
+        return ((center[0], center[1], radius),)
+    if kind == "mask_reference":
+        if not mask_points_xy:
+            raise ValueError("mask projection requires its measured foreground pixels")
+        points = [(float(point[0]), float(point[1])) for point in mask_points_xy]
+        center = (
+            sum(point[0] for point in points) / len(points),
+            sum(point[1] for point in points) / len(points),
+        )
+        radius = max(
+            math.hypot(point[0] - center[0], point[1] - center[1])
+            for point in points
+        )
+        if radius <= 0:
+            raise ValueError("mask foreground must span a positive area")
+        return ((center[0], center[1], radius),)
+    raise ValueError(f"unsupported geometry type {kind!r}")
+
+
 def disk_metrics(
     detector: Sequence[float] | None,
     oracle: Sequence[float] | None,

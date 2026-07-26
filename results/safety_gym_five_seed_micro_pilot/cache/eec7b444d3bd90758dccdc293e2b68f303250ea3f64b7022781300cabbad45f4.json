@@ -1,0 +1,36 @@
+{
+  "call_id": "google/gemini-2.5-flash-lite|mud_rough|seed-22|omitted|capability_omitted",
+  "request_sha256": "eec7b444d3bd90758dccdc293e2b68f303250ea3f64b7022781300cabbad45f4",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "request_id": "gen-1784988087-VRQeO59ifx5fa2nTJPWp",
+  "created_at": "2026-07-25T14:01:27.231431+00:00",
+  "latency_seconds": 2.1925853330176324,
+  "usage": {
+    "prompt_tokens": 557,
+    "completion_tokens": 45,
+    "total_tokens": 602,
+    "cost": 7.37e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.37e-05,
+      "upstream_inference_prompt_cost": 5.57e-05,
+      "upstream_inference_completions_cost": 1.8e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"}",
+  "prompt_sha256": "2094b35c23e2044a493124bab5fa73f94ad82123a50248bce154e10a348f679d",
+  "image_sha256": "306067cee2d8cfa5fa097a1c3d23a3f1e10d397a2034727f9546418082eb63d2"
+}

@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|water|seed-22|wheeled_non_waterproof|base",
+  "request_sha256": "0abb6fa79327de5e6f07732a50ce60605bf26f0a3bef6b07068ed291433bdeca",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "request_id": "gen-1784988171-wDU7xVptJHdp7Ac28xjx",
+  "created_at": "2026-07-25T14:02:51.253220+00:00",
+  "latency_seconds": 1.8778227920411155,
+  "usage": {
+    "prompt_tokens": 374,
+    "completion_tokens": 41,
+    "total_tokens": 415,
+    "cost": 0.0001035,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0001035,
+      "upstream_inference_prompt_cost": 7.48e-05,
+      "upstream_inference_completions_cost": 2.87e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"\n}",
+  "prompt_sha256": "f846d3a7c41e67f9e70261aeb9ce0c982354ff66a39be24567ede40dc466f3a9",
+  "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+}

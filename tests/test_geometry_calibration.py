@@ -1,3 +1,5 @@
+import math
+
 import pytest
 
 from evaluation.geometry_calibration import (
@@ -5,7 +7,9 @@ from evaluation.geometry_calibration import (
     GeometryArm,
     compose_geometry_arm,
     disk_metrics,
+    geometry_metrics,
     pareto_rows,
+    project_geometry_to_planner_disks,
     validate_operating_curve,
 )
 
@@ -65,3 +69,36 @@ def test_pareto_curve_removes_dominated_rows():
         {"parameter_family": "halo", "config_hash": "c", "success_rate": 0.6, "semantic_violation_rate": 0.0},
     ]
     assert [row["config_hash"] for row in pareto_rows(rows)] == ["a", "c"]
+
+
+def test_non_disk_geometry_projects_to_fixed_planner_disks():
+    box = {"geometry_type": "aabb", "min_xy": [-1, -2], "max_xy": [1, 2]}
+    assert project_geometry_to_planner_disks(box) == (
+        (0.0, 0.0, pytest.approx(5 ** 0.5)),
+    )
+    polygon = {
+        "geometry_type": "polygon",
+        "points": [[-1, -1], [1, -1], [1, 1], [-1, 1]],
+    }
+    projected = project_geometry_to_planner_disks(polygon)
+    assert projected[0][:2] == pytest.approx((0, 0))
+    assert projected[0][2] == pytest.approx(2 ** 0.5)
+    metrics = geometry_metrics(polygon, (0, 0, 1))
+    assert metrics["center_error"] == pytest.approx(0)
+    assert metrics["area_error"] == pytest.approx(4 - math.pi)
+
+
+def test_mask_projection_requires_real_foreground():
+    mask = {
+        "geometry_type": "mask_reference",
+        "mask_sha256": "0" * 64,
+        "width": 2,
+        "height": 2,
+        "artifact_path": "mask.npy",
+    }
+    with pytest.raises(ValueError):
+        project_geometry_to_planner_disks(mask)
+    disks = project_geometry_to_planner_disks(
+        mask, mask_points_xy=[[-1, 0], [1, 0]]
+    )
+    assert disks == ((0.0, 0.0, 1.0),)

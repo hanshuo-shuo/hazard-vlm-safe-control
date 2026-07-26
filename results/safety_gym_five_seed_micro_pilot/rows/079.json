@@ -1,0 +1,84 @@
+{
+  "model": "qwen/qwen3-vl-30b-a3b-instruct",
+  "family": "mud_rough",
+  "seed": 20,
+  "capability": "omitted",
+  "variant": "capability_omitted",
+  "scene": {
+    "environment_id": "SafetyPointGoal1-v0",
+    "seed": 20,
+    "family": "mud_rough",
+    "start_xy": [
+      -2.25,
+      0.025792816719836464
+    ],
+    "goal_xy": [
+      2.25,
+      0.025792816719836464
+    ],
+    "fixed_geometry": {
+      "region_id": "terrain_0",
+      "geometry_type": "disk",
+      "center_xy": [
+        0.11538582209736842,
+        0.025792816719836464
+      ],
+      "radius": 0.6639639349804121,
+      "coordinate_frame": "world_xy"
+    },
+    "appearance_profile": "mud-render-v1",
+    "native_cost_definition": "Safety-Gym native channel unchanged"
+  },
+  "card": null,
+  "expected_applicability": null,
+  "expected_route": null,
+  "call_index": 79,
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-20|omitted|capability_omitted",
+  "prompt_sha256": "c86ae21f7263db4f6d1a4df71bccb5f27eda39fc156c3ca284b4c9f5cdad69a6",
+  "image_sha256": "74cb63967ab250f02fa7a0e04d6ffe22cae1a0cdae6db1e24af1a63d0a6e58da",
+  "provider_record": {
+    "call_id": "qwen/qwen3-vl-30b-a3b-instruct|mud_rough|seed-20|omitted|capability_omitted",
+    "request_sha256": "a26174076d03229a0393b9b89c8fcc308d822f8b81d8f3632ac87d1db0856e45",
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "Alibaba",
+    "request_id": "gen-1784988248-qbbrVGGn3imIlVTyAsCg",
+    "created_at": "2026-07-25T14:04:07.908900+00:00",
+    "latency_seconds": 1.773624417022802,
+    "usage": {
+      "prompt_tokens": 355,
+      "completion_tokens": 44,
+      "total_tokens": 399,
+      "cost": 6.903e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 6.903e-05,
+        "upstream_inference_prompt_cost": 4.615e-05,
+        "upstream_inference_completions_cost": 2.288e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"mud_rough\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"\n}",
+    "prompt_sha256": "c86ae21f7263db4f6d1a4df71bccb5f27eda39fc156c3ca284b4c9f5cdad69a6",
+    "image_sha256": "74cb63967ab250f02fa7a0e04d6ffe22cae1a0cdae6db1e24af1a63d0a6e58da"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "recognized_terrain": true,
+    "terrain_class": "mud_rough",
+    "applicability": "not_applicable",
+    "reason_code": "TERRAIN_INCOMPATIBLE_WITH_CAPABILITY",
+    "route_policy": "avoid",
+    "recognition_correct": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "call_id": "google/gemini-2.5-flash-lite|water|seed-22|amphibious|irrelevant_capability",
+  "request_sha256": "b038c189fa248f862e3a33bf10db376524ffa2a35ee4e81ced77582f1a75873f",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "request_id": "gen-1784987975-BmEIjvdpXISPelaBPzBH",
+  "created_at": "2026-07-25T13:59:34.957494+00:00",
+  "latency_seconds": 2.4814193330239505,
+  "usage": {
+    "prompt_tokens": 599,
+    "completion_tokens": 40,
+    "total_tokens": 639,
+    "cost": 7.59e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.59e-05,
+      "upstream_inference_prompt_cost": 5.99e-05,
+      "upstream_inference_completions_cost": 1.6e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"applicable\",\"reason_code\":\"TERRAIN_COMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"traverse\"}",
+  "prompt_sha256": "8c624ea2d3884ce19a2734a61c8013d8567c286548ce160608e8552cfc1f13b8",
+  "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+}

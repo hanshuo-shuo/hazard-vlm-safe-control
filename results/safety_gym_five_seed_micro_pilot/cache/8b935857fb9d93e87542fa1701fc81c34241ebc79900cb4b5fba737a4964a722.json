@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|water|seed-20|amphibious|base",
+  "request_sha256": "8b935857fb9d93e87542fa1701fc81c34241ebc79900cb4b5fba737a4964a722",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "request_id": "gen-1784988119-m5NCWr7GVGS0nMTNZ3by",
+  "created_at": "2026-07-25T14:02:02.712468+00:00",
+  "latency_seconds": 5.154165917017963,
+  "usage": {
+    "prompt_tokens": 372,
+    "completion_tokens": 38,
+    "total_tokens": 410,
+    "cost": 7.86e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 7.86e-05,
+      "upstream_inference_prompt_cost": 5.58e-05,
+      "upstream_inference_completions_cost": 2.28e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"applicable\",\"reason_code\":\"TERRAIN_COMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"traverse\"}",
+  "prompt_sha256": "99ab851eaa4f1c55ac4e30a3eedd00cc9f0f2117c86ce81f33a4dbd52406b908",
+  "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+}

@@ -1,0 +1,36 @@
+{
+  "call_id": "qwen/qwen3-vl-30b-a3b-instruct|water|seed-21|omitted|capability_omitted",
+  "request_sha256": "0aae20c4c9f9ee5078c82fd1fc38e00b8d1bc58ac9b6fa595e276ccb51299693",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "request_id": "gen-1784988168-BIo6ZevOYATVAhpNnn7t",
+  "created_at": "2026-07-25T14:02:49.372695+00:00",
+  "latency_seconds": 3.1905661250348203,
+  "usage": {
+    "prompt_tokens": 353,
+    "completion_tokens": 40,
+    "total_tokens": 393,
+    "cost": 6.669e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 6.669e-05,
+      "upstream_inference_prompt_cost": 4.589e-05,
+      "upstream_inference_completions_cost": 2.08e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"recognized_terrain\":true,\"terrain_class\":\"water\",\"applicability\":\"not_applicable\",\"reason_code\":\"TERRAIN_INCOMPATIBLE_WITH_CAPABILITY\",\"route_policy\":\"avoid\"}",
+  "prompt_sha256": "b4fc5e6c60c46ac926e4ba01876dac77c535e0346ecf4d0cc0b89b8e2a99b6e6",
+  "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+}
