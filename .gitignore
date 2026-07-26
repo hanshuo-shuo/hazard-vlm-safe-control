@@ -14,11 +14,13 @@ __pycache__/
 .DS_Store
 
 # Large / reproducible binary artifacts (code-only repo)
-# hazard/ = model weights (.pt), gifs, run logs
+# /hazard/ = historical model weights (.pt), gifs, run logs when old scripts rerun
+# the preserved copy lives under legacy/runtime_artifacts/hazard/
 # data/   = demos (.npz), diffusion checkpoints
 # NOTE: outputs/ (result figures + small JSON logs, ~1.4M) IS tracked so the
 # figures embedded in docs/ render on GitHub. Large binaries below stay ignored.
-hazard/
+/hazard/
+/legacy/runtime_artifacts/hazard/
 data/
 *.pt
 *.npz

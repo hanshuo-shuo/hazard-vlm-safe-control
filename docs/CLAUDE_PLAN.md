@@ -751,7 +751,7 @@ Appearance twin 不得与 capability twin 混在同一主效应实验里。
 
 再新增：
 
-`docs/NEXT_EXECUTION_MEMO.md`
+`legacy/docs/NEXT_EXECUTION_MEMO_PRE_SCOUT.md`（完成 scout 后归档）
 
 要求写成真实项目 memo，包含：
 

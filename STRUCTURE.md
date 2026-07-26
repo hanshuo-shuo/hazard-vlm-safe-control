@@ -3,8 +3,9 @@
 Last reviewed: 2026-07-26.
 
 Research mainline status: marker-based PointHazard VLM waypoint is
-`TERMINATED / PILOT_ONLY`. The active implementation surface is marker-free
-semantic geometry plus Safety-Gym capability twins.
+`TERMINATED / PILOT_ONLY`. The active implementation surface is the
+interface-conditioned safety scout: marker-free grounding through native
+PointHazard and Safety-Gym controllers, followed by detached evaluation.
 
 The repository keeps a small number of historical top-level modules in place
 because old scripts and factor snapshots import them directly. New
@@ -34,11 +35,20 @@ not gain new dependencies, claims, or experiment results.
 | `evaluation/geometry_calibration.py` | `ACTIVE` | Detector decomposition metrics and calibration gates |
 | `evaluation/capability_twins.py` | `ACTIVE` | Capability/appearance twin contracts |
 | `evaluation/interface_contracts.py` | `ACTIVE/EXPLORATORY` | Equivalent-contract normalization, planner mappings and ranking-envelope analysis |
+| `evaluation/interface_execution.py` | `ACTIVE/PILOT_ONLY` | Normalized grounding to pixel/world conversion and native controller bridge |
+| `evaluation/interface_scenarios.py` | `ACTIVE/PILOT_ONLY` | Frozen cross-environment scout scenario construction |
+| `evaluation/interface_metrics.py` | `ACTIVE/ANALYSIS` | IEC and CISR reductions |
+| `evaluation/scout_authorization.py` | `ACTIVE/RELEASE` | Exact allowlist, model/seed and observed-spend enforcement for the completed scout |
+| `evaluation/scout_replay.py` | `ACTIVE/ANALYSIS` | Zero-provider native replay, CISR and five-stage attribution |
+| `evaluation/paid_provider_gateway.py` | `ACTIVE/RELEASE` | Fixed-endpoint provider transport and cache/ledger boundary |
 | `scripts/run_semantic_geometry_audit.py` | `ACTIVE` | Unified no-provider audit runner, resume and manifests |
 | `scripts/run_interface_contract_audit.py` | `PILOT_ONLY` | Frozen five-seed, two-task, two-environment interface audit |
 | `scripts/run_interface_contract_replacement.py` | `PILOT_ONLY` | Hash-matched replacement for the invalid GPT request arm |
 | `scripts/analyze_interface_contract_results.py` | `ACTIVE/ANALYSIS` | Zero-provider combined analysis and paper gate |
 | `scripts/run_interface_execution_bridge.py` | `PILOT_ONLY/EXECUTION` | Cached decisions replayed through fixed MPC and headless dynamics |
+| `scripts/run_interface_contract_scout.py` | `PILOT_ONLY/COMPLETE` | Frozen 120-call paid scout; successful rows are cached and must not be requested again |
+| `scripts/replay_interface_contract_scout.py` | `ACTIVE/ANALYSIS` | Provider-disabled replay of paid responses through both native environments |
+| `scripts/build_interface_contract_scout_report_figures.py` | `ACTIVE/REPORTING` | Rebuilds the six checked-in scout report figures |
 | `scripts/run_next_five_experiments.py` | `TERMINATED/REGRESSION` | Cached historical replay only; explicit override required |
 | `mpc_expert.py` | `ACTIVE` | Shared empirical CEM-MPC executor |
 | `tests/` | `ACTIVE` | Offline acceptance and regression gates |
@@ -47,7 +57,7 @@ not gain new dependencies, claims, or experiment results.
 
 | Path | Status | Boundary |
 |---|---|---|
-| `envs/safety_gym_goal_adapter.py` | `ACTIVE/INFRA` | Headless capability-twin harness; no Safety-Gym science result yet |
+| `envs/safety_gym_goal_adapter.py` | `ACTIVE/PILOT_ONLY` | Native Safety-Gym Goal adapter used by Experiment 0 and the completed scout; not a validated benchmark result |
 | `env_pointpushhazard.py`, `pointpush_*` | `FROZEN` | Contact-task scaffold; no independent PointPush science line |
 | `safe_expert.py` | `FROZEN` | Historical A* + PD compatibility controller; not a current claim |
 | `zone_detector.py` | `ARCHIVED` | Renderer-palette sanity plumbing only; not a perception baseline |
@@ -61,6 +71,8 @@ scripts, `scripts/make_*`, the renderer-palette detector and most committed
 `outputs/` reproduce earlier experiments. They are retained for forensic use and
 are not the current harness. `legacy/` contains older implementations that
 should remain isolated; its [README](legacy/README.md) is the archive boundary.
+Archived PointPush visual smokes live in `legacy/debug/`; ignored June 2026
+weights, GIFs and raw logs live in `legacy/runtime_artifacts/hazard/`.
 
 The following work is explicitly out of scope for the current phase:
 
@@ -83,6 +95,9 @@ them without updating `docs/RESULTS_REGISTRY.md`.
 | Document | Role |
 |---|---|
 | `docs/PROTOCOL.md` | Frozen experiment semantics |
+| `docs/INTERFACE_CONTRACT_HANDOFF.md` | Current execution state and next authorization boundary |
+| `docs/INTERFACE_CONTRACT_SCOUT_REPORT.md` | Illustrated completed-scout result narrative |
+| `docs/INTERFACE_CONTRACT_PROTOCOL.md` | Frozen scout protocol and equivalent-contract design |
 | `docs/ICLR_PLAN.md` | Research strategy and go/no-go gates |
 | `docs/CLAUDE_PLAN.md` | Current implementation sequence and acceptance evidence |
 | `docs/review_status_registry.json` | Machine-readable review-item status authority |
@@ -95,14 +110,10 @@ records remain available through `outputs/` and the registry.
 
 ## Current gate
 
-Tasks 1–11 are complete: B01 layout validation, unified condition contract,
-direct/replay vertical slice, minimal-permission policy boundary, STC reduction,
-the offline structured-output/per-call artifact gate, and the P0–P4 local
-fixture request adapter. Registered semantic terrain, the P0–P4 offline VLM
-episode harness and the frozen 14-condition offline matrix are also complete.
-Cached detector geometry is now accepted by the shared contract, while
-segmentation masks and calibrated fixed-planner operating curves remain
-unrun/TBD. Paid runs remain gated by the review registry and
-`docs/CLAUDE_PLAN.md`; the
-blocked authorization record is `docs/PAID_RUN_RELEASE.md`; its machine-readable
-counterpart is `configs/pilot_release_manifest.json`.
+Experiment 0 passed 640 provider-free native executions. The separately
+authorized scout completed 120/120 paid calls, and zero-call replay produced
+nontrivial cross-environment action, trajectory and STC effects. The exact
+evidence and hashes are owned by `docs/INTERFACE_CONTRACT_HANDOFF.md` and the
+checked-in result manifests. A second family and the full 1,440-call design
+remain unauthorized. The older general paid release also remains blocked by
+`docs/PAID_RUN_RELEASE.md` and `configs/pilot_release_manifest.json`.

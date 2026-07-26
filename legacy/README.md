@@ -28,6 +28,16 @@ The maintained code is the PointHazard accounting slice under `evaluation/`,
 prompt/image bytes, replay identity, capability/appearance twins, STC
 components, layout invariants, and registry/run-manifest provenance.
 
+## Archive map
+
+- `docs/` preserves superseded plans and result narratives. In particular,
+  `NEXT_EXECUTION_MEMO_PRE_SCOUT.md` is the obsolete pre-scout execution memo.
+- `debug/` contains old PointPush visual smoke code and its generated images;
+  it is not collected as part of the active test suite.
+- `runtime_artifacts/hazard/` contains the ignored June 2026 learned-physics
+  checkpoints, GIFs and raw JSONL logs formerly stored at repository root.
+- `assets/` contains figures and GIFs cited only by this archived snapshot.
+
 ### Can a Vision-Language Model fly a point-mass through a hazard field — and what does it actually need to see to do it safely?
 
 A research study on **using a Vision-Language Model (VLM) as a closed-loop controller** for a

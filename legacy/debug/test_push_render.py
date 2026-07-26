@@ -1,7 +1,8 @@
-"""Quick test: render a PointPush scene with predicted agent+box trajectories."""
+"""Archived visual smoke: render PointPush agent and box trajectories."""
 
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, REPO_ROOT)
 
 import numpy as np
 from env_pointpushhazard import PointPushHazardConfig, make_env

@@ -1,5 +1,13 @@
 # Next execution memo
 
+> **ARCHIVED PRE-SCOUT SNAPSHOT.** This memo records the state before Experiment 0
+> and the frozen 120-call scout were completed. Its commands and blockers are no
+> longer current. Use
+> [`../../docs/INTERFACE_CONTRACT_HANDOFF.md`](../../docs/INTERFACE_CONTRACT_HANDOFF.md)
+> for execution state and
+> [`../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`](../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md)
+> for results.
+
 Date: 2026-07-26
 
 ## 2026-07-26 interface-contract update
@@ -15,7 +23,7 @@ Date: 2026-07-26
 - The ICLR mainline remains unrecovered because semantic-contract sensitivity
   failed the two-environment gate and Safety-Gym remains headless.
 - Formal paid release remains blocked. See
-  [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) for the next
+  [INTERFACE_CONTRACT_MAINLINE.md](../../docs/INTERFACE_CONTRACT_MAINLINE.md) for the next
   native-environment gate.
 
 ## Completed

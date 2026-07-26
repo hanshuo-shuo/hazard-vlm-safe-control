@@ -6,7 +6,8 @@ mainline is **TERMINATED** as of 2026-07-24 after its predeclared interface
 stability kill condition fired. Those five-seed artifacts are
 `PILOT_ONLY / NOT PAPER RESULT`; they remain for provenance and regression.
 
-The active direction is marker-free semantic geometry:
+The active direction is interface-conditioned embodied safety built on
+marker-free semantic geometry:
 
 ```text
 public observation
@@ -16,11 +17,13 @@ public observation
   → STC and five-stage attribution
 ```
 
-A separate five-seed interface-contract recovery pilot now studies whether
-semantically equivalent schemas, field/option ordering, and planner mappings
-change physical actions and rankings. It is `PILOT_ONLY`: the phenomenon is
-promising, but the predeclared two-environment semantic-contract gate did not
-pass. See [docs/INTERFACE_CONTRACT_MAINLINE.md](docs/INTERFACE_CONTRACT_MAINLINE.md).
+A frozen five-seed, two-model, two-native-environment scout now tests whether
+semantically equivalent contracts change grounding, physical action,
+trajectory and STC. It is `PILOT_ONLY`, but the cross-environment action/STC
+continuation gate passed: native action and trajectory IEC are both 0.55,
+CISR-EQ is 0.15, and CISR-MAP is 0.30. Start with the
+[current handoff](docs/INTERFACE_CONTRACT_HANDOFF.md) and the
+[illustrated report](docs/INTERFACE_CONTRACT_SCOUT_REPORT.md).
 
 ## Current scope
 
@@ -100,7 +103,12 @@ status. The boundary and file-level ownership are recorded in
 | `evaluation/five_stage_audit.py` | Recognition→enforcement scoring and row taxonomy |
 | `evaluation/geometry_calibration.py` | Detector decomposition metrics and dev/test discipline |
 | `evaluation/capability_twins.py` | Capability/appearance twin invariants |
+| `evaluation/interface_execution.py` | Grounding-to-native-controller executable bridge |
+| `evaluation/scout_replay.py` | Provider-free native replay, CISR and five-stage analysis |
+| `evaluation/scout_authorization.py` | Exact paid-scout scope and budget enforcement |
 | `scripts/run_semantic_geometry_audit.py` | Unified zero-provider runner and manifests |
+| `scripts/run_interface_contract_scout.py` | Frozen 120-call scout runner |
+| `scripts/replay_interface_contract_scout.py` | Zero-call native replay and analysis |
 | `configs/pilot_release_manifest.json` | Machine-readable blocked pilot release state |
 | `mpc_expert.py` | Empirical CEM-MPC low-level controller |
 | `tests/` | Condition, harness, layout and adapter gates |

@@ -7,15 +7,17 @@ execution state and result validity each have one owner.
 
 | Read order | Document | Authority |
 |---:|---|---|
-| 1 | [PROTOCOL.md](PROTOCOL.md) | Frozen task, information, evaluator, replay and seed semantics |
-| 2 | [review_status_registry.json](review_status_registry.json) | Machine-readable review-item status authority |
-| 3 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Blockers and required fixes; rendered status snapshot |
-| 4 | [ICLR_PLAN.md](ICLR_PLAN.md) | Research question, experiment design and publication gates |
-| 5 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Current implementation plan and acceptance evidence |
-| 6 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
-| 7 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
-| 8 | [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) | Exploratory interface-contract evidence and ICLR recovery gate |
-| 9 | [INTERFACE_CONTRACT_SCOUT_REPORT.md](INTERFACE_CONTRACT_SCOUT_REPORT.md) | Illustrated 120-call scout narrative, native replay evidence and continuation decision |
+| 1 | [INTERFACE_CONTRACT_HANDOFF.md](INTERFACE_CONTRACT_HANDOFF.md) | Current execution state, exact artifacts and next authorization boundary |
+| 2 | [INTERFACE_CONTRACT_SCOUT_REPORT.md](INTERFACE_CONTRACT_SCOUT_REPORT.md) | Illustrated 120-call scout narrative, native replay evidence and continuation decision |
+| 3 | [INTERFACE_CONTRACT_PROTOCOL.md](INTERFACE_CONTRACT_PROTOCOL.md) | Frozen interface-contract experiment semantics |
+| 4 | [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) | Research question, exploratory evidence and paper gate |
+| 5 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
+| 6 | [PROTOCOL.md](PROTOCOL.md) | Earlier task, information, evaluator, replay and seed semantics |
+| 7 | [review_status_registry.json](review_status_registry.json) | Machine-readable earlier-mainline review status |
+| 8 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Earlier-mainline blockers and rendered status snapshot |
+| 9 | [ICLR_PLAN.md](ICLR_PLAN.md) | Broader research strategy and publication gates |
+| 10 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Marker-free implementation plan and acceptance evidence |
+| 11 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked general release record; separate from the completed scout authorization |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
@@ -36,12 +38,17 @@ define a second status source.
 - The frozen 14-condition zero-provider offline matrix passes.
 - The pilot release manifest and portable core dependency lock audit pass, but
   the manifest remains `BLOCKED` with provider calls disabled.
-- Detector integration and formal paid API runs remain gated; the separately
-  authorized interface-contract micro-pilot does not unlock the release manifest.
+- The provider-free executable bridge passed 640 native executions across
+  PointHazard and Safety-Gym with fixture action/trajectory IEC = 1.00.
+- The separately authorized frozen scout completed 120/120 paid calls with
+  strict parse success, no retries and total recorded cost USD 0.7861499.
+- Zero-call native replay produced action IEC = 0.55, trajectory IEC = 0.55,
+  CISR-EQ = 0.15 and CISR-MAP = 0.30.
+- These results pass the scientific continuation gate for considering a second
+  family, but do not authorize it and do not unlock the general release manifest.
 - No semantic-safety result is currently `VALIDATED`.
-- A five-seed, three-valid-model interface-contract micro-pilot is complete and
-  remains `PILOT_ONLY`; it finds action/waypoint/mapping/ranking sensitivity but
-  fails the predeclared two-environment semantic-contract replication gate.
+- The completed scout remains `PILOT_ONLY`; no full 1,440-call experiment has
+  been authorized.
 
 ## Historical evidence
 
