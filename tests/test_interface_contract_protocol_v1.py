@@ -361,6 +361,21 @@ def test_concurrent_duplicate_request_reservation_counts_one_logical_call(tmp_pa
     assert audit["paid_seed_union"] == [20, 21, 22, 23, 24]
 
 
+def test_ledger_snapshot_and_audit_are_read_only(tmp_path: Path) -> None:
+    manifest = _manifest(authorize=True)
+    ledger_path = tmp_path / "ledger.json"
+    ledger = PaidCallLedger(ledger_path, manifest)
+    ledger_path.write_text(
+        json.dumps(ledger.snapshot(), indent=2) + "\n", encoding="utf-8"
+    )
+    before = ledger_path.read_bytes()
+
+    ledger.snapshot()
+    ledger.audit()
+
+    assert ledger_path.read_bytes() == before
+
+
 def test_legacy_paid_runners_are_explicitly_disabled() -> None:
     for relative in (
         "scripts/run_interface_contract_audit.py",

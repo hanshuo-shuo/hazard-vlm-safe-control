@@ -317,8 +317,18 @@ class PaidCallLedger:
                 model["compatibility_smoke_status"] = status
 
     def snapshot(self) -> dict[str, Any]:
-        with self._locked() as value:
-            return json.loads(json.dumps(value))
+        # Audits and cache-only inspection must not rewrite the durable ledger.
+        # Using ``_locked`` here used to refresh ``updated_at`` on every read,
+        # which made provider-free dry-run generation dirty its own clean git
+        # checkout before provenance was captured.
+        self.lock_path.parent.mkdir(parents=True, exist_ok=True)
+        with self.lock_path.open("a+", encoding="utf-8") as lock:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_SH)
+            try:
+                value = self._read()
+                return json.loads(json.dumps(value))
+            finally:
+                fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
 
     def audit(self) -> dict[str, Any]:
         snapshot = self.snapshot()
