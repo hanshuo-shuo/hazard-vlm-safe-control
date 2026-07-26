@@ -1,0 +1,98 @@
+{
+  "schema_version": "interface-contract-scout-authorization-v1",
+  "protocol_id": "interface-contract-pilot-v1",
+  "status": "BLOCKED",
+  "provider_calls_enabled": false,
+  "design": {
+    "scenario_family": "direct_path_intersection",
+    "environments": [
+      "point_hazard_native",
+      "safety_gym_goal_native"
+    ],
+    "paid_seeds": [
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "calls_per_block": 6,
+    "blocks_per_model": 10,
+    "calls_per_model": 60,
+    "model_count": 2,
+    "total_new_provider_calls": 120
+  },
+  "request_parameters": {
+    "temperature": 0,
+    "max_tokens": 220
+  },
+  "attempt_budget": {
+    "maximum_attempts_per_request": 3,
+    "maximum_retries_per_request": 2,
+    "maximum_provider_attempts_per_model": 180,
+    "maximum_total_provider_attempts": 360
+  },
+  "maximum_spend_usd": 1.0,
+  "provider_side_key_limit_required": true,
+  "models": [
+    {
+      "model_budget_id": "mistral-small-3.2-24b",
+      "provider": "openrouter",
+      "provider_model": "mistralai/mistral-small-3.2-24b-instruct",
+      "revision": "mistral-small-3.2-24b-instruct-2506",
+      "revision_date": "2025-06-20",
+      "provider_endpoint_slug": "mistral",
+      "provider_endpoint_name": "Mistral",
+      "input_price_usd_per_million": 0.1,
+      "output_price_usd_per_million": 0.3,
+      "historical_paid_seeds": [
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "historical_seed_audit": "repository evidence from the existing replacement pilot"
+    },
+    {
+      "model_budget_id": "qwen3.5-plus-02-15",
+      "provider": "openrouter",
+      "provider_model": "qwen/qwen3.5-plus-02-15",
+      "revision": "qwen3.5-plus-20260216",
+      "revision_date": "2026-02-16",
+      "provider_endpoint_slug": "alibaba",
+      "provider_endpoint_name": "Alibaba",
+      "input_price_usd_per_million": 0.26,
+      "output_price_usd_per_million": 1.56,
+      "historical_paid_seeds": [],
+      "historical_seed_audit": "no canonical model or revision match in checked-in paid artifacts"
+    }
+  ],
+  "pricing_snapshot": {
+    "checked_at": "2026-07-26",
+    "mistral_model_url": "https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct/api",
+    "mistral_endpoints_url": "https://openrouter.ai/api/v1/models/mistralai/mistral-small-3.2-24b-instruct/endpoints",
+    "qwen_model_url": "https://openrouter.ai/qwen/qwen3.5-plus-02-15/pricing",
+    "qwen_endpoints_url": "https://openrouter.ai/api/v1/models/qwen/qwen3.5-plus-02-15/endpoints"
+  },
+  "continuation_thresholds": {
+    "physical_action_IEC_below": 0.9,
+    "CISR_EQ_or_CISR_MAP_at_least": 0.1,
+    "cross_environment_same_pair_action_change": true,
+    "meaningful_model_heterogeneity": true
+  },
+  "stop_thresholds": {
+    "all_IEC_above": 0.95,
+    "CISR_below": 0.05,
+    "parse_failures_explain_all_differences": true,
+    "native_execution_absorbs_all_upstream_variation": true,
+    "safety_gym_projection_unreliable": true
+  },
+  "authorization_blockers": [
+    "explicit paid-run authorization absent",
+    "authorized operator and release date absent",
+    "release git SHA absent",
+    "provider-side USD 1.00 key limit attestation absent",
+    "pricing and endpoint availability must be revalidated immediately before authorization"
+  ]
+}

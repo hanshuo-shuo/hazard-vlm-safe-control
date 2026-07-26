@@ -16,7 +16,7 @@ import json
 import os
 from pathlib import Path
 import tempfile
-from typing import Any, Callable, Iterator, Mapping
+from typing import Any, Callable, Collection, Iterator, Mapping
 
 
 LEDGER_SCHEMA_VERSION = "paid-provider-ledger-v1"
@@ -429,6 +429,7 @@ class PaidProviderGateway:
         allow_provider_requests: bool = False,
         transport: Transport | None = None,
         response_validator: ResponseValidator | None = None,
+        authorized_request_sha256: Mapping[str, Collection[str]] | None = None,
     ) -> None:
         self.manifest = dict(manifest)
         self.ledger = ledger
@@ -436,6 +437,14 @@ class PaidProviderGateway:
         self.allow_provider_requests = allow_provider_requests
         self.transport = transport
         self.response_validator = response_validator
+        self.authorized_request_sha256 = (
+            {
+                str(model_id): frozenset(str(value) for value in hashes)
+                for model_id, hashes in authorized_request_sha256.items()
+            }
+            if authorized_request_sha256 is not None
+            else None
+        )
 
     def _identity_audit(self, request: ProviderRequest) -> ModelBudgetIdentity:
         identity = self.ledger.identities.get(request.model_budget_id)
@@ -453,6 +462,10 @@ class PaidProviderGateway:
 
     def call(self, request: ProviderRequest) -> dict[str, Any]:
         self._identity_audit(request)
+        if self.authorized_request_sha256 is not None:
+            allowed = self.authorized_request_sha256.get(request.model_budget_id, frozenset())
+            if request.sha256 not in allowed:
+                raise PermissionError("request is outside the frozen paid-scout allowlist")
         cache_path = self.cache_dir / f"{request.sha256}.json"
         if cache_path.exists():
             cached = json.loads(cache_path.read_text(encoding="utf-8"))

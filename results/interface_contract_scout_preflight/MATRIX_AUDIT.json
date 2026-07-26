@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": {
+    "rows_are_120": true,
+    "calls_per_model_are_60": true,
+    "two_environments": true,
+    "direct_path_only": true,
+    "paid_seeds_20_24": true,
+    "one_first_smoke_per_model": true,
+    "five_pairs_per_environment_and_model": true,
+    "unique_logical_rows": true,
+    "unique_provider_requests": true,
+    "frozen_token_cap": true,
+    "fallbacks_disabled": true
+  }
+}

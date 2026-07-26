@@ -1,0 +1,58 @@
+{
+  "schema_version": "interface-contract-scout-preflight-v1",
+  "status": "BLOCKED / PROVIDER_FREE",
+  "provider_calls_enabled": false,
+  "provider_calls": 0,
+  "provider_attempts": 0,
+  "model_count": 2,
+  "calls_per_model": 60,
+  "call_matrix_rows": 120,
+  "maximum_spend_usd": 1.0,
+  "source": {
+    "authorization_manifest": {
+      "path": "configs/interface_contract_scout_manifest.json",
+      "sha256": "625ed95629ef783699aece7554c7e128a82fe874c2d63407a176ad4904848533"
+    },
+    "full_call_matrix": {
+      "path": "results/interface_contract_provider_free_dry_run/CALL_MATRIX.json",
+      "sha256": "6f9fa4f5a8f7fe1e86018ade86333310c0cf7eee88b96a3e142078dd06a871be"
+    }
+  },
+  "artifacts": {
+    "SCOUT_CALL_MATRIX.json": {
+      "path": "SCOUT_CALL_MATRIX.json",
+      "sha256": "bfeb543408c416af8546190153fd16a03257648c42be87cd029b42256e1c28c8"
+    },
+    "REQUEST_ALLOWLIST.json": {
+      "path": "REQUEST_ALLOWLIST.json",
+      "sha256": "d2ba5cd7c7b71bc2960f20615d84cb30ffa8c7c43714c4dba19f3257258bf8db"
+    },
+    "MATRIX_AUDIT.json": {
+      "path": "MATRIX_AUDIT.json",
+      "sha256": "3d980f65dc36dd85e334069547992e8e04c5e1b81c06a3b79b78c9679208e64c"
+    }
+  },
+  "authorization_blockers": [
+    "explicit paid-run authorization absent",
+    "authorized operator and release date absent",
+    "release git SHA absent",
+    "provider-side USD 1.00 key limit attestation absent",
+    "pricing and endpoint availability must be revalidated immediately before authorization"
+  ],
+  "checks": {
+    "rows_are_120": true,
+    "calls_per_model_are_60": true,
+    "two_environments": true,
+    "direct_path_only": true,
+    "paid_seeds_20_24": true,
+    "one_first_smoke_per_model": true,
+    "five_pairs_per_environment_and_model": true,
+    "unique_logical_rows": true,
+    "unique_provider_requests": true,
+    "frozen_token_cap": true,
+    "fallbacks_disabled": true,
+    "provider_calls_are_zero": true,
+    "provider_attempts_are_zero": true,
+    "authorization_remains_blocked": true
+  }
+}
