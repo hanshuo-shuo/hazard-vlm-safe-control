@@ -7,6 +7,9 @@ __pycache__/
 *.egg-info/
 .ipynb_checkpoints/
 
+# Runtime-only advisory locks
+*.json.lock
+
 # OS
 .DS_Store
 
