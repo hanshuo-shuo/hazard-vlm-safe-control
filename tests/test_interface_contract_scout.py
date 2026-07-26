@@ -9,7 +9,9 @@ from pathlib import Path
 import pytest
 
 from evaluation.paid_provider_gateway import PaidCallLedger, PaidProviderGateway, ProviderRequest
-from evaluation.scout_authorization import load_scout_manifest
+from evaluation.interface_contracts import parse_formal_contract_response
+from evaluation.scout_authorization import load_scout_manifest, provider_request_from_row
+from evaluation.scout_replay import formal_planner_action
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,6 +53,33 @@ def test_checked_in_scout_matrix_is_exact_and_provider_free() -> None:
     for artifact in manifest["artifacts"].values():
         path = RESULT / artifact["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == artifact["sha256"]
+
+
+def test_every_scout_provider_request_reconstructs_to_frozen_hash() -> None:
+    rows = json.loads((RESULT / "SCOUT_CALL_MATRIX.json").read_text(encoding="utf-8"))
+    source = ROOT / "results" / "interface_contract_provider_free_dry_run" / "inputs"
+    for row in rows:
+        request = provider_request_from_row(
+            row,
+            prompt_dir=source / "prompts",
+            image_dir=source / "images",
+        )
+        assert request.sha256 == row["provider_request_sha256"]
+
+
+def test_ambiguous_formal_output_replays_under_both_registered_meanings() -> None:
+    raw = (
+        '{"terrain_class":"water","grounding":{"geometry_type":"disk",'
+        '"center_norm":[0.5,0.5],"radius_norm":0.1},'
+        '"applicability":"applicable","action":"avoid"}'
+    )
+    parsed = parse_formal_contract_response("ambiguous_applicability_v1", raw)
+    assert formal_planner_action(
+        parsed, "ambiguous_applicability_v1", "applicable_means_constraint_applies"
+    ) == "avoid"
+    assert formal_planner_action(
+        parsed, "ambiguous_applicability_v1", "applicable_means_terrain_compatible"
+    ) == "traverse"
 
 
 def test_gateway_rejects_requests_outside_frozen_scout_allowlist(tmp_path: Path) -> None:

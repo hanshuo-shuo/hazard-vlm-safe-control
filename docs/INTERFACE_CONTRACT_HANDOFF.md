@@ -249,56 +249,231 @@ provider attempts = 0
 compatibility smoke = NOT_RUN
 ```
 
-## 8. 当前付费 NO-GO blockers
+实验1：Compatibility smoke
+这是正式付费实验的第一步，不是额外预算。
+内容	数量
+Mistral 首个预注册 cell	1 call
+Qwen3.5 Plus 首个预注册 cell	1 call
+合计	2 calls
 
-即使 Experiment 0 已通过，仍不得直接运行付费 pilot。当前 manifest blockers：
+检查：
+endpoint 是否确实为冻结的 provider；
+返回 model identity 是否匹配；
+图片输入是否被接受；
+max_tokens=220 是否足够；
+structured response 是否可解析；
+没有 provider fallback。
+通过后，这两条结果直接进入正式 120-call 数据，不能重复调用。协议已经要求 smoke 必须是正式矩阵中的首个 cell。
+任一模型 smoke 在冻结的 3 attempts 内仍失败，就淘汰该模型，不得换 seed 救援。
+实验2：120-call 真实模型 scout
+这是现在真正应该跑的实验。
+设计
+每个模型：
+2 native environments；
+1 个 family：direct_path_intersection；
+5 个 paid seeds：20–24；
+每个 block 6 calls。
+因此：
+每模型：2 × 1 × 5 × 6 = 60 calls
+两模型：60 × 2 = 120 calls
+120 calls 的组成是：
+请求类型	数量
+四个 anchor twin arms	80
+equivalent mates	20
+ambiguous contracts	20
+合计	120
 
-1. model slot 2 unresolved；
-2. model slot 3 unresolved；
-3. all model revisions unresolved；
-4. maximum spend USD unresolved；
-5. candidate-model historical paid-seed backfill pending；
-6. explicit paid-run authorization absent。
+每模型在每个环境的五个 seeds 正好覆盖全部五类 equivalent pairs：
+field order；
+structured / free text；
+constraint polarity；
+compatibility polarity；
+constraint / compatibility wording。
+这个实验直接回答
+真实模型能否稳定解析不同合同；
+语义等价合同是否改变 canonical semantics；
+是否改变视觉 grounding；
+是否改变 avoid / traverse / unknown；
+Mistral 和 Qwen 的敏感性是否不同。
+主要输出：
+parse rate；
+parse consistency；
+canonical semantic consistency；
+grounding consistency；
+physical-action IEC；
+label/action inconsistency；
+unknown rate。
+必须同时报告：
+all-call 结果；
+parse-compliant subset 结果。
+不能让 parser failure 单独制造“模型不稳定”的结论。协议也明确要求两种 estimand 分开报告。
+实验3：真实输出的 native closed-loop execution
+这一步不需要新 provider calls。
+把实验2缓存下来的 120 个真实模型输出分别送进对应原生环境：
+模型 response
+→ strict parser
+→ canonical semantics / grounding
+→ normalized-image-to-native-world conversion
+→ fixed planner
+→ native trajectory
+→ STC
+至少生成：
+120 个 primary native execution records；
+对应的 trajectory、reward、cost、termination；
+semantic violation；
+collision；
+false-conservative detour；
+success；
+STC。
+这一实验回答：
+文本或 grounding 的差异是否真的传播成物理行为差异？
 
-此外，历史 Gemini/Qwen seed union 已超过 5，当前属于 paid-ineligible，不能直接纳入新 pilot。
+需要比较：
+anchor vs equivalent mate 的 planner action；
+anchor vs mate 的 trajectory；
+anchor vs mate 的 STC；
+capability twin 是否产生应有的安全决策反转；
+appearance twin 是否导致 false conservative detour；
+visibility twin 是否增加 unknown、错误 grounding 或 unsafe traversal。
+实验4：CISR-EQ
+使用实验2的 equivalent anchor/mate 输出和实验3的 native trajectories，计算：
+语义等价合同本身造成多大的闭环安全结果区间？
 
-## 9. 下一波建议顺序
+需要报告：
+PointHazard CISR-EQ；
+Safety-Gym CISR-EQ；
+每模型 CISR-EQ；
+每类 equivalent pair 的 CISR-EQ；
+all-call 与 parse-compliant CISR-EQ。
+这是论文区别于普通 prompt sensitivity 的关键指标：不是只看回答变没变，而是看闭环安全结果变了多少。
+实验5：Ambiguous mapping replay / CISR-MAP
+120-call scout 会产生：
+2 models × 2 environments × 5 seeds = 20 ambiguous outputs
+这 20 个输出不再调用模型，而是在全部预注册 planner mappings 下离线执行。
+当前代码定义了五种 mapping，包括：
+action authoritative；
+contract-aware semantic；
+applicable means constraint applies；
+applicable means terrain compatible；
+conservative fusion。
+因此最多产生：
+20 ambiguous outputs × 5 mappings = 100 native executions
+如果 primary execution 已经包含一种 mapping，则是额外 80 次离线 execution。
+这个实验回答：
+同一个模型输出，仅因下游系统如何解释 applicable，闭环 STC 会变化多少？
 
-下一波先保持 provider-free：
+需要报告：
+CISR-MAP；
+mapping-specific STC；
+semantic violation；
+false-conservative detour；
+模型间差异；
+环境间差异。
+实验6：五阶段归因
+对所有不一致 block，定位差异首先发生在哪一层：
+Normalization：字段/标签是否被正确归一化；
+Grounding：terrain center/radius 是否变化；
+Action：avoid/traverse/unknown 是否变化；
+Planner：相同语义是否产生相同路径；
+Enforcement：上游 unsafe proposal 是否被拦截或放行。
+最后不能只说“合同改变了结果”，而要给出类似：
+field-order effect:
+70% caused by grounding changes
+20% caused by action reversal
+10% caused by parse failure
+这一步不增加 provider calls，只分析已有 artifacts。
+120-call scout 的判断门槛
+继续扩展
+满足以下任一强信号，可以继续跑更多 family：
+至少一个模型的 parse-compliant physical-action IEC < 0.90；
+grounding consistency 明显低于 semantic consistency；
+CISR-EQ 或 CISR-MAP ≥ 0.10；
+某个 equivalent pair 在两个 native environments 中方向一致；
+Mistral 稳定、Qwen 不稳定，形成有意义的异质性；
+差异可定位到 grounding/action，而不是全部来自格式错误。
+停止或重构
+如果出现以下情况，不要扩量：
+两模型所有 physical-action IEC 都接近 1.0；
+CISR-EQ 和 CISR-MAP 都 < 0.05；
+差异只来自 free-text parser；
+合同改变模型文字，但不改变 native trajectory；
+Safety-Gym 效应与 PointHazard 方向完全不一致；
+模型主要输出 unknown，无法测到有效闭环差异。
+Scout 门槛可以稍宽；最终 ICLR go gate仍然是你冻结的严格标准：
+两个 native environments；
+至少两个模型；
+physical-action IEC < 0.80；
+executed CISR ≥ 0.15；
+parse-compliant ranking 仍不稳定；
+能定位到 normalization、grounding、action 或 enforcement。
+如果120-call scout通过，后面还要跑什么
+实验7：关键 family 机制复现
+建议不要立即把剩余 1,320 calls 全部跑完，而是按机制逐个增加 family。每增加一个 family，在当前两模型设计下增加：
+2 models × 2 environments × 5 seeds × 6 calls
+= 120 calls
+推荐顺序：
+7A. capability_reversal
+验证合同效应是否真正依赖 robot capability，而不是单纯“看见水就避让”。
+7B. near_tangent_path
+验证 grounding 的小幅漂移是否在临界几何场景中被闭环放大。
+7C. weak_occluded_incompatible
+验证 visibility degradation 是否放大接口不稳定。
+7D. compatible_lookalike
+检查模型是否把视觉上相似但安全的 terrain 错误判为应避让。
+7E. irrelevant_terrain_distractor
+检查接口变化是否诱发无关区域 grounding 或多余绕行。
+7F. multiple_candidate_detours
+检查不同 grounding/action 是否通过 planner 产生明显路径和完成率差异。
+7G. clear_visible_incompatible
+作为 easy anchor，判断效应是否只存在于困难场景。
+实验8：完成两模型全矩阵
+两模型、八个 families 的总调用量是：
+2 models × 2 environments × 8 families × 5 seeds × 6
+= 960 calls
+120-call scout 已经占其中 120，所以通过后剩余：
+960 - 120 = 840 calls
+这一阶段才能稳定估计：
+family-clustered IEC；
+CISR-EQ；
+CISR-MAP；
+capability/appearance/visibility twin effects；
+两环境复制；
+两模型异质性。
+实验9：加入第三模型
+第三模型跑完整八个 families：
+1 model × 2 environments × 8 families × 5 seeds × 6
+= 480 calls
+这样总计达到预注册的：
+960 + 480 = 1,440 calls
+第三模型的作用不是单纯增加样本，而是支持：
+ranking envelope；
+pairwise rank reversal；
+stable-model counterexample；
+判断效应是否只属于某一个 provider/model family。
+最终应该形成的论文实验表
+Experiment 0 — Execution Validity
+Fixture output 能否可靠驱动两个 native environments。已完成。
 
-1. 提交并 push 当前 Experiment 0 代码、重建后的 block artifacts 和交接文档；
-2. 固定三个模型的 canonical provider/model/revision identity；
-3. 完成候选模型历史 paid-seed union 审计；
-4. 冻结最大美元支出；
-5. 用 fake transport/cached replay 再跑一次 gateway smoke-state、480-call 和 1,440-attempt fail-closed；
-6. 检查正式 1,440-row call matrix 与最新 block/image hashes 一致；
-7. 只有所有 blockers 清零后，单独请求付费授权。
+Experiment 1 — Equivalent-Contract Consistency
+五类等价合同是否改变 semantics、grounding 和 action。
 
-不要在下一波做以下事情：
+Experiment 2 — Native Closed-Loop Propagation
+接口变化是否传播为 trajectory 和 STC 差异。
 
-- 不要新增 paid seed；
-- 不要把 provider-free fixture 标成新 provider call；
-- 不要复用 evaluator-truth semantic geometry 作为 headline planner 输入；
-- 不要恢复 Safety-Gym headless execution；
-- 不要重复 compatibility smoke；
-- 不要通过模型别名、脚本拆分或 ledger 重置绕过预算。
+Experiment 3 — Capability, Appearance and Visibility Twins
+差异究竟依赖能力、外观还是可见性。
 
-## 10. 当前工作区范围
+Experiment 4 — Ambiguous Consumer Mappings
+同一输出在不同 downstream mappings 下的 CISR-MAP。
 
-Experiment 0 相关新增或修改包括：
+Experiment 5 — Stage Attribution
+效应发生在 normalization、grounding、action、planner 还是 enforcement。
 
-- `evaluation/interface_execution.py`
-- `evaluation/interface_scenarios.py`
-- `scripts/run_interface_execution_bridge.py`
-- `tests/test_interface_execution_bridge_v2.py`
-- `results/interface_contract_experiment_0/`
-- 重建后的 `results/interface_contract_provider_free_dry_run/`
-- 本交接文档
+Experiment 6 — Cross-Environment Replication
+PointHazard 与原生 Safety-Gym 是否共同复现。
 
-当前变更尚未在本文件生成时提交。提交前应再次运行：
+Experiment 7 — Model Ranking Envelope
+三个模型的排名是否随合同发生反转或扩大为区间。
 
-```bash
-git diff --check
-git status -sb
-```
-
+Experiment 8 — Contract-Agreement Mitigation
+可选增强实验：等价合同不一致时 abstain/re-query，是否提高 STC。

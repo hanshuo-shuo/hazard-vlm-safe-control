@@ -94,6 +94,27 @@ def _request_parameters(
     return parameters
 
 
+def provider_request_from_row(
+    row: Mapping[str, Any], *, prompt_dir: Path, image_dir: Path
+) -> ProviderRequest:
+    """Reconstruct one frozen provider request and verify its committed hash."""
+    request = ProviderRequest(
+        request_id=str(row["request_id"]),
+        model_budget_id=str(row["model_budget_id"]),
+        provider=str(row["provider"]),
+        provider_model=str(row["provider_model"]),
+        model_revision=str(row["model_revision"]),
+        paid_seed=int(row["paid_seed"]),
+        prompt_bytes=(prompt_dir / f"{row['prompt_sha256']}.txt").read_bytes(),
+        image_bytes=(image_dir / f"{row['image_sha256']}.png").read_bytes(),
+        parameters=dict(row["request_parameters"]),
+        compatibility_smoke=bool(row["compatibility_smoke"]),
+    )
+    if request.sha256 != row["provider_request_sha256"]:
+        raise ValueError(f"provider request hash drift for call {row['call_index']}")
+    return request
+
+
 def build_scout_matrix(
     manifest: Mapping[str, Any],
     source_rows: Sequence[Mapping[str, Any]],
