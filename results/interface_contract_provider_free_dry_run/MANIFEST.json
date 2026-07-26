@@ -41,11 +41,11 @@
   "artifacts": {
     "BLOCKS.json": {
       "path": "BLOCKS.json",
-      "sha256": "e4d2b85d21b52fdf9bc903100bc907c0c3c59ce61c61a158762f8d32b4ffb206"
+      "sha256": "79569990a97a891b4157fc54191ee567ebc6c2383ceb34ef45926170bec76818"
     },
     "CALL_MATRIX.json": {
       "path": "CALL_MATRIX.json",
-      "sha256": "31f4dc16f829d0443c2a5e8dec072fc9d9b57e1c6e7b418403523b6eed405d0e"
+      "sha256": "6f9fa4f5a8f7fe1e86018ade86333310c0cf7eee88b96a3e142078dd06a871be"
     },
     "NATIVE_ENVIRONMENT_GATE.json": {
       "path": "NATIVE_ENVIRONMENT_GATE.json",
@@ -68,9 +68,9 @@
     "safety_gymnasium": "1.0.0"
   },
   "provenance": {
-    "git_sha": "efd1a396a611927e3ccd5d6683bb0c2eade740b9",
+    "git_sha": "a7b0fcfaf29cb7f96e6b69ce7a44e518e233523b",
     "git_dirty": true,
-    "tracked_diff_sha256": "d82b2093da0e4b98d60dd9f8cde958c28b737dcffc2c6c2350862b2ed3f4e9c2",
+    "tracked_diff_sha256": "a61e3b7e5fd9cfe0330549ba1c28638fdab12617fb8d55c74a78f51811637112",
     "source_files": {
       "configs/interface_contract_pilot_manifest.json": "6b89172cfb7499ea45839d3f3c68532cc3b63c57be1b7f97b17ca6a95972212a",
       "docs/ICLR_PLAN.md": "7717bc4f851d7eeb1bba14882825a94d0e0df7612adc5720ca4545e84212213f",
@@ -81,7 +81,7 @@
       "envs/safety_gym_goal_adapter.py": "f01c29cbf387cc1beff7ef1da398774a3a1d264ff3927e86aec48c46119d68c1",
       "evaluation/interface_contracts.py": "ecbcf0031a3f28455389faeb869044ff7c0db4ae1d1e428a759cbc4072ba58a9",
       "evaluation/interface_metrics.py": "f8385f66b2d579186d67fa8ba3d4ba25a8621cc1b1bcb9cfd9cc42c3eec2e7dd",
-      "evaluation/interface_scenarios.py": "282b22c788433e3cb8076e533eff7bcc200543d4a5fe90dcdb5bc75d68cfb35c",
+      "evaluation/interface_scenarios.py": "8ea9d573fd01b71dc1579c9c194f68fd5197d11a19df577a5892be98f9325b33",
       "evaluation/native_environment_gate.py": "423fa742303dcd3525b9b22a15899a34d5a1d6bf3dea5daa6605811dffb92385",
       "evaluation/paid_provider_gateway.py": "a81d3b31bfc3f2b831346657e9aa315b2f51709ec07f21a97e7214825182d795",
       "evaluation/policy_interface.py": "44d4d7c9cfeff2ebaab9d000321359587048807cd173c866145198f3e919f59e",

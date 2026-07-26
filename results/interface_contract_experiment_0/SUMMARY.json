@@ -1,0 +1,138 @@
+{
+  "by_case": {
+    "avoid_correct": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9375,
+      "entered_terrain_rate": 0.0,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "traverse_correct": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9875,
+      "entered_terrain_rate": 0.75,
+      "semantic_violation_rate": 0.75,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "unknown": {
+      "n": 80,
+      "nonstationary_rate": 0.0,
+      "task_success_rate": 0.0,
+      "entered_terrain_rate": 0.0,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "avoid_shifted": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9625,
+      "entered_terrain_rate": 0.625,
+      "semantic_violation_rate": 0.625,
+      "mean_center_calibration_error_world": 1.8760261606933852,
+      "max_center_calibration_error_world": 2.5153567963176684,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "capability_twin_correct": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9875,
+      "entered_terrain_rate": 0.75,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "appearance_twin_correct": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9875,
+      "entered_terrain_rate": 0.75,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "equivalent_anchor": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9625,
+      "entered_terrain_rate": 0.3625,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869404058367,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    },
+    "equivalent_mate": {
+      "n": 80,
+      "nonstationary_rate": 1.0,
+      "task_success_rate": 0.9625,
+      "entered_terrain_rate": 0.3625,
+      "semantic_violation_rate": 0.0,
+      "mean_center_calibration_error_world": 0.009214869403993204,
+      "max_center_calibration_error_world": 0.021154184643072966,
+      "mean_radius_calibration_error_world": 0.007900344720874423
+    }
+  },
+  "by_environment": {
+    "point_hazard_native": {
+      "n": 320,
+      "nonstationary": true,
+      "task_success_count": 263
+    },
+    "safety_gym_goal_native": {
+      "n": 320,
+      "nonstationary": true,
+      "task_success_count": 280
+    }
+  },
+  "direct_path_entry_rate": {
+    "avoid_correct": 0.0,
+    "traverse_correct": 0.9666666666666667
+  },
+  "direct_path_entry_rate_by_environment": {
+    "point_hazard_native": {
+      "avoid_correct": 0.0,
+      "traverse_correct": 0.9333333333333333
+    },
+    "safety_gym_goal_native": {
+      "avoid_correct": 0.0,
+      "traverse_correct": 1.0
+    }
+  },
+  "capability_semantic_reversal": {
+    "eligible_entered_pairs": 60,
+    "reversal_rate": 1.0
+  },
+  "appearance_physical_match_rate": 1.0,
+  "physical_action_IEC": 1.0,
+  "trajectory_IEC": 1.0,
+  "checks": {
+    "all_80_blocks_executed": true,
+    "all_8_cases_per_block": true,
+    "two_native_environments_nonstationary": true,
+    "two_native_environments_partial_completion": true,
+    "correct_avoid_reduces_direct_terrain_entry": true,
+    "avoid_traverse_difference_in_each_environment": true,
+    "capability_twins_have_no_semantic_violation": true,
+    "capability_twin_reverses_semantic_evaluation": true,
+    "appearance_twins_do_not_avoid": true,
+    "appearance_twins_preserve_physical_execution": true,
+    "unknown_is_frozen_task_failure": true,
+    "equivalent_physical_action_iec_is_1": true,
+    "equivalent_trajectory_iec_is_1": true,
+    "fixture_grounding_only": true,
+    "correct_calibration_error_is_bounded": true,
+    "shifted_grounding_error_is_larger": true,
+    "zero_provider_calls": true,
+    "zero_provider_attempts": true
+  },
+  "passed": true
+}

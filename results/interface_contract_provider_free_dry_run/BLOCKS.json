@@ -4027,7 +4027,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "0f2dd29e1c497d34f9d81846d482b1251ccefc8153e41b85d841a2ed60f3eec5",
+        "image_sha256": "aa54b4df5d4989a12549252654d25bb81802cb618653ed7270a9c4ed28c08916",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4036,16 +4036,16 @@
             0.47387123215688287,
             -0.6148435206647805
           ],
-          "radius": 0.52,
+          "radius": 0.262847035793127,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "44e159a74dfeaf74caca797fb9dca2c659e9225f11534431b0246590f4bc0c70",
+        "geometry_sha256": "a51d744798971f4e666604ef8ee513369a0598557b563c94fc39890975d446ae",
         "visibility": "clear",
         "native_scene_sha256": "d3fee7057c35e7505c4379cf66e294b358a3a1301addd84a016c7ed5ec8331c3"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "0f2dd29e1c497d34f9d81846d482b1251ccefc8153e41b85d841a2ed60f3eec5",
+        "image_sha256": "aa54b4df5d4989a12549252654d25bb81802cb618653ed7270a9c4ed28c08916",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4054,16 +4054,16 @@
             0.47387123215688287,
             -0.6148435206647805
           ],
-          "radius": 0.52,
+          "radius": 0.262847035793127,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "44e159a74dfeaf74caca797fb9dca2c659e9225f11534431b0246590f4bc0c70",
+        "geometry_sha256": "a51d744798971f4e666604ef8ee513369a0598557b563c94fc39890975d446ae",
         "visibility": "clear",
         "native_scene_sha256": "d3fee7057c35e7505c4379cf66e294b358a3a1301addd84a016c7ed5ec8331c3"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "c4505e5406c2301c5176e968bae6994c88d4e9167c00029a39d5ab11e3076af9",
+        "image_sha256": "e3e0d63d9cedb468f77f8449eff33f75202ae5f9d923b4d239d3300e77e9f19b",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4072,16 +4072,16 @@
             0.47387123215688287,
             -0.6148435206647805
           ],
-          "radius": 0.52,
+          "radius": 0.262847035793127,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "44e159a74dfeaf74caca797fb9dca2c659e9225f11534431b0246590f4bc0c70",
+        "geometry_sha256": "a51d744798971f4e666604ef8ee513369a0598557b563c94fc39890975d446ae",
         "visibility": "clear",
         "native_scene_sha256": "d3fee7057c35e7505c4379cf66e294b358a3a1301addd84a016c7ed5ec8331c3"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "661822906547ac08bfe9c9510eaee23979741945bc6a6496dab854f4cef602f7",
+        "image_sha256": "1b6d6dc298bfaf54fc18632c291036c8b1661f42a6ac6ab2f9fa1da7bc684b0c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4090,10 +4090,10 @@
             0.47387123215688287,
             -0.6148435206647805
           ],
-          "radius": 0.52,
+          "radius": 0.262847035793127,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "44e159a74dfeaf74caca797fb9dca2c659e9225f11534431b0246590f4bc0c70",
+        "geometry_sha256": "a51d744798971f4e666604ef8ee513369a0598557b563c94fc39890975d446ae",
         "visibility": "occluded",
         "native_scene_sha256": "d3fee7057c35e7505c4379cf66e294b358a3a1301addd84a016c7ed5ec8331c3"
       }
@@ -4127,7 +4127,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "ba290ca8cc7caf123286d0c612c1929e38cb9684add09a36f62738ff62fbe8e9",
+        "image_sha256": "1280fe2c38233df9a97e88d0a378b4c4f3557fdff604d0094a2e4a35f49d1119",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4136,16 +4136,16 @@
             -0.18023558465119338,
             0.014783467788621385
           ],
-          "radius": 0.52,
+          "radius": 0.4391898073823245,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "dd76c2d4cf6ceb346b0d51dd7108ebf334b4fbd1e095c95a764bfd36e11103d7",
+        "geometry_sha256": "9594450d3d06ee4540d92f3b5ebf6b9d48ebebc6421cd8c4557308845ac40b5a",
         "visibility": "clear",
         "native_scene_sha256": "a5ef8373d7106f15024fc6504aeaf88069577d2679dedf0e3ee8edf40f4db73a"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "ba290ca8cc7caf123286d0c612c1929e38cb9684add09a36f62738ff62fbe8e9",
+        "image_sha256": "1280fe2c38233df9a97e88d0a378b4c4f3557fdff604d0094a2e4a35f49d1119",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4154,16 +4154,16 @@
             -0.18023558465119338,
             0.014783467788621385
           ],
-          "radius": 0.52,
+          "radius": 0.4391898073823245,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "dd76c2d4cf6ceb346b0d51dd7108ebf334b4fbd1e095c95a764bfd36e11103d7",
+        "geometry_sha256": "9594450d3d06ee4540d92f3b5ebf6b9d48ebebc6421cd8c4557308845ac40b5a",
         "visibility": "clear",
         "native_scene_sha256": "a5ef8373d7106f15024fc6504aeaf88069577d2679dedf0e3ee8edf40f4db73a"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "0c458c081d69057529f4cfd2f47cf66e641bd5b518e9ec7322b75983df29dbef",
+        "image_sha256": "5b71aeb73d787a1d09942a5191f021c0d551bf47b472d3a6a51e10291176fe89",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4172,16 +4172,16 @@
             -0.18023558465119338,
             0.014783467788621385
           ],
-          "radius": 0.52,
+          "radius": 0.4391898073823245,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "dd76c2d4cf6ceb346b0d51dd7108ebf334b4fbd1e095c95a764bfd36e11103d7",
+        "geometry_sha256": "9594450d3d06ee4540d92f3b5ebf6b9d48ebebc6421cd8c4557308845ac40b5a",
         "visibility": "clear",
         "native_scene_sha256": "a5ef8373d7106f15024fc6504aeaf88069577d2679dedf0e3ee8edf40f4db73a"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "090e05850fb9e6741e13c54429ce96c8bb1933abf75d91455caa46539fc3e5cf",
+        "image_sha256": "e020227c4a7abf1ec643548fa554d5096350116bfec74c0f89ae40ed980c346e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4190,10 +4190,10 @@
             -0.18023558465119338,
             0.014783467788621385
           ],
-          "radius": 0.52,
+          "radius": 0.4391898073823245,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "dd76c2d4cf6ceb346b0d51dd7108ebf334b4fbd1e095c95a764bfd36e11103d7",
+        "geometry_sha256": "9594450d3d06ee4540d92f3b5ebf6b9d48ebebc6421cd8c4557308845ac40b5a",
         "visibility": "occluded",
         "native_scene_sha256": "a5ef8373d7106f15024fc6504aeaf88069577d2679dedf0e3ee8edf40f4db73a"
       }
@@ -4227,7 +4227,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "d820f2da610ebedd90b78049eefbbac04ab3c25e5d73b8e7d29a07811589b8ea",
+        "image_sha256": "e242de68f6641229912981f55c77e474bb95b3bc4246e680a9be08859bb172f5",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4236,16 +4236,16 @@
             -0.18035040390647467,
             -0.08805922430164292
           ],
-          "radius": 0.52,
+          "radius": 0.31180854991908685,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "233a7370ddebc8ae76239f77c431b3e7c78261b38a1ad41a7529e3a3260046ad",
+        "geometry_sha256": "281827b5001a4548ad9d6605f7f4fadaa9c30679e0bc30977ee7091adc63ff3f",
         "visibility": "clear",
         "native_scene_sha256": "10f8b5ec478df1e64de3af5bd39a0dc0ce8fd14aad2d5f489db5910446c7826d"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "d820f2da610ebedd90b78049eefbbac04ab3c25e5d73b8e7d29a07811589b8ea",
+        "image_sha256": "e242de68f6641229912981f55c77e474bb95b3bc4246e680a9be08859bb172f5",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4254,16 +4254,16 @@
             -0.18035040390647467,
             -0.08805922430164292
           ],
-          "radius": 0.52,
+          "radius": 0.31180854991908685,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "233a7370ddebc8ae76239f77c431b3e7c78261b38a1ad41a7529e3a3260046ad",
+        "geometry_sha256": "281827b5001a4548ad9d6605f7f4fadaa9c30679e0bc30977ee7091adc63ff3f",
         "visibility": "clear",
         "native_scene_sha256": "10f8b5ec478df1e64de3af5bd39a0dc0ce8fd14aad2d5f489db5910446c7826d"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "7e021c83d039e4db51131eaa4e5e827b5ab6b52053ec317eacf1e7342bf2240f",
+        "image_sha256": "ade717fa1c818091b55a6ca66c18197cba29e0da0ec81670ce91c0e053c032be",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4272,16 +4272,16 @@
             -0.18035040390647467,
             -0.08805922430164292
           ],
-          "radius": 0.52,
+          "radius": 0.31180854991908685,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "233a7370ddebc8ae76239f77c431b3e7c78261b38a1ad41a7529e3a3260046ad",
+        "geometry_sha256": "281827b5001a4548ad9d6605f7f4fadaa9c30679e0bc30977ee7091adc63ff3f",
         "visibility": "clear",
         "native_scene_sha256": "10f8b5ec478df1e64de3af5bd39a0dc0ce8fd14aad2d5f489db5910446c7826d"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "fb35a1d3b23c7176d14e13003d1dfd8d19d6bf77bdf8eaf213e0bfb3338facf3",
+        "image_sha256": "84d68140d7297c9560bab49a4649465bf4db09b59327f5a75b3f5492b48a935e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4290,10 +4290,10 @@
             -0.18035040390647467,
             -0.08805922430164292
           ],
-          "radius": 0.52,
+          "radius": 0.31180854991908685,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "233a7370ddebc8ae76239f77c431b3e7c78261b38a1ad41a7529e3a3260046ad",
+        "geometry_sha256": "281827b5001a4548ad9d6605f7f4fadaa9c30679e0bc30977ee7091adc63ff3f",
         "visibility": "occluded",
         "native_scene_sha256": "10f8b5ec478df1e64de3af5bd39a0dc0ce8fd14aad2d5f489db5910446c7826d"
       }
@@ -4327,7 +4327,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "c9c33886a408d1a330843d6c1b8e5fa0dece3650d2d6763618ef8c2e34b95a5e",
+        "image_sha256": "06686c2e75982c7033e091ccc47c7f29ebf6dcada1da68943781186dd08812cc",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4336,16 +4336,16 @@
             0.8703832747371738,
             -0.04541589606654339
           ],
-          "radius": 0.52,
+          "radius": 0.3329950807887311,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "b077e31c4c45a59086d8f0bc14f96614c5f68e0ac441cf3307e968bff68359ef",
+        "geometry_sha256": "fb793b2f755d75553478f7044c0f9e9f4410990d67120985279624bac734621a",
         "visibility": "clear",
         "native_scene_sha256": "bb2f1b990d974c826dc27152cec285ad1f961a24020cafa1bfbe5e9db54b896c"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "c9c33886a408d1a330843d6c1b8e5fa0dece3650d2d6763618ef8c2e34b95a5e",
+        "image_sha256": "06686c2e75982c7033e091ccc47c7f29ebf6dcada1da68943781186dd08812cc",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4354,16 +4354,16 @@
             0.8703832747371738,
             -0.04541589606654339
           ],
-          "radius": 0.52,
+          "radius": 0.3329950807887311,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "b077e31c4c45a59086d8f0bc14f96614c5f68e0ac441cf3307e968bff68359ef",
+        "geometry_sha256": "fb793b2f755d75553478f7044c0f9e9f4410990d67120985279624bac734621a",
         "visibility": "clear",
         "native_scene_sha256": "bb2f1b990d974c826dc27152cec285ad1f961a24020cafa1bfbe5e9db54b896c"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "2e8bf6ac1c5d93335e68b6391a85bd20b12eaa593e38a61473ce06f3681efcc3",
+        "image_sha256": "390f065f2e2f0502bc00ec1ae3ea3cb242600cc9498f2f72d2194a2c98ceefba",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4372,16 +4372,16 @@
             0.8703832747371738,
             -0.04541589606654339
           ],
-          "radius": 0.52,
+          "radius": 0.3329950807887311,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "b077e31c4c45a59086d8f0bc14f96614c5f68e0ac441cf3307e968bff68359ef",
+        "geometry_sha256": "fb793b2f755d75553478f7044c0f9e9f4410990d67120985279624bac734621a",
         "visibility": "clear",
         "native_scene_sha256": "bb2f1b990d974c826dc27152cec285ad1f961a24020cafa1bfbe5e9db54b896c"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "51d1121a6761eb7134a2bd7151c154aaacd3fd7fd98d93689cc3c650e2ae1bd6",
+        "image_sha256": "80ea054dc3aa4a2c0bc21ebc9d5d028a95b1a1c795da67fc46d84e8d5ef5ad19",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4390,10 +4390,10 @@
             0.8703832747371738,
             -0.04541589606654339
           ],
-          "radius": 0.52,
+          "radius": 0.3329950807887311,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "b077e31c4c45a59086d8f0bc14f96614c5f68e0ac441cf3307e968bff68359ef",
+        "geometry_sha256": "fb793b2f755d75553478f7044c0f9e9f4410990d67120985279624bac734621a",
         "visibility": "occluded",
         "native_scene_sha256": "bb2f1b990d974c826dc27152cec285ad1f961a24020cafa1bfbe5e9db54b896c"
       }
@@ -4427,7 +4427,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "44cd7a80457f7e33e251c6c6582cbf8aea3b4e15e45387a6ea6d4c809d8da0ca",
+        "image_sha256": "f2bcea3e84bb7eb4a7aee94aafb2f7d1aca4644beb1aab83c3e39c12c6e0b946",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4436,16 +4436,16 @@
             0.7390618837576446,
             0.13030056925533773
           ],
-          "radius": 0.52,
+          "radius": 0.22810464095878658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "534164b328916a58ecf4409ae86d76087beaa83ea2f2f63977a882f5b79ae8e8",
+        "geometry_sha256": "716746c4bd36f0bbed233146a9df8b1a9cd4282aa629826d89f47b8099cab2a8",
         "visibility": "clear",
         "native_scene_sha256": "848c43d62ede32c43cc71404eec047cd815f059358777ae7f59a5f9ac1d8b13b"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "44cd7a80457f7e33e251c6c6582cbf8aea3b4e15e45387a6ea6d4c809d8da0ca",
+        "image_sha256": "f2bcea3e84bb7eb4a7aee94aafb2f7d1aca4644beb1aab83c3e39c12c6e0b946",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4454,16 +4454,16 @@
             0.7390618837576446,
             0.13030056925533773
           ],
-          "radius": 0.52,
+          "radius": 0.22810464095878658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "534164b328916a58ecf4409ae86d76087beaa83ea2f2f63977a882f5b79ae8e8",
+        "geometry_sha256": "716746c4bd36f0bbed233146a9df8b1a9cd4282aa629826d89f47b8099cab2a8",
         "visibility": "clear",
         "native_scene_sha256": "848c43d62ede32c43cc71404eec047cd815f059358777ae7f59a5f9ac1d8b13b"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "f4cb1aae3b950962cdc1c39cc7ceb693301b820cabea7081e2eb1e5eae5b7b50",
+        "image_sha256": "c313b55922ba1a6f7f25feef86511fcdfa66f78de6b6b0b6c34a2c9bdb9ee8b9",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4472,16 +4472,16 @@
             0.7390618837576446,
             0.13030056925533773
           ],
-          "radius": 0.52,
+          "radius": 0.22810464095878658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "534164b328916a58ecf4409ae86d76087beaa83ea2f2f63977a882f5b79ae8e8",
+        "geometry_sha256": "716746c4bd36f0bbed233146a9df8b1a9cd4282aa629826d89f47b8099cab2a8",
         "visibility": "clear",
         "native_scene_sha256": "848c43d62ede32c43cc71404eec047cd815f059358777ae7f59a5f9ac1d8b13b"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "94d0b7af98569f5e673d335bc117c676c7f5ef5f72fa1ab05cdcfb534352d784",
+        "image_sha256": "783a09e0bad92406d9c2b1c0281d9d2a40f4e1400559b83493689f324a4bdb6c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4490,10 +4490,10 @@
             0.7390618837576446,
             0.13030056925533773
           ],
-          "radius": 0.52,
+          "radius": 0.22810464095878658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "534164b328916a58ecf4409ae86d76087beaa83ea2f2f63977a882f5b79ae8e8",
+        "geometry_sha256": "716746c4bd36f0bbed233146a9df8b1a9cd4282aa629826d89f47b8099cab2a8",
         "visibility": "occluded",
         "native_scene_sha256": "848c43d62ede32c43cc71404eec047cd815f059358777ae7f59a5f9ac1d8b13b"
       }
@@ -4527,7 +4527,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "5148d43b57114f4a1b851fc10866a4a50a7ff05c9cd863754bf39d0026cc827d",
+        "image_sha256": "9ea6ae279343fc12b4448b32afdc719ebd1e5006cae2d90c908eb2b52f079c7c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4536,16 +4536,16 @@
             0.6384220474834424,
             -0.009853393178792191
           ],
-          "radius": 0.52,
+          "radius": 0.1835763360147222,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "76ffd275c5003db8c2c0c41608da232f37481d77caa1219d3564298a60bd3af7",
+        "geometry_sha256": "e4b0c4fd102060c1a7fa7bdbd44e5eec11626e715d4459fb844f15ac4580369b",
         "visibility": "clear",
         "native_scene_sha256": "cd1c15053c1f85a7aa2f8aabb48311674f5951b7957c76571fbbfe261957f713"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "5148d43b57114f4a1b851fc10866a4a50a7ff05c9cd863754bf39d0026cc827d",
+        "image_sha256": "9ea6ae279343fc12b4448b32afdc719ebd1e5006cae2d90c908eb2b52f079c7c",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4554,16 +4554,16 @@
             0.6384220474834424,
             -0.009853393178792191
           ],
-          "radius": 0.52,
+          "radius": 0.1835763360147222,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "76ffd275c5003db8c2c0c41608da232f37481d77caa1219d3564298a60bd3af7",
+        "geometry_sha256": "e4b0c4fd102060c1a7fa7bdbd44e5eec11626e715d4459fb844f15ac4580369b",
         "visibility": "clear",
         "native_scene_sha256": "cd1c15053c1f85a7aa2f8aabb48311674f5951b7957c76571fbbfe261957f713"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "99fe3cad6a19bc04118580805c9f4591efc5fbc47e4dba44c2a32db031f3163c",
+        "image_sha256": "2bc07f8c5447a9af874f52d39fc912a39bd64f2667553cf8dfcc32de0075becb",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4572,16 +4572,16 @@
             0.6384220474834424,
             -0.009853393178792191
           ],
-          "radius": 0.52,
+          "radius": 0.1835763360147222,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "76ffd275c5003db8c2c0c41608da232f37481d77caa1219d3564298a60bd3af7",
+        "geometry_sha256": "e4b0c4fd102060c1a7fa7bdbd44e5eec11626e715d4459fb844f15ac4580369b",
         "visibility": "clear",
         "native_scene_sha256": "cd1c15053c1f85a7aa2f8aabb48311674f5951b7957c76571fbbfe261957f713"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "4b3313b955244cca3108bf9fa818e5ec08c9739199f836c10a517fbeb742668c",
+        "image_sha256": "42c87895b7b76b147f1c8d9d11a62886c8ec8fc0e41e3f654fad630aff7af339",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4590,10 +4590,10 @@
             0.6384220474834424,
             -0.009853393178792191
           ],
-          "radius": 0.52,
+          "radius": 0.1835763360147222,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "76ffd275c5003db8c2c0c41608da232f37481d77caa1219d3564298a60bd3af7",
+        "geometry_sha256": "e4b0c4fd102060c1a7fa7bdbd44e5eec11626e715d4459fb844f15ac4580369b",
         "visibility": "occluded",
         "native_scene_sha256": "cd1c15053c1f85a7aa2f8aabb48311674f5951b7957c76571fbbfe261957f713"
       }
@@ -4627,7 +4627,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "fdd7c5053fc38503bc49e05411428bf29eb87f0b11032bb53eb1fcf0bc1497f9",
+        "image_sha256": "8809a195ae63fcfa76274b6933ff0f72bd92b3e64d1dc09eed675150410a36c7",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4636,16 +4636,16 @@
             -0.4331409534705284,
             0.35735478889160677
           ],
-          "radius": 0.52,
+          "radius": 0.21879637083987488,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a76001948b24f602a6831e2a25b1214156b9c2089e602cfb24b83355897d681",
+        "geometry_sha256": "5905dfc4b36f49d3e84cabc3f3b44bf8dbb9035ab998c05c99f925eff1b225f8",
         "visibility": "clear",
         "native_scene_sha256": "54b9b38630ff47bd8abe23354b91288ff3fae3fc089240141501b9957b44ff5b"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "fdd7c5053fc38503bc49e05411428bf29eb87f0b11032bb53eb1fcf0bc1497f9",
+        "image_sha256": "8809a195ae63fcfa76274b6933ff0f72bd92b3e64d1dc09eed675150410a36c7",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4654,16 +4654,16 @@
             -0.4331409534705284,
             0.35735478889160677
           ],
-          "radius": 0.52,
+          "radius": 0.21879637083987488,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a76001948b24f602a6831e2a25b1214156b9c2089e602cfb24b83355897d681",
+        "geometry_sha256": "5905dfc4b36f49d3e84cabc3f3b44bf8dbb9035ab998c05c99f925eff1b225f8",
         "visibility": "clear",
         "native_scene_sha256": "54b9b38630ff47bd8abe23354b91288ff3fae3fc089240141501b9957b44ff5b"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "4661e84b872448504787acf61d1b7df61c693d321691b6cc014c29c13e5de0af",
+        "image_sha256": "fae3d1fbdd2d57795371c74821b76aa2657291741e1291f53179ee3712beb504",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4672,16 +4672,16 @@
             -0.4331409534705284,
             0.35735478889160677
           ],
-          "radius": 0.52,
+          "radius": 0.21879637083987488,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a76001948b24f602a6831e2a25b1214156b9c2089e602cfb24b83355897d681",
+        "geometry_sha256": "5905dfc4b36f49d3e84cabc3f3b44bf8dbb9035ab998c05c99f925eff1b225f8",
         "visibility": "clear",
         "native_scene_sha256": "54b9b38630ff47bd8abe23354b91288ff3fae3fc089240141501b9957b44ff5b"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "4f9d902f84bb00a24c1e4a8aad0f12d804a451259be497a444b6edf24340db32",
+        "image_sha256": "26a87107150c1433fa9e9086e9585c2dda2d792043e85c2e4d0cda5ae872116b",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4690,10 +4690,10 @@
             -0.4331409534705284,
             0.35735478889160677
           ],
-          "radius": 0.52,
+          "radius": 0.21879637083987488,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a76001948b24f602a6831e2a25b1214156b9c2089e602cfb24b83355897d681",
+        "geometry_sha256": "5905dfc4b36f49d3e84cabc3f3b44bf8dbb9035ab998c05c99f925eff1b225f8",
         "visibility": "occluded",
         "native_scene_sha256": "54b9b38630ff47bd8abe23354b91288ff3fae3fc089240141501b9957b44ff5b"
       }
@@ -4727,7 +4727,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "e5d6505dcce883bdcfaa5c14fcb37778ace36cb9c187196bc1e553d62d6f55a0",
+        "image_sha256": "c2367875d5c56a7e77d0dc28bf6549ddfd4f1a63f204d8ada8655313744dbb65",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4736,16 +4736,16 @@
             -0.021435580295870334,
             0.25011092443691185
           ],
-          "radius": 0.52,
+          "radius": 0.2507455962368821,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5e0413be2b13f996cdb5740d3f8c85d708606bbef4598b3206bef349331b6782",
+        "geometry_sha256": "c328fcbc87785f6d9acd89653a90636f1372641181685ec557f85303b44f6ab8",
         "visibility": "clear",
         "native_scene_sha256": "498d4672d14b0e4c96adc6fcc47228ecc264ec0a3f35783e4df1998ebb3cd4ae"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "e5d6505dcce883bdcfaa5c14fcb37778ace36cb9c187196bc1e553d62d6f55a0",
+        "image_sha256": "c2367875d5c56a7e77d0dc28bf6549ddfd4f1a63f204d8ada8655313744dbb65",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4754,16 +4754,16 @@
             -0.021435580295870334,
             0.25011092443691185
           ],
-          "radius": 0.52,
+          "radius": 0.2507455962368821,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5e0413be2b13f996cdb5740d3f8c85d708606bbef4598b3206bef349331b6782",
+        "geometry_sha256": "c328fcbc87785f6d9acd89653a90636f1372641181685ec557f85303b44f6ab8",
         "visibility": "clear",
         "native_scene_sha256": "498d4672d14b0e4c96adc6fcc47228ecc264ec0a3f35783e4df1998ebb3cd4ae"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "accaa964ffad4ddb3bdd73bd630e8f38cc35ddd5cf5e50a1c56c7d45f2a2b5fd",
+        "image_sha256": "de4de3070d1b7d875f44c1ae2df8a6bd0e7f03805e16a590a3eabcbbffae863f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4772,16 +4772,16 @@
             -0.021435580295870334,
             0.25011092443691185
           ],
-          "radius": 0.52,
+          "radius": 0.2507455962368821,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5e0413be2b13f996cdb5740d3f8c85d708606bbef4598b3206bef349331b6782",
+        "geometry_sha256": "c328fcbc87785f6d9acd89653a90636f1372641181685ec557f85303b44f6ab8",
         "visibility": "clear",
         "native_scene_sha256": "498d4672d14b0e4c96adc6fcc47228ecc264ec0a3f35783e4df1998ebb3cd4ae"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "87c3465efabd9dd48a4fbb21da4af24ad0ebb068e25379ff2ff63e4b5535d3bf",
+        "image_sha256": "567a906b0c62b0a20fb06319fd6a2ce7b4766a8577203aee52aca8e9444cfe2e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4790,10 +4790,10 @@
             -0.021435580295870334,
             0.25011092443691185
           ],
-          "radius": 0.52,
+          "radius": 0.2507455962368821,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5e0413be2b13f996cdb5740d3f8c85d708606bbef4598b3206bef349331b6782",
+        "geometry_sha256": "c328fcbc87785f6d9acd89653a90636f1372641181685ec557f85303b44f6ab8",
         "visibility": "occluded",
         "native_scene_sha256": "498d4672d14b0e4c96adc6fcc47228ecc264ec0a3f35783e4df1998ebb3cd4ae"
       }
@@ -4827,7 +4827,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "d70ac173e01b9a3e433d4ec66d59a3d6e46f45cab3a4b4b80caaa80727998ff7",
+        "image_sha256": "f0ca30331ea3feea535be129adecaa36ff3ebe80fa8d54b4edc6bb06a1c2271c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4836,16 +4836,16 @@
             -0.7952937805803396,
             0.28704368848291306
           ],
-          "radius": 0.52,
+          "radius": 0.18092782586973918,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "affaafb76e80df8e545a10810333c60d22858c4ae08244aae76bbd8aaf506d53",
+        "geometry_sha256": "0953376a1d9d1b097989578300b444f4c79360d4e119ce11e6c4226d99bbd097",
         "visibility": "clear",
         "native_scene_sha256": "0466ca24f8dcfb3356d15bbd16496112a6eb80edc956209cde248fb87f197200"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "d70ac173e01b9a3e433d4ec66d59a3d6e46f45cab3a4b4b80caaa80727998ff7",
+        "image_sha256": "f0ca30331ea3feea535be129adecaa36ff3ebe80fa8d54b4edc6bb06a1c2271c",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4854,16 +4854,16 @@
             -0.7952937805803396,
             0.28704368848291306
           ],
-          "radius": 0.52,
+          "radius": 0.18092782586973918,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "affaafb76e80df8e545a10810333c60d22858c4ae08244aae76bbd8aaf506d53",
+        "geometry_sha256": "0953376a1d9d1b097989578300b444f4c79360d4e119ce11e6c4226d99bbd097",
         "visibility": "clear",
         "native_scene_sha256": "0466ca24f8dcfb3356d15bbd16496112a6eb80edc956209cde248fb87f197200"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "702f6de25944c71fc7c0a25f13e2c43eccb7818d1b10f70ba2f781ab3215572f",
+        "image_sha256": "da78e05d5cd0bf5223f96d7c6efe511036663914749c354ace8961dd3a63e4b8",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4872,16 +4872,16 @@
             -0.7952937805803396,
             0.28704368848291306
           ],
-          "radius": 0.52,
+          "radius": 0.18092782586973918,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "affaafb76e80df8e545a10810333c60d22858c4ae08244aae76bbd8aaf506d53",
+        "geometry_sha256": "0953376a1d9d1b097989578300b444f4c79360d4e119ce11e6c4226d99bbd097",
         "visibility": "clear",
         "native_scene_sha256": "0466ca24f8dcfb3356d15bbd16496112a6eb80edc956209cde248fb87f197200"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "7c61c2d42f9ae377bad49cc5bde14073ab3bbbd926699fd642058fc3ff973bf9",
+        "image_sha256": "de0626e52811ab65d9277ab9683099d2fbb3be245d92669923f78a699e10795a",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4890,10 +4890,10 @@
             -0.7952937805803396,
             0.28704368848291306
           ],
-          "radius": 0.52,
+          "radius": 0.18092782586973918,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "affaafb76e80df8e545a10810333c60d22858c4ae08244aae76bbd8aaf506d53",
+        "geometry_sha256": "0953376a1d9d1b097989578300b444f4c79360d4e119ce11e6c4226d99bbd097",
         "visibility": "occluded",
         "native_scene_sha256": "0466ca24f8dcfb3356d15bbd16496112a6eb80edc956209cde248fb87f197200"
       }
@@ -4927,7 +4927,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "d2f04c86043d03712cff7d6ef0af20b233d49dd05f41a5dd14ba744455128c10",
+        "image_sha256": "5bf5296d327fb2a23a2f37931eb9c97a00121c3a4da17429326f37a89e59bfb0",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4936,16 +4936,16 @@
             0.2793395003552039,
             -0.0930153101788029
           ],
-          "radius": 0.52,
+          "radius": 0.24991474430175364,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "079bb4dccb369bbd92de26b8c30d2bf76cce75fa5b4326915b7ce13446874953",
+        "geometry_sha256": "7a0f5bb2838f838882f10594f7961769574890adc7a14ed2f2c340f917fe101c",
         "visibility": "clear",
         "native_scene_sha256": "87940e09551e5a2912670f010b33aedc8bcba65f9a677a31c5f971c423557f75"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "d2f04c86043d03712cff7d6ef0af20b233d49dd05f41a5dd14ba744455128c10",
+        "image_sha256": "5bf5296d327fb2a23a2f37931eb9c97a00121c3a4da17429326f37a89e59bfb0",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -4954,16 +4954,16 @@
             0.2793395003552039,
             -0.0930153101788029
           ],
-          "radius": 0.52,
+          "radius": 0.24991474430175364,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "079bb4dccb369bbd92de26b8c30d2bf76cce75fa5b4326915b7ce13446874953",
+        "geometry_sha256": "7a0f5bb2838f838882f10594f7961769574890adc7a14ed2f2c340f917fe101c",
         "visibility": "clear",
         "native_scene_sha256": "87940e09551e5a2912670f010b33aedc8bcba65f9a677a31c5f971c423557f75"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "ff54aaefd3e6eaed2c1aef1a45a954a7f9dc189065b048764ce5a057edc7faf1",
+        "image_sha256": "75e7293fef428b2f2e6679ff55a31a92793d4723b2865fd2282d313cda124a56",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -4972,16 +4972,16 @@
             0.2793395003552039,
             -0.0930153101788029
           ],
-          "radius": 0.52,
+          "radius": 0.24991474430175364,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "079bb4dccb369bbd92de26b8c30d2bf76cce75fa5b4326915b7ce13446874953",
+        "geometry_sha256": "7a0f5bb2838f838882f10594f7961769574890adc7a14ed2f2c340f917fe101c",
         "visibility": "clear",
         "native_scene_sha256": "87940e09551e5a2912670f010b33aedc8bcba65f9a677a31c5f971c423557f75"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "dace0626477486026c823028cb690d6e31312c8a4f56465e121addf54d78a278",
+        "image_sha256": "f57dcdfe36a3682e167273c027ccbba990f4803a910613d7bc1f97bed017f0e3",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -4990,10 +4990,10 @@
             0.2793395003552039,
             -0.0930153101788029
           ],
-          "radius": 0.52,
+          "radius": 0.24991474430175364,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "079bb4dccb369bbd92de26b8c30d2bf76cce75fa5b4326915b7ce13446874953",
+        "geometry_sha256": "7a0f5bb2838f838882f10594f7961769574890adc7a14ed2f2c340f917fe101c",
         "visibility": "occluded",
         "native_scene_sha256": "87940e09551e5a2912670f010b33aedc8bcba65f9a677a31c5f971c423557f75"
       }
@@ -5027,7 +5027,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "18256648714d1d211a3d03dafba20e5238bb3f670ae56261577f9392071ee438",
+        "image_sha256": "22d97c274766459954b48e2099349e2e2c0301c6aa72c6a5946f45c5114af694",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5036,16 +5036,16 @@
             -0.26925260107203686,
             -0.3082614743804005
           ],
-          "radius": 0.52,
+          "radius": 0.2602292039739166,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "007a94d4c8cba7cee13e31ef09cecc7e38eef8ee9763c4c569d55a5b4a8ee6ea",
+        "geometry_sha256": "8d9f7087dc89c72f93d8e2850dd8d65c23c657454f41e2816b5f92256b23030b",
         "visibility": "clear",
         "native_scene_sha256": "644795f51a3369f0fbee3e5c32de8c092f7a241084149a72b8a3efa913547b1b"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "18256648714d1d211a3d03dafba20e5238bb3f670ae56261577f9392071ee438",
+        "image_sha256": "22d97c274766459954b48e2099349e2e2c0301c6aa72c6a5946f45c5114af694",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5054,16 +5054,16 @@
             -0.26925260107203686,
             -0.3082614743804005
           ],
-          "radius": 0.52,
+          "radius": 0.2602292039739166,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "007a94d4c8cba7cee13e31ef09cecc7e38eef8ee9763c4c569d55a5b4a8ee6ea",
+        "geometry_sha256": "8d9f7087dc89c72f93d8e2850dd8d65c23c657454f41e2816b5f92256b23030b",
         "visibility": "clear",
         "native_scene_sha256": "644795f51a3369f0fbee3e5c32de8c092f7a241084149a72b8a3efa913547b1b"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "b93eadd89bb0cb4562b615d45564ab10c8a052177a5c1f5300d884d751314a9b",
+        "image_sha256": "3c8e41ea5fab9b080a0bbaddda94c07b40e776f469b26ced14a96a80ad043e53",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5072,16 +5072,16 @@
             -0.26925260107203686,
             -0.3082614743804005
           ],
-          "radius": 0.52,
+          "radius": 0.2602292039739166,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "007a94d4c8cba7cee13e31ef09cecc7e38eef8ee9763c4c569d55a5b4a8ee6ea",
+        "geometry_sha256": "8d9f7087dc89c72f93d8e2850dd8d65c23c657454f41e2816b5f92256b23030b",
         "visibility": "clear",
         "native_scene_sha256": "644795f51a3369f0fbee3e5c32de8c092f7a241084149a72b8a3efa913547b1b"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "c9397e770449addb3553057651d305fb5bc77119b6beae463921093461e40b36",
+        "image_sha256": "bdb33928895d42b06ba14f301d537654979a96056201008d54be7fa55a8c4d09",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5090,10 +5090,10 @@
             -0.26925260107203686,
             -0.3082614743804005
           ],
-          "radius": 0.52,
+          "radius": 0.2602292039739166,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "007a94d4c8cba7cee13e31ef09cecc7e38eef8ee9763c4c569d55a5b4a8ee6ea",
+        "geometry_sha256": "8d9f7087dc89c72f93d8e2850dd8d65c23c657454f41e2816b5f92256b23030b",
         "visibility": "occluded",
         "native_scene_sha256": "644795f51a3369f0fbee3e5c32de8c092f7a241084149a72b8a3efa913547b1b"
       }
@@ -5127,7 +5127,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "59847b05f88c766674e8379f034dd2ae4afe4c8e044842e5488e6d1270fb87bd",
+        "image_sha256": "a809c2f6ac9144b9b90251a6dabf00fb671252859de0179d5a60c7b2d46f4ed4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5136,16 +5136,16 @@
             0.12589477690221287,
             0.06102447693123583
           ],
-          "radius": 0.52,
+          "radius": 0.2555120830517592,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "886d3c0cc6bd44856c63a14db998e57cc954aa45d864d49480b10bb1af3f24f3",
+        "geometry_sha256": "5e3c73474fd02a7e8804244685e29935288c31c19be0bcc84bad02ac95743d40",
         "visibility": "clear",
         "native_scene_sha256": "9f6d06af9dbc408d1eaf5785a3c6c253abb4ff96d69b5dbc88bfd1a4fe1c3df0"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "59847b05f88c766674e8379f034dd2ae4afe4c8e044842e5488e6d1270fb87bd",
+        "image_sha256": "a809c2f6ac9144b9b90251a6dabf00fb671252859de0179d5a60c7b2d46f4ed4",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5154,16 +5154,16 @@
             0.12589477690221287,
             0.06102447693123583
           ],
-          "radius": 0.52,
+          "radius": 0.2555120830517592,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "886d3c0cc6bd44856c63a14db998e57cc954aa45d864d49480b10bb1af3f24f3",
+        "geometry_sha256": "5e3c73474fd02a7e8804244685e29935288c31c19be0bcc84bad02ac95743d40",
         "visibility": "clear",
         "native_scene_sha256": "9f6d06af9dbc408d1eaf5785a3c6c253abb4ff96d69b5dbc88bfd1a4fe1c3df0"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "49c3eadd17d048df5be6c7d600f604400a97ef47bddc67ea13592a6c7449d949",
+        "image_sha256": "f993d8eaf3b018e4a5417e2e3d91c2befbedc6060c9b9b89f6fb5700eb29b070",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5172,16 +5172,16 @@
             0.12589477690221287,
             0.06102447693123583
           ],
-          "radius": 0.52,
+          "radius": 0.2555120830517592,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "886d3c0cc6bd44856c63a14db998e57cc954aa45d864d49480b10bb1af3f24f3",
+        "geometry_sha256": "5e3c73474fd02a7e8804244685e29935288c31c19be0bcc84bad02ac95743d40",
         "visibility": "clear",
         "native_scene_sha256": "9f6d06af9dbc408d1eaf5785a3c6c253abb4ff96d69b5dbc88bfd1a4fe1c3df0"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "f8899e02b979d65764fb334d03b6654ddfa70d1c551787d69b075049530e22d5",
+        "image_sha256": "a267017aab27335b27cb1a28016594a81c2baa37784921f811838a579fb75f0b",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5190,10 +5190,10 @@
             0.12589477690221287,
             0.06102447693123583
           ],
-          "radius": 0.52,
+          "radius": 0.2555120830517592,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "886d3c0cc6bd44856c63a14db998e57cc954aa45d864d49480b10bb1af3f24f3",
+        "geometry_sha256": "5e3c73474fd02a7e8804244685e29935288c31c19be0bcc84bad02ac95743d40",
         "visibility": "occluded",
         "native_scene_sha256": "9f6d06af9dbc408d1eaf5785a3c6c253abb4ff96d69b5dbc88bfd1a4fe1c3df0"
       }
@@ -5227,7 +5227,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "771469cdc4963747c71fdff3d36323761d8a0d83da1305899fb28d956d40b389",
+        "image_sha256": "2b9f5321e065006b2f58ece551c497b71cea4fd8c400a7e9294737df50a13c13",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5236,16 +5236,16 @@
             -0.26977273556520975,
             0.42577755289683167
           ],
-          "radius": 0.52,
+          "radius": 0.2400567314357793,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4e3766a3f6b9da25fab378c67ad9758206489a14360f491adc9e3853b545ff2e",
+        "geometry_sha256": "a30e4a4e5db6d71a12188860e9cfe205c85882015bff1ff66329d3c086c6a6bc",
         "visibility": "clear",
         "native_scene_sha256": "0f4aa9941fd151cefbc72c81fd451c001f0e7ac171954389c404e202b5660e08"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "771469cdc4963747c71fdff3d36323761d8a0d83da1305899fb28d956d40b389",
+        "image_sha256": "2b9f5321e065006b2f58ece551c497b71cea4fd8c400a7e9294737df50a13c13",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5254,16 +5254,16 @@
             -0.26977273556520975,
             0.42577755289683167
           ],
-          "radius": 0.52,
+          "radius": 0.2400567314357793,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4e3766a3f6b9da25fab378c67ad9758206489a14360f491adc9e3853b545ff2e",
+        "geometry_sha256": "a30e4a4e5db6d71a12188860e9cfe205c85882015bff1ff66329d3c086c6a6bc",
         "visibility": "clear",
         "native_scene_sha256": "0f4aa9941fd151cefbc72c81fd451c001f0e7ac171954389c404e202b5660e08"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "1ca4ef4db8f97c3c64192dc0821fad2ece74c04fedf019864bcd6e218d39cd15",
+        "image_sha256": "f8768913d2f5611ccfa238012f0ebaee8bc07f61e5540092af86eeee9c8ea6b9",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5272,16 +5272,16 @@
             -0.26977273556520975,
             0.42577755289683167
           ],
-          "radius": 0.52,
+          "radius": 0.2400567314357793,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4e3766a3f6b9da25fab378c67ad9758206489a14360f491adc9e3853b545ff2e",
+        "geometry_sha256": "a30e4a4e5db6d71a12188860e9cfe205c85882015bff1ff66329d3c086c6a6bc",
         "visibility": "clear",
         "native_scene_sha256": "0f4aa9941fd151cefbc72c81fd451c001f0e7ac171954389c404e202b5660e08"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "cd042dcb580cec42d71e2d6040384b8d4ab39cb1d22d45a029a05e654ac573b5",
+        "image_sha256": "1dc902fcf609af9d9f405053b609c2900662bd9642c546ba669af1e12e371e00",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5290,10 +5290,10 @@
             -0.26977273556520975,
             0.42577755289683167
           ],
-          "radius": 0.52,
+          "radius": 0.2400567314357793,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4e3766a3f6b9da25fab378c67ad9758206489a14360f491adc9e3853b545ff2e",
+        "geometry_sha256": "a30e4a4e5db6d71a12188860e9cfe205c85882015bff1ff66329d3c086c6a6bc",
         "visibility": "occluded",
         "native_scene_sha256": "0f4aa9941fd151cefbc72c81fd451c001f0e7ac171954389c404e202b5660e08"
       }
@@ -5327,7 +5327,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "090c742f322305197b18e7eb76f12b0ea455f4516d01c1af9ce2936050f1478e",
+        "image_sha256": "1b378852a584a78e3798cba19f859afb338f4df6f50a5a25259b810e30a5c609",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5336,16 +5336,16 @@
             0.04473654119308029,
             0.5312772741322138
           ],
-          "radius": 0.52,
+          "radius": 0.3218759145286286,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "e60a0fe87081fa857802f5aa06fa54137e631af1ad5236c780147e0c4e6e6711",
+        "geometry_sha256": "d7b018dc3309d641dc258e9e7aec4939c0eaafda28e1d801583a6bcf084f2ff1",
         "visibility": "clear",
         "native_scene_sha256": "173e1f61628136ad7a3034a7573a2ae7e02d33d460a85516fd815857362937ae"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "090c742f322305197b18e7eb76f12b0ea455f4516d01c1af9ce2936050f1478e",
+        "image_sha256": "1b378852a584a78e3798cba19f859afb338f4df6f50a5a25259b810e30a5c609",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5354,16 +5354,16 @@
             0.04473654119308029,
             0.5312772741322138
           ],
-          "radius": 0.52,
+          "radius": 0.3218759145286286,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "e60a0fe87081fa857802f5aa06fa54137e631af1ad5236c780147e0c4e6e6711",
+        "geometry_sha256": "d7b018dc3309d641dc258e9e7aec4939c0eaafda28e1d801583a6bcf084f2ff1",
         "visibility": "clear",
         "native_scene_sha256": "173e1f61628136ad7a3034a7573a2ae7e02d33d460a85516fd815857362937ae"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "60a479026d47dea88b876397395923a4f251cc219945b2396445bba893cf47c2",
+        "image_sha256": "d602e204e0fe2e98c071cfc9f6588da4bec59961cdda69f0a7d423f181a571b6",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5372,16 +5372,16 @@
             0.04473654119308029,
             0.5312772741322138
           ],
-          "radius": 0.52,
+          "radius": 0.3218759145286286,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "e60a0fe87081fa857802f5aa06fa54137e631af1ad5236c780147e0c4e6e6711",
+        "geometry_sha256": "d7b018dc3309d641dc258e9e7aec4939c0eaafda28e1d801583a6bcf084f2ff1",
         "visibility": "clear",
         "native_scene_sha256": "173e1f61628136ad7a3034a7573a2ae7e02d33d460a85516fd815857362937ae"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "a29669c9dd84bde265a6d02215d709703cf906100c9a2c0859e26b117a1aee01",
+        "image_sha256": "4e4a033a3b928272c0857d89436be0ef1390cde484f21667b02a3c6321790395",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5390,10 +5390,10 @@
             0.04473654119308029,
             0.5312772741322138
           ],
-          "radius": 0.52,
+          "radius": 0.3218759145286286,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "e60a0fe87081fa857802f5aa06fa54137e631af1ad5236c780147e0c4e6e6711",
+        "geometry_sha256": "d7b018dc3309d641dc258e9e7aec4939c0eaafda28e1d801583a6bcf084f2ff1",
         "visibility": "occluded",
         "native_scene_sha256": "173e1f61628136ad7a3034a7573a2ae7e02d33d460a85516fd815857362937ae"
       }
@@ -5427,7 +5427,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "491e8dc77ebdd052c560a7c59af2351898647ac27cff08c547846f35c04c3e95",
+        "image_sha256": "62adfb6dd6ac6ce1566faae648f552f585850eb1cbabee29fd2c30ab387077c6",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5436,16 +5436,16 @@
             -0.87174980213821,
             0.2889926458356449
           ],
-          "radius": 0.52,
+          "radius": 0.2580895481405225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "084be86e3309bdd174034e3a9adc30c7b74deeb72ac92f8506e60335b0821a94",
+        "geometry_sha256": "ad08c27ffe4161b114cfa37e2b3e540ddadfe681182551c128f0987b52a97ee6",
         "visibility": "clear",
         "native_scene_sha256": "a215bb145605a33125465d61e0a70e5f6bcd7d4c3dacf3f2ab6cb2d6ea8bd531"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "491e8dc77ebdd052c560a7c59af2351898647ac27cff08c547846f35c04c3e95",
+        "image_sha256": "62adfb6dd6ac6ce1566faae648f552f585850eb1cbabee29fd2c30ab387077c6",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5454,16 +5454,16 @@
             -0.87174980213821,
             0.2889926458356449
           ],
-          "radius": 0.52,
+          "radius": 0.2580895481405225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "084be86e3309bdd174034e3a9adc30c7b74deeb72ac92f8506e60335b0821a94",
+        "geometry_sha256": "ad08c27ffe4161b114cfa37e2b3e540ddadfe681182551c128f0987b52a97ee6",
         "visibility": "clear",
         "native_scene_sha256": "a215bb145605a33125465d61e0a70e5f6bcd7d4c3dacf3f2ab6cb2d6ea8bd531"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "f50412aabcb626cbf2f9a9447a14d797bca9523def6e6f7f630c57fdf8ac404b",
+        "image_sha256": "19025bf50b03a9cd771965c468af9d2e61918e1bb80ad88845d1783869c8213e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5472,16 +5472,16 @@
             -0.87174980213821,
             0.2889926458356449
           ],
-          "radius": 0.52,
+          "radius": 0.2580895481405225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "084be86e3309bdd174034e3a9adc30c7b74deeb72ac92f8506e60335b0821a94",
+        "geometry_sha256": "ad08c27ffe4161b114cfa37e2b3e540ddadfe681182551c128f0987b52a97ee6",
         "visibility": "clear",
         "native_scene_sha256": "a215bb145605a33125465d61e0a70e5f6bcd7d4c3dacf3f2ab6cb2d6ea8bd531"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "98aba5f75baac070953ef07ffd8cd31bbb53490764f256d4812958bdf4d6143e",
+        "image_sha256": "233a7f7190040adf844da00b56f69dce8a1fc91774cec4b35b01f5239928fe96",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5490,10 +5490,10 @@
             -0.87174980213821,
             0.2889926458356449
           ],
-          "radius": 0.52,
+          "radius": 0.2580895481405225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "084be86e3309bdd174034e3a9adc30c7b74deeb72ac92f8506e60335b0821a94",
+        "geometry_sha256": "ad08c27ffe4161b114cfa37e2b3e540ddadfe681182551c128f0987b52a97ee6",
         "visibility": "occluded",
         "native_scene_sha256": "a215bb145605a33125465d61e0a70e5f6bcd7d4c3dacf3f2ab6cb2d6ea8bd531"
       }
@@ -5527,7 +5527,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "636a903098f851f18446748cc90f7894d51283d96b69a16424e4206147c764b8",
+        "image_sha256": "c092010bc0c8bb5b7d613a4dff12f58278697d3668c85525f9cbd29d61961a0f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5536,16 +5536,16 @@
             -0.8042751590870787,
             -0.417621977096548
           ],
-          "radius": 0.52,
+          "radius": 0.15203883735135254,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "2cd85442557f0aea5f47986a1b1067862e1ecfd2f17d294da854448d4611e0c0",
+        "geometry_sha256": "23600f5bb459526ea437578f2eaf75fd34f278ebcfca44551b8714eea8df14a2",
         "visibility": "clear",
         "native_scene_sha256": "1c92adc45b44cac0c89839fd9af71d2fbad094f7bd091083842b9e032b4f24b5"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "636a903098f851f18446748cc90f7894d51283d96b69a16424e4206147c764b8",
+        "image_sha256": "c092010bc0c8bb5b7d613a4dff12f58278697d3668c85525f9cbd29d61961a0f",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5554,16 +5554,16 @@
             -0.8042751590870787,
             -0.417621977096548
           ],
-          "radius": 0.52,
+          "radius": 0.15203883735135254,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "2cd85442557f0aea5f47986a1b1067862e1ecfd2f17d294da854448d4611e0c0",
+        "geometry_sha256": "23600f5bb459526ea437578f2eaf75fd34f278ebcfca44551b8714eea8df14a2",
         "visibility": "clear",
         "native_scene_sha256": "1c92adc45b44cac0c89839fd9af71d2fbad094f7bd091083842b9e032b4f24b5"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "ce38285df0a35e543cd57d2ae49a56dd900f1d7ded52d301ff97954b5301ded3",
+        "image_sha256": "2a0744c81ed4e1a2349353419247751c79f94dff622610a47e4357a7eea3b2dc",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5572,16 +5572,16 @@
             -0.8042751590870787,
             -0.417621977096548
           ],
-          "radius": 0.52,
+          "radius": 0.15203883735135254,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "2cd85442557f0aea5f47986a1b1067862e1ecfd2f17d294da854448d4611e0c0",
+        "geometry_sha256": "23600f5bb459526ea437578f2eaf75fd34f278ebcfca44551b8714eea8df14a2",
         "visibility": "clear",
         "native_scene_sha256": "1c92adc45b44cac0c89839fd9af71d2fbad094f7bd091083842b9e032b4f24b5"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "fb12ee45cefaf6d7fd4f2b5078b2c0b1a46c001418b05192f8eb1a4269b6c39e",
+        "image_sha256": "a3e4459a7cd5b747442dc70c281519fe55959e635bd4a80a088e3541152da412",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5590,10 +5590,10 @@
             -0.8042751590870787,
             -0.417621977096548
           ],
-          "radius": 0.52,
+          "radius": 0.15203883735135254,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "2cd85442557f0aea5f47986a1b1067862e1ecfd2f17d294da854448d4611e0c0",
+        "geometry_sha256": "23600f5bb459526ea437578f2eaf75fd34f278ebcfca44551b8714eea8df14a2",
         "visibility": "occluded",
         "native_scene_sha256": "1c92adc45b44cac0c89839fd9af71d2fbad094f7bd091083842b9e032b4f24b5"
       }
@@ -5627,7 +5627,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "40e7a42864465900cf522657664ff5df90b0fbe726aba94601e89efcc405d505",
+        "image_sha256": "8c51e7b7ea9dc5a3b0e400f45d158162bd1e471a6879d3278b6909b9fbbed8bb",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5636,16 +5636,16 @@
             -0.14076269130244712,
             0.7312180106413295
           ],
-          "radius": 0.52,
+          "radius": 0.34029415850756106,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a81cb652079da407a7517306b1f6931a7a5ebcbd50d91aece9b3a8f04129461",
+        "geometry_sha256": "faec18f484be91f16fca6592d59b54718a2d31bf0e2e27248fafe77d4fd2f94c",
         "visibility": "clear",
         "native_scene_sha256": "795ffa0ac4a2b45b18c50b560f2181da1b67289d2d1eafbe7f345c48e520f4fb"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "40e7a42864465900cf522657664ff5df90b0fbe726aba94601e89efcc405d505",
+        "image_sha256": "8c51e7b7ea9dc5a3b0e400f45d158162bd1e471a6879d3278b6909b9fbbed8bb",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5654,16 +5654,16 @@
             -0.14076269130244712,
             0.7312180106413295
           ],
-          "radius": 0.52,
+          "radius": 0.34029415850756106,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a81cb652079da407a7517306b1f6931a7a5ebcbd50d91aece9b3a8f04129461",
+        "geometry_sha256": "faec18f484be91f16fca6592d59b54718a2d31bf0e2e27248fafe77d4fd2f94c",
         "visibility": "clear",
         "native_scene_sha256": "795ffa0ac4a2b45b18c50b560f2181da1b67289d2d1eafbe7f345c48e520f4fb"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "3de6a3dbe0db1f9cf6b81a1dc069b5e2e2068525663e53cdfbbcd2f9113ad97d",
+        "image_sha256": "b0978591693998794e63ffee1a83e7fc9014ad10f9c7b032d0a004ce8bb81432",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5672,16 +5672,16 @@
             -0.14076269130244712,
             0.7312180106413295
           ],
-          "radius": 0.52,
+          "radius": 0.34029415850756106,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a81cb652079da407a7517306b1f6931a7a5ebcbd50d91aece9b3a8f04129461",
+        "geometry_sha256": "faec18f484be91f16fca6592d59b54718a2d31bf0e2e27248fafe77d4fd2f94c",
         "visibility": "clear",
         "native_scene_sha256": "795ffa0ac4a2b45b18c50b560f2181da1b67289d2d1eafbe7f345c48e520f4fb"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "d063eb69818841974297de23ad7748f4f273efda0c4616a6369e32c9a224c60a",
+        "image_sha256": "00d2f32749ffedcf6de415084f345f7abe9a734afeedb14801d35a360fc7e6eb",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5690,10 +5690,10 @@
             -0.14076269130244712,
             0.7312180106413295
           ],
-          "radius": 0.52,
+          "radius": 0.34029415850756106,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a81cb652079da407a7517306b1f6931a7a5ebcbd50d91aece9b3a8f04129461",
+        "geometry_sha256": "faec18f484be91f16fca6592d59b54718a2d31bf0e2e27248fafe77d4fd2f94c",
         "visibility": "occluded",
         "native_scene_sha256": "795ffa0ac4a2b45b18c50b560f2181da1b67289d2d1eafbe7f345c48e520f4fb"
       }
@@ -5727,7 +5727,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "1688124df7f013a3649c84dd06fed9893c5e8283c0751e45f04424651263c3a5",
+        "image_sha256": "b5a38146b8d5dfa0cc6a0fe4904a91dfa8019995a784f4f63912eced877234d2",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5736,16 +5736,16 @@
             -0.22010990463785918,
             0.2650810023611135
           ],
-          "radius": 0.52,
+          "radius": 0.2890468144766571,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d12287ca281cbce35368275cbc7a88c6a9860c055616505e2d9371af500123fb",
+        "geometry_sha256": "f6cc8748a62d5453d529d12c6ea645f7b6bd35695235ce788203f0abc78ca7a3",
         "visibility": "clear",
         "native_scene_sha256": "bc205224863382b97010f9abe52c3a6b00d0d1295cb5b033e6730a6d7f3c8365"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "1688124df7f013a3649c84dd06fed9893c5e8283c0751e45f04424651263c3a5",
+        "image_sha256": "b5a38146b8d5dfa0cc6a0fe4904a91dfa8019995a784f4f63912eced877234d2",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5754,16 +5754,16 @@
             -0.22010990463785918,
             0.2650810023611135
           ],
-          "radius": 0.52,
+          "radius": 0.2890468144766571,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d12287ca281cbce35368275cbc7a88c6a9860c055616505e2d9371af500123fb",
+        "geometry_sha256": "f6cc8748a62d5453d529d12c6ea645f7b6bd35695235ce788203f0abc78ca7a3",
         "visibility": "clear",
         "native_scene_sha256": "bc205224863382b97010f9abe52c3a6b00d0d1295cb5b033e6730a6d7f3c8365"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "eb35c2aeba5318958f457fd2314eeddb6fd3f8998f1472bbb9b0ee9c823d9d0f",
+        "image_sha256": "3582f0e033a289254c02c1bdded797fca15a2454221fbb1c282403c78695ca00",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5772,16 +5772,16 @@
             -0.22010990463785918,
             0.2650810023611135
           ],
-          "radius": 0.52,
+          "radius": 0.2890468144766571,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d12287ca281cbce35368275cbc7a88c6a9860c055616505e2d9371af500123fb",
+        "geometry_sha256": "f6cc8748a62d5453d529d12c6ea645f7b6bd35695235ce788203f0abc78ca7a3",
         "visibility": "clear",
         "native_scene_sha256": "bc205224863382b97010f9abe52c3a6b00d0d1295cb5b033e6730a6d7f3c8365"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "17ba1319b4a0fc5d10501f9d6be35d9706aebcc124ef79e30f26d616462fd27e",
+        "image_sha256": "50f5b5fa2e9ec33204d1321b89c34329f6de01e26dde00180b9d0a96c0bdc512",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5790,10 +5790,10 @@
             -0.22010990463785918,
             0.2650810023611135
           ],
-          "radius": 0.52,
+          "radius": 0.2890468144766571,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d12287ca281cbce35368275cbc7a88c6a9860c055616505e2d9371af500123fb",
+        "geometry_sha256": "f6cc8748a62d5453d529d12c6ea645f7b6bd35695235ce788203f0abc78ca7a3",
         "visibility": "occluded",
         "native_scene_sha256": "bc205224863382b97010f9abe52c3a6b00d0d1295cb5b033e6730a6d7f3c8365"
       }
@@ -5827,7 +5827,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "2abf6e6fd4cc8d9b4a790f651e381dad41f1e940dfb4ee3cfc878f73843bc055",
+        "image_sha256": "c7a85e94fb030a9f5e9a253529e70db01043b088a30f0611b32d4f1158f8940e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5836,16 +5836,16 @@
             -0.6456406221558313,
             -0.32200467864970034
           ],
-          "radius": 0.52,
+          "radius": 0.20332800078363886,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "560f4e18e10644ceae24857e1e7d33c2895290f789ed00ed6cb86a8c480726ad",
+        "geometry_sha256": "8fcc924cde31b5dfea60fc12b71163554395ab1d9a29c3ea085278af53eb199e",
         "visibility": "clear",
         "native_scene_sha256": "8e1bb7da773539405c5b70cebf88b6b7b64cab588fde5c5117030dcd7d38efad"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "2abf6e6fd4cc8d9b4a790f651e381dad41f1e940dfb4ee3cfc878f73843bc055",
+        "image_sha256": "c7a85e94fb030a9f5e9a253529e70db01043b088a30f0611b32d4f1158f8940e",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5854,16 +5854,16 @@
             -0.6456406221558313,
             -0.32200467864970034
           ],
-          "radius": 0.52,
+          "radius": 0.20332800078363886,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "560f4e18e10644ceae24857e1e7d33c2895290f789ed00ed6cb86a8c480726ad",
+        "geometry_sha256": "8fcc924cde31b5dfea60fc12b71163554395ab1d9a29c3ea085278af53eb199e",
         "visibility": "clear",
         "native_scene_sha256": "8e1bb7da773539405c5b70cebf88b6b7b64cab588fde5c5117030dcd7d38efad"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "727c590eadf5caa0a62113f531a90a6a4d923c8626a9fee21b7f0b78824cf999",
+        "image_sha256": "c9726b2a95f965f4e9f8867c0e378883db3c2db5b13b70607accae4047e591e4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5872,16 +5872,16 @@
             -0.6456406221558313,
             -0.32200467864970034
           ],
-          "radius": 0.52,
+          "radius": 0.20332800078363886,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "560f4e18e10644ceae24857e1e7d33c2895290f789ed00ed6cb86a8c480726ad",
+        "geometry_sha256": "8fcc924cde31b5dfea60fc12b71163554395ab1d9a29c3ea085278af53eb199e",
         "visibility": "clear",
         "native_scene_sha256": "8e1bb7da773539405c5b70cebf88b6b7b64cab588fde5c5117030dcd7d38efad"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "ffa6b0bdd21313288627c97db535b5f6981da45c7be67a9ac184fa914e59345b",
+        "image_sha256": "555278cff29ec36d1183b39837c56259e0f83e1acbfa3243bb9ac6cfa9537ae4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5890,10 +5890,10 @@
             -0.6456406221558313,
             -0.32200467864970034
           ],
-          "radius": 0.52,
+          "radius": 0.20332800078363886,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "560f4e18e10644ceae24857e1e7d33c2895290f789ed00ed6cb86a8c480726ad",
+        "geometry_sha256": "8fcc924cde31b5dfea60fc12b71163554395ab1d9a29c3ea085278af53eb199e",
         "visibility": "occluded",
         "native_scene_sha256": "8e1bb7da773539405c5b70cebf88b6b7b64cab588fde5c5117030dcd7d38efad"
       }
@@ -5927,7 +5927,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "2e137e795805c27fb50f40502b277d1347786e78ca61187ff8becd09447f4595",
+        "image_sha256": "275e0dc2f5e5b4b57d650a7900dad5e15f00b6c60b3f52e88b8ec15569b699ef",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5936,16 +5936,16 @@
             -0.5237328260797474,
             -0.27389701519187093
           ],
-          "radius": 0.52,
+          "radius": 0.22544049056718768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5c7332697f88e841f68488ec75cd8e128c020177b3e4c45877319a411eef7db8",
+        "geometry_sha256": "36faa5fe3e23edd99a610fa8ebc8af0eac11eb68bd528552365eb6f75de54db8",
         "visibility": "clear",
         "native_scene_sha256": "8e3ec299769701ff14166a41ced1af55549753579a847a74587a81f6a66ef3a2"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "2e137e795805c27fb50f40502b277d1347786e78ca61187ff8becd09447f4595",
+        "image_sha256": "275e0dc2f5e5b4b57d650a7900dad5e15f00b6c60b3f52e88b8ec15569b699ef",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -5954,16 +5954,16 @@
             -0.5237328260797474,
             -0.27389701519187093
           ],
-          "radius": 0.52,
+          "radius": 0.22544049056718768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5c7332697f88e841f68488ec75cd8e128c020177b3e4c45877319a411eef7db8",
+        "geometry_sha256": "36faa5fe3e23edd99a610fa8ebc8af0eac11eb68bd528552365eb6f75de54db8",
         "visibility": "clear",
         "native_scene_sha256": "8e3ec299769701ff14166a41ced1af55549753579a847a74587a81f6a66ef3a2"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "7988599b104fec4db64923aa2c78451f5a8109f8005919685939b95b72892db7",
+        "image_sha256": "5bb391276dae1563fb194b9f7b0be5f9f64015a9fc36e800fbbaa9ad47bff1cd",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -5972,16 +5972,16 @@
             -0.5237328260797474,
             -0.27389701519187093
           ],
-          "radius": 0.52,
+          "radius": 0.22544049056718768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5c7332697f88e841f68488ec75cd8e128c020177b3e4c45877319a411eef7db8",
+        "geometry_sha256": "36faa5fe3e23edd99a610fa8ebc8af0eac11eb68bd528552365eb6f75de54db8",
         "visibility": "clear",
         "native_scene_sha256": "8e3ec299769701ff14166a41ced1af55549753579a847a74587a81f6a66ef3a2"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "d511ac992d6c703aa110158732ca5214b06b4c6aa2bc7512816f54e87a71650f",
+        "image_sha256": "4d31f238a98387b22c1a057ca5440cd4bdea817e52ddf4f62ee4400a8840e435",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -5990,10 +5990,10 @@
             -0.5237328260797474,
             -0.27389701519187093
           ],
-          "radius": 0.52,
+          "radius": 0.22544049056718768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5c7332697f88e841f68488ec75cd8e128c020177b3e4c45877319a411eef7db8",
+        "geometry_sha256": "36faa5fe3e23edd99a610fa8ebc8af0eac11eb68bd528552365eb6f75de54db8",
         "visibility": "occluded",
         "native_scene_sha256": "8e3ec299769701ff14166a41ced1af55549753579a847a74587a81f6a66ef3a2"
       }
@@ -6027,7 +6027,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "0bd3ac4a9fb5d94473b8e29af376b8dd577456ce8d9bd4d490f214358f444aaa",
+        "image_sha256": "ce3869edb1f278ec2044945d831a69732aaa5aca35e46c27cf5999a2708d3024",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6036,16 +6036,16 @@
             -0.03252195391057866,
             -0.06499985570268357
           ],
-          "radius": 0.52,
+          "radius": 0.1789365858023627,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "57b8c0eba3b5428e387c882d93d4e9936d1fb55e2e5a14ba4c2f142d82b6e1cb",
+        "geometry_sha256": "6deabfd4076866f84d846266594f5b525a42a1dd75d4ec6612fa147dc8019a22",
         "visibility": "clear",
         "native_scene_sha256": "f09c89e7aba47cbb7c60c94f9de70d91e95292a6ae9ebe73fa4baa2b90d3d936"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "0bd3ac4a9fb5d94473b8e29af376b8dd577456ce8d9bd4d490f214358f444aaa",
+        "image_sha256": "ce3869edb1f278ec2044945d831a69732aaa5aca35e46c27cf5999a2708d3024",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6054,16 +6054,16 @@
             -0.03252195391057866,
             -0.06499985570268357
           ],
-          "radius": 0.52,
+          "radius": 0.1789365858023627,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "57b8c0eba3b5428e387c882d93d4e9936d1fb55e2e5a14ba4c2f142d82b6e1cb",
+        "geometry_sha256": "6deabfd4076866f84d846266594f5b525a42a1dd75d4ec6612fa147dc8019a22",
         "visibility": "clear",
         "native_scene_sha256": "f09c89e7aba47cbb7c60c94f9de70d91e95292a6ae9ebe73fa4baa2b90d3d936"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "f02efd58e236e25eedecd0968d000a08ce594228c12d31cc8766160a8fa2db47",
+        "image_sha256": "033f248d6f52de94ab267077a38642602b7da5c4c5a2a59b723e383d4b14aff6",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6072,16 +6072,16 @@
             -0.03252195391057866,
             -0.06499985570268357
           ],
-          "radius": 0.52,
+          "radius": 0.1789365858023627,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "57b8c0eba3b5428e387c882d93d4e9936d1fb55e2e5a14ba4c2f142d82b6e1cb",
+        "geometry_sha256": "6deabfd4076866f84d846266594f5b525a42a1dd75d4ec6612fa147dc8019a22",
         "visibility": "clear",
         "native_scene_sha256": "f09c89e7aba47cbb7c60c94f9de70d91e95292a6ae9ebe73fa4baa2b90d3d936"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "40d158b6416f5e9a0b1a3b42bcd211cb18f9177de3a57eb93e1355eec26a1285",
+        "image_sha256": "c2fd8d69e9dc2f3e604c3fc3facd7c70803c98526282477244251e2336248604",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6090,10 +6090,10 @@
             -0.03252195391057866,
             -0.06499985570268357
           ],
-          "radius": 0.52,
+          "radius": 0.1789365858023627,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "57b8c0eba3b5428e387c882d93d4e9936d1fb55e2e5a14ba4c2f142d82b6e1cb",
+        "geometry_sha256": "6deabfd4076866f84d846266594f5b525a42a1dd75d4ec6612fa147dc8019a22",
         "visibility": "occluded",
         "native_scene_sha256": "f09c89e7aba47cbb7c60c94f9de70d91e95292a6ae9ebe73fa4baa2b90d3d936"
       }
@@ -6127,7 +6127,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "412a50c266b02fbdfb78f1100a6d561d684c8c29106c25b733f3740bb617b90d",
+        "image_sha256": "9c20df0fe13d4164fea17c5340bd61b67d3aa7a9d33faaf5f4d82788e1ebf37f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6136,16 +6136,16 @@
             0.45903306523140847,
             0.9082067869375553
           ],
-          "radius": 0.52,
+          "radius": 0.19241258268329225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a45db739d10c673cd68d3ec6db4d8d13f5584b7c5e6fc4b77655e2d895eaaf8",
+        "geometry_sha256": "e4467a7ede9a8a2cd5df57fbb2be39e1d35bef97b4a33fb5fd9f9d6674ccbdaf",
         "visibility": "clear",
         "native_scene_sha256": "2852b6882bcc9c987deca931f591e21c98fb0eaec5c3f1d1e8ef628670e201d4"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "412a50c266b02fbdfb78f1100a6d561d684c8c29106c25b733f3740bb617b90d",
+        "image_sha256": "9c20df0fe13d4164fea17c5340bd61b67d3aa7a9d33faaf5f4d82788e1ebf37f",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6154,16 +6154,16 @@
             0.45903306523140847,
             0.9082067869375553
           ],
-          "radius": 0.52,
+          "radius": 0.19241258268329225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a45db739d10c673cd68d3ec6db4d8d13f5584b7c5e6fc4b77655e2d895eaaf8",
+        "geometry_sha256": "e4467a7ede9a8a2cd5df57fbb2be39e1d35bef97b4a33fb5fd9f9d6674ccbdaf",
         "visibility": "clear",
         "native_scene_sha256": "2852b6882bcc9c987deca931f591e21c98fb0eaec5c3f1d1e8ef628670e201d4"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "16dc616840ee3ceb377ed08f642e185a8bb60e5e4ffb7569198a277acd88ca0e",
+        "image_sha256": "fc8cc6e17761d13ae2af3840cfcd7066a27a4a31b7f0049cf8ba5586ec72340f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6172,16 +6172,16 @@
             0.45903306523140847,
             0.9082067869375553
           ],
-          "radius": 0.52,
+          "radius": 0.19241258268329225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a45db739d10c673cd68d3ec6db4d8d13f5584b7c5e6fc4b77655e2d895eaaf8",
+        "geometry_sha256": "e4467a7ede9a8a2cd5df57fbb2be39e1d35bef97b4a33fb5fd9f9d6674ccbdaf",
         "visibility": "clear",
         "native_scene_sha256": "2852b6882bcc9c987deca931f591e21c98fb0eaec5c3f1d1e8ef628670e201d4"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "bb088a10ee8eb051d95f4e0819ec758b478cdff8603cd821f4e3a3077dbe5ea3",
+        "image_sha256": "43a97b6871bb06889aef598c48a39bdce115c6c3c24b74bb04e0062c93f6e710",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6190,10 +6190,10 @@
             0.45903306523140847,
             0.9082067869375553
           ],
-          "radius": 0.52,
+          "radius": 0.19241258268329225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a45db739d10c673cd68d3ec6db4d8d13f5584b7c5e6fc4b77655e2d895eaaf8",
+        "geometry_sha256": "e4467a7ede9a8a2cd5df57fbb2be39e1d35bef97b4a33fb5fd9f9d6674ccbdaf",
         "visibility": "occluded",
         "native_scene_sha256": "2852b6882bcc9c987deca931f591e21c98fb0eaec5c3f1d1e8ef628670e201d4"
       }
@@ -6227,7 +6227,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "235c8780d4110aea65e4674d61e83b655a53438f2fd11eaa4a8014a87792b54b",
+        "image_sha256": "98cde81d22e14516c9c3cac37228198fe77bf646b7898498ab3b26c07a1941d2",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6236,16 +6236,16 @@
             0.430925484625134,
             0.1006474978558784
           ],
-          "radius": 0.52,
+          "radius": 0.2487271442543931,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "caa36ca0aaf33e3247a711df2ac5d691ea3978eeb5c5badc49f6a13b7a52ea90",
+        "geometry_sha256": "943c0bbcdaa173110cc70322a02e60ac32f15480a239bea3c8533f9338fde083",
         "visibility": "clear",
         "native_scene_sha256": "03e4b59dedd7d3d7da5cf01dd97664b8b41d7c9137d41889c7bb2d9941ef16ae"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "235c8780d4110aea65e4674d61e83b655a53438f2fd11eaa4a8014a87792b54b",
+        "image_sha256": "98cde81d22e14516c9c3cac37228198fe77bf646b7898498ab3b26c07a1941d2",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6254,16 +6254,16 @@
             0.430925484625134,
             0.1006474978558784
           ],
-          "radius": 0.52,
+          "radius": 0.2487271442543931,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "caa36ca0aaf33e3247a711df2ac5d691ea3978eeb5c5badc49f6a13b7a52ea90",
+        "geometry_sha256": "943c0bbcdaa173110cc70322a02e60ac32f15480a239bea3c8533f9338fde083",
         "visibility": "clear",
         "native_scene_sha256": "03e4b59dedd7d3d7da5cf01dd97664b8b41d7c9137d41889c7bb2d9941ef16ae"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "7f3e57af111bb287d1a0bfe2f41f92cb23ca0615bf22ff19243d9d8796bc886a",
+        "image_sha256": "07e83e3b2bad40cc4b514bb75ecd8e0d84299564b5187ff6d85fc1db150dcb44",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6272,16 +6272,16 @@
             0.430925484625134,
             0.1006474978558784
           ],
-          "radius": 0.52,
+          "radius": 0.2487271442543931,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "caa36ca0aaf33e3247a711df2ac5d691ea3978eeb5c5badc49f6a13b7a52ea90",
+        "geometry_sha256": "943c0bbcdaa173110cc70322a02e60ac32f15480a239bea3c8533f9338fde083",
         "visibility": "clear",
         "native_scene_sha256": "03e4b59dedd7d3d7da5cf01dd97664b8b41d7c9137d41889c7bb2d9941ef16ae"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "5bf5272e1894f63e18055f229bdfb811006ca3dbe043f0cff44439006b907c0b",
+        "image_sha256": "e1e84d34c991b6e102ee7b2ea102d128b88d6e66beb0f443f4f431f76ca66223",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6290,10 +6290,10 @@
             0.430925484625134,
             0.1006474978558784
           ],
-          "radius": 0.52,
+          "radius": 0.2487271442543931,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "caa36ca0aaf33e3247a711df2ac5d691ea3978eeb5c5badc49f6a13b7a52ea90",
+        "geometry_sha256": "943c0bbcdaa173110cc70322a02e60ac32f15480a239bea3c8533f9338fde083",
         "visibility": "occluded",
         "native_scene_sha256": "03e4b59dedd7d3d7da5cf01dd97664b8b41d7c9137d41889c7bb2d9941ef16ae"
       }
@@ -6327,7 +6327,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "aed6c8d4daf4f3a986c026075fe0810a2bfa77e7ed440f4fd2f464c0d4aa7bdb",
+        "image_sha256": "602a3b8b34026a7763e84e24dba5a8ce63f6235ea7c5d1c9399bc03e20b300e8",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6336,16 +6336,16 @@
             0.392615566987349,
             0.5720594815280053
           ],
-          "radius": 0.52,
+          "radius": 0.15820303402910912,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "25596d5897eee5d996d3fd5d85281377c92f0229b19374a69a09bf144d5d05ce",
+        "geometry_sha256": "8a26d472e548cd2f85b02dcbe890914c265f1a18f21c1184596a0e3e5c9dead1",
         "visibility": "clear",
         "native_scene_sha256": "a4868269fa3144873efce08640e2ada7cdc73f78dfce181a08fe476e505bf4fa"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "aed6c8d4daf4f3a986c026075fe0810a2bfa77e7ed440f4fd2f464c0d4aa7bdb",
+        "image_sha256": "602a3b8b34026a7763e84e24dba5a8ce63f6235ea7c5d1c9399bc03e20b300e8",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6354,16 +6354,16 @@
             0.392615566987349,
             0.5720594815280053
           ],
-          "radius": 0.52,
+          "radius": 0.15820303402910912,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "25596d5897eee5d996d3fd5d85281377c92f0229b19374a69a09bf144d5d05ce",
+        "geometry_sha256": "8a26d472e548cd2f85b02dcbe890914c265f1a18f21c1184596a0e3e5c9dead1",
         "visibility": "clear",
         "native_scene_sha256": "a4868269fa3144873efce08640e2ada7cdc73f78dfce181a08fe476e505bf4fa"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "998ff90a08473a2d5743ccdb1b8e2571ad5774dbcd07244b4d3b83fef2a71780",
+        "image_sha256": "9ac9acf06d093569d471c6a46f6a4de2558efc28100fb07092986ac2656046b3",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6372,16 +6372,16 @@
             0.392615566987349,
             0.5720594815280053
           ],
-          "radius": 0.52,
+          "radius": 0.15820303402910912,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "25596d5897eee5d996d3fd5d85281377c92f0229b19374a69a09bf144d5d05ce",
+        "geometry_sha256": "8a26d472e548cd2f85b02dcbe890914c265f1a18f21c1184596a0e3e5c9dead1",
         "visibility": "clear",
         "native_scene_sha256": "a4868269fa3144873efce08640e2ada7cdc73f78dfce181a08fe476e505bf4fa"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "cd04379f9357d74ee4ba2d59f501725f8bdfb31dc9f4aeec3d0a1235706f35be",
+        "image_sha256": "9be7fdee2c082b5a0b333a621be914bbfc80ce784cbbfc540d5be96216c13010",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6390,10 +6390,10 @@
             0.392615566987349,
             0.5720594815280053
           ],
-          "radius": 0.52,
+          "radius": 0.15820303402910912,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "25596d5897eee5d996d3fd5d85281377c92f0229b19374a69a09bf144d5d05ce",
+        "geometry_sha256": "8a26d472e548cd2f85b02dcbe890914c265f1a18f21c1184596a0e3e5c9dead1",
         "visibility": "occluded",
         "native_scene_sha256": "a4868269fa3144873efce08640e2ada7cdc73f78dfce181a08fe476e505bf4fa"
       }
@@ -6427,7 +6427,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "ae71e8c4ad0a02eacec375f9d08dfbe2a9aa322be3ee6ca75c21a7c1e63fa623",
+        "image_sha256": "2a258dddf857732c042bd8711f8dddfb8d4c357d11f2942a099d9015f242d862",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6436,16 +6436,16 @@
             0.2589650662635249,
             0.203534937605704
           ],
-          "radius": 0.52,
+          "radius": 0.2339115043653237,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a59d3fb260f1be384bb650005f4087da7f30d58d9d5ce26f5282e5f61caab0a0",
+        "geometry_sha256": "291a268a9917cd53bd8cbc2ffee46dd912ee095d218badfc7f1d795edd73894e",
         "visibility": "clear",
         "native_scene_sha256": "e168d3a211e016090685cc28c62c5ae4bf8d7b27059d8e33806bbc19548d4093"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "ae71e8c4ad0a02eacec375f9d08dfbe2a9aa322be3ee6ca75c21a7c1e63fa623",
+        "image_sha256": "2a258dddf857732c042bd8711f8dddfb8d4c357d11f2942a099d9015f242d862",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6454,16 +6454,16 @@
             0.2589650662635249,
             0.203534937605704
           ],
-          "radius": 0.52,
+          "radius": 0.2339115043653237,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a59d3fb260f1be384bb650005f4087da7f30d58d9d5ce26f5282e5f61caab0a0",
+        "geometry_sha256": "291a268a9917cd53bd8cbc2ffee46dd912ee095d218badfc7f1d795edd73894e",
         "visibility": "clear",
         "native_scene_sha256": "e168d3a211e016090685cc28c62c5ae4bf8d7b27059d8e33806bbc19548d4093"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "43ef9262f7a0f3a46e5f3b02a40b2cc59154904543da3258b8907adb062aa427",
+        "image_sha256": "d8e9482c7e82a78382d7500e7229e21d31b0a8715e33a3f8d1fc6a7c529db622",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6472,16 +6472,16 @@
             0.2589650662635249,
             0.203534937605704
           ],
-          "radius": 0.52,
+          "radius": 0.2339115043653237,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a59d3fb260f1be384bb650005f4087da7f30d58d9d5ce26f5282e5f61caab0a0",
+        "geometry_sha256": "291a268a9917cd53bd8cbc2ffee46dd912ee095d218badfc7f1d795edd73894e",
         "visibility": "clear",
         "native_scene_sha256": "e168d3a211e016090685cc28c62c5ae4bf8d7b27059d8e33806bbc19548d4093"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "01b59bb5f1b107fab300df94b6fc3e55f54c67ce4504c60ec08f153d12cd51f4",
+        "image_sha256": "4b606ef82410b964b2d46bc3b821518585233dcad41c9aef0319955fbb86b214",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6490,10 +6490,10 @@
             0.2589650662635249,
             0.203534937605704
           ],
-          "radius": 0.52,
+          "radius": 0.2339115043653237,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a59d3fb260f1be384bb650005f4087da7f30d58d9d5ce26f5282e5f61caab0a0",
+        "geometry_sha256": "291a268a9917cd53bd8cbc2ffee46dd912ee095d218badfc7f1d795edd73894e",
         "visibility": "occluded",
         "native_scene_sha256": "e168d3a211e016090685cc28c62c5ae4bf8d7b27059d8e33806bbc19548d4093"
       }
@@ -6527,7 +6527,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "580e5765de26bbf35c341dd81847434abee91ff1b8aedabb8cc3c98df0ef41f0",
+        "image_sha256": "d8c5d0ac7ef33797d70e630fba20666d5e6bdd967872cd0a8a7b0f1cd75e0bb4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6536,16 +6536,16 @@
             -0.045121499268677534,
             -0.3913913048049198
           ],
-          "radius": 0.38,
+          "radius": 0.18412363564183387,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d3479cc3633aa11ab727b161cbbc43f048eefdf914c3a9248a1787abaee02261",
+        "geometry_sha256": "d8bc6e746bc6ea04914f0d7b3baeab128084c52c555b68b528fc9dc3004975ef",
         "visibility": "clear",
         "native_scene_sha256": "e0616edbfabc7cf1c8e6c2c4c0d4f0acf93c376a0b0c658dd33bdd32f173056d"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "580e5765de26bbf35c341dd81847434abee91ff1b8aedabb8cc3c98df0ef41f0",
+        "image_sha256": "d8c5d0ac7ef33797d70e630fba20666d5e6bdd967872cd0a8a7b0f1cd75e0bb4",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6554,16 +6554,16 @@
             -0.045121499268677534,
             -0.3913913048049198
           ],
-          "radius": 0.38,
+          "radius": 0.18412363564183387,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d3479cc3633aa11ab727b161cbbc43f048eefdf914c3a9248a1787abaee02261",
+        "geometry_sha256": "d8bc6e746bc6ea04914f0d7b3baeab128084c52c555b68b528fc9dc3004975ef",
         "visibility": "clear",
         "native_scene_sha256": "e0616edbfabc7cf1c8e6c2c4c0d4f0acf93c376a0b0c658dd33bdd32f173056d"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "ed84f037e3a4618ecad8dd3fb7e855804ed44a74e36b9c66b97e87247c03eb22",
+        "image_sha256": "49fbd6d7b7775d767910d8f764e3b9e8aebdce402a9c6e7e017c6d519a0b2aa0",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6572,16 +6572,16 @@
             -0.045121499268677534,
             -0.3913913048049198
           ],
-          "radius": 0.38,
+          "radius": 0.18412363564183387,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d3479cc3633aa11ab727b161cbbc43f048eefdf914c3a9248a1787abaee02261",
+        "geometry_sha256": "d8bc6e746bc6ea04914f0d7b3baeab128084c52c555b68b528fc9dc3004975ef",
         "visibility": "clear",
         "native_scene_sha256": "e0616edbfabc7cf1c8e6c2c4c0d4f0acf93c376a0b0c658dd33bdd32f173056d"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "2ff70ecef30e968297d0800d0ac62a2abf2bdff67e6cda78c1834b6360704e58",
+        "image_sha256": "2a644db28429111d8b64081304910a20ab12484369eea08efb1e1cb92652093b",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6590,10 +6590,10 @@
             -0.045121499268677534,
             -0.3913913048049198
           ],
-          "radius": 0.38,
+          "radius": 0.18412363564183387,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "d3479cc3633aa11ab727b161cbbc43f048eefdf914c3a9248a1787abaee02261",
+        "geometry_sha256": "d8bc6e746bc6ea04914f0d7b3baeab128084c52c555b68b528fc9dc3004975ef",
         "visibility": "occluded",
         "native_scene_sha256": "e0616edbfabc7cf1c8e6c2c4c0d4f0acf93c376a0b0c658dd33bdd32f173056d"
       }
@@ -6627,7 +6627,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "f879b30210aeb967497e0e8d611f8273cf87a8b300ad4be2ea5b933acffb981d",
+        "image_sha256": "7a99aa1196c0259360d4e269b877ef1e78488aed7ae274b0a35f616d6aca3dcd",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6636,16 +6636,16 @@
             1.3706666774811445,
             -0.590690294360403
           ],
-          "radius": 0.38,
+          "radius": 0.13338294675056658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "942eb06961bae02d50924c32508abb28e7238584649d33ec1978ce92e80c603c",
+        "geometry_sha256": "754b1927afc00a84cac737868db2163561bf605a9e8ec1af79ae1a789f65501e",
         "visibility": "clear",
         "native_scene_sha256": "c24494d2f97c5b5e897f9ac9f530431f68e8c12b5e1dd8114b3938beafbb4421"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "f879b30210aeb967497e0e8d611f8273cf87a8b300ad4be2ea5b933acffb981d",
+        "image_sha256": "7a99aa1196c0259360d4e269b877ef1e78488aed7ae274b0a35f616d6aca3dcd",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6654,16 +6654,16 @@
             1.3706666774811445,
             -0.590690294360403
           ],
-          "radius": 0.38,
+          "radius": 0.13338294675056658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "942eb06961bae02d50924c32508abb28e7238584649d33ec1978ce92e80c603c",
+        "geometry_sha256": "754b1927afc00a84cac737868db2163561bf605a9e8ec1af79ae1a789f65501e",
         "visibility": "clear",
         "native_scene_sha256": "c24494d2f97c5b5e897f9ac9f530431f68e8c12b5e1dd8114b3938beafbb4421"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "c406c860880da303e74279885fd746701350b74ab985ffac4b4bcdaae909f109",
+        "image_sha256": "fad763ca265dba290861efe63341889ef03c2278bb8f0c89dfba0913b6a7ce0f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6672,16 +6672,16 @@
             1.3706666774811445,
             -0.590690294360403
           ],
-          "radius": 0.38,
+          "radius": 0.13338294675056658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "942eb06961bae02d50924c32508abb28e7238584649d33ec1978ce92e80c603c",
+        "geometry_sha256": "754b1927afc00a84cac737868db2163561bf605a9e8ec1af79ae1a789f65501e",
         "visibility": "clear",
         "native_scene_sha256": "c24494d2f97c5b5e897f9ac9f530431f68e8c12b5e1dd8114b3938beafbb4421"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "aa7960076e39e184bebdc9c3198939e43098ebe3c0e52c204f5ae74a0e0df478",
+        "image_sha256": "2ab3c52b75bf9c19db667950e30c5cf747f4c29dbf744f28fba914af722ffaab",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6690,10 +6690,10 @@
             1.3706666774811445,
             -0.590690294360403
           ],
-          "radius": 0.38,
+          "radius": 0.13338294675056658,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "942eb06961bae02d50924c32508abb28e7238584649d33ec1978ce92e80c603c",
+        "geometry_sha256": "754b1927afc00a84cac737868db2163561bf605a9e8ec1af79ae1a789f65501e",
         "visibility": "occluded",
         "native_scene_sha256": "c24494d2f97c5b5e897f9ac9f530431f68e8c12b5e1dd8114b3938beafbb4421"
       }
@@ -6727,7 +6727,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "64ee7cfb482d730b02a29cb89c743ef85fe451aee037eb8483f9ef6ce89c1504",
+        "image_sha256": "a203af3a1a158dc5ba0967319b14f9c4b56c92c62788dd84ec0cc213a5a9c642",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6736,16 +6736,16 @@
             -0.26686590799945,
             -0.2460819705231554
           ],
-          "radius": 0.38,
+          "radius": 0.23273785459632768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a893aa2fa256a02df68aa7b5c92194488dab37c0289ab8ea3e2c6e357125126",
+        "geometry_sha256": "dfcd0a172a16491a39eaf50ad1f1ced3b8489f5b7c78f2a93f4e1012237f88e9",
         "visibility": "clear",
         "native_scene_sha256": "7440d20c48ddb3a59382815b481197091e76b58e957ac3264e47f5dba85e03bd"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "64ee7cfb482d730b02a29cb89c743ef85fe451aee037eb8483f9ef6ce89c1504",
+        "image_sha256": "a203af3a1a158dc5ba0967319b14f9c4b56c92c62788dd84ec0cc213a5a9c642",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6754,16 +6754,16 @@
             -0.26686590799945,
             -0.2460819705231554
           ],
-          "radius": 0.38,
+          "radius": 0.23273785459632768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a893aa2fa256a02df68aa7b5c92194488dab37c0289ab8ea3e2c6e357125126",
+        "geometry_sha256": "dfcd0a172a16491a39eaf50ad1f1ced3b8489f5b7c78f2a93f4e1012237f88e9",
         "visibility": "clear",
         "native_scene_sha256": "7440d20c48ddb3a59382815b481197091e76b58e957ac3264e47f5dba85e03bd"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "373dceee599cdd77df92cb358a079fab930d410ba3bd857b8e4e6c355710b443",
+        "image_sha256": "ee0066911326052396c00569b5be7acacb5ab0e3f89209bfec692744d1ccc7d7",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6772,16 +6772,16 @@
             -0.26686590799945,
             -0.2460819705231554
           ],
-          "radius": 0.38,
+          "radius": 0.23273785459632768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a893aa2fa256a02df68aa7b5c92194488dab37c0289ab8ea3e2c6e357125126",
+        "geometry_sha256": "dfcd0a172a16491a39eaf50ad1f1ced3b8489f5b7c78f2a93f4e1012237f88e9",
         "visibility": "clear",
         "native_scene_sha256": "7440d20c48ddb3a59382815b481197091e76b58e957ac3264e47f5dba85e03bd"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "54fcaacd60db80025b1cf48cf24ea18a94dd1ceb930930a0a69ef1bbc03454e3",
+        "image_sha256": "5cf7345d98bb19eff0c5aad088a6217d1707e33f922ed1cb1dc31194ec96d912",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6790,10 +6790,10 @@
             -0.26686590799945,
             -0.2460819705231554
           ],
-          "radius": 0.38,
+          "radius": 0.23273785459632768,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "0a893aa2fa256a02df68aa7b5c92194488dab37c0289ab8ea3e2c6e357125126",
+        "geometry_sha256": "dfcd0a172a16491a39eaf50ad1f1ced3b8489f5b7c78f2a93f4e1012237f88e9",
         "visibility": "occluded",
         "native_scene_sha256": "7440d20c48ddb3a59382815b481197091e76b58e957ac3264e47f5dba85e03bd"
       }
@@ -6827,7 +6827,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "462180d273e3385e5109c09e7f5743cd2b914734899218d2c267c523c98f1f7a",
+        "image_sha256": "295ea978785107b7b6087a9c3d871747d08eebe32c25294bbc0cfc8f4fe8dfb4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6836,16 +6836,16 @@
             0.5119136044433847,
             0.2836098831522957
           ],
-          "radius": 0.38,
+          "radius": 0.23899437145392527,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "50580bd4b5a4a5d16155d54ace8e6a877a86b4bc489497c8d87a18dc5c02754c",
+        "geometry_sha256": "3d57cd4e50258946167cb77cb9bdfb3dc0b9e3aa6bc11416e8e7305cb7640232",
         "visibility": "clear",
         "native_scene_sha256": "c3ffc4e6e8b22f53fbffefba86d9e9298fdcb3d392766d0048a48e0c94412527"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "462180d273e3385e5109c09e7f5743cd2b914734899218d2c267c523c98f1f7a",
+        "image_sha256": "295ea978785107b7b6087a9c3d871747d08eebe32c25294bbc0cfc8f4fe8dfb4",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -6854,16 +6854,16 @@
             0.5119136044433847,
             0.2836098831522957
           ],
-          "radius": 0.38,
+          "radius": 0.23899437145392527,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "50580bd4b5a4a5d16155d54ace8e6a877a86b4bc489497c8d87a18dc5c02754c",
+        "geometry_sha256": "3d57cd4e50258946167cb77cb9bdfb3dc0b9e3aa6bc11416e8e7305cb7640232",
         "visibility": "clear",
         "native_scene_sha256": "c3ffc4e6e8b22f53fbffefba86d9e9298fdcb3d392766d0048a48e0c94412527"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "3fa44354db8d67db3110144900c54aa3c30ef729bd1ba4df5b6943581e378ff9",
+        "image_sha256": "4a2e59fbbfb4c44d12ead9d25bcd0d084177a342fe39484db257f29f93394e85",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -6872,16 +6872,16 @@
             0.5119136044433847,
             0.2836098831522957
           ],
-          "radius": 0.38,
+          "radius": 0.23899437145392527,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "50580bd4b5a4a5d16155d54ace8e6a877a86b4bc489497c8d87a18dc5c02754c",
+        "geometry_sha256": "3d57cd4e50258946167cb77cb9bdfb3dc0b9e3aa6bc11416e8e7305cb7640232",
         "visibility": "clear",
         "native_scene_sha256": "c3ffc4e6e8b22f53fbffefba86d9e9298fdcb3d392766d0048a48e0c94412527"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "fd12c0daac0a76bf0e0584da595f45fe2d1b3884851d942ea7a22d4342be1be0",
+        "image_sha256": "03e0b42c34235d8ca7e5cdb73ef7e70e558489c1ca6f86c95525b7d89936e9af",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -6890,10 +6890,10 @@
             0.5119136044433847,
             0.2836098831522957
           ],
-          "radius": 0.38,
+          "radius": 0.23899437145392527,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "50580bd4b5a4a5d16155d54ace8e6a877a86b4bc489497c8d87a18dc5c02754c",
+        "geometry_sha256": "3d57cd4e50258946167cb77cb9bdfb3dc0b9e3aa6bc11416e8e7305cb7640232",
         "visibility": "occluded",
         "native_scene_sha256": "c3ffc4e6e8b22f53fbffefba86d9e9298fdcb3d392766d0048a48e0c94412527"
       }
@@ -7027,7 +7027,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "c88a1cf43bf55f2589b537663fce52381f610dc6c7c11bca1e2e0dd3d908662a",
+        "image_sha256": "c3da7520e33f999764f30897a9bada07456decd8c1b7365547942a678a0a017c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7036,16 +7036,16 @@
             -0.23307550065235116,
             0.9979480986916861
           ],
-          "radius": 0.52,
+          "radius": 0.21505811460390972,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "7a8ed5b6bd444bb8316e1bbc2d75769c953ecf0e0bb115aaeabe38b273a666c5",
+        "geometry_sha256": "08e3435d852966925b577ca50058136c9f0f43dc87fc02944bf4b25b61b0f2ef",
         "visibility": "clear",
         "native_scene_sha256": "792f019738406a641c66edaa97e7f9face33527592b1a82e56f489e038b11b67"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "c88a1cf43bf55f2589b537663fce52381f610dc6c7c11bca1e2e0dd3d908662a",
+        "image_sha256": "c3da7520e33f999764f30897a9bada07456decd8c1b7365547942a678a0a017c",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7054,16 +7054,16 @@
             -0.23307550065235116,
             0.9979480986916861
           ],
-          "radius": 0.52,
+          "radius": 0.21505811460390972,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "7a8ed5b6bd444bb8316e1bbc2d75769c953ecf0e0bb115aaeabe38b273a666c5",
+        "geometry_sha256": "08e3435d852966925b577ca50058136c9f0f43dc87fc02944bf4b25b61b0f2ef",
         "visibility": "clear",
         "native_scene_sha256": "792f019738406a641c66edaa97e7f9face33527592b1a82e56f489e038b11b67"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "d537bf6ca1fcdd598e56d5fb151cf66e79b84022ce01a90470e30373e267a95b",
+        "image_sha256": "c7a8892decf77f415d66b57ecb3146432827cc754a63afc8c60822a7ddd7cd22",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7072,16 +7072,16 @@
             -0.23307550065235116,
             0.9979480986916861
           ],
-          "radius": 0.52,
+          "radius": 0.21505811460390972,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "7a8ed5b6bd444bb8316e1bbc2d75769c953ecf0e0bb115aaeabe38b273a666c5",
+        "geometry_sha256": "08e3435d852966925b577ca50058136c9f0f43dc87fc02944bf4b25b61b0f2ef",
         "visibility": "clear",
         "native_scene_sha256": "792f019738406a641c66edaa97e7f9face33527592b1a82e56f489e038b11b67"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "e9675ba62de2bd310b2cf9125342dc7b1bea2a8bd842688c58b10b66bb9cbf8a",
+        "image_sha256": "f3be918b41a962a5cf217e081a86e035bcf6ae1ba77e1a0097503463266535d6",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7090,10 +7090,10 @@
             -0.23307550065235116,
             0.9979480986916861
           ],
-          "radius": 0.52,
+          "radius": 0.21505811460390972,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "7a8ed5b6bd444bb8316e1bbc2d75769c953ecf0e0bb115aaeabe38b273a666c5",
+        "geometry_sha256": "08e3435d852966925b577ca50058136c9f0f43dc87fc02944bf4b25b61b0f2ef",
         "visibility": "occluded",
         "native_scene_sha256": "792f019738406a641c66edaa97e7f9face33527592b1a82e56f489e038b11b67"
       }
@@ -7127,7 +7127,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "9390ce9c5726fcf78ed50afae690a9e2141ef69385f5bcfc08deaa34d4ce2f38",
+        "image_sha256": "b8da884bb2c38d265949b803fe57d767c7761dcd27495ceab1dad7778cfa4a2e",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7136,16 +7136,16 @@
             0.1571922908802651,
             0.502363815849555
           ],
-          "radius": 0.52,
+          "radius": 0.22217073168693854,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4a3a2d18ff9672b3fb9b611729109577e71143382090499251e6cffe91deda20",
+        "geometry_sha256": "cb92895a9864de9e3b2501b1d741f39654726c9df74ee3d09bae08971a05ebfb",
         "visibility": "clear",
         "native_scene_sha256": "10b766203a81478d11ec62a6aa544b4fc272772772910801723803ef09e36df7"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "9390ce9c5726fcf78ed50afae690a9e2141ef69385f5bcfc08deaa34d4ce2f38",
+        "image_sha256": "b8da884bb2c38d265949b803fe57d767c7761dcd27495ceab1dad7778cfa4a2e",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7154,16 +7154,16 @@
             0.1571922908802651,
             0.502363815849555
           ],
-          "radius": 0.52,
+          "radius": 0.22217073168693854,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4a3a2d18ff9672b3fb9b611729109577e71143382090499251e6cffe91deda20",
+        "geometry_sha256": "cb92895a9864de9e3b2501b1d741f39654726c9df74ee3d09bae08971a05ebfb",
         "visibility": "clear",
         "native_scene_sha256": "10b766203a81478d11ec62a6aa544b4fc272772772910801723803ef09e36df7"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "169e71835e3e2d4da39c9c0f7091aadd901d985328c0fc095680e84a2e7d14c6",
+        "image_sha256": "9191273ad59dcdfbc1e1e606be9d37115f8244bcc638fddd2571b6969f325cb4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7172,16 +7172,16 @@
             0.1571922908802651,
             0.502363815849555
           ],
-          "radius": 0.52,
+          "radius": 0.22217073168693854,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4a3a2d18ff9672b3fb9b611729109577e71143382090499251e6cffe91deda20",
+        "geometry_sha256": "cb92895a9864de9e3b2501b1d741f39654726c9df74ee3d09bae08971a05ebfb",
         "visibility": "clear",
         "native_scene_sha256": "10b766203a81478d11ec62a6aa544b4fc272772772910801723803ef09e36df7"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "e5f39ccf719355f775fbd2c57de297e43202e461ee79f08bbdb56c819187d5e1",
+        "image_sha256": "06bdf4c92e9dbdde459f8074d3531823f6ff228ad942e9c2e990ba39fc6a7398",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7190,10 +7190,10 @@
             0.1571922908802651,
             0.502363815849555
           ],
-          "radius": 0.52,
+          "radius": 0.22217073168693854,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "4a3a2d18ff9672b3fb9b611729109577e71143382090499251e6cffe91deda20",
+        "geometry_sha256": "cb92895a9864de9e3b2501b1d741f39654726c9df74ee3d09bae08971a05ebfb",
         "visibility": "occluded",
         "native_scene_sha256": "10b766203a81478d11ec62a6aa544b4fc272772772910801723803ef09e36df7"
       }
@@ -7227,7 +7227,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "ab588ad822316b190bdd6bc2d8c2589346d746d8951eb1aa17edcca8b3642cab",
+        "image_sha256": "23b78574edc8e31e9338b55ec03cc1ee583697b4d9c388ce29454236297ee38a",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7236,16 +7236,16 @@
             0.06593426264544582,
             -0.48234141659867524
           ],
-          "radius": 0.52,
+          "radius": 0.18125894614003377,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a16fc8f9ccc2343c98b67867b679c37886725e354fe087189d95fa369441f21f",
+        "geometry_sha256": "756c589db918699a9c37e6ccf220cf301d473b7142c3824afea7e16d92212e2a",
         "visibility": "clear",
         "native_scene_sha256": "d66fda63ccd22fb11385a33191ca0a1bbd3ee6eeea3f43e0f08a036e469d85d9"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "ab588ad822316b190bdd6bc2d8c2589346d746d8951eb1aa17edcca8b3642cab",
+        "image_sha256": "23b78574edc8e31e9338b55ec03cc1ee583697b4d9c388ce29454236297ee38a",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7254,16 +7254,16 @@
             0.06593426264544582,
             -0.48234141659867524
           ],
-          "radius": 0.52,
+          "radius": 0.18125894614003377,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a16fc8f9ccc2343c98b67867b679c37886725e354fe087189d95fa369441f21f",
+        "geometry_sha256": "756c589db918699a9c37e6ccf220cf301d473b7142c3824afea7e16d92212e2a",
         "visibility": "clear",
         "native_scene_sha256": "d66fda63ccd22fb11385a33191ca0a1bbd3ee6eeea3f43e0f08a036e469d85d9"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "953ed611b2531b66e08a594ad209524c3be081ad7217e5e3257f954347ff1eea",
+        "image_sha256": "e20685bc0373a3a9bf081cdb114e7e5e86534b3606640a37d893d2b2d3668821",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7272,16 +7272,16 @@
             0.06593426264544582,
             -0.48234141659867524
           ],
-          "radius": 0.52,
+          "radius": 0.18125894614003377,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a16fc8f9ccc2343c98b67867b679c37886725e354fe087189d95fa369441f21f",
+        "geometry_sha256": "756c589db918699a9c37e6ccf220cf301d473b7142c3824afea7e16d92212e2a",
         "visibility": "clear",
         "native_scene_sha256": "d66fda63ccd22fb11385a33191ca0a1bbd3ee6eeea3f43e0f08a036e469d85d9"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "cb8b173a5f675f2effc02495f241de40a504be26602197151682244b3a4aeb8c",
+        "image_sha256": "f38e00966ffb4a264bc48a0f4c6f6b57763c1fb840a4b36b942503ed5397aa43",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7290,10 +7290,10 @@
             0.06593426264544582,
             -0.48234141659867524
           ],
-          "radius": 0.52,
+          "radius": 0.18125894614003377,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "a16fc8f9ccc2343c98b67867b679c37886725e354fe087189d95fa369441f21f",
+        "geometry_sha256": "756c589db918699a9c37e6ccf220cf301d473b7142c3824afea7e16d92212e2a",
         "visibility": "occluded",
         "native_scene_sha256": "d66fda63ccd22fb11385a33191ca0a1bbd3ee6eeea3f43e0f08a036e469d85d9"
       }
@@ -7327,7 +7327,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "2cc32969a8b220fab85e220155aff8712a01a0edc11e22cab2b58a1eea547d98",
+        "image_sha256": "f2c79928bde4efcf8477b2b874b5c167ad69cab22a00eb2a3121defca1454567",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7336,16 +7336,16 @@
             -0.36140655954477624,
             0.7126073404488784
           ],
-          "radius": 0.52,
+          "radius": 0.16643655953188602,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5aca257a6543a141017f995b8094d30115b0586b7a7fc98407e2edcb9cace1d3",
+        "geometry_sha256": "8b10feadac905b9772cb516fbdb5fbd3f32e887ac56d069742af3e69b374bc6b",
         "visibility": "clear",
         "native_scene_sha256": "63c36ff963f9d8cd89091b37da4f37af41a1b817b83d84e01fdb73c8fa7e7cb0"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "2cc32969a8b220fab85e220155aff8712a01a0edc11e22cab2b58a1eea547d98",
+        "image_sha256": "f2c79928bde4efcf8477b2b874b5c167ad69cab22a00eb2a3121defca1454567",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7354,16 +7354,16 @@
             -0.36140655954477624,
             0.7126073404488784
           ],
-          "radius": 0.52,
+          "radius": 0.16643655953188602,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5aca257a6543a141017f995b8094d30115b0586b7a7fc98407e2edcb9cace1d3",
+        "geometry_sha256": "8b10feadac905b9772cb516fbdb5fbd3f32e887ac56d069742af3e69b374bc6b",
         "visibility": "clear",
         "native_scene_sha256": "63c36ff963f9d8cd89091b37da4f37af41a1b817b83d84e01fdb73c8fa7e7cb0"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "2e05b547704b496e982f6fa4265a5bf992155aeabe282ac5a33b94db469b0bfb",
+        "image_sha256": "d2dfbe6983cd1b76108f7972bb436ce965ed9227e858fb8536b73959bd036bc7",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7372,16 +7372,16 @@
             -0.36140655954477624,
             0.7126073404488784
           ],
-          "radius": 0.52,
+          "radius": 0.16643655953188602,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5aca257a6543a141017f995b8094d30115b0586b7a7fc98407e2edcb9cace1d3",
+        "geometry_sha256": "8b10feadac905b9772cb516fbdb5fbd3f32e887ac56d069742af3e69b374bc6b",
         "visibility": "clear",
         "native_scene_sha256": "63c36ff963f9d8cd89091b37da4f37af41a1b817b83d84e01fdb73c8fa7e7cb0"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "f4c6a583a4205b70452f556d87033e05922160c9c66cd8f84b7930933e47eff7",
+        "image_sha256": "20ac4ca69bd8614db89908750bf2d91194adeccaf544cc7812a0f91ecd257a21",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7390,10 +7390,10 @@
             -0.36140655954477624,
             0.7126073404488784
           ],
-          "radius": 0.52,
+          "radius": 0.16643655953188602,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "5aca257a6543a141017f995b8094d30115b0586b7a7fc98407e2edcb9cace1d3",
+        "geometry_sha256": "8b10feadac905b9772cb516fbdb5fbd3f32e887ac56d069742af3e69b374bc6b",
         "visibility": "occluded",
         "native_scene_sha256": "63c36ff963f9d8cd89091b37da4f37af41a1b817b83d84e01fdb73c8fa7e7cb0"
       }
@@ -7427,7 +7427,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "14a76c9cf21a63d9556efb2aa4b89419f60c718105255912e694196729196f27",
+        "image_sha256": "8ea1b6735c0fabcf988e54972d99c9390c86511b107b6ffddd7f7d1a02d295d0",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7436,16 +7436,16 @@
             -0.9120789808350604,
             -0.118513027432777
           ],
-          "radius": 0.52,
+          "radius": 0.16748914869806225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "75cf3946381f15a54bf0c7c19057e5718d28c2be38fce9d0a6eb9c18b1997f39",
+        "geometry_sha256": "dfba73cbc76a184a749871422c42f5db540ca3e0625b31802c423e6b6647b500",
         "visibility": "clear",
         "native_scene_sha256": "4b986d7fe40c10483cf5f38142b7eee6289806e1290b26ba09107e46e922371d"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "14a76c9cf21a63d9556efb2aa4b89419f60c718105255912e694196729196f27",
+        "image_sha256": "8ea1b6735c0fabcf988e54972d99c9390c86511b107b6ffddd7f7d1a02d295d0",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7454,16 +7454,16 @@
             -0.9120789808350604,
             -0.118513027432777
           ],
-          "radius": 0.52,
+          "radius": 0.16748914869806225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "75cf3946381f15a54bf0c7c19057e5718d28c2be38fce9d0a6eb9c18b1997f39",
+        "geometry_sha256": "dfba73cbc76a184a749871422c42f5db540ca3e0625b31802c423e6b6647b500",
         "visibility": "clear",
         "native_scene_sha256": "4b986d7fe40c10483cf5f38142b7eee6289806e1290b26ba09107e46e922371d"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "79efa57f4a1eb5a3f5d6be3208fe4346f62f1ef30335b6d5617d3c150e242e73",
+        "image_sha256": "b51674259f940985b9f13a3e5399847a733cfb6676b9e5d8cff7dfa0b90bf99f",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7472,16 +7472,16 @@
             -0.9120789808350604,
             -0.118513027432777
           ],
-          "radius": 0.52,
+          "radius": 0.16748914869806225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "75cf3946381f15a54bf0c7c19057e5718d28c2be38fce9d0a6eb9c18b1997f39",
+        "geometry_sha256": "dfba73cbc76a184a749871422c42f5db540ca3e0625b31802c423e6b6647b500",
         "visibility": "clear",
         "native_scene_sha256": "4b986d7fe40c10483cf5f38142b7eee6289806e1290b26ba09107e46e922371d"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "3e27d2a65d96e31bc8e7714e8f0e418194526e06859eea32514820ee47d1b3ed",
+        "image_sha256": "9e27a138fd0c84ac2f6ea176df2d76c53c6145e7db728c9ad481d3ec51dd3336",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7490,10 +7490,10 @@
             -0.9120789808350604,
             -0.118513027432777
           ],
-          "radius": 0.52,
+          "radius": 0.16748914869806225,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "75cf3946381f15a54bf0c7c19057e5718d28c2be38fce9d0a6eb9c18b1997f39",
+        "geometry_sha256": "dfba73cbc76a184a749871422c42f5db540ca3e0625b31802c423e6b6647b500",
         "visibility": "occluded",
         "native_scene_sha256": "4b986d7fe40c10483cf5f38142b7eee6289806e1290b26ba09107e46e922371d"
       }
@@ -7527,7 +7527,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "c9a3e3bbb0941c7a71e139f35961c895ffcd0fc352620dec42a8f3e7565fe0d2",
+        "image_sha256": "31cb313994fe9ca70290bfc68df9d88691f502e279f428a9d45dc6568cb18629",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7536,16 +7536,16 @@
             0.07930467641817185,
             0.49921461688825947
           ],
-          "radius": 0.52,
+          "radius": 0.14595404939403048,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "154e14ef3479efc150a9df9ecdb0013338676653834148c36a97387e868ddca0",
+        "geometry_sha256": "f8e55a303172d58db42b0277896fcb042114c05c79514725e0e808b2dec42d32",
         "visibility": "clear",
         "native_scene_sha256": "c094eae128f29a3b6de24ad41574561996c16e8a79ec26330d72b22fbe2f5cef"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "c9a3e3bbb0941c7a71e139f35961c895ffcd0fc352620dec42a8f3e7565fe0d2",
+        "image_sha256": "31cb313994fe9ca70290bfc68df9d88691f502e279f428a9d45dc6568cb18629",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7554,16 +7554,16 @@
             0.07930467641817185,
             0.49921461688825947
           ],
-          "radius": 0.52,
+          "radius": 0.14595404939403048,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "154e14ef3479efc150a9df9ecdb0013338676653834148c36a97387e868ddca0",
+        "geometry_sha256": "f8e55a303172d58db42b0277896fcb042114c05c79514725e0e808b2dec42d32",
         "visibility": "clear",
         "native_scene_sha256": "c094eae128f29a3b6de24ad41574561996c16e8a79ec26330d72b22fbe2f5cef"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "551a19fae97756983da673f683a1a97b9ed816385d84f887fa0398ddc7507d90",
+        "image_sha256": "ba7a98d0b85d8e9383680639db9984b296cdca8d2054561af823497ebd5a32e6",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7572,16 +7572,16 @@
             0.07930467641817185,
             0.49921461688825947
           ],
-          "radius": 0.52,
+          "radius": 0.14595404939403048,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "154e14ef3479efc150a9df9ecdb0013338676653834148c36a97387e868ddca0",
+        "geometry_sha256": "f8e55a303172d58db42b0277896fcb042114c05c79514725e0e808b2dec42d32",
         "visibility": "clear",
         "native_scene_sha256": "c094eae128f29a3b6de24ad41574561996c16e8a79ec26330d72b22fbe2f5cef"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "ecf8514544c080d6de41983e90323aefc7eaa2b16069bf05b428d5d13232b200",
+        "image_sha256": "cfab094e97fab199d98053f0481e5310ab8fe32cc75370d6815a464061af3dea",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7590,10 +7590,10 @@
             0.07930467641817185,
             0.49921461688825947
           ],
-          "radius": 0.52,
+          "radius": 0.14595404939403048,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "154e14ef3479efc150a9df9ecdb0013338676653834148c36a97387e868ddca0",
+        "geometry_sha256": "f8e55a303172d58db42b0277896fcb042114c05c79514725e0e808b2dec42d32",
         "visibility": "occluded",
         "native_scene_sha256": "c094eae128f29a3b6de24ad41574561996c16e8a79ec26330d72b22fbe2f5cef"
       }
@@ -7627,7 +7627,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "8b39f714be415decfe6cc3671a44b2ef6672bc85f7b7c850fa5ec4cb8bcd5ed7",
+        "image_sha256": "2e6894e2d4d8f0dc8e27bec36330cf482411318d7bbe0082a9ad373d537233f4",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7636,16 +7636,16 @@
             -0.07398145177531823,
             1.2970465404221472
           ],
-          "radius": 0.52,
+          "radius": 0.20867021648796819,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "aa6bd97028983e6e9691df4df38ab352565df3d02d58f7c233d65e25e9af1822",
+        "geometry_sha256": "0364ff82e7f4b9003fb9c3d86e50cb7bc15cc77ae14fb53435bf64f3026242cf",
         "visibility": "clear",
         "native_scene_sha256": "0235a2f59455d14d9d0d2e0af0e64a6b7429e8b10b65adce016bb93d6fe4858a"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "8b39f714be415decfe6cc3671a44b2ef6672bc85f7b7c850fa5ec4cb8bcd5ed7",
+        "image_sha256": "2e6894e2d4d8f0dc8e27bec36330cf482411318d7bbe0082a9ad373d537233f4",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7654,16 +7654,16 @@
             -0.07398145177531823,
             1.2970465404221472
           ],
-          "radius": 0.52,
+          "radius": 0.20867021648796819,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "aa6bd97028983e6e9691df4df38ab352565df3d02d58f7c233d65e25e9af1822",
+        "geometry_sha256": "0364ff82e7f4b9003fb9c3d86e50cb7bc15cc77ae14fb53435bf64f3026242cf",
         "visibility": "clear",
         "native_scene_sha256": "0235a2f59455d14d9d0d2e0af0e64a6b7429e8b10b65adce016bb93d6fe4858a"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "89021ae12192c718518326e41f8e6d6598ae6c0bacdd5f6ec34b51b065762131",
+        "image_sha256": "9b66dfd902496ac596c1ec6e4406160ecb66e22a479e938e84f67cb2b5c46e82",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7672,16 +7672,16 @@
             -0.07398145177531823,
             1.2970465404221472
           ],
-          "radius": 0.52,
+          "radius": 0.20867021648796819,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "aa6bd97028983e6e9691df4df38ab352565df3d02d58f7c233d65e25e9af1822",
+        "geometry_sha256": "0364ff82e7f4b9003fb9c3d86e50cb7bc15cc77ae14fb53435bf64f3026242cf",
         "visibility": "clear",
         "native_scene_sha256": "0235a2f59455d14d9d0d2e0af0e64a6b7429e8b10b65adce016bb93d6fe4858a"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "12e04668d99bfc7ce244f8518a387348abc737e39855181d4321af71c20b1d4f",
+        "image_sha256": "e73025eb5ae0a9bc0adc8a5187e15c53003feb6fbc55190809250e879b5c2350",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7690,10 +7690,10 @@
             -0.07398145177531823,
             1.2970465404221472
           ],
-          "radius": 0.52,
+          "radius": 0.20867021648796819,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "aa6bd97028983e6e9691df4df38ab352565df3d02d58f7c233d65e25e9af1822",
+        "geometry_sha256": "0364ff82e7f4b9003fb9c3d86e50cb7bc15cc77ae14fb53435bf64f3026242cf",
         "visibility": "occluded",
         "native_scene_sha256": "0235a2f59455d14d9d0d2e0af0e64a6b7429e8b10b65adce016bb93d6fe4858a"
       }
@@ -7727,7 +7727,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "b74ec573b1aec16c2de882d6953321404fba98a6cd1c277b305cd3f7f2f53ee2",
+        "image_sha256": "9dc24f3d6af37f3f699928f24bb7d0100e10cc2816c7e226f4148c29001e8805",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7736,16 +7736,16 @@
             -0.2905236312037196,
             -0.47935211290480495
           ],
-          "radius": 0.52,
+          "radius": 0.39407723200162154,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "3b62b0bce5a6721aea664840ba85b6b6fa8d7b1a23ffa2dd0f9d0eef29d5ab6d",
+        "geometry_sha256": "a393a8a664ae004f3863719cd26c59a6ebf6b666fd15c2275c9785128cbd59b1",
         "visibility": "clear",
         "native_scene_sha256": "d0b7e5fe68fbda4feeddc85e1288b55b32b40f64e271ae738ed9cd79ce47ae03"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "b74ec573b1aec16c2de882d6953321404fba98a6cd1c277b305cd3f7f2f53ee2",
+        "image_sha256": "9dc24f3d6af37f3f699928f24bb7d0100e10cc2816c7e226f4148c29001e8805",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7754,16 +7754,16 @@
             -0.2905236312037196,
             -0.47935211290480495
           ],
-          "radius": 0.52,
+          "radius": 0.39407723200162154,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "3b62b0bce5a6721aea664840ba85b6b6fa8d7b1a23ffa2dd0f9d0eef29d5ab6d",
+        "geometry_sha256": "a393a8a664ae004f3863719cd26c59a6ebf6b666fd15c2275c9785128cbd59b1",
         "visibility": "clear",
         "native_scene_sha256": "d0b7e5fe68fbda4feeddc85e1288b55b32b40f64e271ae738ed9cd79ce47ae03"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "694bd2484603e912a526c0ec3e20e50c4b4fab371a1432acc9cdc42ab6940d94",
+        "image_sha256": "586afe206340be79e341b68cc53036d7c547fbbbec7b1ae3de19ff7b922f41f8",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7772,16 +7772,16 @@
             -0.2905236312037196,
             -0.47935211290480495
           ],
-          "radius": 0.52,
+          "radius": 0.39407723200162154,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "3b62b0bce5a6721aea664840ba85b6b6fa8d7b1a23ffa2dd0f9d0eef29d5ab6d",
+        "geometry_sha256": "a393a8a664ae004f3863719cd26c59a6ebf6b666fd15c2275c9785128cbd59b1",
         "visibility": "clear",
         "native_scene_sha256": "d0b7e5fe68fbda4feeddc85e1288b55b32b40f64e271ae738ed9cd79ce47ae03"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "976461a7989555812bbf5ea3a4c31cab25b53e4c7a5cabe5c6ce4b246198323b",
+        "image_sha256": "57519f00afe1fc7c1efaea3a717599186c5c76a31bb785b7b32561b36cf6e248",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7790,10 +7790,10 @@
             -0.2905236312037196,
             -0.47935211290480495
           ],
-          "radius": 0.52,
+          "radius": 0.39407723200162154,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "3b62b0bce5a6721aea664840ba85b6b6fa8d7b1a23ffa2dd0f9d0eef29d5ab6d",
+        "geometry_sha256": "a393a8a664ae004f3863719cd26c59a6ebf6b666fd15c2275c9785128cbd59b1",
         "visibility": "occluded",
         "native_scene_sha256": "d0b7e5fe68fbda4feeddc85e1288b55b32b40f64e271ae738ed9cd79ce47ae03"
       }
@@ -7827,7 +7827,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "8ea8b41131c7354feec48a60c06f297febb667898edd58474c4441c60216c19f",
+        "image_sha256": "1d4e25a0065aa521b9803f9d2b8effba2f8af3b77069531eea2e5341ef669ff2",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7836,16 +7836,16 @@
             -0.4066600172053833,
             0.2748021772410566
           ],
-          "radius": 0.52,
+          "radius": 0.13159593883465084,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "27a2bbf98d15443f825e07981e6239b9fed1b4c18bcf2041b04b0a0b1919c94d",
+        "geometry_sha256": "ac5f6202ba80cd11b5979c5b40f1ec894dfcf6e6205a8619bf586af1a073ff59",
         "visibility": "clear",
         "native_scene_sha256": "bdab9990502bc0d1e2a1b188c632ec609622ecb717e98de6e159758eff78741c"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "8ea8b41131c7354feec48a60c06f297febb667898edd58474c4441c60216c19f",
+        "image_sha256": "1d4e25a0065aa521b9803f9d2b8effba2f8af3b77069531eea2e5341ef669ff2",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7854,16 +7854,16 @@
             -0.4066600172053833,
             0.2748021772410566
           ],
-          "radius": 0.52,
+          "radius": 0.13159593883465084,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "27a2bbf98d15443f825e07981e6239b9fed1b4c18bcf2041b04b0a0b1919c94d",
+        "geometry_sha256": "ac5f6202ba80cd11b5979c5b40f1ec894dfcf6e6205a8619bf586af1a073ff59",
         "visibility": "clear",
         "native_scene_sha256": "bdab9990502bc0d1e2a1b188c632ec609622ecb717e98de6e159758eff78741c"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "d316e3ab854482986aaa2e90efbc2e9e40d8fc3badd833e8e300d09e7050416b",
+        "image_sha256": "3d0ef966eee0ac9d6270fcff4f42ac841ed69938ae8f4b63d76d57c9445cf27c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7872,16 +7872,16 @@
             -0.4066600172053833,
             0.2748021772410566
           ],
-          "radius": 0.52,
+          "radius": 0.13159593883465084,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "27a2bbf98d15443f825e07981e6239b9fed1b4c18bcf2041b04b0a0b1919c94d",
+        "geometry_sha256": "ac5f6202ba80cd11b5979c5b40f1ec894dfcf6e6205a8619bf586af1a073ff59",
         "visibility": "clear",
         "native_scene_sha256": "bdab9990502bc0d1e2a1b188c632ec609622ecb717e98de6e159758eff78741c"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "d4cc1d50cb7646c1eb6176ab2c44fa64e4ef97974a8b40c4c3310021d308010f",
+        "image_sha256": "0d1f46b97f4516b337723180ff4b4b3b831bcbb3d07f764f97ae09ffe9bd657d",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7890,10 +7890,10 @@
             -0.4066600172053833,
             0.2748021772410566
           ],
-          "radius": 0.52,
+          "radius": 0.13159593883465084,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "27a2bbf98d15443f825e07981e6239b9fed1b4c18bcf2041b04b0a0b1919c94d",
+        "geometry_sha256": "ac5f6202ba80cd11b5979c5b40f1ec894dfcf6e6205a8619bf586af1a073ff59",
         "visibility": "occluded",
         "native_scene_sha256": "bdab9990502bc0d1e2a1b188c632ec609622ecb717e98de6e159758eff78741c"
       }
@@ -7927,7 +7927,7 @@
     "arms": {
       "reference": {
         "arm": "reference",
-        "image_sha256": "a89bbae6e4ef2c31aa2b320f00d3807fddd65aaca325db5b0d085f0638c5e95a",
+        "image_sha256": "a144bb2001b2c515377fec8b5ee55bcc98e9e53f51373b76f9839367781a7653",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7936,16 +7936,16 @@
             -1.3898424890541135,
             -0.16407717570106944
           ],
-          "radius": 0.52,
+          "radius": 0.28575365017995846,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a65c43b0ded049d8fcfcfa1ec7f7b5015fe0bfc56ffde114dab9d57371330f7",
+        "geometry_sha256": "da24781f9ad161b107e62f128862b9c70da00b1ebd26bd19ae542a5ecc51251e",
         "visibility": "clear",
         "native_scene_sha256": "60a564efc0df590b9fd58e3a37452d924222708ff1e075d5a40989f0fdf71aa6"
       },
       "capability_twin": {
         "arm": "capability_twin",
-        "image_sha256": "a89bbae6e4ef2c31aa2b320f00d3807fddd65aaca325db5b0d085f0638c5e95a",
+        "image_sha256": "a144bb2001b2c515377fec8b5ee55bcc98e9e53f51373b76f9839367781a7653",
         "capability": "amphibious",
         "terrain_class": "water",
         "geometry": {
@@ -7954,16 +7954,16 @@
             -1.3898424890541135,
             -0.16407717570106944
           ],
-          "radius": 0.52,
+          "radius": 0.28575365017995846,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a65c43b0ded049d8fcfcfa1ec7f7b5015fe0bfc56ffde114dab9d57371330f7",
+        "geometry_sha256": "da24781f9ad161b107e62f128862b9c70da00b1ebd26bd19ae542a5ecc51251e",
         "visibility": "clear",
         "native_scene_sha256": "60a564efc0df590b9fd58e3a37452d924222708ff1e075d5a40989f0fdf71aa6"
       },
       "appearance_twin": {
         "arm": "appearance_twin",
-        "image_sha256": "0a9ca9b271245f6005d33944bfa33e2692abc79810c66b55a56bab0fb3a8311b",
+        "image_sha256": "cf58c0a727bf1520517a4b3f3574509a49db34a09921bafdecff8f57f8e5893c",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "solid_ground",
         "geometry": {
@@ -7972,16 +7972,16 @@
             -1.3898424890541135,
             -0.16407717570106944
           ],
-          "radius": 0.52,
+          "radius": 0.28575365017995846,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a65c43b0ded049d8fcfcfa1ec7f7b5015fe0bfc56ffde114dab9d57371330f7",
+        "geometry_sha256": "da24781f9ad161b107e62f128862b9c70da00b1ebd26bd19ae542a5ecc51251e",
         "visibility": "clear",
         "native_scene_sha256": "60a564efc0df590b9fd58e3a37452d924222708ff1e075d5a40989f0fdf71aa6"
       },
       "visibility_twin": {
         "arm": "visibility_twin",
-        "image_sha256": "c36574d2f2cd5ec6fbd296f9c1b8f697d09d49ceb359e3870a5e444a5a8a0517",
+        "image_sha256": "196982ce2ba576a1471961ec40e68fe577a373edd1d3f31fae4b6895db43e6a2",
         "capability": "wheeled_non_waterproof",
         "terrain_class": "water",
         "geometry": {
@@ -7990,10 +7990,10 @@
             -1.3898424890541135,
             -0.16407717570106944
           ],
-          "radius": 0.52,
+          "radius": 0.28575365017995846,
           "coordinate_frame": "native_world_xy"
         },
-        "geometry_sha256": "6a65c43b0ded049d8fcfcfa1ec7f7b5015fe0bfc56ffde114dab9d57371330f7",
+        "geometry_sha256": "da24781f9ad161b107e62f128862b9c70da00b1ebd26bd19ae542a5ecc51251e",
         "visibility": "occluded",
         "native_scene_sha256": "60a564efc0df590b9fd58e3a37452d924222708ff1e075d5a40989f0fdf71aa6"
       }

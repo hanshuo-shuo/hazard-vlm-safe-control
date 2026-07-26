@@ -1,0 +1,78 @@
+{
+  "schema_version": "interface-contract-experiment-0-v2",
+  "status": "PASS",
+  "provider_calls": 0,
+  "provider_attempts": 0,
+  "paid_ledger": {
+    "path": "/Users/hanshuo/Desktop/hazard/results/interface_contract_provider_free_dry_run/PAID_CALL_LEDGER.json",
+    "sha256": "fad27171c90e10d8fdd4ffed332d11772b664300b8a2c2272c3e063110b8a48b",
+    "new_provider_calls": 0,
+    "provider_attempts": 0
+  },
+  "native_environment_gate": {
+    "path": "/Users/hanshuo/Desktop/hazard/results/interface_contract_provider_free_dry_run/NATIVE_ENVIRONMENT_GATE.json",
+    "sha256": "a0c2eeb3892121f6f4d9bded66e7e8797de9903bc2665ed556c9d96fc71c4e33",
+    "passed": true
+  },
+  "source_blocks": {
+    "path": "/Users/hanshuo/Desktop/hazard/results/interface_contract_provider_free_dry_run/BLOCKS.json",
+    "sha256": "79569990a97a891b4157fc54191ee567ebc6c2383ceb34ef45926170bec76818"
+  },
+  "block_count": 80,
+  "execution_count": 640,
+  "cases": [
+    "avoid_correct",
+    "traverse_correct",
+    "unknown",
+    "avoid_shifted",
+    "capability_twin_correct",
+    "appearance_twin_correct",
+    "equivalent_anchor",
+    "equivalent_mate"
+  ],
+  "controllers": {
+    "point_hazard_native": "repository fixed CEM-MPC",
+    "safety_gym_goal_native": "native Point heading/forward feedback controller",
+    "unknown": "frozen no-op task failure"
+  },
+  "source_files": {
+    "evaluation/interface_execution.py": "4d4625bdec1350465c9940385fd12511bd29332e57407716df6e508a84bc7a5b",
+    "evaluation/interface_scenarios.py": "8ea9d573fd01b71dc1579c9c194f68fd5197d11a19df577a5892be98f9325b33",
+    "scripts/run_interface_execution_bridge.py": "1d46e5c4a86d0f274f03ae6be1870c41fc4201377e642bfc432b927786c895b2",
+    "tests/test_interface_execution_bridge_v2.py": "13604c7c4c16c120e506d34191dd9cfe5283b9615884b19e69e1ae579e404e80"
+  },
+  "artifacts": {
+    "EXECUTIONS.json": {
+      "path": "EXECUTIONS.json",
+      "sha256": "31b489d5811a7852c69e91f7172cebe368641ef9336d92e4d77897850f80f290"
+    },
+    "FIXTURES.json": {
+      "path": "FIXTURES.json",
+      "sha256": "914b87f29f105c36a6469c4e72ac6afa704722b380f23ebfa136cd8923f80447"
+    },
+    "SUMMARY.json": {
+      "path": "SUMMARY.json",
+      "sha256": "1f7ae9f7c2e69641ff9c0af2ac796c6a0fc3b27947fc63a44eebfd1992676e55"
+    }
+  },
+  "checks": {
+    "all_80_blocks_executed": true,
+    "all_8_cases_per_block": true,
+    "two_native_environments_nonstationary": true,
+    "two_native_environments_partial_completion": true,
+    "correct_avoid_reduces_direct_terrain_entry": true,
+    "avoid_traverse_difference_in_each_environment": true,
+    "capability_twins_have_no_semantic_violation": true,
+    "capability_twin_reverses_semantic_evaluation": true,
+    "appearance_twins_do_not_avoid": true,
+    "appearance_twins_preserve_physical_execution": true,
+    "unknown_is_frozen_task_failure": true,
+    "equivalent_physical_action_iec_is_1": true,
+    "equivalent_trajectory_iec_is_1": true,
+    "fixture_grounding_only": true,
+    "correct_calibration_error_is_bounded": true,
+    "shifted_grounding_error_is_larger": true,
+    "zero_provider_calls": true,
+    "zero_provider_attempts": true
+  }
+}

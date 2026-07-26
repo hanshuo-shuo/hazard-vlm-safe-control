@@ -245,7 +245,13 @@ def scenario_geometry(
         "irrelevant_terrain_distractor": 0.9,
     }[scenario_family]
     center = start + along * delta + offset * perpendicular
-    radius = 0.38 if scenario_family == "near_tangent_path" else 0.52
+    # Native environments have different task scales. A fixed 0.52-world-unit
+    # disk placed 35% along a short Safety-Gym route can contain the start,
+    # making an avoid intervention physically impossible. Keep the registered
+    # visual family radius while bounding it by route length so both endpoints
+    # remain outside the terrain disk.
+    registered_radius = 0.38 if scenario_family == "near_tangent_path" else 0.52
+    radius = min(registered_radius, 0.18 * norm)
     return {
         "geometry_type": "disk",
         "center_xy": [float(center[0]), float(center[1])],
