@@ -68,9 +68,9 @@
     "safety_gymnasium": "1.0.0"
   },
   "provenance": {
-    "git_sha": "a7b0fcfaf29cb7f96e6b69ce7a44e518e233523b",
-    "git_dirty": true,
-    "tracked_diff_sha256": "a61e3b7e5fd9cfe0330549ba1c28638fdab12617fb8d55c74a78f51811637112",
+    "git_sha": "1c65d578d13bdbd95f980af36470cc9136ccbef5",
+    "git_dirty": false,
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "source_files": {
       "configs/interface_contract_pilot_manifest.json": "6b89172cfb7499ea45839d3f3c68532cc3b63c57be1b7f97b17ca6a95972212a",
       "docs/ICLR_PLAN.md": "7717bc4f851d7eeb1bba14882825a94d0e0df7612adc5720ca4545e84212213f",
@@ -83,7 +83,7 @@
       "evaluation/interface_metrics.py": "f8385f66b2d579186d67fa8ba3d4ba25a8621cc1b1bcb9cfd9cc42c3eec2e7dd",
       "evaluation/interface_scenarios.py": "8ea9d573fd01b71dc1579c9c194f68fd5197d11a19df577a5892be98f9325b33",
       "evaluation/native_environment_gate.py": "423fa742303dcd3525b9b22a15899a34d5a1d6bf3dea5daa6605811dffb92385",
-      "evaluation/paid_provider_gateway.py": "a81d3b31bfc3f2b831346657e9aa315b2f51709ec07f21a97e7214825182d795",
+      "evaluation/paid_provider_gateway.py": "83230ef04a109f614198003b8ad548b0277ec3bedde2c0d0768f88b10b023a85",
       "evaluation/policy_interface.py": "44d4d7c9cfeff2ebaab9d000321359587048807cd173c866145198f3e919f59e",
       "scripts/analyze_interface_contract_pilot.py": "410009178cb8b1e63ffbbbccc71c6f7b1c792803bb63afaf41a43dc710f1b385",
       "scripts/build_interface_contract_pilot.py": "94cff072529ce47f8c4b3b06565a8f6363c2596bdf7f7f6125492b1010aac96d",
