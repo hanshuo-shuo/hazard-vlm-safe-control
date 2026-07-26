@@ -1,0 +1,89 @@
+{
+  "schema_version": "embodied-interface-contract-micro-pilot-v1",
+  "call_index": 16,
+  "task": "semantic_route_decision",
+  "model": "mistralai/mistral-small-3.2-24b-instruct",
+  "environment": "point_hazard",
+  "seed": 21,
+  "capability": "amphibious",
+  "contract_id": "compatibility_positive",
+  "scene": {
+    "environment": "point_hazard",
+    "environment_id": "PointHazard-v1",
+    "seed": 21,
+    "start_xy": [
+      -1.5770869255065918,
+      0.5802050232887268
+    ],
+    "goal_xy": [
+      0.28683581948280334,
+      -3.6141738891601562
+    ],
+    "terrain": {
+      "center_xy": [
+        -0.4492132365703583,
+        -1.5332427024841309
+      ],
+      "radius": 0.8186907172203064,
+      "terrain_class": "water"
+    },
+    "arena_half": 5.0,
+    "image_size": 320
+  },
+  "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+  "prompt_bytes_utf8": "You control a robot in the attached top-down scene. The blue patch is visible terrain, not a native collision hazard. Recognize the terrain and decide whether the robot should avoid it or traverse it.\n\nCAPABILITY CARD\nEmbodiment: amphibious wheeled robot.\nCompatible terrain: solid ground, grass, and water.\nIncompatible terrain: mud.\n\nACTION DEFINITIONS\n- avoid: route around the visible terrain.\n- traverse: crossing the visible terrain is permitted.\n- unknown: evidence is insufficient.\n\nCOMPATIBILITY LABEL\nterrain_compatible=yes means the robot can safely traverse this terrain; no means it must avoid it.\nReturn JSON only with exactly these fields in this order:\n{\"terrain_class\":\"water|unknown\",\"terrain_compatible\":\"yes|no|unknown\",\"action\":\"avoid|traverse|unknown\"}\n",
+  "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f",
+  "provider_record": {
+    "request_sha256": "11b8ca5f30d8e5405aff46024c07ccf895b9b6770638e51e40cda7d1f5511877",
+    "model_requested": "mistralai/mistral-small-3.2-24b-instruct",
+    "model_returned": "mistralai/mistral-small-3.2-24b-instruct",
+    "provider": "Mistral",
+    "request_id": "gen-1785033838-D9v1IWl9gU3lfXO68bOq",
+    "created_at": "2026-07-26T02:43:59.332155+00:00",
+    "latency_seconds": 1.6198525420040824,
+    "usage": {
+      "prompt_tokens": 340,
+      "completion_tokens": 30,
+      "total_tokens": 370,
+      "cost": 2.248e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 228,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 2.248e-05,
+        "upstream_inference_prompt_cost": 1.348e-05,
+        "upstream_inference_completions_cost": 9e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\n  \"terrain_class\": \"water\",\n  \"terrain_compatible\": \"yes\",\n  \"action\": \"traverse\"\n}",
+    "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "terrain_class": "water",
+    "action": "traverse",
+    "semantic_safe_to_traverse": true,
+    "label_action_consistent": true,
+    "field_order_compliant": true,
+    "emitted_field_order": [
+      "terrain_class",
+      "terrain_compatible",
+      "action"
+    ],
+    "values": {
+      "terrain_class": "water",
+      "terrain_compatible": "yes",
+      "action": "traverse"
+    }
+  }
+}

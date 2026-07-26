@@ -1,0 +1,35 @@
+{
+  "request_sha256": "6c3340887846c97c3b5c72315c05e0b429350d6da946dec68c8fca33e3f8886f",
+  "model_requested": "mistralai/mistral-small-3.2-24b-instruct",
+  "model_returned": "mistralai/mistral-small-3.2-24b-instruct",
+  "provider": "Mistral",
+  "request_id": "gen-1785033841-qyAHxWbww09mqn0VOaIl",
+  "created_at": "2026-07-26T02:44:02.724659+00:00",
+  "latency_seconds": 1.6383954159682617,
+  "usage": {
+    "prompt_tokens": 336,
+    "completion_tokens": 29,
+    "total_tokens": 365,
+    "cost": 2.178e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 228,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 2.178e-05,
+      "upstream_inference_prompt_cost": 1.308e-05,
+      "upstream_inference_completions_cost": 8.7e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\n  \"terrain_class\": \"water\",\n  \"constraint_applies\": \"yes\",\n  \"action\": \"avoid\"\n}",
+  "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+  "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+}

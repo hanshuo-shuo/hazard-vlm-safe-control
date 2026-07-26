@@ -1,0 +1,35 @@
+{
+  "request_sha256": "bfe6bea1bfb4ecad57f365b06de3432e7b5f9fd1c2b65f088aae52c50eeb34d1",
+  "model_requested": "openai/gpt-5-mini",
+  "model_returned": "openai/gpt-5-mini",
+  "provider": "OpenAI",
+  "request_id": "gen-1785033432-tovG5Z9AZ4YMY1a4sre7",
+  "created_at": "2026-07-26T02:37:16.061996+00:00",
+  "latency_seconds": 5.603425000037532,
+  "usage": {
+    "prompt_tokens": 216,
+    "completion_tokens": 128,
+    "total_tokens": 344,
+    "cost": 0.00031,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00031,
+      "upstream_inference_prompt_cost": 5.4e-05,
+      "upstream_inference_completions_cost": 0.000256
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 128,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "None",
+  "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+  "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+}

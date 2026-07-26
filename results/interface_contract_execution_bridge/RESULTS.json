@@ -1,0 +1,853 @@
+{
+  "schema_version": "interface-contract-execution-bridge-v1",
+  "status": "PROVIDER_FREE_EXECUTION_EVIDENCE",
+  "formal_scale_up_allowed": false,
+  "models": [
+    "google/gemini-2.5-flash-lite",
+    "mistralai/mistral-small-3.2-24b-instruct",
+    "qwen/qwen3-vl-30b-a3b-instruct"
+  ],
+  "seeds": [
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "executors": {
+    "point_hazard": "repository fixed CEM-MPC",
+    "safety_gym_goal": "deterministic six-value headless dynamics",
+    "unknown_policy": "no-op task failure"
+  },
+  "execution_lookup": [
+    {
+      "environment": "point_hazard",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 28,
+      "interventions": 6,
+      "replans": 6,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "goal",
+      "steps": 26,
+      "interventions": 0,
+      "replans": 6,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 21,
+      "interventions": 5,
+      "replans": 5,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 15,
+      "interventions": 0,
+      "replans": 3,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 31,
+      "interventions": 7,
+      "replans": 7,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "goal",
+      "steps": 28,
+      "interventions": 0,
+      "replans": 6,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 22,
+      "interventions": 5,
+      "replans": 5,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 20,
+      "interventions": 0,
+      "replans": 4,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "goal",
+      "steps": 21,
+      "interventions": 5,
+      "replans": 5,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "goal",
+      "steps": 17,
+      "interventions": 0,
+      "replans": 4,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "point_hazard",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 38,
+      "interventions": 1,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "terminated",
+      "steps": 32,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 20,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 38,
+      "interventions": 1,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 32,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 21,
+      "capability": "amphibious",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 39,
+      "interventions": 1,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "terminated",
+      "steps": 32,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 22,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 38,
+      "interventions": 1,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 32,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 23,
+      "capability": "amphibious",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "avoid",
+      "success": true,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": true,
+      "termination_reason": "terminated",
+      "steps": 38,
+      "interventions": 1,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "traverse",
+      "success": true,
+      "semantic_violation": true,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "terminated",
+      "steps": 32,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    },
+    {
+      "environment": "safety_gym_goal",
+      "seed": 24,
+      "capability": "wheeled_non_waterproof",
+      "action": "unknown",
+      "success": false,
+      "semantic_violation": false,
+      "collision": false,
+      "STC": false,
+      "termination_reason": "unknown",
+      "steps": 0,
+      "interventions": 0,
+      "replans": 0,
+      "native_cost_sum": 0.0
+    }
+  ],
+  "summary": {
+    "by_contract_mapping": {
+      "action_structured": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.7,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.7
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.7,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.7
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.7,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.7
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.7,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.7
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.7,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.7
+        }
+      },
+      "action_structured_field_reversed": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.8333333333333334
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.8333333333333334
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.8333333333333334
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.8333333333333334
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.8333333333333334
+        }
+      },
+      "action_free_text": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        }
+      },
+      "constraint_positive": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.8333333333333334,
+          "semantic_violation": 0.03333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.8333333333333334,
+          "semantic_violation": 0.03333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.8333333333333334,
+          "semantic_violation": 0.03333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.8333333333333334,
+          "semantic_violation": 0.03333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.8333333333333334,
+          "semantic_violation": 0.03333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        }
+      },
+      "constraint_negative": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.13333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.13333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.13333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.13333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.9333333333333333,
+          "semantic_violation": 0.13333333333333333,
+          "collision": 0.0,
+          "STC": 0.8
+        }
+      },
+      "compatibility_positive": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        }
+      },
+      "compatibility_negative": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.8666666666666667,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8666666666666667
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.8666666666666667,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8666666666666667
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.8666666666666667,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8666666666666667
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.8666666666666667,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8666666666666667
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.8666666666666667,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8666666666666667
+        }
+      },
+      "ambiguous_applicability": {
+        "action_authoritative": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "contract_aware_semantic": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_constraint_applies": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.1,
+          "collision": 0.0,
+          "STC": 0.7
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.3,
+          "collision": 0.0,
+          "STC": 0.5
+        },
+        "conservative_fusion": {
+          "n": 30,
+          "success": 0.8,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.8
+        }
+      }
+    },
+    "ambiguous_by_environment": {
+      "point_hazard": {
+        "action_authoritative": {
+          "n": 15,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "contract_aware_semantic": {
+          "n": 15,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        },
+        "applicable_means_constraint_applies": {
+          "n": 15,
+          "success": 1.0,
+          "semantic_violation": 0.2,
+          "collision": 0.0,
+          "STC": 0.8
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 15,
+          "success": 1.0,
+          "semantic_violation": 0.4,
+          "collision": 0.0,
+          "STC": 0.6
+        },
+        "conservative_fusion": {
+          "n": 15,
+          "success": 1.0,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 1.0
+        }
+      },
+      "safety_gym_goal": {
+        "action_authoritative": {
+          "n": 15,
+          "success": 0.6,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.6
+        },
+        "contract_aware_semantic": {
+          "n": 15,
+          "success": 0.6,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.6
+        },
+        "applicable_means_constraint_applies": {
+          "n": 15,
+          "success": 0.6,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.6
+        },
+        "applicable_means_terrain_compatible": {
+          "n": 15,
+          "success": 0.6,
+          "semantic_violation": 0.2,
+          "collision": 0.0,
+          "STC": 0.4
+        },
+        "conservative_fusion": {
+          "n": 15,
+          "success": 0.6,
+          "semantic_violation": 0.0,
+          "collision": 0.0,
+          "STC": 0.6
+        }
+      }
+    }
+  },
+  "ambiguous_mapping_STC_range": 0.30000000000000004,
+  "mapped_rows": 1200,
+  "provider_calls": 0
+}

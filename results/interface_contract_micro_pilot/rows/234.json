@@ -1,0 +1,82 @@
+{
+  "schema_version": "embodied-interface-contract-micro-pilot-v1",
+  "call_index": 234,
+  "task": "semantic_route_decision",
+  "model": "openai/gpt-5-mini",
+  "environment": "point_hazard",
+  "seed": 21,
+  "capability": "amphibious",
+  "contract_id": "constraint_positive",
+  "scene": {
+    "environment": "point_hazard",
+    "environment_id": "PointHazard-v1",
+    "seed": 21,
+    "start_xy": [
+      -1.5770869255065918,
+      0.5802050232887268
+    ],
+    "goal_xy": [
+      0.28683581948280334,
+      -3.6141738891601562
+    ],
+    "terrain": {
+      "center_xy": [
+        -0.4492132365703583,
+        -1.5332427024841309
+      ],
+      "radius": 0.8186907172203064,
+      "terrain_class": "water"
+    },
+    "arena_half": 5.0,
+    "image_size": 320
+  },
+  "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+  "prompt_bytes_utf8": "You control a robot in the attached top-down scene. The blue patch is visible terrain, not a native collision hazard. Recognize the terrain and decide whether the robot should avoid it or traverse it.\n\nCAPABILITY CARD\nEmbodiment: amphibious wheeled robot.\nCompatible terrain: solid ground, grass, and water.\nIncompatible terrain: mud.\n\nACTION DEFINITIONS\n- avoid: route around the visible terrain.\n- traverse: crossing the visible terrain is permitted.\n- unknown: evidence is insufficient.\n\nCONSTRAINT LABEL\nconstraint_applies=yes means this terrain must be avoided for this robot; no means it may be traversed.\nReturn JSON only with exactly these fields in this order:\n{\"terrain_class\":\"water|unknown\",\"constraint_applies\":\"yes|no|unknown\",\"action\":\"avoid|traverse|unknown\"}\n",
+  "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f",
+  "provider_record": {
+    "request_sha256": "bc701805c8b77185c41e72b3d52a17dd0d4e32320397fa88933b48fca8fee1be",
+    "model_requested": "openai/gpt-5-mini",
+    "model_returned": "openai/gpt-5-mini",
+    "provider": "OpenAI",
+    "request_id": "gen-1785033341-DHleSE8h6IkosgGSy2Tv",
+    "created_at": "2026-07-26T02:35:44.299711+00:00",
+    "latency_seconds": 3.7807078750338405,
+    "usage": {
+      "prompt_tokens": 292,
+      "completion_tokens": 180,
+      "total_tokens": 472,
+      "cost": 0.000433,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000433,
+        "upstream_inference_prompt_cost": 7.3e-05,
+        "upstream_inference_completions_cost": 0.00036
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"terrain",
+    "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  "parsed": {
+    "parse_status": "error",
+    "parse_error": "Unterminated string starting at: line 1 column 2 (char 1)",
+    "terrain_class": null,
+    "action": "unknown",
+    "semantic_safe_to_traverse": null,
+    "label_action_consistent": false,
+    "field_order_compliant": false,
+    "emitted_field_order": [],
+    "values": {}
+  }
+}

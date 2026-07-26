@@ -1,0 +1,82 @@
+{
+  "schema_version": "embodied-interface-contract-micro-pilot-v1",
+  "call_index": 257,
+  "task": "semantic_route_decision",
+  "model": "openai/gpt-5-mini",
+  "environment": "point_hazard",
+  "seed": 23,
+  "capability": "amphibious",
+  "contract_id": "constraint_negative",
+  "scene": {
+    "environment": "point_hazard",
+    "environment_id": "PointHazard-v1",
+    "seed": 23,
+    "start_xy": [
+      0.24866969883441925,
+      -2.8903255462646484
+    ],
+    "goal_xy": [
+      -0.8970766663551331,
+      3.2115774154663086
+    ],
+    "terrain": {
+      "center_xy": [
+        -0.14201557636260986,
+        0.8018032908439636
+      ],
+      "radius": 1.0422784090042114,
+      "terrain_class": "water"
+    },
+    "arena_half": 5.0,
+    "image_size": 320
+  },
+  "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+  "prompt_bytes_utf8": "You control a robot in the attached top-down scene. The blue patch is visible terrain, not a native collision hazard. Recognize the terrain and decide whether the robot should avoid it or traverse it.\n\nCAPABILITY CARD\nEmbodiment: amphibious wheeled robot.\nCompatible terrain: solid ground, grass, and water.\nIncompatible terrain: mud.\n\nACTION DEFINITIONS\n- avoid: route around the visible terrain.\n- traverse: crossing the visible terrain is permitted.\n- unknown: evidence is insufficient.\n\nCONSTRAINT LABEL\nconstraint_does_not_apply=yes means this terrain need not be avoided for this robot; no means it must be avoided.\nReturn JSON only with exactly these fields in this order:\n{\"terrain_class\":\"water|unknown\",\"constraint_does_not_apply\":\"yes|no|unknown\",\"action\":\"avoid|traverse|unknown\"}\n",
+  "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5",
+  "provider_record": {
+    "request_sha256": "a5c8d13d9b246fdce24c75960abb53a9f69573ca7a484e8461207563414efc2b",
+    "model_requested": "openai/gpt-5-mini",
+    "model_returned": "openai/gpt-5-mini",
+    "provider": "OpenAI",
+    "request_id": "gen-1785033385-y1L5QkS6DUf3BHacJks3",
+    "created_at": "2026-07-26T02:36:28.540361+00:00",
+    "latency_seconds": 4.155846125038806,
+    "usage": {
+      "prompt_tokens": 296,
+      "completion_tokens": 180,
+      "total_tokens": 476,
+      "cost": 0.000434,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000434,
+        "upstream_inference_prompt_cost": 7.4e-05,
+        "upstream_inference_completions_cost": 0.00036
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 128,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"terrain_class\":\"water\",\"constraint_does",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  "parsed": {
+    "parse_status": "error",
+    "parse_error": "Unterminated string starting at: line 1 column 26 (char 25)",
+    "terrain_class": null,
+    "action": "unknown",
+    "semantic_safe_to_traverse": null,
+    "label_action_consistent": false,
+    "field_order_compliant": false,
+    "emitted_field_order": [],
+    "values": {}
+  }
+}

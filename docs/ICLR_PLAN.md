@@ -2,7 +2,33 @@
 
 日期：2026-07-11
 
-状态：**REVISED 2026-07-24 — marker waypoint mainline TERMINATED**
+状态：**REVISED 2026-07-26 — interface-contract recovery is promising but not yet a main result**
+
+## 2026-07-26 interface-contract amendment
+
+Safety-Gym capability micro-pilot 的 0% applicability accuracy 不能解释为模型
+norm failure：模型的 reason/action 是一致且正确的，错误来自未定义清楚的
+`applicable` 标签被 evaluator 反向映射。新的五种子配对审计因此直接研究
+perception→reasoning→control 的 interface contract。
+
+三 valid 模型、两任务、两个 renderer/environment contract 的探索结果发现：
+
+- field-order action consistency 23/30；
+- structured/free-text action consistency 21/30；
+- marker-ID physical-choice consistency 23/30；
+- candidate-order physical-choice consistency 18/30；
+- 同一 ambiguous outputs 的 executed STC 随 planner mapping 从 0.50 到 0.80；
+- Gemini/Qwen 出现 pairwise rank reversal，Mistral 是稳定对照。
+
+预声明 ICLR gate 仍为 `NO_GO`：semantic-contract action effect 没有在两个环境都
+低于 0.80，且 Safety-Gym 仍是 headless render/dynamics contract。该方向可以作为
+新方法与现象继续推进，但不得包装为已经找回 ICLR 主结果。正式路线、related-work
+边界、五-seed API ceiling 下的 scenario-family 设计和 kill conditions 统一见
+[INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md)。
+
+组合证据见
+`results/interface_contract_combined_analysis/` 和
+`results/interface_contract_execution_bridge/`；状态均为 `PILOT_ONLY`。
 
 ## 2026-07-24 termination amendment
 

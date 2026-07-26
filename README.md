@@ -16,6 +16,12 @@ public observation
   → STC and five-stage attribution
 ```
 
+A separate five-seed interface-contract recovery pilot now studies whether
+semantically equivalent schemas, field/option ordering, and planner mappings
+change physical actions and rankings. It is `PILOT_ONLY`: the phenomenon is
+promising, but the predeclared two-environment semantic-contract gate did not
+pass. See [docs/INTERFACE_CONTRACT_MAINLINE.md](docs/INTERFACE_CONTRACT_MAINLINE.md).
+
 ## Current scope
 
 The maintained historical offline matrix is:
@@ -50,8 +56,10 @@ mainline. New marker scale-up is refused by default.
 `evaluation/semantic_geometry.py` supplies one marker-free schema for
 none/oracle/fixture/detector and future cached VLM grounding. The provider-free
 runner `scripts/run_semantic_geometry_audit.py` records exact model-visible
-bytes, hashes, transforms, split sentinels, resume state and manifests. Paid
-VLM/OpenRouter runs remain paused. The machine-readable pilot manifest at
+bytes, hashes, transforms, split sentinels, resume state and manifests. The
+formal paid VLM/OpenRouter release remains paused; the separately scoped
+five-seed interface-contract micro-pilot is complete and does not unlock that
+release. The machine-readable pilot manifest at
 [`configs/pilot_release_manifest.json`](configs/pilot_release_manifest.json)
 validates the protocol and portable dependency lock but remains fail-closed
 until the authorization fields in

@@ -1,0 +1,35 @@
+{
+  "request_sha256": "db43e867294614926da143d040f3c810987ee780555cf44a67cd3beb8ad9cefa",
+  "model_requested": "openai/gpt-5-mini",
+  "model_returned": "openai/gpt-5-mini",
+  "provider": "OpenAI",
+  "request_id": "gen-1785033420-sAre0a95dpCw7c2HUMt7",
+  "created_at": "2026-07-26T02:37:02.821675+00:00",
+  "latency_seconds": 3.4180622499552555,
+  "usage": {
+    "prompt_tokens": 245,
+    "completion_tokens": 180,
+    "total_tokens": 425,
+    "cost": 0.00042125,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00042125,
+      "upstream_inference_prompt_cost": 6.125e-05,
+      "upstream_inference_completions_cost": 0.00036
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 128,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain_class\":\"water\",\"terrain_in",
+  "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+  "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+}

@@ -1,0 +1,35 @@
+{
+  "request_sha256": "fa9b912512df731bc4f4f8b10b35195663d42d18dc06f08d227f80d63c816ca1",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "request_id": "gen-1785033280-SPUbzKjaWwa72TJpfJH8",
+  "created_at": "2026-07-26T02:34:47.440555+00:00",
+  "latency_seconds": 8.460547583003063,
+  "usage": {
+    "prompt_tokens": 212,
+    "completion_tokens": 20,
+    "total_tokens": 232,
+    "cost": 5.64e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.64e-05,
+      "upstream_inference_prompt_cost": 4.24e-05,
+      "upstream_inference_completions_cost": 1.4e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"confidence\":0.9, \"action\":\"traverse\", \"terrain_class\":\"water\"}",
+  "prompt_sha256": "ad66f2e2ca9abd445c000424e1f0be56d3cfc81a1d4eaea2082b533ff1d5a422",
+  "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+}

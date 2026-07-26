@@ -1,6 +1,22 @@
 # Next execution memo
 
-Date: 2026-07-25
+Date: 2026-07-26
+
+## 2026-07-26 interface-contract update
+
+- Completed a separately scoped five-seed interface-contract micro-pilot with
+  two tasks and two renderer/environment contracts.
+- Valid science arms are Gemini Flash-Lite, Qwen3-VL and the hash-matched
+  Mistral replacement. GPT-5-mini is retained as an invalid request-interface
+  arm and excluded from ranking.
+- Field order, output mode, marker IDs, candidate order, planner mapping and one
+  model-pair ranking are sensitive; executed ambiguous-mapping STC spans
+  0.50–0.80.
+- The ICLR mainline remains unrecovered because semantic-contract sensitivity
+  failed the two-environment gate and Safety-Gym remains headless.
+- Formal paid release remains blocked. See
+  [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) for the next
+  native-environment gate.
 
 ## Completed
 

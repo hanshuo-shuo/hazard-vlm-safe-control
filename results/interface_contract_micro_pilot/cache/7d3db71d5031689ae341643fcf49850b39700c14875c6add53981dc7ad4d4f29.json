@@ -1,0 +1,35 @@
+{
+  "request_sha256": "7d3db71d5031689ae341643fcf49850b39700c14875c6add53981dc7ad4d4f29",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Novita",
+  "request_id": "gen-1785033215-k9rt3pvpDIC5uBlZ7XtX",
+  "created_at": "2026-07-26T02:33:36.283951+00:00",
+  "latency_seconds": 2.3255462079541758,
+  "usage": {
+    "prompt_tokens": 241,
+    "completion_tokens": 15,
+    "total_tokens": 256,
+    "cost": 5.87e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 5.87e-05,
+      "upstream_inference_prompt_cost": 4.82e-05,
+      "upstream_inference_completions_cost": 1.05e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "terrain=water; action=avoid; confidence=0.95",
+  "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+  "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+}

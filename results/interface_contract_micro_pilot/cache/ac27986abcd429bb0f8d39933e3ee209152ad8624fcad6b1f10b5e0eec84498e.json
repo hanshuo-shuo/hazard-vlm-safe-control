@@ -1,0 +1,35 @@
+{
+  "request_sha256": "ac27986abcd429bb0f8d39933e3ee209152ad8624fcad6b1f10b5e0eec84498e",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "request_id": "gen-1785033297-lci9kbIRQ97HVFDjcRoZ",
+  "created_at": "2026-07-26T02:35:04.949490+00:00",
+  "latency_seconds": 8.413891540956683,
+  "usage": {
+    "prompt_tokens": 238,
+    "completion_tokens": 18,
+    "total_tokens": 256,
+    "cost": 4.65e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.65e-05,
+      "upstream_inference_prompt_cost": 3.57e-05,
+      "upstream_inference_completions_cost": 1.08e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain_class\":\"water\",\"terrain_incompatible\":\"no\",\"action\":\"traverse\"}",
+  "prompt_sha256": "7e4606154562178f0b145f2a9a10636b22602a67458a9bb2055ebab63c9fdb42",
+  "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+}

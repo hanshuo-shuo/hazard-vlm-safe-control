@@ -1,0 +1,35 @@
+{
+  "request_sha256": "e5db6e2d8c8e2e52dce66044033e51176a26e7249a233d76fecdc0d7cf097586",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "request_id": "gen-1785033288-DJDCojyrIuM9UB4uiL9l",
+  "created_at": "2026-07-26T02:34:49.711967+00:00",
+  "latency_seconds": 1.793333207955584,
+  "usage": {
+    "prompt_tokens": 244,
+    "completion_tokens": 19,
+    "total_tokens": 263,
+    "cost": 4.16e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.16e-05,
+      "upstream_inference_prompt_cost": 3.172e-05,
+      "upstream_inference_completions_cost": 9.88e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain_class\":\"water\",\"constraint_does_not_apply\":\"yes\",\"action\":\"traverse\"}",
+  "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+  "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+}

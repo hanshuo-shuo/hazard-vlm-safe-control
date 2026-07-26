@@ -1,0 +1,35 @@
+{
+  "request_sha256": "3f136380d5893bf807ce36245c29a3538979bfa2cf971b24e75f1600e0cfee1c",
+  "model_requested": "mistralai/mistral-small-3.2-24b-instruct",
+  "model_returned": "mistralai/mistral-small-3.2-24b-instruct",
+  "provider": "DeepInfra",
+  "request_id": "gen-1785033882-45cHm5lw1LiSbNaeNfNL",
+  "created_at": "2026-07-26T02:44:43.834991+00:00",
+  "latency_seconds": 1.8696477910270914,
+  "usage": {
+    "prompt_tokens": 278,
+    "completion_tokens": 21,
+    "total_tokens": 299,
+    "cost": 2.505e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 2.505e-05,
+      "upstream_inference_prompt_cost": 2.085e-05,
+      "upstream_inference_completions_cost": 4.2e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\n  \"selected_marker\": \"3\",\n  \"route_policy\": \"avoid\"\n}",
+  "prompt_sha256": "d8e7b3f7eded69921ed75fa514db70450de7bb33afadbf2677595ac806dcb092",
+  "image_sha256": "035c1306a13385e7ab3d54eb9151b4624558a23d36ff66d73486e41729d31fb4"
+}

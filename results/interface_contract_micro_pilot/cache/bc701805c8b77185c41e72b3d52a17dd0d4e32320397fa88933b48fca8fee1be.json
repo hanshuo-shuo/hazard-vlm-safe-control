@@ -1,0 +1,35 @@
+{
+  "request_sha256": "bc701805c8b77185c41e72b3d52a17dd0d4e32320397fa88933b48fca8fee1be",
+  "model_requested": "openai/gpt-5-mini",
+  "model_returned": "openai/gpt-5-mini",
+  "provider": "OpenAI",
+  "request_id": "gen-1785033341-DHleSE8h6IkosgGSy2Tv",
+  "created_at": "2026-07-26T02:35:44.299711+00:00",
+  "latency_seconds": 3.7807078750338405,
+  "usage": {
+    "prompt_tokens": 292,
+    "completion_tokens": 180,
+    "total_tokens": 472,
+    "cost": 0.000433,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.000433,
+      "upstream_inference_prompt_cost": 7.3e-05,
+      "upstream_inference_completions_cost": 0.00036
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 128,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain",
+  "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+  "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+}

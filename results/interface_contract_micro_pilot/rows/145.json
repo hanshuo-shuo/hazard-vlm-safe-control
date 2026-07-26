@@ -1,0 +1,85 @@
+{
+  "schema_version": "embodied-interface-contract-micro-pilot-v1",
+  "call_index": 145,
+  "task": "semantic_route_decision",
+  "model": "qwen/qwen3-vl-30b-a3b-instruct",
+  "environment": "point_hazard",
+  "seed": 23,
+  "capability": "amphibious",
+  "contract_id": "action_free_text",
+  "scene": {
+    "environment": "point_hazard",
+    "environment_id": "PointHazard-v1",
+    "seed": 23,
+    "start_xy": [
+      0.24866969883441925,
+      -2.8903255462646484
+    ],
+    "goal_xy": [
+      -0.8970766663551331,
+      3.2115774154663086
+    ],
+    "terrain": {
+      "center_xy": [
+        -0.14201557636260986,
+        0.8018032908439636
+      ],
+      "radius": 1.0422784090042114,
+      "terrain_class": "water"
+    },
+    "arena_half": 5.0,
+    "image_size": 320
+  },
+  "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+  "prompt_bytes_utf8": "You control a robot in the attached top-down scene. The blue patch is visible terrain, not a native collision hazard. Recognize the terrain and decide whether the robot should avoid it or traverse it.\n\nCAPABILITY CARD\nEmbodiment: amphibious wheeled robot.\nCompatible terrain: solid ground, grass, and water.\nIncompatible terrain: mud.\n\nACTION DEFINITIONS\n- avoid: route around the visible terrain.\n- traverse: crossing the visible terrain is permitted.\n- unknown: evidence is insufficient.\n\nReturn exactly one plain-text line and no other text:\nterrain=water|unknown; action=avoid|traverse|unknown; confidence=0.0\n",
+  "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5",
+  "provider_record": {
+    "request_sha256": "0e76404c8cf19e1cc48a42aef9bddb3fe9accbf50a7e6c0cc62310469ac584c0",
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "SiliconFlow",
+    "request_id": "gen-1785033225-DLJuRYBi8hej3DGf24sc",
+    "created_at": "2026-07-26T02:33:48.013676+00:00",
+    "latency_seconds": 3.8080887499963865,
+    "usage": {
+      "prompt_tokens": 243,
+      "completion_tokens": 15,
+      "total_tokens": 258,
+      "cost": 8.547e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.547e-05,
+        "upstream_inference_prompt_cost": 7.047e-05,
+        "upstream_inference_completions_cost": 1.5e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "terrain=water; action=traverse; confidence=0.95",
+    "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "terrain_class": "water",
+    "action": "traverse",
+    "semantic_safe_to_traverse": null,
+    "label_action_consistent": true,
+    "field_order_compliant": null,
+    "emitted_field_order": [],
+    "values": {
+      "terrain_class": "water",
+      "action": "traverse",
+      "confidence": 0.95
+    }
+  }
+}

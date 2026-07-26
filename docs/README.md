@@ -1,6 +1,6 @@
 # Documentation index
 
-Updated: 2026-07-24.
+Updated: 2026-07-26.
 
 The documentation set is intentionally small. Current experiment semantics,
 execution state and result validity each have one owner.
@@ -14,6 +14,7 @@ execution state and result validity each have one owner.
 | 5 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Current implementation plan and acceptance evidence |
 | 6 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked release-readiness and authorization record |
 | 7 | [RESULTS_REGISTRY.md](RESULTS_REGISTRY.md) | Only authority for whether an artifact may be cited |
+| 8 | [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md) | Exploratory interface-contract evidence and ICLR recovery gate |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
@@ -34,8 +35,12 @@ define a second status source.
 - The frozen 14-condition zero-provider offline matrix passes.
 - The pilot release manifest and portable core dependency lock audit pass, but
   the manifest remains `BLOCKED` with provider calls disabled.
-- Detector integration and paid API runs remain gated.
+- Detector integration and formal paid API runs remain gated; the separately
+  authorized interface-contract micro-pilot does not unlock the release manifest.
 - No semantic-safety result is currently `VALIDATED`.
+- A five-seed, three-valid-model interface-contract micro-pilot is complete and
+  remains `PILOT_ONLY`; it finds action/waypoint/mapping/ranking sensitivity but
+  fails the predeclared two-environment semantic-contract replication gate.
 
 ## Historical evidence
 

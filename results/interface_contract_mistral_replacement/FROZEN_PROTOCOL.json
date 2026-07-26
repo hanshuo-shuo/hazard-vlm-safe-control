@@ -1,0 +1,22 @@
+{
+  "schema_version": "embodied-interface-contract-model-replacement-v1",
+  "status": "EXPLORATORY_REPLACEMENT_ARM_ONLY",
+  "formal_scale_up_allowed": false,
+  "parent_protocol": "embodied-interface-contract-micro-pilot-v1",
+  "reason": "GPT-5-mini produced 102/110 empty or truncated outputs because the frozen max-token request was consumed by reasoning tokens.",
+  "replaced_model": "openai/gpt-5-mini",
+  "replacement_model": "mistralai/mistral-small-3.2-24b-instruct",
+  "only_changed_factor": "model_identity",
+  "prompts_images_seeds_unchanged": true,
+  "seeds": [
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "maximum_distinct_seeds": 5,
+  "maximum_calls": 110,
+  "maximum_spend_usd": 0.5,
+  "claim_boundary": "Replacement plus parent remain five-seed go/no-go evidence only."
+}

@@ -1,0 +1,35 @@
+{
+  "request_sha256": "68652ac4b9245d448fd32152d960da04178f82fb88c9100cf4801d39e35df181",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "DeepInfra",
+  "request_id": "gen-1785033230-4bElDnnMDPLbIiSNxAOv",
+  "created_at": "2026-07-26T02:33:50.799824+00:00",
+  "latency_seconds": 2.603154083015397,
+  "usage": {
+    "prompt_tokens": 264,
+    "completion_tokens": 12,
+    "total_tokens": 276,
+    "cost": 4.68e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.68e-05,
+      "upstream_inference_prompt_cost": 3.96e-05,
+      "upstream_inference_completions_cost": 7.2e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"selected_marker\":\"2\",\"route_policy\":\"avoid\"}",
+  "prompt_sha256": "87f3c01bdb73380626d3c161e89608599c30e91c3352f4ae80602702f1cdbb58",
+  "image_sha256": "764086a65c6dd31a876a6b6d710f934c5879d59eae63943c9e1b1a82144db3da"
+}

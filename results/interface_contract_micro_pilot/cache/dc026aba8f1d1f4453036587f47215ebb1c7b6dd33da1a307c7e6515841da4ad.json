@@ -1,0 +1,35 @@
+{
+  "request_sha256": "dc026aba8f1d1f4453036587f47215ebb1c7b6dd33da1a307c7e6515841da4ad",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "Alibaba",
+  "request_id": "gen-1785033196-lnAzmekgRSry8GpAaq7D",
+  "created_at": "2026-07-26T02:33:17.257078+00:00",
+  "latency_seconds": 2.1134115000022575,
+  "usage": {
+    "prompt_tokens": 246,
+    "completion_tokens": 17,
+    "total_tokens": 263,
+    "cost": 4.082e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.082e-05,
+      "upstream_inference_prompt_cost": 3.198e-05,
+      "upstream_inference_completions_cost": 8.84e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"confidence\":1.0,\"action\":\"avoid\",\"terrain_class\":\"water\"}",
+  "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+  "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+}

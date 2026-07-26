@@ -1,0 +1,1902 @@
+[
+  {
+    "call_index": 0,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 1,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 2,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 3,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 4,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 5,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 6,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 7,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "2fb1072c0f1f01e6e9165d9521e3e5f03db0ebfd82b4309dd2960da7b38ea5ec"
+  },
+  {
+    "call_index": 8,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -2.337,
+          -0.011
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -4.208,
+          -1.069
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.467,
+          1.047
+        ]
+      }
+    ],
+    "prompt_sha256": "5d397b9d09faf467ac00b25b186c0ea9bee7d24dd4e09d0708815701d831bc8a",
+    "image_sha256": "ad60925bce32065a0a33555f53bd5fe88753f0dcd138102681c50e84a0a381f0"
+  },
+  {
+    "call_index": 9,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -2.337,
+          -0.011
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -4.208,
+          -1.069
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.467,
+          1.047
+        ]
+      }
+    ],
+    "prompt_sha256": "1a004c9d9a046dcac2bb8d69a4eb3b53e37304bc101b25c98c63d92fa39e5c15",
+    "image_sha256": "ba0d82e12a2d0c9f03a5d6deef11b305a290c0994a7923b1c63bffac67834474"
+  },
+  {
+    "call_index": 10,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.467,
+          1.047
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -4.208,
+          -1.069
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -2.337,
+          -0.011
+        ]
+      }
+    ],
+    "prompt_sha256": "733239f05c2bca90d3277981b839ad1b9a7e7e77ee91f0b22c8d42e203bd6c5e",
+    "image_sha256": "ad60925bce32065a0a33555f53bd5fe88753f0dcd138102681c50e84a0a381f0"
+  },
+  {
+    "call_index": 11,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_structured",
+    "prompt_sha256": "0b64c04ff03965354c197521708ba0483c4405332d22dfe77712df9db381c0bc",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 12,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "ad66f2e2ca9abd445c000424e1f0be56d3cfc81a1d4eaea2082b533ff1d5a422",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 13,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 14,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 15,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 16,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 17,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "7e4606154562178f0b145f2a9a10636b22602a67458a9bb2055ebab63c9fdb42",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 18,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "34765be92b46d8524db28add4fadcba36e08534dea44b545db1f28a8ada9e875",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  {
+    "call_index": 19,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.449,
+          -1.533
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          1.304,
+          -0.754
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -2.203,
+          -2.312
+        ]
+      }
+    ],
+    "prompt_sha256": "a2fbe09f649db5ac92079b317049e0787db9b62f7cd59cbea087e33018f45edb",
+    "image_sha256": "25d210f3b6a7a566970c8de439a21ebac266513ec20aaea7c7d69c9b2af850f3"
+  },
+  {
+    "call_index": 20,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.449,
+          -1.533
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          1.304,
+          -0.754
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -2.203,
+          -2.312
+        ]
+      }
+    ],
+    "prompt_sha256": "0a73a45148d4a178c2cd74e10e47b9017f2d7777c1acb7d11d472e63361140a0",
+    "image_sha256": "7f3589989a161dbc1f77f240a398e17f7dd307feb2ba24a3eb8d608740aa4595"
+  },
+  {
+    "call_index": 21,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          -2.203,
+          -2.312
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          1.304,
+          -0.754
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.449,
+          -1.533
+        ]
+      }
+    ],
+    "prompt_sha256": "4078b5f46b4fa3f45e80d54ff6bf51fd3e2ca5711974d52cd2e8e7f608eff461",
+    "image_sha256": "25d210f3b6a7a566970c8de439a21ebac266513ec20aaea7c7d69c9b2af850f3"
+  },
+  {
+    "call_index": 22,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 23,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 24,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 25,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 26,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 27,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 28,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 29,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "d0deee665a1320f665f48c950a8734523218e3ce66cf70e0177e02c0eda4ef3e"
+  },
+  {
+    "call_index": 30,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          0.148,
+          0.051
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -1.667,
+          -0.855
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          1.962,
+          0.958
+        ]
+      }
+    ],
+    "prompt_sha256": "161cc22872436f3e91ebe680e1267a30a454d6ce076a09a980851170d28cb3c7",
+    "image_sha256": "8f7c214269abb6161ecd112d9954e00d78fdbf363eaf183ebcd0729339c24654"
+  },
+  {
+    "call_index": 31,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          0.148,
+          0.051
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -1.667,
+          -0.855
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          1.962,
+          0.958
+        ]
+      }
+    ],
+    "prompt_sha256": "1a4a9c21124473e5aa4196c7ecc4c6f6101182bff10f72dbeb3fc1daa66fb6a5",
+    "image_sha256": "9d29d154df135f6aa1234ea4acfa6991c792ffd1e467cac78c5462e30dcfe7df"
+  },
+  {
+    "call_index": 32,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          1.962,
+          0.958
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -1.667,
+          -0.855
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.148,
+          0.051
+        ]
+      }
+    ],
+    "prompt_sha256": "7d356abf39e0230fe70b592a2744a59d340a42fdee25536c1110a717be2e7c6a",
+    "image_sha256": "8f7c214269abb6161ecd112d9954e00d78fdbf363eaf183ebcd0729339c24654"
+  },
+  {
+    "call_index": 33,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_structured",
+    "prompt_sha256": "0b64c04ff03965354c197521708ba0483c4405332d22dfe77712df9db381c0bc",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 34,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "ad66f2e2ca9abd445c000424e1f0be56d3cfc81a1d4eaea2082b533ff1d5a422",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 35,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 36,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 37,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 38,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 39,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "7e4606154562178f0b145f2a9a10636b22602a67458a9bb2055ebab63c9fdb42",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 40,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "34765be92b46d8524db28add4fadcba36e08534dea44b545db1f28a8ada9e875",
+    "image_sha256": "3c481fbf4ce2ad167b6fe2cac0bb9100e4daedb2566ce8f6fc1d55d84ee6f7f5"
+  },
+  {
+    "call_index": 41,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.142,
+          0.802
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -2.247,
+          0.406
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          1.963,
+          1.197
+        ]
+      }
+    ],
+    "prompt_sha256": "87f3c01bdb73380626d3c161e89608599c30e91c3352f4ae80602702f1cdbb58",
+    "image_sha256": "764086a65c6dd31a876a6b6d710f934c5879d59eae63943c9e1b1a82144db3da"
+  },
+  {
+    "call_index": 42,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.142,
+          0.802
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -2.247,
+          0.406
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          1.963,
+          1.197
+        ]
+      }
+    ],
+    "prompt_sha256": "0286e6c9d4cf9713b024e76fcbfe560c785954eeff6412b7f8d3dbeff54a908a",
+    "image_sha256": "b6d76c0e71ee1bc706a1cbdf6d897be5f72049f19a0e8148b8497536ab688de7"
+  },
+  {
+    "call_index": 43,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          1.963,
+          1.197
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -2.247,
+          0.406
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.142,
+          0.802
+        ]
+      }
+    ],
+    "prompt_sha256": "025015686eb5c4a64f1c84142ee5f3063864ff205ce450460dd440bb08d7a193",
+    "image_sha256": "764086a65c6dd31a876a6b6d710f934c5879d59eae63943c9e1b1a82144db3da"
+  },
+  {
+    "call_index": 44,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 45,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 46,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 47,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 48,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 49,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 50,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 51,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "dba191115ac87b608245b3ddbe8ec696f488da5c16e41427057c3b636b45793f"
+  },
+  {
+    "call_index": 52,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          2.157,
+          -1.158
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          3.783,
+          -0.056
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          0.531,
+          -2.26
+        ]
+      }
+    ],
+    "prompt_sha256": "ccb4e3644c9d7391b4f3c5266acbeafa85dfac3c1c422002be8738acccb30771",
+    "image_sha256": "6d7c5521d3aeddc3f850f1b2a3e11818ed180a59c7f26d54c8ecd5df8961214c"
+  },
+  {
+    "call_index": 53,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          2.157,
+          -1.158
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          3.783,
+          -0.056
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.531,
+          -2.26
+        ]
+      }
+    ],
+    "prompt_sha256": "33fa6215d928b75ec19a0c61d85f73c83ee55ba4befc2bb20520f682e461ff1e",
+    "image_sha256": "4fa995c56f5ea15a9ebb7bbc6c5d7c1842f697c4e7964f691d01e1f16d27f4dc"
+  },
+  {
+    "call_index": 54,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "point_hazard",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          0.531,
+          -2.26
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          3.783,
+          -0.056
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          2.157,
+          -1.158
+        ]
+      }
+    ],
+    "prompt_sha256": "ad3ef7f4ba02935f494a002837819295de8249c04bb9f1bf4d27b49cada71b88",
+    "image_sha256": "6d7c5521d3aeddc3f850f1b2a3e11818ed180a59c7f26d54c8ecd5df8961214c"
+  },
+  {
+    "call_index": 55,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 56,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 57,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 58,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 59,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 60,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 61,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 62,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "5758330d0bd4e0f736f7a393ba0585bee4cef89fdd2104928e3bcb564b647b5e"
+  },
+  {
+    "call_index": 63,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.221,
+          0.133
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.221,
+          1.87
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.221,
+          -1.604
+        ]
+      }
+    ],
+    "prompt_sha256": "5a210fa3b5e01bfb3a693011370a49023aad9f1025e3c67137f030c4875e0c92",
+    "image_sha256": "f914b683d93305a402a2309893f009dc48431aeffd4574704fb3e0bd37cae3c2"
+  },
+  {
+    "call_index": 64,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.221,
+          0.133
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.221,
+          1.87
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.221,
+          -1.604
+        ]
+      }
+    ],
+    "prompt_sha256": "4fc79ab72c222b01a06ce709b4b8bcd4d2d3fd86d74c5dcd68454249a648a1e8",
+    "image_sha256": "237d52e4415655f43f1448b43847a3759ccea2e9f2307dc4550ba3aa7b7be566"
+  },
+  {
+    "call_index": 65,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 20,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.221,
+          -1.604
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.221,
+          1.87
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.221,
+          0.133
+        ]
+      }
+    ],
+    "prompt_sha256": "833158f1f690eeb0307228764ea4d8aa774c96d98496274e4a280bbf5a2b8592",
+    "image_sha256": "f914b683d93305a402a2309893f009dc48431aeffd4574704fb3e0bd37cae3c2"
+  },
+  {
+    "call_index": 66,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_structured",
+    "prompt_sha256": "0b64c04ff03965354c197521708ba0483c4405332d22dfe77712df9db381c0bc",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 67,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "ad66f2e2ca9abd445c000424e1f0be56d3cfc81a1d4eaea2082b533ff1d5a422",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 68,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 69,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 70,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 71,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 72,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "7e4606154562178f0b145f2a9a10636b22602a67458a9bb2055ebab63c9fdb42",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 73,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "amphibious",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "34765be92b46d8524db28add4fadcba36e08534dea44b545db1f28a8ada9e875",
+    "image_sha256": "45970583a946b6d0ec30f13e659f50ed29aaf4476ae63b3f5db1c856cd5fbf4b"
+  },
+  {
+    "call_index": 74,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          0.115,
+          -0.206
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          0.115,
+          1.544
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          0.115,
+          -1.955
+        ]
+      }
+    ],
+    "prompt_sha256": "ed0ffb85479c745528b87df82e60d2716c5476f8a23ec11ebc2febe0435bbf9d",
+    "image_sha256": "833ffb507edbf69d6f6c89267627bd4fd208ef373de4a05652d56845a83f5c8c"
+  },
+  {
+    "call_index": 75,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          0.115,
+          -0.206
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          0.115,
+          1.544
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.115,
+          -1.955
+        ]
+      }
+    ],
+    "prompt_sha256": "3ac13df831085862f4e09de535bc8b33b8a919cf059ead9b24cc44d89f38df98",
+    "image_sha256": "9483bac743f06754c384df9dbfd68905d5403bcc0a703018d3e929490ca31cb7"
+  },
+  {
+    "call_index": 76,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 21,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          0.115,
+          -1.955
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          0.115,
+          1.544
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.115,
+          -0.206
+        ]
+      }
+    ],
+    "prompt_sha256": "eed5b8ab94416de9f3d83df4f7af5f74fef3a27fad44bf836ee6b96049bc794e",
+    "image_sha256": "833ffb507edbf69d6f6c89267627bd4fd208ef373de4a05652d56845a83f5c8c"
+  },
+  {
+    "call_index": 77,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 78,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 79,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 80,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 81,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 82,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 83,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 84,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+  },
+  {
+    "call_index": 85,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.092,
+          -0.161
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.092,
+          1.684
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.092,
+          -2.007
+        ]
+      }
+    ],
+    "prompt_sha256": "fa7c74834ca1ec32d5b2964522ed8441fce840a174c4929dc42f681f6d6c9cbf",
+    "image_sha256": "7e2c05cf2491c51be4376ecbd136d2788b2af26d8e9262f55adcf330c8e3b93e"
+  },
+  {
+    "call_index": 86,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.092,
+          -0.161
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.092,
+          1.684
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.092,
+          -2.007
+        ]
+      }
+    ],
+    "prompt_sha256": "03adea4f58949154ace4be0ec6c7ee562699a4c452c4d24030c30dd54331b536",
+    "image_sha256": "ef68c9a1d3a66a33de6bb8115c46fb1ff961a5025b752c591452641212fa3b81"
+  },
+  {
+    "call_index": 87,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 22,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.092,
+          -2.007
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.092,
+          1.684
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.092,
+          -0.161
+        ]
+      }
+    ],
+    "prompt_sha256": "f6f599282c1775de3633b3be1aa41254b77230b34f14df35a522470288dd4194",
+    "image_sha256": "7e2c05cf2491c51be4376ecbd136d2788b2af26d8e9262f55adcf330c8e3b93e"
+  },
+  {
+    "call_index": 88,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_structured",
+    "prompt_sha256": "0b64c04ff03965354c197521708ba0483c4405332d22dfe77712df9db381c0bc",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 89,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "ad66f2e2ca9abd445c000424e1f0be56d3cfc81a1d4eaea2082b533ff1d5a422",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 90,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "8221412560407ec981566560340ded8adcc4f81a18813a907f9b9b2a4aceae47",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 91,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "ae747e778347a2a393f879b55ea233086fa8ae5c6a71dab7b6a515e4febeaa7d",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 92,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 93,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "fe7000aaa0455a83ac2e5b530fe42ce5ded724d1618aac2a71dd1db67d09e5c1",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 94,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "7e4606154562178f0b145f2a9a10636b22602a67458a9bb2055ebab63c9fdb42",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 95,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "amphibious",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "34765be92b46d8524db28add4fadcba36e08534dea44b545db1f28a8ada9e875",
+    "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+  },
+  {
+    "call_index": 96,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.094,
+          0.144
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.094,
+          1.889
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.094,
+          -1.602
+        ]
+      }
+    ],
+    "prompt_sha256": "6bc077e9e8714ac306587ab317eb94f29d4530ab32f4bf2340a70a192e38494b",
+    "image_sha256": "f7f1cc93d98d2abb6ccb33fe3b64d92f9341f8ea35a7c14deb667cd6d223852f"
+  },
+  {
+    "call_index": 97,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.094,
+          0.144
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.094,
+          1.889
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.094,
+          -1.602
+        ]
+      }
+    ],
+    "prompt_sha256": "d8e7b3f7eded69921ed75fa514db70450de7bb33afadbf2677595ac806dcb092",
+    "image_sha256": "035c1306a13385e7ab3d54eb9151b4624558a23d36ff66d73486e41729d31fb4"
+  },
+  {
+    "call_index": 98,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 23,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          -0.094,
+          -1.602
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          -0.094,
+          1.889
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          -0.094,
+          0.144
+        ]
+      }
+    ],
+    "prompt_sha256": "1675fd5ed81431bb8eeb4b3cd119ee35a2be7cb98113c42ccdefdcfe3feb46a4",
+    "image_sha256": "f7f1cc93d98d2abb6ccb33fe3b64d92f9341f8ea35a7c14deb667cd6d223852f"
+  },
+  {
+    "call_index": 99,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured",
+    "prompt_sha256": "1bce29539f5f27904e971a746c1580404de3cb955b575c0394b32425b59dc980",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 100,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_structured_field_reversed",
+    "prompt_sha256": "4c0f694b6f8e52c817cb14bd06198bf544fbed59433c17e996c3d2c0a06ef925",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 101,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "action_free_text",
+    "prompt_sha256": "2d0c554b40f1c76078e39c7a54bcb9aa1dfd38baa8c8f2fed94dcf577055bd44",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 102,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_positive",
+    "prompt_sha256": "339ad1d9b2e7c7a040207b282ff9cbc35daa64f631b5fd82d80faba516603899",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 103,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "constraint_negative",
+    "prompt_sha256": "51769c3dad3e3ddab735b22cac1412eca8fe0f07b98111a604dc0821c0b36cd9",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 104,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_positive",
+    "prompt_sha256": "b65ac930aceb82da117cd97210968b289809e9d0137063b70378c553a24a44ea",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 105,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "compatibility_negative",
+    "prompt_sha256": "9a6b71bb2c67ad7840b8e0924bed34b2e2db79c70f064c570a2fe19cc955b6a3",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 106,
+    "task": "semantic_route_decision",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "contract_id": "ambiguous_applicability",
+    "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+    "image_sha256": "645dd542e47a0f7cada876c6d49302539ea292f12ecc211f0ed098b8081882ba"
+  },
+  {
+    "call_index": 107,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_baseline",
+    "public_candidate_records": [
+      {
+        "marker": "1",
+        "world_xy": [
+          0.181,
+          -0.084
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          0.181,
+          1.737
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          0.181,
+          -1.906
+        ]
+      }
+    ],
+    "prompt_sha256": "73a51f6a452723d495700ed739f1b6f650914cc41f83376cba92f4f9876d80e9",
+    "image_sha256": "ec23fae618b57f7d8d4cfdf46b164489f98fed4992561f63b69b997881ad8a85"
+  },
+  {
+    "call_index": 108,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "marker_id_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "2",
+        "world_xy": [
+          0.181,
+          -0.084
+        ]
+      },
+      {
+        "marker": "3",
+        "world_xy": [
+          0.181,
+          1.737
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.181,
+          -1.906
+        ]
+      }
+    ],
+    "prompt_sha256": "9bb8e383fe640d4af2dc3302cb482ec1cb0764e3d80202c91bb58578e8f51c9f",
+    "image_sha256": "ecd9b5d9e24319d9a53662f5a63dbfbd01de3a0d902d5ba7eb449cd9eb92b355"
+  },
+  {
+    "call_index": 109,
+    "task": "candidate_waypoint_selection",
+    "model": "mistralai/mistral-small-3.2-24b-instruct",
+    "environment": "safety_gym_goal",
+    "seed": 24,
+    "capability": "wheeled_non_waterproof",
+    "variant": "candidate_order_permutation",
+    "public_candidate_records": [
+      {
+        "marker": "3",
+        "world_xy": [
+          0.181,
+          -1.906
+        ]
+      },
+      {
+        "marker": "2",
+        "world_xy": [
+          0.181,
+          1.737
+        ]
+      },
+      {
+        "marker": "1",
+        "world_xy": [
+          0.181,
+          -0.084
+        ]
+      }
+    ],
+    "prompt_sha256": "b6e3f18eafbb71281cdd03c5ccabeea88002ed1648806c6fe585ada7b9fbcadd",
+    "image_sha256": "ec23fae618b57f7d8d4cfdf46b164489f98fed4992561f63b69b997881ad8a85"
+  }
+]

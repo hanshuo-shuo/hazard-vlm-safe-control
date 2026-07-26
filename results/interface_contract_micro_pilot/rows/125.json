@@ -1,0 +1,89 @@
+{
+  "schema_version": "embodied-interface-contract-micro-pilot-v1",
+  "call_index": 125,
+  "task": "semantic_route_decision",
+  "model": "qwen/qwen3-vl-30b-a3b-instruct",
+  "environment": "point_hazard",
+  "seed": 21,
+  "capability": "amphibious",
+  "contract_id": "constraint_negative",
+  "scene": {
+    "environment": "point_hazard",
+    "environment_id": "PointHazard-v1",
+    "seed": 21,
+    "start_xy": [
+      -1.5770869255065918,
+      0.5802050232887268
+    ],
+    "goal_xy": [
+      0.28683581948280334,
+      -3.6141738891601562
+    ],
+    "terrain": {
+      "center_xy": [
+        -0.4492132365703583,
+        -1.5332427024841309
+      ],
+      "radius": 0.8186907172203064,
+      "terrain_class": "water"
+    },
+    "arena_half": 5.0,
+    "image_size": 320
+  },
+  "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+  "prompt_bytes_utf8": "You control a robot in the attached top-down scene. The blue patch is visible terrain, not a native collision hazard. Recognize the terrain and decide whether the robot should avoid it or traverse it.\n\nCAPABILITY CARD\nEmbodiment: amphibious wheeled robot.\nCompatible terrain: solid ground, grass, and water.\nIncompatible terrain: mud.\n\nACTION DEFINITIONS\n- avoid: route around the visible terrain.\n- traverse: crossing the visible terrain is permitted.\n- unknown: evidence is insufficient.\n\nCONSTRAINT LABEL\nconstraint_does_not_apply=yes means this terrain need not be avoided for this robot; no means it must be avoided.\nReturn JSON only with exactly these fields in this order:\n{\"terrain_class\":\"water|unknown\",\"constraint_does_not_apply\":\"yes|no|unknown\",\"action\":\"avoid|traverse|unknown\"}\n",
+  "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f",
+  "provider_record": {
+    "request_sha256": "84aaeff566bb4896eeba1fb4f28551e7ed4919265501320adc973006e2673163",
+    "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+    "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+    "provider": "DeepInfra",
+    "request_id": "gen-1785033209-KFIZeSEbSiOkKkaCVgOt",
+    "created_at": "2026-07-26T02:33:30.199103+00:00",
+    "latency_seconds": 1.8633297909982502,
+    "usage": {
+      "prompt_tokens": 277,
+      "completion_tokens": 19,
+      "total_tokens": 296,
+      "cost": 5.295e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 5.295e-05,
+        "upstream_inference_prompt_cost": 4.155e-05,
+        "upstream_inference_completions_cost": 1.14e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "raw_response": "{\"terrain_class\":\"water\",\"constraint_does_not_apply\":\"yes\",\"action\":\"traverse\"}",
+    "prompt_sha256": "73a4551af43afbe8af1ad1211b3b8e8cd33730a407ba61bf73353988a3270409",
+    "image_sha256": "ea3a4db31485aeea09e75d287e078946548e06af639358bced64123196d1734f"
+  },
+  "parsed": {
+    "parse_status": "ok",
+    "terrain_class": "water",
+    "action": "traverse",
+    "semantic_safe_to_traverse": true,
+    "label_action_consistent": true,
+    "field_order_compliant": true,
+    "emitted_field_order": [
+      "terrain_class",
+      "constraint_does_not_apply",
+      "action"
+    ],
+    "values": {
+      "terrain_class": "water",
+      "constraint_does_not_apply": "yes",
+      "action": "traverse"
+    }
+  }
+}

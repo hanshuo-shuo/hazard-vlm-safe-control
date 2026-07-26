@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-07-24
+更新：2026-07-26
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -10,6 +10,52 @@
 - **ARCHIVED**：属于已放弃路线，仅用于保存研究历史。
 
 当前没有任何 semantic-safety 结果达到 VALIDATED。
+
+## Interface-contract recovery pilot
+
+- Decision date: `2026-07-26`
+- Evidence class: `PILOT_ONLY / NOT PAPER RESULT`
+- Mainline decision: `PROMISING_METHOD_AND_PHENOMENON_BUT_NOT_YET_AN_ICLR_MAIN_RESULT`
+- Seeds per API model: `[20,21,22,23,24]` (hard ceiling of five distinct seeds)
+- Valid science models: Gemini 2.5 Flash-Lite, Qwen3-VL-30B-A3B-Instruct,
+  Mistral Small 3.2 24B
+- Valid crossed rows: 330
+- Total calls including retained invalid GPT arm: 440
+- Total provider cost: `$0.051349465`
+- Combined artifact: `results/interface_contract_combined_analysis/`
+
+The audit covers JSON field ordering, structured/free-text output, positive and
+negative label semantics, constraint/compatibility wording, ambiguous
+applicability, marker IDs, candidate ordering, downstream planner mappings and
+model ranking across two tasks and two renderer/environment contracts.
+
+Allowed pilot claims:
+
+- field-order physical-action consistency is 23/30 and
+  structured/free-text consistency is 21/30;
+- marker-ID physical-choice consistency is 23/30 and candidate-order
+  consistency is 18/30;
+- plausible mappings of the same ambiguous outputs produce executed STC from
+  0.50 to 0.80 through fixed PointHazard MPC and headless Safety-Gym dynamics;
+- Gemini/Qwen relative rank reverses under some interface conditions;
+- Mistral is a stable counterexample/control, so the effect is heterogeneous.
+
+Blocking evidence and forbidden promotion:
+
+- semantic-contract sensitivity did not pass the predeclared two-environment
+  replication gate;
+- Safety-Gym evidence uses a headless contract render, not native RGB/dynamics;
+- the second closed-loop arm still uses headless rather than native Safety-Gym;
+- the result must not be promoted to ICLR-grade, universal fragility, or native
+  cross-environment replication.
+
+The GPT-5-mini arm is retained but excluded from capability ranking: only 8/110
+rows parsed, 87 returned empty content, and 15 were otherwise truncated or
+invalid under the frozen request. The separately registered Mistral replacement
+changes only model identity; all 110 prompt/image hashes match the parent.
+
+The formal recovery protocol and kill conditions are in
+[INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md).
 
 ## Marker mainline termination
 
@@ -99,7 +145,7 @@ run 暂停。
 | Safety-Gymnasium semantic variant | `BLOCKED` | 语义 variant 的 protocol gate 与 evidence 尚未完成；不进入当前 MVF。 |
 | B01 sampler | **RESOLVED** | checked final-attempt grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过。 |
 | Unified direct/replay harness | **INFRA / PASSED** | `direct/replay × none/oracle` vertical slice、shared enforcement、artifact reconstruction 和 STC audit 已通过专项测试。 |
-| Paid VLM/OpenRouter/API runs | **PAUSED** | 14-condition offline matrix、machine release manifest 与 core reproducibility lock 已通过；manifest 仍为 `BLOCKED / NOT AUTHORIZED`，model list、pilot subset、预算、日期和 operator 未冻结。 |
+| Formal paid VLM/OpenRouter/API runs | **PAUSED** | 14-condition offline matrix、machine release manifest 与 core reproducibility lock 已通过；manifest 仍为 `BLOCKED / NOT AUTHORIZED`，model list、pilot subset、预算、日期和 operator 未冻结。2026-07-26 separately scoped interface micro-pilot 不解锁该 manifest。 |
 
 ---
 

@@ -1,0 +1,35 @@
+{
+  "request_sha256": "afff8ab9aade5e38cee42eaf5771145e064bc40f0b0693e1ae61d1128f5d63c0",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "request_id": "gen-1785033175-1aea5yHK1ble2eULqEis",
+  "created_at": "2026-07-26T02:32:56.714836+00:00",
+  "latency_seconds": 2.204941375006456,
+  "usage": {
+    "prompt_tokens": 419,
+    "completion_tokens": 16,
+    "total_tokens": 435,
+    "cost": 4.83e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.83e-05,
+      "upstream_inference_prompt_cost": 4.19e-05,
+      "upstream_inference_completions_cost": 6.4e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain_class\":\"unknown\",\"applicability\":\"unknown\",\"action\":\"unknown\"}",
+  "prompt_sha256": "c57a9c6105162fde15db7889201f50320c3836a8818cb1ca9fce74d3d058943c",
+  "image_sha256": "999226087fd8866b00fbca303d69b8c03fb45985aa3f342f0d56fa73d1341754"
+}

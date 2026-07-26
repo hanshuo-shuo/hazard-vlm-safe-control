@@ -1,0 +1,35 @@
+{
+  "request_sha256": "87e89e2ccf407e57b3e272a4f413ee04f4d6bfc00a183d7d0107b6ce34027d10",
+  "model_requested": "qwen/qwen3-vl-30b-a3b-instruct",
+  "model_returned": "qwen/qwen3-vl-30b-a3b-instruct",
+  "provider": "SiliconFlow",
+  "request_id": "gen-1785033211-811n7Sltdn4aaERW0Fff",
+  "created_at": "2026-07-26T02:33:33.953872+00:00",
+  "latency_seconds": 3.7134877919452265,
+  "usage": {
+    "prompt_tokens": 264,
+    "completion_tokens": 11,
+    "total_tokens": 275,
+    "cost": 8.756e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 8.756e-05,
+      "upstream_inference_prompt_cost": 7.656e-05,
+      "upstream_inference_completions_cost": 1.1e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"selected_marker\":\"2\",\"route_policy\":\"avoid\"}",
+  "prompt_sha256": "a2fbe09f649db5ac92079b317049e0787db9b62f7cd59cbea087e33018f45edb",
+  "image_sha256": "25d210f3b6a7a566970c8de439a21ebac266513ec20aaea7c7d69c9b2af850f3"
+}

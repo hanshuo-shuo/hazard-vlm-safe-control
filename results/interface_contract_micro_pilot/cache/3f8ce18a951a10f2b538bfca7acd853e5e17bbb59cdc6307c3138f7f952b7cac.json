@@ -1,0 +1,35 @@
+{
+  "request_sha256": "3f8ce18a951a10f2b538bfca7acd853e5e17bbb59cdc6307c3138f7f952b7cac",
+  "model_requested": "google/gemini-2.5-flash-lite",
+  "model_returned": "google/gemini-2.5-flash-lite",
+  "provider": "Google",
+  "request_id": "gen-1785033178-X0BfWBiCNrnc7ezjDVBQ",
+  "created_at": "2026-07-26T02:32:59.270031+00:00",
+  "latency_seconds": 1.9662894590292126,
+  "usage": {
+    "prompt_tokens": 399,
+    "completion_tokens": 17,
+    "total_tokens": 416,
+    "cost": 4.67e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 4.67e-05,
+      "upstream_inference_prompt_cost": 3.99e-05,
+      "upstream_inference_completions_cost": 6.8e-06
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "raw_response": "{\"terrain_class\":\"water\",\"action\":\"traverse\",\"confidence\":0.9}",
+  "prompt_sha256": "0b64c04ff03965354c197521708ba0483c4405332d22dfe77712df9db381c0bc",
+  "image_sha256": "a889a966f994196eb5a61420e56b59ace2d75248eb3a0935663f625dac56489f"
+}

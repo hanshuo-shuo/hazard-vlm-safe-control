@@ -1,6 +1,6 @@
 # Project structure and status
 
-Last reviewed: 2026-07-24.
+Last reviewed: 2026-07-26.
 
 Research mainline status: marker-based PointHazard VLM waypoint is
 `TERMINATED / PILOT_ONLY`. The active implementation surface is marker-free
@@ -33,7 +33,12 @@ not gain new dependencies, claims, or experiment results.
 | `evaluation/five_stage_audit.py` | `ACTIVE` | Five-stage scoring and multi-label failure taxonomy |
 | `evaluation/geometry_calibration.py` | `ACTIVE` | Detector decomposition metrics and calibration gates |
 | `evaluation/capability_twins.py` | `ACTIVE` | Capability/appearance twin contracts |
+| `evaluation/interface_contracts.py` | `ACTIVE/EXPLORATORY` | Equivalent-contract normalization, planner mappings and ranking-envelope analysis |
 | `scripts/run_semantic_geometry_audit.py` | `ACTIVE` | Unified no-provider audit runner, resume and manifests |
+| `scripts/run_interface_contract_audit.py` | `PILOT_ONLY` | Frozen five-seed, two-task, two-environment interface audit |
+| `scripts/run_interface_contract_replacement.py` | `PILOT_ONLY` | Hash-matched replacement for the invalid GPT request arm |
+| `scripts/analyze_interface_contract_results.py` | `ACTIVE/ANALYSIS` | Zero-provider combined analysis and paper gate |
+| `scripts/run_interface_execution_bridge.py` | `PILOT_ONLY/EXECUTION` | Cached decisions replayed through fixed MPC and headless dynamics |
 | `scripts/run_next_five_experiments.py` | `TERMINATED/REGRESSION` | Cached historical replay only; explicit override required |
 | `mpc_expert.py` | `ACTIVE` | Shared empirical CEM-MPC executor |
 | `tests/` | `ACTIVE` | Offline acceptance and regression gates |
