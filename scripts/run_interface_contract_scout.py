@@ -97,7 +97,9 @@ def pilot_like_manifest(config: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
-def key_audit(key: str, maximum_spend: float) -> dict[str, Any]:
+def key_audit(
+    key: str, maximum_spend: float, *, allow_higher_limit_key: bool = False
+) -> dict[str, Any]:
     response = requests.get(
         KEY_URL, headers={"Authorization": f"Bearer {key}"}, timeout=30
     )
@@ -105,7 +107,8 @@ def key_audit(key: str, maximum_spend: float) -> dict[str, Any]:
     value = response.json()["data"]
     limit = value.get("limit")
     remaining = value.get("limit_remaining")
-    if limit is None or float(limit) > maximum_spend + 1e-9:
+    provider_cap_compliant = limit is not None and float(limit) <= maximum_spend + 1e-9
+    if not provider_cap_compliant and not allow_higher_limit_key:
         raise PermissionError(
             f"provider-side key limit must be <= USD {maximum_spend:.2f}"
         )
@@ -116,6 +119,10 @@ def key_audit(key: str, maximum_spend: float) -> dict[str, Any]:
         "limit_usd": float(limit),
         "limit_remaining_usd": float(remaining),
         "usage_usd": float(value.get("usage") or 0.0),
+        "provider_side_cap_compliant": provider_cap_compliant,
+        "higher_limit_key_override": bool(
+            allow_higher_limit_key and not provider_cap_compliant
+        ),
         "is_free_tier": bool(value.get("is_free_tier", False)),
         "expires_at": value.get("expires_at"),
     }
@@ -193,6 +200,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=OUTPUT)
     parser.add_argument("--authorization", default="")
     parser.add_argument("--operator", default="user-authorized-in-chat")
+    parser.add_argument("--allow-higher-limit-key", action="store_true")
     args = parser.parse_args()
     allow_provider = args.stage != "cache-only"
     if allow_provider and args.authorization != AUTHORIZATION_PHRASE:
@@ -217,13 +225,25 @@ def main() -> int:
     key = os.environ.get("OPENROUTER_API_KEY", "")
     if allow_provider and not key:
         raise SystemExit("OPENROUTER_API_KEY is required")
-    key_evidence = key_audit(key, float(config["maximum_spend_usd"])) if allow_provider else None
+    key_evidence = (
+        key_audit(
+            key,
+            float(config["maximum_spend_usd"]),
+            allow_higher_limit_key=args.allow_higher_limit_key,
+        )
+        if allow_provider else None
+    )
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     authorization = {
         "schema_version": "interface-contract-scout-runtime-authorization-v1",
         "authorized": allow_provider,
         "authorization_source": "explicit user instruction in conversation",
+        "main_key_override_authorized": bool(args.allow_higher_limit_key),
+        "main_key_override_scope": (
+            "five paid seeds per model; frozen 120-request allowlist only"
+            if args.allow_higher_limit_key else None
+        ),
         "authorized_at": utc_now(),
         "operator": args.operator,
         "stage": args.stage,

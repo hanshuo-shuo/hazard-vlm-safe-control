@@ -12,11 +12,43 @@ from evaluation.paid_provider_gateway import PaidCallLedger, PaidProviderGateway
 from evaluation.interface_contracts import parse_formal_contract_response
 from evaluation.scout_authorization import load_scout_manifest, provider_request_from_row
 from evaluation.scout_replay import formal_planner_action
+from scripts.run_interface_contract_scout import key_audit
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "configs" / "interface_contract_scout_manifest.json"
 RESULT = ROOT / "results" / "interface_contract_scout_preflight"
+
+
+class _KeyAuditResponse:
+    def raise_for_status(self) -> None:
+        return None
+
+    def json(self) -> dict[str, object]:
+        return {
+            "data": {
+                "limit": 100.0,
+                "limit_remaining": 80.0,
+                "usage": 20.0,
+                "is_free_tier": False,
+                "expires_at": None,
+            }
+        }
+
+
+def test_main_key_requires_explicit_scout_override(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(
+        "scripts.run_interface_contract_scout.requests.get",
+        lambda *_args, **_kwargs: _KeyAuditResponse(),
+    )
+    with pytest.raises(PermissionError, match="provider-side key limit"):
+        key_audit("secret-not-written-to-artifacts", 1.0)
+    evidence = key_audit(
+        "secret-not-written-to-artifacts", 1.0, allow_higher_limit_key=True
+    )
+    assert evidence["provider_side_cap_compliant"] is False
+    assert evidence["higher_limit_key_override"] is True
+    assert evidence["limit_usd"] == 100.0
 
 
 def test_checked_in_scout_authorization_is_resolved_but_blocked() -> None:
