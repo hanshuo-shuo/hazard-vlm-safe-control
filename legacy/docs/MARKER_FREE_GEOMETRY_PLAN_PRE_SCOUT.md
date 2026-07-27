@@ -1,5 +1,12 @@
 # Marker-free semantic geometry plan
 
+> **ARCHIVED PRE-SCOUT PLAN.** The infrastructure described here was completed
+> and then exercised by Experiment 0 and the frozen 120-call scout. Use
+> [`../../docs/INTERFACE_CONTRACT_HANDOFF.md`](../../docs/INTERFACE_CONTRACT_HANDOFF.md)
+> for current execution state and
+> [`../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`](../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md)
+> for the resulting evidence.
+
 Status: infrastructure implemented; scientific calibration results `TBD`.
 
 ## 1. Why the marker mainline ended

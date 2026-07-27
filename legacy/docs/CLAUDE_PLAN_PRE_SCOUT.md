@@ -1,5 +1,14 @@
 # Execution status
 
+> **ARCHIVED PRE-SCOUT IMPLEMENTATION PROMPT.** This document records the
+> marker-free refactor requirements before Experiment 0 and the frozen 120-call
+> scout were completed. Its execution status, commands and conclusions are no
+> longer current. Use
+> [`../../docs/INTERFACE_CONTRACT_HANDOFF.md`](../../docs/INTERFACE_CONTRACT_HANDOFF.md)
+> for current state and
+> [`../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`](../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md)
+> for results.
+
 本文件仍是主线切换的验收 prompt。执行状态更新于 2026-07-25：
 
 - marker mainline：`TERMINATED`（termination date `2026-07-24`）；

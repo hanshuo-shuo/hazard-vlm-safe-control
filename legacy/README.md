@@ -31,7 +31,9 @@ components, layout invariants, and registry/run-manifest provenance.
 ## Archive map
 
 - `docs/` preserves superseded plans and result narratives. In particular,
-  `NEXT_EXECUTION_MEMO_PRE_SCOUT.md` is the obsolete pre-scout execution memo.
+  `CLAUDE_PLAN_PRE_SCOUT.md`, `MARKER_FREE_GEOMETRY_PLAN_PRE_SCOUT.md` and
+  `NEXT_EXECUTION_MEMO_PRE_SCOUT.md` are obsolete pre-scout implementation and
+  execution plans.
 - `debug/` contains old PointPush visual smoke code and its generated images;
   it is not collected as part of the active test suite.
 - `runtime_artifacts/hazard/` contains the ignored June 2026 learned-physics

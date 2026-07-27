@@ -99,7 +99,6 @@ them without updating `docs/RESULTS_REGISTRY.md`.
 | `docs/INTERFACE_CONTRACT_SCOUT_REPORT.md` | Illustrated completed-scout result narrative |
 | `docs/INTERFACE_CONTRACT_PROTOCOL.md` | Frozen scout protocol and equivalent-contract design |
 | `docs/ICLR_PLAN.md` | Research strategy and go/no-go gates |
-| `docs/CLAUDE_PLAN.md` | Current implementation sequence and acceptance evidence |
 | `docs/review_status_registry.json` | Machine-readable review-item status authority |
 | `docs/RESEARCH_REVIEW_COMMENTS.md` | Review blocker narrative and rendered status snapshot |
 | `docs/RESULTS_REGISTRY.md` | Artifact validity status |

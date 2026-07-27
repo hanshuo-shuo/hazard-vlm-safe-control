@@ -16,8 +16,7 @@ execution state and result validity each have one owner.
 | 7 | [review_status_registry.json](review_status_registry.json) | Machine-readable earlier-mainline review status |
 | 8 | [RESEARCH_REVIEW_COMMENTS.md](RESEARCH_REVIEW_COMMENTS.md) | Earlier-mainline blockers and rendered status snapshot |
 | 9 | [ICLR_PLAN.md](ICLR_PLAN.md) | Broader research strategy and publication gates |
-| 10 | [CLAUDE_PLAN.md](CLAUDE_PLAN.md) | Marker-free implementation plan and acceptance evidence |
-| 11 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked general release record; separate from the completed scout authorization |
+| 10 | [PAID_RUN_RELEASE.md](PAID_RUN_RELEASE.md) | Blocked general release record; separate from the completed scout authorization |
 
 The code map is [../STRUCTURE.md](../STRUCTURE.md).
 
@@ -56,3 +55,4 @@ Raw pilot outputs, transcripts and invalidated runs remain in `../outputs/`.
 Earlier result narratives and superseded roadmaps were removed because they
 duplicated the registry and contained claims that are no longer admissible.
 The registry retains their status, invalidation reason and artifact location.
+Completed pre-scout implementation plans are preserved under `../legacy/docs/`.
