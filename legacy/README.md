@@ -3,10 +3,9 @@
 > **ARCHIVED / INVALIDATED RESEARCH SNAPSHOT (reviewed 2026-07-11).** This directory
 > preserves the learned-physics PIVOT code, media, and write-up as part of the research
 > record. Its strongest numbers were affected by prompt leakage and must not be cited as
-> current paper evidence. The active project is documented in
-> [`../docs/ICLR_PLAN.md`](../docs/ICLR_PLAN.md), the audit in
-> [`../docs/RESEARCH_REVIEW_COMMENTS.md`](../docs/RESEARCH_REVIEW_COMMENTS.md), and the
-> evidence status in [`../docs/RESULTS_REGISTRY.md`](../docs/RESULTS_REGISTRY.md).
+> current paper evidence. The active project is introduced in the plain-English
+> [`../RESEARCH_STORY.md`](../RESEARCH_STORY.md). The evidence status remains owned
+> by [`../docs/RESULTS_REGISTRY.md`](../docs/RESULTS_REGISTRY.md).
 
 ## Archive boundary
 
@@ -33,7 +32,7 @@ components, layout invariants, and registry/run-manifest provenance.
 - `docs/` preserves superseded plans and result narratives. In particular,
   `CLAUDE_PLAN_PRE_SCOUT.md`, `MARKER_FREE_GEOMETRY_PLAN_PRE_SCOUT.md` and
   `NEXT_EXECUTION_MEMO_PRE_SCOUT.md` are obsolete pre-scout implementation and
-  execution plans.
+  execution plans. See [`docs/README.md`](docs/README.md) for the archive index.
 - `debug/` contains old PointPush visual smoke code and its generated images;
   it is not collected as part of the active test suite.
 - `runtime_artifacts/hazard/` contains the ignored June 2026 learned-physics

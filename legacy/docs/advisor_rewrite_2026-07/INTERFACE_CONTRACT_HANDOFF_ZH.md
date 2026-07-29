@@ -1,5 +1,9 @@
 # Interface-Conditioned Safety 当前交接
 
+> **ARCHIVED 2026-07-28.** This completed operational handoff is preserved for
+> provenance. Current readers should start with
+> [`RESEARCH_STORY.md`](../../../RESEARCH_STORY.md).
+
 更新时间：2026-07-26（Asia/Shanghai）
 
 分支：`safety`
@@ -54,9 +58,9 @@ Experiment 0 证明 executable bridge 本身在两个 native environments 中可
 
 ## 2. 必读入口
 
-先读图文总报告：
+当时的图文总报告：
 
-- `docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`
+- [`INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md`](INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md)
 
 协议与主线：
 

@@ -4,9 +4,9 @@
 > marker-free refactor requirements before Experiment 0 and the frozen 120-call
 > scout were completed. Its execution status, commands and conclusions are no
 > longer current. Use
-> [`../../docs/INTERFACE_CONTRACT_HANDOFF.md`](../../docs/INTERFACE_CONTRACT_HANDOFF.md)
+> [`advisor_rewrite_2026-07/INTERFACE_CONTRACT_HANDOFF_ZH.md`](advisor_rewrite_2026-07/INTERFACE_CONTRACT_HANDOFF_ZH.md)
 > for current state and
-> [`../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`](../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md)
+> [`advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md`](advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md)
 > for results.
 
 本文件仍是主线切换的验收 prompt。执行状态更新于 2026-07-25：

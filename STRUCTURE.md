@@ -1,118 +1,92 @@
-# Project structure and status
+# Project Structure and Archive Policy
 
-Last reviewed: 2026-07-26.
+Updated: 2026-07-28.
 
-Research mainline status: marker-based PointHazard VLM waypoint is
-`TERMINATED / PILOT_ONLY`. The active implementation surface is the
-interface-conditioned safety scout: marker-free grounding through native
-PointHazard and Safety-Gym controllers, followed by detached evaluation.
+The active research line is **interface-conditioned embodied safety**. The old
+marker-waypoint line is terminated and kept only for provenance and regression.
 
-The repository keeps a small number of historical top-level modules in place
-because old scripts and factor snapshots import them directly. New
-protocol-facing work belongs in `envs/`, `evaluation/`, `tests/` and `docs/`.
-Anything marked `FROZEN` or `ARCHIVED` is retained for provenance only and must
-not gain new dependencies, claims, or experiment results.
+## Start here
 
-## Active core
+```text
+RESEARCH_STORY.md        plain-English advisor brief
+README.md                project entry point
+docs/README.md           documentation map
+docs/RESULTS_REGISTRY.md result-validity authority
+```
 
-| Path | Status | Purpose |
+## Active research code
+
+| Area | Main paths | Role |
 |---|---|---|
-| `env_pointhazard.py` | `ACTIVE` | PointHazard dynamics and B01-validated semantic-zone sampler |
-| `envs/protocol_env.py` | `ACTIVE` | Public environment boundary and evaluator-only context |
-| `envs/point_hazard_adapter.py` | `ACTIVE` | PointHazard protocol adapter |
-| `evaluation/conditions.py` | `ACTIVE` | Frozen condition and enforcement identity |
-| `evaluation/policy_interface.py` | `ACTIVE` | Immutable task/capability/policy payload and permission audit |
-| `evaluation/outcomes.py` | `ACTIVE` | Headline STC component reduction and truth table |
-| `evaluation/vlm_artifacts.py` | `ACTIVE` | Structured recognition/action parse and audited per-call bytes |
-| `evaluation/vlm_router.py` | `ACTIVE` | Offline P0–P4 candidates, annotated PNG, versioned prompt and decision audit |
-| `evaluation/harness.py` | `ACTIVE` | Direct/replay × none/oracle vertical slice |
-| `evaluation/schemas.py` | `ACTIVE` | Reproducible episode artifacts |
-| `evaluation/release_manifest.py` | `ACTIVE` | Fail-closed pilot release and dependency-lock audit |
-| `configs/pilot_release_manifest.json` | `ACTIVE/BLOCKED` | Machine-readable release state; provider calls disabled |
-| `evaluation/semantic_evaluator.py` | `ACTIVE` | Evaluator-only semantic accounting |
-| `evaluation/semantic_geometry.py` | `ACTIVE` | Shared marker-free geometry schema, transforms and adapters |
-| `evaluation/five_stage_audit.py` | `ACTIVE` | Five-stage scoring and multi-label failure taxonomy |
-| `evaluation/geometry_calibration.py` | `ACTIVE` | Detector decomposition metrics and calibration gates |
-| `evaluation/capability_twins.py` | `ACTIVE` | Capability/appearance twin contracts |
-| `evaluation/interface_contracts.py` | `ACTIVE/EXPLORATORY` | Equivalent-contract normalization, planner mappings and ranking-envelope analysis |
-| `evaluation/interface_execution.py` | `ACTIVE/PILOT_ONLY` | Normalized grounding to pixel/world conversion and native controller bridge |
-| `evaluation/interface_scenarios.py` | `ACTIVE/PILOT_ONLY` | Frozen cross-environment scout scenario construction |
-| `evaluation/interface_metrics.py` | `ACTIVE/ANALYSIS` | IEC and CISR reductions |
-| `evaluation/scout_authorization.py` | `ACTIVE/RELEASE` | Exact allowlist, model/seed and observed-spend enforcement for the completed scout |
-| `evaluation/scout_replay.py` | `ACTIVE/ANALYSIS` | Zero-provider native replay, CISR and five-stage attribution |
-| `evaluation/paid_provider_gateway.py` | `ACTIVE/RELEASE` | Fixed-endpoint provider transport and cache/ledger boundary |
-| `scripts/run_semantic_geometry_audit.py` | `ACTIVE` | Unified no-provider audit runner, resume and manifests |
-| `scripts/run_interface_contract_audit.py` | `PILOT_ONLY` | Frozen five-seed, two-task, two-environment interface audit |
-| `scripts/run_interface_contract_replacement.py` | `PILOT_ONLY` | Hash-matched replacement for the invalid GPT request arm |
-| `scripts/analyze_interface_contract_results.py` | `ACTIVE/ANALYSIS` | Zero-provider combined analysis and paper gate |
-| `scripts/run_interface_execution_bridge.py` | `PILOT_ONLY/EXECUTION` | Cached decisions replayed through fixed MPC and headless dynamics |
-| `scripts/run_interface_contract_scout.py` | `PILOT_ONLY/COMPLETE` | Frozen 120-call paid scout; successful rows are cached and must not be requested again |
-| `scripts/replay_interface_contract_scout.py` | `ACTIVE/ANALYSIS` | Provider-disabled replay of paid responses through both native environments |
-| `scripts/build_interface_contract_scout_report_figures.py` | `ACTIVE/REPORTING` | Rebuilds the six checked-in scout report figures |
-| `scripts/run_next_five_experiments.py` | `TERMINATED/REGRESSION` | Cached historical replay only; explicit override required |
-| `mpc_expert.py` | `ACTIVE` | Shared empirical CEM-MPC executor |
-| `tests/` | `ACTIVE` | Offline acceptance and regression gates |
+| Native environments | `env_pointhazard.py`, `envs/` | Public observation boundary and native adapters |
+| Interface experiment | `evaluation/interface_contracts.py`, `evaluation/interface_scenarios.py` | Equivalent contracts and paired scenarios |
+| Execution | `evaluation/interface_execution.py`, `mpc_expert.py` | Grounding conversion and fixed low-level control |
+| Evaluation | `evaluation/interface_metrics.py`, `evaluation/scout_replay.py`, `evaluation/five_stage_audit.py` | IEC, CISR, native replay, and failure attribution |
+| Release safety | `evaluation/scout_authorization.py`, `evaluation/paid_provider_gateway.py`, `configs/` | Fail-closed provider scope and budget checks |
+| Reproducibility | `scripts/`, `tests/`, `results/` | Builders, tests, and checked-in evidence |
 
-## Optional infrastructure
+New scientific work should normally go into `envs/`, `evaluation/`, `scripts/`,
+`tests/`, and `docs/`.
 
-| Path | Status | Boundary |
-|---|---|---|
-| `envs/safety_gym_goal_adapter.py` | `ACTIVE/PILOT_ONLY` | Native Safety-Gym Goal adapter used by Experiment 0 and the completed scout; not a validated benchmark result |
-| `env_pointpushhazard.py`, `pointpush_*` | `FROZEN` | Contact-task scaffold; no independent PointPush science line |
-| `safe_expert.py` | `FROZEN` | Historical A* + PD compatibility controller; not a current claim |
-| `zone_detector.py` | `ARCHIVED` | Renderer-palette sanity plumbing only; not a perception baseline |
-| `pivot_vlm.py`, `subgoal_pivot_hazard.py` | `FROZEN` | Historical PIVOT/B+ compatibility path and factor snapshot support |
-| `direct_vla_*.py` | `ARCHIVED` | End-to-end VLA scaffolds; no training or performance work in this phase |
+## Documentation layers
 
-## Frozen and historical paths
+### 1. Current reading
 
-`subgoal_pivot_hazard.py`, the PointPush learned-physics script, direct-VLA
-scripts, `scripts/make_*`, the renderer-palette detector and most committed
-`outputs/` reproduce earlier experiments. They are retained for forensic use and
-are not the current harness. `legacy/` contains older implementations that
-should remain isolated; its [README](legacy/README.md) is the archive boundary.
-Archived PointPush visual smokes live in `legacy/debug/`; ignored June 2026
-weights, GIFs and raw logs live in `legacy/runtime_artifacts/hazard/`.
-
-The following work is explicitly out of scope for the current phase:
-
-- extending protocol lexical, numeric, P4 precision, or serialization details;
-- optimizing old PIVOT/B+ performance or adding unpaired paid VLM sweeps;
-- turning `zone_detector.py` into a perception baseline;
-- expanding PointPush or direct VLA beyond frozen scaffolds;
-- adding terrain names without a matched scientific control.
-
-The active discovery surface is deliberately smaller: exact prompt/image
-reconstruction, replay identity, capability and appearance twins, STC
-components, layout invariant tests, the unified executor, and registry/run
-manifest discipline.
-
-Invalidated artifacts live under `outputs/invalidated/`; do not delete or move
-them without updating `docs/RESULTS_REGISTRY.md`.
-
-## Documentation truth sources
-
-| Document | Role |
+| Document | Purpose |
 |---|---|
-| `docs/PROTOCOL.md` | Frozen experiment semantics |
-| `docs/INTERFACE_CONTRACT_HANDOFF.md` | Current execution state and next authorization boundary |
-| `docs/INTERFACE_CONTRACT_SCOUT_REPORT.md` | Illustrated completed-scout result narrative |
-| `docs/INTERFACE_CONTRACT_PROTOCOL.md` | Frozen scout protocol and equivalent-contract design |
-| `docs/ICLR_PLAN.md` | Research strategy and go/no-go gates |
-| `docs/review_status_registry.json` | Machine-readable review-item status authority |
-| `docs/RESEARCH_REVIEW_COMMENTS.md` | Review blocker narrative and rendered status snapshot |
-| `docs/RESULTS_REGISTRY.md` | Artifact validity status |
+| `RESEARCH_STORY.md` | Simple research story, figures, claim boundary, and next steps |
+| `docs/INTERFACE_CONTRACT_PROTOCOL.md` | Frozen current experiment semantics |
+| `docs/RESULTS_REGISTRY.md` | Whether an artifact may be cited |
+| `docs/PAID_RUN_RELEASE.md` | Blocked general paid-run record |
 
-Superseded roadmaps, old result narratives and implementation prompts were
-removed during the 2026-07-23 cleanup. Their raw artifacts and invalidation
-records remain available through `outputs/` and the registry.
+### 2. Provenance-locked documents
+
+The following files look like old planning material, but checked-in manifests
+or tests hash or parse their exact paths. Moving or rewriting them would break
+the historical evidence chain:
+
+- `docs/ICLR_PLAN.md`;
+- `docs/INTERFACE_CONTRACT_MAINLINE.md`;
+- `docs/PROTOCOL.md`;
+- `docs/RESEARCH_REVIEW_COMMENTS.md`;
+- `docs/review_status_registry.json`.
+
+They remain under `docs/` for reproducibility, not because they are the best
+entry point for a reader.
+
+### 3. Historical narratives
+
+Superseded stories, completed handoffs, detailed internal reports, and old
+implementation plans live under `legacy/docs/`. The July 2026 advisor rewrite
+archive is in `legacy/docs/advisor_rewrite_2026-07/`.
+
+## Frozen compatibility code
+
+Some old top-level modules remain in place because historical scripts and tests
+import them directly:
+
+- `pivot_vlm.py`, `subgoal_pivot_hazard.py`, `zone_detector.py`;
+- `safe_expert.py` and renderer compatibility modules;
+- PointPush and direct-VLA scaffolds.
+
+These files do not receive new research claims or features. Moving them without
+updating all historical import paths would reduce reproducibility, so they stay
+at their registered paths.
+
+## Artifact policy
+
+- `results/` contains current structured experiment evidence.
+- `outputs/invalidated/` contains explicitly invalidated runs.
+- older files directly under `outputs/` are historical and remain in place
+  because `docs/RESULTS_REGISTRY.md` records those paths.
+- `legacy/` contains superseded source, narratives, debug material, and assets.
+
+Do not delete or rename an evidence file without updating the result registry
+and checking every manifest that records its path or hash.
 
 ## Current gate
 
-Experiment 0 passed 640 provider-free native executions. The separately
-authorized scout completed 120/120 paid calls, and zero-call replay produced
-nontrivial cross-environment action, trajectory and STC effects. The exact
-evidence and hashes are owned by `docs/INTERFACE_CONTRACT_HANDOFF.md` and the
-checked-in result manifests. A second family and the full 1,440-call design
-remain unauthorized. The older general paid release also remains blocked by
-`docs/PAID_RUN_RELEASE.md` and `configs/pilot_release_manifest.json`.
+The 120-call scout is complete and cache-replayable. Its native action and
+trajectory IEC are both 0.55, and its equivalent-contract CISR is 0.15. These
+numbers justify a carefully scoped second scenario family, but they do not
+authorize new paid calls or promote the pilot to a paper result.

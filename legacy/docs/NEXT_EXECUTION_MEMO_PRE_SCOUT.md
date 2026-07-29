@@ -3,9 +3,9 @@
 > **ARCHIVED PRE-SCOUT SNAPSHOT.** This memo records the state before Experiment 0
 > and the frozen 120-call scout were completed. Its commands and blockers are no
 > longer current. Use
-> [`../../docs/INTERFACE_CONTRACT_HANDOFF.md`](../../docs/INTERFACE_CONTRACT_HANDOFF.md)
+> [`advisor_rewrite_2026-07/INTERFACE_CONTRACT_HANDOFF_ZH.md`](advisor_rewrite_2026-07/INTERFACE_CONTRACT_HANDOFF_ZH.md)
 > for execution state and
-> [`../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md`](../../docs/INTERFACE_CONTRACT_SCOUT_REPORT.md)
+> [`advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md`](advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md)
 > for results.
 
 Date: 2026-07-26

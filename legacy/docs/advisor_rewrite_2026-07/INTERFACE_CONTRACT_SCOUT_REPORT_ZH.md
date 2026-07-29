@@ -1,5 +1,10 @@
 # Interface-Conditioned Safety：从语义等价到原生闭环行为差异
 
+> **ARCHIVED 2026-07-28.** This detailed Chinese report has been replaced as the
+> main reading path by the plain-English
+> [`RESEARCH_STORY.md`](../../../RESEARCH_STORY.md). The underlying result files
+> remain unchanged.
+
 **冻结 120-call scout 技术报告**  
 日期：2026-07-26  
 状态：**SCOUT COMPLETE / PILOT-ONLY**  
@@ -39,7 +44,7 @@ flowchart LR
 
 ## 2. 两个原生环境
 
-![PointHazard 与 Safety-Gym 原生环境](assets/interface_contract_scout/environment-overview.png)
+![PointHazard 与 Safety-Gym 原生环境](../../../docs/assets/interface_contract_scout/environment-overview.png)
 
 ### 2.1 PointHazard native
 
@@ -119,7 +124,7 @@ controller 只接收 `PROVIDER_ESTIMATE` grounding。Evaluator-truth geometry �
 
 ## 4. 主要结果：parse 完美，闭环并不等价
 
-![一致性从 parser 到 native trajectory 的变化](assets/interface_contract_scout/consistency-results.png)
+![一致性从 parser 到 native trajectory 的变化](../../../docs/assets/interface_contract_scout/consistency-results.png)
 
 | Metric | Matched pairs | Consistency / IEC |
 |---|---:|---:|
@@ -151,7 +156,7 @@ Mistral 的不稳定更早出现：semantic、planner、native action 与 trajec
 
 ## 5. 从 equivalent contract 到真实轨迹
 
-![Equivalent contract 对 native trajectory 的传播](assets/interface_contract_scout/trajectory-propagation.png)
+![Equivalent contract 对 native trajectory 的传播](../../../docs/assets/interface_contract_scout/trajectory-propagation.png)
 
 上图固定 seed 20，并把 `constraint` 与 `compatibility` 两个等价表述的轨迹画在同一 native-world 坐标系。红色 terrain disk 是**执行后**用于评价的 truth，只为可视化显示，未进入 controller。
 
@@ -180,7 +185,7 @@ Mistral 的不稳定更早出现：semantic、planner、native action 与 trajec
 
 ## 6. 两环境闭环结果与 calibration
 
-![两个原生环境的闭环结果与投影误差](assets/interface_contract_scout/environment-results.png)
+![两个原生环境的闭环结果与投影误差](../../../docs/assets/interface_contract_scout/environment-results.png)
 
 | Environment | Nonstationary | Task success | STC | Collision | Semantic violation | Native-action IEC |
 |---|---:|---:|---:|---:|---:|---:|
@@ -204,7 +209,7 @@ Paid grounding 的 mean center error 分别为 1.2451 和 0.8597 world units；m
 
 CISR-EQ 表明等价 contract 本身已经能改变闭环 STC；CISR-MAP 更高，说明 ambiguous output 的 planner interpretation 也是重要风险源。两者均越过预注册的 0.10 继续门槛。
 
-![五阶段准确率与最早差异归因](assets/interface_contract_scout/five-stage-results.png)
+![五阶段准确率与最早差异归因](../../../docs/assets/interface_contract_scout/five-stage-results.png)
 
 五阶段结果为：
 
@@ -228,7 +233,7 @@ Qwen 在多数 contract condition 上的 STC score 高于 Mistral，但五种 eq
 
 ## 9. 成本与执行风险
 
-![模型成本、延迟与 reasoning token](assets/interface_contract_scout/provider-operations.png)
+![模型成本、延迟与 reasoning token](../../../docs/assets/interface_contract_scout/provider-operations.png)
 
 | Model | Cost | Mean latency | Max latency | Prompt tokens | Completion tokens | Reasoning tokens |
 |---|---:|---:|---:|---:|---:|---:|
@@ -302,13 +307,13 @@ LAYOUT_TEST_SEEDS=25 PYTHONPATH=. pytest -q
 
 主要机器可读产物：
 
-- [Paid execution result](../results/interface_contract_scout_paid/RESULTS.json)
-- [Paid call ledger](../results/interface_contract_scout_paid/PAID_CALL_LEDGER.json)
-- [Native replay manifest](../results/interface_contract_scout_native_analysis/MANIFEST.json)
-- [Full analysis](../results/interface_contract_scout_native_analysis/ANALYSIS.json)
-- [Primary native executions](../results/interface_contract_scout_native_analysis/PRIMARY_EXECUTIONS.json)
-- [Ambiguous mapping executions](../results/interface_contract_scout_native_analysis/AMBIGUOUS_MAPPING_EXECUTIONS.json)
-- [Experiment 0 summary](../results/interface_contract_experiment_0/SUMMARY.json)
+- [Paid execution result](../../../results/interface_contract_scout_paid/RESULTS.json)
+- [Paid call ledger](../../../results/interface_contract_scout_paid/PAID_CALL_LEDGER.json)
+- [Native replay manifest](../../../results/interface_contract_scout_native_analysis/MANIFEST.json)
+- [Full analysis](../../../results/interface_contract_scout_native_analysis/ANALYSIS.json)
+- [Primary native executions](../../../results/interface_contract_scout_native_analysis/PRIMARY_EXECUTIONS.json)
+- [Ambiguous mapping executions](../../../results/interface_contract_scout_native_analysis/AMBIGUOUS_MAPPING_EXECUTIONS.json)
+- [Experiment 0 summary](../../../results/interface_contract_experiment_0/SUMMARY.json)
 
 ## 结论
 
