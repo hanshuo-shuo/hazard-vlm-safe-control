@@ -25,6 +25,10 @@ All 120 responses parsed, but 9 of 20 matched interface pairs changed the exact
 native action and trajectory. This passed the small continuation gate, but the
 evidence remains **`PILOT_ONLY / NOT PAPER RESULT`**.
 
+The five pair types are intervention categories, not five separate main
+results. Their grounding, planner, trajectory, and STC-flip breakdown is in
+[`RESEARCH_STORY.md`](RESEARCH_STORY.md#4-main-result-clean-text-did-not-mean-equal-behavior).
+
 ![Equivalent interfaces can diverge before native execution.](docs/assets/interface_contract_scout/consistency-results.png)
 
 ## Research boundary
