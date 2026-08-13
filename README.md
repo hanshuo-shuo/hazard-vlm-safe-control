@@ -1,87 +1,64 @@
-# Interface-Conditioned Safety for VLM Robot Control
+# C³-Safe: Capability–Constraint Counterfactual Semantic Safety Distillation
 
-This project studies a simple question: **can two interfaces that mean the same
-thing make a vision-language robot behave differently?**
+当前唯一继续开发的科学主线是 **C³-Safe**。它把 VLM 限定为训练期、action-free 的
+环境需求 teacher；测试时不加载 VLM，动作只由小型 constrained policy 输出。
 
-Start with the illustrated, plain-English
-[`RESEARCH_STORY.md`](RESEARCH_STORY.md). It explains the research change, the
-current evidence, the limitations, and the literature-supported next steps.
+当前状态：**`PLANNED / NOT RUN`**。仓库没有可继承的 VALIDATED semantic-safety 数字，
+也没有现成的 C³-Safe checkpoint、teacher-label dataset 或通用 policy learner。
 
-## Current result
+先读：
 
-The latest closed-loop scout used two VLMs, two native environments, five scene
-seeds, and five kinds of equivalent interface pairs.
+- [`RESEARCH_STORY.md`](RESEARCH_STORY.md)：新的 storyline，以及保留的旧 pilot 证据；
+- [`docs/C3_SAFE_MAINLINE.md`](docs/C3_SAFE_MAINLINE.md)：协议、矩阵、baseline 和 Go/No-Go gates；
+- [`docs/RESULTS_REGISTRY.md`](docs/RESULTS_REGISTRY.md)：所有 artifact 的状态真相源；
+- [`docs/REPOSITORY_STATUS_2026-08-13.md`](docs/REPOSITORY_STATUS_2026-08-13.md)：保留/冻结/复用边界。
 
-| Checkpoint | Matched-pair consistency |
-|---|---:|
-| Parse | 1.00 |
-| Meaning after conversion | 0.70 |
-| Grounded region | 0.35 |
-| Planner action | 0.75 |
-| Native action | 0.55 |
-| Native trajectory | 0.55 |
+## 一句话 thesis
 
-All 120 responses parsed, but 9 of 20 matched interface pairs changed the exact
-native action and trajectory. This passed the small continuation gate, but the
-evidence remains **`PILOT_ONLY / NOT PAPER RESULT`**.
+VLM 更适合告诉小模型“这个环境要求机器人具备什么”，而不是告诉机器人“下一步怎么走”。
+把环境需求、机器人能力和任务规则显式分解，并用 same-transition capability/rule
+counterfactual risk flips 监督 cost critic，可以学习一个无需 VLM 的组合泛化安全策略。
 
-The five pair types are intervention categories, not five separate main
-results. Their grounding, planner, trajectory, and STC-flip breakdown is in
-[`RESEARCH_STORY.md`](RESEARCH_STORY.md#4-main-result-clean-text-did-not-mean-equal-behavior).
+## 保留的 storyline 基础结果
 
-![Equivalent interfaces can diverge before native execution.](docs/assets/interface_contract_scout/consistency-results.png)
+旧结果只用于 motivation 和 failure analysis，不能当作 C³-Safe 的 baseline 或论文
+headline：
 
-## Research boundary
+| 证据 | 结果 | 状态 | 用途 |
+|---|---:|---|---|
+| marker-ID / candidate-order physical-choice consistency | 0.20 / 0.30 | `PILOT_ONLY / TERMINATED` | 说明旧 waypoint interface 不稳定 |
+| 120-call scout：exact native trajectory consistency | 0.55；9/20 matched pairs 改变轨迹 | `PILOT_ONLY` | 说明 interface/grounding 差异可穿透闭环 |
+| PointHazard pilot：success / STC | 0.90 / 0.68 | `PILOT_ONLY` | 说明到达率不等于安全 |
+| Safety-Gym pilot：success / STC | 0.98 / 0.53 | `PILOT_ONLY` | 说明必须分开报告 native cost 与 semantic safety |
 
-This repository can support claims about observed closed-loop task success,
-collision, semantic violation, clearance, Safe Task Completion, and matched
-interface consistency.
+完整数字和限制见 [`RESEARCH_STORY.md`](RESEARCH_STORY.md) 与
+[`docs/RESULTS_REGISTRY.md`](docs/RESULTS_REGISTRY.md)。
 
-It does not establish formal safety, human-intent alignment, a stable model
-ranking, or superiority over a fair modern perception-and-planning baseline.
-No semantic-safety result is currently `VALIDATED`. Check
-[`docs/RESULTS_REGISTRY.md`](docs/RESULTS_REGISTRY.md) before citing a number.
+## 仓库分层
 
-## Repository map
-
-| Path | Purpose |
+| 区域 | 当前角色 |
 |---|---|
-| `RESEARCH_STORY.md` | Advisor-facing research narrative and next steps |
-| `docs/` | Current protocols, result status, and reproducibility records |
-| `envs/` | Minimal-permission adapters for native environments |
-| `evaluation/` | Interface contracts, replay, metrics, and five-stage audit |
-| `scripts/` | Reproducible experiment, analysis, and figure builders |
-| `tests/` | Offline acceptance and regression tests |
-| `results/` | Current machine-readable experiment artifacts |
-| `legacy/` | Superseded narratives, implementations, and historical assets |
-| `outputs/` | Historical artifacts kept at their registered provenance paths |
+| `env_pointhazard.py`, `hazard_renderer.py`, `envs/` | C³-Safe 可复用的环境、观测边界和 adapter |
+| `evaluation/capability_twins.py`, `semantic_evaluator.py`, `outcomes.py`, `schemas.py` | capability/rule truth、评测和 provenance 基础 |
+| `evaluation/geometry_calibration.py`, `semantic_geometry.py` | Safety-Gym 开工前的几何校准 |
+| `safe_expert.py`, `mpc_expert.py` | transition 覆盖与 oracle/reference baseline |
+| `docs/C3_SAFE_MAINLINE.md` | 新主线唯一的实验协议 |
+| `configs/c3_safe_mainline_manifest.json` | 机器可读的 planned scope；不是结果证明 |
+| `results/`, `outputs/` | 历史/基础设施 artifact，状态以 registry 为准 |
+| `legacy/` 和冻结的旧 top-level modules | provenance、回归和历史路线 |
 
-See [`STRUCTURE.md`](STRUCTURE.md) for the active/legacy boundary. Documentation
-starts at [`docs/README.md`](docs/README.md).
+旧 interface-contract 文件、旧 marker/PIVOT、PointPush 和 direct-VLA 不再接受新的
+科学开发；因为历史 manifest/test 仍引用原路径，本次整理不移动、不删除它们。
 
-## Main implementation path
+## 当前实施边界
 
-```text
-public image + robot capability
-  -> equivalent interface contract
-  -> parsed meaning + grounded region
-  -> fixed planner and native controller
-  -> detached collision / semantic / STC evaluation
-```
+本次整理只完成主线协议、manifest、入口叙事和 artifact 边界；尚未实现训练器，也不新增
+Torch/Transformers/SB3 等依赖。下一步先完成 Gate 0：layout invariants、两个 adapter、
+expert coverage、geometry calibration、Safety-Gym semantic step/evaluator 和完整 provenance。
 
-The current implementation is centered on:
+## 旧回归测试
 
-- `evaluation/interface_contracts.py` for interface normalization;
-- `evaluation/interface_execution.py` for grounding-to-controller execution;
-- `evaluation/scout_replay.py` for provider-free native replay;
-- `evaluation/five_stage_audit.py` for failure localization;
-- `envs/point_hazard_adapter.py` and `envs/safety_gym_goal_adapter.py` for the
-  two native environments.
-
-## Setup and verification
-
-Core tests require Python, NumPy, Pillow, and pytest. Native Safety-Gymnasium is
-optional and uses `requirements-safety-gym.txt`.
+核心环境和历史 interface-contract 的 provider-free 回归仍可按原方式运行：
 
 ```bash
 python -m pytest -q \
@@ -91,13 +68,4 @@ python -m pytest -q \
   tests/test_interface_contract_scout.py
 ```
 
-Rebuild the advisor figures with:
-
-```bash
-python scripts/build_research_story_figures.py
-python scripts/build_interface_contract_scout_report_figures.py
-```
-
-The formal paid provider release is blocked. The checked-in scout is complete
-and should be replayed from cache; no new provider call is needed to reproduce
-its native analysis.
+这些测试验证旧协议/回放链路，不等价于 C³-Safe 的科学验证。

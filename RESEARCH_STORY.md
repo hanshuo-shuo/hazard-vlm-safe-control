@@ -1,351 +1,200 @@
-# When Equivalent Interfaces Change Robot Safety
+# Teach Requirements, Not Actions
 
-Updated 2026-07-29 · Evidence status: **PILOT_ONLY**
+## C³-Safe：Capability–Constraint Counterfactual Semantic Safety Distillation
 
-## 1. Background
+更新时间：2026-08-13
+当前状态：**`PLANNED / NOT RUN`**
 
-A modular robot system has many hand-offs. A VLM may identify the correct
-hazard, but the system can still fail when different answers are converted into
-common fields, a region is located in the image, an action is sent to a planner,
-or a controller executes it. Our unit of evaluation is therefore the **whole closed loop**.
+本仓库现在只继续 C³-Safe 这一条科学主线。旧的 VLM waypoint、semantic pilot 和
+interface-contract 结果仍然保留，但只作为动机与 failure analysis；它们不能被改写成
+C³-Safe 的结果，也没有任何一个 semantic-safety artifact 当前达到 `VALIDATED`。
 
-![The experiment changes the interface contract and follows the effect through the complete robot loop.](docs/assets/research_story/evaluation-chain.png)
+## 1. 先保留什么：旧 storyline 的基本证据
 
-The evaluator's true hazard geometry is kept away from the model, planner, and
-controller. It is used only after execution to score collision, semantic
-violation, task success, and Safe Task Completion (STC).
+旧实验没有证明“VLM 已经稳定理解危险地形”。它们提供的是更谨慎、但仍然有用的研究
+转折证据：接口、grounding 和规则字段可能改变闭环行为，因此下一条主线必须显式拆开
+环境需求、机器人能力、任务规则和物理 cost。
 
-## 2. How the project reached this question
+### 1.1 Marker / waypoint 失败
 
-The earlier project treated a VLM as the decision maker instead of training an
-end-to-end vision-language-action policy. An online learned-physics model
-rendered candidate consequences for PIVOT, and the VLM selected among them.
-That approach improved the narrow PointHazard navigation task, but it did not
-yet support a broader robotics claim. Recent modular robot systems also tend to
-use VLMs for high-level semantic decisions and leave low-level motion to a
-conventional controller. We therefore fixed an MPC-style controller underneath
-the VLM and restarted from a deliberately simple question: can the model notice
-a semantic hazard such as water and tell the controller how to act?
+marker-ID 与 candidate-order 的 matched pilot 中，物理选择一致率分别只有 `0.20` 和
+`0.30`，触发了预声明的 termination 条件。这个结果保留为“旧接口不稳定”的负证据，
+而不是语义理解能力的估计。
 
-### Stage A — Marked waypoint selection
+![Marker 和候选接口改变物理选择。](docs/assets/research_story/marker-interface-process.png)
 
-The original system asked a VLM to choose a numbered waypoint. This follows a
-useful modular idea: the VLM supplies semantic knowledge, while a fixed
-controller handles motion.
+原始报告：[`NF-02 marker interface robustness`](results/next_five_experiments/02_marker_interface_robustness/REPORT.md)。
 
-The first marker-based results looked positive, but the physical choice was not
-stable under changes that should not alter the scene:
+### 1.2 Interface 差异穿透闭环
 
-![For the same model and seed, the selected physical point changed from P3 to P2 or P1 under equivalent interface variants. Yellow stars mark model choices; green dashed rings mark evaluator-safe candidates.](docs/assets/research_story/marker-interface-process.png)
+冻结的 120-call native scout 在两个环境中比较了等价 interface pair。所有响应都成功
+解析，但 exact native action/trajectory consistency 都只有 `0.55`，其中 `9/20` 个
+等价 pair 改变了完整 native trajectory；grounding consistency 只有 `0.35`。
 
-| Interface perturbation | Same physical choice as baseline |
-|---|---:|
-| Permute marker IDs | 0.20 |
-| Permute candidate order | 0.30 |
-| Use direct coordinates | 0.40 |
-| Remove markers | 0.10 |
+![等价接口在进入 native execution 前后出现分歧。](docs/assets/interface_contract_scout/consistency-results.png)
 
-All four values were far below the predeclared 0.80 continuation threshold.
-The original result could therefore have reflected a marker or ordering shortcut;
-it did not cleanly show that the VLM understood water and repeatedly selected
-the same safe physical location. The marker-based mainline was stopped, while
-these numbers were retained as negative evidence.
+这只能支持一个限定的 pilot claim：text-level equivalence 不保证 physical equivalence，
+而 grounding/normalization 是明显的瓶颈。它不能支持 universal VLM fragility、model
+ranking、formal safety 或优于现代 perception-and-planning baseline 的结论。
 
-### Stage B — Rule applicability
+原始分析：[`interface-contract native scout`](results/interface_contract_scout_native_analysis/REPORT.md)。
 
-The next idea was that a model might recognize water but fail to decide whether
-the safety rule applies to a particular robot.
+### 1.3 到达率不等于安全
 
-The next audit supplied an explicit capability card—for example, a wheeled
-robot that cannot enter water or an amphibious robot that can—and asked the VLM
-to return an `applicable` field in its prompt response. That word was ambiguous:
-it could mean either “the avoid-water constraint applies” or “the terrain is
-compatible with this robot.” For a non-waterproof robot, these two natural
-readings have opposite answers:
+同一 pilot 里，任务成功率和 Safe Task Completion（STC）分开统计：
 
-| Question | Answer |
-|---|---|
-| Does the **avoid-water rule** apply? | Yes |
-| Is the **water terrain** applicable for travel? | No |
-
-The old evaluator chose one meaning, while model responses often used the
-other. A score built on this ambiguous field cannot cleanly measure model
-reasoning. This exposed a second measurement failure rather than a clean test
-of the model's capability reasoning.
-
-### Stage C — Interface-conditioned safety
-
-The ambiguity itself motivated a better research question:
-
-> If the scene, robot, model, planner, and controller stay the same, can an
-> equivalent interface description still change the robot's real action,
-> trajectory, and safety result?
-
-We compare interfaces with a frozen shared meaning, then check whether they
-remain equivalent through the closed loop:
-
-1. whether the code can read the answer;
-2. meaning after conversion to common fields;
-3. the physical region located in the image;
-4. planner action and exact native controller action;
-5. exact native trajectory and post-hoc safety outcome.
-
-Each checkpoint is measured pairwise: for the same scene, robot, model, planner,
-and controller, we report the fraction of equivalent-contract pairs that remain
-identical at that checkpoint. STC is scored separately after execution.
-
-![The research question became more precise after two failed explanations.](docs/assets/research_story/story-shift.png)
-
-## 3. What the current scout tested
-
-The frozen scout used:
-
-- 2 VLMs: Mistral and Qwen;
-- 2 native environments: PointHazard and Safety-Gymnasium;
-- 5 scene seeds per model;
-- 5 kinds of equivalent interface pairs;
-- 120 model calls, followed by zero-call native replay.
-
-The five matched changes were concrete rewrites of the same required answer:
-
-| Pair | What changed | Frozen shared meaning |
-|---|---|---|
-| Field order | JSON fields began with `terrain_class` or `action` | Same terrain, disk, and action |
-| Structured vs. free text | JSON object or one semicolon-delimited line | Same terrain, disk, and action |
-| Constraint polarity | `constraint_applies` or `constraint_does_not_apply` | Whether the terrain must be avoided |
-| Compatibility polarity | `terrain_compatible` or `terrain_incompatible` | Whether the terrain may be traversed |
-| Constraint vs. compatibility | `constraint_applies` or `terrain_compatible` | Same safety decision expressed with opposite label semantics |
-
-For example, `constraint_applies=yes` and `terrain_compatible=no` both mean
-that the robot must avoid the terrain. The scene, capability card, low-level
-controller, and post-hoc evaluator stayed fixed within every comparison.
-
-![The same audit was executed in a custom top-down environment and native Safety-Gymnasium.](docs/assets/interface_contract_scout/environment-overview.png)
-
-### Baseline native executions
-
-Before using real model outputs, a provider-free bridge test ran **640 native
-executions**. Equivalent fixture inputs produced identical actions and
-trajectories (consistency 1.00). This control suggests that the replay and
-coordinate-conversion code do not create differences by themselves.
-
-## 4. Main result: clean text did not mean equal behavior
-
-All 120 responses parsed successfully. Consistency then fell as the answer
-moved through the robot stack:
-
-| Level | Matched-pair consistency |
-|---|---:|
-| Parse | 1.00 |
-| Meaning after conversion | 0.70 |
-| Grounded region | 0.35 |
-| Planner action | 0.75 |
-| Exact native action | 0.55 |
-| Exact native trajectory | 0.55 |
-
-The five pair types are interventions, not five separate headline results. The
-headline is that **9 of 20 (45%) supposedly equivalent interventions changed
-the exact native trajectory**. The breakdown below shows where those changes
-entered the stack and whether they changed safety, rather than merely the path.
-
-Every prompt asked the model to do three things from the same RGB observation:
-identify the visible terrain, locate that terrain patch as a circle using image
-coordinates, and choose `avoid`, `traverse`, or `unknown`. The circle was not a
-predefined “hazard circle.” It represented the terrain being judged—for
-example, a visible water patch. Whether that terrain was hazardous depended on
-the capability card. The fixed planner projected the model-provided circle into
-world coordinates and used it as the region to avoid or traverse; evaluator
-ground truth was withheld from the planner.
-
-Coordinate support was limited. The prompt stated that `x=0` is the left edge,
-`y=0` is the top edge, and both axes range from 0 to 1. The PointHazard top-down
-render had an unlabeled background grid, whereas the native Safety-Gym image
-had no coordinate overlay. Neither interface supplied labeled ticks, a worked
-localization example, a bounding-box tool, or a perception model. The VLM
-therefore had to estimate numeric circle coordinates directly from the image.
-
-The four result columns have distinct meanings:
-
-- **Grounding consistency:** did the two equivalent prompts make the model
-  locate the terrain patch in the same place and at the same size? On the 0–1
-  normalized image scale, the predicted circle's center may move by at most
-  0.02 and its radius may change by at most 0.02. Thus, 1/4 means that only one
-  of four pairs produced essentially the same terrain circle. This measures
-  agreement between prompts, not whether either circle matches the true terrain.
-- **Planner consistency:** the fraction mapped to the same canonical planner
-  command: `avoid`, `traverse`, or `unknown`.
-- **Trajectory consistency:** the fraction whose complete native executed
-  trajectories have the same exact hash, not merely the same endpoint or task
-  outcome.
-- **STC flips:** the fraction whose binary Safe Task Completion outcome—task
-  success with no semantic violation—changes between the anchor and mate, in
-  either direction.
-
-| Pair type | Intended equivalent meaning | Grounding consistency | Planner consistency | Trajectory consistency | STC flips |
-|---|---|---:|---:|---:|---:|
-| Field order | Same JSON answer; only key order changes | 1/4 (0.25) | 4/4 (1.00) | 4/4 (1.00) | 0/4 (0%) |
-| Structured vs. free text | Same terrain, disk, and action in JSON or one line | 0/4 (0.00) | 4/4 (1.00) | 1/4 (0.25) | 0/4 (0%) |
-| Constraint polarity | Same avoid/traverse decision under positive or negative constraint labels | 2/4 (0.50) | 3/4 (0.75) | 2/4 (0.50) | 1/4 (25%) |
-| Compatibility polarity | Same avoid/traverse decision under compatible or incompatible labels | 3/4 (0.75) | 3/4 (0.75) | 4/4 (1.00) | 0/4 (0%) |
-| Constraint vs. compatibility | Same safety decision expressed as a constraint or as compatibility | 1/4 (0.25) | 1/4 (0.25) | 0/4 (0.00) | 2/4 (50%) |
-
-The three consistency columns report the fraction of pairs that stayed the
-same, so lower is worse. STC flips report the fraction whose binary safety
-outcome changed, so higher is worse. Both STC flips for constraint versus
-compatibility were **safe-to-unsafe**. Planner commands changed from `avoid` to
-`traverse` in 3/4 constraint-versus-compatibility pairs and 1/4
-constraint-polarity pairs. The one compatibility-polarity planner reversal was
-`traverse` to `avoid`, but the native trajectory and STC did not change.
-
-This grounding result is also a measurement warning. The 0.02 agreement
-tolerance is about 5–6 pixels in the 256–320-pixel inputs. Only 5/120 groundings
-(0.0417) were accurate against evaluator truth. The low consistency therefore
-cannot be attributed cleanly to semantic reasoning. It partly measures the
-instability of asking a general VLM to emit precise coordinates without a
-proper localization interface. The defensible claim is that the end-to-end
-system was sensitive to this interface contract, not that wording alone caused
-a clean semantic failure.
-
-![Consistency fell as equivalent interface answers moved from text to physical execution.](docs/assets/interface_contract_scout/consistency-results.png)
-
-In a small closed-loop scout, only **11 of 20 matched interface pairs**
-produced the same exact native action and trajectory. The other 9 pairs changed
-both. This pilot used two models, two environments, five scene seeds per model,
-and one scenario family; the effect appeared in both environments.
-
-Here, **parse** means both responses satisfy their required syntax; **meaning
-after conversion** means they normalize to the same terrain, safety meaning,
-and proposed action; **grounded region** means the predicted disk has the same
-normalized center and radius; **planner action** means both become the same
-`avoid`, `traverse`, or `unknown` command; **exact native action** compares the
-controller's complete action-sequence hash; and **exact native trajectory**
-compares the complete executed trajectory hash.
-
-The main message is simple: **a valid and apparently sensible text answer is
-not enough**. Grounding and downstream interpretation can still change what the
-robot actually does. Structured JSON versus free text shows the coordinate
-interface problem clearly:
-meaning and planner action stayed identical in all four comparisons, grounding
-changed in all four, and the trajectory changed in three. None of those path
-changes flipped STC. In contrast, constraint versus compatibility was the
-safety-critical intervention: every trajectory changed and two STC outcomes
-flipped from safe to unsafe.
-
-## 5. The changes reached real trajectories
-
-For seed 20, constraint wording and compatibility wording produced different
-paths in all four model-by-environment cells. In two cells, the planner changed
-from `avoid` to `traverse` and STC changed from 1 to 0.
-
-![Equivalent wording produced different native trajectories. The red disk is evaluator truth shown only after execution.](docs/assets/interface_contract_scout/trajectory-propagation.png)
-
-Across the full scout:
-
-- **9 of 20** matched pairs changed the exact native action and trajectory;
-- mean contract-induced STC range was **0.15** for equivalent contracts;
-- mean STC range was **0.30** when ambiguous output mappings were included.
-
-Both values passed the preregistered 0.10 continuation gate.
-
-## 6. Reaching the goal was not the same as being safe
-
-The robot usually moved and usually reached the goal, but its safety result was
-weaker:
-
-| Native environment | Task success | STC | Collision | Semantic violation |
+| 环境 | Task success | STC | Collision | Semantic violation |
 |---|---:|---:|---:|---:|
 | PointHazard | 0.90 | 0.68 | 0.00 | 0.22 |
 | Safety-Gymnasium | 0.98 | 0.53 | 0.47 | 0.45 |
 
-![High task success can coexist with lower Safe Task Completion.](docs/assets/interface_contract_scout/environment-results.png)
+![任务成功和安全完成必须分开报告。](docs/assets/interface_contract_scout/environment-results.png)
 
-This is why the project reports task success and safety separately. A robot can
-reach the goal after taking an unsafe route.
+这些是 `PILOT_ONLY` 数字，只说明 future evaluator 必须同时保留 success、native
+physical cost、semantic violation 和 STC；它们不是 C³-Safe 的 baseline。
 
-## 7. Where the differences started
+## 2. 故事线如何收紧
 
-Among the 20 matched pairs:
+```text
+VLM 识别危险并选择 waypoint
+        ↓ marker / candidate permutation 暴露接口 shortcut
+VLM 是否理解规则对当前机器人是否适用
+        ↓ applicable 字段同时有 constraint 与 compatibility 两种相反含义
+训练期让模型识别“环境要求什么”，测试时让小策略组合能力和规则
+```
 
-- 6 were fully consistent;
-- 6 first differed while converting the answer to common fields;
-- 7 first differed during grounding;
-- 1 first differed at the planner.
+旧路线把很多变量挤在一个 scalar safety decision 里：terrain appearance、机器人能力、
+任务规则、视觉 grounding、动作提议和低层执行同时变化。C³-Safe 把问题改成一个可
+审计的组合泛化问题：
 
-![Grounding was the weakest stage and the most common first point of divergence.](docs/assets/interface_contract_scout/five-stage-results.png)
+> 同一画面和同一 transition 下，只改变 capability 或 rule，cost critic 是否能正确
+> 翻转风险；在未见 appearance × capability × rule 组合上，独立 actor 是否仍能保持
+> STC 和物理可行性？
 
-The controller rescued some upstream errors, but not reliably. Grounding is the
-clearest technical bottleneck in this pilot, but the weak coordinate interface
-means it is also a major experimental confound rather than clean evidence about
-semantic reasoning.
+## 3. C³-Safe 的方法
 
-## 8. What we can and cannot claim
+### 3.1 训练期：VLM 只标注环境需求
 
-The current evidence supports these careful statements:
+离线 teacher 看到 RGB image `I`，只输出 action-free requirement vector，例如：
 
-- Equivalent-looking interfaces changed physical behavior in this scout.
-- Text-level evaluation would have missed part of the effect.
-- Grounding and normalization were the main early sources of difference.
-- The effect reached two native environments and two different models.
+```text
+water_exposure = 1
+mud_or_low_traction_demand = 0
+fragile_terrain = 0
+```
 
-The current evidence does **not** support these stronger statements:
+它不接收 action、candidate、waypoint、trajectory proposal、planner output 或 evaluator
+truth。teacher 的 prompt、image、response 和 hash 必须进入 manifest。
 
-- all VLM robot systems are interface-fragile;
-- one tested model is generally safer than the other;
-- the system provides formal safety guarantees;
-- the current pilot is a validated paper result;
-- VLMs are better than a fair modern perception-and-planning baseline.
+### 3.2 学生模型：需求、能力和规则因子化
 
-The official status remains `PILOT_ONLY`. No semantic-safety result in this
-repository is currently `VALIDATED`.
+学生先预测环境需求：
 
-## 9. Literature-supported next steps
+\[
+d_\theta(I)=\sigma(h_\theta(I)).
+\]
 
-The next work should test the mechanism more carefully, not simply make the old
-experiment larger.
+然后用机器人能力 `κ` 和任务规则 `q` 形成 semantic cost：
 
-| Priority | Next step | Why it follows from this project | Literature support |
-|---:|---|---|---|
-| 1 | Freeze a second paired scenario family, such as robot clearance or capability, and preregister every equivalent interface pair. | The current result has only one scenario family. A matched family tests whether the effect is more than a water-scene special case. | [When Benchmarks are Targets (ACL 2024)](https://aclanthology.org/2024.acl-long.744/) shows that small choice-order and answer-selection changes can alter model rankings. [HazardArena (2026)](https://arxiv.org/abs/2604.12447) uses matched safe/unsafe twins to isolate semantic risk. |
-| 2 | Replace coarse point/disk text grounding with mask or polygon grounding, and compare it with a strong open-vocabulary perception baseline. | Grounding consistency was only 0.35 and stage accuracy was 0.04. The next experiment must separate language reasoning from localization quality. | [PIVOT (ICML 2024)](https://proceedings.mlr.press/v235/nasiriany24a.html) and [CoNVOI (IROS 2024)](https://arxiv.org/abs/2403.15637) make spatial grounding explicit before control. [SCAN (CVPR 2024)](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Open-Vocabulary_Segmentation_with_Semantic-Assisted_Calibration_CVPR_2024_paper.html) provides a modern open-vocabulary segmentation reference. [CORE (2026)](https://arxiv.org/abs/2602.19983) also treats grounding as a required step before safety enforcement. |
-| 3 | Keep the paired test in at least two native environments and report task success, collision, semantic violation, and STC separately. | Safety-Gymnasium had higher task success but lower STC, so goal completion alone hid safety failures. | [Safety-Gymnasium (NeurIPS 2023)](https://papers.nips.cc/paper_files/paper/2023/hash/3c557a3d6a48cc99444f85e924c66753-Abstract-Datasets_and_Benchmarks.html) provides standardized constrained robot environments and separate safety costs. |
-| 4 | Add leak-free capability and appearance twins, including a text-only control. | The model should react to the true robot capability, not to a leaked terrain name or visual shortcut. | [VLSBench (ACL 2025)](https://aclanthology.org/2025.acl-long.405/) shows that text can leak visual safety information and make multimodal evaluation unreliable. HazardArena provides a recent robotics example of matched semantic twins. |
-| 5 | Only after the measurement is stable, test an uncertainty gate or independent safety layer. | A controller sometimes rescued model errors, but it did not remove interface effects. A safety method should be evaluated on top of a clean measurement protocol. | CORE combines contextual grounding with a control-barrier-function layer; HazardArena evaluates a separate Safety Option Layer. Both support keeping semantic inference and enforcement conceptually separate. |
+\[
+\hat c_{sem}(I,\kappa,q)=
+\sigma\left(b+\sum_j q_jw_j[d_{\theta,j}(I)-\kappa_j]_+\right).
+\]
 
-### Immediate work with no new paid calls
+同一 observation/state transition 构造 capability/rule twins，加入 risk-reversal 和
+monotonicity supervision。native simulator physical cost 仍然独立进入 cost critic；
+VLM 不负责替代物理动力学、制动、净空或 footprint reasoning。
 
-1. Freeze the second scenario family and its ground truth.
-2. Add mask/polygon grounding and a modern perception baseline.
-3. Run the full pipeline with fixtures and cached responses.
-4. Predeclare the paired statistics, confidence intervals, and stop rules.
-5. Freeze model revisions, reasoning-token limits, and the maximum budget.
+最终训练对象是：
 
-### Paid work only after approval
+```text
+compact requirement encoder
+  + factorized semantic/physical cost critic
+  + reward critic
+  + independent SAC-Lagrangian actor
+```
 
-Run one small, paired second-family scout under the repository's five-seed-per-key
-ceiling. Do not start the full 1,440-call design until the second family repeats
-the effect and the cost controls pass.
+测试部署时只保留学生 encoder/critic（若用于评估）和 actor，删除 VLM runtime。最终
+动作由 Gaussian SAC actor 输出，而不是 VLM 或候选动作评分器输出。
 
-## 10. Recommended paper direction
+### 3.3 真正要验证的新增点
 
-The strongest current direction is a **measurement and evaluation paper**:
+1. requirement 与 capability/rule 的显式分离能否比固定 scalar safety 更好组合泛化；
+2. same-transition matched counterfactual loss 是否确实学习了 risk flip，而不是仅仅
+   学会闭集 terrain palette；
+3. VLM requirement supervision 在 held-out appearance 上是否带来超过 no-VLM / frozen
+   feature baseline 的独立收益。
 
-> Embodied safety scores should be reported as a closed-loop stability envelope
-> across equivalent interface contracts, not as one number from one prompt and
-> one parser.
+## 4. 最小实验设计
 
-This is stronger and more honest than claiming that the current VLM “understands
-hazards.” A method paper should come later, after the measurement result repeats
-across another scenario family and stronger grounding baselines.
+| 维度 | 冻结计划 |
+|---|---|
+| 任务 | PointHazard；修复后的 Safety-Gymnasium `SafetyPointGoal1-v0` semantic variant |
+| 主 teacher | `Qwen3-VL-8B-Instruct`，仅离线 action-free labels |
+| sensitivity teacher | `InternVL3-8B`，仅 10% labels，不算核心结果 |
+| capability | waterproof、mud/rough-terrain mobility；可加 simulator 锚定 footprint/clearance 轴 |
+| rules | avoid-water、avoid-mud、protect-fragile-terrain |
+| appearance | train/validation/test 纹理、色彩模板和 geometry seed 完全隔离 |
+| capability split | 二元能力轴四个角中训练三个，测试第四个 |
+| joint OOD | 未见 appearance × 未见 capability × 未见 rule combination |
+| scale | 每任务 2k–5k labels，≥5 RL seeds，每 split/seed ≥100 episodes |
 
-## Evidence and reproducibility
+必须报告 STC、episode semantic violation、violation steps、native cost、success、return、
+critic AUROC/AUPRC、FNR、ECE、推理延迟和参数量。
 
-- Result status authority: [`docs/RESULTS_REGISTRY.md`](docs/RESULTS_REGISTRY.md)
-- Frozen current protocol: [`docs/INTERFACE_CONTRACT_PROTOCOL.md`](docs/INTERFACE_CONTRACT_PROTOCOL.md)
-- Native scout analysis: [`results/interface_contract_scout_native_analysis/REPORT.md`](results/interface_contract_scout_native_analysis/REPORT.md)
-- Machine-readable analysis: [`results/interface_contract_scout_native_analysis/ANALYSIS.json`](results/interface_contract_scout_native_analysis/ANALYSIS.json)
-- Provider-free bridge: [`results/interface_contract_experiment_0/SUMMARY.json`](results/interface_contract_experiment_0/SUMMARY.json)
-- Archived detailed Chinese narrative: [`legacy/docs/advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md`](legacy/docs/advisor_rewrite_2026-07/INTERFACE_CONTRACT_SCOUT_REPORT_ZH.md)
+## 5. Baseline、消融和停止标准
 
-All headline numbers above are copied from checked-in result artifacts. Figures
-are rebuilt by `scripts/build_interface_contract_scout_report_figures.py` and
-`scripts/build_research_story_figures.py`.
+### Baseline
+
+- Reward-only SAC；
+- Oracle semantic-cost SAC-Lagrange（上界，不是可部署方法）；
+- No-VLM + domain randomization/simulator-only labels；
+- Scalar-VLM-Cost；
+- LateConcat-Critic；
+- generic representation distillation（DGC-like control）。
+
+### 关键消融
+
+- 去掉 capability/rule matched counterfactual loss；
+- factorized interaction 改为 late concatenation/direct scalar；
+- 去掉 VLM requirement supervision，替换成 frozen DINO/CLIP、domain randomization 或
+  simulator-only label。
+
+### Go / No-Go
+
+Gate 0 先检查 split/hash/provenance、Safety-Gym overlay agreement ≥ `0.98` 和 native/
+semantic cost 分离。Gate 1 要求 teacher requirement macro-F1 ≥ `0.80`、risk-flip accuracy
+≥ `0.80`、student held-out AUROC ≥ `0.85`、ECE ≤ `0.10`，并比 no-VLM/frozen feature
+baseline 高至少 5 AUROC points。Gate 2 要求 joint OOD 上 violation 相对下降 ≥25%、STC
+提升 ≥8 points，且 counterfactual ablation 使 violation 恶化 ≥10%；同时 success 和
+native collision 不能超过预定退化门槛。
+
+任一关键门槛失败就停止对应 claim，不通过换标题、增加 prompt tuning 或继承旧数字来
+包装结果。完整数值和字段见 [`docs/C3_SAFE_MAINLINE.md`](docs/C3_SAFE_MAINLINE.md)。
+
+## 6. 仓库中的执行边界
+
+### 复用但必须先重跑
+
+- [`env_pointhazard.py`](env_pointhazard.py)、[`hazard_renderer.py`](hazard_renderer.py)；
+- [`envs/protocol_env.py`](envs/protocol_env.py)、[`envs/point_hazard_adapter.py`](envs/point_hazard_adapter.py)、
+  [`envs/safety_gym_goal_adapter.py`](envs/safety_gym_goal_adapter.py)；
+- [`evaluation/capability_twins.py`](evaluation/capability_twins.py)、
+  [`evaluation/semantic_evaluator.py`](evaluation/semantic_evaluator.py)、
+  [`evaluation/outcomes.py`](evaluation/outcomes.py)、[`evaluation/schemas.py`](evaluation/schemas.py)；
+- [`evaluation/geometry_calibration.py`](evaluation/geometry_calibration.py)、
+  [`evaluation/semantic_geometry.py`](evaluation/semantic_geometry.py)；
+- [`safe_expert.py`](safe_expert.py)、[`mpc_expert.py`](mpc_expert.py)。
+
+### 只保留 provenance
+
+旧 interface-contract、marker/PIVOT、PointPush、direct-VLA 和 learned-physics 文件都不再
+接受科学开发。它们不物理移动，是因为历史 tests、manifest 和结果 JSON 记录了原路径与
+hash。具体边界见 [`docs/REPOSITORY_STATUS_2026-08-13.md`](docs/REPOSITORY_STATUS_2026-08-13.md)。
+
+## 7. 当前结论
+
+当前最诚实的结论不是“C³-Safe 已经有效”，而是：旧 pilot 让研究问题从“VLM 选动作”
+收紧到了“环境需求能否与能力、规则和物理 cost 组合泛化”。C³-Safe 的训练实现和所有
+主线数字仍待验证；在此之前，仓库只提供冻结协议、复用资产、历史取证和明确的 No-Go
+标准。

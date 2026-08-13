@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-07-26
+更新：2026-08-13
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -9,9 +9,25 @@
 - **INVALIDATED**：发现 sampler、泄漏、对照或 estimand 问题，只能作取证/回归记录；
 - **ARCHIVED**：属于已放弃路线，仅用于保存研究历史。
 
-当前没有任何 semantic-safety 结果达到 VALIDATED。
+当前没有任何 semantic-safety 结果达到 `VALIDATED`。C³-Safe 主线目前是
+`PLANNED / NOT RUN`，不存在可继承的主线数字、checkpoint 或 teacher-label dataset。
 
-## Interface-contract provider-free infrastructure
+## C³-Safe current mainline
+
+- Decision date: `2026-08-13`
+- Evidence class: `PLANNED / NOT RUN`
+- Protocol: [`docs/C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md)
+- Scope manifest: `configs/c3_safe_mainline_manifest.json`
+- Test-time VLM: **forbidden**
+- Teacher role: offline, action-free environment-requirement labeling only
+- Current artifacts: none
+
+The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
+`VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
+artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
+not mean the scientific result is valid.
+
+## Retained storyline — interface-contract provider-free infrastructure
 
 - Decision date: `2026-07-26`
 - Evidence class: `INFRA / BLOCKED / PROVIDER_FREE`
@@ -39,7 +55,7 @@ paid seeds `0–4` and `20–24`. Their prior artifacts remain replayable withou
 provider calls. Mistral's historical paid seeds are `20–24`; its revision is not
 yet frozen. Two additional model slots and the maximum spend remain unresolved.
 
-## Interface-contract recovery pilot
+## Retained storyline — interface-contract recovery pilot
 
 - Decision date: `2026-07-26`
 - Evidence class: `PILOT_ONLY / NOT PAPER RESULT`
@@ -85,7 +101,7 @@ changes only model identity; all 110 prompt/image hashes match the parent.
 The formal recovery protocol and kill conditions are in
 [INTERFACE_CONTRACT_MAINLINE.md](INTERFACE_CONTRACT_MAINLINE.md).
 
-## Marker mainline termination
+## Retained storyline — marker mainline termination
 
 - Decision: `TERMINATED`
 - Termination date: `2026-07-24`（pilot report generation date）
@@ -147,6 +163,7 @@ run 暂停。
 
 | 结果/产物 | 状态 | 原因 | 是否保留 |
 |---|---|---|---|
+| C³-Safe mainline | PLANNED / NOT RUN | 尚未实现 teacher-label schema、factorized critic 或 SAC-Lagrange trainer | 是，当前唯一科学主线 |
 | outputs/month1_confidence* | PILOT_ONLY | pure-geometry n=5；不受 semantic-zone sampler 影响，但规模小、单模型 | 是，历史信心实验 |
 | outputs/semantic_pilot* | INVALIDATED | semantic-zone fallback 可与 red hazard 重叠；旧 C1/C2/B estimand | 是，历史 |
 | outputs/semantic_implicit_pilot* | INVALIDATED | 同上；L1 instruction 与 commonsense 混用 | 是，历史 |
@@ -163,7 +180,7 @@ run 暂停。
 | old PIVOT/B+ figures and replays | ARCHIVED | 旧 router/enforcement/scene confounds；不得包装为当前 baseline 或新结果 | 是，历史 |
 | outputs/*.png 旧结果图 | ARCHIVED | 图片用于理解历史路线，但不能支撑当前 claim | 是，文档需标注状态 |
 
-## 当前 backend 与运行状态
+## 历史 backend 与运行状态
 
 这些是仓库/基础设施状态，不是论文结果状态：
 
@@ -217,7 +234,10 @@ C2/CV 直接 plan 到 goal；B/B+ 使用 VLM subgoal 和周期性 MPC restart。
 
 ---
 
-## 新结果进入 VALIDATED 的条件
+## 历史 semantic-safety 结果进入 VALIDATED 的条件
+
+以下条目记录的是旧 interface/semantic 路线的冻结门槛，不是 C³-Safe 的替代协议；
+当前 C³-Safe 的门槛以文档末尾的记录纪律和 `C3_SAFE_MAINLINE.md` 为准。
 
 必须同时满足：
 
@@ -240,3 +260,19 @@ C2/CV 直接 plan 到 goal；B/B+ 使用 VLM subgoal 和周期性 MPC restart。
 - 无效结果移动到 outputs/invalidated/YYYY-MM-DD/，并在本表记录；
 - 文档引用结果时必须同时写状态；
 - 负结果和错误实验可以保留，但不得通过改标题重新包装成有效证据。
+
+---
+
+## C³-Safe 记录纪律（2026-08-13）
+
+- 主线新 run 使用独立的 C³-Safe protocol version 和 run ID，不覆盖旧 JSON；
+- teacher 必须是 action-free requirement label，保存 model/revision、prompt/image/response hash；
+- twin 必须固定 scene、observation 和 state transition，只改变 capability 或 rule；
+- native physical cost、semantic requirement label 和 evaluator truth 分开存储并带 provenance；
+- train/validation/test 的 seed、geometry hash、RGB hash overlap 必须为 0；
+- 旧 interface-contract/marker/PIVOT/PointPush/direct-VLA artifact 只能标记为 motivation、
+  failure analysis、INFRA 或历史记录，不得改 status 冒充 C³-Safe evidence；
+- Gate 0–2 未通过前，不生成论文 headline，不声明 `VALIDATED`，不启动大规模 paid run。
+
+实现顺序、baseline、ablation 和数值门槛唯一见
+[`C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md)。
