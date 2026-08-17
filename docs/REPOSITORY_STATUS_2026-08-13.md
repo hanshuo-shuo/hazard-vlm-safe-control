@@ -14,7 +14,7 @@ VALIDATED semantic-safety result。
 ## 保留的 storyline 基础证据
 
 这些结果保留，是为了说明研究问题为什么从“VLM 识别/选择危险”收紧到“训练一个可组合的
-需求—能力—规则安全策略”；它们都带有明确的 pilot/invalidated 边界：
+空间需求—运动暴露—能力/规则关系安全策略”；它们都带有明确的 pilot/invalidated 边界：
 
 | 证据 | 保留用途 | 状态 |
 |---|---|---|
@@ -50,6 +50,7 @@ VALIDATED semantic-safety result。
 
 ## 下一步边界
 
-先完成 Gate 0 的 layout、adapter、geometry、provenance 和 Safety-Gym semantic step 修复，
-再新增 teacher-label schema 与学生训练代码。当前不新增付费 VLM run，不把旧 pilot 数字
-升级成 baseline，也不安装 Torch/Transformers/SB3 等尚未需要的训练依赖。
+先完成 Gate 0 的 layout、adapter、geometry、swept-footprint/exposure truth、provenance
+和 Safety-Gym semantic step 修复，再新增 spatial teacher-label schema 与学生训练代码。
+当前不新增付费 VLM run，不把旧 pilot 数字升级成 baseline，也不安装
+Torch/Transformers/SB3 等尚未需要的训练依赖。

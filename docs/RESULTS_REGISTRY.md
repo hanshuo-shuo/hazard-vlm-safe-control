@@ -19,7 +19,9 @@
 - Protocol: [`docs/C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md)
 - Scope manifest: `configs/c3_safe_mainline_manifest.json`
 - Test-time VLM: **forbidden**
-- Teacher role: offline, action-free environment-requirement labeling only
+- Teacher role: offline, action-free spatial-requirement labeling only
+- Unimplemented core: spatial field, swept-footprint exposure, separated capability/rule costs,
+  and independent semantic/physical critics
 - Current artifacts: none
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter

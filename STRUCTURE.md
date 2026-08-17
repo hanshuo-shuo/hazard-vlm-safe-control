@@ -24,11 +24,11 @@ docs/REPOSITORY_STATUS_2026-08-13.md   keep/freeze/reuse index
 | Interface boundary | `envs/protocol_env.py`, `envs/point_hazard_adapter.py` | Keep policy inputs separate from evaluator truth |
 | Safety-Gym | `envs/safety_gym_goal_adapter.py` | Second task; semantic variant must pass geometry/step gates |
 | Capability twins | `evaluation/capability_twins.py` | Same-scene/different-capability counterfactual contract |
-| Semantic truth | `evaluation/semantic_evaluator.py`, `evaluation/semantic_geometry.py` | Evaluator-only requirement/cost truth |
-| Calibration | `evaluation/geometry_calibration.py`, `evaluation/native_environment_gate.py` | Coordinate projection and native vertical-slice checks |
+| Semantic truth | `evaluation/semantic_evaluator.py`, `evaluation/semantic_geometry.py` | Evaluator-only spatial fields, swept-footprint exposure and relation-cost truth |
+| Calibration | `evaluation/geometry_calibration.py`, `evaluation/native_environment_gate.py` | Coordinate projection, footprint rasterization and native vertical-slice checks |
 | Evaluation | `evaluation/outcomes.py`, `evaluation/schemas.py` | STC, native cost, semantic violation and provenance |
 | Data coverage | `safe_expert.py`, `mpc_expert.py` | Safe/random/perturbed transition collection and reference baseline |
-| Planned mainline | `docs/C3_SAFE_MAINLINE.md`, `configs/c3_safe_mainline_manifest.json` | Teacher labels, factorized critic and SAC-Lagrange scope |
+| Planned mainline | `docs/C3_SAFE_MAINLINE.md`, `configs/c3_safe_mainline_manifest.json` | Spatial labels, motion exposure, separated relation costs/critics and SAC-Lagrange scope |
 
 No C³-Safe training implementation is registered yet. New code should follow the protocol and
 land only after Gate 0 has a reproducible manifest.
@@ -84,5 +84,6 @@ reconstructed by reading those files first.
 ## Current gate
 
 C³-Safe is planned but unrun. The next gate is infrastructure-only: disjoint splits, semantic
-geometry calibration, native adapters, expert coverage, teacher-label schema and complete
-provenance. Passing a bridge or a manifest `COMPLETE` status does not create a VALIDATED result.
+geometry calibration, native adapters, expert coverage, spatial teacher-label schema,
+swept-footprint exposure truth and complete provenance. Passing a bridge or a manifest `COMPLETE`
+status does not create a VALIDATED result.

@@ -25,7 +25,8 @@ Updated: 2026-08-13.
 - `../envs/`：policy/evaluator separation 与 native adapters；
 - `../evaluation/capability_twins.py`、`semantic_evaluator.py`、`outcomes.py`、`schemas.py`：
   twin truth、评测与 provenance；
-- `../evaluation/geometry_calibration.py`、`semantic_geometry.py`：几何校准；
+- `../evaluation/geometry_calibration.py`、`semantic_geometry.py`：空间需求场投影、
+  swept-footprint rasterization 与运动暴露 truth；
 - `../safe_expert.py`、`../mpc_expert.py`：transition coverage/reference baseline。
 
 ## Retained storyline evidence

@@ -16,8 +16,9 @@
 ## 一句话 thesis
 
 VLM 更适合告诉小模型“这个环境要求机器人具备什么”，而不是告诉机器人“下一步怎么走”。
-把环境需求、机器人能力和任务规则显式分解，并用 same-transition capability/rule
-counterfactual risk flips 监督 cost critic，可以学习一个无需 VLM 的组合泛化安全策略。
+先学习像素级空间需求场，再用 swept footprint 计算当前运动暴露；把能力不兼容和任务
+规则分别计价，并用 motion twins 与 same-transition capability/rule counterfactuals
+监督独立 semantic critic，可以学习一个无需 VLM 的组合泛化安全策略。
 
 ## 保留的 storyline 基础结果
 
@@ -40,9 +41,9 @@ headline：
 |---|---|
 | `env_pointhazard.py`, `hazard_renderer.py`, `envs/` | C³-Safe 可复用的环境、观测边界和 adapter |
 | `evaluation/capability_twins.py`, `semantic_evaluator.py`, `outcomes.py`, `schemas.py` | capability/rule truth、评测和 provenance 基础 |
-| `evaluation/geometry_calibration.py`, `semantic_geometry.py` | Safety-Gym 开工前的几何校准 |
+| `evaluation/geometry_calibration.py`, `semantic_geometry.py` | 需求场投影、swept-footprint rasterization 与暴露 truth 的几何基础 |
 | `safe_expert.py`, `mpc_expert.py` | transition 覆盖与 oracle/reference baseline |
-| `docs/C3_SAFE_MAINLINE.md` | 新主线唯一的实验协议 |
+| `docs/C3_SAFE_MAINLINE.md` | 空间需求场—运动暴露—关系代价主线的唯一实验协议 |
 | `configs/c3_safe_mainline_manifest.json` | 机器可读的 planned scope；不是结果证明 |
 | `results/`, `outputs/` | 历史/基础设施 artifact，状态以 registry 为准 |
 | `legacy/` 和冻结的旧 top-level modules | provenance、回归和历史路线 |
@@ -54,7 +55,8 @@ headline：
 
 本次整理只完成主线协议、manifest、入口叙事和 artifact 边界；尚未实现训练器，也不新增
 Torch/Transformers/SB3 等依赖。下一步先完成 Gate 0：layout invariants、两个 adapter、
-expert coverage、geometry calibration、Safety-Gym semantic step/evaluator 和完整 provenance。
+expert coverage、projection calibration、swept-footprint/exposure truth、Safety-Gym
+semantic step/evaluator 和完整 provenance。
 
 ## 旧回归测试
 

@@ -1,8 +1,8 @@
-# Teach Requirements, Not Actions
+# Teach Spatial Requirements, Measure Motion Exposure
 
 ## C³-Safe：Capability–Constraint Counterfactual Semantic Safety Distillation
 
-更新时间：2026-08-13
+更新时间：2026-08-17
 当前状态：**`PLANNED / NOT RUN`**
 
 本仓库现在只继续 C³-Safe 这一条科学主线。旧的 VLM waypoint、semantic pilot 和
@@ -67,62 +67,90 @@ VLM 是否理解规则对当前机器人是否适用
 任务规则、视觉 grounding、动作提议和低层执行同时变化。C³-Safe 把问题改成一个可
 审计的组合泛化问题：
 
-> 同一画面和同一 transition 下，只改变 capability 或 rule，cost critic 是否能正确
-> 翻转风险；在未见 appearance × capability × rule 组合上，独立 actor 是否仍能保持
-> STC 和物理可行性？
+> 同一画面中，穿过危险区域和绕开危险区域的两段运动能否产生不同暴露；在固定暴露下
+> 只改变 capability 或 rule，关系代价又能否按正确原因翻转；在未见 appearance ×
+> capability × rule 组合上，独立 actor 是否仍能保持 STC 和物理可行性？
 
 ## 3. C³-Safe 的方法
 
-### 3.1 训练期：VLM 只标注环境需求
+### 3.1 训练期：VLM 只标注空间需求
 
-离线 teacher 看到 RGB image `I`，只输出 action-free requirement vector，例如：
+离线 teacher 看到 RGB image `I`，只输出 action-free spatial requirement field：
 
 ```text
-water_exposure = 1
-mud_or_low_traction_demand = 0
-fragile_terrain = 0
+water_ingress_demand[p] ∈ [0,1]
+low_traction_demand[p] ∈ [0,1]
+fragile_surface_property[p] ∈ [0,1]
 ```
 
 它不接收 action、candidate、waypoint、trajectory proposal、planner output 或 evaluator
-truth。teacher 的 prompt、image、response 和 hash 必须进入 manifest。
+truth。teacher 的 prompt、image、response、空间 mask/soft field 和 hash 必须进入 manifest。
+整图 presence label 可以作为辅助监督，但不能直接决定 transition risk。
 
-### 3.2 学生模型：需求、能力和规则因子化
+### 3.2 学生模型：空间需求场先与运动相交
 
-学生先预测环境需求：
-
-\[
-d_\theta(I)=\sigma(h_\theta(I)).
-\]
-
-然后用机器人能力 `κ` 和任务规则 `q` 形成 semantic cost：
+学生预测空间需求场：
 
 \[
-\hat c_{sem}(I,\kappa,q)=
-\sigma\left(b+\sum_j q_jw_j[d_{\theta,j}(I)-\kappa_j]_+\right).
+R_\theta(I)\in[0,1]^{H\times W\times K}.
 \]
 
-同一 observation/state transition 构造 capability/rule twins，加入 risk-reversal 和
-monotonicity supervision。native simulator physical cost 仍然独立进入 cost critic；
-VLM 不负责替代物理动力学、制动、净空或 footprint reasoning。
+对 transition 或短轨迹 \(\tau=(s,a,s')\)，将机器人的 swept footprint 投影到图像或
+世界坐标，计算实际运动暴露：
+
+\[
+e_j(\tau,I)=
+\operatorname{Pool}_{p\in\Pi_I(\operatorname{Footprint}(\tau))}
+R_{\theta,j}(I,p).
+\]
+
+因此同一幅有水图像中，绕开水域的轨迹应有低 water exposure，穿过水域的轨迹应有高
+water exposure。训练用真实 transition 重建 swept footprint；部署不能偷看未来 `s'`，
+只能从当前 `state/action` 预测短运动，或由 cost critic 学习期望累计暴露。
+
+### 3.3 能力不兼容和任务规则分开计价
+
+\[
+c_{cap}=\sum_{j\in\mathcal C}w_j[e_j-\kappa_j]_+,
+\qquad
+c_{rule}=\sum_{\ell\in\mathcal Q}v_\ell q_\ell e_{\pi(\ell)},
+\]
+
+\[
+c_{sem}=1-\exp[-(c_{cap}+c_{rule})].
+\]
+
+`c_cap` 表示环境需求超过机器人能力，例如非防水机器人实际进入水域；`c_rule` 表示
+当前任务激活的规范约束，例如保护脆弱地表。规则不能关闭能力不兼容：即使
+`avoid_water=0`，非防水机器人进入水域仍有能力代价。
+
+同一 image/field/transition 构造 capability/rule twins；同一 image/cards 构造
+cross-vs-bypass motion twins；同一 cards/motion 下把区域移入或移出 footprint，构造
+visual twins，排除模型只读卡片、不看图像。native simulator physical cost 进入独立的
+\(Q_{phys}\)，semantic cost 进入 \(Q_{sem}\)，二者有独立 TD target、预算和日志；
+VLM 不负责替代物理动力学、制动或碰撞判断。
 
 最终训练对象是：
 
 ```text
-compact requirement encoder
-  + factorized semantic/physical cost critic
+spatial requirement encoder-decoder
+  + swept-footprint exposure module
+  + separated capability/rule relation heads
+  + independent semantic and physical cost critics
   + reward critic
   + independent SAC-Lagrangian actor
 ```
 
-测试部署时只保留学生 encoder/critic（若用于评估）和 actor，删除 VLM runtime。最终
+测试部署时只保留学生 encoder/critics（若用于评估）和 actor，删除 VLM runtime。最终
 动作由 Gaussian SAC actor 输出，而不是 VLM 或候选动作评分器输出。
 
-### 3.3 真正要验证的新增点
+### 3.4 真正要验证的新增点
 
-1. requirement 与 capability/rule 的显式分离能否比固定 scalar safety 更好组合泛化；
-2. same-transition matched counterfactual loss 是否确实学习了 risk flip，而不是仅仅
-   学会闭集 terrain palette；
-3. VLM requirement supervision 在 held-out appearance 上是否带来超过 no-VLM / frozen
+1. spatial field + swept-footprint exposure 能否区分同图中的穿越和绕行，而不是只判断
+   “画面中有水”；
+2. 分开的 capability/rule relation cost 能否避免规则字段关闭机器人的固有不兼容性；
+3. same-transition matched counterfactual loss 是否确实学习了 risk flip，而不是只读卡片；
+4. VLM spatial supervision 在 held-out appearance 上是否带来超过 no-VLM / frozen
    feature baseline 的独立收益。
 
 ## 4. 最小实验设计
@@ -139,8 +167,9 @@ compact requirement encoder
 | joint OOD | 未见 appearance × 未见 capability × 未见 rule combination |
 | scale | 每任务 2k–5k labels，≥5 RL seeds，每 split/seed ≥100 episodes |
 
-必须报告 STC、episode semantic violation、violation steps、native cost、success、return、
-critic AUROC/AUPRC、FNR、ECE、推理延迟和参数量。
+必须报告 field mIoU/AUPRC、exposure MAE/AUROC、cross-vs-bypass ranking、STC、episode
+semantic violation、violation steps、native cost、success、return、critic calibration、
+推理延迟和参数量。
 
 ## 5. Baseline、消融和停止标准
 
@@ -149,25 +178,33 @@ critic AUROC/AUPRC、FNR、ECE、推理延迟和参数量。
 - Reward-only SAC；
 - Oracle semantic-cost SAC-Lagrange（上界，不是可部署方法）；
 - No-VLM + domain randomization/simulator-only labels；
+- Global-Requirement（整图向量，无运动暴露）；
+- Presence-Only-Field（有空间场，但不用 footprint）；
+- Cards-Only-Critic（只看 capability/rule/action，不看 RGB）；
 - Scalar-VLM-Cost；
-- LateConcat-Critic；
+- LateConcat-Critic（image/card/action 直接拼接）；
+- Oracle-Field/Exposure（simulator mask + 真实 swept footprint 诊断上界）；
 - generic representation distillation（DGC-like control）。
 
 ### 关键消融
 
 - 去掉 capability/rule matched counterfactual loss；
+- 去掉 swept-footprint exposure，改成 global/presence pooling；
+- footprint 改为 robot center/endpoint；
+- 分开的关系代价改回 `q[e-κ]+`；
 - factorized interaction 改为 late concatenation/direct scalar；
-- 去掉 VLM requirement supervision，替换成 frozen DINO/CLIP、domain randomization 或
+- 去掉 VLM spatial supervision，替换成 frozen DINO/CLIP、domain randomization 或
   simulator-only label。
 
 ### Go / No-Go
 
-Gate 0 先检查 split/hash/provenance、Safety-Gym overlay agreement ≥ `0.98` 和 native/
-semantic cost 分离。Gate 1 要求 teacher requirement macro-F1 ≥ `0.80`、risk-flip accuracy
-≥ `0.80`、student held-out AUROC ≥ `0.85`、ECE ≤ `0.10`，并比 no-VLM/frozen feature
-baseline 高至少 5 AUROC points。Gate 2 要求 joint OOD 上 violation 相对下降 ≥25%、STC
-提升 ≥8 points，且 counterfactual ablation 使 violation 恶化 ≥10%；同时 success 和
-native collision 不能超过预定退化门槛。
+Gate 0 先检查 split/hash/provenance、overlay 与 swept-footprint oracle agreement 均
+≥ `0.98`、cross/bypass 与 visual-twin truth 可分和 native/semantic cost 分离。Gate 1 要求 teacher
+spatial macro-F1 ≥ `0.80`、region mIoU ≥ `0.60`、student exposure AUROC ≥ `0.85`、
+cross-vs-bypass 与 visual-twin ranking 均 ≥ `0.90`、risk-flip accuracy ≥ `0.80`，并验证 `q=0` 不关闭能力
+风险。Gate 2 要求 joint OOD 上 violation 相对下降 ≥25%、STC 提升 ≥8 points，且去掉
+counterfactual 或 motion exposure 时分别出现预声明退化；同时 success 和 native
+collision 不能超过预定退化门槛。
 
 任一关键门槛失败就停止对应 claim，不通过换标题、增加 prompt tuning 或继承旧数字来
 包装结果。完整数值和字段见 [`docs/C3_SAFE_MAINLINE.md`](docs/C3_SAFE_MAINLINE.md)。
@@ -195,6 +232,6 @@ hash。具体边界见 [`docs/REPOSITORY_STATUS_2026-08-13.md`](docs/REPOSITORY_
 ## 7. 当前结论
 
 当前最诚实的结论不是“C³-Safe 已经有效”，而是：旧 pilot 让研究问题从“VLM 选动作”
-收紧到了“环境需求能否与能力、规则和物理 cost 组合泛化”。C³-Safe 的训练实现和所有
+收紧到了“空间需求能否通过运动暴露与能力、规则和物理 cost 组合泛化”。C³-Safe 的训练实现和所有
 主线数字仍待验证；在此之前，仓库只提供冻结协议、复用资产、历史取证和明确的 No-Go
 标准。

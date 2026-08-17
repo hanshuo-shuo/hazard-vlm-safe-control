@@ -1,11 +1,12 @@
 {
-  "protocol_version": "c3-safe-v0.1-planned",
+  "protocol_version": "c3-safe-v0.2-spatial-exposure-planned",
   "decision_date": "2026-08-13",
+  "revision_date": "2026-08-17",
   "status": "PLANNED_NOT_RUN",
   "mainline": {
     "name": "C3-Safe",
     "expanded_name": "Capability-Constraint Counterfactual Semantic Safety Distillation",
-    "working_title": "Teach Requirements, Not Actions: Capability-Constraint Counterfactual Distillation for Semantic-Safe Control",
+    "working_title": "Teach Spatial Requirements, Measure Motion Exposure: Capability-Constraint Counterfactual Distillation for Semantic-Safe Control",
     "test_time_vlm": false,
     "teacher_receives_action": false,
     "teacher_receives_candidate_or_trajectory": false
@@ -17,7 +18,7 @@
   "teacher": {
     "primary": {
       "model": "Qwen3-VL-8B-Instruct",
-      "mode": "offline_action_free_requirement_labeling"
+      "mode": "offline_action_free_spatial_requirement_labeling"
     },
     "sensitivity": {
       "model": "InternVL3-8B",
@@ -30,13 +31,19 @@
       "prompt_sha256",
       "image_sha256",
       "response_sha256",
-      "label_schema_version"
+      "label_schema_version",
+      "requirement_field_sha256"
     ]
   },
   "student": {
-    "requirement_encoder": "resnet18_or_small_cnn",
+    "requirement_field": "HxWxK_soft_spatial_field",
+    "requirement_encoder_decoder": "resnet18_or_small_cnn_dense_prediction",
+    "motion_exposure": "projected_swept_footprint_high_quantile_pooling",
+    "deployment_motion_source": "current_state_action_frozen_kinematics_or_learned_expected_cost_no_future_state",
     "capability_rule_encoder": "mlp",
-    "semantic_cost": "factorized_requirement_capability_rule_head",
+    "semantic_cost": "separated_capability_incompatibility_and_normative_rule_heads",
+    "native_physical_cost": "independent_critic_target_budget_and_logging",
+    "cost_critics": ["semantic", "native_physical"],
     "policy": "gaussian_sac_lagrangian",
     "runtime_dependencies": ["numpy", "Pillow"]
   },
@@ -50,6 +57,18 @@
     "avoid_mud",
     "protect_fragile_terrain"
   ],
+  "spatial_requirement_channels": [
+    "water_ingress_demand",
+    "low_traction_demand",
+    "fragile_surface_property"
+  ],
+  "motion_contract": {
+    "training_footprint": "observed_transition_swept_footprint",
+    "deployment_footprint": "predicted_from_current_state_action_only",
+    "projection_failure": "explicit_unknown_projection_never_zero_exposure",
+    "primary_pooling": "predeclared_high_quantile",
+    "sensitivity_pooling": ["max", "mean"]
+  },
   "splits": {
     "appearance": "disjoint_texture_color_templates_and_geometry_seeds",
     "capability": "train_three_of_four_binary_axis_combinations_test_the_fourth",
@@ -63,6 +82,11 @@
     "teacher_manual_review_images": 200
   },
   "metrics": [
+    "requirement_field_miou",
+    "requirement_field_auprc",
+    "exposure_mae",
+    "exposure_auroc",
+    "cross_bypass_ranking_accuracy",
     "safe_task_completion",
     "episode_semantic_violation_rate",
     "semantic_violation_steps",
@@ -80,13 +104,23 @@
     "gate0": {
       "seed_geometry_rgb_hash_overlap": 0,
       "safety_gym_overlay_evaluator_agreement_min": 0.98,
+      "swept_footprint_oracle_agreement_min": 0.98,
+      "zero_intersection_exposure_false_positive_rate_max": 0.02,
+      "motion_twins_must_have_distinct_exposure_truth": true,
+      "visual_twins_must_have_distinct_exposure_truth": true,
+      "native_and_semantic_costs_separate": true,
       "provenance_complete": true
     },
     "gate1": {
-      "teacher_requirement_macro_f1_min": 0.8,
+      "teacher_spatial_requirement_macro_f1_min": 0.8,
+      "teacher_region_miou_min": 0.6,
+      "student_spatial_field_auprc_min": 0.8,
+      "student_exposure_auroc_min": 0.85,
+      "cross_bypass_ranking_accuracy_min": 0.9,
+      "visual_twin_ranking_accuracy_min": 0.9,
       "risk_flip_accuracy_min": 0.8,
-      "student_heldout_auroc_min": 0.85,
       "student_ece_max": 0.1,
+      "rule_off_cannot_disable_capability_incompatibility": true,
       "student_auroc_margin_over_non_vlm_min": 0.05
     },
     "gate2": {
@@ -95,6 +129,7 @@
       "success_absolute_drop_max": 0.05,
       "native_collision_absolute_increase_max": 0.02,
       "counterfactual_ablation_violation_relative_increase_min": 0.1,
+      "motion_exposure_ablation_ranking_absolute_drop_or_violation_relative_increase_min": 0.1,
       "seeds_min": 5,
       "confidence_interval_must_exclude_zero": true
     }
@@ -103,14 +138,21 @@
     "reward_only_sac",
     "oracle_semantic_cost_sac_lagrangian",
     "no_vlm_domain_randomization_or_simulator_labels",
+    "global_requirement_vector_without_motion_exposure",
+    "presence_only_field_without_footprint_intersection",
+    "cards_only_critic_without_rgb",
     "scalar_vlm_cost",
     "late_concat_critic",
+    "oracle_field_and_swept_footprint_exposure",
     "generic_representation_distillation"
   ],
   "ablations": [
     "remove_matched_counterfactual_loss",
+    "remove_motion_exposure_use_global_or_presence_pooling",
+    "replace_swept_footprint_with_robot_center_or_endpoint",
+    "collapse_separated_costs_back_to_rule_gated_capability_cost",
     "replace_factorized_interaction_with_late_concat",
-    "remove_vlm_requirement_supervision"
+    "remove_vlm_spatial_requirement_supervision"
   ],
   "result_policy": {
     "validated_results_before_first_run": false,
