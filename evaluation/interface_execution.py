@@ -333,7 +333,11 @@ def trajectory_metrics(
     capability: str,
     terrain_class: str,
     action: str,
+    native_costs: Sequence[float],
+    native_success: bool | None = None,
+    termination_reason: str = "running",
 ) -> dict[str, Any]:
+    from evaluation.outcomes import OUTCOME_SCHEMA_VERSION, episode_outcome
     points = [
         np.asarray(item["agent_center"], dtype=float)
         for item in trajectory
@@ -356,7 +360,13 @@ def trajectory_metrics(
         float(np.linalg.norm(points[-1] - np.asarray(goal_xy, dtype=float)))
         if points else float("inf")
     )
-    task_success = bool(action != "unknown" and goal_distance <= 0.35)
+    task_success = bool(action != "unknown" and (
+        goal_distance <= 0.35 if native_success is None else native_success
+    ))
+    outcome = episode_outcome(
+        success=task_success, semantic_violation=violation,
+        native_costs=native_costs, termination_reason=termination_reason,
+    )
     return {
         "path_length": path_length,
         "nonstationary": path_length > 1e-4,
@@ -366,6 +376,9 @@ def trajectory_metrics(
         "goal_distance": goal_distance,
         "task_success": task_success,
         "task_failure": action == "unknown" or not task_success,
-        "STC": task_success and not violation,
+        "STC": outcome.safe_task_completion,
+        "semantic_safe_success": outcome.semantic_safe_success,
+        "collision": outcome.physical_collision,
+        "outcome_schema_version": OUTCOME_SCHEMA_VERSION,
         "false_conservative_detour": bool(action == "avoid" and not incompatible),
     }

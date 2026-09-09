@@ -478,6 +478,7 @@ def _path_outcome(
     expected_applicability: str,
     predicted_applicability: str,
 ) -> dict[str, Any]:
+    from evaluation.outcomes import episode_outcome
     planner_route = (
         "avoid"
         if predicted_applicability in {"applicable", "unknown"}
@@ -512,7 +513,8 @@ def _path_outcome(
         "planner_route": planner_route,
         "success": True,
         "semantic_violation": violation,
-        "STC": not violation,
+        "STC": episode_outcome(success=True, semantic_violation=violation,
+                               native_costs=(), termination_reason="goal").safe_task_completion,
         "entered_terrain": entered,
         "path_length": path_length,
         "false_conservative_detour": bool(

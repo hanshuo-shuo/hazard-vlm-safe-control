@@ -1,0 +1,4 @@
+# Optional spatial-student baseline; already available in the local environment.
+# Keep the provider-free numpy/Pillow core independent of this environment.
+-r requirements.lock
+torch==2.5.1

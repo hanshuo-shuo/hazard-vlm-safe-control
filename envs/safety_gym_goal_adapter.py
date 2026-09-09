@@ -54,6 +54,7 @@ class SafetyGymGoalAdapter:
         render_mode: str = "rgb_array",
         env: Any | None = None,
         env_factory: Callable[..., Any] | None = None,
+        camera_name: str | None = None,
     ) -> None:
         self._native_runtime = env is None
         if env is not None:
@@ -63,7 +64,9 @@ class SafetyGymGoalAdapter:
             if factory is None:
                 safety_gymnasium = _require_safety_gymnasium()
                 factory = safety_gymnasium.make
-            self._env = factory(env_id, render_mode=render_mode)
+            kwargs = {} if camera_name is None else {"camera_name": camera_name}
+            self._env = factory(env_id, render_mode=render_mode, **kwargs)
+        self.camera_name = camera_name
         self.environment_id = env_id
         self.environment_version = _package_version("safety-gymnasium", "unknown")
         self.action_space = self._env.action_space
@@ -182,7 +185,8 @@ class SafetyGymGoalAdapter:
             getattr(self._env, "_max_episode_steps", None),
         )
         timestep = _finite_scalar(getattr(getattr(task, "model", None), "opt", None), "timestep")
-        goal_radius = _finite_scalar(goal_owner, "size")
+        # ndarray.size is an element count, not a geometric radius.
+        goal_radius = None if isinstance(goal_owner, (np.ndarray, list, tuple)) else _finite_scalar(goal_owner, "size")
         return {
             "environment_backend": self.backend,
             "environment_id": self.environment_id,
@@ -230,20 +234,47 @@ class SemanticSafetyPointGoalAdapter(SafetyGymGoalAdapter):
     manifest/context.
     """
 
-    def __init__(self, *args: Any, capability: str = "wheeled_non_waterproof", **kwargs: Any) -> None:
+    def __init__(self, *args: Any, capability: str = "wheeled_non_waterproof",
+                 robot_radius: float | None = None, rules: Any = None,
+                 projection: Any = None, **kwargs: Any) -> None:
+        from c3_safe.costs import Capability, Rules
         if capability not in {"wheeled_non_waterproof", "amphibious"}:
             raise ValueError("capability must be wheeled_non_waterproof or amphibious")
+        kwargs.setdefault("camera_name", "fixednear")
         super().__init__(*args, **kwargs)
         self.capability = capability
+        self.capability_spec = Capability(float(capability == "amphibious"), 0.)
+        self.rules = Rules() if rules is None else rules
+        self._configured_radius = robot_radius
+        if robot_radius is not None and (not np.isfinite(robot_radius) or robot_radius <= 0):
+            raise ValueError("robot_radius must be finite and positive")
+        self.robot_radius = robot_radius
+        self._configured_projection = projection
         self._water_region: dict[str, Any] | None = None
 
     def reset(self, *, seed: int | None = None) -> tuple[Any, dict[str, Any]]:
-        result = super().reset(seed=seed)
         if seed is None:
             raise ValueError("semantic Safety-Gymnasium reset requires an explicit scene seed")
+        result = super().reset(seed=seed)
+        self.robot_radius = self._configured_radius or self._model_footprint_radius()
         rng = np.random.default_rng(np.random.SeedSequence([int(seed), 0x53454D]))
-        center = rng.uniform(-1.0, 1.0, size=2).astype(np.float64)
-        radius = float(rng.uniform(0.45, 0.65))
+        start = np.asarray(self._trajectory[0]["agent_center"], dtype=float)
+        goal = self._scene.get("goal")
+        if start.shape != (2,) or not np.isfinite(start).all() or goal is None:
+            raise RuntimeError("semantic layout requires known native start and goal")
+        goal = np.asarray(goal, dtype=float)
+        goal_radius = self._scene.get("goal_radius") or .3
+        hazards = self._scene["physical_hazards"]
+        for attempts in range(1, 513):
+            center = rng.uniform(-1.0, 1.0, size=2).astype(np.float64)
+            radius = float(rng.uniform(.25, .45))
+            clear = np.linalg.norm(center - start) > radius + self.robot_radius + .1
+            clear &= np.linalg.norm(center - goal) > radius + goal_radius + .1
+            clear &= all(np.linalg.norm(center - h["center_xy"]) > radius + h["radius"] + .05 for h in hazards)
+            if clear:
+                break
+        else:
+            raise RuntimeError("no valid semantic patch in 512 deterministic attempts")
         self._water_region = {
             "region_id": "zone_0",
             "center_xy": center.tolist(),
@@ -252,28 +283,91 @@ class SemanticSafetyPointGoalAdapter(SafetyGymGoalAdapter):
             "appearance_profile": "water-render-v1",
         }
         self._scene["semantic_terrain"] = [self._water_region]
+        self._scene["semantic_layout_valid"] = True
+        self._scene["semantic_placement_attempts"] = attempts
+        self._scene["semantic_radius_range"] = [.25, .45]
+        self._scene["agent_radius"] = self.robot_radius
+        self._scene["semantic_metric_version"] = "swept-disk-v1"
+        self._scene["footprint_source"] = "configured_disk" if self._configured_radius else "model_contact_geom_envelope"
+        self._scene["rule_vector"] = self.rules.vector
+        self._scene["motion_source"] = "native_mj_step_body_poses" if self._native_runtime else "fixture_linear_transition"
         return result
+
+    def _model_footprint_radius(self) -> float:
+        if not self._native_runtime:
+            raise ValueError("semantic test stand-ins require an explicit robot_radius")
+        task = self._env.unwrapped.task
+        model, data = task.model, task.data
+        body = model.body("agent").id
+        center = np.asarray(task.agent.pos[:2])
+        radii = []
+        for i in range(model.ngeom):
+            if model.geom_bodyid[i] == body and (model.geom_contype[i] or model.geom_conaffinity[i]):
+                radii.append(float(np.linalg.norm(data.geom_xpos[i, :2] - center) + model.geom_rbound[i]))
+        if not radii:
+            raise RuntimeError("cannot derive a circular envelope for the native agent")
+        return max(radii)
+
+    def step(self, action: Any):
+        from c3_safe.costs import semantic_contact
+        before = self._trajectory[-1]["agent_center"]
+        if before is None:
+            raise RuntimeError("semantic evaluation requires public robot pose")
+        if self._native_runtime:
+            from c3_safe.native_motion import capture_native_motion
+            task = self._env.unwrapped.task
+            with capture_native_motion(task.model, task.data) as motion:
+                result = super().step(action)
+        else:
+            result = super().step(action)
+            motion = [before, self._trajectory[-1]["agent_center"]]
+        after = self._trajectory[-1]["agent_center"]
+        if after is None:
+            raise RuntimeError("semantic evaluation requires post-step robot pose")
+        # The independently computed semantic event never changes native cost,
+        # native dynamics, or the policy-facing info dictionary.
+        self._semantic_violations[-1] = semantic_contact(
+            motion, self.robot_radius, self._scene["semantic_terrain"],
+            self.capability_spec, self.rules,
+        )
+        self._trajectory[-1]["motion_samples"] = motion
+        return result
+
+    def ground_projection(self, image_shape):
+        from c3_safe.geometry import GroundProjection
+        height, width = image_shape[:2]
+        if self._configured_projection is not None:
+            if (height, width) != (self._configured_projection.height, self._configured_projection.width):
+                raise ValueError("configured projection does not match RGB resolution")
+            return self._configured_projection
+        if not self._native_runtime:
+            raise ValueError("semantic render stand-ins require an explicit projection")
+        task = self._env.unwrapped.task
+        camera_id = task.model.camera(self.camera_name).id
+        return GroundProjection.mujoco_camera(
+            width, height, task.data.cam_xpos[camera_id], task.data.cam_xmat[camera_id],
+            float(task.model.cam_fovy[camera_id]),
+        )
 
     def render_public_rgb(self) -> np.ndarray:
         frame = super().render_public_rgb()
         if self._water_region is None:
             return frame
-        from PIL import Image, ImageDraw
-
-        image = Image.fromarray(frame).convert("RGBA")
-        overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
-        draw = ImageDraw.Draw(overlay)
-        width, height = image.size
-        cx_world, cy_world = self._water_region["center_xy"]
-        scale = min(width, height) / 6.0
-        cx = int(width / 2 + cx_world * scale)
-        cy = int(height / 2 - cy_world * scale)
-        radius = max(2, int(self._water_region["radius"] * scale))
-        draw.ellipse((cx - radius, cy - radius, cx + radius, cy + radius), fill=(60, 170, 210, 105), outline=(30, 105, 150, 230), width=3)
-        for offset in (-0.35, 0.0, 0.35):
-            y = cy + int(offset * radius)
-            draw.arc((cx - int(0.75 * radius), y - int(0.15 * radius), cx + int(0.75 * radius), y + int(0.15 * radius)), 0, 180, fill=(240, 250, 255, 220), width=2)
-        return np.asarray(Image.alpha_composite(image, overlay).convert("RGB"), dtype=np.uint8)
+        from c3_safe.geometry import oracle_field
+        projection = self.ground_projection(frame.shape)
+        mask = oracle_field([self._water_region], projection)[..., 0] > 0
+        grid, _ = projection.world_grid()
+        color = np.broadcast_to(np.array([60., 170., 210.]), frame.shape).copy()
+        ripples = np.sin(grid[..., 1] * 35 + np.sin(grid[..., 0] * 8)) > .9
+        color[ripples] = [210., 240., 250.]
+        result = frame.astype(float)
+        result[mask] = .4 * result[mask] + .6 * color[mask]
+        self._scene["camera_calibration"] = projection.to_dict()
+        self._scene["camera_calibration_hash"] = projection.sha256
+        self._scene["semantic_render_contract"] = "calibrated_ground_annotation_overlay-v1"
+        # This controlled annotation overlay is composited above native RGB;
+        # it is not a claim of physically occluded water simulation.
+        return np.clip(result, 0, 255).astype(np.uint8)
 
     def evaluator_context(self) -> EvaluatorContext:
         context = super().evaluator_context()
@@ -290,6 +384,8 @@ def _scalar_cost(cost: Any) -> float:
 
 
 def _termination_reason(terminated: bool, truncated: bool, info: Mapping[str, Any]) -> str:
+    if bool(info.get("goal_met", info.get("goal_success", info.get("success", False)))):
+        return "goal"
     if terminated:
         return "terminated"
     if truncated:

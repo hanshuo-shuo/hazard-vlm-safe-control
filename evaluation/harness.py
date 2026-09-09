@@ -28,7 +28,7 @@ from evaluation.policy_interface import (
     ReplayTargetPolicy,
     build_policy_input,
 )
-from evaluation.outcomes import reduce_stc
+from evaluation.outcomes import context_outcome
 from evaluation.semantic_evaluator import evaluate_scene_manifest
 from evaluation.vlm_router import (
     PreparedVLMRequest,
@@ -721,12 +721,7 @@ def run_point_hazard_episode(
             [item["agent_center"] for item in context.trajectory],
             switch_events,
         )
-    stc_audit = reduce_stc(
-        reached_goal=bool(context.success),
-        physical_collision=context.termination_reason == "hazard",
-        applicable_semantic_violation=any(context.semantic_violations),
-        timeout=context.termination_reason == "timeout",
-    ).to_dict()
+    stc_audit = context_outcome(context).to_dict()
     policy_input_audit = {
         "call_count": len(policy_input_hashes),
         "input_sha256": policy_input_hashes,

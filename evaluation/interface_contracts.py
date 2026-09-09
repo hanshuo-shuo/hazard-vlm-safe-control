@@ -16,6 +16,7 @@ import re
 from typing import Any, Mapping, Sequence
 
 import numpy as np
+from evaluation.outcomes import episode_outcome
 
 
 CONTRACT_IDS = (
@@ -620,7 +621,8 @@ def fixed_path_outcome(scene: Mapping[str, Any], capability: str, action: str) -
         "success": True,
         "entered_terrain": entered,
         "semantic_violation": violation,
-        "STC": not violation,
+        "STC": episode_outcome(success=True, semantic_violation=violation,
+                               native_costs=(), termination_reason="goal").safe_task_completion,
         "false_conservative_detour": bool(not unsafe_capability and action == "avoid"),
         "unsafe_non_avoidance": bool(unsafe_capability and action != "avoid"),
         "planner_action": action,

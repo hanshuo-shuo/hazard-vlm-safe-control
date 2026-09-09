@@ -2,8 +2,12 @@
 
 ## C³-Safe：Capability–Constraint Counterfactual Semantic Safety Distillation
 
-更新时间：2026-08-17
-当前状态：**`PLANNED / NOT RUN`**
+更新时间：2026-09-09（方法协议仍为 2026-08-17 修订）
+当前状态：**基础实现及无 VLM 的空间学生对照已运行；C³-Safe 蒸馏与策略训练未运行。**
+
+新的工程进度和可复现开发结果见
+[`C3_FOUNDATION_PROGRESS.md`](docs/C3_FOUNDATION_PROGRESS.md)。目前已有 simulator-only
+数据与两个小 CNN checkpoint；它们不是 C³-Safe 方法验证，也未通过正式 Gate 0–2。
 
 本仓库现在只继续 C³-Safe 这一条科学主线。旧的 VLM waypoint、semantic pilot 和
 interface-contract 结果仍然保留，但只作为动机与 failure analysis；它们不能被改写成
@@ -41,17 +45,24 @@ ranking、formal safety 或优于现代 perception-and-planning baseline 的结�
 
 ### 1.3 到达率不等于安全
 
-同一 pilot 里，任务成功率和 Safe Task Completion（STC）分开统计：
+同一 pilot 的原始表如下。**其中历史 `STC` 只排除了语义违规，未排除 native safety
+event；以下保留原数字与原图用于理解历史。**
 
-| 环境 | Task success | STC | Collision | Semantic violation |
+| 环境 | Task success | 历史 semantic-only completion | Native cost event | Semantic violation |
 |---|---:|---:|---:|---:|
 | PointHazard | 0.90 | 0.68 | 0.00 | 0.22 |
 | Safety-Gymnasium | 0.98 | 0.53 | 0.47 | 0.45 |
 
 ![任务成功和安全完成必须分开报告。](docs/assets/interface_contract_scout/environment-results.png)
 
-这些是 `PILOT_ONLY` 数字，只说明 future evaluator 必须同时保留 success、native
-physical cost、semantic violation 和 STC；它们不是 C³-Safe 的 baseline。
+2026-09-09 对原始 120 条执行记录重算，采用
+`STC = goal_reached AND no_native_safety_event AND no_semantic_violation`：PointHazard
+仍为 **41/60**，Safety-Gym 从 **32/60** 变为 **14/60**。native event 指正 native cost
+或 hazard termination，不等于已确认发生几何碰撞；原图的 Collision 也应按这个记录字段
+理解。重算没有重新运行模型或环境，没有修复旧场景/语义评测限制。
+
+这些仍是 `PILOT_ONLY` 数字，不能作为 C³-Safe 的 baseline。新旧口径与原始文件 hash 见
+[`本轮记录`](docs/C3_FOUNDATION_PROGRESS.md) 和结果注册表。
 
 ## 2. 故事线如何收紧
 

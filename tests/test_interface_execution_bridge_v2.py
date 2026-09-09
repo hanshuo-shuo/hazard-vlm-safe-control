@@ -89,6 +89,7 @@ def test_unknown_is_noop_task_failure() -> None:
         capability="wheeled_non_waterproof",
         terrain_class="water",
         action="unknown",
+        native_costs=(),
     )
     assert result["task_failure"] is True
     assert result["task_success"] is False
@@ -109,4 +110,3 @@ def test_checked_experiment_0_artifacts_are_complete_and_provider_free() -> None
     for artifact in manifest["artifacts"].values():
         path = RESULT / artifact["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == artifact["sha256"]
-

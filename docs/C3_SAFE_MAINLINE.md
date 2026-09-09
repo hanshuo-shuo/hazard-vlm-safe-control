@@ -1,15 +1,22 @@
 # C³-Safe 主线协议
 
 决策日期：2026-08-13；方法修订：2026-08-17
-状态：**PLANNED / NOT RUN**
+实现状态（2026-09-09）：**FOUNDATION IMPLEMENTED / METHOD NOT VALIDATED**
 工作标题：**Teach Spatial Requirements, Measure Motion Exposure: Capability–Constraint Counterfactual Distillation for Semantic-Safe Control**
 
 ## 1. 当前决策
 
 仓库主线切换到 **C³-Safe（Capability–Constraint Counterfactual Semantic Safety Distillation）**。
-当前没有任何已运行的 C³-Safe 结果，也没有任何旧 semantic-safety 数字可以直接继承为
-论文结果。旧的 marker、interface-contract、semantic pilot、PIVOT 和 direct-VLA
+几何/评测/开发数据管道已实现，并运行了 simulator-only 空间学生对照，详见
+[`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)。真实 VLM 空间蒸馏、独立
+semantic/physical critics 和 SAC actor 尚未运行，完整 Gate 0–2 均未宣告通过。
+没有任何旧 semantic-safety 数字可以直接继承为论文结果。
+旧的 marker、interface-contract、semantic pilot、PIVOT 和 direct-VLA
 资产仅保留 provenance、motivation、failure analysis 或回归用途。
+
+以下矩阵与阈值保留为正式方法的目标协议；开发检查与小数据对照不降低这些要求。
+当前执行细节（q95、圆形足迹、开发 seeds）单独冻结在
+`configs/c3_safe_foundation.json`，不把开发集冒充正式 held-out 集。
 
 核心 thesis 是：
 

@@ -44,6 +44,7 @@ from evaluation.conditions import (
     ZoneSource,
 )
 from evaluation.semantic_evaluator import evaluate_scene_manifest
+from evaluation.outcomes import context_outcome
 from evaluation.harness import MPCPlanToController
 from evaluation.vlm_artifacts import ParseStatus, parse_structured_stage_output
 from evaluation.vlm_router import (
@@ -645,11 +646,7 @@ def run_closed_loop_arm(
             "success": bool(context.success),
             "semantic_violation": bool(semantic.violation),
             "physical_collision": context.termination_reason == "hazard",
-            "safe_task_completion": bool(
-                context.success
-                and not semantic.violation
-                and context.termination_reason != "hazard"
-            ),
+            "safe_task_completion": context_outcome(context, semantic_violation=semantic.violation).safe_task_completion,
             "termination_reason": context.termination_reason,
             "steps": len(context.actions),
             "trajectory": [x["agent_center"] for x in context.trajectory],

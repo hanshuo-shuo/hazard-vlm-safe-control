@@ -49,7 +49,7 @@ from evaluation.scout_replay import (
 
 SOURCE = ROOT / "results" / "interface_contract_provider_free_dry_run"
 PAID = ROOT / "results" / "interface_contract_scout_paid"
-OUTPUT = ROOT / "results" / "interface_contract_scout_native_analysis"
+OUTPUT = ROOT / "results" / "interface_contract_scout_native_analysis_v2"
 
 
 def write_json(path: Path, value: Any) -> None:
@@ -134,11 +134,10 @@ def execute(
         capability=truth["capability"],
         terrain_class=truth["terrain_class"],
         action=action,
+        native_costs=context.native_costs,
+        native_success=context.success,
+        termination_reason=context.termination_reason,
     )
-    if action != "unknown" and context.success:
-        metrics["task_success"] = True
-        metrics["task_failure"] = False
-        metrics["STC"] = not metrics["semantic_violation"]
     actions = list(context.actions)
     trajectory = list(context.trajectory)
     cost = float(sum(context.native_costs))
@@ -297,6 +296,8 @@ def main() -> int:
     parser.add_argument("--paid", type=Path, default=PAID)
     parser.add_argument("--output", type=Path, default=OUTPUT)
     args = parser.parse_args()
+    if args.output.exists() and any(args.output.iterdir()):
+        parser.error("choose a new output directory; historical replay artifacts are immutable")
     paid = args.paid.resolve()
     row_paths = sorted((paid / "rows").glob("*.json"))
     if len(row_paths) != 120:
@@ -383,7 +384,7 @@ def main() -> int:
         )
     ]
     analysis = {
-        "schema_version": "interface-contract-scout-native-analysis-v1",
+        "schema_version": "interface-contract-scout-native-analysis-v2",
         "provider_calls": 0,
         "provider_attempts": 0,
         "primary_native_executions": len(primary),
@@ -444,7 +445,7 @@ def main() -> int:
     write_json(output / "AMBIGUOUS_MAPPING_EXECUTIONS.json", ambiguous)
     write_json(output / "ANALYSIS.json", analysis)
     manifest = {
-        "schema_version": "interface-contract-scout-native-replay-v1",
+        "schema_version": "interface-contract-scout-native-replay-v2",
         "status": "COMPLETE",
         "provider_calls": 0,
         "provider_attempts": 0,

@@ -28,3 +28,7 @@ data/
 
 # Small GIFs are part of the documented legacy research record.
 !legacy/assets/*.gif
+
+# C3 development runs retain local datasets and exact source snapshots.
+# Reproduce them with scripts/*c3*.py; checked-in summaries live in docs/.
+/results/c3_*/

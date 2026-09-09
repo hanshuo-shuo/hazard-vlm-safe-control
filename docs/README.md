@@ -1,9 +1,11 @@
 # Documentation Map
 
-Updated: 2026-08-13.
+Updated: 2026-09-09.
 
 ## Current reading
 
+- [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)：本轮已执行工作、实际结果、复现命令与下一步资源；
+- [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)：小型数值证据与本地完整产物的 hash；
 - [`../RESEARCH_STORY.md`](../RESEARCH_STORY.md)：C³-Safe 的研究故事，以及被保留的旧 pilot 证据；
 - [`C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md)：主线定义、数据契约、实验矩阵、baseline 和 gates；
 - [`../configs/c3_safe_mainline_manifest.json`](../configs/c3_safe_mainline_manifest.json)：planned scope；
@@ -17,10 +19,13 @@ Updated: 2026-08-13.
 | `C3_SAFE_MAINLINE.md` | C³-Safe 当前 protocol 和 go/no-go gates |
 | `../configs/c3_safe_mainline_manifest.json` | C³-Safe planned machine-readable scope |
 | `RESULTS_REGISTRY.md` | `VALIDATED` / `PILOT_ONLY` / `INVALIDATED` / `ARCHIVED` 状态 |
+| `C3_FOUNDATION_PROGRESS.md` | 已实现范围与开发运行结果；不改变科学 gate 阈值 |
 | `review_status_registry.json` | 旧 review item 的 machine-readable status |
 
 ## Reusable foundation
 
+- `../c3_safe/`：当前空间场、运动暴露、能力/规则代价、数据契约、oracle controller 与小 CNN；
+- `../scripts/*c3*.py`：几何检查、配对数据采集、无 VLM 空间模型训练和对照；
 - `../env_pointhazard.py`、`../hazard_renderer.py`：PointHazard dynamics/rendering；
 - `../envs/`：policy/evaluator separation 与 native adapters；
 - `../evaluation/capability_twins.py`、`semantic_evaluator.py`、`outcomes.py`、`schemas.py`：
@@ -51,3 +56,6 @@ Updated: 2026-08-13.
 
 核心环境和旧 provider-free replay 测试仍按仓库根目录 README 中的命令运行；这些测试
 验证历史基础设施，不等价于 C³-Safe 训练或科学 gate。
+
+新增几何/成本、分组泄漏防护与 checkpoint 测试在 `../tests/test_c3_*.py`。
+训练可选依赖为 `../requirements-learning.txt`；本轮的真实检查和测试范围见进度文档。

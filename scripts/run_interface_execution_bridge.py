@@ -36,7 +36,7 @@ from evaluation.interface_execution import (
 
 
 SOURCE = ROOT / "results" / "interface_contract_provider_free_dry_run"
-OUTPUT = ROOT / "results" / "interface_contract_experiment_0"
+OUTPUT = ROOT / "results" / "interface_contract_experiment_0_v2"
 CASES = (
     "avoid_correct",
     "traverse_correct",
@@ -156,11 +156,10 @@ def _execute_case(
         capability=truth["capability"],
         terrain_class=truth["terrain_class"],
         action=spec["action"],
+        native_costs=context.native_costs,
+        native_success=context.success,
+        termination_reason=context.termination_reason,
     )
-    if spec["action"] != "unknown" and context.success:
-        metrics["task_success"] = True
-        metrics["task_failure"] = False
-        metrics["STC"] = not metrics["semantic_violation"]
     actions = list(context.actions)
     trajectory = list(context.trajectory)
     execution = {
@@ -366,6 +365,8 @@ def run(
     limit_blocks: int | None = None,
     environment: str | None = None,
 ) -> dict[str, Any]:
+    if output.exists() and any(output.iterdir()):
+        raise FileExistsError("choose a new output directory; historical bridge artifacts are immutable")
     blocks = json.loads((source / "BLOCKS.json").read_text(encoding="utf-8"))
     if len(blocks) != 80:
         raise RuntimeError("Experiment 0 requires the frozen 80-block input")

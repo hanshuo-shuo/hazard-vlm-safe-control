@@ -462,7 +462,13 @@ def test_checked_in_dry_run_has_complete_source_and_artifact_provenance() -> Non
     assert "evaluation/native_environment_gate.py" in source_hashes
     assert "scripts/build_interface_contract_pilot.py" in source_hashes
     for relative_path, expected_sha256 in source_hashes.items():
-        actual = hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest()
+        # The source snapshot belongs to the recorded commit. Mutable status
+        # documents and subsequent implementations may legitimately change.
+        snapshot = subprocess.check_output(
+            ["git", "show", f"{dry_manifest['provenance']['git_sha']}:{relative_path}"],
+            cwd=ROOT,
+        )
+        actual = hashlib.sha256(snapshot).hexdigest()
         assert actual == expected_sha256
     for artifact in dry_manifest["artifacts"].values():
         actual = hashlib.sha256((result_root / artifact["path"]).read_bytes()).hexdigest()

@@ -1,0 +1,48 @@
+{
+  "protocol_version": "c3-safe-foundation-v0.1",
+  "status": "DEVELOPMENT_INFRASTRUCTURE_NOT_SCIENCE_VALIDATION",
+  "field_channels": ["water_ingress_demand", "low_traction_demand", "fragile_surface_property"],
+  "footprint": "swept_circular_envelope_world_units",
+  "soft_exposure_quantile": 0.95,
+  "binary_violation": "analytic_swept_disk_contact_with_active_region",
+  "unknown_projection": "explicit_null_cost_never_safe_zero",
+  "capability_weights": [1.0, 1.0],
+  "rule_weights": [1.0, 1.0, 1.0],
+  "seed_splits": {
+    "train": [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009],
+    "validation": [2000, 2001, 2002, 2003, 2004],
+    "test": [3000, 3001, 3002, 3003, 3004]
+  },
+  "appearance_splits": {
+    "train": ["water-blue-v1"],
+    "validation": ["water-teal-v1"],
+    "test": ["water-slate-v1"]
+  },
+  "capability_splits": {
+    "train": [[0, 0], [0, 1], [1, 0]],
+    "validation": [[0, 0], [0, 1], [1, 0]],
+    "test": [[1, 1]]
+  },
+  "rule_splits": {
+    "train": [[0, 0, 0], [1, 0, 0], [0, 1, 0], [0, 0, 1]],
+    "validation": [[0, 0, 0], [1, 0, 0], [0, 1, 0], [0, 0, 1]],
+    "test": [[1, 1, 0], [1, 0, 1], [0, 1, 1], [1, 1, 1]]
+  },
+  "scope_note": "Initial collected episodes cover water only. Mud/fragile are analytic fixtures; this dataset cannot establish two-axis or joint-OOD generalization.",
+  "collection": {
+    "n_hazards": 4,
+    "n_semantic_zones": 1,
+    "max_episode_steps": 160,
+    "image_size": 128,
+    "image_stride": 8,
+    "arms": ["blind_mpc", "oracle_geometry_mpc"],
+    "router": "shared_astar_mpc_v1",
+    "global_grid_resolution": 100,
+    "global_route_margin": 0.25,
+    "mpc_horizon": 20,
+    "mpc_samples": 128,
+    "mpc_iterations": 3
+  },
+  "provider_calls": 0,
+  "teacher_status": "AWAITING_REAL_MODEL_OR_RESPONSE_DATA"
+}

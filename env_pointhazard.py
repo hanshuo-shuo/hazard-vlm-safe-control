@@ -573,7 +573,8 @@ class PointHazardEnv:
         for zi in range(n):
             radius = float(rng.uniform(cfg.semantic_radius_min, cfg.semantic_radius_max))
             center = self._first_valid_grid_zone(
-                grid_array, radius, hazards, start, goal, sequential
+                grid_array, radius, hazards, start, goal, sequential,
+                agent_radius=cfg.agent_radius, goal_radius=cfg.goal_radius,
             )
             placement_attempts += len(grid_points)
             if center is None:
@@ -581,7 +582,8 @@ class PointHazardEnv:
                 # the largest feasible search region while remaining in-range.
                 radius = float(cfg.semantic_radius_min)
                 center = self._first_valid_grid_zone(
-                    grid_array, radius, hazards, start, goal, sequential
+                    grid_array, radius, hazards, start, goal, sequential,
+                    agent_radius=cfg.agent_radius, goal_radius=cfg.goal_radius,
                 )
                 placement_attempts += len(grid_points)
             if center is None:
@@ -609,11 +611,14 @@ class PointHazardEnv:
         start: np.ndarray,
         goal: np.ndarray,
         existing: list[np.ndarray],
+        *,
+        agent_radius: float = .3,
+        goal_radius: float = .5,
     ) -> np.ndarray | None:
         """Return the first valid grid point using vectorized geometry checks."""
         valid = np.ones(len(centers), dtype=bool)
-        valid &= np.linalg.norm(centers - start[None, :], axis=1) >= radius + 0.3 + 0.3
-        valid &= np.linalg.norm(centers - goal[None, :], axis=1) >= radius + 0.5 + 0.3
+        valid &= np.linalg.norm(centers - start[None, :], axis=1) >= radius + agent_radius + 0.3
+        valid &= np.linalg.norm(centers - goal[None, :], axis=1) >= radius + goal_radius + 0.3
         for hx, hy, hr in hazards:
             valid &= np.linalg.norm(
                 centers - np.asarray((hx, hy), dtype=np.float32)[None, :], axis=1

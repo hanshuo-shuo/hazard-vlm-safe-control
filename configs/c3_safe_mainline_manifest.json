@@ -2,7 +2,20 @@
   "protocol_version": "c3-safe-v0.2-spatial-exposure-planned",
   "decision_date": "2026-08-13",
   "revision_date": "2026-08-17",
-  "status": "PLANNED_NOT_RUN",
+  "status": "FOUNDATION_IMPLEMENTED_METHOD_NOT_VALIDATED",
+  "implementation_status": {
+    "updated": "2026-09-09",
+    "development_protocol": "configs/c3_safe_foundation.json",
+    "progress_record": "docs/C3_FOUNDATION_PROGRESS.md",
+    "foundation_checks_run": true,
+    "simulator_only_spatial_student_trained": true,
+    "vlm_teacher_calls": 0,
+    "vlm_distillation_run": false,
+    "counterfactual_learner_run": false,
+    "sac_policy_run": false,
+    "formal_gates_passed": [],
+    "formal_matrix_and_gate_thresholds_unchanged": true
+  },
   "mainline": {
     "name": "C3-Safe",
     "expanded_name": "Capability-Constraint Counterfactual Semantic Safety Distillation",
@@ -45,7 +58,7 @@
     "native_physical_cost": "independent_critic_target_budget_and_logging",
     "cost_critics": ["semantic", "native_physical"],
     "policy": "gaussian_sac_lagrangian",
-    "runtime_dependencies": ["numpy", "Pillow"]
+    "runtime_dependencies": ["numpy", "Pillow", "torch"]
   },
   "capability_axes": [
     "waterproof",

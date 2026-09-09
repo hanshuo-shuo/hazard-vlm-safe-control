@@ -105,6 +105,22 @@ def evaluate_scene_manifest(
     capability: str,
 ) -> SemanticEvaluation:
     terrains = parse_semantic_terrain(scene_manifest.get("semantic_terrain", []))
+    if scene_manifest.get("semantic_metric_version") == "swept-disk-v1":
+        from c3_safe.costs import Capability, Rules, active_region, semantic_contact
+        default_vector = {"wheeled_non_waterproof": (0., 0.), "amphibious": (1., 0.)}
+        if capability not in default_vector:
+            raise ValueError(f"unknown capability {capability!r}")
+        # The argument remains authoritative for evaluator-only capability twins.
+        cap = Capability(*default_vector[capability])
+        rules = Rules(*scene_manifest.get("rule_vector", (0., 0., 0.)))
+        regions = scene_manifest.get("semantic_terrain", [])
+        radius = float(scene_manifest["agent_radius"])
+        flags = tuple(semantic_contact(
+            b.get("motion_samples", [a["agent_center"], b["agent_center"]]), radius, regions, cap, rules,
+        ) for a, b in zip(trajectory, trajectory[1:]))
+        steps = tuple(int(r["state_index"]) for r, flag in zip(trajectory[1:], flags) if flag)
+        return SemanticEvaluation(capability, flags, bool(steps), steps,
+            tuple(r["region_id"] for r in regions if active_region(r, cap, rules)))
     return evaluate_semantic_trajectory(trajectory, terrains, capability)
 
 

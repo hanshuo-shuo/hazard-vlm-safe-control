@@ -33,6 +33,8 @@ from evaluation.geometry_calibration import (
     project_geometry_to_planner_disks,
 )
 from evaluation.semantic_evaluator import evaluate_scene_manifest
+from evaluation.outcomes import context_outcome
+from c3_safe.geometry import GroundProjection
 from scripts.run_semantic_geometry_audit import run_fixed_point_planner
 from zone_detector import estimate_zones_from_image, terrain_targets
 
@@ -207,7 +209,7 @@ def _run_episode(
             "success": success,
             "violation": violation,
             "collision": collision,
-            "STC": bool(success and not violation and not collision),
+            "STC": context_outcome(context, semantic_violation=violation).safe_task_completion,
             "interventions": interventions,
             "replans": replans,
         }
@@ -408,7 +410,8 @@ class _HeadlessSafetyEnv:
 
 def _run_oracle_twin(seed: int, capability: str) -> dict[str, Any]:
     adapter = SemanticSafetyPointGoalAdapter(
-        env=_HeadlessSafetyEnv(), capability=capability
+        env=_HeadlessSafetyEnv(), capability=capability, robot_radius=.1,
+        projection=GroundProjection.orthographic(192, 192, (-3, 3, -3, 3)),
     )
     try:
         adapter.reset(seed=seed)

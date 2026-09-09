@@ -12,6 +12,7 @@ from envs import PointHazardAdapter, SafetyGymGoalAdapter, SemanticSafetyPointGo
 from evaluation.conditions import EnforcementConfig, ExperimentCondition, FactorVector
 from evaluation.schemas import build_episode_artifact
 from evaluation.semantic_evaluator import capability_twin_labels, evaluate_scene_manifest
+from c3_safe.geometry import GroundProjection
 
 
 class _FakeSpace:
@@ -49,6 +50,10 @@ class _FakeSafetyEnv:
 
     def render(self):
         return np.zeros((8, 8, 3), dtype=np.uint8)
+
+    @property
+    def agent_pos(self):
+        return self._state.copy()
 
     def close(self):
         self.closed = True
@@ -124,10 +129,12 @@ def test_capability_twin_and_native_cost_separation() -> None:
 
 def test_semantic_adapter_capability_twins_share_scene_and_render() -> None:
     wheeled = SemanticSafetyPointGoalAdapter(
-        env=_FakeSafetyEnv(), capability="wheeled_non_waterproof"
+        env=_FakeSafetyEnv(), capability="wheeled_non_waterproof", robot_radius=.1,
+        projection=GroundProjection.orthographic(8, 8, (-3, 3, -3, 3)),
     )
     amphibious = SemanticSafetyPointGoalAdapter(
-        env=_FakeSafetyEnv(), capability="amphibious"
+        env=_FakeSafetyEnv(), capability="amphibious", robot_radius=.1,
+        projection=GroundProjection.orthographic(8, 8, (-3, 3, -3, 3)),
     )
     try:
         wheeled.reset(seed=23)

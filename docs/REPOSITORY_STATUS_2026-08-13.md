@@ -1,5 +1,9 @@
 # Repository status — 2026-08-13
 
+> 本文保留 2026-08-13 的仓库快照。2026-09-09 已完成的基础实现、开发数据和小 CNN
+> 对照见 [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)；下文的未实现状态
+> 描述当时情况。
+
 这是一份仓库入口和 artifact 处置索引，不是第二个结果注册表。结果状态唯一以
 [`RESULTS_REGISTRY.md`](RESULTS_REGISTRY.md) 为准，C³-Safe 的冻结范围以
 [`C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md) 和

@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-08-13
+更新：2026-09-09
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -9,25 +9,65 @@
 - **INVALIDATED**：发现 sampler、泄漏、对照或 estimand 问题，只能作取证/回归记录；
 - **ARCHIVED**：属于已放弃路线，仅用于保存研究历史。
 
-当前没有任何 semantic-safety 结果达到 `VALIDATED`。C³-Safe 主线目前是
-`PLANNED / NOT RUN`，不存在可继承的主线数字、checkpoint 或 teacher-label dataset。
+当前没有任何 semantic-safety 结果达到 `VALIDATED`。C³-Safe 的基础实现、开发数据采集
+和 simulator-only 空间学生对照已运行；尚无真实 VLM teacher labels、C³-Safe policy
+checkpoint 或算法贡献证据。下面的新记录全部属于开发检查或 `PILOT_ONLY`。
 
 ## C³-Safe current mainline
 
 - Decision date: `2026-08-13`
-- Evidence class: `PLANNED / NOT RUN`
+- Implementation state: `FOUNDATION_IMPLEMENTED / METHOD_NOT_VALIDATED`
 - Protocol: [`docs/C3_SAFE_MAINLINE.md`](C3_SAFE_MAINLINE.md)
 - Scope manifest: `configs/c3_safe_mainline_manifest.json`
 - Test-time VLM: **forbidden**
 - Teacher role: offline, action-free spatial-requirement labeling only
-- Unimplemented core: spatial field, swept-footprint exposure, separated capability/rule costs,
-  and independent semantic/physical critics
-- Current artifacts: none
+- Implemented: calibrated spatial fields, swept circular exposure, separated analytic
+  capability/rule costs, native semantic step evaluation, split/twin provenance,
+  paired oracle/blind MPC collection, and a simulator-only RGB spatial student
+- Pending: real teacher labeling, learned counterfactual relation losses, independent
+  semantic/physical critics, SAC actor, and formal multi-seed joint-OOD evaluation
+- Current development record: [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)
+- Checked-in numerical evidence: [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
 `VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
+
+## 2026-09-09 — C³-Safe foundation and non-VLM development checks
+
+All runs below made **zero provider calls**. `results/c3_*/` contains local, ignored raw
+artifacts and source snapshots; compact summaries and QA figures are checked in under
+`docs/`. Run names identify immutable local directories, not separate scientific trials.
+
+| Run directory under `results/` | Evidence class | Observed result | Limit |
+|---|---|---|---|
+| `c3_accounting_recount_20260909_v2` | `PILOT_ONLY / POSTHOC_ACCOUNTING` | Strict STC: PointHazard 41/60; Safety-Gym 14/60 versus historical semantic-only 32/60 | Reuses old native scout records; does not repair old geometry/evaluator or create new trials |
+| `c3_safe_native_checks_20260908_v2` | `PILOT_ONLY / INFRA_CHECK` | 12/12 analytic cases; 400-transition raster agreement 99.5%; zero-intersection FPR 0/254; all 88 visible native markers within 2 px | 12/100 markers excluded as occluded/outside; full Gate 0 not claimed |
+| `c3_oracle_routed_dataset_20260908` | `PILOT_ONLY / DATA_PIPELINE` | 20 paired scenes / 40 episodes; goal 20/20 both arms; STC blind 0/20, oracle 20/20; 147 sampled transitions, 1,452 counterfactuals, 126 unsubmitted teacher requests | Water-only PointHazard; shared A* + MPC; privileged oracle, no learned policy |
+| `c3_spatial_baseline_20260909` | `PILOT_ONLY / NON_VLM_BASELINE` | 11,739-parameter RGB-only CNN; development test water IoU 0.475, exposure MAE 0.839 | Simulator masks; 59 training frames; single training seed |
+| `c3_spatial_exposure_baseline_20260909` | `PILOT_ONLY / NON_VLM_BASELINE` | Same CNN + motion-exposure loss; water IoU 0.319, exposure MAE 0.096 | Worse full-field generalization; fixed-threshold FN 1/5 and FP 1/34 |
+| `c3_student_comparison_20260909_v2` | `PILOT_ONLY / POSTHOC_DIAGNOSTIC` | Reloaded the two checkpoints and reported AP/IoU, AUROC, MAE, ECE and threshold errors | No new training; does not establish VLM benefit or closed-loop safety |
+
+All named train/validation/test splits above are **development splits already inspected
+during debugging**. They are not a fresh formal held-out evaluation. Counterfactual records
+preserve transition identity and respect split membership, but generating them is not the
+same as training with counterfactual loss. The 147 original rows contain 146 unique transition
+IDs. The 1,452 relabel rows include 147 identity-card controls, 1,305 changed-card rows,
+and only 38 binary violation-label flips; they are not independent motion samples.
+Mud/fragile behavior is covered by analytic
+fixtures only. Full Gate 0, teacher Gate 1 and policy Gate 2 remain unpassed.
+
+Intermediate retained diagnostics: `c3_oracle_dataset_20260908` used local MPC and reached
+17/20 oracle goals (three planning timeouts); it was superseded by the shared-router run.
+`c3_safe_native_checks_20260908` failed on MuJoCo 2.3.3 renderer cleanup; it is marked failed
+and superseded by its `_v2` run. Earlier smoke/check/recount/comparison directories remain
+local development history and must not be counted as independent replication.
+
+The old native scout's `physical_collision` field represents **positive native cost or hazard
+termination**, not a separately verified geometric collision. Its historical `STC` excluded
+semantic violations only. New code records that quantity as `semantic_safe_success` and
+uses `safety-accounting-v2` for full STC. Historical artifact bytes and figures remain unchanged.
 
 ## Retained storyline — interface-contract provider-free infrastructure
 
@@ -165,7 +205,8 @@ run 暂停。
 
 | 结果/产物 | 状态 | 原因 | 是否保留 |
 |---|---|---|---|
-| C³-Safe mainline | PLANNED / NOT RUN | 尚未实现 teacher-label schema、factorized critic 或 SAC-Lagrange trainer | 是，当前唯一科学主线 |
+| C³-Safe foundation / spatial baseline | PILOT_ONLY / INFRA | 几何、数据和 simulator-only CNN 已运行；完整 Gate 0 与科学 gates 未通过 | 是，详见本轮记录 |
+| C³-Safe VLM distillation / policy learner | PLANNED / NOT RUN | 真实 teacher labels、counterfactual learner、独立 critics 与 SAC 尚未运行 | 是，当前唯一科学主线 |
 | outputs/month1_confidence* | PILOT_ONLY | pure-geometry n=5；不受 semantic-zone sampler 影响，但规模小、单模型 | 是，历史信心实验 |
 | outputs/semantic_pilot* | INVALIDATED | semantic-zone fallback 可与 red hazard 重叠；旧 C1/C2/B estimand | 是，历史 |
 | outputs/semantic_implicit_pilot* | INVALIDATED | 同上；L1 instruction 与 commonsense 混用 | 是，历史 |
@@ -189,7 +230,7 @@ run 暂停。
 | Backend / run gate | 状态 | 说明 |
 |---|---|---|
 | Safety-Gymnasium native Goal adapter | `INFRA` | `SafetyPointGoal1-v0` native vertical slice 可复用，但尚无论文级结果。 |
-| Safety-Gymnasium semantic variant | `BLOCKED` | 语义 variant 的 protocol gate 与 evidence 尚未完成；不进入当前 MVF。 |
+| Safety-Gymnasium semantic variant | `INFRA / PARTIAL_GATES_PASSED` | 已有 calibrated annotation overlay、native substep swept violation 与独立评测；真实水/泥动力学、完整数据覆盖和正式 protocol gate 尚未完成。 |
 | B01 sampler | **RESOLVED** | checked final-attempt grid fallback 保留正常 resample/golden 序列；四种配置各 10,000 seeds 的正式 invariant sweep 于 2026-07-22 通过。 |
 | Unified direct/replay harness | **INFRA / PASSED** | `direct/replay × none/oracle` vertical slice、shared enforcement、artifact reconstruction 和 STC audit 已通过专项测试。 |
 | Formal paid VLM/OpenRouter/API runs | **PAUSED** | 14-condition offline matrix、machine release manifest 与 core reproducibility lock 已通过；manifest 仍为 `BLOCKED / NOT AUTHORIZED`，model list、pilot subset、预算、日期和 operator 未冻结。2026-07-26 separately scoped interface micro-pilot 不解锁该 manifest。 |

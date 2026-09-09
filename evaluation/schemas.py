@@ -15,6 +15,7 @@ import numpy as np
 from envs.protocol_env import EvaluatorContext, jsonable
 from evaluation.conditions import ExperimentCondition
 from evaluation.vlm_artifacts import VLMCallArtifact
+from evaluation.outcomes import OUTCOME_SCHEMA_VERSION, context_outcome, native_cost_violation as has_native_cost
 
 
 ARTIFACT_SCHEMA_VERSION = "safety-accounting-episode-v1"
@@ -135,6 +136,8 @@ class EpisodeArtifact:
             "physical_collision": self.physical_collision,
             "timeout": self.timeout,
             "safe_task_completion": self.safe_task_completion,
+            "semantic_safe_success": self.success and not self.semantic_violation,
+            "outcome_schema_version": OUTCOME_SCHEMA_VERSION,
             "success": self.success,
             "terminated": self.terminated,
             "truncated": self.truncated,
@@ -200,14 +203,11 @@ def build_episode_artifact(
         index + 1 for index, violated in enumerate(context.semantic_violations) if violated
     ]
     semantic_violation = bool(violation_steps)
-    native_cost_violation = any(float(cost) > 0.0 for cost in context.native_costs)
-    physical_collision = (
-        context.termination_reason == "hazard" or native_cost_violation
-    )
-    timeout = context.termination_reason == "timeout"
-    computed_stc = bool(
-        context.success and not physical_collision and not semantic_violation
-    )
+    outcome = context_outcome(context)
+    native_cost_violation = has_native_cost(context.native_costs)
+    physical_collision = outcome.physical_collision
+    timeout = outcome.timeout
+    computed_stc = outcome.safe_task_completion
     if stc_audit is not None:
         expected = {
             "reached_goal": bool(context.success),

@@ -1,0 +1,655 @@
+{
+  "record_date": "2026-09-09",
+  "evidence_class": "PILOT_ONLY_DEVELOPMENT_NOT_VALIDATED",
+  "scientific_gates_passed": [],
+  "provider_calls": 0,
+  "limits": [
+    "water-only collected data",
+    "development splits used for debugging",
+    "single optimization seed",
+    "simulator-only labels",
+    "no VLM teacher comparison",
+    "no policy training",
+    "no counterfactual learning loss"
+  ],
+  "runs": {
+    "accounting": {
+      "local_run_directory": "results/c3_accounting_recount_20260909_v2",
+      "manifest_sha256": "eaff2c2c5466df45ee3c0b2a8cacd6d72bd0f1ea5d199599d9b5edbc031ff779",
+      "summary_sha256": "b4e9ed2c8ce1c8dd253694e3374f19e0ba0c2b9b1b7d6dedced272fa834e3b01",
+      "source_snapshot_sha256": "20b51f2fceaa0d45d414f7a8306501a1b658c36a6189a369a985f1641cbc9c07",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "POSTHOC_DEFINITION_HARMONIZATION_NOT_NEW_EXPERIMENT",
+        "source": "results/interface_contract_scout_native_analysis/PRIMARY_EXECUTIONS.json",
+        "source_sha256": "6b57cc5c6b315f744c758a77087dd3abf8a7ee103af4e70eb639e9d7d9d54a1c",
+        "outcome_schema_version": "safety-accounting-v2",
+        "native_safety_event_definition": "positive native cost or hazard termination",
+        "by_environment": {
+          "point_hazard_native": {
+            "n": 60,
+            "historical_STC_count": 41,
+            "semantic_safe_success_count": 41,
+            "STC_count": 41
+          },
+          "safety_gym_goal_native": {
+            "n": 60,
+            "historical_STC_count": 32,
+            "semantic_safe_success_count": 32,
+            "STC_count": 14
+          }
+        }
+      }
+    },
+    "foundation": {
+      "local_run_directory": "results/c3_safe_native_checks_20260908_v2",
+      "manifest_sha256": "e38e1c0c9f4673ab956e2c32c37549093c161441ed6da044ae93515cf2742d27",
+      "summary_sha256": "d1fa32d9dec87cecb9c34842c2bad3651881a6ba17b1c2e3c0db5a410d1d52f1",
+      "source_snapshot_sha256": "7828fd95a192f213fab4f1600cb793a2ff749ac89f751c5ba98828f3fa2c633a",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "DEVELOPMENT_FOUNDATION_CHECKS",
+        "cases": {
+          "n": 12,
+          "binary_checks_passed": 12,
+          "soft_cost_zero_with_contact": [
+            "Thin grazing contact"
+          ],
+          "note": "q95 severity cannot substitute for binary swept-contact truth"
+        },
+        "raster": {
+          "n": 400,
+          "valid": 400,
+          "agreement": 0.995,
+          "negative_transitions": 254,
+          "false_positive_rate": 0.0,
+          "reference": "independent 3001-point path sampling",
+          "resolution": [
+            128,
+            128
+          ],
+          "passed": true
+        },
+        "native": {
+          "backend": "native SafetyPointGoal1-v0",
+          "camera": "fixednear",
+          "calibration": {
+            "width": 256,
+            "height": 256,
+            "matrix": [
+              [
+                309.01933598375615,
+                90.50966799187809,
+                362.0386719675123
+              ],
+              [
+                0.0,
+                -127.99999999999996,
+                362.03867196751236
+              ],
+              [
+                0.0,
+                0.7071067811865476,
+                2.82842712474619
+              ]
+            ],
+            "source": "mujoco-calibrated-ground-v1"
+          },
+          "calibration_hash": "676ca7bb53da0c9c3f428ac5a42e8b580a80c95963b77443ca5128e7af5b710f",
+          "marker_attempts": 100,
+          "visible_markers": 88,
+          "occluded_or_outside": 12,
+          "max_error_pixels": 1.3947355524812792,
+          "mean_error_pixels": 1.1702056443382967,
+          "within_2_pixels_rate": 1.0,
+          "native_transition_reward_cost_flags_unchanged": true,
+          "semantic_step_evaluator_agree": true,
+          "substep_samples": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          "robot_radius": 0.18660254037844387,
+          "layout_valid": true,
+          "render_contract": "ground annotation over native RGB; not physically simulated water",
+          "passed": true
+        },
+        "full_c3_gate0": "NOT_CLAIMED: teacher provenance and full multi-terrain data still pending"
+      }
+    },
+    "dataset": {
+      "local_run_directory": "results/c3_oracle_routed_dataset_20260908",
+      "manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+      "summary_sha256": "455a19204f714fe2ecb566bc3c52fa98144b32b2e68a2a19f8b6f1a3b47f339b",
+      "source_snapshot_sha256": "9902d827acd5fdb7e02970b5a12ce950556cca34bfcc6b77aaadd5d105bfd08e",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "ORACLE_AND_BLIND_MPC_INFRASTRUCTURE_NOT_C3_POLICY_RESULT",
+        "episodes": 40,
+        "sampled_transitions": 147,
+        "counterfactuals": 1452,
+        "teacher_requests": 126,
+        "teacher_calls": 0,
+        "label_source": "SIMULATOR_ORACLE_NOT_VLM",
+        "scope": "Initial collected episodes cover water only. Mud/fragile are analytic fixtures; this dataset cannot establish two-axis or joint-OOD generalization.",
+        "split_audit": {
+          "rows_per_split": {
+            "train": 910,
+            "validation": 494,
+            "test": 195
+          },
+          "cross_split_overlap": {
+            "geometry_hash": 0,
+            "image_sha256": 0,
+            "twin_group_id": 0
+          },
+          "all_declared_splits_present": true
+        },
+        "paired_initial_inputs_identical": true,
+        "by_arm": {
+          "blind_mpc": {
+            "n": 20,
+            "success": 20,
+            "STC": 0,
+            "semantic_violation": 20,
+            "native_safety_event": 0
+          },
+          "oracle_geometry_mpc": {
+            "n": 20,
+            "success": 20,
+            "STC": 20,
+            "semantic_violation": 0,
+            "native_safety_event": 0
+          }
+        },
+        "sampled_contact_zero_q95": 0,
+        "next_requirement": "real action-free teacher labels; no SAC training or C3 validation is claimed"
+      }
+    },
+    "field_only": {
+      "local_run_directory": "results/c3_spatial_baseline_20260909",
+      "manifest_sha256": "18a1f24246e45bca92d8774c90bb5c672388c310ecc7285752094426668752bd",
+      "summary_sha256": "cb7c98e7974d96b0b527901103eb861d4c50486243e089cfd01770bc1ec360dd",
+      "source_snapshot_sha256": "d4f27b9ce4e71d5472b106afd6ae369a517f697bc5f657c34a7ab12bfa368272",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "SINGLE_SEED_NON_VLM_SPATIAL_BASELINE_DEVELOPMENT_ONLY",
+        "seed": 20260908,
+        "epochs": 100,
+        "torch_version": "2.5.1",
+        "training_images": 59,
+        "optimizer": "Adam",
+        "learning_rate": 0.003,
+        "batch_size": 16,
+        "parameter_count": 11739,
+        "model_input": "RGB only",
+        "label_source": "SIMULATOR_ORACLE_NOT_VLM",
+        "teacher_calls": 0,
+        "split_audit": {
+          "rows_per_split": {
+            "train": 70,
+            "validation": 38,
+            "test": 39
+          },
+          "cross_split_overlap": {
+            "geometry_hash": 0,
+            "image_sha256": 0,
+            "twin_group_id": 0
+          },
+          "all_declared_splits_present": true
+        },
+        "metrics": {
+          "train": {
+            "unique_frames": 59,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.6874023055881203,
+                "auprc": 0.9600066725628613,
+                "positive_pixels": 28201,
+                "pixels": 966656
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.8339425462058612,
+            "water_q95_exposure_auroc": 0.9963570127504554,
+            "water_contact_auroc_from_q95": 0.9963570127504554,
+            "evaluated_transitions": 70
+          },
+          "validation": {
+            "unique_frames": 33,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.5822643614054657,
+                "auprc": 0.8484904172433496,
+                "positive_pixels": 13312,
+                "pixels": 540672
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.9065341320477035,
+            "water_q95_exposure_auroc": 0.9861111111111112,
+            "water_contact_auroc_from_q95": 0.9861111111111112,
+            "evaluated_transitions": 38
+          },
+          "test": {
+            "unique_frames": 34,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.47482772242461485,
+                "auprc": 0.6910827028211679,
+                "positive_pixels": 16550,
+                "pixels": 557056
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.8390138948575043,
+            "water_q95_exposure_auroc": 0.9176470588235294,
+            "water_contact_auroc_from_q95": 0.9176470588235294,
+            "evaluated_transitions": 39
+          }
+        },
+        "checkpoint_sha256": "11bb53ce4189ffcef26a675f23ca3a879c01bea241e669b6bf782845b51b523e",
+        "source_dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+        "limitations": [
+          "water only",
+          "single optimization seed",
+          "development splits already used for infrastructure debugging",
+          "no controller training",
+          "no VLM comparison",
+          "no counterfactual learning loss"
+        ]
+      }
+    },
+    "with_exposure": {
+      "local_run_directory": "results/c3_spatial_exposure_baseline_20260909",
+      "manifest_sha256": "c954f82e42b633cf0295c4cdac364819a9b71e510d7989de436935617305ddaa",
+      "summary_sha256": "de9aded37332a297f9984dc1578f4a96160b1a01f9bcf0bb47ab135c08d51b22",
+      "source_snapshot_sha256": "200542ebea114753ef298daa2cd91f535a4b58b242cc616134c2d499867d8fa8",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "SINGLE_SEED_NON_VLM_SPATIAL_BASELINE_DEVELOPMENT_ONLY",
+        "seed": 20260908,
+        "epochs": 100,
+        "torch_version": "2.5.1",
+        "training_images": 59,
+        "optimizer": "Adam",
+        "learning_rate": 0.003,
+        "batch_size": 16,
+        "exposure_weight": 1.0,
+        "parameter_count": 11739,
+        "model_input": "RGB only",
+        "label_source": "SIMULATOR_ORACLE_NOT_VLM",
+        "teacher_calls": 0,
+        "split_audit": {
+          "rows_per_split": {
+            "train": 70,
+            "validation": 38,
+            "test": 39
+          },
+          "cross_split_overlap": {
+            "geometry_hash": 0,
+            "image_sha256": 0,
+            "twin_group_id": 0
+          },
+          "all_declared_splits_present": true
+        },
+        "metrics": {
+          "train": {
+            "unique_frames": 59,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.6594030701962834,
+                "auprc": 0.9517032007965658,
+                "positive_pixels": 28201,
+                "pixels": 966656
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.01745542003681688,
+            "water_q95_exposure_auroc": 1.0,
+            "water_contact_auroc_from_q95": 1.0,
+            "water_exposure_ece": 0.016760493144808652,
+            "evaluated_transitions": 70
+          },
+          "validation": {
+            "unique_frames": 33,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.6591157205240175,
+                "auprc": 0.9209922607924627,
+                "positive_pixels": 13312,
+                "pixels": 540672
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.03146915060197467,
+            "water_q95_exposure_auroc": 1.0,
+            "water_contact_auroc_from_q95": 1.0,
+            "water_exposure_ece": 0.031469150601974666,
+            "evaluated_transitions": 38
+          },
+          "test": {
+            "unique_frames": 34,
+            "channels": {
+              "water_ingress_demand": {
+                "iou": 0.3186437546193644,
+                "auprc": 0.44767598905886474,
+                "positive_pixels": 16550,
+                "pixels": 557056
+              },
+              "low_traction_demand": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              },
+              "fragile_surface_property": {
+                "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+              }
+            },
+            "water_q95_exposure_mae": 0.09568044532005351,
+            "water_q95_exposure_auroc": 0.9294117647058824,
+            "water_contact_auroc_from_q95": 0.9294117647058824,
+            "water_exposure_ece": 0.07251474161741311,
+            "evaluated_transitions": 39
+          }
+        },
+        "checkpoint_sha256": "d799ead0178455a404363d14ede23fc84d622a38d05b8f2ee1f8500d6c30175d",
+        "source_dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+        "limitations": [
+          "water only",
+          "single optimization seed",
+          "development splits already used for infrastructure debugging",
+          "no controller training",
+          "no VLM comparison",
+          "no counterfactual learning loss"
+        ]
+      }
+    },
+    "comparison": {
+      "local_run_directory": "results/c3_student_comparison_20260909_v2",
+      "manifest_sha256": "3c2c1a23c8e4e2ce71ac96f40893dc6659755a623bbd9475ab09c2b3727ee689",
+      "summary_sha256": "1fa3cd0ba38dedcafe93c1c3b94db0815c162a7b466318edc6bb79e5bbf401bf",
+      "source_snapshot_sha256": "9e1b5e4889c3663ca6a7b80a8efbf405f678bbd2fa5a459ef8509b592d0cde7b",
+      "run_git_parent": "eebf1b5a8331d79ce320cf5bf05ac679834a66b9",
+      "run_git_dirty": true,
+      "summary": {
+        "status": "POSTHOC_DEVELOPMENT_DIAGNOSTIC_NO_NEW_TRAINING",
+        "source_dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+        "threshold": 0.5,
+        "results": {
+          "field_only": {
+            "checkpoint_sha256": "11bb53ce4189ffcef26a675f23ca3a879c01bea241e669b6bf782845b51b523e",
+            "exposure_weight": 0.0,
+            "metrics": {
+              "train": {
+                "unique_frames": 59,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.6874023055881203,
+                    "auprc": 0.9600066725628613,
+                    "positive_pixels": 28201,
+                    "pixels": 966656
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.8339425462058612,
+                "water_q95_exposure_auroc": 0.9963570127504554,
+                "water_contact_auroc_from_q95": 0.9963570127504554,
+                "water_exposure_ece": 0.8317935041444642,
+                "evaluated_transitions": 70,
+                "exposure_threshold_0_5": {
+                  "positive_count": 9,
+                  "negative_count": 61,
+                  "false_negatives": 0,
+                  "false_positives": 61,
+                  "false_negative_rate": 0.0,
+                  "false_positive_rate": 1.0
+                }
+              },
+              "validation": {
+                "unique_frames": 33,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.5822643614054657,
+                    "auprc": 0.8484904172433496,
+                    "positive_pixels": 13312,
+                    "pixels": 540672
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.9065341320477035,
+                "water_q95_exposure_auroc": 0.9861111111111112,
+                "water_contact_auroc_from_q95": 0.9861111111111112,
+                "water_exposure_ece": 0.9052299173254718,
+                "evaluated_transitions": 38,
+                "exposure_threshold_0_5": {
+                  "positive_count": 2,
+                  "negative_count": 36,
+                  "false_negatives": 0,
+                  "false_positives": 36,
+                  "false_negative_rate": 0.0,
+                  "false_positive_rate": 1.0
+                }
+              },
+              "test": {
+                "unique_frames": 34,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.47482772242461485,
+                    "auprc": 0.6910827028211679,
+                    "positive_pixels": 16550,
+                    "pixels": 557056
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.8390138948575043,
+                "water_q95_exposure_auroc": 0.9176470588235294,
+                "water_contact_auroc_from_q95": 0.9176470588235294,
+                "water_exposure_ece": 0.835253281929554,
+                "evaluated_transitions": 39,
+                "exposure_threshold_0_5": {
+                  "positive_count": 5,
+                  "negative_count": 34,
+                  "false_negatives": 0,
+                  "false_positives": 34,
+                  "false_negative_rate": 0.0,
+                  "false_positive_rate": 1.0
+                }
+              }
+            }
+          },
+          "with_exposure": {
+            "checkpoint_sha256": "d799ead0178455a404363d14ede23fc84d622a38d05b8f2ee1f8500d6c30175d",
+            "exposure_weight": 1.0,
+            "metrics": {
+              "train": {
+                "unique_frames": 59,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.6594030701962834,
+                    "auprc": 0.9517032007965658,
+                    "positive_pixels": 28201,
+                    "pixels": 966656
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.01745542003681688,
+                "water_q95_exposure_auroc": 1.0,
+                "water_contact_auroc_from_q95": 1.0,
+                "water_exposure_ece": 0.016760493144808652,
+                "evaluated_transitions": 70,
+                "exposure_threshold_0_5": {
+                  "positive_count": 9,
+                  "negative_count": 61,
+                  "false_negatives": 0,
+                  "false_positives": 0,
+                  "false_negative_rate": 0.0,
+                  "false_positive_rate": 0.0
+                }
+              },
+              "validation": {
+                "unique_frames": 33,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.6591157205240175,
+                    "auprc": 0.9209922607924627,
+                    "positive_pixels": 13312,
+                    "pixels": 540672
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.03146915060197467,
+                "water_q95_exposure_auroc": 1.0,
+                "water_contact_auroc_from_q95": 1.0,
+                "water_exposure_ece": 0.031469150601974666,
+                "evaluated_transitions": 38,
+                "exposure_threshold_0_5": {
+                  "positive_count": 2,
+                  "negative_count": 36,
+                  "false_negatives": 0,
+                  "false_positives": 1,
+                  "false_negative_rate": 0.0,
+                  "false_positive_rate": 0.027777777777777776
+                }
+              },
+              "test": {
+                "unique_frames": 34,
+                "channels": {
+                  "water_ingress_demand": {
+                    "iou": 0.3186437546193644,
+                    "auprc": 0.44767598905886474,
+                    "positive_pixels": 16550,
+                    "pixels": 557056
+                  },
+                  "low_traction_demand": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  },
+                  "fragile_surface_property": {
+                    "status": "NOT_EVALUATED_NO_POSITIVE_REGIONS"
+                  }
+                },
+                "water_q95_exposure_mae": 0.09568044532005351,
+                "water_q95_exposure_auroc": 0.9294117647058824,
+                "water_contact_auroc_from_q95": 0.9294117647058824,
+                "water_exposure_ece": 0.07251474161741311,
+                "evaluated_transitions": 39,
+                "exposure_threshold_0_5": {
+                  "positive_count": 5,
+                  "negative_count": 34,
+                  "false_negatives": 1,
+                  "false_positives": 1,
+                  "false_negative_rate": 0.2,
+                  "false_positive_rate": 0.029411764705882353
+                }
+              }
+            }
+          }
+        },
+        "limits": "single seed; water only; development data; exposure accuracy is not closed-loop safety"
+      }
+    }
+  },
+  "verification": {
+    "full_suite": {
+      "tests": 208,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "command": "PYTHONDONTWRITEBYTECODE=1 LAYOUT_TEST_SEEDS=25 python3 -B -m pytest -q -p no:cacheprovider tests",
+      "junit_report": "docs/assets/c3_foundation/foundation_tests_208.xml",
+      "junit_sha256": "1a53be87e77aaeb5b669d0c220c71d806d1528ba118a04f224bb0e14e3e36456"
+    },
+    "followup_suite": {
+      "command": "python3 -B -m pytest -q -p no:cacheprovider tests/test_c3_spatial_student.py tests/test_c3_data.py",
+      "passed": 11,
+      "new_spatial_tests": 3,
+      "repeated_data_tests": 8,
+      "evidence": "observed terminal result: 11 passed in 1.70s; no separate JUnit report"
+    },
+    "unique_tests_covered": 211,
+    "verified_manifest_artifacts": 373,
+    "snapshot_of_imported_trainer_in_comparison": true,
+    "post_documentation_provenance_test": {
+      "passed": 1,
+      "seconds": 0.51,
+      "test": "tests/test_interface_contract_protocol_v1.py::test_checked_in_dry_run_has_complete_source_and_artifact_provenance",
+      "note": "already included in unique_tests_covered; repeated after current docs were updated"
+    }
+  },
+  "checked_in_figures": {
+    "docs/assets/c3_foundation/motion_cases.png": "5eef45716005bf881d503e0cd460984e2ea84da99768d03020680b68cbd538f0",
+    "docs/assets/c3_foundation/native_semantic_rgb.png": "0f71ba787a9924d2e6107fd6cad200eb4d1e228b89b5588939ba043059be6b86",
+    "docs/assets/c3_foundation/student_fields.png": "8e6d56923e3b74ece5d11e39dd58f4cdefc5557e4fcf021b91e4a3bb2d9c7b65"
+  },
+  "dataset_relabel_audit": {
+    "sampled_transition_rows": 147,
+    "unique_transition_ids": 146,
+    "relabel_rows": 1452,
+    "identity_card_rows": 147,
+    "changed_card_rows": 1305,
+    "binary_contact_label_flip_rows": 38,
+    "unknown_projection_rows": 0
+  }
+}

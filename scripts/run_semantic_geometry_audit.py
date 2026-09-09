@@ -30,6 +30,7 @@ from env_pointhazard import PointHazardConfig
 from envs import PointHazardAdapter, SemanticSafetyPointGoalAdapter
 from evaluation.policy_interface import CAPABILITY_CARDS
 from evaluation.semantic_evaluator import evaluate_scene_manifest
+from evaluation.outcomes import context_outcome
 from evaluation.geometry_calibration import (
     GeometryArm,
     compose_geometry_arm,
@@ -380,7 +381,7 @@ def trajectory_metrics(
         "physical_collision": physical_collision,
         "timeout": timeout,
         "partial_horizon": not bool(context.terminated or context.truncated),
-        "STC": bool(context.success and not semantic_violation and not physical_collision),
+        "STC": context_outcome(context, semantic_violation=semantic_violation).safe_task_completion,
     }
 
 
