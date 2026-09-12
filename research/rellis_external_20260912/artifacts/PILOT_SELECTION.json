@@ -1,0 +1,173 @@
+{
+  "selection_uses_labels": false,
+  "records": [
+    {
+      "sequence": "00000",
+      "frame": 308,
+      "timestamp": 1581624683.55,
+      "image": "00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000308-1581624683_550.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 368,
+      "timestamp": 1581624689.549,
+      "image": "00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000368-1581624689_549.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 430,
+      "timestamp": 1581624695.75,
+      "image": "00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000430-1581624695_750.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 490,
+      "timestamp": 1581624701.749,
+      "image": "00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000490-1581624701_749.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 550,
+      "timestamp": 1581624707.75,
+      "image": "00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000550-1581624707_750.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 611,
+      "timestamp": 1581624713.849,
+      "image": "00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000611-1581624713_849.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 671,
+      "timestamp": 1581624719.85,
+      "image": "00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000671-1581624719_850.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 731,
+      "timestamp": 1581624725.85,
+      "image": "00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000731-1581624725_850.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 793,
+      "timestamp": 1581624732.049,
+      "image": "00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000793-1581624732_049.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 853,
+      "timestamp": 1581624738.049,
+      "image": "00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000853-1581624738_049.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 913,
+      "timestamp": 1581624744.049,
+      "image": "00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000913-1581624744_049.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 975,
+      "timestamp": 1581624750.25,
+      "image": "00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000975-1581624750_250.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1035,
+      "timestamp": 1581624756.249,
+      "image": "00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001035-1581624756_249.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1097,
+      "timestamp": 1581624762.449,
+      "image": "00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001097-1581624762_449.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1157,
+      "timestamp": 1581624768.45,
+      "image": "00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001157-1581624768_450.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1217,
+      "timestamp": 1581624774.449,
+      "image": "00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001217-1581624774_449.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1279,
+      "timestamp": 1581624780.649,
+      "image": "00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001279-1581624780_649.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1339,
+      "timestamp": 1581624786.65,
+      "image": "00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001339-1581624786_650.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1399,
+      "timestamp": 1581624792.649,
+      "image": "00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001399-1581624792_649.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1461,
+      "timestamp": 1581624798.849,
+      "image": "00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001461-1581624798_849.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1523,
+      "timestamp": 1581624805.049,
+      "image": "00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001523-1581624805_049.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1583,
+      "timestamp": 1581624811.05,
+      "image": "00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001583-1581624811_050.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1645,
+      "timestamp": 1581624817.249,
+      "image": "00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001645-1581624817_249.png"
+    },
+    {
+      "sequence": "00000",
+      "frame": 1705,
+      "timestamp": 1581624823.25,
+      "image": "00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001705-1581624823_250.png"
+    }
+  ]
+}

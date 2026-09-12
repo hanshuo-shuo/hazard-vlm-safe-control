@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T18:24:11Z",
+  "artifact_hashes_checked": 31,
+  "local_document_links_checked": 29,
+  "documents": {
+    "paper/visual_risk_diagnosis/manuscript.md": "2552877896ef6d13d136a0621b78381bff18c9359dac160f3f24ed0d8b5b451b",
+    "paper/visual_risk_diagnosis/CLAIMS_AND_EVIDENCE.md": "56b68cbd41b65cb9f9cf96fa6c985be2b42f45fd29abe40b2a49d44343b71698",
+    "docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md": "79bd82e01b7aff9d7d9af5ce58df3a3869571319c8f568f6338bb75e36d66b06",
+    "research/rellis_external_20260912/README.md": "2e1665ec7221de677ae3d120424e408fcd22bd28d1a5f2a659dbc518d6aa946b"
+  },
+  "sources": {
+    "research/rellis_external_20260912/acquire_metadata.py": "78d317fde01f1929d8ff83c031376324e690040f7129542f460c4b38c5ef2813",
+    "research/rellis_external_20260912/check_delivery.py": "df89d68b604d7d6c5851236d213d261fe10526daab91a3e8287dd1c868937dd3",
+    "research/rellis_external_20260912/geometry_audit.py": "36e57fa43b3205a4d2cc83a9699e96c06bc7de968a6ef132126ba9fb3936c682",
+    "research/rellis_external_20260912/metadata_audit.py": "9f86f7780eaf0ab40cd30caeed3fa372939bac45ec0d597374441e25d037dae1",
+    "research/rellis_external_20260912/prepare_pilot.py": "303169a8d2146a8d4613d5ae2b32fbf724a017079dd7af0690e9b0ec2c791f7d",
+    "research/rellis_external_20260912/remote_zip.py": "e1ed03d478c6e3be50630930a94215c390ce7d9f802d9b684446d3c60c97eeb3",
+    "research/rellis_external_20260912/render_qualification.py": "95bbdcc063dd9ef51915f3568b27c165df43cdcbc7407d901db3bc5a8de5e4b5",
+    "research/rellis_external_20260912/test_geometry.py": "f0e226765686452a3524278614beeae905a63de2d16144de61a485555b478975",
+    "research/rellis_external_20260912/verify_qualification.py": "e628e0b8706b7657d77c1cd9835b76f9df39832ae92e9fe88a3e56d423667652"
+  },
+  "qualification": "STOP_CURRENT_GEOMETRY_SUPPORT",
+  "external_model_training_performed": false,
+  "external_final_test_performed": false,
+  "note": "Delivery integrity check, not a new scientific experiment or physical calibration validation."
+}

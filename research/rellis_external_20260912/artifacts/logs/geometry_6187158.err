@@ -1,0 +1,19 @@
+test_direct_optical_axis_projection (__main__.GeometryTests) ... ok
+test_front_depth_prevents_hidden_ground_acceptance (__main__.GeometryTests) ... ok
+test_metric_equal_area_and_forward_extent (__main__.GeometryTests) ... ok
+test_nonsemantic_plane_with_vertical_outliers (__main__.GeometryTests) ... ok
+test_unsupported_labeled_grass_remains_unknown (__main__.GeometryTests) ... ok
+test_void_is_unknown_not_safe (__main__.GeometryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.312s
+
+OK
+Traceback (most recent call last):
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/geometry_audit.py", line 267, in <module>
+    main()
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/geometry_audit.py", line 185, in main
+    k, transform = load_calibration(root)
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/geometry_audit.py", line 63, in load_calibration
+    raise ValueError("Cloud +X not consistent with documented forward camera axis")
+ValueError: Cloud +X not consistent with documented forward camera axis

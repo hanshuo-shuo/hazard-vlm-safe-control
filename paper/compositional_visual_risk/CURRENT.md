@@ -1,5 +1,12 @@
 # Current paper materials
 
+The current full manuscript is [From Visual Risk Scores to Action Acceptance](../visual_risk_diagnosis/manuscript.md).
+It is organized by measurement, postprocessing, and protection scope, with the
+simple fixed-threshold baseline in the main result. The bounded RELLIS-3D pilot
+fails the current geometry-interface qualification; it is not an external
+mechanism confirmation. See [the new progress and decision](../../docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)
+and [claim-to-evidence map](../visual_risk_diagnosis/CLAIMS_AND_EVIDENCE.md).
+
 The latest round follows Pro's three-experiment decision protocol and supports
 simple postprocessing/measurement repair plus existing selective-risk control.
 The predeclared fixed restored-bias baseline already passes the screening gate;

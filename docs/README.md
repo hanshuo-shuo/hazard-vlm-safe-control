@@ -4,6 +4,8 @@ Updated: 2026-09-12.
 
 ## Current reading
 
+- [`RELLIS_EXTERNAL_PROGRESS_2026-09-12.md`](RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)：完整诊断论文重写与 24 帧真实数据几何资格检查；当前接口未过门槛，未进入外部训练；
+- [`../paper/visual_risk_diagnosis/manuscript.md`](../paper/visual_risk_diagnosis/manuscript.md)：当前完整英文正文；
 - [`PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)：最新 Pro 三实验推进，测量/后处理诊断、20 个匹配模型与独立风险认证；
 - [`../research/pro_decision_round_20260912/protocol.json`](../research/pro_decision_round_20260912/protocol.json)：本轮冻结的风险目标、数据分工和停止条件；
 - [`C3_CONFIRMATION_PROGRESS_2026-09-12.md`](C3_CONFIRMATION_PROGRESS_2026-09-12.md)：最新 15 模型随机布局确认实验、五种子统计、零覆盖校准瓶颈及下一步；

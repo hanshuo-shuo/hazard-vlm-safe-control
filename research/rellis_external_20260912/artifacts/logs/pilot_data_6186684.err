@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/metadata_audit.py", line 70, in <module>
+    main()
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/metadata_audit.py", line 33, in main
+    "official_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root / "official_rellis", text=True).strip(),
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/subprocess.py", line 421, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/subprocess.py", line 503, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/subprocess.py", line 971, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/subprocess.py", line 1863, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'git'

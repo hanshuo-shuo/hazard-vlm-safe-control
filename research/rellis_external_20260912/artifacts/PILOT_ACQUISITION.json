@@ -1,0 +1,726 @@
+{
+  "started_utc": "2026-09-12T17:56:09Z",
+  "sources": {
+    "rgb": {
+      "status": "COMPLETE",
+      "official_id": "1F3Leu0H_m6aPVpZITragfreO_SGtL2yV",
+      "archive_bytes": 11610983413,
+      "members": 13561,
+      "transferred_bytes": 54692853
+    },
+    "labels": {
+      "status": "COMPLETE",
+      "official_id": "16URBUQn_VOGvUqfms-0I8HHKMtjPHsu5",
+      "archive_bytes": 98850316,
+      "members": 6240,
+      "transferred_bytes": 18175500
+    },
+    "lidar": {
+      "status": "COMPLETE",
+      "official_id": "1BZWrPOeLhbVItdN0xhzolfsABr6ymsRr",
+      "archive_bytes": 28252049064,
+      "members": 13560,
+      "transferred_bytes": 82120360
+    }
+  },
+  "records": [
+    {
+      "sequence": "00000",
+      "frame": 308,
+      "timestamp": 1581624683.55,
+      "image": "00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000308-1581624683_550.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+        "path": "pilot/rgb/frame000308-1581624683_550.jpg",
+        "bytes": 1207772,
+        "sha256": "9dcb8b8d202fe51e34b6fc9efb2956a86ab13672756dc0c87b60fa2dc50d8f90"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000308-1581624683_550.png",
+        "path": "pilot/labels/frame000308-1581624683_550.png",
+        "bytes": 27751,
+        "sha256": "060ce0dbf4e0bb5b251c88506ff27349af82fd2c47d2e12716f3d90a033383b9"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000308-1581624683_569.ply",
+        "path": "pilot/lidar/frame000308-1581624683_569.ply",
+        "bytes": 4325709,
+        "sha256": "1334df29fa9ba07e902f1b8db14707bc9b1d72a95d70e2ad4dda3e4049f0041e"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 368,
+      "timestamp": 1581624689.549,
+      "image": "00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000368-1581624689_549.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+        "path": "pilot/rgb/frame000368-1581624689_549.jpg",
+        "bytes": 1017488,
+        "sha256": "d51163f3ead83d859ebdb681ce25afb616bacce0d6f3eae37f2a6ed0eaf4e79e"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000368-1581624689_549.png",
+        "path": "pilot/labels/frame000368-1581624689_549.png",
+        "bytes": 34618,
+        "sha256": "da045871cedda1a0cc0548cf348670bf10b07ded9bb4d6a7ec7180b8bf37b972"
+      },
+      "sync_delta_seconds": 0.019999980926513672,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000368-1581624689_569.ply",
+        "path": "pilot/lidar/frame000368-1581624689_569.ply",
+        "bytes": 4325709,
+        "sha256": "54bb896d75a39d8da05a2e3564c0a8add7d4f828864ec7afa80744b36e1b34b3"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 430,
+      "timestamp": 1581624695.75,
+      "image": "00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000430-1581624695_750.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+        "path": "pilot/rgb/frame000430-1581624695_750.jpg",
+        "bytes": 934572,
+        "sha256": "15a91f67bb996f0d7810d47a3f7561dae4e5f42d9b1eaf3de1bf870134a4b201"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000430-1581624695_750.png",
+        "path": "pilot/labels/frame000430-1581624695_750.png",
+        "bytes": 32511,
+        "sha256": "8920dcadc57945e4ac4c64e585b8aa42a7418655d3a4e1157ac7a71958cd040b"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000430-1581624695_769.ply",
+        "path": "pilot/lidar/frame000430-1581624695_769.ply",
+        "bytes": 4325709,
+        "sha256": "60e8f2925c7246fe98e60ff22420e5e6ecab0d1f705a5f44d883442071f21f85"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 490,
+      "timestamp": 1581624701.749,
+      "image": "00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000490-1581624701_749.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+        "path": "pilot/rgb/frame000490-1581624701_749.jpg",
+        "bytes": 739261,
+        "sha256": "c1b32c9383531d2c2035c597ffa59c132813de6b346ffb3bece559003beafcf0"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000490-1581624701_749.png",
+        "path": "pilot/labels/frame000490-1581624701_749.png",
+        "bytes": 32603,
+        "sha256": "e2534c5e7f472f0b2eedd6836b7eda5129daa3a1520ea2696e51e1ea59b55783"
+      },
+      "sync_delta_seconds": 0.019999980926513672,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000490-1581624701_769.ply",
+        "path": "pilot/lidar/frame000490-1581624701_769.ply",
+        "bytes": 4325709,
+        "sha256": "b9cc8acf627def08fb917aae7465e559b48d3953110f9026f268c79d84275d7d"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 550,
+      "timestamp": 1581624707.75,
+      "image": "00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000550-1581624707_750.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+        "path": "pilot/rgb/frame000550-1581624707_750.jpg",
+        "bytes": 1010960,
+        "sha256": "abe96d8de454c470cd62da070c9e6ccffd77534a677720194011659fe5bff338"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000550-1581624707_750.png",
+        "path": "pilot/labels/frame000550-1581624707_750.png",
+        "bytes": 23967,
+        "sha256": "4a66c81bc225ab0bb662150658b833f22a82e07c3e5f128f36ffa5f44bb03e4e"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000550-1581624707_769.ply",
+        "path": "pilot/lidar/frame000550-1581624707_769.ply",
+        "bytes": 4325709,
+        "sha256": "6db4106cdb4ef16c52b40b494c30b51106550209359fa392961b20b7f18cc80f"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 611,
+      "timestamp": 1581624713.849,
+      "image": "00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000611-1581624713_849.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+        "path": "pilot/rgb/frame000611-1581624713_849.jpg",
+        "bytes": 1077595,
+        "sha256": "c23d8189f008a7c60674c3f11055f6b6688c9f6888c86ece8fabedc9e32d8d07"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000611-1581624713_849.png",
+        "path": "pilot/labels/frame000611-1581624713_849.png",
+        "bytes": 26698,
+        "sha256": "ace86931f5ca5116d188b5ef6070c4e4a5856748da1849f06a9c80024a73fcc7"
+      },
+      "sync_delta_seconds": 0.019999980926513672,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000611-1581624713_869.ply",
+        "path": "pilot/lidar/frame000611-1581624713_869.ply",
+        "bytes": 4325709,
+        "sha256": "e4f046db15c6a61c7820aee6438db363a6c88fabfdaa703570f7538acee4d396"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 671,
+      "timestamp": 1581624719.85,
+      "image": "00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000671-1581624719_850.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+        "path": "pilot/rgb/frame000671-1581624719_850.jpg",
+        "bytes": 1221768,
+        "sha256": "7bc622027cbe76a3fc93b2ffb72d8d63ce2ec98033126a106dec6cd0205de0ff"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000671-1581624719_850.png",
+        "path": "pilot/labels/frame000671-1581624719_850.png",
+        "bytes": 19443,
+        "sha256": "c69b204375a2aba4af746d19ce5d4b59c78e0aaf3606cc318527516db3848c91"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000671-1581624719_869.ply",
+        "path": "pilot/lidar/frame000671-1581624719_869.ply",
+        "bytes": 4325709,
+        "sha256": "74584a4cfcb13973c1773c22ff0a73118bed4ed5c98877e2faca8931b33d3650"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 731,
+      "timestamp": 1581624725.85,
+      "image": "00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000731-1581624725_850.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+        "path": "pilot/rgb/frame000731-1581624725_850.jpg",
+        "bytes": 1275030,
+        "sha256": "23132f43d876ea4a4239d025df11a858002283bc48468ec1601a1cbc925bc5fd"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000731-1581624725_850.png",
+        "path": "pilot/labels/frame000731-1581624725_850.png",
+        "bytes": 21737,
+        "sha256": "123b11bc7e3ae795015c621208fc3aff668de95733e5f23efe52be40d9114092"
+      },
+      "sync_delta_seconds": 0.018000125885009766,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000731-1581624725_868.ply",
+        "path": "pilot/lidar/frame000731-1581624725_868.ply",
+        "bytes": 4325709,
+        "sha256": "fff1691666e5efb70267e697d37b862a1ff9ad403ad92800a27968a72e3f5727"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 793,
+      "timestamp": 1581624732.049,
+      "image": "00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000793-1581624732_049.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+        "path": "pilot/rgb/frame000793-1581624732_049.jpg",
+        "bytes": 1098799,
+        "sha256": "66ddeb9d0aa5bb91a2f9ace817f5fd9e934f8c26d49dce73d0a5972cb5ae5a32"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000793-1581624732_049.png",
+        "path": "pilot/labels/frame000793-1581624732_049.png",
+        "bytes": 34852,
+        "sha256": "8b8a0882d503685acfd0fcdd462e239aa34edea7b89c97730c2a9e7293bd1242"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000793-1581624732_068.ply",
+        "path": "pilot/lidar/frame000793-1581624732_068.ply",
+        "bytes": 4325709,
+        "sha256": "d52d2bbe6956babed85946a1433c4d493a338692b15a50b46a4f60a47255b822"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 853,
+      "timestamp": 1581624738.049,
+      "image": "00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000853-1581624738_049.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+        "path": "pilot/rgb/frame000853-1581624738_049.jpg",
+        "bytes": 1148819,
+        "sha256": "64328a5cb42b2e60ea2d6659132b9234251d502d9621dfd6426f268b8df69281"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000853-1581624738_049.png",
+        "path": "pilot/labels/frame000853-1581624738_049.png",
+        "bytes": 25954,
+        "sha256": "c4b0c0867e237c74d3c5a18ebbf31661d80d3f9cb3dd304d6e9f528f5cf0de10"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000853-1581624738_068.ply",
+        "path": "pilot/lidar/frame000853-1581624738_068.ply",
+        "bytes": 4325709,
+        "sha256": "49364eac23d24acc8c69b86c601f0df466b1af399dd633e20d10d593411d3b92"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 913,
+      "timestamp": 1581624744.049,
+      "image": "00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000913-1581624744_049.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+        "path": "pilot/rgb/frame000913-1581624744_049.jpg",
+        "bytes": 989608,
+        "sha256": "520709f6ed1367cd109cbd2f9bdf38e52cb1d9e8505a4a4e7f1c5644f0a1e497"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000913-1581624744_049.png",
+        "path": "pilot/labels/frame000913-1581624744_049.png",
+        "bytes": 32456,
+        "sha256": "2cda2c7954012c208834ec3d4752f2ad92e3b9f798854c7b2e9ed7555a616f23"
+      },
+      "sync_delta_seconds": 0.01900005340576172,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000913-1581624744_068.ply",
+        "path": "pilot/lidar/frame000913-1581624744_068.ply",
+        "bytes": 4325709,
+        "sha256": "5e75f09098935ad3057fc0ef1cfdce74b002a660d188d4fe3fc03520ce87d03c"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 975,
+      "timestamp": 1581624750.25,
+      "image": "00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame000975-1581624750_250.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+        "path": "pilot/rgb/frame000975-1581624750_250.jpg",
+        "bytes": 1140374,
+        "sha256": "a51d66d86d85b4f41de2f7222fe31a300a4ed7db0824361cd42c79b4c892d234"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame000975-1581624750_250.png",
+        "path": "pilot/labels/frame000975-1581624750_250.png",
+        "bytes": 24006,
+        "sha256": "b80c9e4ed012504bf32fa5d0b537ed87296dfa98c17f27258a4c7d0910ebe580"
+      },
+      "sync_delta_seconds": 0.01699995994567871,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000975-1581624750_267.ply",
+        "path": "pilot/lidar/frame000975-1581624750_267.ply",
+        "bytes": 4325709,
+        "sha256": "7a52689ae5db5b9e7b491e91fb367c4f0da41dd4e65010e887a83e460127c8a2"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1035,
+      "timestamp": 1581624756.249,
+      "image": "00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001035-1581624756_249.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+        "path": "pilot/rgb/frame001035-1581624756_249.jpg",
+        "bytes": 1121374,
+        "sha256": "abd88fef509bfeab5296f666c2be0fc5fd2379e9fec7ca467ad23196465d1dba"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001035-1581624756_249.png",
+        "path": "pilot/labels/frame001035-1581624756_249.png",
+        "bytes": 22180,
+        "sha256": "57fc42f1297bbabdd63b078b3ed2b476d1c9d2432551116cd6fb246cecf9d70e"
+      },
+      "sync_delta_seconds": 0.017999887466430664,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001035-1581624756_267.ply",
+        "path": "pilot/lidar/frame001035-1581624756_267.ply",
+        "bytes": 4325709,
+        "sha256": "57e9c1e72faa0cca99eac3b4dcbf3a03064bf5134238b6cd324a1ad08c750172"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1097,
+      "timestamp": 1581624762.449,
+      "image": "00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001097-1581624762_449.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+        "path": "pilot/rgb/frame001097-1581624762_449.jpg",
+        "bytes": 1173581,
+        "sha256": "3499c20fd5dca067c74de502d48c32c9c272b7f1056343aed05bbddeecb318fe"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001097-1581624762_449.png",
+        "path": "pilot/labels/frame001097-1581624762_449.png",
+        "bytes": 27634,
+        "sha256": "3379a6aecad6481199a521a7abd1659caf0e8595adfdd0d0fb28c59241b285ce"
+      },
+      "sync_delta_seconds": 0.018000125885009766,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001097-1581624762_467.ply",
+        "path": "pilot/lidar/frame001097-1581624762_467.ply",
+        "bytes": 4325709,
+        "sha256": "36b48cfdfdde5c8db9048fe51a846110129e1ef700dd8505d8791a8bb1cb56ef"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1157,
+      "timestamp": 1581624768.45,
+      "image": "00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001157-1581624768_450.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+        "path": "pilot/rgb/frame001157-1581624768_450.jpg",
+        "bytes": 1207691,
+        "sha256": "b9ef40ff42114adf82992f714a6695182c7b00e9dcc005ffdee206bc5cf00090"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001157-1581624768_450.png",
+        "path": "pilot/labels/frame001157-1581624768_450.png",
+        "bytes": 16497,
+        "sha256": "55010a8bc1b5ed9b4832e5407547be42c08b852bb9b09f4d49859f1dc34b0ed9"
+      },
+      "sync_delta_seconds": 0.01699995994567871,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001157-1581624768_467.ply",
+        "path": "pilot/lidar/frame001157-1581624768_467.ply",
+        "bytes": 4325709,
+        "sha256": "9bf68d396c4aeb24c6dc816bc9961a5792e67cc2fc62f89f557f19e46caa8b3a"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1217,
+      "timestamp": 1581624774.449,
+      "image": "00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001217-1581624774_449.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+        "path": "pilot/rgb/frame001217-1581624774_449.jpg",
+        "bytes": 1104213,
+        "sha256": "357fb2a2880e751f035c745c6ae50a9ea5e0400f7d68b3077a58e12277728441"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001217-1581624774_449.png",
+        "path": "pilot/labels/frame001217-1581624774_449.png",
+        "bytes": 19283,
+        "sha256": "71c8eba0077450e09c0bdc6d56a9accb323ac16bf20f439644a5c65101cd1128"
+      },
+      "sync_delta_seconds": 0.018000125885009766,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001217-1581624774_467.ply",
+        "path": "pilot/lidar/frame001217-1581624774_467.ply",
+        "bytes": 4325709,
+        "sha256": "c364075cb0fed26f40a9825e7da11bb02264adcb540e8d17275848530cb46f20"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1279,
+      "timestamp": 1581624780.649,
+      "image": "00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001279-1581624780_649.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+        "path": "pilot/rgb/frame001279-1581624780_649.jpg",
+        "bytes": 1162998,
+        "sha256": "5619bfadbb267f1e345bf5947357f96cd6047a29abc15e33474318f025c8acdc"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001279-1581624780_649.png",
+        "path": "pilot/labels/frame001279-1581624780_649.png",
+        "bytes": 24408,
+        "sha256": "82967e5ddccb3f24669cc46a466d30c5054c456e8365388a06e3c51191716e5f"
+      },
+      "sync_delta_seconds": 0.018000125885009766,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001279-1581624780_667.ply",
+        "path": "pilot/lidar/frame001279-1581624780_667.ply",
+        "bytes": 4325709,
+        "sha256": "7ea83d897b4d5291b1d7a2914e1b677fd3ce2607ac088ad91b3a3efa025a5f34"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1339,
+      "timestamp": 1581624786.65,
+      "image": "00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001339-1581624786_650.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+        "path": "pilot/rgb/frame001339-1581624786_650.jpg",
+        "bytes": 1171163,
+        "sha256": "796d813c31776d4e6b21e35a3049aa1e170cedc8ce0166d148054bad6c8194bf"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001339-1581624786_650.png",
+        "path": "pilot/labels/frame001339-1581624786_650.png",
+        "bytes": 23005,
+        "sha256": "8a990cd5cc78e8d1a71b88616897c0d63e45ebf17809e7a3601cd0ede663b141"
+      },
+      "sync_delta_seconds": 0.015999794006347656,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001339-1581624786_666.ply",
+        "path": "pilot/lidar/frame001339-1581624786_666.ply",
+        "bytes": 4325709,
+        "sha256": "cdf3545314be9113379273b19225433c31abd605b646da0e8da21cdb314753f8"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1399,
+      "timestamp": 1581624792.649,
+      "image": "00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001399-1581624792_649.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+        "path": "pilot/rgb/frame001399-1581624792_649.jpg",
+        "bytes": 1420581,
+        "sha256": "1adb232efda31231cfd5d300641ed98cd8076f9f11576131d8bf02aca9481416"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001399-1581624792_649.png",
+        "path": "pilot/labels/frame001399-1581624792_649.png",
+        "bytes": 22664,
+        "sha256": "f3d8ff51f1d91c96bb3f9105f3429b855ff5d939e3d65bdb1b7c33791b21d290"
+      },
+      "sync_delta_seconds": 0.01699995994567871,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001399-1581624792_666.ply",
+        "path": "pilot/lidar/frame001399-1581624792_666.ply",
+        "bytes": 4325709,
+        "sha256": "24e888b71d045f6b8bb903a0adae8113d1bebcdb34127650b476a837f47e9afe"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1461,
+      "timestamp": 1581624798.849,
+      "image": "00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001461-1581624798_849.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+        "path": "pilot/rgb/frame001461-1581624798_849.jpg",
+        "bytes": 1320390,
+        "sha256": "f641252c4a18b2e67e1f3b599bca03812e5000e7614a82af35ed0d98199c53fc"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001461-1581624798_849.png",
+        "path": "pilot/labels/frame001461-1581624798_849.png",
+        "bytes": 24960,
+        "sha256": "ded2a3146703626dce38f6dbcd67b2c6dc51ef413809448f1f98a6c8a2bed562"
+      },
+      "sync_delta_seconds": 0.01699995994567871,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001461-1581624798_866.ply",
+        "path": "pilot/lidar/frame001461-1581624798_866.ply",
+        "bytes": 4325709,
+        "sha256": "bb68f279bce3792693591df724d98d8e703c1dfa40ce5e105794886e95f42e7c"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1523,
+      "timestamp": 1581624805.049,
+      "image": "00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001523-1581624805_049.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+        "path": "pilot/rgb/frame001523-1581624805_049.jpg",
+        "bytes": 1339052,
+        "sha256": "1b1299d30f98fd9def850fd13d0bdfa6a9d72db6fc229cc875f964ab28ed3bf4"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001523-1581624805_049.png",
+        "path": "pilot/labels/frame001523-1581624805_049.png",
+        "bytes": 27420,
+        "sha256": "b1ba007333c44094b102df5319bb2557480cc1868cfddee1710e2ed83fb70f42"
+      },
+      "sync_delta_seconds": 0.01699995994567871,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001523-1581624805_066.ply",
+        "path": "pilot/lidar/frame001523-1581624805_066.ply",
+        "bytes": 4325709,
+        "sha256": "1b3df9580b538201d2d7b0c9a2f66a7271d9bece489d3e7e03101833f8b72316"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1583,
+      "timestamp": 1581624811.05,
+      "image": "00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001583-1581624811_050.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+        "path": "pilot/rgb/frame001583-1581624811_050.jpg",
+        "bytes": 1254538,
+        "sha256": "1d984a610d2c6967ffec2b7ee6e4411132b508a378bdb6b7c0315eda65869297"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001583-1581624811_050.png",
+        "path": "pilot/labels/frame001583-1581624811_050.png",
+        "bytes": 22556,
+        "sha256": "846af6f93e3ededbb23c8f7711f9b3369392fff4bc5d4001bcc2193cbde222a1"
+      },
+      "sync_delta_seconds": 0.015000104904174805,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001583-1581624811_065.ply",
+        "path": "pilot/lidar/frame001583-1581624811_065.ply",
+        "bytes": 4325709,
+        "sha256": "5995b63e806e95e191a0367787fd32617ae2380a855f30c4ebadaac5c1141f03"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1645,
+      "timestamp": 1581624817.249,
+      "image": "00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001645-1581624817_249.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+        "path": "pilot/rgb/frame001645-1581624817_249.jpg",
+        "bytes": 1300856,
+        "sha256": "8914f0c710db2a31042be5eb0a0ae3809ee1ff74aa1cb411ecfa9319647577ef"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001645-1581624817_249.png",
+        "path": "pilot/labels/frame001645-1581624817_249.png",
+        "bytes": 23039,
+        "sha256": "e04274aae1adeb07b24f13eadc48528a619596f5c881994cebb6d127d382e868"
+      },
+      "sync_delta_seconds": 0.016000032424926758,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001645-1581624817_265.ply",
+        "path": "pilot/lidar/frame001645-1581624817_265.ply",
+        "bytes": 4325709,
+        "sha256": "8cf112790fd95693c6ba9a5975239b3ea75ab3f313f2d29be522fe29b284ac28"
+      }
+    },
+    {
+      "sequence": "00000",
+      "frame": 1705,
+      "timestamp": 1581624823.25,
+      "image": "00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+      "label": "00000/pylon_camera_node_label_id/frame001705-1581624823_250.png",
+      "rgb": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+        "path": "pilot/rgb/frame001705-1581624823_250.jpg",
+        "bytes": 1309050,
+        "sha256": "c679d2d097879a52c87f670bffd7603d05c8f87165a30c145e2423cdd11be88a"
+      },
+      "labels": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/pylon_camera_node_label_id/frame001705-1581624823_250.png",
+        "path": "pilot/labels/frame001705-1581624823_250.png",
+        "bytes": 26548,
+        "sha256": "6fbcae5df0cdaf6f51ee1d0e6925f291dab1705ac8828ec6b231a36545dcd192"
+      },
+      "sync_delta_seconds": 0.016000032424926758,
+      "lidar": {
+        "status": "DOWNLOADED",
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame001705-1581624823_266.ply",
+        "path": "pilot/lidar/frame001705-1581624823_266.ply",
+        "bytes": 4325709,
+        "sha256": "c4c23e709991ec38fe25c47f1ae2ddbbad0c14ceaf50f7820b20912bc1d202b5"
+      }
+    }
+  ],
+  "finished_utc": "2026-09-12T17:59:11Z",
+  "complete_triples": 24
+}

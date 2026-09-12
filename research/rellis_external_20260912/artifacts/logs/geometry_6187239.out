@@ -1,0 +1,66 @@
+{"index": 0, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 1, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 2, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 3, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 4, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 5, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 6, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 7, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 8, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 9, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 10, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 11, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 12, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 13, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 14, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 15, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 16, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 17, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 18, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 19, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 20, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 21, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 22, "status": "AUDITED", "all_four_evaluable": false}
+{"index": 23, "status": "AUDITED", "all_four_evaluable": false}
+{
+  "at_utc": "2026-09-12T18:07:54Z",
+  "protocol_sha256": "2cc77627148a366e39ab16ebe7077242b24d2137aceaf025d2301712637c1aae",
+  "source_sha256": "36e57fa43b3205a4d2cc83a9699e96c06bc7de968a6ef132126ba9fb3936c682",
+  "n_requested": 24,
+  "registration_uncertainty_validated": false,
+  "body_and_gravity_frame_fully_validated": false,
+  "scope": "LiDAR-centred, URDF-body-oriented frame + nonsemantic local surface estimate. Ground-area cost intervals bound unknown support only, conditional on projection. They do not bound unmeasured calibration/label error or verify gravity alignment.",
+  "body_from_cloud_rotation": [
+    [
+      -0.999999999999993,
+      6.076937967382964e-08,
+      1.071795863401142e-07
+    ],
+    [
+      -6.076937967382938e-08,
+      -0.9999999999999986,
+      5.74373186401902e-15
+    ],
+    [
+      1.0717958634011438e-07,
+      -7.695051115673968e-16,
+      0.9999999999999944
+    ]
+  ],
+  "urdf_chain": [
+    "os1_lidar_to_os1_sensor",
+    "os1_sensor_to_os1_frame",
+    "os1_to_imu",
+    "imu_link_joint",
+    "top_link_joint",
+    "base_link_joint"
+  ],
+  "n_audited": 24,
+  "n_all_four_evaluable": 0,
+  "unknown_interval_width_p95": 0.8149305555555555,
+  "known_support_screen_pass": false,
+  "support_ambiguity_screen_pass": false,
+  "qualification_pass": false,
+  "qualification_status": "STOP_CURRENT_GEOMETRY_SUPPORT",
+  "decision": "Do not train or open external final tests until support, independent registration uncertainty, and spatial split prerequisites are satisfied."
+}

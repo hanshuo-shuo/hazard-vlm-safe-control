@@ -39,6 +39,33 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — RELLIS-3D external-task qualification
+
+- Status: **GEOMETRY_NOT_QUALIFIED / NO_EXTERNAL_MECHANISM_RESULT**. The diagnostic
+  manuscript is rewritten, while the controlled-case evidence remains bounded.
+- A frozen 24-frame sequence-00000 training-list pilot has RGB, native human
+  semantic labels and PLY scans matched within 50 ms. No semantic selection of frames.
+- Official calibration and URDF orientation define four fixed metric corridor
+  segments. The conservative single-scan surface/visibility screen qualifies
+  0/24 scenes; an optimistic ceiling omitting depth/occlusion checks qualifies
+  only 3/24 against an 80% requirement. These are current-interface diagnostics,
+  not evidence that RELLIS-3D generally cannot support corridor evaluation.
+- Six distinct tests pass. Independent scalar verification checks 96 candidate
+  counts, 69,120 sample labels, and 26 manifest files. Projection implementation
+  agreement is not a physical calibration-accuracy claim.
+- Official split metadata include some validation/test frames only 0.2 seconds
+  from same-sequence training frames. Spatial grouping, pose-time mapping,
+  cross-sequence registration, and released-model provenance remain unqualified.
+- Stop decision: external model training, mechanism selection, risk calibration
+  and final-test inference are not run. No VLM, relation head or RL expansion.
+- Quest root: `/projects/p33100/siosio/hazard_rellis_external_20260912`.
+  Completed jobs 6186376, 6186742, 6187239, 6187394, 6187474; failures 6186684
+  (compute-node git unavailable) and 6187158 (coordinate guard) occurred before
+  pilot image evaluation and are retained with the original source versions.
+- [Progress and interpretation](RELLIS_EXTERNAL_PROGRESS_2026-09-12.md),
+  [full manuscript](../paper/visual_risk_diagnosis/manuscript.md),
+  [protocol and reproducibility](../research/rellis_external_20260912/README.md).
+
 ## 2026-09-12 — Pro-directed measurement and fixed-selector acceptance round
 
 - Registry status remains **PILOT_ONLY relative to the original C3-Safe method gates**.

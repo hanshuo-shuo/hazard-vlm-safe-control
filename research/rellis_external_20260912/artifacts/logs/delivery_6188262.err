@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/check_delivery.py", line 55, in <module>
+    main()
+  File "/projects/p33100/siosio/hazard_rellis_external_20260912/research/rellis_external_20260912/check_delivery.py", line 23, in main
+    checks.append(str(path.relative_to(root)))
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/pathlib.py", line 818, in relative_to
+    raise ValueError("{!r} is not in the subpath of {!r}"
+ValueError: '/gpfs/projects/p33100/siosio/hazard_rellis_external_20260912/geometry_audit/GEOMETRY_AUDIT.json' is not in the subpath of '/projects/p33100/siosio/hazard_rellis_external_20260912' OR one path is relative and the other is absolute.

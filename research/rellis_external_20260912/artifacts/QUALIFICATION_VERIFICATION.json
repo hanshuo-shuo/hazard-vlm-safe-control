@@ -1,0 +1,744 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T18:12:19Z",
+  "verification_source_sha256": "e628e0b8706b7657d77c1cd9835b76f9df39832ae92e9fe88a3e56d423667652",
+  "manifest_files_checked": 26,
+  "scalar_sample_labels_checked": 69120,
+  "candidate_counts_checked": 96,
+  "max_projection_implementation_difference_px": 1.8189894035458565e-12,
+  "unknown_fraction_range": [
+    0.4597222222222222,
+    0.8847222222222222
+  ],
+  "mean_unknown_reason_fractions_nonadditive": {
+    "outside_view": 0.001953125,
+    "unsupported_surface": 0.06873553240740742,
+    "no_projected_depth": 0.5219328703703704,
+    "occluded": 0.08893229166666666
+  },
+  "optimistically_all_four_evaluable_scenes": 3,
+  "registered_all_four_evaluable_scenes": 0,
+  "records": [
+    {
+      "image": "00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 1,
+          "unknown": 492,
+          "optimistic_unknown_without_depth_or_occlusion": 157
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 377,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 385,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 3,
+          "known_bad": 4,
+          "unknown": 484,
+          "optimistic_unknown_without_depth_or_occlusion": 114
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 444,
+          "optimistic_unknown_without_depth_or_occlusion": 110
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 351,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 30,
+          "unknown": 366,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 23,
+          "unknown": 554,
+          "optimistic_unknown_without_depth_or_occlusion": 153
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 623,
+          "optimistic_unknown_without_depth_or_occlusion": 291
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 401,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 3,
+          "unknown": 435,
+          "optimistic_unknown_without_depth_or_occlusion": 19
+        },
+        {
+          "candidate": 3,
+          "known_bad": 14,
+          "unknown": 423,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 449,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 1,
+          "known_bad": 61,
+          "unknown": 449,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 85,
+          "unknown": 486,
+          "optimistic_unknown_without_depth_or_occlusion": 82
+        },
+        {
+          "candidate": 3,
+          "known_bad": 41,
+          "unknown": 637,
+          "optimistic_unknown_without_depth_or_occlusion": 285
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 419,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 380,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 2,
+          "known_bad": 47,
+          "unknown": 477,
+          "optimistic_unknown_without_depth_or_occlusion": 2
+        },
+        {
+          "candidate": 3,
+          "known_bad": 36,
+          "unknown": 621,
+          "optimistic_unknown_without_depth_or_occlusion": 139
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 391,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 1,
+          "known_bad": 74,
+          "unknown": 434,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 33,
+          "unknown": 416,
+          "optimistic_unknown_without_depth_or_occlusion": 3
+        },
+        {
+          "candidate": 3,
+          "known_bad": 31,
+          "unknown": 449,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        }
+      ],
+      "optimistically_all_four_evaluable": true
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 452,
+          "optimistic_unknown_without_depth_or_occlusion": 11
+        },
+        {
+          "candidate": 1,
+          "known_bad": 27,
+          "unknown": 385,
+          "optimistic_unknown_without_depth_or_occlusion": 9
+        },
+        {
+          "candidate": 2,
+          "known_bad": 17,
+          "unknown": 417,
+          "optimistic_unknown_without_depth_or_occlusion": 7
+        },
+        {
+          "candidate": 3,
+          "known_bad": 12,
+          "unknown": 443,
+          "optimistic_unknown_without_depth_or_occlusion": 30
+        }
+      ],
+      "optimistically_all_four_evaluable": true
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 403,
+          "optimistic_unknown_without_depth_or_occlusion": 15
+        },
+        {
+          "candidate": 1,
+          "known_bad": 8,
+          "unknown": 387,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 10,
+          "unknown": 426,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 0,
+          "unknown": 468,
+          "optimistic_unknown_without_depth_or_occlusion": 7
+        }
+      ],
+      "optimistically_all_four_evaluable": true
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 33,
+          "unknown": 465,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 1,
+          "known_bad": 38,
+          "unknown": 422,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 4,
+          "unknown": 485,
+          "optimistic_unknown_without_depth_or_occlusion": 97
+        },
+        {
+          "candidate": 3,
+          "known_bad": 0,
+          "unknown": 557,
+          "optimistic_unknown_without_depth_or_occlusion": 276
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 102,
+          "unknown": 557,
+          "optimistic_unknown_without_depth_or_occlusion": 7
+        },
+        {
+          "candidate": 1,
+          "known_bad": 17,
+          "unknown": 549,
+          "optimistic_unknown_without_depth_or_occlusion": 4
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 427,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 0,
+          "unknown": 539,
+          "optimistic_unknown_without_depth_or_occlusion": 74
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 19,
+          "unknown": 371,
+          "optimistic_unknown_without_depth_or_occlusion": 3
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 331,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 2,
+          "known_bad": 7,
+          "unknown": 333,
+          "optimistic_unknown_without_depth_or_occlusion": 12
+        },
+        {
+          "candidate": 3,
+          "known_bad": 41,
+          "unknown": 562,
+          "optimistic_unknown_without_depth_or_occlusion": 277
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 11,
+          "unknown": 383,
+          "optimistic_unknown_without_depth_or_occlusion": 4
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 378,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 346,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 0,
+          "unknown": 565,
+          "optimistic_unknown_without_depth_or_occlusion": 310
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 1,
+          "unknown": 447,
+          "optimistic_unknown_without_depth_or_occlusion": 13
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 390,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 373,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 5,
+          "unknown": 494,
+          "optimistic_unknown_without_depth_or_occlusion": 42
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 0,
+          "unknown": 380,
+          "optimistic_unknown_without_depth_or_occlusion": 54
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 369,
+          "optimistic_unknown_without_depth_or_occlusion": 3
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 371,
+          "optimistic_unknown_without_depth_or_occlusion": 9
+        },
+        {
+          "candidate": 3,
+          "known_bad": 26,
+          "unknown": 595,
+          "optimistic_unknown_without_depth_or_occlusion": 308
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 54,
+          "unknown": 533,
+          "optimistic_unknown_without_depth_or_occlusion": 148
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 372,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 389,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 0,
+          "unknown": 505,
+          "optimistic_unknown_without_depth_or_occlusion": 70
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 201,
+          "unknown": 407,
+          "optimistic_unknown_without_depth_or_occlusion": 10
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 393,
+          "optimistic_unknown_without_depth_or_occlusion": 2
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 359,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 3,
+          "known_bad": 23,
+          "unknown": 433,
+          "optimistic_unknown_without_depth_or_occlusion": 40
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 174,
+          "unknown": 432,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 408,
+          "optimistic_unknown_without_depth_or_occlusion": 9
+        },
+        {
+          "candidate": 2,
+          "known_bad": 48,
+          "unknown": 355,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 146,
+          "unknown": 548,
+          "optimistic_unknown_without_depth_or_occlusion": 162
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 93,
+          "unknown": 384,
+          "optimistic_unknown_without_depth_or_occlusion": 19
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 411,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 2,
+          "known_bad": 0,
+          "unknown": 346,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 3,
+          "known_bad": 61,
+          "unknown": 490,
+          "optimistic_unknown_without_depth_or_occlusion": 41
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 145,
+          "unknown": 381,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 1,
+          "known_bad": 174,
+          "unknown": 425,
+          "optimistic_unknown_without_depth_or_occlusion": 60
+        },
+        {
+          "candidate": 2,
+          "known_bad": 216,
+          "unknown": 453,
+          "optimistic_unknown_without_depth_or_occlusion": 20
+        },
+        {
+          "candidate": 3,
+          "known_bad": 116,
+          "unknown": 584,
+          "optimistic_unknown_without_depth_or_occlusion": 353
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 7,
+          "unknown": 396,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 1,
+          "known_bad": 0,
+          "unknown": 388,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 2,
+          "known_bad": 45,
+          "unknown": 331,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 3,
+          "known_bad": 80,
+          "unknown": 458,
+          "optimistic_unknown_without_depth_or_occlusion": 133
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 52,
+          "unknown": 426,
+          "optimistic_unknown_without_depth_or_occlusion": 7
+        },
+        {
+          "candidate": 1,
+          "known_bad": 41,
+          "unknown": 423,
+          "optimistic_unknown_without_depth_or_occlusion": 4
+        },
+        {
+          "candidate": 2,
+          "known_bad": 219,
+          "unknown": 400,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 3,
+          "known_bad": 167,
+          "unknown": 498,
+          "optimistic_unknown_without_depth_or_occlusion": 137
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 43,
+          "unknown": 415,
+          "optimistic_unknown_without_depth_or_occlusion": 3
+        },
+        {
+          "candidate": 1,
+          "known_bad": 26,
+          "unknown": 410,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 93,
+          "unknown": 510,
+          "optimistic_unknown_without_depth_or_occlusion": 58
+        },
+        {
+          "candidate": 3,
+          "known_bad": 91,
+          "unknown": 610,
+          "optimistic_unknown_without_depth_or_occlusion": 302
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 237,
+          "unknown": 403,
+          "optimistic_unknown_without_depth_or_occlusion": 6
+        },
+        {
+          "candidate": 1,
+          "known_bad": 7,
+          "unknown": 401,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 84,
+          "unknown": 333,
+          "optimistic_unknown_without_depth_or_occlusion": 1
+        },
+        {
+          "candidate": 3,
+          "known_bad": 187,
+          "unknown": 525,
+          "optimistic_unknown_without_depth_or_occlusion": 126
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+      "entries": [
+        {
+          "candidate": 0,
+          "known_bad": 246,
+          "unknown": 444,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 1,
+          "known_bad": 18,
+          "unknown": 391,
+          "optimistic_unknown_without_depth_or_occlusion": 0
+        },
+        {
+          "candidate": 2,
+          "known_bad": 39,
+          "unknown": 396,
+          "optimistic_unknown_without_depth_or_occlusion": 4
+        },
+        {
+          "candidate": 3,
+          "known_bad": 127,
+          "unknown": 515,
+          "optimistic_unknown_without_depth_or_occlusion": 194
+        }
+      ],
+      "optimistically_all_four_evaluable": false
+    }
+  ],
+  "interpretation": "Verified the implemented conservative single-scan geometry screen. The optimistic ceiling drops depth/occlusion evidence and is not an admissible acceptance rule. Neither is a measured calibration-error bound or a statement that RELLIS cannot support other geometrically validated constructions."
+}

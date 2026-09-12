@@ -1,0 +1,163 @@
+{
+  "created_utc": "2026-09-12T17:56:09Z",
+  "official_commit": "c17a118fcaed1559f03cc32cc3a91dedc557f8b8",
+  "protocol_sha256": "2cc77627148a366e39ab16ebe7077242b24d2137aceaf025d2301712637c1aae",
+  "list_sha256": {
+    "train": "b1de526d8ddead84f873d5369f6525a88ae5b7fdbe082bc2baaaaf8c79fbc4f4",
+    "val": "06d4ebd48572ca2033f6c78637bb9d24e5eac81fc0c7dfec47c1ba2a65c97d58",
+    "test": "bdad0bf634c082036b6e1145bf1e6db4c50c806bcc1f44f16f8fb35c2f560f6f"
+  },
+  "counts": {
+    "train": {
+      "00000": 699,
+      "00002": 804,
+      "00003": 900,
+      "00004": 899
+    },
+    "val": {
+      "00000": 346,
+      "00001": 637
+    },
+    "test": {
+      "00000": 154,
+      "00001": 524,
+      "00002": 994
+    }
+  },
+  "nearest_train_seconds": {
+    "val": {
+      "00000": {
+        "n": 346,
+        "min": 0.20000004768371582,
+        "median": 34.69949996471405,
+        "fraction_within_1s": 0.014450867052023121,
+        "fraction_within_5s": 0.07225433526011561
+      }
+    },
+    "test": {
+      "00000": {
+        "n": 154,
+        "min": 0.20000004768371582,
+        "median": 15.501000046730042,
+        "fraction_within_1s": 0.032467532467532464,
+        "fraction_within_5s": 0.16233766233766234
+      },
+      "00002": {
+        "n": 994,
+        "min": 0.20000004768371582,
+        "median": 99.50000011920929,
+        "fraction_within_1s": 0.005030181086519115,
+        "fraction_within_5s": 0.025150905432595575
+      }
+    }
+  },
+  "pose_metadata": {
+    "00000": {
+      "rows": 2847,
+      "first_translation": [
+        0.271283,
+        -0.478529,
+        0.0919406
+      ],
+      "translation_min": [
+        -133.021,
+        -202.083,
+        -1.27826
+      ],
+      "translation_max": [
+        21.2229,
+        -0.318047,
+        0.229477
+      ],
+      "path_length_in_supplied_coordinates": 332.2261885549405,
+      "has_timestamps": false,
+      "image_frame_max": 2397
+    },
+    "00001": {
+      "rows": 2319,
+      "first_translation": [
+        0.336375,
+        0.0839789,
+        0.269868
+      ],
+      "translation_min": [
+        0.330987,
+        0.0226711,
+        -1.63622
+      ],
+      "translation_max": [
+        248.075,
+        44.8471,
+        0.280075
+      ],
+      "path_length_in_supplied_coordinates": 267.7432136174958,
+      "has_timestamps": false,
+      "image_frame_max": 2318
+    },
+    "00002": {
+      "rows": 4147,
+      "first_translation": [
+        -0.269271,
+        -0.063317,
+        0.219375
+      ],
+      "translation_min": [
+        -18.3449,
+        -106.572,
+        -0.158091
+      ],
+      "translation_max": [
+        55.4619,
+        0.14737,
+        7.33115
+      ],
+      "path_length_in_supplied_coordinates": 482.74785815481414,
+      "has_timestamps": false,
+      "image_frame_max": 4145
+    },
+    "00003": {
+      "rows": 2184,
+      "first_translation": [
+        0.179485,
+        0.478294,
+        0.16883
+      ],
+      "translation_min": [
+        0.109702,
+        0.403399,
+        -1.78028
+      ],
+      "translation_max": [
+        84.0489,
+        226.34,
+        0.276086
+      ],
+      "path_length_in_supplied_coordinates": 253.9681852581627,
+      "has_timestamps": false,
+      "image_frame_max": 1798
+    },
+    "00004": {
+      "rows": 2059,
+      "first_translation": [
+        -0.136895,
+        -0.401283,
+        0.166085
+      ],
+      "translation_min": [
+        -2.23548,
+        -209.241,
+        -0.304422
+      ],
+      "translation_max": [
+        52.6525,
+        -0.383346,
+        1.21545
+      ],
+      "path_length_in_supplied_coordinates": 226.08660541463445,
+      "has_timestamps": false,
+      "image_frame_max": 1796
+    }
+  },
+  "pilot_selection_sha256": "73f0abdd4671f7c259b21a107993e3cd0d6330882a5fb3bd38f24525729d6d39",
+  "decision": "Released split is not automatically a spatial split; pose rows must not be paired to image frame numbers without timestamp evidence. Released checkpoint remains unqualified for external confirmation."
+}

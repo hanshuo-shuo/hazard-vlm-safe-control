@@ -1,0 +1,6 @@
+{"name": "intrinsics", "status": "DOWNLOADED"}
+{"name": "extrinsics", "status": "DOWNLOADED"}
+{"name": "poses", "status": "DOWNLOADED"}
+{"name": "image_examples", "status": "DOWNLOADED"}
+{"name": "image_splits", "status": "DOWNLOADED"}
+{"name": "lidar_examples", "status": "DOWNLOADED"}

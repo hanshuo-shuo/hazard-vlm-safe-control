@@ -1,0 +1,2182 @@
+{
+  "at_utc": "2026-09-12T18:07:54Z",
+  "protocol_sha256": "2cc77627148a366e39ab16ebe7077242b24d2137aceaf025d2301712637c1aae",
+  "source_sha256": "36e57fa43b3205a4d2cc83a9699e96c06bc7de968a6ef132126ba9fb3936c682",
+  "n_requested": 24,
+  "registration_uncertainty_validated": false,
+  "body_and_gravity_frame_fully_validated": false,
+  "scope": "LiDAR-centred, URDF-body-oriented frame + nonsemantic local surface estimate. Ground-area cost intervals bound unknown support only, conditional on projection. They do not bound unmeasured calibration/label error or verify gravity alignment.",
+  "body_from_cloud_rotation": [
+    [
+      -0.999999999999993,
+      6.076937967382964e-08,
+      1.071795863401142e-07
+    ],
+    [
+      -6.076937967382938e-08,
+      -0.9999999999999986,
+      5.74373186401902e-15
+    ],
+    [
+      1.0717958634011438e-07,
+      -7.695051115673968e-16,
+      0.9999999999999944
+    ]
+  ],
+  "urdf_chain": [
+    "os1_lidar_to_os1_sensor",
+    "os1_sensor_to_os1_frame",
+    "os1_to_imu",
+    "imu_link_joint",
+    "top_link_joint",
+    "base_link_joint"
+  ],
+  "records": [
+    {
+      "image": "00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 503,
+        "inlier_cells": 333,
+        "plane": [
+          0.01775057324461158,
+          -0.011245256365983058,
+          -1.1402971408531013
+        ],
+        "surface_points": 9725,
+        "cell_residual_p95_m": 0.13876811112253046
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        17,
+        18,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.31666666666666665,
+          "unknown_fraction": 0.6833333333333333,
+          "cost_lower": 0.001388888888888889,
+          "cost_upper": 0.6847222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.21805555555555556,
+            "no_projected_depth": 0.5291666666666667,
+            "occluded": 0.1527777777777778
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.47638888888888886,
+          "unknown_fraction": 0.5236111111111111,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5236111111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5013888888888889,
+            "occluded": 0.022222222222222223
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4652777777777778,
+          "unknown_fraction": 0.5347222222222222,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5347222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.4861111111111111,
+            "occluded": 0.04861111111111111
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3277777777777778,
+          "unknown_fraction": 0.6722222222222223,
+          "cost_lower": 0.005555555555555556,
+          "cost_upper": 0.6777777777777778,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.15138888888888888,
+            "no_projected_depth": 0.5194444444444445,
+            "occluded": 0.15
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+      "sync_delta_seconds": 0.019999980926513672,
+      "surface": {
+        "fit_cells": 482,
+        "inlier_cells": 318,
+        "plane": [
+          -0.0012383751425201353,
+          -0.03831773749392098,
+          -1.07403580912385
+        ],
+        "surface_points": 8962,
+        "cell_residual_p95_m": 0.13913224758361697
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        17,
+        18,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.38333333333333336,
+          "unknown_fraction": 0.6166666666666667,
+          "cost_lower": 0.0,
+          "cost_upper": 0.6166666666666667,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.1527777777777778,
+            "no_projected_depth": 0.5194444444444445,
+            "occluded": 0.09166666666666666
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5125,
+          "unknown_fraction": 0.4875,
+          "cost_lower": 0.0,
+          "cost_upper": 0.4875,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4583333333333333,
+            "occluded": 0.029166666666666667
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.49166666666666664,
+          "unknown_fraction": 0.5083333333333333,
+          "cost_lower": 0.041666666666666664,
+          "cost_upper": 0.5499999999999999,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5013888888888889,
+            "occluded": 0.006944444444444444
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.23055555555555557,
+          "unknown_fraction": 0.7694444444444445,
+          "cost_lower": 0.03194444444444444,
+          "cost_upper": 0.8013888888888889,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.20416666666666666,
+            "no_projected_depth": 0.5402777777777777,
+            "occluded": 0.22361111111111112
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 565,
+        "inlier_cells": 385,
+        "plane": [
+          0.04423885467215899,
+          0.03070700544670002,
+          -1.302978806125235
+        ],
+        "surface_points": 8676,
+        "cell_residual_p95_m": 0.130186819767862
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        12,
+        18,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.13472222222222222,
+          "unknown_fraction": 0.8652777777777778,
+          "cost_lower": 0.0,
+          "cost_upper": 0.8652777777777778,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.4041666666666667,
+            "no_projected_depth": 0.6180555555555556,
+            "occluded": 0.24444444444444444
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.44305555555555554,
+          "unknown_fraction": 0.5569444444444445,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5569444444444445,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5416666666666666,
+            "occluded": 0.015277777777777777
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3958333333333333,
+          "unknown_fraction": 0.6041666666666666,
+          "cost_lower": 0.004166666666666667,
+          "cost_upper": 0.6083333333333333,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.02638888888888889,
+            "no_projected_depth": 0.5875,
+            "occluded": 0.016666666666666666
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4125,
+          "unknown_fraction": 0.5875,
+          "cost_lower": 0.019444444444444445,
+          "cost_upper": 0.6069444444444445,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5069444444444444,
+            "occluded": 0.07777777777777778
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+      "sync_delta_seconds": 0.019999980926513672,
+      "surface": {
+        "fit_cells": 546,
+        "inlier_cells": 414,
+        "plane": [
+          0.0545515700216516,
+          0.02643675673354884,
+          -1.3274502779145092
+        ],
+        "surface_points": 10032,
+        "cell_residual_p95_m": 0.13989623736384754
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3763888888888889,
+          "unknown_fraction": 0.6236111111111111,
+          "cost_lower": 0.0,
+          "cost_upper": 0.6236111111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.5833333333333334,
+            "occluded": 0.04027777777777778
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3763888888888889,
+          "unknown_fraction": 0.6236111111111111,
+          "cost_lower": 0.08472222222222223,
+          "cost_upper": 0.7083333333333334,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5777777777777777,
+            "occluded": 0.04583333333333333
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.325,
+          "unknown_fraction": 0.675,
+          "cost_lower": 0.11805555555555555,
+          "cost_upper": 0.7930555555555556,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.11388888888888889,
+            "no_projected_depth": 0.5263888888888889,
+            "occluded": 0.1486111111111111
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.11527777777777778,
+          "unknown_fraction": 0.8847222222222222,
+          "cost_lower": 0.05694444444444444,
+          "cost_upper": 0.9416666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.3875,
+            "no_projected_depth": 0.6472222222222223,
+            "occluded": 0.23333333333333334
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 558,
+        "inlier_cells": 474,
+        "plane": [
+          0.053255102078337085,
+          0.004733435986790435,
+          -1.1907832457572407
+        ],
+        "surface_points": 11833,
+        "cell_residual_p95_m": 0.125896636341327
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.41805555555555557,
+          "unknown_fraction": 0.5819444444444445,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5819444444444445,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.5166666666666667,
+            "occluded": 0.06527777777777778
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4722222222222222,
+          "unknown_fraction": 0.5277777777777778,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5277777777777778,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.5236111111111111,
+            "occluded": 0.004166666666666667
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3375,
+          "unknown_fraction": 0.6625,
+          "cost_lower": 0.06527777777777778,
+          "cost_upper": 0.7277777777777777,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.002777777777777778,
+            "no_projected_depth": 0.4888888888888889,
+            "occluded": 0.1736111111111111
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.1375,
+          "unknown_fraction": 0.8625,
+          "cost_lower": 0.05,
+          "cost_upper": 0.9125000000000001,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.18472222222222223,
+            "no_projected_depth": 0.6444444444444445,
+            "occluded": 0.21388888888888888
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+      "sync_delta_seconds": 0.019999980926513672,
+      "surface": {
+        "fit_cells": 573,
+        "inlier_cells": 468,
+        "plane": [
+          0.020862114559446154,
+          0.028749056549804752,
+          -1.1970081422245566
+        ],
+        "surface_points": 10443,
+        "cell_residual_p95_m": 0.13339893626599691
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.45694444444444443,
+          "unknown_fraction": 0.5430555555555555,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5430555555555555,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5055555555555555,
+            "occluded": 0.0375
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3972222222222222,
+          "unknown_fraction": 0.6027777777777777,
+          "cost_lower": 0.10277777777777777,
+          "cost_upper": 0.7055555555555555,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5763888888888888,
+            "occluded": 0.02638888888888889
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4222222222222222,
+          "unknown_fraction": 0.5777777777777777,
+          "cost_lower": 0.04583333333333333,
+          "cost_upper": 0.623611111111111,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.004166666666666667,
+            "no_projected_depth": 0.55,
+            "occluded": 0.027777777777777776
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3763888888888889,
+          "unknown_fraction": 0.6236111111111111,
+          "cost_lower": 0.043055555555555555,
+          "cost_upper": 0.6666666666666666,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.48333333333333334,
+            "occluded": 0.1388888888888889
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 602,
+        "inlier_cells": 592,
+        "plane": [
+          0.05563847678977825,
+          -0.011888341009467451,
+          -1.2726458019613485
+        ],
+        "surface_points": 14608,
+        "cell_residual_p95_m": 0.1081363239212952
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.37222222222222223,
+          "unknown_fraction": 0.6277777777777778,
+          "cost_lower": 0.0,
+          "cost_upper": 0.6277777777777778,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.015277777777777777,
+            "no_projected_depth": 0.5694444444444444,
+            "occluded": 0.058333333333333334
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4652777777777778,
+          "unknown_fraction": 0.5347222222222222,
+          "cost_lower": 0.0375,
+          "cost_upper": 0.5722222222222222,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0125,
+            "no_projected_depth": 0.5166666666666667,
+            "occluded": 0.018055555555555554
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.42083333333333334,
+          "unknown_fraction": 0.5791666666666667,
+          "cost_lower": 0.02361111111111111,
+          "cost_upper": 0.6027777777777779,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.009722222222222222,
+            "no_projected_depth": 0.49166666666666664,
+            "occluded": 0.0875
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.38472222222222224,
+          "unknown_fraction": 0.6152777777777778,
+          "cost_lower": 0.016666666666666666,
+          "cost_upper": 0.6319444444444445,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.03333333333333333,
+            "no_projected_depth": 0.5208333333333334,
+            "occluded": 0.09305555555555556
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+      "sync_delta_seconds": 0.018000125885009766,
+      "surface": {
+        "fit_cells": 671,
+        "inlier_cells": 657,
+        "plane": [
+          0.03516781572795381,
+          -0.052438152958416806,
+          -1.215921198928601
+        ],
+        "surface_points": 14445,
+        "cell_residual_p95_m": 0.08684785687716773
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.44027777777777777,
+          "unknown_fraction": 0.5597222222222222,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5597222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.020833333333333332,
+            "no_projected_depth": 0.49722222222222223,
+            "occluded": 0.06111111111111111
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4625,
+          "unknown_fraction": 0.5375,
+          "cost_lower": 0.011111111111111112,
+          "cost_upper": 0.548611111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5263888888888889,
+            "occluded": 0.011111111111111112
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4083333333333333,
+          "unknown_fraction": 0.5916666666666667,
+          "cost_lower": 0.013888888888888888,
+          "cost_upper": 0.6055555555555555,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5541666666666667,
+            "occluded": 0.0375
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.35,
+          "unknown_fraction": 0.65,
+          "cost_lower": 0.0,
+          "cost_upper": 0.65,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.002777777777777778,
+            "no_projected_depth": 0.5791666666666667,
+            "occluded": 0.06805555555555555
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 578,
+        "inlier_cells": 513,
+        "plane": [
+          0.06162475279275295,
+          -2.0709151091535816e-05,
+          -1.4804417382670294
+        ],
+        "surface_points": 13617,
+        "cell_residual_p95_m": 0.1155189451869475
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3541666666666667,
+          "unknown_fraction": 0.6458333333333334,
+          "cost_lower": 0.04583333333333333,
+          "cost_upper": 0.6916666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.6027777777777777,
+            "occluded": 0.043055555555555555
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.41388888888888886,
+          "unknown_fraction": 0.5861111111111111,
+          "cost_lower": 0.05277777777777778,
+          "cost_upper": 0.638888888888889,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.575,
+            "occluded": 0.011111111111111112
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3263888888888889,
+          "unknown_fraction": 0.6736111111111112,
+          "cost_lower": 0.005555555555555556,
+          "cost_upper": 0.6791666666666667,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.13472222222222222,
+            "no_projected_depth": 0.5458333333333333,
+            "occluded": 0.12777777777777777
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2263888888888889,
+          "unknown_fraction": 0.7736111111111111,
+          "cost_lower": 0.0,
+          "cost_upper": 0.7736111111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.3763888888888889,
+            "no_projected_depth": 0.6222222222222222,
+            "occluded": 0.1486111111111111
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 456,
+        "inlier_cells": 304,
+        "plane": [
+          0.056922280120440705,
+          -0.09621850862339953,
+          -1.299949550471343
+        ],
+        "surface_points": 9811,
+        "cell_residual_p95_m": 0.13204977780910118
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2263888888888889,
+          "unknown_fraction": 0.7736111111111111,
+          "cost_lower": 0.14166666666666666,
+          "cost_upper": 0.9152777777777779,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.009722222222222222,
+            "no_projected_depth": 0.5638888888888889,
+            "occluded": 0.20972222222222223
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2375,
+          "unknown_fraction": 0.7625,
+          "cost_lower": 0.02361111111111111,
+          "cost_upper": 0.7861111111111111,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.005555555555555556,
+            "no_projected_depth": 0.6555555555555556,
+            "occluded": 0.10694444444444444
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.40694444444444444,
+          "unknown_fraction": 0.5930555555555556,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5930555555555556,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5208333333333334,
+            "occluded": 0.07222222222222222
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2513888888888889,
+          "unknown_fraction": 0.7486111111111111,
+          "cost_lower": 0.0,
+          "cost_upper": 0.7486111111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.09583333333333334,
+            "no_projected_depth": 0.575,
+            "occluded": 0.1736111111111111
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+      "sync_delta_seconds": 0.01900005340576172,
+      "surface": {
+        "fit_cells": 518,
+        "inlier_cells": 303,
+        "plane": [
+          -0.045170541512784906,
+          0.009509788310065215,
+          -0.9506066642115186
+        ],
+        "surface_points": 8142,
+        "cell_residual_p95_m": 0.13212991439877805
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4847222222222222,
+          "unknown_fraction": 0.5152777777777777,
+          "cost_lower": 0.02638888888888889,
+          "cost_upper": 0.5416666666666666,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.004166666666666667,
+            "no_projected_depth": 0.45416666666666666,
+            "occluded": 0.06111111111111111
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5402777777777777,
+          "unknown_fraction": 0.4597222222222222,
+          "cost_lower": 0.0,
+          "cost_upper": 0.4597222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.40694444444444444,
+            "occluded": 0.05277777777777778
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5375,
+          "unknown_fraction": 0.4625,
+          "cost_lower": 0.009722222222222222,
+          "cost_upper": 0.47222222222222227,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.016666666666666666,
+            "no_projected_depth": 0.4041666666666667,
+            "occluded": 0.058333333333333334
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.21944444444444444,
+          "unknown_fraction": 0.7805555555555556,
+          "cost_lower": 0.05694444444444444,
+          "cost_upper": 0.8375,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.37777777777777777,
+            "no_projected_depth": 0.5388888888888889,
+            "occluded": 0.24027777777777778
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+      "sync_delta_seconds": 0.01699995994567871,
+      "surface": {
+        "fit_cells": 520,
+        "inlier_cells": 379,
+        "plane": [
+          0.02410615236325536,
+          0.0003101541811547648,
+          -1.0487246572219624
+        ],
+        "surface_points": 10837,
+        "cell_residual_p95_m": 0.13348264866101675
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.46805555555555556,
+          "unknown_fraction": 0.5319444444444444,
+          "cost_lower": 0.015277777777777777,
+          "cost_upper": 0.5472222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.005555555555555556,
+            "no_projected_depth": 0.4305555555555556,
+            "occluded": 0.10138888888888889
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.475,
+          "unknown_fraction": 0.525,
+          "cost_lower": 0.0,
+          "cost_upper": 0.525,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4638888888888889,
+            "occluded": 0.06111111111111111
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5194444444444445,
+          "unknown_fraction": 0.48055555555555557,
+          "cost_lower": 0.0,
+          "cost_upper": 0.48055555555555557,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.41805555555555557,
+            "occluded": 0.0625
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2152777777777778,
+          "unknown_fraction": 0.7847222222222222,
+          "cost_lower": 0.0,
+          "cost_upper": 0.7847222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.4222222222222222,
+            "no_projected_depth": 0.5097222222222222,
+            "occluded": 0.26805555555555555
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+      "sync_delta_seconds": 0.017999887466430664,
+      "surface": {
+        "fit_cells": 523,
+        "inlier_cells": 412,
+        "plane": [
+          0.03810487996650593,
+          -0.03316536443849405,
+          -1.1412031915737448
+        ],
+        "surface_points": 11195,
+        "cell_residual_p95_m": 0.13362278656052595
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.37916666666666665,
+          "unknown_fraction": 0.6208333333333333,
+          "cost_lower": 0.001388888888888889,
+          "cost_upper": 0.6222222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.018055555555555554,
+            "no_projected_depth": 0.5097222222222222,
+            "occluded": 0.1111111111111111
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4583333333333333,
+          "unknown_fraction": 0.5416666666666666,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5416666666666666,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.49166666666666664,
+            "occluded": 0.05
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.48194444444444445,
+          "unknown_fraction": 0.5180555555555556,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5180555555555556,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.47638888888888886,
+            "occluded": 0.041666666666666664
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3138888888888889,
+          "unknown_fraction": 0.6861111111111111,
+          "cost_lower": 0.006944444444444444,
+          "cost_upper": 0.6930555555555555,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.05,
+            "no_projected_depth": 0.48055555555555557,
+            "occluded": 0.20277777777777778
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+      "sync_delta_seconds": 0.018000125885009766,
+      "surface": {
+        "fit_cells": 548,
+        "inlier_cells": 357,
+        "plane": [
+          0.009609605627377,
+          0.019873596700547225,
+          -1.150671958248838
+        ],
+        "surface_points": 9445,
+        "cell_residual_p95_m": 0.14412987380175724
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4722222222222222,
+          "unknown_fraction": 0.5277777777777778,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5277777777777778,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.075,
+            "no_projected_depth": 0.4486111111111111,
+            "occluded": 0.07916666666666666
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4875,
+          "unknown_fraction": 0.5125,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5125,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.004166666666666667,
+            "no_projected_depth": 0.48055555555555557,
+            "occluded": 0.03194444444444444
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4847222222222222,
+          "unknown_fraction": 0.5152777777777777,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5152777777777777,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0125,
+            "no_projected_depth": 0.4930555555555556,
+            "occluded": 0.022222222222222223
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.1736111111111111,
+          "unknown_fraction": 0.8263888888888888,
+          "cost_lower": 0.03611111111111111,
+          "cost_upper": 0.8624999999999999,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.41944444444444445,
+            "no_projected_depth": 0.5777777777777777,
+            "occluded": 0.24722222222222223
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+      "sync_delta_seconds": 0.01699995994567871,
+      "surface": {
+        "fit_cells": 527,
+        "inlier_cells": 370,
+        "plane": [
+          0.03758169457384582,
+          -0.06398344768237352,
+          -1.1560626188396066
+        ],
+        "surface_points": 9955,
+        "cell_residual_p95_m": 0.1345890980131645
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.25972222222222224,
+          "unknown_fraction": 0.7402777777777778,
+          "cost_lower": 0.075,
+          "cost_upper": 0.8152777777777778,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.20555555555555555,
+            "no_projected_depth": 0.6013888888888889,
+            "occluded": 0.1388888888888889
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.48333333333333334,
+          "unknown_fraction": 0.5166666666666667,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5166666666666667,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4861111111111111,
+            "occluded": 0.030555555555555555
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4597222222222222,
+          "unknown_fraction": 0.5402777777777777,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5402777777777777,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4847222222222222,
+            "occluded": 0.05555555555555555
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2986111111111111,
+          "unknown_fraction": 0.7013888888888888,
+          "cost_lower": 0.0,
+          "cost_upper": 0.7013888888888888,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.08888888888888889,
+            "no_projected_depth": 0.5652777777777778,
+            "occluded": 0.13472222222222222
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+      "sync_delta_seconds": 0.018000125885009766,
+      "surface": {
+        "fit_cells": 577,
+        "inlier_cells": 442,
+        "plane": [
+          -0.0022292546050629975,
+          -0.03064606514881918,
+          -1.0916940271193152
+        ],
+        "surface_points": 9747,
+        "cell_residual_p95_m": 0.13716309682705702
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.43472222222222223,
+          "unknown_fraction": 0.5652777777777778,
+          "cost_lower": 0.2791666666666667,
+          "cost_upper": 0.8444444444444444,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.013888888888888888,
+            "no_projected_depth": 0.49166666666666664,
+            "occluded": 0.07361111111111111
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.45416666666666666,
+          "unknown_fraction": 0.5458333333333333,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5458333333333333,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.002777777777777778,
+            "no_projected_depth": 0.5361111111111111,
+            "occluded": 0.009722222222222222
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5013888888888889,
+          "unknown_fraction": 0.4986111111111111,
+          "cost_lower": 0.0,
+          "cost_upper": 0.4986111111111111,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.47638888888888886,
+            "occluded": 0.020833333333333332
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.39861111111111114,
+          "unknown_fraction": 0.6013888888888889,
+          "cost_lower": 0.03194444444444444,
+          "cost_upper": 0.6333333333333333,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.04861111111111111,
+            "no_projected_depth": 0.4652777777777778,
+            "occluded": 0.13194444444444445
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+      "sync_delta_seconds": 0.018000125885009766,
+      "surface": {
+        "fit_cells": 560,
+        "inlier_cells": 369,
+        "plane": [
+          0.01134248329124546,
+          -0.019455158574124942,
+          -1.1260417209707456
+        ],
+        "surface_points": 10014,
+        "cell_residual_p95_m": 0.12911987542073292
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4,
+          "unknown_fraction": 0.6,
+          "cost_lower": 0.24166666666666667,
+          "cost_upper": 0.8416666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.5430555555555555,
+            "occluded": 0.05694444444444444
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.43333333333333335,
+          "unknown_fraction": 0.5666666666666667,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5666666666666667,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0125,
+            "no_projected_depth": 0.5277777777777778,
+            "occluded": 0.0375
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5069444444444444,
+          "unknown_fraction": 0.4930555555555556,
+          "cost_lower": 0.06666666666666667,
+          "cost_upper": 0.5597222222222222,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.45694444444444443,
+            "occluded": 0.03611111111111111
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2388888888888889,
+          "unknown_fraction": 0.7611111111111111,
+          "cost_lower": 0.20277777777777778,
+          "cost_upper": 0.9638888888888888,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.21666666666666667,
+            "no_projected_depth": 0.5277777777777778,
+            "occluded": 0.2263888888888889
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+      "sync_delta_seconds": 0.015999794006347656,
+      "surface": {
+        "fit_cells": 543,
+        "inlier_cells": 419,
+        "plane": [
+          -0.014867409253611807,
+          0.002416490475330102,
+          -1.1084855145444383
+        ],
+        "surface_points": 9770,
+        "cell_residual_p95_m": 0.1431834958540542
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        12,
+        18,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4666666666666667,
+          "unknown_fraction": 0.5333333333333333,
+          "cost_lower": 0.12916666666666668,
+          "cost_upper": 0.6625,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.02638888888888889,
+            "no_projected_depth": 0.49166666666666664,
+            "occluded": 0.041666666666666664
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.42916666666666664,
+          "unknown_fraction": 0.5708333333333333,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5708333333333333,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.5611111111111111,
+            "occluded": 0.009722222222222222
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5194444444444445,
+          "unknown_fraction": 0.48055555555555557,
+          "cost_lower": 0.0,
+          "cost_upper": 0.48055555555555557,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.46111111111111114,
+            "occluded": 0.019444444444444445
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3194444444444444,
+          "unknown_fraction": 0.6805555555555556,
+          "cost_lower": 0.08472222222222223,
+          "cost_upper": 0.7652777777777778,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.05,
+            "no_projected_depth": 0.5902777777777778,
+            "occluded": 0.08611111111111111
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+      "sync_delta_seconds": 0.01699995994567871,
+      "surface": {
+        "fit_cells": 551,
+        "inlier_cells": 453,
+        "plane": [
+          0.030427573230262284,
+          0.013382650104348137,
+          -1.2312797357790881
+        ],
+        "surface_points": 12461,
+        "cell_residual_p95_m": 0.13909617780977077
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4708333333333333,
+          "unknown_fraction": 0.5291666666666667,
+          "cost_lower": 0.2013888888888889,
+          "cost_upper": 0.7305555555555556,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5236111111111111,
+            "occluded": 0.005555555555555556
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4097222222222222,
+          "unknown_fraction": 0.5902777777777778,
+          "cost_lower": 0.24166666666666667,
+          "cost_upper": 0.8319444444444445,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.08333333333333333,
+            "no_projected_depth": 0.5180555555555556,
+            "occluded": 0.07222222222222222
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.37083333333333335,
+          "unknown_fraction": 0.6291666666666667,
+          "cost_lower": 0.3,
+          "cost_upper": 0.9291666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.027777777777777776,
+            "no_projected_depth": 0.5277777777777778,
+            "occluded": 0.10138888888888889
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.18888888888888888,
+          "unknown_fraction": 0.8111111111111111,
+          "cost_lower": 0.16111111111111112,
+          "cost_upper": 0.9722222222222222,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.48194444444444445,
+            "no_projected_depth": 0.5861111111111111,
+            "occluded": 0.22083333333333333
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+      "sync_delta_seconds": 0.01699995994567871,
+      "surface": {
+        "fit_cells": 608,
+        "inlier_cells": 451,
+        "plane": [
+          0.012496384818737015,
+          0.0008864088325729602,
+          -1.152058207664674
+        ],
+        "surface_points": 11721,
+        "cell_residual_p95_m": 0.12715433190859682
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        33,
+        34
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.45,
+          "unknown_fraction": 0.55,
+          "cost_lower": 0.009722222222222222,
+          "cost_upper": 0.5597222222222222,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4888888888888889,
+            "occluded": 0.06111111111111111
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.46111111111111114,
+          "unknown_fraction": 0.5388888888888889,
+          "cost_lower": 0.0,
+          "cost_upper": 0.5388888888888889,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.5291666666666667,
+            "occluded": 0.009722222222222222
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5402777777777777,
+          "unknown_fraction": 0.4597222222222222,
+          "cost_lower": 0.0625,
+          "cost_upper": 0.5222222222222221,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.4361111111111111,
+            "occluded": 0.02361111111111111
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.3638888888888889,
+          "unknown_fraction": 0.6361111111111111,
+          "cost_lower": 0.1111111111111111,
+          "cost_upper": 0.7472222222222222,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.17777777777777778,
+            "no_projected_depth": 0.4625,
+            "occluded": 0.16666666666666666
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+      "sync_delta_seconds": 0.01699995994567871,
+      "surface": {
+        "fit_cells": 566,
+        "inlier_cells": 448,
+        "plane": [
+          0.04178411101726863,
+          -0.005483182313448909,
+          -1.2111788802677128
+        ],
+        "surface_points": 11610,
+        "cell_residual_p95_m": 0.14438974256602208
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        31,
+        33,
+        34
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4083333333333333,
+          "unknown_fraction": 0.5916666666666667,
+          "cost_lower": 0.07222222222222222,
+          "cost_upper": 0.6638888888888889,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.009722222222222222,
+            "no_projected_depth": 0.5069444444444444,
+            "occluded": 0.08472222222222223
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4125,
+          "unknown_fraction": 0.5875,
+          "cost_lower": 0.05694444444444444,
+          "cost_upper": 0.6444444444444445,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.005555555555555556,
+            "no_projected_depth": 0.5777777777777777,
+            "occluded": 0.009722222222222222
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4444444444444444,
+          "unknown_fraction": 0.5555555555555556,
+          "cost_lower": 0.30416666666666664,
+          "cost_upper": 0.8597222222222223,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.4583333333333333,
+            "occluded": 0.09722222222222222
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.30833333333333335,
+          "unknown_fraction": 0.6916666666666667,
+          "cost_lower": 0.23194444444444445,
+          "cost_upper": 0.9236111111111112,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.18194444444444444,
+            "no_projected_depth": 0.5625,
+            "occluded": 0.125
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+      "sync_delta_seconds": 0.015000104904174805,
+      "surface": {
+        "fit_cells": 530,
+        "inlier_cells": 380,
+        "plane": [
+          0.014721506971609287,
+          0.04231875629576587,
+          -1.3182404777158956
+        ],
+        "surface_points": 8389,
+        "cell_residual_p95_m": 0.1393522608496885
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        31,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4236111111111111,
+          "unknown_fraction": 0.5763888888888888,
+          "cost_lower": 0.059722222222222225,
+          "cost_upper": 0.6361111111111111,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.004166666666666667,
+            "no_projected_depth": 0.5680555555555555,
+            "occluded": 0.008333333333333333
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.4305555555555556,
+          "unknown_fraction": 0.5694444444444444,
+          "cost_lower": 0.03611111111111111,
+          "cost_upper": 0.6055555555555555,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5319444444444444,
+            "occluded": 0.0375
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2916666666666667,
+          "unknown_fraction": 0.7083333333333334,
+          "cost_lower": 0.12916666666666668,
+          "cost_upper": 0.8375,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.08055555555555556,
+            "no_projected_depth": 0.6236111111111111,
+            "occluded": 0.08472222222222223
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.1527777777777778,
+          "unknown_fraction": 0.8472222222222222,
+          "cost_lower": 0.12638888888888888,
+          "cost_upper": 0.9736111111111111,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.006944444444444444,
+            "unsupported_surface": 0.4125,
+            "no_projected_depth": 0.6236111111111111,
+            "occluded": 0.21944444444444444
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+      "sync_delta_seconds": 0.016000032424926758,
+      "surface": {
+        "fit_cells": 588,
+        "inlier_cells": 450,
+        "plane": [
+          0.02141455751675006,
+          0.0025670005177318433,
+          -1.1112934472304927
+        ],
+        "surface_points": 12118,
+        "cell_residual_p95_m": 0.14664451702972772
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.44027777777777777,
+          "unknown_fraction": 0.5597222222222222,
+          "cost_lower": 0.32916666666666666,
+          "cost_upper": 0.8888888888888888,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.008333333333333333,
+            "no_projected_depth": 0.45,
+            "occluded": 0.10972222222222222
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.44305555555555554,
+          "unknown_fraction": 0.5569444444444445,
+          "cost_lower": 0.009722222222222222,
+          "cost_upper": 0.5666666666666667,
+          "danger_status": "unresolved",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5263888888888889,
+            "occluded": 0.030555555555555555
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.5375,
+          "unknown_fraction": 0.4625,
+          "cost_lower": 0.11666666666666667,
+          "cost_upper": 0.5791666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.001388888888888889,
+            "no_projected_depth": 0.44166666666666665,
+            "occluded": 0.020833333333333332
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2708333333333333,
+          "unknown_fraction": 0.7291666666666666,
+          "cost_lower": 0.25972222222222224,
+          "cost_upper": 0.9888888888888889,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.16666666666666666,
+            "no_projected_depth": 0.5083333333333333,
+            "occluded": 0.21805555555555556
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    },
+    {
+      "image": "00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+      "sync_delta_seconds": 0.016000032424926758,
+      "surface": {
+        "fit_cells": 555,
+        "inlier_cells": 420,
+        "plane": [
+          0.03880285690254342,
+          -0.04769653065013091,
+          -1.1188863530258657
+        ],
+        "surface_points": 10943,
+        "cell_residual_p95_m": 0.1344683335194331
+      },
+      "independent_projection_max_difference_px": 1.8189894035458565e-12,
+      "raw_ids_present": [
+        3,
+        4,
+        7,
+        19,
+        33
+      ],
+      "candidates": [
+        {
+          "heading_degrees": -12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.38333333333333336,
+          "unknown_fraction": 0.6166666666666667,
+          "cost_lower": 0.3416666666666667,
+          "cost_upper": 0.9583333333333334,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.48194444444444445,
+            "occluded": 0.13472222222222222
+          }
+        },
+        {
+          "heading_degrees": -4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.45694444444444443,
+          "unknown_fraction": 0.5430555555555555,
+          "cost_lower": 0.025,
+          "cost_upper": 0.5680555555555555,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.0,
+            "no_projected_depth": 0.5055555555555555,
+            "occluded": 0.0375
+          }
+        },
+        {
+          "heading_degrees": 4.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.45,
+          "unknown_fraction": 0.55,
+          "cost_lower": 0.05416666666666667,
+          "cost_upper": 0.6041666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.0,
+            "unsupported_surface": 0.005555555555555556,
+            "no_projected_depth": 0.48055555555555557,
+            "occluded": 0.06805555555555555
+          }
+        },
+        {
+          "heading_degrees": 12.0,
+          "surface_samples": 720,
+          "geometrically_known_fraction": 0.2847222222222222,
+          "unknown_fraction": 0.7152777777777778,
+          "cost_lower": 0.1763888888888889,
+          "cost_upper": 0.8916666666666667,
+          "danger_status": "noncompliant",
+          "unknown_reasons_fraction": {
+            "outside_view": 0.008333333333333333,
+            "unsupported_surface": 0.2611111111111111,
+            "no_projected_depth": 0.4847222222222222,
+            "occluded": 0.2263888888888889
+          }
+        }
+      ],
+      "all_four_evaluable": false,
+      "status": "AUDITED"
+    }
+  ],
+  "n_audited": 24,
+  "n_all_four_evaluable": 0,
+  "unknown_interval_width_p95": 0.8149305555555555,
+  "known_support_screen_pass": false,
+  "support_ambiguity_screen_pass": false,
+  "qualification_pass": false,
+  "qualification_status": "STOP_CURRENT_GEOMETRY_SUPPORT",
+  "decision": "Do not train or open external final tests until support, independent registration uncertainty, and spatial split prerequisites are satisfied."
+}

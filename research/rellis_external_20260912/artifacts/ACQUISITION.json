@@ -1,0 +1,445 @@
+{
+  "source": "https://github.com/unmannedlab/RELLIS-3D",
+  "started_utc": "2026-09-12T17:48:58Z",
+  "source_sha256": "78d317fde01f1929d8ff83c031376324e690040f7129542f460c4b38c5ef2813",
+  "scope": "Official metadata and unopened examples; no training or final-test labels.",
+  "files": {
+    "intrinsics": {
+      "name": "intrinsics",
+      "official_id": "1NAigZTJYocRSOTfgFBddZYnDsI_CSpwK",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1NAigZTJYocRSOTfgFBddZYnDsI_CSpwK&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 2130,
+      "sha256": "239c60df113703ba25f2d29bf40592f5c7a8708f1da5223d5a0233787e2afd12",
+      "members": [
+        {
+          "name": "Rellis-3D/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00004/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00004/camera_info.txt",
+          "bytes": 46
+        },
+        {
+          "name": "Rellis-3D/00003/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00003/camera_info.txt",
+          "bytes": 46
+        },
+        {
+          "name": "Rellis-3D/00002/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00002/camera_info.txt",
+          "bytes": 46
+        },
+        {
+          "name": "Rellis-3D/00001/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00001/camera_info.txt",
+          "bytes": 46
+        },
+        {
+          "name": "Rellis-3D/00000/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00000/camera_info.txt",
+          "bytes": 46
+        }
+      ]
+    },
+    "extrinsics": {
+      "name": "extrinsics",
+      "official_id": "19EOqWS9fDUFp4nsBrMCa69xs9LgIlS2e",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=19EOqWS9fDUFp4nsBrMCa69xs9LgIlS2e&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 2502,
+      "sha256": "f76d2b5cf771878a2ab4772efdd88560e96260f8fb69cb980832ac7841e38fd3",
+      "members": [
+        {
+          "name": "Rellis_3D/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00000/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00000/transforms.yaml",
+          "bytes": 174
+        },
+        {
+          "name": "Rellis_3D/00001/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00001/transforms.yaml",
+          "bytes": 174
+        },
+        {
+          "name": "Rellis_3D/00002/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00002/transforms.yaml",
+          "bytes": 174
+        },
+        {
+          "name": "Rellis_3D/00003/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00003/transforms.yaml",
+          "bytes": 174
+        },
+        {
+          "name": "Rellis_3D/00004/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D/00004/transforms.yaml",
+          "bytes": 173
+        }
+      ]
+    },
+    "poses": {
+      "name": "poses",
+      "official_id": "1V3PT_NJhA41N7TBLp5AbW31d0ztQDQOX",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1V3PT_NJhA41N7TBLp5AbW31d0ztQDQOX&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 609344,
+      "sha256": "6deaf38a9cac3a480cfdb70fa9a1d9278f25c36f5efd2487a3c4a6a400250f67",
+      "members": [
+        {
+          "name": "Rellis-3D/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00004/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00004/poses.txt",
+          "bytes": 240644
+        },
+        {
+          "name": "Rellis-3D/00004/calib.txt",
+          "bytes": 260
+        },
+        {
+          "name": "Rellis-3D/00003/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00003/poses.txt",
+          "bytes": 251415
+        },
+        {
+          "name": "Rellis-3D/00003/calib.txt",
+          "bytes": 260
+        },
+        {
+          "name": "Rellis-3D/00002/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00002/poses.txt",
+          "bytes": 470506
+        },
+        {
+          "name": "Rellis-3D/00002/calib.txt",
+          "bytes": 260
+        },
+        {
+          "name": "Rellis-3D/00001/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00001/poses.txt",
+          "bytes": 266773
+        },
+        {
+          "name": "Rellis-3D/00001/calib.txt",
+          "bytes": 260
+        },
+        {
+          "name": "Rellis-3D/00000/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis-3D/00000/poses.txt",
+          "bytes": 331702
+        },
+        {
+          "name": "Rellis-3D/00000/calib.txt",
+          "bytes": 260
+        }
+      ]
+    },
+    "image_examples": {
+      "name": "image_examples",
+      "official_id": "1wIig-LCie571DnK72p2zNAYYWeclEz1D",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1wIig-LCie571DnK72p2zNAYYWeclEz1D&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 3634055,
+      "sha256": "2c72418f40758f03d40da02a66519c69285ef61ae0cf5e5571335577b9db5fdc",
+      "members": [
+        {
+          "name": "Rellis_3D_image_example/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node/frame000000-1581624652_750.jpg",
+          "bytes": 1067757
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node/frame000002-1581624652_949.jpg",
+          "bytes": 1066698
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node/frame000000-1581623790_349.jpg",
+          "bytes": 685547
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node/frame000002-1581623790_549.jpg",
+          "bytes": 685662
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_color/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_color/frame000000-1581624652_750.png",
+          "bytes": 35664
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_color/frame000002-1581624652_949.png",
+          "bytes": 37545
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_color/frame000000-1581623790_349.png",
+          "bytes": 23546
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_color/frame000002-1581623790_549.png",
+          "bytes": 21084
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_id/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_id/frame000000-1581624652_750.png",
+          "bytes": 21514
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_id/frame000002-1581624652_949.png",
+          "bytes": 22475
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_id/frame000000-1581623790_349.png",
+          "bytes": 14538
+        },
+        {
+          "name": "Rellis_3D_image_example/pylon_camera_node_label_id/frame000002-1581623790_549.png",
+          "bytes": 12908
+        }
+      ]
+    },
+    "image_splits": {
+      "name": "image_splits",
+      "official_id": "1zHmnVaItcYJAWat3Yti1W_5Nfux194WQ",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1zHmnVaItcYJAWat3Yti1W_5Nfux194WQ&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 44657,
+      "sha256": "3aeefd5f0878f737cd82ef9890fb5e67b21d7bbd04c4dd2b29aa6eac887023eb",
+      "members": [
+        {
+          "name": "test.lst",
+          "bytes": 198968
+        },
+        {
+          "name": "train.lst",
+          "bytes": 392938
+        },
+        {
+          "name": "val.lst",
+          "bytes": 116977
+        }
+      ]
+    },
+    "lidar_examples": {
+      "name": "lidar_examples",
+      "official_id": "1QikPnpmxneyCuwefr6m50fBOSB2ny4LC",
+      "attempts": [
+        {
+          "url": "https://drive.usercontent.google.com/download?id=1QikPnpmxneyCuwefr6m50fBOSB2ny4LC&export=download&confirm=t",
+          "status": 200,
+          "content_type": "application/octet-stream"
+        }
+      ],
+      "status": "DOWNLOADED",
+      "bytes": 25433049,
+      "sha256": "d6d11c3c935d22685703b0637e2fa77327710f575ac2e37d85d1ad494b6161e1",
+      "members": [
+        {
+          "name": "Rellis_3D_lidar_example/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000000-1581624652_770.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000004-1581624653_171.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000006-1581624653_371.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000002-1581624652_971.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000003-1581624653_071.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000001-1581624652_871.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000005-1581624653_271.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_color_ply/frame000007-1581624653_470.ply",
+          "bytes": 4325709
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000005.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000002.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000006.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000003.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000000.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000001.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000007.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_kitti_bin/000004.bin",
+          "bytes": 2097152
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/",
+          "bytes": 0
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000004.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000000.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000002.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000006.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000001.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000003.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000005.label",
+          "bytes": 524288
+        },
+        {
+          "name": "Rellis_3D_lidar_example/os1_cloud_node_semantickitti_label_id/000007.label",
+          "bytes": 524288
+        }
+      ]
+    }
+  },
+  "finished_utc": "2026-09-12T17:49:02Z"
+}
