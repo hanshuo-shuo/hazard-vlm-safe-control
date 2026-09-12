@@ -1,0 +1,77 @@
+{
+  "id": "RELLIS-MEASUREMENT-REVISION-20260912",
+  "parent_commit": "1b7ec6022cdacb4ddad985ad169335a06e9e703d",
+  "official_repository_commit": "c17a118fcaed1559f03cc32cc3a91dedc557f8b8",
+  "scope": "One bounded measurement-interface revision; no external mechanism claim or model computation",
+  "budget": {
+    "engineering_hours_max": 16,
+    "wall_clock_deadline_utc": "2026-09-14T19:00:00Z",
+    "development_centres": "Exactly the consumed 24 identities in ../rellis_external_20260912/artifacts/PILOT_SELECTION.json",
+    "development_sensor_access": "Necessary neighbouring sensor observations only; metadata and source code may be inspected globally. No new qualification RGB/labels before prerequisite and final freeze.",
+    "geometric_versions_max": 2,
+    "versions": ["V1: verified coordinate/time chain with single-scan support", "V2: same chain with one fixed motion-compensated local window"],
+    "window_max_seconds": 1.0,
+    "scans_per_centre_max": 11,
+    "window_rule": "Provisional symmetric +/-0.5 seconds; at most 11 nearest scan times, sorted chronologically. Must be verified and frozen on development observations before new qualification acquisition. No window search on qualification.",
+    "additional_download_bytes_max": 17179869184,
+    "allocated_cpu_hours_max": 32,
+    "gpu_hours": 0,
+    "forbidden": ["segmentation training", "risk mechanism experiments", "VLM", "RL", "stereo reconstruction", "learned depth completion", "candidate redesign", "third geometry revision"]
+  },
+  "cost": {
+    "denominator": "Full requested corridor area, represented by equal-area samples; never renormalize over known/evaluable area",
+    "tau": 0.02,
+    "lower": "min_theta(known_prohibited_area(theta) / full_area)",
+    "upper": "max_theta((known_prohibited_area(theta) + unknown_area(theta)) / full_area)",
+    "compliant": "upper <= tau",
+    "noncompliant": "lower > tau",
+    "undetermined": "lower <= tau < upper",
+    "uncertainty_scope": "Conditional empirical geometry-error analysis, not a coverage or physical-navigation guarantee",
+    "allowed_raw_ids": [1, 3, 10, 23, 33],
+    "prohibited_raw_ids": [4, 5, 6, 8, 9, 12, 15, 17, 18, 19, 27, 31, 34],
+    "unknown": "Void, sky, unmapped IDs, unsupported, occluded, dynamically inconsistent, or geometrically uncertain samples"
+  },
+  "corridors": {
+    "longitudinal_segment_m": [6.0, 12.0],
+    "width_m": 1.2,
+    "heading_degrees": [-12.0, -4.0, 4.0, 12.0],
+    "sampling_spacing_m": 0.1,
+    "origin": "Current LiDAR centre; gravity-aligned forward/left/up directions must be verified",
+    "prefix": "0-6 m is outside the task; no safe arrival or full route claim"
+  },
+  "prerequisites_before_new_samples": {
+    "correspondence_table": "RGB timestamp -> scan ID/time and within-scan timing convention -> pose ID/time -> named coordinate transformations -> current-camera projection",
+    "pose_identity": "Official export provenance plus observational verification, or timestamped raw pose/IMU chain; no image-ID/pose-row guess or count-only inference",
+    "calibration": "Versioned intrinsics, distortion, extrinsics, sensor/body axes and gravity source must be consistent; independently check observed alignment",
+    "independent_observations": "Use necessary development-neighbour scans withheld from fitting. Split deterministic chronological neighbour ranks into fit and check observations before their geometry is inspected; preserve errors even if large.",
+    "support_classes": ["direct observation", "independently validated local interpolation", "unknown"],
+    "false_support": "Check terrain breaks, foreground occlusion and inferred ground under non-ground objects; nearby points or depth bins alone are insufficient",
+    "error_envelope": "Freeze a measured empirical range for timing/registration, surface height and projection from independent development checks before qualification; propagate jointly into full-area cost intervals. Do not invent arbitrary perturbations as measured error.",
+    "information_rights": "Neighbour/future scans are privileged offline reference only. Current-camera visibility must hold. No future input enters future RGB selector or acceptance. Human semantic labels never fit ground, choose windows or fill holes.",
+    "failure": "If mapping, coordinates, independent support/error evidence or spatial isolation cannot be substantiated within the bounded route, stop before acquiring fresh qualification samples. Budget is an upper bound, not a requirement to exhaust it."
+  },
+  "fresh_qualification": {
+    "count": 48,
+    "blocks_min": 12,
+    "frames_per_block": 4,
+    "selection": "After verified global/route geometry, partition and merge revisits using metadata only. Exclude the entire support footprint of development, including the earlier engineering-example exclusion. Apply >=25 m spatial separation including uncertainty and all support scans. Freeze exactly 12 route/spatial blocks and 4 timestamp-spaced centres per block, ordered deterministically, before reading any new RGB/labels. If 12 defensibly isolated blocks cannot be formed, stop; do not substitute sequence IDs for spatial evidence.",
+    "identity_freeze": "A second signed-by-hash machine record must contain all 48 centre IDs, all support scan IDs, spatial block assignment, uncertainty settings and human review IDs; this protocol alone is not a claim that those identities exist",
+    "human_review": "Preselect first and third chronological centres in first six ordered blocks (12 frames across six blocks). Independent human reviewer must assess new support, boundaries and discontinuities; assistant inspection is additional evidence, never represented as human review.",
+    "remaining_images": "Full fixed-order atlas",
+    "evaluate_once": true,
+    "missing_policy": "Keep missing, failed, unknown and all-noncompliant samples; no replacement",
+    "consumption": "Qualification is development evidence, never reused for final mechanism confirmation"
+  },
+  "decision": {
+    "prerequisite_evidence_required": true,
+    "all_four_determined_scenes_min": 39,
+    "mixed_compliant_noncompliant_scenes_min": 8,
+    "mixed_blocks_min": 4,
+    "systematic_false_support_changing_labels": "Fail even if average coverage passes",
+    "continuous_cost_interval_width_p95_max": 0.005,
+    "full_pass": "All prerequisites, human review, decision evaluability/information and continuous-cost precision pass",
+    "binary_only_pass": "All prerequisites, human review and decision evaluability/information pass but continuous-cost precision fails; only accepted danger rate and availability may be studied subsequently, no continuous regret or residual-mechanism validation",
+    "fail_or_uncertain": "Stop external expansion and narrow controlled-case manuscript. No automatic third repair or new sample search.",
+    "reporting": "All frames and evaluable subset, per block, all-compliant/mixed/none-compliant/undetermined, geometry/support/error causes, and semantic/geometric characteristics of excluded scenes. These counts are engineering/information gates, not significance or safety guarantees."
+  }
+}

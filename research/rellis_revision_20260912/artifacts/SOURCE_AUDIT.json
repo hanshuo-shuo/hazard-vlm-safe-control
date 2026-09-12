@@ -1,0 +1,143 @@
+{
+  "created_utc": "2026-09-12T19:03:55Z",
+  "new_image_or_label_contents_opened": 0,
+  "sources": {
+    "README.md": {
+      "source_sha256": "0bdc7ea2eb55b6cf3f50c7755bc82e0166d670953d82261daf597737ea8ecb9c",
+      "extract_sha256": "0bdc7ea2eb55b6cf3f50c7755bc82e0166d670953d82261daf597737ea8ecb9c"
+    },
+    "utils/convert_ply2bin.py": {
+      "source_sha256": "a920f1e2d798ad1ad33bfac15f39a0563d1490f0c1a470945bf048dee8914441",
+      "extract_sha256": "a920f1e2d798ad1ad33bfac15f39a0563d1490f0c1a470945bf048dee8914441"
+    },
+    "utils/lidar2img.ipynb": {
+      "source_sha256": "dcb01622012719d0babd9cc1b4f5359ab41d419134c6d5b12dd3f37987cf0119",
+      "extract_sha256": "73f6d295ada91a8a12e72626f755904fb3264c98e479031080a57a76a68e3c35"
+    },
+    "utils/example/transforms.yaml": {
+      "source_sha256": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+      "extract_sha256": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c"
+    },
+    "utils/example/camera_info.txt": {
+      "source_sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+      "extract_sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "catkin_ws/src/platform_description/urdf/warthog.urdf": {
+      "source_sha256": "8888dfcfe33631b1e430d5ccfd38db352c6cfe6e544821929b2f01c93d74cfde",
+      "extract_sha256": "8888dfcfe33631b1e430d5ccfd38db352c6cfe6e544821929b2f01c93d74cfde"
+    },
+    "metadata/extrinsics/Rellis_3D/00000/transforms.yaml": {
+      "sha256": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c"
+    },
+    "metadata/intrinsics/Rellis-3D/00000/camera_info.txt": {
+      "sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "metadata/poses/Rellis-3D/00000/calib.txt": {
+      "sha256": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b"
+    },
+    "metadata/extrinsics/Rellis_3D/00001/transforms.yaml": {
+      "sha256": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c"
+    },
+    "metadata/intrinsics/Rellis-3D/00001/camera_info.txt": {
+      "sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "metadata/poses/Rellis-3D/00001/calib.txt": {
+      "sha256": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b"
+    },
+    "metadata/extrinsics/Rellis_3D/00002/transforms.yaml": {
+      "sha256": "d9b8245da0f765daa597f2a152d8d603a6903d82fe375683d15084f85bbebf0a"
+    },
+    "metadata/intrinsics/Rellis-3D/00002/camera_info.txt": {
+      "sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "metadata/poses/Rellis-3D/00002/calib.txt": {
+      "sha256": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b"
+    },
+    "metadata/extrinsics/Rellis_3D/00003/transforms.yaml": {
+      "sha256": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c"
+    },
+    "metadata/intrinsics/Rellis-3D/00003/camera_info.txt": {
+      "sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "metadata/poses/Rellis-3D/00003/calib.txt": {
+      "sha256": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b"
+    },
+    "metadata/extrinsics/Rellis_3D/00004/transforms.yaml": {
+      "sha256": "9a5893601e07a647e3682d223226d40178336fe4757054cfae1fa4faacf33a8c"
+    },
+    "metadata/intrinsics/Rellis-3D/00004/camera_info.txt": {
+      "sha256": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+    },
+    "metadata/poses/Rellis-3D/00004/calib.txt": {
+      "sha256": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b"
+    },
+    "https://api.github.com/repos/unmannedlab/RELLIS-3D/issues?state=all&per_page=100": {
+      "status": "OK",
+      "issues": 54,
+      "relevant": 14
+    }
+  },
+  "archives": {
+    "ply": {
+      "official_id": "1BZWrPOeLhbVItdN0xhzolfsABr6ymsRr",
+      "size_bytes": 28252049064,
+      "magic_hex": "504b03040a0000000000858169510000",
+      "status": "ZIP_DIRECTORY_ONLY",
+      "members": 13560,
+      "transferred_bytes": 3477160
+    },
+    "kitti": {
+      "official_id": "1lDSVRf_kZrD0zHHMsKJ0V1GN9QATR4wH",
+      "size_bytes": 15037868425,
+      "magic_hex": "504b03040a0000000000608c4e510000",
+      "status": "ZIP_DIRECTORY_ONLY",
+      "members": 13561,
+      "transferred_bytes": 3451273
+    },
+    "merged_seq00000": {
+      "official_id": "1grcYRvtAijiA0Kzu-AV_9K4k2C1Kc3Tn",
+      "size_bytes": 24649479567,
+      "magic_hex": "504b03042d000000080017a35a52f8ef",
+      "status": "ZIP_DIRECTORY_ONLY",
+      "members": 1,
+      "transferred_bytes": 1114112
+    },
+    "synced_seq00000": {
+      "official_id": "1bIb-6fWbaiI9Q8Pq9paANQwXWn7GJDtl",
+      "size_bytes": 12939225504,
+      "magic_hex": "504b03042d0008000800daad61520000",
+      "status": "ZIP_DIRECTORY_ONLY",
+      "members": 1,
+      "transferred_bytes": 1114112
+    }
+  },
+  "files_sha256": {
+    "README.md": "0bdc7ea2eb55b6cf3f50c7755bc82e0166d670953d82261daf597737ea8ecb9c",
+    "catkin_ws__src__platform_description__urdf__warthog.urdf": "8888dfcfe33631b1e430d5ccfd38db352c6cfe6e544821929b2f01c93d74cfde",
+    "extrinsics_00000_transforms.yaml": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+    "extrinsics_00001_transforms.yaml": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+    "extrinsics_00002_transforms.yaml": "d9b8245da0f765daa597f2a152d8d603a6903d82fe375683d15084f85bbebf0a",
+    "extrinsics_00003_transforms.yaml": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+    "extrinsics_00004_transforms.yaml": "9a5893601e07a647e3682d223226d40178336fe4757054cfae1fa4faacf33a8c",
+    "intrinsics_00000_camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "intrinsics_00001_camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "intrinsics_00002_camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "intrinsics_00003_camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "intrinsics_00004_camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "issues.json": "410e8b8b76c6054de7c92e49a6a94683a91caf79bbda58e5e8724e85630ca2b9",
+    "kitti_inventory.json": "3331d692ab1962d8b834c0351c48fdb4be05b048c3e4b364c5bd5d5fa1b443a4",
+    "merged_seq00000_inventory.json": "ceb9fdf0a6a35be99201c904f9ee2ea41b5ddfd6a74bf360d5dfed73cc8d29b4",
+    "ply_inventory.json": "f32daf2fa96caa05b026c3cc8b3bdfa391398769c9de4505353d442cee03099e",
+    "poses_00000_calib.txt": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b",
+    "poses_00001_calib.txt": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b",
+    "poses_00002_calib.txt": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b",
+    "poses_00003_calib.txt": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b",
+    "poses_00004_calib.txt": "5f80331f2077716e15d300432fdb4c4a43e53ee5ca103d058041fe1c71a73f8b",
+    "relevant_discussions.json": "11f2a227aa12506b7d2f31c09f078815252b3a7ab9548555e0f38cc2424a2d3c",
+    "synced_seq00000_inventory.json": "efde08946e50dfdd45855d86e38cc753224a128492fd282f041aaee8ccf84802",
+    "utils__convert_ply2bin.py": "a920f1e2d798ad1ad33bfac15f39a0563d1490f0c1a470945bf048dee8914441",
+    "utils__example__camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad",
+    "utils__example__transforms.yaml": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+    "utils__lidar2img.code.txt": "73f6d295ada91a8a12e72626f755904fb3264c98e479031080a57a76a68e3c35"
+  }
+}

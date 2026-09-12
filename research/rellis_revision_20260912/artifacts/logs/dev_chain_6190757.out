@@ -1,0 +1,76 @@
+{
+  "frames": 24,
+  "statuses": {
+    "OBSERVED_RAW_PLY_MATCH": 24
+  },
+  "clouds": 240,
+  "invalid": {
+    "/imu/data_raw": 1295
+  },
+  "frames_by_topic": {
+    "/tf_static": [
+      ""
+    ],
+    "/os1_cloud_node/imu": [
+      "ouster1/os1_imu"
+    ],
+    "/tf": [
+      ""
+    ],
+    "/vectornav/IMU": [
+      "imu_link"
+    ],
+    "/vectornav/GPS": [
+      "imu_link"
+    ],
+    "/imu/data": [
+      "imu_link"
+    ],
+    "/vectornav/Odom": [
+      "imu_link"
+    ],
+    "/odometry/filtered": [
+      "odom"
+    ],
+    "/os1_cloud_node/points": [
+      "ouster1/os1_lidar"
+    ]
+  },
+  "dynamic_edges": [
+    {
+      "parent": "chassis_link",
+      "child": "left_diff_unit_link",
+      "count": 792
+    },
+    {
+      "parent": "chassis_link",
+      "child": "right_diff_unit_link",
+      "count": 792
+    },
+    {
+      "parent": "odom",
+      "child": "base_link",
+      "count": 1193
+    },
+    {
+      "parent": "left_diff_unit_link",
+      "child": "front_left_wheel_link",
+      "count": 561
+    },
+    {
+      "parent": "right_diff_unit_link",
+      "child": "front_right_wheel_link",
+      "count": 561
+    },
+    {
+      "parent": "left_diff_unit_link",
+      "child": "rear_left_wheel_link",
+      "count": 561
+    },
+    {
+      "parent": "right_diff_unit_link",
+      "child": "rear_right_wheel_link",
+      "count": 561
+    }
+  ]
+}

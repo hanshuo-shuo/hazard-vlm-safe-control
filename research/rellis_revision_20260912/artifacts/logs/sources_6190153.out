@@ -1,0 +1,4 @@
+{"ply": {"official_id": "1BZWrPOeLhbVItdN0xhzolfsABr6ymsRr", "size_bytes": 28252049064, "magic_hex": "504b03040a0000000000858169510000", "status": "ZIP_DIRECTORY_ONLY", "members": 13560, "transferred_bytes": 3477160}}
+{"kitti": {"official_id": "1lDSVRf_kZrD0zHHMsKJ0V1GN9QATR4wH", "size_bytes": 15037868425, "magic_hex": "504b03040a0000000000608c4e510000", "status": "ZIP_DIRECTORY_ONLY", "members": 13561, "transferred_bytes": 3451273}}
+{"merged_seq00000": {"official_id": "1grcYRvtAijiA0Kzu-AV_9K4k2C1Kc3Tn", "size_bytes": 24649479567, "magic_hex": "504b03042d000000080017a35a52f8ef", "status": "ZIP_DIRECTORY_ONLY", "members": 1, "transferred_bytes": 1114112}}
+{"synced_seq00000": {"official_id": "1bIb-6fWbaiI9Q8Pq9paANQwXWn7GJDtl", "size_bytes": 12939225504, "magic_hex": "504b03042d0008000800daad61520000", "status": "ZIP_DIRECTORY_ONLY", "members": 1, "transferred_bytes": 1114112}}

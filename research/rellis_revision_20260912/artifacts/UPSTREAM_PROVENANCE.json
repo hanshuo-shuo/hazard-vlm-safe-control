@@ -1,0 +1,27 @@
+{
+  "RELLIS": {
+    "commit": "c17a118fcaed1559f03cc32cc3a91dedc557f8b8",
+    "url": "https://github.com/unmannedlab/RELLIS-3D/tree/c17a118fcaed1559f03cc32cc3a91dedc557f8b8"
+  },
+  "Cartographer": {
+    "commit": "27c15c92fa43ab221508add8597bdc0517a0cccb",
+    "url": "https://github.com/unmannedlab/cartographer/tree/27c15c92fa43ab221508add8597bdc0517a0cccb"
+  },
+  "Ouster_history_snapshot": {
+    "commit": "4a0cc273d1711421f24da2495d90143fd7684883",
+    "url": "https://github.com/ouster-lidar/ouster-sdk/tree/4a0cc273d1711421f24da2495d90143fd7684883",
+    "scope": "Latest upstream commit found before acquisition date, not a proven installed driver build"
+  },
+  "file_sha256": {
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_cartographer/src/cartographer_ros/cartographer_ros/cartographer_ros/output_pose.cc": "ea809d7925bb70d74f1d720b14e30d2a1eebc6149af488f6ad2880dad2de4e1d",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_cartographer/src/cartographer_ros/cartographer_ros/cartographer_ros/msg_conversion.cc": "80eddf942ec2e1091e4267385c4bdf76d4bf53020f253112fea3a81bea816513",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_cartographer/cart_config/launch/offline_warthog_3d_ouster.launch": "9b5284ec9cab1ee6ebc2589ec9186442be78b50dd30e0f8ce573f9816b4bdc06",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_cartographer/cart_config/config/output_pose.lua": "22f1d5ad9cc77d33d0763893868f58adafc3ac475ae2e1055d65e71f181c9eb4",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_ouster_snapshot/ouster_client/include/ouster/os1_util.h": "f316f04af9e37875494d8f3cb0eec96e80e3f1894e694aad17e5fd5027d2bead",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/official_ouster_snapshot/ouster_ros/src/os1_cloud_node.cpp": "f6a33b9a1777f6b4cf802894344bab25d637ae494648c83c3e359cb89c902491",
+    "/projects/p33100/siosio/hazard_rellis_revision_20260912/source_audit/raw_folder.html": "f9641d00b04f94fd711203de135e22e608c709e82436bedbd58e2616eb3dcb36",
+    "/projects/p33100/siosio/hazard_rellis_external_20260912/official_rellis/catkin_ws/src/platform_description/urdf/warthog.urdf": "8888dfcfe33631b1e430d5ccfd38db352c6cfe6e544821929b2f01c93d74cfde",
+    "/projects/p33100/siosio/hazard_rellis_external_20260912/metadata/extrinsics/Rellis_3D/00000/transforms.yaml": "caef36e3c3f89ab1e22450708b3d86e80081c3c1214f0dcb4fbe269730937a0c",
+    "/projects/p33100/siosio/hazard_rellis_external_20260912/metadata/intrinsics/Rellis-3D/00000/camera_info.txt": "9fe0882e3d8dfdfb69cbacb1c3dbc8c9abce69d331ec9f0f49a83c99c3157dad"
+  }
+}

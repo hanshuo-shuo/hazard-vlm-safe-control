@@ -1,0 +1,140 @@
+{
+  "created_utc": "2026-09-12T19:09:44Z",
+  "sequences": {
+    "00000": {
+      "ply_count": 2847,
+      "pose_count": 2847,
+      "ply_ids_exactly_zero_to_n_minus_one": true,
+      "pose_sha256": "794670a3f3d7b0d2fce33b7daf586b56cd08fe1b2da3d3ffb0d03c5835479d52",
+      "rotation_orthogonality_max": 1.4079773238417914e-06,
+      "rotation_determinant_range": [
+        0.9999984636804794,
+        1.0000014914316067
+      ],
+      "scan_gap_ms_range": [
+        99.0,
+        101.0
+      ],
+      "identity_status": "UNVERIFIED_HYPOTHESIS: source describes scan-ordered sensor-to-map export; counts/order alone are insufficient",
+      "first_scan": {
+        "frame": 0,
+        "timestamp_ns": 1581624652770000000,
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame000000-1581624652_770.ply"
+      },
+      "last_scan": {
+        "frame": 2846,
+        "timestamp_ns": 1581624937362000000,
+        "member": "Rellis-3D/00000/os1_cloud_node_color_ply/frame002846-1581624937_362.ply"
+      },
+      "full_records_on_quest": "sensor_metadata/POSE_SCAN_METADATA.json"
+    },
+    "00001": {
+      "ply_count": 2319,
+      "pose_count": 2319,
+      "ply_ids_exactly_zero_to_n_minus_one": true,
+      "pose_sha256": "048c91351eed8f7439c2ffed25af0836d1cd8029b51620d986d0a5f0e4394b69",
+      "rotation_orthogonality_max": 1.5244602398212237e-06,
+      "rotation_determinant_range": [
+        0.9999984010485398,
+        1.0000016417558117
+      ],
+      "scan_gap_ms_range": [
+        99.0,
+        101.0
+      ],
+      "identity_status": "UNVERIFIED_HYPOTHESIS: source describes scan-ordered sensor-to-map export; counts/order alone are insufficient",
+      "first_scan": {
+        "frame": 0,
+        "timestamp_ns": 1581623790394000000,
+        "member": "Rellis-3D/00001/os1_cloud_node_color_ply/frame000000-1581623790_394.ply"
+      },
+      "last_scan": {
+        "frame": 2318,
+        "timestamp_ns": 1581624022186000000,
+        "member": "Rellis-3D/00001/os1_cloud_node_color_ply/frame002318-1581624022_186.ply"
+      },
+      "full_records_on_quest": "sensor_metadata/POSE_SCAN_METADATA.json"
+    },
+    "00002": {
+      "ply_count": 4147,
+      "pose_count": 4147,
+      "ply_ids_exactly_zero_to_n_minus_one": true,
+      "pose_sha256": "3cb43d828f5a75336546d78407e795379de2e909551a0356b3fd9392d5b6afa8",
+      "rotation_orthogonality_max": 1.5483490001244604e-06,
+      "rotation_determinant_range": [
+        0.999998440467238,
+        1.0000014359300453
+      ],
+      "scan_gap_ms_range": [
+        99.0,
+        101.0
+      ],
+      "identity_status": "UNVERIFIED_HYPOTHESIS: source describes scan-ordered sensor-to-map export; counts/order alone are insufficient",
+      "first_scan": {
+        "frame": 0,
+        "timestamp_ns": 1581797150455000000,
+        "member": "Rellis-3D/00002/os1_cloud_node_color_ply/frame000000-1581797150_455.ply"
+      },
+      "last_scan": {
+        "frame": 4146,
+        "timestamp_ns": 1581797565042000000,
+        "member": "Rellis-3D/00002/os1_cloud_node_color_ply/frame004146-1581797565_042.ply"
+      },
+      "full_records_on_quest": "sensor_metadata/POSE_SCAN_METADATA.json"
+    },
+    "00003": {
+      "ply_count": 2184,
+      "pose_count": 2184,
+      "ply_ids_exactly_zero_to_n_minus_one": true,
+      "pose_sha256": "eee61dd1da35fadd22be854a019cea203b0343eb4fc0864b8fd61441da4788b7",
+      "rotation_orthogonality_max": 1.4806266399602919e-06,
+      "rotation_determinant_range": [
+        0.99999860213964,
+        1.0000017727213273
+      ],
+      "scan_gap_ms_range": [
+        99.0,
+        101.0
+      ],
+      "identity_status": "UNVERIFIED_HYPOTHESIS: source describes scan-ordered sensor-to-map export; counts/order alone are insufficient",
+      "first_scan": {
+        "frame": 0,
+        "timestamp_ns": 1581624075286000000,
+        "member": "Rellis-3D/00003/os1_cloud_node_color_ply/frame000000-1581624075_286.ply"
+      },
+      "last_scan": {
+        "frame": 2183,
+        "timestamp_ns": 1581624293581000000,
+        "member": "Rellis-3D/00003/os1_cloud_node_color_ply/frame002183-1581624293_581.ply"
+      },
+      "full_records_on_quest": "sensor_metadata/POSE_SCAN_METADATA.json"
+    },
+    "00004": {
+      "ply_count": 2058,
+      "pose_count": 2059,
+      "ply_ids_exactly_zero_to_n_minus_one": false,
+      "pose_sha256": "45727745cb5198f61e94ab909a2ecbf6e4e2d977e3c9bf461ad23856152f8910",
+      "rotation_orthogonality_max": 1.5293999999776986e-06,
+      "rotation_determinant_range": [
+        0.9999986194773351,
+        1.0000014609621144
+      ],
+      "scan_gap_ms_range": [
+        99.0,
+        200.0
+      ],
+      "identity_status": "UNVERIFIED_HYPOTHESIS: source describes scan-ordered sensor-to-map export; counts/order alone are insufficient",
+      "first_scan": {
+        "frame": 0,
+        "timestamp_ns": 1581791678433000000,
+        "member": "Rellis-3D/00004/os1_cloud_node_color_ply/frame000000-1581791678_433.ply"
+      },
+      "last_scan": {
+        "frame": 2058,
+        "timestamp_ns": 1581791884229000000,
+        "member": "Rellis-3D/00004/os1_cloud_node_color_ply/frame002058-1581791884_229.ply"
+      },
+      "full_records_on_quest": "sensor_metadata/POSE_SCAN_METADATA.json"
+    }
+  }
+}

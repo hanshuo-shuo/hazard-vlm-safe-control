@@ -1,0 +1,31 @@
+test_binary_path_never_grants_continuous_metrics (test_decision_contract.DecisionContractTest) ... ok
+test_coverage_does_not_override_physical_evidence_or_false_support (test_decision_contract.DecisionContractTest) ... ok
+test_full_area_and_asymmetric_boundary (test_decision_contract.DecisionContractTest) ... ok
+test_geometric_realizations_can_revoke_apparent_compliance (test_decision_contract.DecisionContractTest) ... ok
+test_missing_or_all_compliant_scenes_cannot_be_replaced (test_decision_contract.DecisionContractTest) ... ok
+test_unknown_below_five_percent_does_not_make_compliant (test_decision_contract.DecisionContractTest) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.004s
+
+OK
+Traceback (most recent call last):
+  File "/projects/p33100/siosio/hazard_rellis_revision_20260912/research/rellis_revision_20260912/acquire_windows.py", line 156, in <module>
+    main()
+  File "/projects/p33100/siosio/hazard_rellis_revision_20260912/research/rellis_revision_20260912/acquire_windows.py", line 146, in main
+    results = list(pool.map(process_bag, sorted((ROOT / 'sensor_metadata').glob('*.bag.json'))))
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+    yield _result_or_cancel(fs.pop())
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+    return fut.result(timeout)
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+    return self.__get_result()
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/projects/p33100/siosio/hazard_rellis_revision_20260912/research/rellis_revision_20260912/acquire_windows.py", line 95, in process_bag
+    message = store.deserialize_ros1(raw, c['type'])
+  File "/projects/p33100/siosio/hazard_rellis_revision_20260912/sensor_deps/rosbags/typesys/store.py", line 185, in deserialize_ros1
+    assert pos == len(rawdata)
+AssertionError

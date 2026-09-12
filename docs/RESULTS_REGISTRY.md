@@ -39,6 +39,29 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — Bounded RELLIS measurement-interface revision
+
+- Registry scope: **PILOT_ONLY / STOP_PREREQUISITES_UNCERTAIN**. Early evidence-based
+  stop before a fresh qualification sample; the two-day upper budget was not exhausted.
+- New protocol fixes full-corridor-area cost intervals and separates binary approval
+  from continuous-cost qualification. The unchanged planned gates are 39/48 all-four
+  determined, eight mixed scenes in four blocks, and p95 width <=0.005 for continuous metrics.
+- Exactly 240 raw Ouster scans in the consumed 24 development windows; all 24 central
+  PLY x/y/z/t/ring arrays match raw messages exactly. Fixed per-point deskew is executed
+  under an explicitly conditional scan-order pose association.
+- Per-frame correction-displacement p95 is 0.101–0.337 m. It is not physical registration
+  error. End-scan median consistency improves in 21/24 frames; upstream SLAM may already
+  use those scans, so this is not an independent accuracy test.
+- Six distinct decision-contract tests. Independent byte/count verification checks
+  240 cloud files, 1,295 retained malformed raw-IMU messages and 960 scalar PLY fields.
+  Physical geometry qualification remains unresolved despite computational checks passing.
+- New 48-frame selection, its human review, qualification metrics and all external model
+  computation are **NOT_REACHED**, not zero-success observations. No automatic third revision.
+- [Progress and evidence](RELLIS_REVISION_PROGRESS_2026-09-12.md),
+  [protocol and source](../research/rellis_revision_20260912/README.md),
+  [decision](../research/rellis_revision_20260912/artifacts/REVISION_DECISION.json).
+- Quest root: `/projects/p33100/siosio/hazard_rellis_revision_20260912`.
+
 ## 2026-09-12 — RELLIS-3D external-task qualification
 
 - Status: **GEOMETRY_NOT_QUALIFIED / NO_EXTERNAL_MECHANISM_RESULT**. The diagnostic

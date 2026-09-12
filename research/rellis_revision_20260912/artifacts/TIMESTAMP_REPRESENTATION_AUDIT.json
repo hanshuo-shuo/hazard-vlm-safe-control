@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-09-12T20:00:33Z",
+  "max_internal_rgb_roundoff_ns": 192,
+  "retained_scan_memberships_changed": 0,
+  "central_scan_identity_changes": 0,
+  "original_numerical_outputs_preserved": true,
+  "source_sha256": "6224968ab2dd4dc74fe28e1fb37dca6e79ed12f04623657fe72c1dbef0febd4c",
+  "display_sha256": "78d8058caf156caba39565c8f7f6f2d73affc53cc22529f1b1cd06e26aec530d"
+}

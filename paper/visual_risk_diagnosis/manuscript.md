@@ -290,7 +290,7 @@ off-image regions and void labels remain unknown. A release checkpoint is not
 eligible merely because exact test filenames are absent from its training list:
 nearby observations and revisited locations must be checked.
 
-Once qualification passes, the six controls are normal segmentation plus the
+If continuous-cost qualification passes, the proposed six controls are normal segmentation plus the
 formula, one development-selected simple postprocessing rule, all-candidate
 residual protection, fixed-selector risk control, a no-RGB fixed/spatial prior,
 and human-label oracle evaluation. Only one prescribed coarse reference is
@@ -354,6 +354,87 @@ tests pass; an independent scalar replay verifies all 96 candidate counts and
 geometry and split revision with fresh qualification evidence.
 
 ![Geometry qualification outcome](../../research/rellis_external_20260912/artifacts/publication/qualification_overview.png)
+
+### 6.2 Registered distinction between decision and cost qualification
+
+The pilot protocol described cost using evaluable ground area, whereas its
+implementation divided by the **full requested corridor area**. We retain the
+implemented denominator and explicitly correct the definition in a separately
+registered revision. The original pilot and its frozen protocol are preserved.
+Removing unknown area from the denominator would change the estimand and could
+make a small visible patch appear representative of a mostly unobserved corridor.
+
+For geometric realization θ, let bθ and uθ be the known-prohibited and unknown
+fractions of the full corridor. An empirical range Θ, if independently supported
+by development geometry checks, induces
+
+\[
+c_L=\min_{\theta\in\Theta}b_\theta,\qquad
+c_U=\max_{\theta\in\Theta}(b_\theta+u_\theta).
+\]
+
+A candidate is determinately compliant when cU≤0.02, determinately noncompliant
+when cL>0.02, and otherwise undetermined. For example, 1% known-prohibited area
+and 4% unknown area give [0.01,0.05], which cannot determine compliance despite
+meeting a 5% unknown-area screen. Conversely, 10% known-prohibited area already
+establishes noncompliance even with substantial unknown area. A narrower support
+interval is not automatically more accurate: timing, registration, gravity,
+surface and projection errors must also be assessed. These empirical intervals
+would remain conditional sensitivity analyses without a separate coverage proof.
+
+The revision is limited to two engineering working days, the consumed 24 frames
+and necessary neighbouring sensor data, a corrected single-scan construction and
+one motion-compensated window of at most one second and 11 scans. Time/pose and
+coordinate provenance, independent physical-error checks and spatial isolation
+are prerequisites to opening fresh qualification data. The planned fresh sample
+is 48 frames from at least 12 frozen spatial/route blocks, with all supporting
+scans included in the isolation audit. The decision screen requires at least
+39 frames with all four candidate labels determined, and at least eight mixed
+compliant/noncompliant scenes spanning four blocks. Knowing all four outcomes
+is a requirement for evaluating candidate selection, not a deployment requirement
+that all four actions be safe. At least 12 predetermined frames in six blocks
+require independent human geometry review; systematic false support that changes
+labels fails the screen regardless of average coverage.
+
+A binary-only continuation is registered in advance: if the decision conditions
+pass but p95 full cost-interval width exceeds 0.005, subsequent external research
+may address accepted danger rate and availability, but not continuous regret or
+residual-cost calibration. Missing samples and failed prerequisites remain in the
+record; uncertainty is a stopping outcome. No fresh-sample result, human-review
+completion or mechanism transfer is implied by this registration.
+
+### 6.3 Outcome of the bounded revision: a prerequisite stop
+
+The revision retrieves 240 timestamped raw Ouster scans, ten in each of the
+24 consumed development windows, together with IMU, odometry and transform
+records. The central raw scans match all released PLY x/y/z/t/ring fields in
+24/24 cases. The static LiDAR/body chain agrees numerically with the pinned
+URDF. Under the scan-order pose association supported by the linked export code,
+a fixed per-point motion-compensation prototype runs on all 24 development
+targets. Central-scan point times lie approximately 16–121 ms after the RGB
+filename timestamp; the per-frame p95 correction displacement is 0.101–0.337 m.
+These are timing and conditional correction measurements, not independently
+measured physical registration errors.
+
+Median end-scan nearest-neighbour consistency improves in 21/24 frames, with
+the median over frames changing from 0.132 m to 0.130 m. Those scans may have
+participated in upstream SLAM, and the linked Cartographer recipe already uses
+VectorNav IMU. Neither source can be repurposed as an independent pose-accuracy
+test. Independent Ouster specific-force observations are available, but dynamic
+acceleration and mounting/attitude error have not been separated into a justified
+gravity-error range. A release-specific timestamp/pose record, independent
+physical camera-alignment and surface/visibility error ranges, and complete
+support-aware spatial isolation also remain unestablished.
+
+We therefore take the preregistered uncertainty branch and stop **before**
+instantiating the new 48-frame qualification set. This is an early evidence-based
+stop within the two-day upper budget, not budget exhaustion or a 0/48 result.
+The new decision-information screen and continuous-cost precision screen are
+not evaluated. No independent human review on the uninstantiated set is claimed.
+The motion prototype is not promoted into an admissible corridor-reference
+interface; no external model or mechanism experiment follows. This outcome
+narrows the external evidence available for the controlled-case paper without
+supporting or refuting transfer of its mechanism diagnosis.
 
 ## 7. Related work and contribution boundary
 
@@ -436,3 +517,4 @@ complexity in the original learning pipeline.
 - [Machine-readable decision](../../research/pro_decision_round_20260912/artifacts/final_report/DECISION.json).
 - [Independent verification](../../research/pro_decision_round_20260912/artifacts/final_report/VERIFICATION.json).
 - [RELLIS-3D qualification protocol](../../research/rellis_external_20260912/qualification_protocol.json).
+- [Bounded measurement-interface revision](../../research/rellis_revision_20260912/revision_protocol.json).

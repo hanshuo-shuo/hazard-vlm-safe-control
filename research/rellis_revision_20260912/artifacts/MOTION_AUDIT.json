@@ -1,0 +1,907 @@
+{
+  "created_utc": "2026-09-12T19:40:35Z",
+  "source_sha256": "3a4fd26048ea484c2afddea77614f36f7469c27e820725f3506c717a861edd3e",
+  "coordinate_duplicate_discrepancies": [],
+  "body_from_lidar_raw_tf": [
+    [
+      -0.999999999999993,
+      6.076937967382964e-08,
+      1.071795863401142e-07,
+      0.19000000762904173
+    ],
+    [
+      -6.076937967382938e-08,
+      -0.9999999999999986,
+      5.74373186401902e-15,
+      2.4115407335364562e-08
+    ],
+    [
+      1.0717958634011438e-07,
+      -7.6950511156739695e-16,
+      0.9999999999999944,
+      0.8483599758845928
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "body_from_ouster_imu_raw_tf": [
+    [
+      0.9999999999999889,
+      -1.0717958634011405e-07,
+      1.071795863401142e-07,
+      0.19625300583271177
+    ],
+    [
+      1.0717958634011404e-07,
+      0.9999999999999944,
+      5.74373186401902e-15,
+      -0.011774975214398811
+    ],
+    [
+      -1.0717958634011421e-07,
+      5.743731864019021e-15,
+      0.9999999999999944,
+      0.8198249752143989
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "raw_tf_vs_pinned_urdf_max_abs": 1.9721522630525295e-31,
+  "deskew_assumption": "Released pose row = timestamp-ordered PLY scan identity; t is nanoseconds since header stamp per historical Ouster code. Release-specific timestamp provenance and physical projection remain unqualified.",
+  "gravity_observation": "Independent Ouster proper acceleration compared with hypothesized Cartographer map +Z. Dynamic acceleration and mounting error are not separately identified.",
+  "scan_residual_scope": "No new pairwise alignment fit, but these scans may have participated in upstream Cartographer. These are descriptive consistency residuals, not independent registration errors.",
+  "cartographer_imu_input": "/vectornav/IMU (linked offline launch recipe)",
+  "development": [
+    {
+      "index": 0,
+      "image": "00000/pylon_camera_node/frame000308-1581624683_550.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 21198,
+        "p50_m": 0.13134277121922916,
+        "p95_m": 0.4789826949651592,
+        "fraction_over_035m": 0.0852438909331069
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.0850199301208081,
+        "p95": 0.1480187310306404,
+        "max": 0.23176233780209093
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.928832
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.894528,
+        119.82336
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.09070320186347774,
+          0.42930885600710184,
+          10.42352090189037
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 2.410486099284468,
+        "instantaneous_deviation_p95_degrees": 11.645854096936985,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 1,
+      "image": "00000/pylon_camera_node/frame000368-1581624689_549.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 24970,
+        "p50_m": 0.13767186764823408,
+        "p95_m": 0.42431334230705137,
+        "fraction_over_035m": 0.07757308770524629
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.09533175720953926,
+        "p95": 0.14450396672482704,
+        "max": 0.19457797866345128
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.776
+      ],
+      "point_time_minus_rgb_ms_range": [
+        20.915968,
+        120.691968
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.1700546758279912,
+          0.2731632544769169,
+          10.466417382990802
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.7609016181799706,
+        "instantaneous_deviation_p95_degrees": 16.141976844819798,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 2,
+      "image": "00000/pylon_camera_node/frame000430-1581624695_750.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 29826,
+        "p50_m": 0.12162881601802736,
+        "p95_m": 0.418673855810462,
+        "fraction_over_035m": 0.07275531415543486
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.11214124231840089,
+        "p95": 0.16752884533107656,
+        "max": 0.18764528111465456
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.961344
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.7632,
+        119.724544
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.27512932008268637,
+          0.39354707927467125,
+          10.43973251970621
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 2.633502926230418,
+        "instantaneous_deviation_p95_degrees": 14.591317366633364,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 3,
+      "image": "00000/pylon_camera_node/frame000490-1581624701_749.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 26828,
+        "p50_m": 0.12049122365962842,
+        "p95_m": 0.41588732374251797,
+        "fraction_over_035m": 0.07059788280900552
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.11735488719285925,
+        "p95": 0.3367592217130999,
+        "max": 0.6382371028597779
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.798784
+      ],
+      "point_time_minus_rgb_ms_range": [
+        20.927232,
+        120.726016
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.06448106133121212,
+          0.1264800299489681,
+          10.27589030876193
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 0.791529309758441,
+        "instantaneous_deviation_p95_degrees": 19.335896679182287,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 4,
+      "image": "00000/pylon_camera_node/frame000550-1581624707_750.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 22825,
+        "p50_m": 0.12541592526532347,
+        "p95_m": 0.483776946229193,
+        "fraction_over_035m": 0.09217962760131435
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.08403083905911335,
+        "p95": 0.1340383305798868,
+        "max": 0.22592123911868017
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.049152
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.554304,
+        119.603456
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.08994538447984592,
+          0.30376688368644117,
+          10.464474747617965
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.7340539888379218,
+        "instantaneous_deviation_p95_degrees": 17.696923731578615,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 5,
+      "image": "00000/pylon_camera_node/frame000611-1581624713_849.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 24288,
+        "p50_m": 0.12352412664410699,
+        "p95_m": 0.4983834093414217,
+        "fraction_over_035m": 0.09189723320158102
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.08848350726493193,
+        "p95": 0.12931266078547152,
+        "max": 0.1658333429624163
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.968256
+      ],
+      "point_time_minus_rgb_ms_range": [
+        20.571392,
+        120.539648
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.44857203944388985,
+          0.13698771656896466,
+          10.38364265566792
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 2.58625816595159,
+        "instantaneous_deviation_p95_degrees": 17.496085736083504,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 6,
+      "image": "00000/pylon_camera_node/frame000671-1581624719_850.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 23961,
+        "p50_m": 0.13075115924088354,
+        "p95_m": 0.44011953402394194,
+        "fraction_over_035m": 0.08417845665873712
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.06608837888717757,
+        "p95": 0.10058058013360663,
+        "max": 0.13270519050794133
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.096512
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.622656,
+        119.719168
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.18471424600881575,
+          -0.18934525857774798,
+          10.281800080877279
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.4737257258827265,
+        "instantaneous_deviation_p95_degrees": 11.340336833727621,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 7,
+      "image": "00000/pylon_camera_node/frame000731-1581624725_850.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 27825,
+        "p50_m": 0.12114465340942912,
+        "p95_m": 0.4260650527436462,
+        "fraction_over_035m": 0.07378256963162623
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.08605483263174235,
+        "p95": 0.12060236619582942,
+        "max": 0.17026607094956372
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.905536
+      ],
+      "point_time_minus_rgb_ms_range": [
+        18.787072,
+        118.692608
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.2446602448813599,
+          0.045994461303949616,
+          10.330136866448688
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.3805041261604858,
+        "instantaneous_deviation_p95_degrees": 12.444304034661,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 8,
+      "image": "00000/pylon_camera_node/frame000793-1581624732_049.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 30748,
+        "p50_m": 0.1265291567260027,
+        "p95_m": 0.36328978121064237,
+        "fraction_over_035m": 0.0539872512033303
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.06905730125258129,
+        "p95": 0.15672549431216828,
+        "max": 0.21368160024521057
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.244736
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.043328,
+        119.288064
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.2687163319966522,
+          0.06916892666584004,
+          10.365197887991574
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.5334386382401344,
+        "instantaneous_deviation_p95_degrees": 15.481859995203381,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 9,
+      "image": "00000/pylon_camera_node/frame000853-1581624738_049.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 24042,
+        "p50_m": 0.12901415670653224,
+        "p95_m": 0.3871922802828044,
+        "fraction_over_035m": 0.06226603443973047
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.09294129166549994,
+        "p95": 0.1351113780668102,
+        "max": 0.15542522349631058
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.885312
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.282176,
+        119.167488
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.35747523400928816,
+          0.006069640541993219,
+          10.37795498916243
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.973093549842977,
+        "instantaneous_deviation_p95_degrees": 17.293924384084526,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 10,
+      "image": "00000/pylon_camera_node/frame000913-1581624744_049.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 23703,
+        "p50_m": 0.1326779976911615,
+        "p95_m": 0.4865431149994986,
+        "fraction_over_035m": 0.09167615913597435
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.12171675301499107,
+        "p95": 0.2534386015748303,
+        "max": 0.46201022905390904
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.19456
+      ],
+      "point_time_minus_rgb_ms_range": [
+        19.434752,
+        119.629312
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.5490791652786001,
+          0.5965020824618117,
+          10.3566188645091
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 4.476128452420782,
+        "instantaneous_deviation_p95_degrees": 17.424502852115655,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 11,
+      "image": "00000/pylon_camera_node/frame000975-1581624750_250.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 26368,
+        "p50_m": 0.12302603296270935,
+        "p95_m": 0.437262550542244,
+        "fraction_over_035m": 0.08013501213592233
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.1478515863868608,
+        "p95": 0.219923905340339,
+        "max": 0.3212393516202352
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.877632
+      ],
+      "point_time_minus_rgb_ms_range": [
+        17.978624,
+        117.856256
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.39337037847578593,
+          0.02099767118628185,
+          10.44613688257267
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 2.159636557935847,
+        "instantaneous_deviation_p95_degrees": 18.26887276678251,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 12,
+      "image": "00000/pylon_camera_node/frame001035-1581624756_249.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 26534,
+        "p50_m": 0.13203353060158468,
+        "p95_m": 0.4748651200185027,
+        "fraction_over_035m": 0.08766111404236074
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.14983939043657707,
+        "p95": 0.2513840848107612,
+        "max": 0.37588656478047133
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.62112
+      ],
+      "point_time_minus_rgb_ms_range": [
+        18.708992,
+        118.330112
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.5553865427107246,
+          0.30237845189794477,
+          10.412695234056907
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 3.4753217591657246,
+        "instantaneous_deviation_p95_degrees": 17.40886451619882,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 13,
+      "image": "00000/pylon_camera_node/frame001097-1581624762_449.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 30956,
+        "p50_m": 0.13617340544754686,
+        "p95_m": 0.4824199283802423,
+        "fraction_over_035m": 0.09558728517896369
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.16436141974739665,
+        "p95": 0.23283375000611742,
+        "max": 0.250075756664224
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.976448
+      ],
+      "point_time_minus_rgb_ms_range": [
+        18.667008,
+        118.643456
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.31534481807343634,
+          0.09329008690323987,
+          10.536127953886933
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.7877411687230316,
+        "instantaneous_deviation_p95_degrees": 37.47306186488336,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 14,
+      "image": "00000/pylon_camera_node/frame001157-1581624768_450.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 26951,
+        "p50_m": 0.12616484880936976,
+        "p95_m": 0.46338543398197307,
+        "fraction_over_035m": 0.08218618975177173
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.13236008182957273,
+        "p95": 0.1976084239715676,
+        "max": 0.23637326922576019
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.762944
+      ],
+      "point_time_minus_rgb_ms_range": [
+        17.59616,
+        117.359104
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.27413509402078806,
+          0.14915250582916445,
+          10.30849912036827
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.7340686354607566,
+        "instantaneous_deviation_p95_degrees": 21.805321674162077,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 15,
+      "image": "00000/pylon_camera_node/frame001217-1581624774_449.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 25826,
+        "p50_m": 0.13704077517638868,
+        "p95_m": 0.44780064285480836,
+        "fraction_over_035m": 0.08274606985208705
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.12962704953986173,
+        "p95": 0.19404359262357357,
+        "max": 0.25772280461280944
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.983616
+      ],
+      "point_time_minus_rgb_ms_range": [
+        18.424832,
+        118.408448
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.2875142933635056,
+          0.20140589131624906,
+          10.543643632586804
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.9068987492009528,
+        "instantaneous_deviation_p95_degrees": 32.06092770313616,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 16,
+      "image": "00000/pylon_camera_node/frame001279-1581624780_649.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 28087,
+        "p50_m": 0.12881086794490246,
+        "p95_m": 0.44088494667431083,
+        "fraction_over_035m": 0.08114074126820237
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.13190059938978044,
+        "p95": 0.18981140544482017,
+        "max": 0.21907138537035725
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.981568
+      ],
+      "point_time_minus_rgb_ms_range": [
+        18.12864,
+        118.110208
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.1980384212096004,
+          0.44423318704268533,
+          10.37356236652491
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 2.6844145165523554,
+        "instantaneous_deviation_p95_degrees": 18.699429266912713,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 17,
+      "image": "00000/pylon_camera_node/frame001339-1581624786_650.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 26057,
+        "p50_m": 0.13513865017682436,
+        "p95_m": 0.4829738766117466,
+        "fraction_over_035m": 0.09444678973020686
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.1347645127556419,
+        "p95": 0.1920913976915119,
+        "max": 0.21884063140827453
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.992064
+      ],
+      "point_time_minus_rgb_ms_range": [
+        16.621056,
+        116.61312
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.3358514463735608,
+          0.015866714825079765,
+          10.378702998809171
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.8554917509339215,
+        "instantaneous_deviation_p95_degrees": 25.91837464585262,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 18,
+      "image": "00000/pylon_camera_node/frame001399-1581624792_649.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 30079,
+        "p50_m": 0.13561940397635258,
+        "p95_m": 0.4690757556174545,
+        "fraction_over_035m": 0.09322118421490076
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.09401099391255295,
+        "p95": 0.14993503281843104,
+        "max": 0.26803516084483653
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.103424
+      ],
+      "point_time_minus_rgb_ms_range": [
+        17.421056,
+        117.52448
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.014444951300790541,
+          0.11713039862397906,
+          10.503154981615673
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 0.6437716905251061,
+        "instantaneous_deviation_p95_degrees": 15.41489329595585,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 19,
+      "image": "00000/pylon_camera_node/frame001461-1581624798_849.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 37350,
+        "p50_m": 0.13013163187999544,
+        "p95_m": 0.46925731608150906,
+        "fraction_over_035m": 0.09038821954484605
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.12453573121571716,
+        "p95": 0.18863135741143644,
+        "max": 0.2264911883327656
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.785984
+      ],
+      "point_time_minus_rgb_ms_range": [
+        17.750528,
+        117.536512
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          -0.12683673711591148,
+          -0.05319395868327891,
+          10.268555371522439
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 0.767388392858695,
+        "instantaneous_deviation_p95_degrees": 20.96041276512738,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 20,
+      "image": "00000/pylon_camera_node/frame001523-1581624805_049.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 41772,
+        "p50_m": 0.1290071636052617,
+        "p95_m": 0.4706086370976881,
+        "fraction_over_035m": 0.09537489227233553
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.11699469349757766,
+        "p95": 0.17643701048377036,
+        "max": 0.26827706556110437
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.004096
+      ],
+      "point_time_minus_rgb_ms_range": [
+        17.351424,
+        117.35552
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          -0.0001775774349079695,
+          -0.016747834628515444,
+          10.339017344794017
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 0.09281668722101703,
+        "instantaneous_deviation_p95_degrees": 18.746601631077716,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 21,
+      "image": "00000/pylon_camera_node/frame001583-1581624811_050.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 44523,
+        "p50_m": 0.12991497968281124,
+        "p95_m": 0.4963230926436478,
+        "fraction_over_035m": 0.0976798508635986
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.11641170426381107,
+        "p95": 0.18622715384716002,
+        "max": 0.3433884725677765
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.005888
+      ],
+      "point_time_minus_rgb_ms_range": [
+        15.945984,
+        115.951872
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          -0.18486098549942662,
+          -0.29537238323560655,
+          10.23269219586712
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.9503261435774237,
+        "instantaneous_deviation_p95_degrees": 15.668303495435516,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 22,
+      "image": "00000/pylon_camera_node/frame001645-1581624817_249.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 39529,
+        "p50_m": 0.1412128147985721,
+        "p95_m": 0.4615380688097297,
+        "fraction_over_035m": 0.08796073768625566
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.10855300172688545,
+        "p95": 0.18028152174317702,
+        "max": 0.2446309105494853
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        99.927808
+      ],
+      "point_time_minus_rgb_ms_range": [
+        16.57344,
+        116.501248
+      ],
+      "ouster_gravity_check": {
+        "n": 100,
+        "mean_acceleration_in_hypothesized_map": [
+          0.09036214563963339,
+          -0.22148215446567834,
+          10.383309264298116
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.3197226606281123,
+        "instantaneous_deviation_p95_degrees": 23.827585683625387,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    },
+    {
+      "index": 23,
+      "image": "00000/pylon_camera_node/frame001705-1581624823_250.jpg",
+      "deskewed_unfitted_scan_residual": {
+        "n": 42977,
+        "p50_m": 0.12916628247747897,
+        "p95_m": 0.43183950165893614,
+        "fraction_over_035m": 0.08232310305512251
+      },
+      "centre_motion_correction_displacement_m": {
+        "p50": 0.11140988178645499,
+        "p95": 0.18047321989190598,
+        "max": 0.19957241999213193
+      },
+      "per_point_time_offset_ms": [
+        0.0,
+        100.04608
+      ],
+      "point_time_minus_rgb_ms_range": [
+        16.0512,
+        116.09728
+      ],
+      "ouster_gravity_check": {
+        "n": 99,
+        "mean_acceleration_in_hypothesized_map": [
+          0.17026441958419805,
+          -0.26314762789796126,
+          10.34187221011543
+        ],
+        "mean_direction_deviation_from_map_up_degrees": 1.7359104498480116,
+        "instantaneous_deviation_p95_degrees": 18.993363883037752,
+        "limitation": "Specific force includes vehicle acceleration; this is an observed discrepancy, not a gravity/calibration confidence bound"
+      },
+      "status": "HYPOTHESIS_DIAGNOSTIC_ONLY"
+    }
+  ],
+  "new_qualification_samples": 0,
+  "physical_projection_error_measured": false,
+  "cost_uncertainty_qualified": false
+}

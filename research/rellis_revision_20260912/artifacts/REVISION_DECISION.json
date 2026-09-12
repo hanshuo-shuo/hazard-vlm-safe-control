@@ -1,0 +1,98 @@
+{
+  "id": "RELLIS-REVISION-PREREQUISITE-DECISION-20260912",
+  "created_utc": "2026-09-12T19:44:21Z",
+  "decision": "STOP_PREREQUISITES_UNCERTAIN",
+  "budget_exhausted": false,
+  "stop_type": "Early epistemic stop within the registered upper budget; not a 48-frame qualification failure",
+  "scope": "Time/coordinate provenance and fixed per-point motion-compensation development audit",
+  "development_frames": 24,
+  "raw_ply_exact_matches": 24,
+  "raw_scans": 240,
+  "invalid_raw_imu_messages": 1295,
+  "sensor_window_download_bytes": 3193241600,
+  "record_minus_scan_header_ms": {
+    "min": 111.076265,
+    "median": 117.652747,
+    "max": 129.468745
+  },
+  "raw_vs_released_scan_timestamp_difference_ms": {
+    "min": 0.001408,
+    "median": 0.5541119999999999,
+    "max": 0.99872
+  },
+  "per_point_time_offset_ms": {
+    "min": 0.0,
+    "median": 49.81056,
+    "max": 100.244736
+  },
+  "point_time_minus_rgb_ms": {
+    "min": 15.945984,
+    "median": 68.43955199999999,
+    "max": 120.726016
+  },
+  "motion_correction_p95_per_frame_m": {
+    "min": 0.10058058013360663,
+    "median": 0.18037737081754152,
+    "max": 0.3367592217130999
+  },
+  "scan_consistency_p50_before_m": {
+    "min": 0.12194622273899319,
+    "median": 0.1320495554903515,
+    "max": 0.14844085250002864
+  },
+  "scan_consistency_p50_after_m": {
+    "min": 0.12049122365962842,
+    "median": 0.1295406310801451,
+    "max": 0.1412128147985721
+  },
+  "scan_consistency_p50_improved_frames": 21,
+  "scan_consistency_scope": "Potentially reuses upstream SLAM fitting observations; no independent pose-error bound",
+  "ouster_mean_acceleration_direction_error_degrees": {
+    "min": 0.09281668722101703,
+    "median": 1.7743213934515012,
+    "max": 4.476128452420782
+  },
+  "ouster_instantaneous_acceleration_direction_p95_degrees": {
+    "min": 11.340336833727621,
+    "median": 17.59650473383106,
+    "max": 37.47306186488336
+  },
+  "gravity_scope": "Observed specific-force versus hypothesized map-up discrepancy; dynamic acceleration and mounting are not identified separately; not an angular uncertainty envelope",
+  "raw_tf_vs_urdf_max_abs": 1.9721522630525295e-31,
+  "established": [
+    "All 24 consumed central PLY scans match raw x/y/z/t/ring fields exactly",
+    "Timestamped raw IMU, odometry and scan records are accessible in fixed old-development windows",
+    "Raw static LiDAR/body chain agrees numerically with the pinned URDF",
+    "A fixed per-point deskew computation under the stated pose-time hypothesis runs on all 24 frames",
+    "Full-area binary/continuous qualification paths are separately registered before fresh samples"
+  ],
+  "blocking_evidence_gaps": [
+    "The scan-order released-pose association has source-code and consistency support, but no release-specific timestamp/pose export or independent full-3D registration check establishes its physical error",
+    "The linked Cartographer recipe already uses VectorNav IMU; scan-pair residuals may reuse its SLAM fitting data. Neither can be relabelled independent registration evidence",
+    "Independent Ouster acceleration is available, but specific force and mounting/attitude errors are not separated into a justified gravity-error range",
+    "No independently validated camera alignment/projection-error range or surface-interpolation/visibility-error range has been established; a narrower support interval would therefore be unqualified",
+    "A complete support-aware spatial partition with verified cross-sequence registration has not been established"
+  ],
+  "not_attempted_after_stop": [
+    "Promoting corrected single/multi-scan geometry into an admissible semantic corridor evaluator",
+    "Selecting or acquiring the new 48 qualification frames",
+    "The 12-frame independent human review on that uninstantiated qualification set",
+    "Decision/continuous-cost qualification scoring or external model/mechanism training"
+  ],
+  "fresh_qualification": {
+    "selection_frozen": false,
+    "frames_acquired": 0,
+    "frames_evaluated": 0,
+    "all_four_determined": null,
+    "mixed_scenes": null,
+    "continuous_cost_p95": null,
+    "outcome": "NOT_REACHED"
+  },
+  "paper_action": "Retain controlled-case diagnosis. Report a bounded measurement-interface prerequisite stop; neither support nor refute mechanism transfer. No automatic third geometric repair.",
+  "input_sha256": {
+    "research/rellis_revision_20260912/revision_protocol.json": "0a2649202bc16be585fa192a46a933af8d8b75c0d6403ba4bdf1c8bcdf32bf0a",
+    "development_chain/DEVELOPMENT_CHAIN.json": "6224968ab2dd4dc74fe28e1fb37dca6e79ed12f04623657fe72c1dbef0febd4c",
+    "motion_audit/MOTION_AUDIT.json": "2a30963a749758d5de6751ad0082b7ae155ebce3265ddb43083a042d2c09558e",
+    "development_sensors/SUMMARY.json": "cdc0ac7020ea0c43cc989710c0ff838ef7171b09cc291d91715a64f879ea2c73"
+  }
+}

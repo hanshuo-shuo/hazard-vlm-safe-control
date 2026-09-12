@@ -1,0 +1,11 @@
+test_binary_path_never_grants_continuous_metrics (test_decision_contract.DecisionContractTest) ... ok
+test_coverage_does_not_override_physical_evidence_or_false_support (test_decision_contract.DecisionContractTest) ... ok
+test_full_area_and_asymmetric_boundary (test_decision_contract.DecisionContractTest) ... ok
+test_geometric_realizations_can_revoke_apparent_compliance (test_decision_contract.DecisionContractTest) ... ok
+test_missing_or_all_compliant_scenes_cannot_be_replaced (test_decision_contract.DecisionContractTest) ... ok
+test_unknown_below_five_percent_does_not_make_compliant (test_decision_contract.DecisionContractTest) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

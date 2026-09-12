@@ -1,0 +1,50 @@
+[
+  {
+    "bag": "00000_00.bag",
+    "topic": "/imu/data_raw",
+    "raw_bytes": 321,
+    "parsed_bytes": 320,
+    "trailing_hex": "6c",
+    "header_scalar": [
+      597718,
+      1581624682,
+      913886062,
+      8
+    ],
+    "frame_scalar": "imu_link",
+    "expected_imu_bytes": 320,
+    "parsed_message": "sensor_msgs__msg__Imu(header=std_msgs__msg__Header(seq=597718, stamp=builtin_interfaces__msg__Time(sec=1581624682, nanosec=913886062, __msgtype__='builtin_interfaces/msg/Time'), frame_id='imu_link', __msgtype__='std_msgs/msg/Header'), orientation=geometry_msgs__msg__Quaternion(x=0.0, y=0.0, z=0.0, w=0.0, __msgtype__='geometry_msgs/msg/Quaternion'), orientation_covariance=array([-1.,  0.,  0.,  0., -1.,  0.,  0.,  0., -1.]), angular_velocity=geometry_msgs__msg__Vector3(x=0.0496886670589447, y=0.036407142877578735, z=0.009280047379434109, __msgtype__='geometry_msgs/msg/Vector3'), angular_velocity_covariance=array([1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06]), linear_acceleration=geometry_msgs__msg__Vector3(x=0.35434186458587646, y=0.45250412821769714, z=10.321403503417969, __msgtype__='geometry_msgs/msg/Vector3'), linear_acceleration_covariance=array([0.00153873, 0.        , 0.        , 0.        , 0.00153873,\n       0.        , 0.        , 0.        , 0.00153873]), __msgtype__='sensor_msgs/msg/Imu')"
+  },
+  {
+    "bag": "00000_01.bag",
+    "topic": "/imu/data_raw",
+    "raw_bytes": 321,
+    "parsed_bytes": 320,
+    "trailing_hex": "19",
+    "header_scalar": [
+      598980,
+      1581624713,
+      211375695,
+      8
+    ],
+    "frame_scalar": "imu_link",
+    "expected_imu_bytes": 320,
+    "parsed_message": "sensor_msgs__msg__Imu(header=std_msgs__msg__Header(seq=598980, stamp=builtin_interfaces__msg__Time(sec=1581624713, nanosec=211375695, __msgtype__='builtin_interfaces/msg/Time'), frame_id='imu_link', __msgtype__='std_msgs/msg/Header'), orientation=geometry_msgs__msg__Quaternion(x=0.0, y=0.0, z=0.0, w=0.0, __msgtype__='geometry_msgs/msg/Quaternion'), orientation_covariance=array([-1.,  0.,  0.,  0., -1.,  0.,  0.,  0., -1.]), angular_velocity=geometry_msgs__msg__Vector3(x=0.07363373041152954, y=0.2668118476867676, z=-0.03275684639811516, __msgtype__='geometry_msgs/msg/Vector3'), angular_velocity_covariance=array([1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06]), linear_acceleration=geometry_msgs__msg__Vector3(x=0.2513911724090576, y=-0.24660277366638184, z=10.6709566116333, __msgtype__='geometry_msgs/msg/Vector3'), linear_acceleration_covariance=array([0.00153873, 0.        , 0.        , 0.        , 0.00153873,\n       0.        , 0.        , 0.        , 0.00153873]), __msgtype__='sensor_msgs/msg/Imu')"
+  },
+  {
+    "bag": "00000_02.bag",
+    "topic": "/imu/data_raw",
+    "raw_bytes": 321,
+    "parsed_bytes": 320,
+    "trailing_hex": "cd",
+    "header_scalar": [
+      601504,
+      1581624773,
+      816051324,
+      8
+    ],
+    "frame_scalar": "imu_link",
+    "expected_imu_bytes": 320,
+    "parsed_message": "sensor_msgs__msg__Imu(header=std_msgs__msg__Header(seq=601504, stamp=builtin_interfaces__msg__Time(sec=1581624773, nanosec=816051324, __msgtype__='builtin_interfaces/msg/Time'), frame_id='imu_link', __msgtype__='std_msgs/msg/Header'), orientation=geometry_msgs__msg__Quaternion(x=0.0, y=0.0, z=0.0, w=0.0, __msgtype__='geometry_msgs/msg/Quaternion'), orientation_covariance=array([-1.,  0.,  0.,  0., -1.,  0.,  0.,  0., -1.]), angular_velocity=geometry_msgs__msg__Vector3(x=-0.14985354244709015, y=-0.04766663908958435, z=-0.09661035239696503, __msgtype__='geometry_msgs/msg/Vector3'), angular_velocity_covariance=array([1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,\n       1.09662255e-06]), linear_acceleration=geometry_msgs__msg__Vector3(x=-0.13407529890537262, y=0.31603461503982544, z=11.204863548278809, __msgtype__='geometry_msgs/msg/Vector3'), linear_acceleration_covariance=array([0.00153873, 0.        , 0.        , 0.        , 0.00153873,\n       0.        , 0.        , 0.        , 0.00153873]), __msgtype__='sensor_msgs/msg/Imu')"
+  }
+]

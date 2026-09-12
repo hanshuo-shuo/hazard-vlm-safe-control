@@ -1,0 +1,4 @@
+{"bag": "00000_03.bag", "counts": {}, "transferred_bytes": 65536}
+{"bag": "00000_04.bag", "counts": {}, "transferred_bytes": 65536}
+{"bag": "00000_01.bag", "chunks_done": 1, "chunks_total": 691, "transferred_MB": 2.16}
+{"bag": "00000_00.bag", "chunks_done": 1, "chunks_total": 354, "transferred_MB": 3.21}

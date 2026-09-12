@@ -12,7 +12,8 @@ The primary manuscript is [manuscript.md](manuscript.md).
 | Joint upper bounds and selective risk rules serve different needs | Pair q>τ; current-four q also >τ; fixed-action q much smaller | Not a same-guarantee comparison or a conformal failure claim |
 | A simple fixed-threshold baseline suffices in the new synthetic confirmation | All five fixed-0.02 restored rules already certified in the original bank; η=96.93%, R=1.07% | Conditional accepted risk; registered IID mixture; no per-card, shift or episode guarantee |
 | Threshold search exchanges more risk for more acceptance | Selected-rule η=98.82%, R=2.51% | No new algorithm; not a free improvement over the fixed baseline |
-| The diagnostic transfers to RELLIS-3D | **Not established** | Current geometry screen: 0/24; optimistic support ceiling: 3/24. External model training and mechanism confirmation not run |
+| The diagnostic transfers to RELLIS-3D | **Not established** | Initial geometry screen: 0/24; optimistic support ceiling: 3/24. The bounded revision stops at unresolved prerequisites before a fresh 48-frame set; external model/mechanism experiments not run |
+| Raw scan provenance and fixed deskew establish a qualified external evaluator | **Not established** | 24/24 raw/PLY matches and a deskew prototype provide narrower evidence. Upstream SLAM consistency and specific-force differences do not supply independent physical-error ranges |
 
 ## Closest prior work
 

@@ -1,0 +1,89 @@
+{
+  "at_utc": "2026-09-12T19:38:41Z",
+  "wall_seconds": 1299.1162385940552,
+  "bags": [
+    {
+      "bag": "00000_00.bag",
+      "counts": {
+        "/tf_static": 2,
+        "/os1_cloud_node/imu": 500,
+        "/tf": 509,
+        "/vectornav/IMU": 253,
+        "/vectornav/GPS": 752,
+        "/imu/data": 210,
+        "/vectornav/Odom": 253,
+        "/odometry/filtered": 251,
+        "/os1_cloud_node/points": 50
+      },
+      "invalid_by_topic": {
+        "/imu/data_raw": 270
+      },
+      "transferred_bytes": 650182656,
+      "selected_chunks": 354,
+      "images_decoded": 0,
+      "labels_decoded": 0
+    },
+    {
+      "bag": "00000_01.bag",
+      "counts": {
+        "/os1_cloud_node/imu": 1000,
+        "/imu/data": 420,
+        "/vectornav/IMU": 515,
+        "/vectornav/GPS": 1515,
+        "/tf": 1025,
+        "/vectornav/Odom": 515,
+        "/odometry/filtered": 501,
+        "/os1_cloud_node/points": 100
+      },
+      "invalid_by_topic": {
+        "/imu/data_raw": 540
+      },
+      "transferred_bytes": 1301348352,
+      "selected_chunks": 691,
+      "images_decoded": 0,
+      "labels_decoded": 0
+    },
+    {
+      "bag": "00000_02.bag",
+      "counts": {
+        "/tf": 922,
+        "/vectornav/GPS": 1362,
+        "/imu/data": 375,
+        "/os1_cloud_node/imu": 899,
+        "/vectornav/IMU": 461,
+        "/vectornav/Odom": 461,
+        "/odometry/filtered": 449,
+        "/os1_cloud_node/points": 90
+      },
+      "invalid_by_topic": {
+        "/imu/data_raw": 485
+      },
+      "transferred_bytes": 1241579520,
+      "selected_chunks": 640,
+      "images_decoded": 0,
+      "labels_decoded": 0
+    },
+    {
+      "bag": "00000_03.bag",
+      "counts": {},
+      "invalid_by_topic": {},
+      "transferred_bytes": 65536,
+      "selected_chunks": 0,
+      "images_decoded": 0,
+      "labels_decoded": 0
+    },
+    {
+      "bag": "00000_04.bag",
+      "counts": {},
+      "invalid_by_topic": {},
+      "transferred_bytes": 65536,
+      "selected_chunks": 0,
+      "images_decoded": 0,
+      "labels_decoded": 0
+    }
+  ],
+  "window_seconds": 1.0,
+  "record_time_preselection_padding_seconds": 0.15,
+  "header_timestamp_filter_half_width_seconds": 0.5,
+  "note": "TF static is calibration metadata; no nondevelopment RGB or semantic label is decoded"
+}
