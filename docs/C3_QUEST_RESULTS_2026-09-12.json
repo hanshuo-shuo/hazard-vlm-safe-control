@@ -1,0 +1,1031 @@
+{
+  "record_date": "2026-09-12",
+  "scope": "DEVELOPMENT_ONLY_NOT_VALIDATED",
+  "jobs": {
+    "remote_root": "/projects/p33100/siosio/hazard_c3_safe_20260911",
+    "ssh_host": "quest.northwestern.edu",
+    "account": "p33100",
+    "download_job_id": "6156249",
+    "download_submission_argv": [
+      "sbatch",
+      "--parsable",
+      "--account=p33100",
+      "--partition=normal",
+      "--time=00:40:00",
+      "--cpus-per-task=2",
+      "--mem=8G",
+      "--nodes=1",
+      "--ntasks=1",
+      "--job-name=c3-qwen8b-download",
+      "--output=/projects/p33100/siosio/hazard_c3_safe_20260911/logs/download-%j.log",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911/setup/c3_teacher_download.sbatch",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911",
+      "/projects/p33100/siosio/envs/qwen-vlm/bin/python"
+    ],
+    "download_source_sha256": "0921ac1ce056f47ff621e461928ab7148f65a011e4eca9c87b7b9292d06d3ba0",
+    "teacher_job_id": "6156462",
+    "teacher_run": "qwen8b_labels_v1",
+    "teacher_submission_argv": [
+      "sbatch",
+      "--parsable",
+      "--account=p33100",
+      "--partition=gengpu",
+      "--gres=gpu:1",
+      "--time=01:00:00",
+      "--cpus-per-task=4",
+      "--mem=40G",
+      "--nodes=1",
+      "--ntasks=1",
+      "--dependency=afterok:6156249",
+      "--job-name=c3-qwen8b-label",
+      "--output=/projects/p33100/siosio/hazard_c3_safe_20260911/logs/teacher-%j.log",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911/setup/c3_teacher_inference.sbatch",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911",
+      "/projects/p33100/siosio/envs/qwen-vlm/bin/python",
+      "qwen8b_labels_v1"
+    ],
+    "vision_diagnostic_job_id": "6157352",
+    "vision_diagnostic_submission_argv": [
+      "sbatch",
+      "--parsable",
+      "--account=p33100",
+      "--partition=gengpu",
+      "--gres=gpu:1",
+      "--time=00:15:00",
+      "--cpus-per-task=4",
+      "--mem=40G",
+      "--nodes=1",
+      "--ntasks=1",
+      "--dependency=afterok:6156462",
+      "--job-name=c3-vision-input-check",
+      "--output=/projects/p33100/siosio/hazard_c3_safe_20260911/logs/vision-%j.log",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911/setup/c3_teacher_diagnostic.sbatch",
+      "/projects/p33100/siosio/hazard_c3_safe_20260911",
+      "/projects/p33100/siosio/envs/qwen-vlm/bin/python"
+    ],
+    "verified_final_states": {
+      "6156249": "COMPLETED",
+      "6156462": "COMPLETED",
+      "6157352": "COMPLETED"
+    }
+  },
+  "config": {
+    "protocol_version": "c3-local-teacher-diagnostic-v1",
+    "status": "COMPUTE_READY_LABEL_INTERFACE_NOT_USEFUL",
+    "updated": "2026-09-12",
+    "ssh_host": "quest.northwestern.edu",
+    "quest_user": "shv7753",
+    "account": "p33100",
+    "remote_root": "/projects/p33100/siosio/hazard_c3_safe_20260911",
+    "python_executable": "/projects/p33100/siosio/envs/qwen-vlm/bin/python",
+    "model": {
+      "id": "Qwen/Qwen3-VL-8B-Instruct",
+      "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "path": "/projects/p33100/siosio/hazard_c3_safe_20260911/model",
+      "bytes": 17545907231,
+      "verified_inventory_sha256": "8d5e5ae89d115fa891ac15ea43d8071213304ecd56866e04587f1a7bd5d11317"
+    },
+    "geometry_and_split_source": "configs/c3_safe_foundation.json",
+    "dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+    "prompt_sha256": "3dedd5ec77084f2b6ce7d681ffbc7de01516685114d0549bc5fcd9b700a0184f",
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 1024,
+      "seed": 20260911
+    },
+    "local_teacher_generations": 126,
+    "vision_diagnostic_generations": 5,
+    "provider_calls": 0,
+    "human_review_completed": false,
+    "scientific_gates_passed": [],
+    "next_requirement": "align research branches and validate visible terrain semantics before scaling teacher labels or policy learning"
+  },
+  "runtime": {
+    "python": "3.12.12 | packaged by conda-forge | (main, Oct 22 2025, 23:25:55) [GCC 14.3.0]",
+    "hostname": "qgpu0406",
+    "slurm_job_id": "6156462",
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "gpu_bytes": 42430300160,
+    "cuda": "12.8",
+    "dependencies": {
+      "torch": "2.10.0",
+      "torchvision": "0.25.0+cu128",
+      "transformers": "5.7.0",
+      "huggingface-hub": "1.8.0",
+      "numpy": "2.2.6",
+      "Pillow": "12.0.0",
+      "safetensors": "0.6.2"
+    }
+  },
+  "runs": [
+    {
+      "directory": "results/c3_qwen8b_labels_20260912",
+      "manifest_sha256": "635c4b3113b16f32059d4928d9280e49cba417583eb8387e5038463c56f5d8b0",
+      "verified_artifacts": 134,
+      "summary": {
+        "status": "REAL_LOCAL_VLM_LABELS_DEVELOPMENT_ONLY",
+        "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+        "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+        "model_generations": 126,
+        "accepted": 0,
+        "invalid_responses": 126,
+        "provider_calls": 0,
+        "elapsed_seconds": 620.5627885544673,
+        "peak_gpu_allocated_bytes": 17614182912,
+        "source_dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+        "human_review": "NOT_PERFORMED",
+        "scientific_gates_passed": []
+      }
+    },
+    {
+      "directory": "results/c3_qwen8b_fields_20260912",
+      "manifest_sha256": "0bb203a1bd12bd53c0f10ed818e6f08f482ffc7e7af155b7173dbf4557e05ede",
+      "verified_artifacts": 278,
+      "summary": {
+        "status": "POSTHOC_PARSER_CORRECTION_NOT_NEW_MODEL_EVIDENCE",
+        "accepted": 126,
+        "invalid_responses": 0,
+        "with_property_regions": 0,
+        "unknown_only": 126,
+        "new_model_generations": 0,
+        "parent_generation_count": 126,
+        "parent_teacher_manifest_sha256": "635c4b3113b16f32059d4928d9280e49cba417583eb8387e5038463c56f5d8b0",
+        "human_review": "NOT_PERFORMED",
+        "scientific_gates_passed": []
+      }
+    },
+    {
+      "directory": "results/c3_qwen8b_evaluation_20260912",
+      "manifest_sha256": "eebecb5ce62e33d14a09a71cf0322f75f5687a7ff216eea410f678a5b7272432",
+      "verified_artifacts": 28,
+      "summary": {
+        "status": "REAL_TEACHER_RENDERER_ORACLE_DEVELOPMENT_DIAGNOSTIC",
+        "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+        "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+        "accepted": 126,
+        "invalid_responses": 0,
+        "source_dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+        "source_teacher_manifest_sha256": "0bb203a1bd12bd53c0f10ed818e6f08f482ffc7e7af155b7173dbf4557e05ede",
+        "metrics": {
+          "train": {
+            "unique_images": 59,
+            "invalid_responses": 0,
+            "known_pixel_fraction_among_accepted": 0.5719573457362288,
+            "channels": {
+              "water_ingress_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 11274,
+                "iou_on_known_pixels": 0.0
+              },
+              "low_traction_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              },
+              "fragile_surface_property": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              }
+            },
+            "sampled_transitions": 70,
+            "valid_exposure_count": 24,
+            "unknown_projection_count": 46,
+            "exposure_mae_on_valid_only": 0.041666666666666664,
+            "high_exposure_count_on_valid_only": 1,
+            "false_negative_count_on_valid_only": 1,
+            "low_exposure_count_on_valid_only": 23,
+            "false_positive_count_on_valid_only": 0
+          },
+          "validation": {
+            "unique_images": 33,
+            "invalid_responses": 0,
+            "known_pixel_fraction_among_accepted": 0.3807188091856061,
+            "channels": {
+              "water_ingress_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 642,
+                "iou_on_known_pixels": 0.0
+              },
+              "low_traction_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              },
+              "fragile_surface_property": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              }
+            },
+            "sampled_transitions": 38,
+            "valid_exposure_count": 2,
+            "unknown_projection_count": 36,
+            "exposure_mae_on_valid_only": 0.0,
+            "high_exposure_count_on_valid_only": 0,
+            "false_negative_count_on_valid_only": 0,
+            "low_exposure_count_on_valid_only": 2,
+            "false_positive_count_on_valid_only": 0
+          },
+          "test": {
+            "unique_images": 34,
+            "invalid_responses": 0,
+            "known_pixel_fraction_among_accepted": 0.5963045008042279,
+            "channels": {
+              "water_ingress_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 6373,
+                "iou_on_known_pixels": 0.0
+              },
+              "low_traction_demand": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              },
+              "fragile_surface_property": {
+                "tp": 0,
+                "fp": 0,
+                "fn": 0,
+                "iou_on_known_pixels": null
+              }
+            },
+            "sampled_transitions": 39,
+            "valid_exposure_count": 13,
+            "unknown_projection_count": 26,
+            "exposure_mae_on_valid_only": 0.0,
+            "high_exposure_count_on_valid_only": 0,
+            "false_negative_count_on_valid_only": 0,
+            "low_exposure_count_on_valid_only": 13,
+            "false_positive_count_on_valid_only": 0
+          }
+        },
+        "human_review": "NOT_PERFORMED",
+        "scientific_gates_passed": [],
+        "limits": [
+          "water-only development data",
+          "unknown pixels excluded explicitly",
+          "metrics conditional on reported coverage",
+          "simulator masks are geometric comparison only, not human-reviewed semantic truth",
+          "no teacher/student or policy superiority claim"
+        ]
+      }
+    },
+    {
+      "directory": "results/c3_vision_diagnostic_20260912",
+      "manifest_sha256": "2df647eb11fd030c5366ba91ce9e6194226db8c9d07b44afef3fa68d77c61255",
+      "verified_artifacts": 4,
+      "summary": {
+        "status": "VISION_INPUT_DIAGNOSTIC_NOT_TEACHER_LABELS",
+        "model_generations": 5,
+        "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+        "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "hostname": "qgpu2002",
+        "slurm_job_id": "6157352",
+        "provider_calls": 0,
+        "request_sha256": "1ba94d42428e15e937c90ba862e734436f039018e0a09e758ecff3bcbd5b953c",
+        "source_sha256": "ccde00562f302cb9a2597a79bfc46b8a8b6400455eb3e52d847a91eeff9e4a00",
+        "scientific_gates_passed": []
+      }
+    }
+  ],
+  "vision_diagnostic": [
+    {
+      "case": "color_control_a",
+      "raw_response": "left: red, right: blue",
+      "response_sha256": "047142f35896f8ca0f46053727a7e24e0556154315d28c2d73c103a6c785c8d8",
+      "processor_pixel_sha256": "3b914b6c17d23f052d0550685dd99cb3287ed57a866767f7810d1b4524139ea6",
+      "processor_pixel_std": 0.9410136342048645
+    },
+    {
+      "case": "color_control_b",
+      "raw_response": "left: blue, right: red",
+      "response_sha256": "904452c80501b3355845f03411f6b7e694244cbd3cac68e626a54ed0739bf05f",
+      "processor_pixel_sha256": "c6dbda6fe92a5080175f1118b3667c420ccc8921f088f062c339b209c8028b6f",
+      "processor_pixel_std": 0.9410136342048645
+    },
+    {
+      "case": "renderer_train",
+      "raw_response": "The image displays a grid with several distinct colored dots and one central blue circular icon. At the top-left corner, there is a small green dot. In the center of the grid is a larger blue circle containing a white, intricate pattern resembling a stylized flower or snowflake. Surrounding this central icon are five red dots: one positioned directly below the blue icon, one to its right, one below and to the right, one at the bottom center, and one at the bottom-right corner. A single small blue dot is located to the right of the central blue icon. The overall composition is static and symmetrical in its arrangement of elements.",
+      "response_sha256": "e6c2e7dc0b62fac6a2b7b4e86b9bccbb1bd66716a39ff30888b35637bc40a663",
+      "processor_pixel_sha256": "a06235c28eab53ac43de69a508aa124211f468dc2f9687b88ad11a9acd202a7b",
+      "processor_pixel_std": 0.3428589701652527
+    },
+    {
+      "case": "renderer_validation",
+      "raw_response": "The image displays a grid with several colored dots of varying sizes. A large, light blue-green circle with a subtle gradient sits near the center. To its left is a small green circle, and to its right is a small blue circle. Above the central area are three red dots: one large and prominent near the top-left, one medium-sized to the right of it, and a smaller one further to the right. The overall composition is scattered across the grid, with no clear pattern or alignment.",
+      "response_sha256": "3d4468ad3145ec816f35fe64eba028926f3308ad44c9245baf0d6b3778a3a1b3",
+      "processor_pixel_sha256": "44ae46c79ce0e3f7867d5b238f9ca22b18669806820fe920109258fa0b216225",
+      "processor_pixel_std": 0.3314882814884186
+    },
+    {
+      "case": "renderer_test",
+      "raw_response": "The image displays a grid with several distinct objects. A large, textured blue circle with a gray border is positioned near the center-right. Surrounding it are five small red dots scattered across the grid, with one located directly to the right of the blue circle. A single small blue dot is situated below the blue circle. In the top-right corner, there is a small green circle. The entire scene is set against a white grid with gray lines.",
+      "response_sha256": "e98db8443168f1e99931a7e116a2961a8ab5e552349783be5545e9fff67e93af",
+      "processor_pixel_sha256": "15b32a60e162a654b7407b049de0904b87f6dd14ff1597adbdbb016dff87692b",
+      "processor_pixel_std": 0.33983442187309265
+    }
+  ],
+  "older_quest_branch": {
+    "discovered_2026_09_12": true,
+    "remote_source": "/home/shv7753/hazard-autoresearch-exp01b-r2/autoresearch/exp01b_r2/runs",
+    "complete_reports": 17,
+    "failure_reports": 2,
+    "scope": "retrieved recorded development evidence; training and all protected hashes not reaudited in this turn",
+    "runs": [
+      {
+        "run_id": "ar03-calibrated-polarity",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "f0db586f186c6177774334a580d5c556fe55b26f",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0008634456517172395,
+          "worst_dev_regret": 0.0008634456517172395,
+          "worst_dev_false_safe": 0.0225,
+          "worst_dev_pair_ranking": 0.9522222222222223,
+          "worst_dev_field_miou": 0.9100767002364984
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0008634456517172395,
+          "false_safe": 0.013484848484848487,
+          "pair_ranking": 0.9522222222222223,
+          "field_miou": 0.9100767002364984,
+          "exposure_mae": 0.013582538314148745
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00030275580913788455,
+          "false_safe": 0.0225,
+          "pair_ranking": 0.9766666666666666,
+          "field_miou": 0.9122667935098567,
+          "exposure_mae": 0.011598504417438505
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "e01b65ace8a5ec3aca3bccf07db53f0fef97deea340792220ce904e7dbd07f6c"
+      },
+      {
+        "run_id": "ar03-calibrated-polarity-confirm",
+        "tier": "confirm",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "f0db586f186c6177774334a580d5c556fe55b26f",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830,
+          20260843,
+          20260871
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006913321954121959,
+          "worst_dev_regret": 0.0006913321954121959,
+          "worst_dev_false_safe": 0.030833333333333334,
+          "worst_dev_pair_ranking": 0.9522222222222223,
+          "worst_dev_field_miou": 0.9334295400112116
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006913321954121959,
+          "false_safe": 0.015770202020202018,
+          "pair_ranking": 0.9522222222222223,
+          "field_miou": 0.9334295400112116,
+          "exposure_mae": 0.012131057145443514
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00023984712208715195,
+          "false_safe": 0.030833333333333334,
+          "pair_ranking": 0.9697222222222223,
+          "field_miou": 0.9372005827202822,
+          "exposure_mae": 0.01133577441325119
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "b5894b84dba78640997b43712b5438937d975b732f69f6ea35894cf3ba3238dd"
+      },
+      {
+        "run_id": "ar04-stronger-background-calibration",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "ad78d3c241536d2883d9a1d25b264a3ac66f5ce1",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006323160056041266,
+          "worst_dev_regret": 0.0006323160056041266,
+          "worst_dev_false_safe": 0.03,
+          "worst_dev_pair_ranking": 0.9544444444444444,
+          "worst_dev_field_miou": 0.913597139143842
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006323160056041266,
+          "false_safe": 0.015151515151515152,
+          "pair_ranking": 0.9544444444444444,
+          "field_miou": 0.9255427666636218,
+          "exposure_mae": 0.010390619428103508
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00015911156602659848,
+          "false_safe": 0.03,
+          "pair_ranking": 0.9766666666666666,
+          "field_miou": 0.913597139143842,
+          "exposure_mae": 0.010155980551499341
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "20cf62b8ecfaa71974c0d5108190da06fcae45508d347e3b89cdd6c06305f622"
+      },
+      {
+        "run_id": "ar05-runtime-margin",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "202cd23c2b6212eeeb728784758fe47fc231fe3c",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006952253012968162,
+          "worst_dev_regret": 0.0006952253012968162,
+          "worst_dev_false_safe": 0.03,
+          "worst_dev_pair_ranking": 0.9572222222222222,
+          "worst_dev_field_miou": 0.9209850382071534
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006952253012968162,
+          "false_safe": 0.01765151515151515,
+          "pair_ranking": 0.9572222222222222,
+          "field_miou": 0.9209850382071534,
+          "exposure_mae": 0.010868233101061156
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00030275580913788455,
+          "false_safe": 0.03,
+          "pair_ranking": 0.9733333333333334,
+          "field_miou": 0.9347888187798792,
+          "exposure_mae": 0.010353366343037622
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "eb21388f37b7b19200b678292e65132f59a9afc84f295f6e4f55cc18736284a3"
+      },
+      {
+        "run_id": "ar05-runtime-margin-confirm",
+        "tier": "confirm",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "202cd23c2b6212eeeb728784758fe47fc231fe3c",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830,
+          20260843,
+          20260871
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0005920026092199525,
+          "worst_dev_regret": 0.0005920026092199525,
+          "worst_dev_false_safe": 0.03291666666666667,
+          "worst_dev_pair_ranking": 0.9553703703703705,
+          "worst_dev_field_miou": 0.9291591103460112
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0005920026092199525,
+          "false_safe": 0.01827020202020202,
+          "pair_ranking": 0.9553703703703705,
+          "field_miou": 0.9365049837635996,
+          "exposure_mae": 0.010805246558806205
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0004145993108599227,
+          "false_safe": 0.03291666666666667,
+          "pair_ranking": 0.9700000000000001,
+          "field_miou": 0.9291591103460112,
+          "exposure_mae": 0.011619329044928581
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "559d7fecf2370282f99e41b3011434ea5467b6d503e2fb7faa49269618764341"
+      },
+      {
+        "run_id": "ar06-linear-lr-scaling",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "0bece3b1eb8888f5e13922f5e74650c458ca00f3",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0007293887968390641,
+          "worst_dev_regret": 0.0007293887968390641,
+          "worst_dev_false_safe": 0.035,
+          "worst_dev_pair_ranking": 0.96,
+          "worst_dev_field_miou": 0.8864514983495153
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0007293887968390641,
+          "false_safe": 0.014318181818181818,
+          "pair_ranking": 0.96,
+          "field_miou": 0.8866120218579234,
+          "exposure_mae": 0.011704872335179735
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0003786642395456852,
+          "false_safe": 0.035,
+          "pair_ranking": 0.975,
+          "field_miou": 0.8864514983495153,
+          "exposure_mae": 0.01140446768049277
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "3fec2c6ab892d4ebdf9a229a3ea259d723bf9b05033f6269f9504c4863e4e3af"
+      },
+      {
+        "run_id": "ar07-exposure-consistent-loss-fix",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "15546c6df28ca111b722255f2c58b418a9636878",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0005720826529554087,
+          "worst_dev_regret": 0.0005720826529554087,
+          "worst_dev_false_safe": 0.0425,
+          "worst_dev_pair_ranking": 0.953888888888889,
+          "worst_dev_field_miou": 0.832684037439919
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0005720826529554087,
+          "false_safe": 0.019318181818181818,
+          "pair_ranking": 0.953888888888889,
+          "field_miou": 0.832684037439919,
+          "exposure_mae": 0.014593160041551947
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00039547870914976137,
+          "false_safe": 0.0425,
+          "pair_ranking": 0.9766666666666666,
+          "field_miou": 0.83793555148022,
+          "exposure_mae": 0.015462361391177215
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "8e7929b24e04875d131a60934f425da0a56ae7a2e973d5c5d5510d2a31b4827e"
+      },
+      {
+        "run_id": "ar08-relative-exposure-loss",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "8a9ed961231632264f6ffb1ecfc5905a9410ce51",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006806643114556174,
+          "worst_dev_regret": 0.0006806643114556174,
+          "worst_dev_false_safe": 0.03,
+          "worst_dev_pair_ranking": 0.9611111111111111,
+          "worst_dev_field_miou": 0.8359116953151331
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006806643114556174,
+          "false_safe": 0.019318181818181818,
+          "pair_ranking": 0.9611111111111111,
+          "field_miou": 0.8464816433566433,
+          "exposure_mae": 0.01399735175314057
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0002394054555704217,
+          "false_safe": 0.03,
+          "pair_ranking": 0.9816666666666666,
+          "field_miou": 0.8359116953151331,
+          "exposure_mae": 0.015930114720566914
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "4f97278ff852a10dbebbe719d9f6dfb7383cf524bcc37969752073127fef680b"
+      },
+      {
+        "run_id": "ar09-tail-weight-average",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "7f5e27963399d8ca40ec6d5ea54e5e9da4ca75ff",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006426837339637578,
+          "worst_dev_regret": 0.0006426837339637578,
+          "worst_dev_false_safe": 0.0325,
+          "worst_dev_pair_ranking": 0.9594444444444444,
+          "worst_dev_field_miou": 0.9136730205278591
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006426837339637578,
+          "false_safe": 0.015151515151515152,
+          "pair_ranking": 0.9594444444444444,
+          "field_miou": 0.927274296835761,
+          "exposure_mae": 0.010194932709497532
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00015911156602659848,
+          "false_safe": 0.0325,
+          "pair_ranking": 0.9783333333333334,
+          "field_miou": 0.9136730205278591,
+          "exposure_mae": 0.009759549713120227
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "d9d8ea2d0caab0290f77fc56ef02dcd9226f7f932cd68451b2b60b8a2c8abbc1"
+      },
+      {
+        "run_id": "ar10-cosine-schedule",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "341872a988a56726559a21b08e70fceff3f458e6",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0005597658193714772,
+          "worst_dev_regret": 0.0005597658193714772,
+          "worst_dev_false_safe": 0.035,
+          "worst_dev_pair_ranking": 0.9583333333333333,
+          "worst_dev_field_miou": 0.9115782582314055
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0005597658193714772,
+          "false_safe": 0.015984848484848487,
+          "pair_ranking": 0.9583333333333333,
+          "field_miou": 0.9115782582314055,
+          "exposure_mae": 0.011773225545908565
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00015911156602659848,
+          "false_safe": 0.035,
+          "pair_ranking": 0.9783333333333334,
+          "field_miou": 0.9157166158188748,
+          "exposure_mae": 0.010466587007885622
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "fe246c06ab233449682156124a33f82de56c04caebc0ca95d5bdffd00e82dccd"
+      },
+      {
+        "run_id": "ar10-cosine-schedule-confirm",
+        "tier": "confirm",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "341872a988a56726559a21b08e70fceff3f458e6",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830,
+          20260843,
+          20260871
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006001228965714205,
+          "worst_dev_regret": 0.0006001228965714205,
+          "worst_dev_false_safe": 0.03375,
+          "worst_dev_pair_ranking": 0.9550000000000001,
+          "worst_dev_field_miou": 0.9307702215437179
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006001228965714205,
+          "false_safe": 0.01813131313131313,
+          "pair_ranking": 0.9550000000000001,
+          "field_miou": 0.940857730233622,
+          "exposure_mae": 0.010637972849628778
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00028148813757935154,
+          "false_safe": 0.03375,
+          "pair_ranking": 0.9719444444444445,
+          "field_miou": 0.9307702215437179,
+          "exposure_mae": 0.011200115411003764
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "fca4d69036a09fadb6ec2e5337a14dff799f2026a2906035840db3777732e69d"
+      },
+      {
+        "run_id": "ar11-stronger-weight-decay",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "72229048bbbc67cd2564fcb537f0afec6cd764f3",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006916805489562808,
+          "worst_dev_regret": 0.0006916805489562808,
+          "worst_dev_false_safe": 0.0375,
+          "worst_dev_pair_ranking": 0.9577777777777778,
+          "worst_dev_field_miou": 0.9055984065095779
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006916805489562808,
+          "false_safe": 0.015151515151515152,
+          "pair_ranking": 0.9577777777777778,
+          "field_miou": 0.9104776518728359,
+          "exposure_mae": 0.01161973991585323
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00015911156602659848,
+          "false_safe": 0.0375,
+          "pair_ranking": 0.9783333333333334,
+          "field_miou": 0.9055984065095779,
+          "exposure_mae": 0.011018285463858454
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "2f3f486b183c4441a0da7f75c1ff92f1a70d33c0f0bef45d7c5ad6bb67d07d5a"
+      },
+      {
+        "run_id": "ar12-polarity-balance",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "ef473e46269d5b1b442c23e06f5ef1a4b31e6e01",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0006966111074057343,
+          "worst_dev_regret": 0.0006966111074057343,
+          "worst_dev_false_safe": 0.035,
+          "worst_dev_pair_ranking": 0.9583333333333333,
+          "worst_dev_field_miou": 0.9114419193918759
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0006966111074057343,
+          "false_safe": 0.015151515151515152,
+          "pair_ranking": 0.9583333333333333,
+          "field_miou": 0.9250920714335349,
+          "exposure_mae": 0.010623992954366843
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.00015911156602659848,
+          "false_safe": 0.035,
+          "pair_ranking": 0.9783333333333334,
+          "field_miou": 0.9114419193918759,
+          "exposure_mae": 0.010308980885290267
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "e061475447a06a7d197a30116bab1db4dc5641ee809a00ee8f86ab094349b8fc"
+      },
+      {
+        "run_id": "ar13-channel-permutation-balance",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "ab82bbd222c56e0e5cdbdd0087eb5e25f7b4dac9",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0008724992463926535,
+          "worst_dev_regret": 0.0008724992463926535,
+          "worst_dev_false_safe": 0.035,
+          "worst_dev_pair_ranking": 0.9527777777777778,
+          "worst_dev_field_miou": 0.8876558834424003
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0008724992463926535,
+          "false_safe": 0.02098484848484848,
+          "pair_ranking": 0.9527777777777778,
+          "field_miou": 0.8876558834424003,
+          "exposure_mae": 0.011207129907668116
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0003786642395456852,
+          "false_safe": 0.035,
+          "pair_ranking": 0.975,
+          "field_miou": 0.9060490940970194,
+          "exposure_mae": 0.010029498845321068
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "48eadc7fc12eb508036342099da83f461e107de3d637d9b44f0835c35a8f2844"
+      },
+      {
+        "run_id": "baseline-confirm-v2",
+        "tier": "confirm",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "1e0f7756f557489133b5bc07e2a9739f79f1c2b9",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830,
+          20260843,
+          20260871
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.0074602331070935946,
+          "worst_dev_regret": 0.0074602331070935946,
+          "worst_dev_false_safe": 0.36208333333333337,
+          "worst_dev_pair_ranking": 0.7825925925925926,
+          "worst_dev_field_miou": 0.1738678409803682
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.0074602331070935946,
+          "false_safe": 0.36208333333333337,
+          "pair_ranking": 0.7825925925925926,
+          "field_miou": 0.1738678409803682,
+          "exposure_mae": 0.059524521127928755
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0023677155135934966,
+          "false_safe": 0.10625000000000001,
+          "pair_ranking": 0.9402777777777778,
+          "field_miou": 0.4889385153751862,
+          "exposure_mae": 0.043922781096008286
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "c6de99a0a0820ebdc338fde220998e375c666c4c13250cf73041816867326a41"
+      },
+      {
+        "run_id": "baseline-quick-v2",
+        "tier": "quick",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "1e0f7756f557489133b5bc07e2a9739f79f1c2b9",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.007180727533969392,
+          "worst_dev_regret": 0.007180727533969392,
+          "worst_dev_false_safe": 0.3963636363636364,
+          "worst_dev_pair_ranking": 0.7805555555555556,
+          "worst_dev_field_miou": 0.09777336684221478
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.007180727533969392,
+          "false_safe": 0.3963636363636364,
+          "pair_ranking": 0.7805555555555556,
+          "field_miou": 0.09777336684221478,
+          "exposure_mae": 0.06416538361612678
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.0009932418249585639,
+          "false_safe": 0.085,
+          "pair_ranking": 0.98,
+          "field_miou": 0.548051948051948,
+          "exposure_mae": 0.03679511131934867
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "0c4466e87d0bcaff03c582671dc51bae4fe79f6cc75929b43d16267823f1c5cf"
+      },
+      {
+        "run_id": "baseline-smoke-v2",
+        "tier": "smoke",
+        "status": "COMPLETE",
+        "scientific_authority": false,
+        "formal_holdout_evaluated": false,
+        "declared_git": {
+          "commit": "1e0f7756f557489133b5bc07e2a9739f79f1c2b9",
+          "branch": "codex/autoresearch-exp01b-r2",
+          "dirty": false
+        },
+        "model_seeds": [
+          20260830
+        ],
+        "parameter_count": 11275266,
+        "objective": {
+          "appearance_ood_regret": 0.02615424284200096,
+          "worst_dev_regret": 0.03634342512261307,
+          "worst_dev_false_safe": 0.0,
+          "worst_dev_pair_ranking": 0.4652777777777778,
+          "worst_dev_field_miou": 0.0
+        },
+        "appearance_ood_factorized_no_cf": {
+          "regret": 0.02615424284200096,
+          "false_safe": 0.0,
+          "pair_ranking": 0.4652777777777778,
+          "field_miou": 0.0,
+          "exposure_mae": 0.35965486401308344
+        },
+        "joint_ood_factorized_no_cf": {
+          "regret": 0.03634342512261307,
+          "false_safe": 0.0,
+          "pair_ranking": 0.5625,
+          "field_miou": 0.0,
+          "exposure_mae": 0.37593187290458535
+        },
+        "checkpoint_sha256": {},
+        "source_result_sha256": "2e88820e0e02a01af9ab193ef12f8f2beb7ff5add26ba9f30501bfcc53868562"
+      }
+    ]
+  },
+  "local_teacher_generations": 126,
+  "additional_vision_checks": 5,
+  "provider_calls": 0,
+  "new_tests_passed": 14,
+  "final_test_run": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "new_tests": 14,
+    "existing_regression_tests": 11,
+    "report": "docs/assets/c3_quest/teacher_tests_25.xml",
+    "sha256": "5c6733ce660bab0176d81e2f8650d5e121d70422d73adcceaabedf60ecc6d31e"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "protocol_version": "c3-local-teacher-diagnostic-v1",
+  "status": "COMPUTE_READY_LABEL_INTERFACE_NOT_USEFUL",
+  "updated": "2026-09-12",
+  "ssh_host": "quest.northwestern.edu",
+  "quest_user": "shv7753",
+  "account": "p33100",
+  "remote_root": "/projects/p33100/siosio/hazard_c3_safe_20260911",
+  "python_executable": "/projects/p33100/siosio/envs/qwen-vlm/bin/python",
+  "model": {
+    "id": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "path": "/projects/p33100/siosio/hazard_c3_safe_20260911/model",
+    "bytes": 17545907231,
+    "verified_inventory_sha256": "8d5e5ae89d115fa891ac15ea43d8071213304ecd56866e04587f1a7bd5d11317"
+  },
+  "geometry_and_split_source": "configs/c3_safe_foundation.json",
+  "dataset_manifest_sha256": "e3e1cffc0ce36fb2cb3cab32e61068caa556e1fdce7ddb9380c666b4832a6bc1",
+  "prompt_sha256": "3dedd5ec77084f2b6ce7d681ffbc7de01516685114d0549bc5fcd9b700a0184f",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 1024,
+    "seed": 20260911
+  },
+  "local_teacher_generations": 126,
+  "vision_diagnostic_generations": 5,
+  "provider_calls": 0,
+  "human_review_completed": false,
+  "scientific_gates_passed": [],
+  "next_requirement": "align research branches and validate visible terrain semantics before scaling teacher labels or policy learning"
+}

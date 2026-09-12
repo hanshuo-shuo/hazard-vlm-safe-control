@@ -1,6 +1,6 @@
 # Results Registry
 
-更新：2026-09-09
+更新：2026-09-12
 
 本文件是所有实验产物的状态真相源。结果只能处于以下状态之一：
 
@@ -10,8 +10,9 @@
 - **ARCHIVED**：属于已放弃路线，仅用于保存研究历史。
 
 当前没有任何 semantic-safety 结果达到 `VALIDATED`。C³-Safe 的基础实现、开发数据采集
-和 simulator-only 空间学生对照已运行；尚无真实 VLM teacher labels、C³-Safe policy
-checkpoint 或算法贡献证据。下面的新记录全部属于开发检查或 `PILOT_ONLY`。
+和 simulator-only 空间学生对照已运行。Quest 上已获取 126 份真实 VLM 回答，但全部没有
+属性正标注，尚未得到合格 teacher 监督集。本分支没有 C³-Safe policy checkpoint 或算法
+贡献证据；另外发现的远端分支记录单独列出，不能混成同一实验。新记录都是开发检查或 `PILOT_ONLY`。
 
 ## C³-Safe current mainline
 
@@ -24,15 +25,47 @@ checkpoint 或算法贡献证据。下面的新记录全部属于开发检查或
 - Implemented: calibrated spatial fields, swept circular exposure, separated analytic
   capability/rule costs, native semantic step evaluation, split/twin provenance,
   paired oracle/blind MPC collection, and a simulator-only RGB spatial student
-- Pending: real teacher labeling, learned counterfactual relation losses, independent
+- Pending: useful teacher supervision, learned counterfactual relation losses, independent
   semantic/physical critics, SAC actor, and formal multi-seed joint-OOD evaluation
 - Current development record: [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)
 - Checked-in numerical evidence: [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)
+- Latest Quest evidence: [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
 `VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
+
+## 2026-09-12 — Quest resources and real teacher diagnostics
+
+- Evidence class: `PILOT_ONLY / DEVELOPMENT_DIAGNOSTIC`
+- Official Qwen3-VL-8B-Instruct revision: `0c351dd01ed87e9c1b53cbc748cba10e6187ff3b`
+- New model files: 17,545,907,231 bytes, all 14 official identities verified
+- Remote root: `/projects/p33100/siosio/hazard_c3_safe_20260911`
+- Completed Slurm jobs: download `6156249`, teacher `6156462`, vision checks `6157352`
+- Local model generations: **126 original labels + 5 separate input checks**; paid provider calls: **0**
+- Numerical record: [`C3_QUEST_RESULTS_2026-09-12.json`](C3_QUEST_RESULTS_2026-09-12.json)
+
+| Local artifact under `results/` | Result | Allowed interpretation |
+|---|---|---|
+| `c3_qwen8b_labels_20260912` | 126 actual model responses; initial parser rejected optional unknown-region confidence | Frozen original generation record; parser rejection is not proof of model format failure |
+| `c3_qwen8b_fields_20260912` | Compatible reparse: 126/126 parse, **126 unknown-only, 0 property regions** | No new generations; cannot be treated as useful supervision |
+| `c3_qwen8b_evaluation_20260912` | Water IoU 0 on known pixels; 108/147 motions unknown; only 1/16 high-exposure motions remains evaluable and is missed | Current renderer/prompt/model combination fails the development label check; not a formal human-reviewed Gate 1 result |
+| `c3_vision_diagnostic_20260912` | Two swapped-color controls correct; three renderer scenes described as grids/dots/textured circles | Supports functioning image input; does not establish semantic terrain recognition or exact grounding |
+
+The old generated records remain unchanged. The parser correction only accepts an optional
+bounded confidence on explicitly unknown polygons; it never adds or changes a property region.
+Conditional validation/test exposure MAE is zero because all remaining evaluable motions are
+low-exposure; that number cannot be promoted as safety accuracy. No distillation or SAC result
+is authorized by these outputs. Complete formal Gate 0–2 remain unpassed.
+
+The discovered `/home/shv7753/hazard-autoresearch-exp01b-r2` deployment has 17 completed
+development records and 2 failures. Three-seed confirm records reach approximately 0.93–0.94
+appearance-OOD field mIoU, using different data, resolution and a much larger model than this
+branch's initial baseline. They declare `DEVELOPMENT_ONLY` and no formal holdout; their
+training/protected hashes were not fully reaudited here. Their protocol emphasizes factorized
+composition and does not establish a CF-loss advantage. See the new progress record before
+interpreting this branch's older method hypothesis as the only project direction.
 
 ## 2026-09-09 — C³-Safe foundation and non-VLM development checks
 

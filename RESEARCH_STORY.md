@@ -2,8 +2,13 @@
 
 ## C³-Safe：Capability–Constraint Counterfactual Semantic Safety Distillation
 
-更新时间：2026-09-09（方法协议仍为 2026-08-17 修订）
-当前状态：**基础实现及无 VLM 的空间学生对照已运行；C³-Safe 蒸馏与策略训练未运行。**
+更新时间：2026-09-12（本分支方法协议仍为 2026-08-17 修订）
+当前状态：**基础实现、无 VLM 空间学生及真实 teacher 接入检查已运行；有效蒸馏与策略训练未运行。**
+
+最新 Quest 检查见 [`C3_QUEST_PROGRESS_2026-09-12.md`](docs/C3_QUEST_PROGRESS_2026-09-12.md)：
+126 个真实 8B 回答全部没有属性区域；另发现远端 EXP-01B-R2 已完成多 seed 视觉学生开发，
+并将研究重点转向 factorized composition。下面是本分支保留的假设与历史，不代表另一
+分支的全部进度，也不能把 CF auxiliary loss 的增益当成已获支持的贡献。
 
 新的工程进度和可复现开发结果见
 [`C3_FOUNDATION_PROGRESS.md`](docs/C3_FOUNDATION_PROGRESS.md)。目前已有 simulator-only

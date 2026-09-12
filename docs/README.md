@@ -1,9 +1,11 @@
 # Documentation Map
 
-Updated: 2026-09-09.
+Updated: 2026-09-12.
 
 ## Current reading
 
+- [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)：Quest 资源、真实 VLM 检查、当前标签问题及远端分支补充进展；
+- [`C3_QUEST_RESULTS_2026-09-12.json`](C3_QUEST_RESULTS_2026-09-12.json)：模型版本、作业、131 次调用和旧 Quest 结果的数值索引；
 - [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)：本轮已执行工作、实际结果、复现命令与下一步资源；
 - [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)：小型数值证据与本地完整产物的 hash；
 - [`../RESEARCH_STORY.md`](../RESEARCH_STORY.md)：C³-Safe 的研究故事，以及被保留的旧 pilot 证据；

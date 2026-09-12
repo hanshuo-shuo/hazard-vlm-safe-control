@@ -3,13 +3,16 @@
 当前唯一继续开发的科学主线是 **C³-Safe**。它把 VLM 限定为训练期、action-free 的
 环境需求 teacher；测试时不加载 VLM，动作只由小型 constrained policy 输出。
 
-当前状态（2026-09-09）：**基础实现与 simulator-only 视觉学生已运行；VLM 蒸馏与策略学习尚未运行。**
+当前状态（2026-09-12）：**基础实现、simulator-only 学生和真实 Quest teacher 检查已运行；有效的 VLM 蒸馏与策略学习尚未运行。**
 已实现统一安全记账、两个环境的运动足迹评测、投影校准、开发数据采集和小 CNN 训练。
-现有两个 checkpoint 是无 VLM 的空间识别对照；尚无 C³-Safe policy checkpoint、真实
-teacher labels 或 `VALIDATED` semantic-safety 结果。
+本分支的两个 checkpoint 是无 VLM 的空间识别对照。Quest 上已下载并校验 Qwen3-VL-8B，
+完成 126 次标注和 5 次视觉检查；首轮 126 个回答全部只有 unknown，没有属性正标注。
+还发现另一条 Quest 分支已有 17 份视觉学生开发结果，需与本分支对齐研究定义。
+尚无本分支的 C³-Safe policy checkpoint、合格 teacher 监督集或 `VALIDATED` semantic-safety 结果。
 
 先读：
 
+- [`docs/C3_QUEST_PROGRESS_2026-09-12.md`](docs/C3_QUEST_PROGRESS_2026-09-12.md)：已接入的资源、真实 teacher 失败诊断及补发现的远端研究进展；
 - [`docs/C3_FOUNDATION_PROGRESS.md`](docs/C3_FOUNDATION_PROGRESS.md)：本轮完成项、实际结果、复现命令和下一步；
 - [`RESEARCH_STORY.md`](RESEARCH_STORY.md)：新的 storyline，以及保留的旧 pilot 证据；
 - [`docs/C3_SAFE_MAINLINE.md`](docs/C3_SAFE_MAINLINE.md)：协议、矩阵、baseline 和 Go/No-Go gates；
@@ -17,6 +20,9 @@ teacher labels 或 `VALIDATED` semantic-safety 结果。
 - [`docs/REPOSITORY_STATUS_2026-08-13.md`](docs/REPOSITORY_STATUS_2026-08-13.md)：保留/冻结/复用边界。
 
 ## 一句话 thesis
+
+以下保留本分支的原方法假设；Quest 的另一条路线已弱化 CF auxiliary loss 的贡献主张。
+两条路线的协议需对齐，不能把假设或已消费开发集上的改进当成已经成立的科学结论。
 
 VLM 更适合告诉小模型“这个环境要求机器人具备什么”，而不是告诉机器人“下一步怎么走”。
 先学习像素级空间需求场，再用 swept footprint 计算当前运动暴露；把能力不兼容和任务
@@ -77,7 +83,8 @@ python3 scripts/train_c3_spatial_baseline.py --dataset results/c3_data_local \
 ```
 
 环境依赖见 `requirements.lock`；训练额外使用 `requirements-learning.txt` 中的 PyTorch。
-本机已有 Torch 2.5.1，本轮未下载 VLM 权重、未发起 provider calls。
+本地 simulator-only 学生使用已有 Torch 2.5.1。后续 Quest 接入复用了独立 Qwen 环境，
+下载了官方 8B 权重并完成真实本地 VLM 调用；所有这些运行的付费 provider calls 均为 0。
 
 ## 回归测试
 

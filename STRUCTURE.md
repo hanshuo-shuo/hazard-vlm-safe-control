@@ -1,6 +1,6 @@
 # Project Structure and Archive Policy
 
-Updated: 2026-09-09.
+Updated: 2026-09-12.
 
 仓库的 active research line 是 **C³-Safe**；旧 marker、interface-contract、PIVOT、
 PointPush 和 direct-VLA 路线停止科学扩展，但保留原路径与 provenance。
@@ -13,6 +13,7 @@ RESEARCH_STORY.md                      current C³-Safe storyline
 docs/C3_SAFE_MAINLINE.md               frozen mainline protocol
 docs/C3_FOUNDATION_PROGRESS.md         implemented work, development evidence and next steps
 docs/C3_FOUNDATION_RESULTS_2026-09-09.json  compact numerical evidence and run hashes
+docs/C3_QUEST_PROGRESS_2026-09-12.md    Quest resources, real teacher checks and other-branch discovery
 configs/c3_safe_mainline_manifest.json machine-readable planned scope
 docs/RESULTS_REGISTRY.md               result-validity authority
 docs/REPOSITORY_STATUS_2026-08-13.md   keep/freeze/reuse index
@@ -28,6 +29,7 @@ docs/REPOSITORY_STATUS_2026-08-13.md   keep/freeze/reuse index
 | Data and provenance | `c3_safe/data.py`, `artifacts.py` | Frozen split membership, same-transition twins, action-free requests and run-start source snapshots |
 | Development expert | `c3_safe/oracle_control.py` | Shared A* + MPC router for blind and privileged oracle arms |
 | Spatial student | `c3_safe/spatial_student.py`, `scripts/train_c3_spatial_baseline.py` | Optional PyTorch, RGB-only CNN, simulator-mask baseline and exposure-loss diagnostic |
+| Real teacher I/O | `c3_safe/teacher_io.py`, `scripts/*c3_teacher*.py`, `setup/c3_teacher_*.sbatch` | RGB-only bundles, pinned official Qwen download, real GPU calls, immutable reparsing and coverage-aware evaluation |
 | PointHazard | `env_pointhazard.py`, `hazard_renderer.py` | 2-D dynamics, rendering and reliable layout source |
 | Interface boundary | `envs/protocol_env.py`, `envs/point_hazard_adapter.py` | Keep policy inputs separate from evaluator truth |
 | Safety-Gym | `envs/safety_gym_goal_adapter.py` | Second task; semantic variant must pass geometry/step gates |
@@ -39,7 +41,9 @@ docs/REPOSITORY_STATUS_2026-08-13.md   keep/freeze/reuse index
 | Planned mainline | `docs/C3_SAFE_MAINLINE.md`, `configs/c3_safe_mainline_manifest.json` | Spatial labels, motion exposure, separated relation costs/critics and SAC-Lagrange scope |
 
 The spatial baseline trainer has run on a small development dataset. Teacher distillation,
-learned counterfactual relations, independent cost critics and a SAC policy remain pending.
+learned counterfactual relations, independent cost critics and a SAC policy remain pending in
+this branch. The discovered Quest branch has additional relation models and visual development
+results; their separate scope is recorded in `docs/C3_QUEST_PROGRESS_2026-09-12.md`.
 The complete formal Gate 0–2 requirements are unchanged.
 
 ## Frozen storyline support

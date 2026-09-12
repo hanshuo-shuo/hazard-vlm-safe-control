@@ -1,7 +1,7 @@
 # C³-Safe 主线协议
 
 决策日期：2026-08-13；方法修订：2026-08-17
-实现状态（2026-09-09）：**FOUNDATION IMPLEMENTED / METHOD NOT VALIDATED**
+实现状态（2026-09-12）：**FOUNDATION IMPLEMENTED / METHOD NOT VALIDATED**
 工作标题：**Teach Spatial Requirements, Measure Motion Exposure: Capability–Constraint Counterfactual Distillation for Semantic-Safe Control**
 
 ## 1. 当前决策
@@ -13,6 +13,11 @@ semantic/physical critics 和 SAC actor 尚未运行，完整 Gate 0–2 均未�
 没有任何旧 semantic-safety 数字可以直接继承为论文结果。
 旧的 marker、interface-contract、semantic pilot、PIVOT 和 direct-VLA
 资产仅保留 provenance、motivation、failure analysis 或回归用途。
+
+2026-09-12 已完成真实 Quest teacher 接入诊断，但 126 个回答只有 unknown，无属性正标注。
+同时发现另一条远端 C³-Safe 路线已经转向 factorized composition，并有较完整的开发结果；
+详见 [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)。本文件保留
+此分支的目标协议，尚未将不同分支的贡献定义或 gate 合并。
 
 以下矩阵与阈值保留为正式方法的目标协议；开发检查与小数据对照不降低这些要求。
 当前执行细节（q95、圆形足迹、开发 seeds）单独冻结在
