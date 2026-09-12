@@ -1,0 +1,69 @@
+{
+  "experiment_id": "INDEPENDENT-COMPOSITION-CONFIRMATION-20260912-v1",
+  "evidence_class": "PROSPECTIVE_COMPONENT_STUDY_NOT_FORMAL_C3_GATE",
+  "reference_train_sha256": "838f49158b7c227fcd1ef27758c78e123b39d0c018b1613bb9d7415c9bff4844",
+  "model_seeds": [20261011, 20261023, 20261037, 20261051, 20261069],
+  "recipes": ["legacy", "balanced", "independent"],
+  "budget": {"max_epochs": 24, "max_train_seconds_per_seed": 1200},
+  "train": {"scene_seed": 1101, "scene_count": 800, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"]},
+  "validation": {"scene_seed": 1201, "scene_count": 100, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"]},
+  "independent_train": {"scene_seed": 26100101, "scene_count": 800, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"], "shapes": ["ellipse", "box"]},
+  "independent_validation": {"scene_seed": 26100102, "scene_count": 100, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"], "shapes": ["ellipse", "box"]},
+  "balance_seeds": {"train": 2026091251, "validation": 2026091252},
+  "calibration": {"scene_seed": 26100201, "scene_count": 300, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"], "shapes": ["ellipse", "box"]},
+  "test_splits": {
+    "random_iid": {"scene_seed": 26100301, "scene_count": 600, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"], "shapes": ["ellipse", "box"]},
+    "random_appearance": {"scene_seed": 26100302, "scene_count": 600, "appearance_families": ["amber_ice_v1", "rose_moss_v1"], "shapes": ["ellipse", "box"]},
+    "shape_appearance": {"scene_seed": 26100303, "scene_count": 600, "appearance_families": ["amber_ice_v1", "rose_moss_v1"], "shapes": ["diamond", "superellipse"]},
+    "legacy_regression": {"scene_seed": 26100304, "scene_count": 200, "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"], "generator": "legacy"}
+  },
+  "new_appearance_specs": {
+    "amber_ice_v1": {"floor": [136, 146, 160], "water": [208, 142, 42], "fragile": [54, 177, 207], "wave": 6, "crack": 8, "light": 0.90},
+    "rose_moss_v1": {"floor": [127, 152, 111], "water": [195, 69, 138], "fragile": [144, 117, 217], "wave": 8, "crack": 7, "light": 1.08}
+  },
+  "generator": {
+    "version": 1,
+    "highres_size": 64,
+    "image_size": 64,
+    "field_size": 16,
+    "center_range": [-0.62, 0.62],
+    "radius_range": [0.13, 0.28],
+    "rotation_range": [0.0, 6.283185307179586],
+    "minimum_pixels_per_patch": 18,
+    "patches": 2,
+    "nonoverlap": true,
+    "candidates": 4,
+    "footprint_radius_range": [0.05, 0.10],
+    "waypoint_range": [-0.85, 0.85],
+    "sampling": "Independent RNG streams for anonymous geometry, property permutation, action paths, appearance family, and candidate order. Reject geometry only for overlap/visibility. Do not reject paths for cost, optimum, or bypass. Four exchangeable paths share start/goal on opposite boundary sides and have two random interior waypoints. Property swaps preserve all paths, cards, shape occupancy, family and background render seed."
+  },
+  "training_comparison": "Same captured architecture, optimizer, augmentations, loss, checkpoint selection rule, model seeds and image/epoch/time ceilings. Balanced changes half of legacy train AND validation images, as in the prior diagnostic. Independent changes both train AND validation geometry/property distributions. Actual epochs/steps are reported; early stopping may differ. No learned cost labels enter visual training.",
+  "arms": ["formula", "learned_no_cf", "learned_cf", "mean_field_no_rgb", "cards_only", "shuffled_rgb", "oracle_formula"],
+  "primary": {
+    "split": "random_appearance",
+    "contrast": "legacy minus balanced formula regret, averaged across variants, candidates selected by uniform predicted ties, nontrivial cards A/C/D, scene pairs, and five paired training seeds",
+    "claim_pass": "Crossed seed-and-scene paired bootstrap 95% lower bound of regret reduction > 0, AND upper bound of balanced minus legacy false-safe micro rate <= 0.01. Otherwise the joint confirmation claim fails."
+  },
+  "secondary": ["independent versus balanced on all splits", "eligible changed-optimum paired correctness", "original legacy-regression mIoU and regret", "same-perception learned versus formula", "raw and calibrated risk-coverage", "false-safe numerator/denominator", "oracle sanity and no-RGB/image-shuffle controls"],
+  "evaluation_cards": [0, 2, 3],
+  "trivial_card": "B is retained in raw arrays but excluded from primary aggregate metrics and coverage.",
+  "false_safe_threshold": 0.02,
+  "changed_optimum_minimum_gap": 0.002,
+  "predicted_tie_atol": 1e-9,
+  "calibration_rule": {
+    "alpha": 0.05,
+    "score": "Per calibration scene pair: maximum positive truth-minus-predicted cost over both variants, every candidate and nontrivial card.",
+    "quantile": "Order statistic ceil((n+1)*(1-alpha)), clipped costs after adding the resulting nonnegative offset; card B remains zero. Fit separately for each model/recipe using only the fixed independent calibration set. No threshold tuning on test.",
+    "scope": "A pair-block split-conformal upper-cost calibration under IID exchangeability; no distribution-free coverage claim for appearance/shape shifts or legacy-regression. It bounds synthetic cost, not physical collision risk."
+  },
+  "coverage_thresholds": [0.0, 0.005, 0.01, 0.02, 0.03, 0.05, 0.075, 0.1, 0.2, 0.5, 1.0],
+  "uncertainty": {
+    "resamples": 5000,
+    "seed": 26100401,
+    "method": "Independently resample the five model-seed indices and scene-pair indices; preserve recipe pairing, variants, candidate/card dependence and shared test scenes. Report per-seed values and a separate conditional scene-only interval. Five seeds remain a limited estimate of training variability.",
+    "multiplicity": "Only the stated primary joint claim is confirmatory. Secondary intervals are descriptive without multiplicity adjustment."
+  },
+  "integrity_failure_conditions": ["any protected/source/protocol hash mismatch", "nonfinite arrays", "cross-split RGB or unordered-geometry hash overlap", "pair footprints or swapped target invariant fails", "calibration fit after test prediction", "missing or failed model seed", "any random split has fewer than 60 eligible changed-optimum card pairs"],
+  "data_access": "Freeze protocol and source hashes on Quest before dataset creation. Generate/inspect disjoint self-test fixtures only before freeze. Test files are opened by runner only after checkpoint export and calibration persistence. Dataset QA uses geometry/truth, no learned predictions. No adaptive rerun under this version.",
+  "resources": "All generation, tests, training, scoring and figures run in Quest Slurm allocations. Reuse existing environment; up to three simultaneous single-GPU jobs. No paid VLM calls and no closed-loop actor training."
+}

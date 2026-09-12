@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "verified_run_files": 180,
+  "verifier_sha256": "3e0e0f3bfef15bfc0432fbfcec2eac7b995505a4e9b4b0d7a444901caec037b8",
+  "frozen_parent_verifier_sha256": "bbb94f438c9c4ee0d6bf7fbcdf9741f6387ed54f724e823e1e7814c720e7749a",
+  "amendment": "Only eagerly cache compressed dataset arrays; identical scoring logic and numerical tolerances. Original verifier and original report-job log retained.",
+  "models": 15,
+  "replayed_images": 60,
+  "replay_device": "Quest allocated CPU",
+  "gpu_predictions_replaced": false,
+  "metrics_independently_recomputed": [
+    "regret",
+    "original_regret",
+    "false_safe counts",
+    "paired correctness",
+    "coverage/unsafe/cost counts",
+    "formula",
+    "calibration order statistic"
+  ],
+  "replays": [
+    {
+      "recipe": "legacy",
+      "seed": 20261011,
+      "max_pixel_difference": 0.0013897418975830078,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "1c35a2a92e43a360600be3d80703cc73d929fc5d29220bdea8d5b0ebb2357fec"
+    },
+    {
+      "recipe": "legacy",
+      "seed": 20261023,
+      "max_pixel_difference": 0.001222461462020874,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "c15d5c918264371a5d0a8c5b2070cb8d5a92304008f08980d2e68534d1b4f154"
+    },
+    {
+      "recipe": "legacy",
+      "seed": 20261037,
+      "max_pixel_difference": 0.0009843707084655762,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "fcd332f099179f54e13f4aa7fce638c0c81d97bcf5958887496f00d46354bc15"
+    },
+    {
+      "recipe": "legacy",
+      "seed": 20261051,
+      "max_pixel_difference": 0.0009362399578094482,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "b427ec5d308b1f03f66c323de7eb00cd333c2cb10500f51b7bbc4100325bb22c"
+    },
+    {
+      "recipe": "legacy",
+      "seed": 20261069,
+      "max_pixel_difference": 0.0007295012474060059,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "cbada71043029f864a3049f744408f6ea2ece4b037d7a0e4383b447158afb95b"
+    },
+    {
+      "recipe": "balanced",
+      "seed": 20261011,
+      "max_pixel_difference": 0.0016314983367919922,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "4240a26923a9696702975ca4fbe162f121b6811b42a431113e540ccfbb9037b9"
+    },
+    {
+      "recipe": "balanced",
+      "seed": 20261023,
+      "max_pixel_difference": 0.002114430069923401,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "7eeb4333ed0cea7759152c1db8ad6f2355f16896300c5393cae66f4b1c89b6dc"
+    },
+    {
+      "recipe": "balanced",
+      "seed": 20261037,
+      "max_pixel_difference": 0.0012724995613098145,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "0559d1bc1fb34b1bba2fcbf080256a8339e0fad1db975acb09be43ed7a53797b"
+    },
+    {
+      "recipe": "balanced",
+      "seed": 20261051,
+      "max_pixel_difference": 0.0013378262519836426,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "04f670570c373600aa66bc8f5ba9bc40a0e2fad6f41fd52085582541dc690cea"
+    },
+    {
+      "recipe": "balanced",
+      "seed": 20261069,
+      "max_pixel_difference": 0.0025956034660339355,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "e3f308daf077708f71558e96e54993e54d59b2e88b29739700e604575d568cce"
+    },
+    {
+      "recipe": "independent",
+      "seed": 20261011,
+      "max_pixel_difference": 0.0019493401050567627,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "547aa41bb45037f5b3d32530b28955173026039626b2480a6fcce06f28f42cbf"
+    },
+    {
+      "recipe": "independent",
+      "seed": 20261023,
+      "max_pixel_difference": 0.0019281506538391113,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "513cc3355f14ccefbbb86b5981de6d6cf108bbaa854ed115b8b6fb4d1a8f0e77"
+    },
+    {
+      "recipe": "independent",
+      "seed": 20261037,
+      "max_pixel_difference": 0.0013805031776428223,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "e31e749e2729584f6969ba5c9b8ce58b0c46c0be4a9dae58ff4d6a881224f711"
+    },
+    {
+      "recipe": "independent",
+      "seed": 20261051,
+      "max_pixel_difference": 0.000885695219039917,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "6b343881a1bbd34ef6d8161c8efb7ccb060e18b839e8f0b85214b9e6b27b3b1a"
+    },
+    {
+      "recipe": "independent",
+      "seed": 20261069,
+      "max_pixel_difference": 0.0011518299579620361,
+      "binary_agreement": 1.0,
+      "checkpoint_sha256": "1847f456f6e1d6415037c4cd1adbdc03d32f47c66ca1bb1baef98b77b195da8b"
+    }
+  ]
+}

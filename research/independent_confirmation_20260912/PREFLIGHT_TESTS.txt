@@ -1,0 +1,18 @@
+test_all_sources_parse (__main__.StudyTests) ... ok
+test_crossed_bootstrap_constant_and_pairing (__main__.StudyTests) ... ok
+test_deterministic_replay (__main__.StudyTests) ... ok
+test_formula_against_reference (__main__.StudyTests) ... ok
+test_no_cost_filter_and_random_assignment (__main__.StudyTests) ... ok
+test_no_overlap_and_visible (__main__.StudyTests) ... ok
+test_optimum_gap_and_invalid_pairs (__main__.StudyTests) ... ok
+test_oracle_and_ties (__main__.StudyTests) ... ok
+test_pool_against_explicit_sum (__main__.StudyTests) ... ok
+test_quantile_and_coverage (__main__.StudyTests) ... ok
+test_reference_identity (__main__.StudyTests) ... ok
+test_stream_separation (__main__.StudyTests) ... ok
+test_visual_intervention (__main__.StudyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.164s
+
+OK

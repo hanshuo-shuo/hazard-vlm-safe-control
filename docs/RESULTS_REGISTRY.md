@@ -31,11 +31,45 @@
 - Checked-in numerical evidence: [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)
 - Latest Quest evidence: [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)
 - Latest component audit and paper: [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)
+- Latest prospective component follow-up: [`C3_CONFIRMATION_PROGRESS_2026-09-12.md`](C3_CONFIRMATION_PROGRESS_2026-09-12.md)
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
 `VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
+
+## 2026-09-12 — Independent geometry, five-seed confirmation, and risk calibration
+
+- Mainline registry status: **PILOT_ONLY / METHOD_NOT_VALIDATED**. The specific component comparison
+  is prospectively frozen; no C3-Safe gate or semantic-safety result is promoted to VALIDATED.
+- Protocol/source freeze: `research/independent_confirmation_20260912/FREEZE.json`,
+  recorded on Quest at 2026-09-12 14:24:11 UTC before dataset creation.
+- Three data recipes × five new training seeds; 15 checkpoints exported and kept on Quest.
+- Tests: 2,000 scene pairs / 4,000 images shared across models, plus 300 separate calibration pairs.
+- New random generator separates anonymous property assignment, geometry, paths and candidate order;
+  it retains bypasses and target ties. Primary metrics use A/C/D, excluding identically zero card B.
+- On random-appearance tests, formula regret is 0.0207242 / 0.0047071 / 0.0003475 for original /
+  balanced / independent recipes; paired correctness is 0.89% / 76.07% / 97.77%.
+- Primary original-minus-balanced regret reduction: 0.0160171, crossed seed/scene 95% interval
+  [0.0140600, 0.0181573]; the false-safe noninferiority guard also passes. Other contrasts are secondary.
+- Independent recipe false-safe remains 9.85%. At the fixed 0.02 threshold, calibrated coverage is
+  zero for every recipe; conditional unsafe rate is undefined, not evidence of useful zero-risk control.
+- Same-perception relation heads are not identical to the formula throughout the new generator:
+  no-CF improves regret with the poor original field, but worsens it with balanced/independent fields.
+- Quest root: `/projects/p33100/siosio/hazard_independent_confirmation_20260912`;
+  dataset job 6176529 and all 15 tasks of array 6176550 completed successfully.
+- Original report job 6176551 was stopped after aggregation and one checkpoint replay because the
+  verifier repeatedly decompressed NPZ arrays. A documented IO-only cached verifier resumes the
+  same checks; frozen sources, saved model outputs, aggregate statistics and tolerances remain intact.
+- Resumed verification/report job 6177655 completed with exit 0:0: all 15 checkpoints and 60 fixed
+  CPU replay images passed, with 100% binary-field agreement; all saved decision metrics were
+  independently reconstructed. Compact records and figures are retained under
+  `research/independent_confirmation_20260912/reports/`.
+- New VLM/provider calls: **0**. No actor/critic training and no alteration of other project jobs.
+
+This follow-up is a stronger component test than the adaptive pilot, while retaining the repository's
+unpassed formal-method gate status. Its low-resolution mean-exposure synthetic costs are not physical
+collision probabilities. See the new progress report and independent verification record for scope.
 
 ## 2026-09-12 — Property-intervention audit, data repair, and working paper
 

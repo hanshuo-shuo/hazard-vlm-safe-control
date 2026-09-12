@@ -1,0 +1,236 @@
+{
+  "created_at_utc": "2026-09-12T14:25:18.809998+00:00",
+  "cross_split_overlap": 0,
+  "datasets": {
+    "legacy_train": {
+      "scene_count": 800,
+      "images": 800,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 0,
+      "dangerous_entries_acd": 9581,
+      "family_counts": {
+        "aqua_sand": 267,
+        "blue_slate": 267,
+        "teal_clay": 266
+      }
+    },
+    "balanced_train": {
+      "scene_count": 800,
+      "images": 800,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 0,
+      "dangerous_entries_acd": 9581,
+      "family_counts": {
+        "aqua_sand": 267,
+        "blue_slate": 267,
+        "teal_clay": 266
+      }
+    },
+    "independent_train": {
+      "scene_count": 800,
+      "images": 800,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 2163,
+      "dangerous_entries_acd": 5804,
+      "family_counts": {
+        "aqua_sand": 263,
+        "blue_slate": 253,
+        "teal_clay": 284
+      }
+    },
+    "legacy_validation": {
+      "scene_count": 100,
+      "images": 100,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 0,
+      "dangerous_entries_acd": 1199,
+      "family_counts": {
+        "aqua_sand": 34,
+        "blue_slate": 33,
+        "teal_clay": 33
+      }
+    },
+    "balanced_validation": {
+      "scene_count": 100,
+      "images": 100,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 0,
+      "dangerous_entries_acd": 1199,
+      "family_counts": {
+        "aqua_sand": 34,
+        "blue_slate": 33,
+        "teal_clay": 33
+      }
+    },
+    "independent_validation": {
+      "scene_count": 100,
+      "images": 100,
+      "eligible_changed_card_pairs": null,
+      "zero_exposure_entries": 261,
+      "dangerous_entries_acd": 767,
+      "family_counts": {
+        "aqua_sand": 30,
+        "blue_slate": 34,
+        "teal_clay": 36
+      }
+    },
+    "calibration": {
+      "scene_count": 300,
+      "images": 600,
+      "eligible_changed_card_pairs": 84,
+      "zero_exposure_entries": 1634,
+      "dangerous_entries_acd": 4400,
+      "family_counts": {
+        "aqua_sand": 98,
+        "blue_slate": 104,
+        "teal_clay": 98
+      },
+      "optimum_candidate_counts_by_card_original": {
+        "0": [
+          128,
+          74,
+          59,
+          39
+        ],
+        "2": [
+          88,
+          70,
+          80,
+          62
+        ],
+        "3": [
+          120,
+          76,
+          63,
+          41
+        ]
+      }
+    },
+    "random_iid": {
+      "scene_count": 600,
+      "images": 1200,
+      "eligible_changed_card_pairs": 220,
+      "zero_exposure_entries": 3188,
+      "dangerous_entries_acd": 8804,
+      "family_counts": {
+        "aqua_sand": 202,
+        "blue_slate": 196,
+        "teal_clay": 202
+      },
+      "optimum_candidate_counts_by_card_original": {
+        "0": [
+          232,
+          171,
+          113,
+          84
+        ],
+        "2": [
+          151,
+          168,
+          150,
+          131
+        ],
+        "3": [
+          234,
+          155,
+          114,
+          97
+        ]
+      }
+    },
+    "random_appearance": {
+      "scene_count": 600,
+      "images": 1200,
+      "eligible_changed_card_pairs": 224,
+      "zero_exposure_entries": 3178,
+      "dangerous_entries_acd": 8714,
+      "family_counts": {
+        "amber_ice_v1": 293,
+        "rose_moss_v1": 307
+      },
+      "optimum_candidate_counts_by_card_original": {
+        "0": [
+          232,
+          144,
+          134,
+          90
+        ],
+        "2": [
+          158,
+          149,
+          152,
+          141
+        ],
+        "3": [
+          260,
+          142,
+          109,
+          89
+        ]
+      }
+    },
+    "shape_appearance": {
+      "scene_count": 600,
+      "images": 1200,
+      "eligible_changed_card_pairs": 154,
+      "zero_exposure_entries": 3554,
+      "dangerous_entries_acd": 7918,
+      "family_counts": {
+        "amber_ice_v1": 318,
+        "rose_moss_v1": 282
+      },
+      "optimum_candidate_counts_by_card_original": {
+        "0": [
+          261,
+          152,
+          114,
+          73
+        ],
+        "2": [
+          169,
+          157,
+          137,
+          137
+        ],
+        "3": [
+          255,
+          152,
+          104,
+          89
+        ]
+      }
+    },
+    "legacy_regression": {
+      "scene_count": 200,
+      "images": 400,
+      "eligible_changed_card_pairs": 398,
+      "zero_exposure_entries": 0,
+      "dangerous_entries_acd": 4786,
+      "family_counts": {
+        "aqua_sand": 67,
+        "blue_slate": 67,
+        "teal_clay": 66
+      },
+      "optimum_candidate_counts_by_card_original": {
+        "0": [
+          38,
+          52,
+          52,
+          58
+        ],
+        "2": [
+          53,
+          47,
+          47,
+          53
+        ],
+        "3": [
+          63,
+          52,
+          44,
+          41
+        ]
+      }
+    }
+  }
+}

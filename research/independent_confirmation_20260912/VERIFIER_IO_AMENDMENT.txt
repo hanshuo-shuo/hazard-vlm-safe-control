@@ -1,0 +1,5 @@
+2026-09-12T14:37:57Z
+IO-only verification change: cache dataset NPZ arrays before scalar loops. Frozen verify.py, metrics, predictions, checkpoints and tolerance unchanged. Cancelled only own report job 6176551 after first checkpoint passed.
+bbb94f438c9c4ee0d6bf7fbcdf9741f6387ed54f724e823e1e7814c720e7749a  research/independent_confirmation_20260912/verify.py
+3e0e0f3bfef15bfc0432fbfcec2eac7b995505a4e9b4b0d7a444901caec037b8  research/independent_confirmation_20260912/verify_cached.py
+6dfb4a48d266e41e93aeaca19321ebfb6dd0a3cbcf7e73a126289a9c5b1250d4  reports/SUMMARY.json

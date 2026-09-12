@@ -3,15 +3,21 @@
 当前唯一继续开发的科学主线是 **C³-Safe**。它把 VLM 限定为训练期、action-free 的
 环境需求 teacher；测试时不加载 VLM，动作只由小型 constrained policy 输出。
 
-当前状态（2026-09-12）：**基础实现、simulator-only 学生和真实 Quest teacher 检查已运行；有效的 VLM 蒸馏与策略学习尚未运行。**
-已实现统一安全记账、两个环境的运动足迹评测、投影校准、开发数据采集和小 CNN 训练。
-本分支的两个 checkpoint 是无 VLM 的空间识别对照。Quest 上已下载并校验 Qwen3-VL-8B，
-完成 126 次标注和 5 次视觉检查；首轮 126 个回答全部只有 unknown，没有属性正标注。
-还发现另一条 Quest 分支已有 17 份视觉学生开发结果，需与本分支对齐研究定义。
-尚无本分支的 C³-Safe policy checkpoint、合格 teacher 监督集或 `VALIDATED` semantic-safety 结果。
+当前状态（2026-09-12）：**已从位置捷径诊断推进到 Quest 上的 15 模型、五种子随机布局确认实验；
+有效的 VLM 蒸馏与策略学习仍未运行。** 新外观/随机布局下，原始、左右平衡、独立随机布局
+训练的配对正确率为 0.89%、76.07%、97.77%；独立训练仍有 9.85% 危险候选漏报，保守校准
+在既定安全阈值下接受率为零。主要比较通过不等于 C³-Safe 安全 gate 通过。
+
+全部新计算放在 Quest，数值、源码冻结和权重均保留。此组件研究使用两通道/mean exposure，
+与三通道/q95 主线分开统计。此前基础实现、统一安全记账、两个环境的运动足迹检查和小 CNN
+对照仍保留；Qwen3-VL-8B 的 126 份真实标注仍全部 unknown-only。
+尚无 C³-Safe policy checkpoint、合格 teacher 监督集或 `VALIDATED` semantic-safety 结果。
 
 先读：
 
+- [`docs/C3_CONFIRMATION_PROGRESS_2026-09-12.md`](docs/C3_CONFIRMATION_PROGRESS_2026-09-12.md)：最新随机布局确认实验、风险校准失败模式与下一步；
+- [`paper/compositional_visual_risk/CURRENT.md`](paper/compositional_visual_risk/CURRENT.md)：论文草稿与本轮补充材料入口；
+- [`docs/C3_PAPER_PROGRESS_2026-09-12.md`](docs/C3_PAPER_PROGRESS_2026-09-12.md)：上一轮六模型配对审计和位置平衡修复；
 - [`docs/C3_QUEST_PROGRESS_2026-09-12.md`](docs/C3_QUEST_PROGRESS_2026-09-12.md)：已接入的资源、真实 teacher 失败诊断及补发现的远端研究进展；
 - [`docs/C3_FOUNDATION_PROGRESS.md`](docs/C3_FOUNDATION_PROGRESS.md)：本轮完成项、实际结果、复现命令和下一步；
 - [`RESEARCH_STORY.md`](RESEARCH_STORY.md)：新的 storyline，以及保留的旧 pilot 证据；
