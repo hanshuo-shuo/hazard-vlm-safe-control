@@ -1,0 +1,38 @@
+test_complement_and_transposition (test_plic.PLICTests) ... ok
+test_constant_lift_identity_and_area (test_plic.PLICTests) ... ok
+test_full_or_empty_footprint_cells_ignore_subcell_orientation (test_plic.PLICTests) ... ok
+test_mass_matches_independent_polygon (test_plic.PLICTests) ... ok
+test_orientation_from_coarse_neighbors (test_plic.PLICTests) ... FAIL
+test_uniform_fallback_no_invented_orientation (test_plic.PLICTests) ... ok
+
+======================================================================
+FAIL: test_orientation_from_coarse_neighbors (test_plic.PLICTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/gpfs/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/research/same_information_reconstruction_20260912/test_plic.py", line 51, in test_orientation_from_coarse_neighbors
+    self.assertTrue(valid.all());np.testing.assert_allclose(nx,-1);np.testing.assert_allclose(ny,0)
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/site-packages/numpy/testing/_private/utils.py", line 1527, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/home/shv7753/envs/hazard-exp01b-r2/lib/python3.10/site-packages/numpy/testing/_private/utils.py", line 844, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=1e-07, atol=0
+
+Mismatched elements: 160 / 256 (62.5%)
+Max absolute difference: 8.32667268e-16
+Max relative difference: inf
+ x: array([[[ 0.000000e+00,  0.000000e+00,  0.000000e+00,  1.040834e-16,
+          1.040834e-16,  4.163336e-16,  2.081668e-16,  2.081668e-16,
+         -2.081668e-16,  2.081668e-16, -2.081668e-16,  8.326673e-16,...
+ y: array(0)
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.183s
+
+FAILED (failures=1)
+Traceback (most recent call last):
+  File "/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/research/same_information_reconstruction_20260912/run.py", line 116, in <module>
+    args=ap.parse_args();main(args.root,args.phase)
+  File "/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/research/same_information_reconstruction_20260912/run.py", line 75, in main
+    if not test.wasSuccessful():raise AssertionError('PLIC contract failure')
+AssertionError: PLIC contract failure

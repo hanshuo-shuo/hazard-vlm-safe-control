@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T22:25:21.450193+00:00",
+  "scalar_decisions": 72000,
+  "independent_fine_polygon_areas": 65536,
+  "max_polygon_difference": 3.3306690738754696e-16,
+  "uniform_lift_max_difference": 3.702593787124897e-14,
+  "stage_hashes": {
+    "development": 2,
+    "appended": 2
+  },
+  "new_unsafe_learned_events": 43,
+  "specific_cancellation_pattern_events": 25,
+  "source_freeze_unchanged": true,
+  "scope": "Appended empirical comparison; not a fresh confirmation or risk certificate"
+}

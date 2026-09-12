@@ -1,0 +1,110 @@
+{
+  "at_utc": "2026-09-12T23:06:24.493098+00:00",
+  "status": "PASS",
+  "stage_manifest_entries_checked": {
+    "development": 2,
+    "appended": 2,
+    "report": 3,
+    "verification": 1,
+    "publication": 6,
+    "paper_figures": 7
+  },
+  "old_input_hashes_checked": 14,
+  "source_and_operator_freezes_unchanged": true,
+  "final_pdf_qa": {
+    "pdf_sha256": "0716d4c96b688706656c37f8274159dd910ab6864deab5b7653a1bf1c625ece4",
+    "pages": 13,
+    "main_text_pages": 9,
+    "first_statements_page": 10,
+    "page_characters": [
+      3943,
+      4638,
+      2113,
+      4673,
+      3217,
+      4397,
+      3052,
+      4322,
+      1976,
+      3544,
+      4183,
+      3665,
+      4431
+    ],
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "When Perfect Coarse Predictions Are Not Enough for Action Evaluation",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "LaTeX with hyperref",
+      "producer": "pdfTeX-1.40.29",
+      "creationDate": "D:20260912175638-05'00'",
+      "modDate": "D:20260912175638-05'00'",
+      "trapped": "",
+      "encryption": null
+    },
+    "personal_identifier_hits": [],
+    "text_outside_page": [],
+    "overfull_boxes": [],
+    "undefined_warnings": [],
+    "renderer": "1.26.7",
+    "visual_review": "Pending manual inspection of all rendered PNGs"
+  },
+  "visual_review": {
+    "reviewer": "Codex visual inspection; not a claim of completed human author review",
+    "pdf_sha256": "0716d4c96b688706656c37f8274159dd910ab6864deab5b7653a1bf1c625ece4",
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "result": "All final rendered pages inspected; figures, tables, equations, citations and page breaks readable; no clipping or overlap observed"
+  },
+  "official_style_unchanged": {
+    "url": "https://media.iclr.cc/Conferences/ICLR2027/iclr-2027-style-files.zip",
+    "sha256": "0d940dfa9398ae99a18f24a85a8a683f367204b6af6d17d2899e60a67102529e"
+  },
+  "manuscript_files": {
+    "main.tex": "102df0fa642e2a79d0b78d097be2506cb791df3078e5175cd0f0ca5e2014a9ca",
+    "evidence.tex": "38080ac00e80e4f1a6e9796b929f1e9a5886a66b649087fb217d7ace75741b56",
+    "comparison.tex": "4cdaede674e6abe2807353c184bb16c84b2d6df88b64c167545dd25d1d677511",
+    "discussion.tex": "d628444fc5be96d1d79d9205bba0137cadcfb23249050c8b97f0f49da3f06685",
+    "appendix.tex": "2c2468d806c8fcad25784fea62b3adab6e1afb92cae70eb4be25ab0fdb2173f9",
+    "case_table.tex": "6500736972ad8909c8c3ddbeb391c39251aead9f3c06d44e59210be2ebe1dfb3",
+    "references.bib": "9ca7a601facb9902b2ec4b109870718df9dd5118b3b3edfceafa2896f6c54538",
+    "iclr2027_conference.sty": "797deef41724e93761426ac0cbcca46279a91cc650dd1f0ce76a4f08d2098ea6",
+    "iclr2027_conference.bst": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+    "fancyhdr.sty": "b56ec4434b9f4607529a4b23dc68ad8d4b94f1f631c8cddaf7da78140d53a5ea",
+    "natbib.sty": "88bc70c0e48461934cab5b2accef06b74a8b3ac45ad03ccd3f2a6b7e0d6d530d",
+    "math_commands.tex": "90473c4d0542070db244cea73ef962d6cddc5b2a746757e6a40ddf5fdfb90ba9",
+    "build.sh": "e1caf85a0a75e62efbc0e3df186dc109f131fa41ecde513f317f23278caf26a8",
+    "README.md": "634700d4d22ab27495133ff7f0adc34022bb11a70cab225a76f7dbc0177b03fd",
+    "figures/task_scene.png": "4fe13d9d99c622aebd110b879936d1605c7e942b554f1e54bb62378081d074c0",
+    "figures/oracle_confirmation.png": "1a02d3874d884d49dca97bd4e2db5e1993086b75f8772fe11aba751d4ea8371c",
+    "figures/same_information_tradeoff.png": "4724b9ebf2e6eed304c371cef368373547b340b819200b0fd01c369ec01e7bdf"
+  },
+  "anonymous_source_scope": "Manuscript only; full anonymous experimental supplement remains to be prepared",
+  "portable_build": {
+    "passed": true,
+    "pages": 13,
+    "main_text_pages": 9,
+    "all_page_text_and_110dpi_rasters_identical": true,
+    "binary_pdf_identity_claimed": false
+  },
+  "delivery_hashes": {
+    "perfect_coarse_predictions_iclr2027.pdf": "0716d4c96b688706656c37f8274159dd910ab6864deab5b7653a1bf1c625ece4",
+    "anonymous_manuscript_source.zip": "b93eb189a557c3512ae1e9b6e96410619ae6260a5553364d45cb62e08d22f39f"
+  },
+  "scope": "No new data, fit, training, certificate or submission; document packaging and integrity audit only"
+}

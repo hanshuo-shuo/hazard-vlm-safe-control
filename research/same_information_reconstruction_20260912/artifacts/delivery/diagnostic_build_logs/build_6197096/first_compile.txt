@@ -1,0 +1,151 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/base
+/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/base
+/size10.clo)) (./iclr2027_conference.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/eso-
+pic/eso-pic.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/keyval.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/xcol
+or/xcolor.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-cfg/color.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-def/pdftex.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/mathcolor.ltx))) (./fancyhdr.sty) (./natbib.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/psnf
+ss/times.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amstext.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsgen.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsbsy.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsopn.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/amssymb.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/amsfonts.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/book
+tabs/booktabs.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/graphicx.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/graphics.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/trig.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-cfg/graphics.cfg)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/etoo
+lbox/etoolbox.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype-pdftex.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype.cfg))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/hyperref.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/if
+tex/iftex.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/kvse
+tkeys/kvsetkeys.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/kv
+definekeys/kvdefinekeys.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/pd
+fescape/pdfescape.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/lt
+xcmds/ltxcmds.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/pd
+ftexcmds/pdftexcmds.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/in
+fwarerr/infwarerr.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hyco
+lor/hycolor.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/nameref.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/refc
+ount/refcount.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/ge
+ttitlestring/gettitlestring.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/kvop
+tions/kvoptions.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/st
+ringenc/stringenc.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/pd1enc.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/in
+tcalc/intcalc.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/puenc.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/url/
+url.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/bi
+tset/bitset.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/bi
+gintcalc/bigintcalc.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/hpdftex.def
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/reru
+nfilecheck/rerunfilecheck.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/un
+iquecounter/uniquecounter.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/psnf
+ss/ot1ptm.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/l3ba
+ckend/l3backend-pdftex.def)
+No file main.aux.
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/context/ba
+se/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/epst
+opdf-pkg/epstopdf-base.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/late
+xconfig/epstopdf-sys.cfg))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-ptm.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-cmr.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/umsa.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-msa.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/umsb.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-msb.cfg) [1{/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf
+-var/fonts/map/pdftex/updmap/pdftex.map}{/gpfs/software/2025/texlive/2026/insta
+ll-tl-20260312/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+
+LaTeX Warning: Reference `fig:task' on page 2 undefined on input line 104.
+
+
+Package natbib Warning: Citation `resnet' on page 2 undefined on input line 131
+.
+
+
+LaTeX Warning: Reference `eq:cost' on page 2 undefined on input line 153.
+
+./main.tex:157: Double subscript.
+l.157 $O=\ind\{\min_a\refcost_
+                              a\leq\tau\}$, report
+./main.tex:157:  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on /projects/p33100/siosio/hazard_same_information_reconstru
+ction_20260912/paper/iclr2027/build_6197096/main.log.

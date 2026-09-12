@@ -1,0 +1,183 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/base
+/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/base
+/size10.clo)) (./iclr2027_conference.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/eso-
+pic/eso-pic.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/keyval.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/xcol
+or/xcolor.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-cfg/color.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-def/pdftex.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/mathcolor.ltx))) (./fancyhdr.sty) (./natbib.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/psnf
+ss/times.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amstext.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsgen.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsbsy.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsm
+ath/amsopn.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/amssymb.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/amsfonts.sty))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/book
+tabs/booktabs.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/graphicx.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/graphics.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics/trig.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/grap
+hics-cfg/graphics.cfg)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/etoo
+lbox/etoolbox.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype-pdftex.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/microtype.cfg))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/hyperref.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/if
+tex/iftex.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/kvse
+tkeys/kvsetkeys.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/kv
+definekeys/kvdefinekeys.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/pd
+fescape/pdfescape.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/lt
+xcmds/ltxcmds.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/pd
+ftexcmds/pdftexcmds.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/in
+fwarerr/infwarerr.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hyco
+lor/hycolor.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/nameref.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/refc
+ount/refcount.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/ge
+ttitlestring/gettitlestring.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/kvop
+tions/kvoptions.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/st
+ringenc/stringenc.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/pd1enc.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/in
+tcalc/intcalc.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/puenc.def)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/url/
+url.sty)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/bi
+tset/bitset.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/bi
+gintcalc/bigintcalc.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/hype
+rref/hpdftex.def
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/reru
+nfilecheck/rerunfilecheck.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/generic/un
+iquecounter/uniquecounter.sty)))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/psnf
+ss/ot1ptm.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/l3ba
+ckend/l3backend-pdftex.def)
+(/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/paper/
+iclr2027/build_6197203/main.aux)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/context/ba
+se/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/epst
+opdf-pkg/epstopdf-base.sty
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/late
+xconfig/epstopdf-sys.cfg))
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-ptm.cfg)
+(/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/paper/
+iclr2027/build_6197203/main.out)
+(/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/paper/
+iclr2027/build_6197203/main.out)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-cmr.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/umsa.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-msa.cfg)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/amsf
+onts/umsb.fd)
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/micr
+otype/mt-msb.cfg) [1{/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf
+-var/fonts/map/pdftex/updmap/pdftex.map}{/gpfs/software/2025/texlive/2026/insta
+ll-tl-20260312/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2] [3 <./figures/task_
+scene.png>] (./evidence.tex [4]) (./comparison.tex
+Underfull \vbox (badness 1668) has occurred while \output is active [5 <./figur
+es/oracle_confirmation.png>] [6]) (./discussion.tex [7 <./figures/same_informat
+ion_tradeoff.png>] [8]) [9]
+FIRST-STATEMENTS-PAGE=10
+
+(/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/paper/
+iclr2027/build_6197203/main.bbl
+(/gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/tex/latex/psnf
+ss/ot1pcr.fd)) [10] (./appendix.tex [11]
+Underfull \hbox (badness 1661) in paragraph at lines 130--137
+\OT1/ptm/m/n/10 (+20) Each re-cov-ery, new safe loss, new un-safe ac-cept and r
+e-solved un-safe ac-cept keeps its
+[12]) [13] [14]
+(/projects/p33100/siosio/hazard_same_information_reconstruction_20260912/paper/
+iclr2027/build_6197203/main.aux) )
+(see the transcript file for additional information)</gpfs/software/2025/texliv
+e/2026/install-tl-20260312/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></gpfs/software/2025/texlive/2026/install-tl-20260
+312/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></gpfs/software/2025/t
+exlive/2026/install-tl-20260312/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
+.pfb></gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi9.pfb></gpfs/software/2025/texlive/2026/install-tl-20
+260312/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></gpfs/software/2025
+/texlive/2026/install-tl-20260312/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb></gpfs/software/2025/texlive/2026/install-tl-20
+260312/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></gpfs/software/202
+5/texlive/2026/install-tl-20260312/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></gpfs/software/2025/texlive/2026/install-tl
+-20260312/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></gpfs/soft
+ware/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/type1/urw/courier/u
+crr8a.pfb></gpfs/software/2025/texlive/2026/install-tl-20260312/texmf-dist/font
+s/type1/urw/helvetic/uhvb8a.pfb></gpfs/software/2025/texlive/2026/install-tl-20
+260312/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></gpfs/software/2025/texlive
+/2026/install-tl-20260312/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></gpfs/so
+ftware/2025/texlive/2026/install-tl-20260312/texmf-dist/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on /projects/p33100/siosio/hazard_same_information_reconstructio
+n_20260912/paper/iclr2027/build_6197203/main.pdf (14 pages, 542362 bytes).
+Transcript written on /projects/p33100/siosio/hazard_same_information_reconstru
+ction_20260912/paper/iclr2027/build_6197203/main.log.

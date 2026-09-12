@@ -13,9 +13,52 @@
 - 不启动关系头、VLM 或 RL 扩展；不要改危险定义或反复消费已用测试来制造成功。
 - 当前没有本轮研究作业仍在运行；其他旧 pending 作业不属于本轮，不处理。
 
-## 最新一轮：oracle 分解与一次新确认（本轮完成）
+## 最新一轮：唯一同信息对照及九页论文（科学工作完成）
 
-用户最新 Pro 意见：`research/oracle_aggregation_20260912/PRO_REVIEW.md`。
+用户最新 Pro 意见：`research/same_information_reconstruction_20260912/PRO_REVIEW.md`。
+按其要求，只做一个既有局部重建和一个简单全局偏移；正文成稿优先。该实验已结束。
+
+- Quest 根：`/projects/p33100/siosio/hazard_same_information_reconstruction_20260912`。
+  本地源码、冻结记录和小型结果：`research/same_information_reconstruction_20260912/`。
+  最新入口：`docs/SAME_INFORMATION_PROGRESS_2026-09-12.md`。
+- 已消费 E3 IID 2,000 场景用于开发；实现与偏移锁定后，在已消费的上一轮 2,000
+  确认场景做**追加基线分析**。没有新样本、新训练、新认证，不称 untouched 或第三次确认。
+- 同信息权限：完美 target64-to16 / 全五模型 coarse16，加相同合法 F512。
+  Parker–Youngs 一阶 PLIC 仅用固定 3×3 粗邻域法线与面积守恒半平面，不能读取真实
+  形状参数、高分辨率属性或 oracle 法线。均匀提升恒等式已验证，不能把残差称为表征下限。
+- 唯一全局偏移 target=.001，learned=0。选择只用开发数据，在不增加开发危险数下
+  最大化安全接受；PLIC 没有相同约束。必须保留完整13点曲线，不宣称相同风险下的胜负，
+  不准根据追加结果再选偏移。
+- target：均匀 safe1538/unsafe2；偏移 safe1544/unsafe5；PLIC safe1582/unsafe18。
+  PLIC 恢复44/54、新增安全损失0、新危险16，eta96.61%→99.37%，R .13%→1.13%。
+- learned：五模型共享2,000场景，非10,000独立样本。均匀 safe7703/unsafe80；PLIC
+  safe7786/unsafe123。恢复83、新损失0、新危险43；R1.03%→1.56%，eta96.77%→97.81%。
+  固定选择和重选总数相同，不推断每个动作都没变；完整事件身份在 `EVENTS.jsonl`。
+- 25/43新危险事件在同动作上：原模型/测量误差异号，测量绝对误差改善，总误差变坏。
+  具体首例 scene264/model1/variant1/card3/action0；两分量绝对值都改善，但抵消消失。
+  其余18个保留，不能将所有有害事件归因于抵消。
+- 六项测试；初始job6196439在数据读取前遇8.33e−16伪横向梯度，用同一stencil
+  配对相减修复，测试未放松；原代码在 `attempts/6196439`。
+  独立72,000标量决策、65,536多边形面积，最大差3.33e−16，守恒3.33e−16。
+- 科学作业6196507开发、6196562追加、6196734报告、6196925复核与图均完成。
+  6196439失败是数据前数值测试。源码/算子冻结时间和失败日志保留。
+- 稿件 `paper/visual_risk_diagnosis/iclr2027/`，最终论文编译job6197893，13页总计、
+  9页主文，13张最终页面已逐页检查。PDF sha256
+  `0716d4c96b688706656c37f8274159dd910ab6864deab5b7653a1bf1c625ece4`。
+  官方sty/bst不改，仅在自有main.tex替换未投稿工作稿状态词。
+  TeX模块texlive/2026；Poppler因缺libpng12不可用，独立paper_deps固定PyMuPDF1.26.7。
+- PDF交付位置 `output/pdf/perfect_coarse_predictions_iclr2027.pdf`；源码 ZIP 只包含论文，
+  不是完整匿名实验补充包。文档打包核查job6198386完成：独立解压编译的13页文字和
+  110dpi图像全部相同；21项stage文件和14项旧输入哈希通过。结果见DELIVERY.json。
+- RELLIS/VLM/RL仍关闭；原前瞻主要终点pool512稳定损失61/2000不改写成target64的54。
+  原确认是前瞻；本轮重建是追加回顾性。原任何安全证书均不自动转移到新聚合器。
+- 之后工作是人类作者审稿、作者/导师名单、投稿材料定稿；已向用户询问作者信息，
+  未收到答复前保持匿名稿。没有给导师发消息或提交OpenReview。不要自动再开实验。
+  Git提交号以实际HEAD和push回执为准。
+
+## 上一轮：oracle 分解与一次新确认（保留历史）
+
+该轮 Pro 意见：`research/oracle_aggregation_20260912/PRO_REVIEW.md`。
 明确关闭 RELLIS，转为同场景同512足迹 oracle 聚合误差分解；有信号才做一次新确认。
 本轮已完成发现与确认，无新训练、无新认证，下一步是科学主张评审和九页稿件。
 

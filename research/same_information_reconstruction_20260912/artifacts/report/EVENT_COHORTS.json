@@ -1,0 +1,62 @@
+{
+  "target/shift/recovered_safe": {
+    "events": 6,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "target/shift/newly_lost_safe": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "target/shift/new_unsafe_accept": {
+    "events": 3,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "target/plic/recovered_safe": {
+    "events": 44,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "target/plic/newly_lost_safe": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "target/plic/new_unsafe_accept": {
+    "events": 16,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/shift/recovered_safe": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/shift/newly_lost_safe": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/shift/new_unsafe_accept": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/plic/recovered_safe": {
+    "events": 83,
+    "same_action_opposed_terms_improved_measurement_worse_total": 2,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/plic/newly_lost_safe": {
+    "events": 0,
+    "same_action_opposed_terms_improved_measurement_worse_total": 0,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  },
+  "learned/plic/new_unsafe_accept": {
+    "events": 43,
+    "same_action_opposed_terms_improved_measurement_worse_total": 25,
+    "scope": "Descriptive fixed-action pattern with explicit event identities; not proof that cancellation is the only cause"
+  }
+}

@@ -1,0 +1,1482 @@
+000
+001
+002
+003
+004
+005
+006
+007
+008
+009
+010
+011
+012
+013
+014
+015
+016
+017
+018
+019
+020
+021
+022
+023
+024
+025
+026
+027
+028
+029
+030
+031
+032
+033
+034
+035
+036
+037
+038
+039
+040
+041
+042
+043
+044
+045
+046
+047
+048
+049
+050
+051
+052
+053
+Working draft in ICLR 2027 format – not submitted
+WHEN PERFECT COARSE PREDICTIONS ARE NOT
+ENOUGH FOR ACTION EVALUATION
+Anonymous authors
+Working draft – not submitted
+ABSTRACT
+Does accurately predicting a spatial supervision target validate the action measure-
+ment computed from it? We study a procedural visual task with two attribute fields,
+four candidate footprints, and a public exposure-to-cost law. A common-reference
+oracle decomposition separates supervision-fit error, source-raster difference, and
+the error of interpreting coarse attributes as uniform within cells. The last term
+is an elementary within-cell covariance, but its consequences for actual action
+acceptance require measurement. Discovery motivates one frozen 2,000-scene IID
+confirmation: the separately pooled oracle loses 63 safe opportunities, with 61
+remaining under a finer-property check; perfect prediction of the actual supervi-
+sion target still loses 54. At fixed model-selected actions, pooling changes 3.22%
+of danger labels versus 0.15% for the numerical check. Observed changes are
+conservative and concentrate at overlapping boundaries with small cost margins.
+We then append one same-information comparison of uniform interpretation, a
+development-selected global shift, and an established area-preserving interface
+reconstruction. On the consumed bank, reconstruction recovers 44 of the target
+oracle’s 54 lost opportunities but adds 16 unsafe accepts; the frozen global shift
+recovers six and adds three. Thus the current target–aggregation interface is a
+bottleneck, without proving an impossibility of coarse representations or a risk-free
+repair. The study distinguishes fitting a learning target from validating its down-
+stream measurement, without proposing a new identity, reconstruction method, or
+safety certificate. Evidence is restricted to the stated synthetic task.
+1
+INTRODUCTION
+Spatial predictions often enter a decision through a second computation: a map is integrated over a
+proposed action footprint and converted to a cost. Improving the predictor is useful only in relation to
+the quantity this computation should measure. If the target itself is a coarse spatial average, an accurate
+prediction can still be interpreted incorrectly inside each cell. A failure after perception therefore
+does not identify whether learning, spatial interpretation, or the decision rule is the appropriate object
+to change.
+Our motivating pipeline learned two visual attribute fields and evaluated four supplied actions with a
+known cost formula. Geometry repair improved ranking, but a joint residual bound still rejected every
+action. Earlier diagnostics separated output postprocessing from perception weights and showed
+that a simple fixed rule could pass an existing selective-risk screen. They did not explain what the
+spatial target preserved for action measurement. A low-resolution versus reference comparison was
+insufficient: it changed both attribute and footprint rasters, conflating the source of the difference.
+We address a narrower question: how can one distinguish failure to realize a supervision target
+from failure of the target’s current aggregation to realize the intended task measurement? We
+replace predictions by the exact supervision target, then by a coarse target derived from the same
+high-resolution reference, while keeping the action footprint fixed. Each replacement answers a
+different question. Perfect target prediction removes supervision-fit error but does not change the
+aggregation rule. Common-source pooling removes the source-raster difference but still assumes
+uniform within-cell occupancy. Direct integration retains the spatial coincidence between an attribute
+and the action.
+1
+
+
+054
+055
+056
+057
+058
+059
+060
+061
+062
+063
+064
+065
+066
+067
+068
+069
+070
+071
+072
+073
+074
+075
+076
+077
+078
+079
+080
+081
+082
+083
+084
+085
+086
+087
+088
+089
+090
+091
+092
+093
+094
+095
+096
+097
+098
+099
+100
+101
+102
+103
+104
+105
+106
+107
+Working draft in ICLR 2027 format – not submitted
+The resulting decision effect is primarily conservative in this task. In one prospective IID confirmation,
+the coarse oracle discards safe opportunities even after choosing its own action. On the learned
+model’s fixed choices, all observed pooling label changes are reference-safe to pool-danger. The
+finding concerns lost usable actions, not an observed rise in unsafe acceptance from this term. Signed
+learning and measurement errors can partly cancel, so a near-zero mean error cannot establish that
+either component is accurate.
+Crucially, failure of a uniform-cell aggregator does not prove failure of the coarse representation
+for every decoder. Neighboring fractions can retain boundary information. We therefore add one
+established piecewise-linear interface reconstruction (PLIC) and a simple global shift, with the
+same coarse fields and action information. The comparison is explicitly retrospective on an already
+consumed bank; it does not replace the prior confirmation or authorize a third one. Its purpose is to
+determine the strength of the interpretation.
+Our contributions are (i) a common-reference oracle attribution separating learning, source-raster,
+and aggregation terms; (ii) measured decision effects and a prospective check of their direction and
+operating conditions in the normal generator; and (iii) one same-information control that tests whether
+changing spatial interpretation is more appropriate than treating the residual error as evidence of
+insufficient model capacity. The covariance identity, the general prediction–decision distinction, and
+PLIC are established ideas. The contribution is their use to identify and delimit an actual decision
+bottleneck.
+2
+TASK, LEARNING TARGET, AND DECISION OBJECTS
+Visual task.
+A top-down 64×64 RGB image contains two disjoint patches assigned water and
+fragile-surface attributes. Water has wave texture and fragile regions have crack texture; appearance
+families vary color, background, and illumination. Each continuous scene has two rendered versions
+with exchanged attributes but identical shapes and paths (Figure 1). The normal generator samples
+freely positioned and rotated ellipses or boxes subject to fixed continuous in-frame and nonoverlap
+constraints. It does not reject scenes based on raster labels, cost, or candidate safety. This is a
+controlled visual task, not a natural-image or physical-hazard benchmark.
+Four polylines share start and goal points on opposite scene boundaries; each has two independently
+drawn interior waypoints. A swept radius of .05–.10 in normalized coordinates defines each footprint
+as a spatial union. Repeated traversal is not counted repeatedly. Candidate construction is independent
+of the attribute assignment and need not supply a safe action. All comparisons retain the same four
+paths, card, image version, tie variable, and danger threshold. No planner or new candidate is
+introduced.
+Learning setup.
+The predictor is a randomly initialized ResNet-18 (He et al., 2016) with four
+lateral 1×1 projections to 64 channels, bilinear top-down fusion, 3×3 refinement, and a two-channel
+output at 16×16. Sigmoid outputs fit area-pooled binary attribute masks using binary cross entropy
+plus soft Dice loss. Each fixed model uses 800 training images, one version per scene, 24 epochs,
+batch size 20, and 960 AdamW updates (learning rate .001; weight decay .0001), with the final
+checkpoint rather than validation-based selection. Color/polarity/contrast augmentation preserves
+geometry. There are no high-resolution action-cost labels or candidate-conditioned inputs to this
+training. We retain all five previously fixed independent-geometry/source 64 checkpoints.
+Public cost and actual deployment unit.
+Mean footprint exposures are e = (ew, ef). Cards A, C,
+and D define
+gA(e) = ew,
+gC(e) = ew + ef −ewef,
+gD(e) = ef.
+(1)
+The trivial zero-cost card B is excluded from deployment. Each independent scene draws one of the
+two image versions and one A/C/D card uniformly. The selector minimizes predicted cost; ties within
+10−9 use a stored independent uniform draw. It chooses once, then accepts iff the estimate is at most
+τ = .02. Rejection never triggers reselection. The direct 512 attribute–footprint integral and Eq. 1
+define reference cost. It is a synthetic mean-exposure criterion, not collision probability, traction, or
+execution success.
+2
+
+
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+Working draft in ICLR 2027 format – not submitted
+Figure 1: Fixed first discovery scene and its exchanged-attribute version. Left: RGB and candidate
+centerlines. Middle: source 64-to 16 targets (cyan: water; magenta: fragile), footprint contours, and
+dashed predicted .5 contours. Right: direct 512 and stored predicted exposures for all four candidates.
+Model seed 0 and scene index 0 were fixed independently of results. The display is illustrative, not
+an estimate of event frequency.
+For acceptance A, reference cost cπ of the chosen action, and availability O = 1{mina cref,a ≤τ},
+report
+C = P(A),
+R = P(A, cπ > τ)
+P(A)
+,
+η = P(A, cπ ≤τ)
+P(O = 1)
+.
+(2)
+R is undefined for zero acceptance. The opportunity denominator contains only the supplied four
+candidates; unsafe accepts never increase η. Scene-level safe loss is P(O = 1) −P(A, cπ ≤τ). A
+2.70 percentage-point loss over all scenes is different from a 3.39% loss of available safe opportunities.
+3
+WHAT THE UNIFORM-CELL INTERPRETATION CHANGES
+Partition the fine grid into coarse cells B with area weights wB. For one binary property P and
+footprint F, let pB = P B and fB = F B, and let D = P
+B wBfB > 0. The direct and separately
+pooled exposures are
+eref =
+P
+B wBPF B
+D
+,
+epool =
+P
+B wBpBfB
+D
+.
+(3)
+Subtracting gives the elementary identity
+epool −eref = −
+P
+B wB CovB(P, F)
+D
+.
+(4)
+This covariance describes spatial coincidence within a cell, not correlations between training scenes.
+A half-occupied property and half-occupied footprint give exposure .5 from their means, whether
+their true overlap gives exposure zero or one. That example illustrates the operator; it is neither an
+empirical frequency estimate nor an impossibility proof for our restricted shape family.
+Uniform lifting clarifies the information claim.
+Let Π replace a field by its mean in every coarse
+cell. Since ΠP is constant there,
+Z
+(ΠP)(ΠF) =
+Z
+(ΠP)F.
+(5)
+3
+
+
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+Working draft in ICLR 2027 format – not submitted
+Thus separate pooling is equivalent to uniform lifting of the coarse property followed by integration
+over the original footprint. A more detailed footprint or constant upsampling alone cannot repair
+the measurement. An alternative decoder could still use neighboring fractions to infer within-cell
+geometry. The established claim is therefore residual decision error of the current target–aggregation
+interface, not an irreducible lower bound for every method that reads coarse attributes.
+Four levels under one footprint.
+We compare direct 512 exposure, separately pooled 512 exposure,
+the actual source 64-to 16 target, and the learned field, always with the same F512 or its exact
+nonoverlapping 32×32 block means. For a fixed candidate,
+be −eref = (be −etarget64) + (etarget64 −epool512) + (epool512 −eref).
+(6)
+These terms isolate supervision-fit error, source-raster difference, and aggregation error. We reapply
+Eq. 1 at every level before telescoping cost differences. In particular, summing the two channel
+exposure errors does not give the nonlinear C cost error. Terms may oppose one another; their
+absolute magnitudes cannot be interpreted as additive shares of final error.
+We distinguish two analyses. Fixed selection evaluates all levels at the original model-selected action,
+isolating measurement changes from action changes. Each-level reselection lets each level choose
+once and accept, then evaluates the selected action against the same direct reference. The latter
+measures full decision consequences, including new failures outside the cases that the uniform oracle
+originally lost.
+Operating conditions and numerical scope.
+The covariance is zero when either binary field is
+constant within every cell. For fractional occupancies, Cauchy–Schwarz yields the per-channel
+envelope D−1 P
+B wB
+p
+pB(1 −pB)fB(1 −fB); the sum of channel envelopes also bounds C’s
+cost change because its partial derivatives lie in [0, 1]. We use joint fractional occupancy and pooled
+cost margin |cpool −τ| ≤.005 as fixed diagnostic conditions. The envelope is an algebraic sensitivity
+bound, not a new deployable safety algorithm. Near-threshold fragility itself is not novel; the
+empirical question is its frequency and size in the stated generator.
+Our precision check rasterizes properties at 1024, averages them to 512, and keeps F512 fixed. It
+isolates property-raster sensitivity; it is not an exact continuum or footprint-accuracy guarantee.
+Earlier full 256/direct 512 comparisons are retained separately and are not attribution arms.
+4
+DECISION EFFECTS AND ONE PROSPECTIVE CONFIRMATION
+Consumed discovery.
+We use the already consumed E3 IID and new-appearance banks, 2,000
+scenes each, and all five fixed independent/source 64 models. Original image versions, cards, ties,
+and stored predictions are retained. The analysis does not recertify any rule. At fixed restored-
+model actions, pooled 512 versus direct 512 changes 3.68% of labels on IID and 3.83% on new
+appearance, all reference-safe to pool-danger in these observations. Descriptive crossed model/scene
+95% intervals are [2.89%,4.53%] and [3.03%,4.70%]. The five models share 2,000 scenes; their
+10,000 model–scene entries are not independent trials.
+With independent selection by each oracle, pooled 512 loses 72/2,000 IID safe opportunities (3.60
+pp) and 77/2,000 appearance opportunities (3.85 pp). The actual target 64 oracle loses 60 and
+67 respectively. These are full-scene consequences, not only differences on unselected high-cost
+candidates. The fixed-footprint precision check changes .05% of fixed-action labels on IID and none
+on appearance. Pooling flips stable to that check remain 3.63% and 3.83%.
+Signed cost terms at fixed IID selections are+.001807 from pooling, −.000653 from the source
+raster, and −.000292 from the model. On appearance they are .002060, −.000714, and −.001453,
+giving total mean −.000108 despite mean absolute error .003102. Model and net measurement terms
+oppose one another in 31.52% and 32.49% of decisions. These are signed cancellations, not causal
+percentages attributed by summing absolute components.
+Frozen prediction.
+This substantive signal motivates one new normal-IID bank of 2,000 scenes,
+with unchanged models, generator, footprints, formulas, threshold, and ties. No new training is
+performed. Anonymous continuous patch and full-scene identities have no exact overlap with the
+4
+
+
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+Working draft in ICLR 2027 format – not submitted
+Table 1: Prospective normal-IID confirmation. H1 is the original primary stable pooled 512 endpoint;
+the target 64 result is supplementary to the full decomposition. One-sided lower bounds use γ =
+.05/3; H3’s bootstrap is approximate.
+Prediction
+Observation
+Lower bound
+Criterion
+H1: stable lost opportunities
+61/2,000
+2.29%
+> 1%
+H2: only conservative changes in a changed
+scene
+68/68
+94.16%
+> 90%
+H3: small-minus-larger margin enrichment
+37.31 pp
+26.06 pp
+> 10pp
+Figure 2: Fixed-action label changes and their operating conditions. IID-D and App-D are consumed
+discovery banks; IID-C is the prospective IID bank. A: false danger means reference-safe to pooled-
+danger; false safe is the reverse (no such flips observed). The numeric check holds the footprint fixed.
+B: rates within overlapping-boundary groups, using the frozen .005 margin. These are observed
+proportions; Table 1 supplies the separate one-sided hypothesis comparisons.
+10,200 E2/E3 records, including training and validation. This is a same-generator confirmation, not
+cross-task transfer. The three predictions require: (H1) stable-reference lost-opportunity probability
+above .01 for pooled 512; (H2) conservative direction proportion above .90; and (H3) a small-minus-
+larger margin flip-rate difference above .10 under joint boundary overlap. Each claim has one-sided
+error budget γ = .05/3.
+H1 uses an exact binomial lower bound. H3 uses an approximate crossed model/scene bootstrap with
+only five model seeds. An additional stricter H2 scene-level check was recorded after job submission
+but before inspecting any new outcome: among scenes with any selected-action pooling flip across
+the five fixed models, all flips in a scene must be conservative. It avoids a degenerate bootstrap lower
+limit of one when every observed flip has the same direction. The original protocol and output remain
+unchanged; Appendix E gives the timing and distinguishes the two estimands.
+What changes in decisions.
+The direct oracle has 1,592 safe opportunities. Pooled 512 accepts
+1,529 with no unsafe outcome observed, losing 63 opportunities (3.15 pp of all scenes). The finer-
+property check also retains a safe candidate in 61 of those scenes: H1’s exact lower is 2.2869%. The
+actual target 64 oracle accepts 1,540, of which two are unsafe, so it loses 54/2,000 safe opportunities.
+This is 2.70 pp of all scenes and 3.39% of the 1,592 available opportunities. It is not a 2.7% increase
+in danger, nor a replacement of H1 after seeing results.
+At the five models’ fixed actions, pooling changes 322/10,000 labels (3.22%, descriptive 95% interval
+[2.47%,4.02%]), all conservatively. Of these,312 remain when the finer-property check agrees with
+the reference label. The check itself changes 15 labels (.15%). Across all nontrivial candidate entries,
+its p 95 cost difference is .000509, passing the fixed numerical screen. No observed zero-risk count
+constitutes a new safety certificate.
+5
+
+
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+Working draft in ICLR 2027 format – not submitted
+Table 2: Appended full-scene comparison relative to uniform interpretation. Target counts use 2,000
+scenes. Learned counts aggregate five models sharing those scenes and are not 10,000 independent
+trials. “New unsafe” counts newly unsafe accepted decisions; no previously unsafe accepts are
+resolved on this bank.
+Input
+Interpretation
+Recovered
+New safe loss
+New unsafe
+R
+η
+Target 64
+Uniform
+0
+0
+0
+.13%
+96.61%
+Global shift
+6
+0
+3
+.32%
+96.98%
+PLIC
+44
+0
+16
+1.13%
+99.37%
+Five models
+Uniform
+0
+0
+0
+1.03%
+96.77%
+Global shift
+0
+0
+0
+1.03%
+96.77%
+PLIC
+83
+0
+43
+1.56%
+97.81%
+Among overlapping-boundary actions, the frozen small-margin group has 40.57% label changes
+versus 3.26% at larger margins. All 68 scenes with any flip across models have only conservative
+flips, with exact conditional lower 94.1566% for the fixed model bank. The evidence confirms the
+predicted operating conditions in the normal distribution. It does not make near-threshold sensitivity a
+new general phenomenon, prove all pooling errors are positive, or establish that every coarse decoder
+must lose these opportunities.
+5
+ONE SAME-INFORMATION RECONSTRUCTION CONTROL
+The preceding replacement fixes learning error but retains the aggregator. We now test whether
+a different interpretation can exploit information already present in neighboring coarse values.
+Development uses the consumed 2,000-scene IID discovery bank. One implementation and two scalar
+offsets are fixed before evaluating the already consumed 2,000-scene confirmation bank. This is an
+appended baseline analysis, not a new untouched confirmation. There is no new training, dataset,
+resolution search, or risk certification.
+Three treatments with identical action access.
+The primary track uses the perfect actual target 64
+field; the secondary track uses all five existing restored model fields. Uniform interpretation computes
+the original exposure. All three treatments may access exactly the same F512, so PLIC is not given
+better action geometry. The global shift subtracts one constant after Eq. 1. Its argmin is the original
+uniform argmin, since translation preserves ranking; no clipping-induced ties are introduced. From
+a fixed 13-value offset bank, development maximizes safe-accepted count subject to no increase in
+observed unsafe-accepted count relative to uniform. Ties favor the smallest absolute offset. The
+selected offset is .001 for the target track and zero shared across the five learned models.
+The only spatial alternative is the established Parker–Youngs PLIC construction (Pilliod & Puckett,
+2004). A fixed weighted 3×3 gradient with center weight 2 estimates a cell’s outward normal.
+A straight half-plane then matches the cell’s original fraction by analytic square-area inversion.
+Empty/full cells remain unchanged; cells with gradient L1 norm at most10−12 retain uniform
+occupancy rather than an invented orientation. Exact line-cut fractions of fine pixel squares are
+integrated against F512. Coarse predictions are neither thresholded nor denoised. The reconstruction
+routine accepts only the coarse field and footprints, never true patch parameters, fine property masks,
+reference costs, or oracle boundary normals. It is a first-order PLIC baseline, not the second-order
+ELVIRA method or a newly proposed algorithm.
+Full-scene gains and harms.
+Table 2 reports every scene, including no-safe-candidate cases,
+and both recovered and newly harmed decisions. PLIC recovers 44 of the target oracle’s 54 lost
+opportunities without newly losing a previously accepted safe one. However, it introduces 16 unsafe
+accepts: total unsafe count rises from 2 to 18. Safe opportunity efficiency rises from 96.61% to
+99.37%, while empirical unsafe frequency among accepted rises from .13% to 1.13%. The frozen
+shift recovers six opportunities and introduces three unsafe accepts.
+The learned track also has a mixed outcome. PLIC recovers 83 safe model–scene decisions and adds
+43 unsafe accepts, with no new safe loss observed. Net safe acceptance increases .83 pp (descriptive
+crossed 95% interval [.51,1.19]pp), while new unsafe acceptance increases .43 pp ([.20,.69]pp).
+6
+
+
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+Working draft in ICLR 2027 format – not submitted
+Figure 3: Opportunity recovery and newly unsafe acceptance must be read together. PLIC uses the
+same coarse field and action information as uniform integration. No new safe losses were observed,
+but both input tracks add unsafe accepts. The offset was fitted under a development unsafe-count
+constraint that was not imposed on PLIC; these selected points are not a matched-risk comparison.
+Table 3: First event satisfying the stated cancellation pattern, in scene/model order. The same
+reference-unsafe action is rejected before reconstruction and accepted after it (τ = .02). This is a
+conditional illustration; all 43 newly unsafe learned events remain in the archive.
+Quantity on the same action
+Uniform
+PLIC
+Reference cost
++0.024972
++0.024972
+Target estimate
++0.031961
++0.021431
+Learned estimate
++0.021279
++0.016964
+Target-measurement cost error
++0.006989
+-0.003541
+Model-relative-to-target cost error
+-0.010682
+-0.004467
+Total cost error
+-0.003693
+-0.008008
+Decision
+Reject
+Accept (unsafe)
+The target track’s net safe gain is 2.20 pp ([1.60,2.85]pp). The selected learned shift is zero and
+changes no outcome. Fixed-selection analysis yields the same recovery and new-unsafe totals on this
+appended bank, so those totals are not explained solely by permission to reselect; the event archive
+retains action identities and individual changes.
+A concrete cancellation failure.
+For 25 of the 43 newly unsafe learned decisions, the action stays
+unchanged, baseline model and target-measurement errors have opposite signs, target-measurement
+absolute error decreases under PLIC, and total absolute error increases. These conditions are checked
+on each event, not inferred from aggregate means. For the first such event in scene/model order,
+Table 3 shows that both component absolute cost errors improve, yet their earlier opposition disappears
+and the total underestimation worsens. All 43 events, including the 18 not meeting this joint pattern,
+are retained. The example supports a particular failure mechanism, not a claim that cancellation
+explains every harmful change.
+What this comparison establishes.
+The recovery demonstrates that the current coarse field contains
+spatial structure usable by another interpretation; the original residual loss cannot simply be called
+irreducible representation error. It does not demonstrate a risk-free repair or universal superiority
+over scalar calibration. The chosen offset is constrained not to add development unsafe outcomes,
+whereas PLIC is not. The full development shift curve is therefore disclosed in Appendix C: larger
+offsets recover more opportunities at higher risk. We do not tune another offset on the appended bank.
+The conclusion is to separate supervision fidelity, spatial interpretation, and acceptance calibration,
+7
+
+
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+Working draft in ICLR 2027 format – not submitted
+Table 4: Supporting results from distinct earlier banks. E3’s fixed-restored rule was already certified
+in its original finite bank. Those certificates do not transfer to the appended shift or PLIC rules. R is
+unsafe among accepted.
+Study/bank
+Rule
+Acceptance
+R
+η
+E1 appearance
+Inherited −2
+85.03%
+4.70%
+99.63%
+E1 appearance
+Same weights, restored
+80.97%
+1.73%
+97.83%
+E3 IID
+Restored, fixed .02
+78.58%
+1.07%
+96.93%
+E3 IID
+Selected certified threshold
+81.29%
+2.51%
+98.82%
+E3 IID
+Joint residual protection
+0%
+Undefined
+0%
+and to re-evaluate the latter after changing the former. No earlier certificate is inherited by either
+modified rule.
+6
+SUPPORTING CONTROLS AND RELATION TO EARLIER WORK
+Learning and decision-rule effects remain distinct.
+A prior matched geometry×source-raster
+experiment trained 20 models at equal budgets. Independent geometry improves new-appearance
+regret relative to the balanced-anchor scheme at both source 48 and source 64, with crossed 95%
+intervals [.003101,.006853] and[.002850,.017690], each exceeding the predeclared .001 effect thresh-
+old. This controls a genuine learning-related effect while keeping common-reference scoring fixed.
+The intervention changes shape, size, rotation, and position jointly; it does not isolate position alone.
+Earlier fixed-weight and risk-control results are summarized in Table 4; details are in Appendix F.
+They support the argument without defining its novelty. E1 uses historical checkpoints and consumed
+diagnostic data. E3 uses the five E2 independent/source 64 models with 1,600 new calibration and
+2,000 test scenes per domain. Their residual and certification results must not be treated as one
+within-model factorial test.
+Joint protection and selective-risk control protect different objects. If nonnegative estimates have a
+joint residual quantile q > τ, adding that bound necessarily rejects all actions. A rule controlling
+risk among accepted actions need not protect every unselected candidate. The E3 exact-binomial
+finite-bank procedure applies established Learn then Test principles (Angelopoulos et al., 2021); its
+success shows that an imperfect pipeline can be useful under a specified rule and distribution. It
+neither validates its measurement interface nor supplies certificates for modified aggregation.
+Spatial reconstruction and task-specific representations.
+Volume-of-fluid reconstruction esti-
+mates an interface from grid-cell fractions. Pilliod & Puckett (2004) compare first- and second-order
+methods, including the Parker–Youngs gradient reconstruction used here. That literature supplies
+both a baseline and the reason not to equate uniform-cell failure with representation impossibility.
+Our task has noisy learned fractions, swept action queries and thresholded decisions, rather than
+interface advection; we do not introduce a new reconstruction scheme or claim second-order accuracy
+for this baseline.
+Lambda-Field studies the compatibility of occupancy representations and path-risk integration (La-
+conte et al., 2019). Its collision-risk construction differs from our public mean-exposure cost, but
+representation-dependent path risk is established prior work. Task-based quantization likewise stud-
+ies limited representations in terms of a downstream objective rather than signal recovery alone
+(Shlezinger et al., 2019). Smart Predict, then Optimize explicitly separates prediction and decision
+losses (Elmachtoub & Grigas, 2022). Our narrower contribution is a same-reference empirical attribu-
+tion with actual acceptance effects, prospective operating-condition evidence, and a same-information
+alternative interpretation.
+Egocentric Conformal Prediction already addresses conservatism from safety- irrelevant prediction
+errors (Shin et al., 2025). Conformal Decision Theory calibrates decision loss directly (Lekeufack
+et al., 2024). Neither decision relevance nor moving beyond prediction-set calibration is a novelty
+claim here. We use these distinctions to keep measurement validity and the object of a statistical
+guarantee separate.
+8
+
+
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+Working draft in ICLR 2027 format – not submitted
+7
+LIMITATIONS AND CONCLUSION
+The task is synthetic, uses a known cost law, and restricts actions to four candidates. Numerical
+checks condition on a fixed footprint and do not prove continuum accuracy. Oracle boundary features
+are privileged diagnostics. The prospective confirmation concerns the original mechanism; the
+added reconstruction and shift are retrospective comparisons on consumed data. Five model seeds
+limit training-distribution inference. A single first-order PLIC baseline cannot characterize every
+same-information decoder, and successful oracle-input repair would not by itself establish safe
+learned-model deployment.
+An attempted real-image extension using RELLIS-3D (Jiang et al., 2021) stopped before mechanism
+evaluation because the geometric reference lacked independent error bounds. Its initial 24-frame
+screen and subsequent prerequisite stop are retained in the appendix; the planned new 48-frame set
+was never instantiated. It supplies neither supporting nor refuting evidence for cross-task transfer.
+The extension remains closed; no VLM, RL or external experiment is added.
+Accurately realizing a coarse supervision target does not, by itself, validate the action measurement
+implemented by its current aggregation rule. In this controlled task, common-reference oracle re-
+placements isolate a primarily conservative aggregation effect with material opportunity loss and
+predictable operating conditions. Distinguishing spatial interpretation from the underlying informa-
+tion avoids an unsupported impossibility claim. The appropriate technical choice is determined by
+what is recovered and what new errors are introduced, not by component fit or recovered failures
+alone.
+9
+
+
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+Working draft in ICLR 2027 format – not submitted
+AI USE STATEMENT
+Generative AI tools assisted with research questions and hypotheses, experimental design, procedural-
+data and analysis implementation, mathematical exposition, interpretation, literature discovery,
+figures, and manuscript drafting and editing. Numeric results were produced by executable analysis,
+not inferred from generated prose. Independent computational checks are documented in the appendix.
+This is a working draft: human authors must review the AI-assisted contributions and finalize
+responsibility statements before submission; completed human review is not asserted here.
+REPRODUCIBILITY STATEMENT
+The appendix specifies data provenance, numerical definitions, fixed training, the retrospective
+status of the appended comparison, and verification procedures. Source freezes, results, and earlier
+negative outcomes are preserved internally. The present manuscript source contains no personal
+paths or development-repository links; an anonymous code supplement must still be finalized before
+submission.
+REFERENCES
+Anastasios N. Angelopoulos, Stephen Bates, Emmanuel J. Cand`es, Michael I. Jordan, and Lihua
+Lei. Learn then test: Calibrating predictive algorithms to achieve risk control. arXiv preprint
+arXiv:2110.01052, 2021. URL https://arxiv.org/abs/2110.01052.
+Adam N. Elmachtoub and Paul Grigas. Smart “predict, then optimize”. Management Science, 68(1):
+9–26, 2022. doi: 10.1287/mnsc.2020.3922. URL https://arxiv.org/abs/1710.08005.
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image
+recognition. In IEEE Conference on Computer Vision and Pattern Recognition, pp. 770–778,
+2016. URL https://openaccess.thecvf.com/content_cvpr_2016/html/He_
+Deep_Residual_Learning_CVPR_2016_paper.html.
+Peng Jiang, Philip Osteen, Maggie Wigness, and Srikanth Saripalli. Rellis-3d dataset: Data, bench-
+marks and analysis. In IEEE International Conference on Robotics and Automation, 2021. URL
+https://arxiv.org/abs/2011.12954.
+Johann Laconte, Christophe Debain, Roland Chapuis, Franc¸ois Pomerleau, and Romuald Aufr`ere.
+Lambda-field: A continuous counterpart of the bayesian occupancy grid for risk assessment.
+In IEEE/RSJ International Conference on Intelligent Robots and Systems, 2019. doi: 10.1109/
+IROS40897.2019.8968100. URL https://arxiv.org/abs/1903.02285.
+Jordan Lekeufack, Anastasios N. Angelopoulos, Andrea Bajcsy, Michael I. Jordan, and Jitendra
+Malik. Conformal decision theory: Safe autonomous decisions from imperfect predictions. In
+IEEE International Conference on Robotics and Automation, 2024. URL https://arxiv.
+org/abs/2310.05921.
+James Edward Pilliod, Jr. and Elbridge Gerry Puckett. Second-order accurate volume-of-fluid
+algorithms for tracking material interfaces. Journal of Computational Physics, 199(2):465–502,
+2004. doi: 10.1016/j.jcp.2003.12.023.
+Jaeuk Shin, Jungjin Lee, and Insoon Yang. Egocentric conformal prediction for safe and efficient
+navigation in dynamic cluttered environments. arXiv preprint arXiv:2504.00447, 2025. URL
+https://arxiv.org/abs/2504.00447.
+Nir Shlezinger, Yonina C. Eldar, and Miguel R. D. Rodrigues. Asymptotic task-based quantization
+with application to massive mimo. IEEE Transactions on Signal Processing, 67(15):3995–4012,
+2019. doi: 10.1109/TSP.2019.2923149.
+10
+
+
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+Working draft in ICLR 2027 format – not submitted
+A
+DATA SEPARATION AND INFERENCE UNITS
+E2 crosses two geometry schemes, source rasters 48/64 and five paired seeds (20 models), with 800
+training and 100 validation scenes per condition. Training follows Section 2; the source rasters share
+RGB and the final checkpoint is fixed without validation selection. Each independent-geometry test
+bank has 400 scenes. Training uses one assignment version per scene; evaluation retains both but
+samples one version/card for the actual decision.
+E3 preselects all five independent/source 64 E2 checkpoints. It uses 400 development scenes and, per
+domain, 1,600 calibration and 2,000 test scenes. The normal generator and independent path sampler
+in Section 2 operate before rasterization; no pixel, risk or feasibility screen changes their sampling.
+Oracle discovery reuses the consumed E3 IID/appearance test banks. The later prospective bank
+has 2,000 new IID scenes (geometry seed 2612091301), with a recorded source/checkpoint freeze
+before generation. Exact anonymous patch and complete- scene identities are disjoint from all 10,200
+E2/E3 records. IDs, appearance names, seeds and path/patch ordering are excluded from the identity
+comparison; arbitrary geometric symmetries are not quotient out. After that confirmation, the bank is
+consumed. The PLIC/shift analysis in Section 5 is explicitly appended to it, without new samples or
+renewed confirmatory status.
+Learned-track ratios pool five models over the same 2,000 scenes; crossed bootstrap draws preserve
+that dependence. Target-oracle intervals resample scenes only. Five training seeds still limit the
+approximate crossed inference.
+B
+SPATIAL REFERENCE AND RECONSTRUCTION DETAILS
+The direct reference rasterizes each continuous property and swept-union footprint at 512. It averages
+their product over footprint area, then applies the public card law. It is a fixed discrete reference for
+synthetic mean exposure. The auxiliary property check rasterizes properties at 1024, averages to 512
+and retains F512. An earlier full 256/direct 512 comparison changes both property and footprint
+rasters and is kept separate from the common-footprint attribution.
+Signed cost attribution.
+Exposure replacement follows Eq. 6. For every fixed action, cost differ-
+ences are separately evaluated as
+bc −cref = (bc −ctarget) + (ctarget −cpool) + (cpool −cref).
+The nonlinear formula is applied before differencing. Channel exposures, signed/absolute costs and
+label-pattern transitions are preserved. The variance envelope uses privileged reference occupancies;
+its zero-flip implications are implementation checks.
+PLIC area inversion.
+The normal is the negative weighted centered gradient of the coarse fraction,
+with transverse weights(1, 2, 1) and edge-replicated padding. Pairing differences before summation
+eliminates roundoff-generated transverse components for an exactly constant transverse field. Normal-
+ize (nx, ny) by its L1 norm. For a nonzero normal let a = |nx|, b = |ny|, a + b = 1, s = min(a, b)
+and l = max(a, b). The area CDF of aU + bV for independent unit-square coordinates can be
+evaluated symmetrically. At 0 ≤t ≤1/2 its lower half is
+H(t) =
+t2/(2ab),
+t < s,
+(t −s/2)/l,
+t ≥s.
+Axis-aligned limits are handled analytically; the upper half uses1 −H(1 −t). For fractionp, invert
+the lower tailq = min(p, 1 −p) using t = √2abq whenq ≤s/(2l), otherwiset = lq + s/2; reflect
+forp > 1/2 and translate for negative normal components. This yields a half-plane whose unit-square
+area is the originalp.
+For each fine pixel square, the same CDF gives its exact fractional area under the reconstructed
+half-plane. Integrating those fractions against binary F512 preserves each coarse cell’s original
+mass. Cells where a footprint is entirely zero or one need no fine calculation: the integral is fixed
+by conserved mass. All fractions, including small learned probabilities, are retained. A mixed cell
+11
+
+
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+Working draft in ICLR 2027 format – not submitted
+whose gradient L1 norm is at most10−12 stays uniform. This is an explicit fallback, not a inferred
+true boundary.
+On the appended bank, the maximum analytic inverse-area discrepancy is 2.78 × 10−16 and the
+maximum sum-of-fine-areas discrepancy is 3.33 × 10−16, below the fixed10−10 tolerance. There are
+34,837 gradient-fallback cells across the input tracks and 5,047,140 reconstructed query cells. These
+numerical checks establish conservation, not physical correctness of the inferred boundary or a safety
+guarantee.
+C
+SHIFT FITTING AND UNEQUAL RISK POINTS
+The fixed cost-offset bank is
+{−.02, −.015, −.01, −.005, −.002, −.001, 0, .001, .002, .005, .01, .015, .02}.
+One offset is fitted for perfect target input and one is shared across the five model inputs. Fitting uses
+only consumed IID discovery data: maximize safe acceptance subject to unsafe-accepted count no
+larger than uniform. Ties prefer smallest absolute offset and then smaller offset. The rule is frozen at
+.001 for target input and 0 for learned input. It is empirical fitting, not a risk certificate or guarantee
+that the same unsafe-count constraint will hold later.
+The entire development bank is retained. At target offset .005, development has 1,578 safe and 17
+unsafe accepts; at .01 it has 1,598 safe and 33 unsafe accepts. Fixed PLIC has 1,600 safe and 16
+unsafe accepts on development. The selected .001 shift has 1,550 safe and one unsafe accept. Larger
+shifts therefore can recover more opportunities, and the selected point must not be interpreted as
+the capacity of the whole shift family. No alternative offset is chosen using the appended outcomes.
+The different risk levels preclude claiming a matched-risk deployment advantage from the reported
+selected points.
+Table 5: Absolute appended outcomes. Learned rows pool five models sharing 2,000 scenes. The
+direct oracle has 1,592 safe opportunities per model.
+Input
+Interpretation
+Accepted
+Safe accepted
+Unsafe accepted
+Safe opportunities lost
+Target
+Uniform
+1540
+1538
+2
+54
+Shift
+1549
+1544
+5
+48
+PLIC
+1600
+1582
+18
+10
+Learned
+Uniform
+7783
+7703
+80
+257
+Shift
+7783
+7703
+80
+257
+PLIC
+7909
+7786
+123
+174
+D
+EVENT-LEVEL CANCELLATION EVIDENCE
+Each recovery, new safe loss, new unsafe accept and resolved unsafe accept keeps its
+scene/model/card/action identity. At the original uniform-selected action, write target-measurement
+error asm = ctarget −cref and model-relative error asl = bc −ctarget. After changing interpretation,
+retain both m′ andl′, with bc′ −bc = (m′ −m) + (l′ −l). This fixed-action equality is checked before
+interpreting reselected outcomes.
+For the 43 newly unsafe learned PLIC decisions,25 satisfy all of: unchanged action, ml < 0 before
+modification, |m′| < |m|, and |m′ +l′| > |m+l|. The other 18 are retained as counterevidence to an
+exclusive cancellation explanation. The first matching event in scene/model order is scene 264, model
+index 1, exchanged version, card D, action 0. In it, both|m| and|l| decrease yet total underestimation
+grows, as detailed in the main text. This is a transparent conditional illustration; it was not chosen to
+estimate the population frequency of such cases.
+E
+PROSPECTIVE DIRECTION CHECK AND ITS ADDENDUM
+The original confirmation uses one-sided budgets.05/3. H1 counts scenes where direct 512 and
+the finer-property check both retain at least one safe candidate, but pooled 512 fails to produce a
+12
+
+
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+Working draft in ICLR 2027 format – not submitted
+safe accepted action. Its 61/2,000 events give exact lower .02286937. H2 initially uses a crossed
+bootstrap for the fraction of fixed-selected pooling flips that are conservative. Since all 322 flips
+are conservative, its bootstrap lower degenerates to 1 and cannot establish population certainty. H3
+compares small/larger margin flip rates under joint boundary overlap; its estimate is .373080 and
+approximate lower .260586.
+The direction addendum was recorded at 20:57:54 UTC after job submission but before any fresh
+outcome was inspected and before the original hypothesis file was generated at 21:00:24 UTC. It is
+disclosed as a strengthening after the original freeze, not silently included in that freeze. It requires
+an additional exact scene-level check at the same H2 error budget: conditional on a scene having any
+flip across the fixed five-model bank, every flip must be conservative. All 68 changed scenes satisfy
+it; the exact lower is .941566. This conditional fixed-bank estimand differs from the model–scene
+weighted proportion. Both original outputs and the added check are preserved.
+F
+EARLIER CONTROLS AND CLOSED EXTERNAL ATTEMPT
+E1 uses five historical models and a consumed 300-scene calibration bank. With restored output,
+positive-residual quantiles are .02797–.03287 for all 24 pair/version/card/candidate entries, .02201–
+.02767 for the current four candidates, and .00501–.00790 for the fixed selected action. These are
+three different protection objects. The smaller marginal selected-action bound does not itself control
+unsafe frequency after acceptance.
+E3 separately uses all five preselected E2 independent/source 64 models. Twelve threshold rules per
+source/target calibration domain use exact one-sided Clopper–Pearson upper bounds with family
+budget δ/(5 · 2 · 12) = .05/120. The desired conditional unsafe limit is ϵ = .05, distinct from
+danger thresholdτ = .02 and residual miscoverage α = .05. The original fixed .02 restored rules
+already certify, with source upper bounds 1.66–2.54%; selecting a higher-coverage certified threshold
+increases both opportunity use and test risk. Source certificates do not become unknown- distribution
+guarantees on appearance shift, and no old certificate applies to PLIC or a newly fitted shift.
+The RELLIS attempt evaluated a fixed 24-frame training-sequence pilot. All-four corridor unknown
+area at most 5% held in 0/24 cases; an optimistic diagnostic discarding depth/occlusion checks
+reached 3/24. These results concern the chosen single-scan surface-fit interface, not the dataset’s
+general suitability. A bounded revision inspected 240 raw scans around those same 24 development
+frames and ran a motion-compensation prototype. Independent physical alignment and visibility
+error bounds remained unresolved. It stopped before selecting, acquiring or evaluating the planned
+new 48-frame set. This is a prerequisite stop, not 0/48 and not a mechanism-transfer result; neither
+external training nor an external final test was run.
+G
+COMPUTATIONAL VERIFICATION
+The original oracle round has six distinct tests and independent replay of 52,000 discovery decisions
+and 26,000 prospective decisions, with 768 and 384 blockwise candidate-cost checks. The additional
+PLIC tests cover mass against independent polygon clipping, uniform-lift identity, zero-gradient
+fallback, complement/transposition behavior, axis orientation, and constant-footprint cells. One initial
+test detected transverse roundoff at approximately 8.3 × 10−16 for an exactly constant transverse
+field; changing the arithmetic to pair differences before summing fixed it. The original test, failed
+attempt, and unchanged scientific tolerance are retained; no development scene was read before the
+repaired tests passed.
+Independent appended verification replays 72,000 decisions and 65,536 fine-square areas with
+polygon clipping. The maximum polygon difference is 3.33 × 10−16; the constant-lift identity differs
+by at most 3.71×10−14. It also verifies all 25 specified cancellation-pattern events among the 43 new
+unsafe learned accepts. All computation runs on the cluster; frozen inputs and outputs are preserved.
+13

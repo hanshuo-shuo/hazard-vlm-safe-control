@@ -1,9 +1,11 @@
 # Internal submission status — 12 September 2026
 
 Target under consideration: ICLR 2027. This is not a submission receipt or a
-claim that the draft is ready for acceptance. The current work prioritizes one
-oracle decomposition and, conditional on its discovery signal, one prospective
-confirmation. RELLIS is closed.
+claim that the draft is ready for acceptance. The oracle decomposition, its one
+prospective confirmation, and the final retrospective same-information comparison
+are complete. The official-format working manuscript has nine main-text pages
+and thirteen total pages. All final pages were rendered on Quest and visually
+inspected. RELLIS and this additional experiment are closed.
 
 Official requirements were checked on 12 September 2026:
 
@@ -25,9 +27,10 @@ Remaining decisions and deliverables:
    computational rigor or a positive check with sufficient novelty for ICLR.
 2. Human authors must settle author list, advisor participation, OpenReview
    profiles and reviewing eligibility before the abstract deadline.
-3. Convert the consolidated manuscript into the official nine-page LaTeX format;
-   move supplementary details out of the main narrative and verify the rendered PDF.
-4. Produce a separate anonymous submission bundle. The development repository
+3. Review the completed nine-page LaTeX manuscript and its gains/harms comparison.
+   The verified PDF and portable anonymous manuscript source are under `output/pdf/`.
+4. Finalize a separate anonymous experimental supplement. The manuscript source
+   bundle is not the complete experimental code supplement. The development repository
    contains identifying paths, public repository URLs and review conversations;
    it is not the anonymous supplement. Preserve the internal archive.
 5. Review and finalize the AI disclosure below based on actual human review.
@@ -45,3 +48,6 @@ review of the AI-assisted contributions and take responsibility for the submitte
 content. This working text does not assert that such human review is complete.
 
 No OpenReview submission or message to an advisor has been sent by this task.
+The author's list, order and advisor were requested; absent a reply, the working
+manuscript remains anonymous. Computational completion does not assert completed
+human review or submission approval.

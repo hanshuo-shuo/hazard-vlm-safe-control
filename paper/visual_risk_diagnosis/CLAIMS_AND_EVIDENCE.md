@@ -9,6 +9,10 @@ The primary manuscript is [manuscript.md](manuscript.md).
 | Pooling effects exceed fixed-footprint property sensitivity | Fresh fixed-selected label changes 3.22%; finer-property check 0.15%; 61/2,000 stable-reference lost opportunities, exact lower 2.29% | Conditional on the 512 footprint; no exact continuum guarantee |
 | Selected-action pooling flips are mainly conservative and enriched near overlapping boundaries with small margins | Fresh 68/68 changed scenes only conservative, exact lower 94.16%; small/larger margin rates 40.57%/3.26%, lower enrichment 26.06 pp | Direction addendum after job submission but before new outcomes; fixed-model scene estimand differs from degenerate bootstrap; only five model seeds |
 | Mean error can hide opposing model and measurement components | Signed terms telescope; discovery appearance mean total −.000108 with absolute .003102 | Not additive causal shares; learned model accepts more unsafe outcomes than target oracle |
+| The uniform-cell loss is not an irreducible limit of the coarse information | Same-information PLIC recovers 44/54 target safe opportunities; frozen scalar shift recovers 6 | Appended analysis on the consumed bank; PLIC adds 16 unsafe accepts and shift adds 3; no third confirmation |
+| Improving the spatial interpretation can introduce harmful learned decisions | Five-model PLIC recovers 83 model–scene decisions and adds 43 unsafe accepts; R rises 1.03% to 1.56% | Five models share 2,000 scenes; no inherited certificate; all-scene gains and harms reported |
+| Loss of opposing errors explains a specific subset of harmful changes | Independently checked: 25/43 newly unsafe learned events keep the action, improve absolute measurement error, but worsen absolute total error | All 43 events retained; conditional illustrative example, not an exclusive explanation |
+| PLIC dominates global correction at matched risk | **Not established** | The selected shift has a development unsafe-count constraint that PLIC does not; full shift bank retained; no refitting on appended outcomes |
 | Zero acceptance is not universal candidate infeasibility in the synthetic case | Exact four-candidate oracle; new-appearance feasibility 80.78% under direct 512 | Restricted candidate set; static synthetic cost, not physical path feasibility |
 | Measurement can change apparent risk without changing a model | 256/512 stability; low16/reference danger-label differences about 2.6%–3.3% | Different cost discretizations, not automatically wrong historical labels; candidate-entry denominator |
 | Output postprocessing changes accepted risk at fixed weights | Consumed new-appearance conditional unsafe 4.70% → 1.73% at common reference | Acceptance changes too; new E3 −2 arm itself has empirical 2.85% unsafe, so −2 is not a universal failure cause |
@@ -32,10 +36,20 @@ prediction and downstream decision error. The manuscript tests one spatial
 interface and its prospective decision consequences; neither this general
 distinction nor the elementary covariance identity is new.
 
+[Pilliod and Puckett (2004)](https://doi.org/10.1016/j.jcp.2003.12.023)
+establish the VOF reconstruction context, including the first-order Parker–Youngs
+baseline used here. [Lambda-Field](https://arxiv.org/abs/1903.02285) studies
+representation-dependent path risk. [Task-based quantization](https://doi.org/10.1109/TSP.2019.2923149)
+already distinguishes signal fidelity from downstream task objectives. Our
+contribution is the measured attribution and boundary of the mechanism in this
+controlled task, not a new reconstruction method or the general task-fidelity idea.
+
 ## Artifact integrity
 
 The original [three-experiment report](../../research/pro_decision_round_20260912/artifacts/final_report/PAPER_ADDENDUM.md)
 and its manifests are preserved. The new manuscript adds separate oracle
 discovery and one prospective IID confirmation without rewriting old results
-or certificates. The external study has its own
+or certificates. One later same-information comparison is explicitly retrospective
+on the consumed confirmation bank; its original source/operator freezes and full
+development shift bank are preserved. The external study has its own
 source, protocol, data-access record and computational jobs.

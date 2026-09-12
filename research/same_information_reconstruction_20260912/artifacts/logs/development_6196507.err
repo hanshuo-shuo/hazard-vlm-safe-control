@@ -1,0 +1,11 @@
+test_complement_and_transposition (test_plic.PLICTests) ... ok
+test_constant_lift_identity_and_area (test_plic.PLICTests) ... ok
+test_full_or_empty_footprint_cells_ignore_subcell_orientation (test_plic.PLICTests) ... ok
+test_mass_matches_independent_polygon (test_plic.PLICTests) ... ok
+test_orientation_from_coarse_neighbors (test_plic.PLICTests) ... ok
+test_uniform_fallback_no_invented_orientation (test_plic.PLICTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.119s
+
+OK

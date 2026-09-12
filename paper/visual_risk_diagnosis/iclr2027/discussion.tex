@@ -1,0 +1,98 @@
+\section{Supporting controls and relation to earlier work}
+\label{sec:discussion}
+\paragraph{Learning and decision-rule effects remain distinct.}
+A prior matched geometry $\times $ source-raster experiment trained 20 models at
+equal budgets. Independent geometry improves new-appearance regret relative to
+the balanced-anchor scheme at both source 48 and source 64, with crossed 95\%
+intervals [.003101,.006853] and[.002850,.017690], each exceeding the predeclared
+.001 effect threshold. This controls a genuine learning-related effect while
+keeping common-reference scoring fixed. The intervention changes shape, size,
+rotation, and position jointly; it does not isolate position alone.
+
+Earlier fixed-weight and risk-control results are summarized in
+Table~\ref{tab:support}; details are in Appendix~\ref{app:earlier}. They support
+the argument without defining its novelty. E1 uses historical checkpoints and
+consumed diagnostic data. E3 uses the five E2 independent/source 64 models with
+1,600 new calibration and 2,000 test scenes per domain. Their residual and
+certification results must not be treated as one within-model factorial test.
+
+\begin{table}[t]
+\centering\small
+\caption{Supporting results from distinct earlier banks. E3's fixed-restored
+rule was already certified in its original finite bank. Those certificates do
+not transfer to the appended shift or PLIC rules. $R$ is unsafe among accepted.}
+\label{tab:support}
+\begin{tabular}{llrrr}
+\toprule
+Study/bank & Rule & Acceptance & $R$ & $\eta $\\
+\midrule
+E1 appearance & Inherited $-2$ &85.03\%&4.70\%&99.63\%\\
+E1 appearance & Same weights, restored &80.97\%&1.73\%&97.83\%\\
+E3 IID & Restored, fixed .02 &78.58\%&1.07\%&96.93\%\\
+E3 IID & Selected certified threshold &81.29\%&2.51\%&98.82\%\\
+E3 IID & Joint residual protection &0\%&Undefined&0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Joint protection and selective-risk control protect different objects. If
+nonnegative estimates have a joint residual quantile $ q>\tau $, adding that bound
+necessarily rejects all actions. A rule controlling risk among accepted actions
+need not protect every unselected candidate. The E3 exact-binomial finite-bank
+procedure applies established Learn then Test principles~\citep{ltt}; its
+success shows that an imperfect pipeline can be useful under a specified rule
+and distribution. It neither validates its measurement interface nor supplies
+certificates for modified aggregation.
+
+\paragraph{Spatial reconstruction and task-specific representations.}
+Volume-of-fluid reconstruction estimates an interface from grid-cell fractions.
+\citet{pilliod2004} compare first- and second-order methods, including the
+Parker--Youngs gradient reconstruction used here. That literature supplies both
+a baseline and the reason not to equate uniform-cell failure with representation
+impossibility. Our task has noisy learned fractions, swept action queries and
+thresholded decisions, rather than interface advection; we do not introduce a
+new reconstruction scheme or claim second-order accuracy for this baseline.
+
+Lambda-Field studies the compatibility of occupancy representations and path-risk
+integration~\citep{lambda2019}. Its collision-risk construction differs from our
+public mean-exposure cost, but representation-dependent path risk is established
+prior work. Task-based quantization likewise studies limited representations
+in terms of a downstream objective rather than signal recovery alone
+\citep{shlezinger2019}. Smart Predict, then Optimize explicitly separates
+prediction and decision losses~\citep{spo}. Our narrower contribution is a
+same-reference empirical attribution with actual acceptance effects, prospective
+operating-condition evidence, and a same-information alternative interpretation.
+
+Egocentric Conformal Prediction already addresses conservatism from safety-
+irrelevant prediction errors~\citep{egocentric}. Conformal Decision Theory
+calibrates decision loss directly~\citep{cdt}. Neither decision relevance nor
+moving beyond prediction-set calibration is a novelty claim here. We use these
+distinctions to keep measurement validity and the object of a statistical
+guarantee separate.
+
+\section{Limitations and conclusion}
+\label{sec:limitations}
+The task is synthetic, uses a known cost law, and restricts actions to four
+candidates. Numerical checks condition on a fixed footprint and do not prove
+continuum accuracy. Oracle boundary features are privileged diagnostics. The
+prospective confirmation concerns the original mechanism; the added reconstruction
+and shift are retrospective comparisons on consumed data. Five model seeds limit
+training-distribution inference. A single first-order PLIC baseline cannot
+characterize every same-information decoder, and successful oracle-input repair
+would not by itself establish safe learned-model deployment.
+
+An attempted real-image extension using RELLIS-3D~\citep{rellis} stopped before
+mechanism evaluation because the geometric reference lacked independent error
+bounds. Its initial 24-frame screen and subsequent prerequisite stop are retained
+in the appendix; the planned new 48-frame set was never instantiated. It supplies
+neither supporting nor refuting evidence for cross-task transfer. The extension
+remains closed; no VLM, RL or external experiment is added.
+
+Accurately realizing a coarse supervision target does not, by itself, validate
+the action measurement implemented by its current aggregation rule. In this
+controlled task, common-reference oracle replacements isolate a primarily
+conservative aggregation effect with material opportunity loss and predictable
+operating conditions. Distinguishing spatial interpretation from the underlying
+information avoids an unsupported impossibility claim. The appropriate technical
+choice is determined by what is recovered and what new errors are introduced,
+not by component fit or recovered failures alone.

@@ -4,7 +4,16 @@
 排序泛化改善没有转化为可用的风险接口。原始 C³-Safe 的 VLM 蒸馏与策略学习设想保留，
 本轮不以加入 VLM、关系头或 RL 模块作为贡献目标。
 
-最新推进（2026-09-12）：**同源 oracle 聚合误差分解与一次新 IID 确认完成。**
+最新推进（2026-09-12）：**唯一同信息重建对照完成，九页 ICLR 2027 正文工作稿已成稿。**
+同一粗场下，固定 PLIC 恢复完美 target64 的 44/54 个丢失安全机会，同时新增 16 个危险接受。
+五模型轨道恢复 83 个 model–scene 决策、新增 43 个危险接受；接受中危险率 1.03%→1.56%。
+这说明当前均匀聚合未利用完粗信息，也说明重建不能自动获得安全保证。
+追加比较只消费已经用过的数据集，没有第三批确认、新训练或新认证。完整偏移开发曲线、
+有害事件及 25/43 个具体抵消模式保留；不宣称 PLIC 在相同风险下优于任意标量修正。
+稿件为 9 页正文、13 页总计；论文源码、PDF 与图表均在 Quest 编译、验证并逐页检查。
+作者名单、导师审稿及完整匿名实验补充包仍待落实；尚未提交 OpenReview。
+
+上一轮：**同源 oracle 聚合误差分解与一次新 IID 确认完成。**
 固定同一 512 参考足迹，在已消费的 4,000 场景发现实际决策信号，再冻结 2,000 新场景验证。
 新确认中，完美 coarse oracle 丢失 63/2,000 安全机会，完美实际监督目标 oracle 仍丢失
 54/2,000；模型固定动作的池化标签变化 3.22%，同足迹数值敏感性 0.15%。保守方向和
@@ -12,7 +21,7 @@
 论文主线转向“空间目标到动作暴露的接口误差”，不把基本协方差恒等式称为新理论。
 
 RELLIS 外部扩展保持关闭：240 扫描审计后提前停止，新 48 帧从未打开，不是 0/48。
-这部分已移入附录；当前证据仍限于受控合成任务，尚不是可直接提交的 ICLR 成稿。
+这部分已移入附录；当前证据仍限于受控合成任务。
 
 当前状态（2026-09-12）：**Pro 要求的三实验已全部在 Quest 完成**：五个旧模型无训练审计、
 20 个固定预算的几何×栅格模型，以及独立校准/测试的固定选择器认证。撤销 −2 后处理后的
@@ -26,8 +35,11 @@ RELLIS 外部扩展保持关闭：240 扫描审计后提前停止，新 48 帧�
 
 先读：
 
+- [`output/pdf/perfect_coarse_predictions_iclr2027.pdf`](output/pdf/perfect_coarse_predictions_iclr2027.pdf)：九页正文的匿名工作稿（未投稿）；
+- [`docs/SAME_INFORMATION_PROGRESS_2026-09-12.md`](docs/SAME_INFORMATION_PROGRESS_2026-09-12.md)：最终补充对照、机会恢复与新增危险、论文交付；
+- [`paper/visual_risk_diagnosis/iclr2027/README.md`](paper/visual_risk_diagnosis/iclr2027/README.md)：官方格式 LaTeX 稿和独立编译说明；
 - [`paper/visual_risk_diagnosis/manuscript.md`](paper/visual_risk_diagnosis/manuscript.md)：重写的英文正文，以空间目标到动作暴露为主线；
-- [`docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：当前 oracle 发现/新确认结果、停止边界与下一步；
+- [`docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：上一轮 oracle 发现/新确认结果与冻结记录；
 - [`docs/RELLIS_REVISION_PROGRESS_2026-09-12.md`](docs/RELLIS_REVISION_PROGRESS_2026-09-12.md)：一次有预算上限的修订、240 扫描证据和新样本前的停止决定；
 - [`docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md`](docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)：RELLIS 几何资格结果、独立复核与停止决定；
 - [`docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)：最新三实验结果、固定基线认证与停止/收窄决定；

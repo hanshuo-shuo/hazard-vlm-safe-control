@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-09-12T22:14:12.674237+00:00",
+  "phase": "before appended bank loaded",
+  "offsets": [
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "implementation_hashes": {
+    "plic.py": "a42630c2edcbc09a79745da8fe39a17e1edc1e28fe64311ecea95b741d8466ba",
+    "report.py": "acd8fc13a9491a5253c5a2c6b5ed1fbca647d4df235ffa15d28a46c405be91c2",
+    "run.py": "6da32740d063f6991f4da5d71d225c276352194f81a62ca7eef66652743aaeaa",
+    "test_plic.py": "769affa10688b9a7bf938b91d2e04cfc2120fe9f4a4a54f7049b75903e052771"
+  },
+  "protocol_sha256": "8b5421839a2c2994d3351a84b1edcd17ccc8184aeae56b7fb3fe20f30c431b98",
+  "note": "Appended bank already consumed by earlier study; no new untouched confirmation claimed"
+}

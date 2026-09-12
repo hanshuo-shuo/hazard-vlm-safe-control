@@ -1,0 +1,205 @@
+\section{Data separation and inference units}
+E2 crosses two geometry schemes, source rasters 48/64 and five paired seeds
+(20 models), with 800 training and 100 validation scenes per condition. Training
+follows Section~\ref{sec:task}; the source rasters share RGB and the final
+checkpoint is fixed without validation selection. Each independent-geometry
+test bank has 400 scenes. Training uses one assignment version per scene;
+evaluation retains both but samples one version/card for the actual decision.
+
+E3 preselects all five independent/source 64 E2 checkpoints. It uses 400 development
+scenes and, per domain, 1,600 calibration and 2,000 test scenes. The normal
+generator and independent path sampler in Section~\ref{sec:task} operate before
+rasterization; no pixel, risk or feasibility screen changes their sampling.
+
+Oracle discovery reuses the consumed E3 IID/appearance test banks. The later
+prospective bank has 2,000 new IID scenes (geometry seed 2612091301), with a recorded
+source/checkpoint freeze before generation. Exact anonymous patch and complete-
+scene identities are disjoint from all 10,200 E2/E3 records. IDs, appearance names,
+seeds and path/patch ordering are excluded from the identity comparison; arbitrary
+geometric symmetries are not quotient out. After that confirmation, the bank is
+consumed. The PLIC/shift analysis in Section~\ref{sec:comparison} is explicitly
+appended to it, without new samples or renewed confirmatory status.
+
+Learned-track ratios pool five models over the same 2,000 scenes; crossed
+bootstrap draws preserve that dependence. Target-oracle intervals resample
+scenes only. Five training seeds still limit the approximate crossed inference.
+
+\section{Spatial reference and reconstruction details}
+The direct reference rasterizes each continuous property and swept-union footprint
+at 512. It averages their product over footprint area, then applies the public
+card law. It is a fixed discrete reference for synthetic mean exposure. The
+auxiliary property check rasterizes properties at 1024, averages to 512 and retains
+F512. An earlier full 256/direct 512 comparison changes both property and footprint
+rasters and is kept separate from the common-footprint attribution.
+
+\paragraph{Signed cost attribution.}
+Exposure replacement follows Eq.~\ref{eq:telescope}. For every fixed action, cost
+differences are separately evaluated as
+\[
+\widehat c-\refcost=(\widehat c-\targetcost)
+ +(\targetcost-\poolcost)+(\poolcost-\refcost).
+\]
+The nonlinear formula is applied before differencing. Channel exposures,
+signed/absolute costs and label-pattern transitions are preserved. The variance
+envelope uses privileged reference occupancies; its zero-flip implications are
+implementation checks.
+
+\paragraph{PLIC area inversion.}
+The normal is the negative weighted centered gradient of the coarse fraction,
+with transverse weights $(1,2,1)$ and edge-replicated padding. Pairing differences
+before summation eliminates roundoff-generated transverse components for an
+exactly constant transverse field. Normalize $(n_x,n_y)$ by its L1 norm. For a
+nonzero normal let $ a=|n_x|$, $ b=|n_y|$, $ a+b=1$, $ s=\min(a,b)$ and $ l=\max(a,b)$.
+The area CDF of $ aU+bV$ for independent unit-square coordinates can be evaluated
+symmetrically. At $0\le t\le 1/2$ its lower half is
+\[
+H(t)=\begin{cases}t^2/(2ab),&t<s,\\(t-s/2)/l,&t\ge s.\end{cases}
+\]
+Axis-aligned limits are handled analytically; the upper half uses $1-H(1-t)$.
+For fraction $ p $, invert the lower tail $ q=\min(p,1-p)$ using
+$ t=\sqrt{2abq}$ when $ q\le s/(2l)$, otherwise $ t=lq+s/2$; reflect for $ p>1/2$ and
+translate for negative normal components. This yields a half-plane whose
+unit-square area is the original $ p $.
+
+For each fine pixel square, the same CDF gives its exact fractional area under
+the reconstructed half-plane. Integrating those fractions against binary F512
+preserves each coarse cell's original mass. Cells where a footprint is entirely
+zero or one need no fine calculation: the integral is fixed by conserved mass.
+All fractions, including small learned probabilities, are retained. A mixed
+cell whose gradient L1 norm is at most $10^{-12}$ stays uniform. This is an
+explicit fallback, not a inferred true boundary.
+
+On the appended bank, the maximum analytic inverse-area discrepancy is
+$2.78\times 10^{-16}$ and the maximum sum-of-fine-areas discrepancy is
+$3.33\times 10^{-16}$, below the fixed $10^{-10}$ tolerance. There are 34,837
+gradient-fallback cells across the input tracks and 5,047,140 reconstructed query
+cells. These numerical checks establish conservation, not physical correctness
+of the inferred boundary or a safety guarantee.
+
+\section{Shift fitting and unequal risk points}
+\label{app:shift}
+The fixed cost-offset bank is
+\[
+\{- .02,- .015,- .01,- .005,- .002,- .001,0,.001,.002,.005,.01,.015,.02\}.
+\]
+One offset is fitted for perfect target input and one is shared across the five
+model inputs. Fitting uses only consumed IID discovery data: maximize safe
+acceptance subject to unsafe-accepted count no larger than uniform. Ties prefer
+smallest absolute offset and then smaller offset. The rule is frozen at .001
+for target input and 0 for learned input. It is empirical fitting, not a risk
+certificate or guarantee that the same unsafe-count constraint will hold later.
+
+The entire development bank is retained. At target offset .005, development has
+1,578 safe and 17 unsafe accepts; at .01 it has 1,598 safe and 33 unsafe accepts.
+Fixed PLIC has 1,600 safe and 16 unsafe accepts on development. The selected .001
+shift has 1,550 safe and one unsafe accept. Larger shifts therefore can recover
+more opportunities, and the selected point must not be interpreted as the
+capacity of the whole shift family. No alternative offset is chosen using the
+appended outcomes. The different risk levels preclude claiming a matched-risk
+deployment advantage from the reported selected points.
+
+\begin{table}[h]
+\centering\small
+\caption{Absolute appended outcomes. Learned rows pool five models sharing
+2,000 scenes. The direct oracle has 1,592 safe opportunities per model.}
+\begin{tabular}{llrrrr}
+\toprule
+Input & Interpretation & Accepted & Safe accepted & Unsafe accepted & Safe opportunities lost\\
+\midrule
+Target & Uniform &1540&1538&2&54\\
+ & Shift &1549&1544&5&48\\
+ & PLIC &1600&1582&18&10\\
+Learned & Uniform &7783&7703&80&257\\
+ & Shift &7783&7703&80&257\\
+ & PLIC &7909&7786&123&174\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Event-level cancellation evidence}
+Each recovery, new safe loss, new unsafe accept and resolved unsafe accept keeps
+its scene/model/card/action identity. At the original uniform-selected action,
+write target-measurement error as $ m=c_{\rm target}-\refcost $ and model-relative
+error as $ l=\widehat c-c_{\rm target}$. After changing interpretation, retain both
+$ m'$ and $ l'$, with
+$\widehat c'-\widehat c=(m'-m)+(l'-l)$. This fixed-action equality is checked
+before interpreting reselected outcomes.
+
+For the 43 newly unsafe learned PLIC decisions, 25 satisfy all of: unchanged
+action, $ ml<0$ before modification, $|m'|<|m|$, and
+$|m'+l'|>|m+l|$. The other 18 are retained as counterevidence to an exclusive
+cancellation explanation. The first matching event in scene/model order is
+scene 264, model index 1, exchanged version, card D, action 0. In it, both $|m|$
+and $|l|$ decrease yet total underestimation grows, as detailed in the main text.
+This is a transparent conditional illustration; it was not chosen to estimate
+the population frequency of such cases.
+
+\section{Prospective direction check and its addendum}
+\label{app:direction}
+The original confirmation uses one-sided budgets $.05/3$. H1 counts scenes where
+direct 512 and the finer-property check both retain at least one safe candidate,
+but pooled 512 fails to produce a safe accepted action. Its 61/2,000 events give
+exact lower .02286937. H2 initially uses a crossed bootstrap for the fraction of
+fixed-selected pooling flips that are conservative. Since all 322 flips are
+conservative, its bootstrap lower degenerates to 1 and cannot establish population
+certainty. H3 compares small/larger margin flip rates under joint boundary
+overlap; its estimate is .373080 and approximate lower .260586.
+
+The direction addendum was recorded at 20:57:54 UTC after job submission but
+before any fresh outcome was inspected and before the original hypothesis file
+was generated at 21:00:24 UTC. It is disclosed as a strengthening after the
+original freeze, not silently included in that freeze. It requires an additional
+exact scene-level check at the same H2 error budget: conditional on a scene
+having any flip across the fixed five-model bank, every flip must be conservative.
+All 68 changed scenes satisfy it; the exact lower is .941566. This conditional
+fixed-bank estimand differs from the model--scene weighted proportion. Both
+original outputs and the added check are preserved.
+
+\section{Earlier controls and closed external attempt}
+\label{app:earlier}
+E1 uses five historical models and a consumed 300-scene calibration bank. With
+restored output, positive-residual quantiles are .02797--.03287 for all 24
+pair/version/card/candidate entries, .02201--.02767 for the current four
+candidates, and .00501--.00790 for the fixed selected action. These are three
+different protection objects. The smaller marginal selected-action bound does
+not itself control unsafe frequency after acceptance.
+
+E3 separately uses all five preselected E2 independent/source 64 models. Twelve
+threshold rules per source/target calibration domain use exact one-sided
+Clopper--Pearson upper bounds with family budget
+$\delta/(5\cdot 2\cdot 12)=.05/120$. The desired conditional unsafe limit is
+$\epsilon=.05$, distinct from danger threshold $\tau=.02$ and residual miscoverage
+$\alpha=.05$. The original fixed .02 restored rules already certify, with source
+upper bounds 1.66--2.54\%; selecting a higher-coverage certified threshold increases
+both opportunity use and test risk. Source certificates do not become unknown-
+distribution guarantees on appearance shift, and no old certificate applies to
+PLIC or a newly fitted shift.
+
+The RELLIS attempt evaluated a fixed 24-frame training-sequence pilot. All-four
+corridor unknown area at most 5\% held in 0/24 cases; an optimistic diagnostic
+discarding depth/occlusion checks reached 3/24. These results concern the chosen
+single-scan surface-fit interface, not the dataset's general suitability. A
+bounded revision inspected 240 raw scans around those same 24 development frames
+and ran a motion-compensation prototype. Independent physical alignment and
+visibility error bounds remained unresolved. It stopped before selecting,
+acquiring or evaluating the planned new 48-frame set. This is a prerequisite
+stop, not 0/48 and not a mechanism-transfer result; neither external training nor
+an external final test was run.
+
+\section{Computational verification}
+The original oracle round has six distinct tests and independent replay of
+52,000 discovery decisions and 26,000 prospective decisions, with 768 and 384
+blockwise candidate-cost checks. The additional PLIC tests cover mass against
+independent polygon clipping, uniform-lift identity, zero-gradient fallback,
+complement/transposition behavior, axis orientation, and constant-footprint
+cells. One initial test detected transverse roundoff at approximately
+$8.3\times 10^{-16}$ for an exactly constant transverse field; changing the
+arithmetic to pair differences before summing fixed it. The original test,
+failed attempt, and unchanged scientific tolerance are retained; no development
+scene was read before the repaired tests passed.
+
+Independent appended verification replays 72,000 decisions and 65,536 fine-square
+areas with polygon clipping. The maximum polygon difference is
+$3.33\times10^{-16}$; the constant-lift identity differs by at most
+$3.71\times10^{-14}$. It also verifies all 25 specified cancellation-pattern
+events among the 43 new unsafe learned accepts. All computation runs on the cluster; frozen inputs and outputs are preserved.

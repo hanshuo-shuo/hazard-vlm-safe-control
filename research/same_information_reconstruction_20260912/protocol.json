@@ -1,0 +1,33 @@
+{
+  "id": "SAME-INFORMATION-APPENDED-BASELINES-20260912-v1",
+  "parent_commit": "0c1864649e8b7d96605642fe2f0fc47012dcda34",
+  "scope": "One existing local PLIC reconstruction and one global shift; restrict interpretation of the established mechanism, not a new repair-method claim",
+  "prior_oracle_root": "/projects/p33100/siosio/hazard_oracle_aggregation_20260912",
+  "prior_models_root": "/projects/p33100/siosio/hazard_pro_decision_round_20260912",
+  "development": "Already consumed E3 iid_test, 2000 scenes. Determine offsets here, then freeze the unique implementation before appended evaluation.",
+  "appended_evaluation": "Already consumed 2000-scene oracle confirmation bank. Explicitly retrospective appended baseline analysis; never call it untouched or a third confirmation.",
+  "tracks": ["Perfect actual source64-to16 target (primary)", "All five existing restored-output models (secondary)"],
+  "arms": ["cell-uniform", "global-cost-shift", "Parker-Youngs PLIC"],
+  "reference": "Existing direct512 oracle, evaluation and upper reference only",
+  "permitted_information": "Identical coarse16 property field and same legal action geometry/F512 for all arms. Reconstruction function accepts only coarse fields and F512, never continuous property shape parameters, high-resolution property labels, reference costs or oracle boundary normals.",
+  "reconstruction": {
+    "method": "Parker-Youngs PLIC with fixed 3x3 weighted centered gradient (center weight2), L1-normalized outward normal and straight half-plane in each mixed cell",
+    "source": "Pilliod and Puckett 2004; corresponding author preprint section2.5 describes Parker-Youngs center weight2. This is the established first-order reconstruction, not their second-order ELVIRA method.",
+    "boundary_padding": "edge replication",
+    "zero_gradient": "L1 gradient norm<=1e-12: retain uniform occupancy for that cell, do not invent a boundary orientation",
+    "area_conservation": "Analytically invert square-cut area to match the original coarse fraction, including 0/1 cells. No thresholding or denoising of coarse fields. Integrate exact line-cut fractions of fine512 pixel squares against the identical binary F512.",
+    "mass_tolerance": 1e-10,
+    "precision": "float64 square-area integration; no center-sampled reconstructed binary mask and no resolution sweep"
+  },
+  "global_shift": {
+    "offset_bank": [-0.02,-0.015,-0.01,-0.005,-0.002,-0.001,0.0,0.001,0.002,0.005,0.01,0.015,0.02],
+    "fit": "One scalar for target track, one scalar shared across five learned models. On development maximize all-scene safe-accepted count subject to unsafe-accepted count not exceeding the uniform arm. Ties: smallest absolute offset, then smaller offset. Report the whole bank and its empirical tradeoff; no certificate.",
+    "apply": "Subtract offset after public cost formula. A global translation leaves selection unchanged; use original uniform argmin to prevent numerical/clipping-created ties. Acceptance compares shifted cost to unchanged tau=.02."
+  },
+  "decision_rules": "Original variant/card, four candidates, stored tie uniform, atol1e-9, tau=.02; choose once then accept/reject. For fixed selection evaluate every cost arm at the original uniform-selected action; for reselection each arm chooses by its own cost, with translation preserving the uniform action for the shift.",
+  "primary_reporting": "Across all scenes: recovered safe opportunities, newly lost previously safe opportunities, newly unsafe accepts, resolved unsafe accepts, net safe acceptance and eta; retain all no-safe and fully-safe cases. Report harmful changes as well as recovered members of the old54.",
+  "uncertainty": "Paired scene bootstrap for target; crossed model/scene bootstrap for learned track; 2000 draws, seed2612091401. Descriptive appended comparisons, not new confirmatory p-values or inherited risk certificates.",
+  "case_audit": "Retain exact scene/model/card/action identities, signed fixed-action measurement correction, model-vs-target error, and before/after cost for every recovery, new loss and unsafe event. Do not infer cancellation from means alone.",
+  "illustration": "First development scene for reconstruction illustration; event tables include all changed scenes without replacement",
+  "limits": "No new scenes, no training, one reconstruction implementation, no model/data/resolution search, no automatic new calibration, RELLIS/VLM/RL remain closed. Two CPU allocations at most one hour and8 cores each for develop/evaluate; finish manuscript regardless of A/B/C/D interpretation."
+}

@@ -1,0 +1,2614 @@
+{
+  "at_utc": "2026-09-12T22:18:52.690075+00:00",
+  "status": "RETROSPECTIVE_APPENDED_BASELINES_NO_NEW_CONFIRMATION",
+  "phases": {
+    "development": {
+      "target": {
+        "n_scenes": 2000,
+        "n_models": 1,
+        "arms": {
+          "uniform": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1545,
+                "unsafe_accepted": 1,
+                "safe_accepted": 1544,
+                "oracle_safe": 1604,
+                "coverage": 0.7725,
+                "joint_unsafe": 0.0005,
+                "conditional_unsafe": 0.0006472491909385113,
+                "eta": 0.9625935162094763,
+                "oracle_coverage": 0.802,
+                "regret": 7.369502298925258e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7725,
+              "ci95": [
+                0.754,
+                0.7905
+              ],
+              "numerator": 1545.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.0006472491909385113,
+              "ci95": [
+                0.0,
+                0.0019633829292627983
+              ],
+              "numerator": 1.0,
+              "denominator": 1545.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9625935162094763,
+              "ci95": [
+                0.9533560294322778,
+                0.9716940454266422
+              ],
+              "numerator": 1544.0,
+              "denominator": 1604.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.03,
+              "ci95": [
+                0.0225,
+                0.0375
+              ],
+              "numerator": 60.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 60.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "shift": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1551,
+                "unsafe_accepted": 1,
+                "safe_accepted": 1550,
+                "oracle_safe": 1604,
+                "coverage": 0.7755,
+                "joint_unsafe": 0.0005,
+                "conditional_unsafe": 0.0006447453255963894,
+                "eta": 0.9663341645885287,
+                "oracle_coverage": 0.802,
+                "regret": 7.369502298925258e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7755,
+              "ci95": [
+                0.7575,
+                0.7935
+              ],
+              "numerator": 1551.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.0006447453255963894,
+              "ci95": [
+                0.0,
+                0.00195576725082753
+              ],
+              "numerator": 1.0,
+              "denominator": 1551.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9663341645885287,
+              "ci95": [
+                0.9573664708549198,
+                0.9750488063675252
+              ],
+              "numerator": 1550.0,
+              "denominator": 1604.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.003,
+              "ci95": [
+                0.001,
+                0.0055
+              ],
+              "numerator": 6.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.003,
+              "ci95": [
+                0.001,
+                0.0055
+              ],
+              "numerator": 6.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.027,
+              "ci95": [
+                0.02,
+                0.034
+              ],
+              "numerator": 54.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.1,
+              "ci95": [
+                0.03333333333333333,
+                0.1833552631578946
+              ],
+              "numerator": 6.0,
+              "denominator": 60.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0010000000000000005,
+                "ci95": [
+                  -0.0010000000000000005,
+                  -0.0010000000000000002
+                ],
+                "numerator": -2.000000000000001,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.003,
+                "ci95": [
+                  0.001,
+                  0.0055
+                ],
+                "numerator": 6.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.003,
+                "ci95": [
+                  0.001,
+                  0.0055
+                ],
+                "numerator": 6.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "plic": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1616,
+                "unsafe_accepted": 16,
+                "safe_accepted": 1600,
+                "oracle_safe": 1604,
+                "coverage": 0.808,
+                "joint_unsafe": 0.008,
+                "conditional_unsafe": 0.009900990099009901,
+                "eta": 0.9975062344139651,
+                "oracle_coverage": 0.802,
+                "regret": 3.718749495695862e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.808,
+              "ci95": [
+                0.79,
+                0.824
+              ],
+              "numerator": 1616.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.009900990099009901,
+              "ci95": [
+                0.005534970300532753,
+                0.014907063914548983
+              ],
+              "numerator": 16.0,
+              "denominator": 1616.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9975062344139651,
+              "ci95": [
+                0.9949357401188323,
+                0.9993868886073743
+              ],
+              "numerator": 1600.0,
+              "denominator": 1604.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.028,
+              "ci95": [
+                0.021,
+                0.035
+              ],
+              "numerator": 56.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.028,
+              "ci95": [
+                0.021,
+                0.035
+              ],
+              "numerator": 56.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0075,
+              "ci95": [
+                0.004,
+                0.0115
+              ],
+              "numerator": 15.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.002,
+              "ci95": [
+                0.0005,
+                0.004
+              ],
+              "numerator": 4.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.9333333333333333,
+              "ci95": [
+                0.8627149321266969,
+                0.9859154929577465
+              ],
+              "numerator": 56.0,
+              "denominator": 60.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0075,
+              "ci95": [
+                0.004,
+                0.0115
+              ],
+              "numerator": 15.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0017807501045593063,
+                "ci95": [
+                  -0.0019864352606643785,
+                  -0.0015702039263055646
+                ],
+                "numerator": -3.5615002091186128,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0355,
+                "ci95": [
+                  0.0275,
+                  0.0435
+                ],
+                "numerator": 71.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.028,
+                "ci95": [
+                  0.021,
+                  0.035
+                ],
+                "numerator": 56.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0075,
+                "ci95": [
+                  0.004,
+                  0.0115
+                ],
+                "numerator": 15.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          }
+        }
+      },
+      "learned": {
+        "n_scenes": 2000,
+        "n_models": 5,
+        "arms": {
+          "uniform": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1551,
+                "unsafe_accepted": 9,
+                "safe_accepted": 1542,
+                "oracle_safe": 1604,
+                "coverage": 0.7755,
+                "joint_unsafe": 0.0045,
+                "conditional_unsafe": 0.005802707930367505,
+                "eta": 0.9613466334164589,
+                "oracle_coverage": 0.802,
+                "regret": 0.00019433045462610805
+              },
+              {
+                "n": 2000,
+                "accepted": 1584,
+                "unsafe_accepted": 20,
+                "safe_accepted": 1564,
+                "oracle_safe": 1604,
+                "coverage": 0.792,
+                "joint_unsafe": 0.01,
+                "conditional_unsafe": 0.012626262626262626,
+                "eta": 0.9750623441396509,
+                "oracle_coverage": 0.802,
+                "regret": 0.00016098856251222277
+              },
+              {
+                "n": 2000,
+                "accepted": 1584,
+                "unsafe_accepted": 21,
+                "safe_accepted": 1563,
+                "oracle_safe": 1604,
+                "coverage": 0.792,
+                "joint_unsafe": 0.0105,
+                "conditional_unsafe": 0.013257575757575758,
+                "eta": 0.9744389027431422,
+                "oracle_coverage": 0.802,
+                "regret": 0.000146987845635838
+              },
+              {
+                "n": 2000,
+                "accepted": 1577,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1560,
+                "oracle_safe": 1604,
+                "coverage": 0.7885,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.01077996195307546,
+                "eta": 0.972568578553616,
+                "oracle_coverage": 0.802,
+                "regret": 0.00015405410698776133
+              },
+              {
+                "n": 2000,
+                "accepted": 1562,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1545,
+                "oracle_safe": 1604,
+                "coverage": 0.781,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.01088348271446863,
+                "eta": 0.963216957605985,
+                "oracle_coverage": 0.802,
+                "regret": 0.0002026229820562374
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7858,
+              "ci95": [
+                0.7669975,
+                0.8034025000000001
+              ],
+              "numerator": 7858.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.010689742937134131,
+              "ci95": [
+                0.005911795056889615,
+                0.016076752505435297
+              ],
+              "numerator": 84.0,
+              "denominator": 7858.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9693266832917705,
+              "ci95": [
+                0.9593957533318276,
+                0.9781961709655866
+              ],
+              "numerator": 7774.0,
+              "denominator": 8020.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0246,
+              "ci95": [
+                0.017497500000000003,
+                0.03260249999999999
+              ],
+              "numerator": 246.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 246.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "shift": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1551,
+                "unsafe_accepted": 9,
+                "safe_accepted": 1542,
+                "oracle_safe": 1604,
+                "coverage": 0.7755,
+                "joint_unsafe": 0.0045,
+                "conditional_unsafe": 0.005802707930367505,
+                "eta": 0.9613466334164589,
+                "oracle_coverage": 0.802,
+                "regret": 0.00019433045462610805
+              },
+              {
+                "n": 2000,
+                "accepted": 1584,
+                "unsafe_accepted": 20,
+                "safe_accepted": 1564,
+                "oracle_safe": 1604,
+                "coverage": 0.792,
+                "joint_unsafe": 0.01,
+                "conditional_unsafe": 0.012626262626262626,
+                "eta": 0.9750623441396509,
+                "oracle_coverage": 0.802,
+                "regret": 0.00016098856251222277
+              },
+              {
+                "n": 2000,
+                "accepted": 1584,
+                "unsafe_accepted": 21,
+                "safe_accepted": 1563,
+                "oracle_safe": 1604,
+                "coverage": 0.792,
+                "joint_unsafe": 0.0105,
+                "conditional_unsafe": 0.013257575757575758,
+                "eta": 0.9744389027431422,
+                "oracle_coverage": 0.802,
+                "regret": 0.000146987845635838
+              },
+              {
+                "n": 2000,
+                "accepted": 1577,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1560,
+                "oracle_safe": 1604,
+                "coverage": 0.7885,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.01077996195307546,
+                "eta": 0.972568578553616,
+                "oracle_coverage": 0.802,
+                "regret": 0.00015405410698776133
+              },
+              {
+                "n": 2000,
+                "accepted": 1562,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1545,
+                "oracle_safe": 1604,
+                "coverage": 0.781,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.01088348271446863,
+                "eta": 0.963216957605985,
+                "oracle_coverage": 0.802,
+                "regret": 0.0002026229820562374
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7858,
+              "ci95": [
+                0.7669975,
+                0.8034025000000001
+              ],
+              "numerator": 7858.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.010689742937134131,
+              "ci95": [
+                0.005911795056889615,
+                0.016076752505435297
+              ],
+              "numerator": 84.0,
+              "denominator": 7858.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9693266832917705,
+              "ci95": [
+                0.9593957533318276,
+                0.9781961709655866
+              ],
+              "numerator": 7774.0,
+              "denominator": 8020.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0246,
+              "ci95": [
+                0.017497500000000003,
+                0.03260249999999999
+              ],
+              "numerator": 246.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 246.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "plic": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1575,
+                "unsafe_accepted": 12,
+                "safe_accepted": 1563,
+                "oracle_safe": 1604,
+                "coverage": 0.7875,
+                "joint_unsafe": 0.006,
+                "conditional_unsafe": 0.007619047619047619,
+                "eta": 0.9744389027431422,
+                "oracle_coverage": 0.802,
+                "regret": 0.00016760034100650071
+              },
+              {
+                "n": 2000,
+                "accepted": 1609,
+                "unsafe_accepted": 25,
+                "safe_accepted": 1584,
+                "oracle_safe": 1604,
+                "coverage": 0.8045,
+                "joint_unsafe": 0.0125,
+                "conditional_unsafe": 0.015537600994406464,
+                "eta": 0.9875311720698254,
+                "oracle_coverage": 0.802,
+                "regret": 0.00015028087545896675
+              },
+              {
+                "n": 2000,
+                "accepted": 1607,
+                "unsafe_accepted": 31,
+                "safe_accepted": 1576,
+                "oracle_safe": 1604,
+                "coverage": 0.8035,
+                "joint_unsafe": 0.0155,
+                "conditional_unsafe": 0.019290603609209707,
+                "eta": 0.9825436408977556,
+                "oracle_coverage": 0.802,
+                "regret": 0.00014960450044334116
+              },
+              {
+                "n": 2000,
+                "accepted": 1599,
+                "unsafe_accepted": 22,
+                "safe_accepted": 1577,
+                "oracle_safe": 1604,
+                "coverage": 0.7995,
+                "joint_unsafe": 0.011,
+                "conditional_unsafe": 0.013758599124452783,
+                "eta": 0.9831670822942643,
+                "oracle_coverage": 0.802,
+                "regret": 0.00014276739036386178
+              },
+              {
+                "n": 2000,
+                "accepted": 1589,
+                "unsafe_accepted": 21,
+                "safe_accepted": 1568,
+                "oracle_safe": 1604,
+                "coverage": 0.7945,
+                "joint_unsafe": 0.0105,
+                "conditional_unsafe": 0.013215859030837005,
+                "eta": 0.9775561097256857,
+                "oracle_coverage": 0.802,
+                "regret": 0.00015191798218807951
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7979,
+              "ci95": [
+                0.7800974999999999,
+                0.8155
+              ],
+              "numerator": 7979.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.013911517734051887,
+              "ci95": [
+                0.00805840093872593,
+                0.020560606300512575
+              ],
+              "numerator": 111.0,
+              "denominator": 7979.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9810473815461347,
+              "ci95": [
+                0.9735313963559191,
+                0.987957790192427
+              ],
+              "numerator": 7868.0,
+              "denominator": 8020.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0094,
+              "ci95": [
+                0.0062,
+                0.013100000000000002
+              ],
+              "numerator": 94.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0094,
+              "ci95": [
+                0.0062,
+                0.013100000000000002
+              ],
+              "numerator": 94.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0028,
+              "ci95": [
+                0.0011,
+                0.0049
+              ],
+              "numerator": 28.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0001,
+              "ci95": [
+                0.0,
+                0.0006
+              ],
+              "numerator": 1.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0152,
+              "ci95": [
+                0.009699999999999999,
+                0.021302499999999985
+              ],
+              "numerator": 152.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.3821138211382114,
+              "ci95": [
+                0.27838345864661657,
+                0.5000668449197857
+              ],
+              "numerator": 94.0,
+              "denominator": 246.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0025,
+              "ci95": [
+                0.0009000000000000001,
+                0.0045024999999999865
+              ],
+              "numerator": 25.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0007327541101718983,
+                "ci95": [
+                  -0.0008376208370783675,
+                  -0.0006295882198188729
+                ],
+                "numerator": -7.327541101718983,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0119,
+                "ci95": [
+                  0.008400000000000001,
+                  0.015600000000000001
+                ],
+                "numerator": 119.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0093,
+                "ci95": [
+                  0.006000000000000001,
+                  0.013
+                ],
+                "numerator": 93.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0026,
+                "ci95": [
+                  0.001,
+                  0.004600000000000001
+                ],
+                "numerator": 26.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "appended": {
+      "target": {
+        "n_scenes": 2000,
+        "n_models": 1,
+        "arms": {
+          "uniform": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1540,
+                "unsafe_accepted": 2,
+                "safe_accepted": 1538,
+                "oracle_safe": 1592,
+                "coverage": 0.77,
+                "joint_unsafe": 0.001,
+                "conditional_unsafe": 0.0012987012987012987,
+                "eta": 0.9660804020100503,
+                "oracle_coverage": 0.796,
+                "regret": 8.719331582607706e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.77,
+              "ci95": [
+                0.7515,
+                0.7895
+              ],
+              "numerator": 1540.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.0012987012987012987,
+              "ci95": [
+                0.0,
+                0.003259505566796024
+              ],
+              "numerator": 2.0,
+              "denominator": 1540.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9660804020100503,
+              "ci95": [
+                0.9568474641889276,
+                0.974556724285652
+              ],
+              "numerator": 1538.0,
+              "denominator": 1592.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.027,
+              "ci95": [
+                0.02,
+                0.0345
+              ],
+              "numerator": 54.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 54.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "shift": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1549,
+                "unsafe_accepted": 5,
+                "safe_accepted": 1544,
+                "oracle_safe": 1592,
+                "coverage": 0.7745,
+                "joint_unsafe": 0.0025,
+                "conditional_unsafe": 0.0032278889606197547,
+                "eta": 0.9698492462311558,
+                "oracle_coverage": 0.796,
+                "regret": 8.719331582607706e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7745,
+              "ci95": [
+                0.756,
+                0.793
+              ],
+              "numerator": 1549.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.0032278889606197547,
+              "ci95": [
+                0.000643915003219575,
+                0.006447557247145441
+              ],
+              "numerator": 5.0,
+              "denominator": 1549.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9698492462311558,
+              "ci95": [
+                0.9612001267507951,
+                0.9779183291497766
+              ],
+              "numerator": 1544.0,
+              "denominator": 1592.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.003,
+              "ci95": [
+                0.001,
+                0.0055
+              ],
+              "numerator": 6.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.003,
+              "ci95": [
+                0.001,
+                0.0055
+              ],
+              "numerator": 6.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0015,
+              "ci95": [
+                0.0,
+                0.0035
+              ],
+              "numerator": 3.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.024,
+              "ci95": [
+                0.0175,
+                0.031
+              ],
+              "numerator": 48.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.1111111111111111,
+              "ci95": [
+                0.03569862155388471,
+                0.2
+              ],
+              "numerator": 6.0,
+              "denominator": 54.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0015,
+              "ci95": [
+                0.0,
+                0.0035
+              ],
+              "numerator": 3.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0010000000000000005,
+                "ci95": [
+                  -0.0010000000000000005,
+                  -0.0010000000000000002
+                ],
+                "numerator": -2.000000000000001,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0045,
+                "ci95": [
+                  0.002,
+                  0.0075
+                ],
+                "numerator": 9.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.003,
+                "ci95": [
+                  0.001,
+                  0.0055
+                ],
+                "numerator": 6.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0015,
+                "ci95": [
+                  0.0,
+                  0.0035
+                ],
+                "numerator": 3.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "plic": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1600,
+                "unsafe_accepted": 18,
+                "safe_accepted": 1582,
+                "oracle_safe": 1592,
+                "coverage": 0.8,
+                "joint_unsafe": 0.009,
+                "conditional_unsafe": 0.01125,
+                "eta": 0.9937185929648241,
+                "oracle_coverage": 0.796,
+                "regret": 3.4346531201650666e-05
+              }
+            ],
+            "acceptance": {
+              "mean": 0.8,
+              "ci95": [
+                0.7815,
+                0.818
+              ],
+              "numerator": 1600.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.01125,
+              "ci95": [
+                0.006273231097517381,
+                0.01659542151119978
+              ],
+              "numerator": 18.0,
+              "denominator": 1600.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9937185929648241,
+              "ci95": [
+                0.9898085922266996,
+                0.9974409415040827
+              ],
+              "numerator": 1582.0,
+              "denominator": 1592.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.022,
+              "ci95": [
+                0.016,
+                0.0285
+              ],
+              "numerator": 44.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.022,
+              "ci95": [
+                0.016,
+                0.0285
+              ],
+              "numerator": 44.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.008,
+              "ci95": [
+                0.0045,
+                0.012
+              ],
+              "numerator": 16.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.005,
+              "ci95": [
+                0.002,
+                0.008
+              ],
+              "numerator": 10.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.8148148148148148,
+              "ci95": [
+                0.7037037037037037,
+                0.9090909090909091
+              ],
+              "numerator": 44.0,
+              "denominator": 54.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.008,
+              "ci95": [
+                0.0045,
+                0.012
+              ],
+              "numerator": 16.0,
+              "denominator": 2000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0020104431070763033,
+                "ci95": [
+                  -0.002222659804283631,
+                  -0.0017905626025966736
+                ],
+                "numerator": -4.020886214152607,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.03,
+                "ci95": [
+                  0.0225,
+                  0.0375
+                ],
+                "numerator": 60.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.022,
+                "ci95": [
+                  0.016,
+                  0.0285
+                ],
+                "numerator": 44.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.008,
+                "ci95": [
+                  0.0045,
+                  0.012
+                ],
+                "numerator": 16.0,
+                "denominator": 2000.0,
+                "undefined": 0
+              }
+            }
+          }
+        }
+      },
+      "learned": {
+        "n_scenes": 2000,
+        "n_models": 5,
+        "arms": {
+          "uniform": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1537,
+                "unsafe_accepted": 11,
+                "safe_accepted": 1526,
+                "oracle_safe": 1592,
+                "coverage": 0.7685,
+                "joint_unsafe": 0.0055,
+                "conditional_unsafe": 0.0071567989590110605,
+                "eta": 0.9585427135678392,
+                "oracle_coverage": 0.796,
+                "regret": 0.000321221144291218
+              },
+              {
+                "n": 2000,
+                "accepted": 1568,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1551,
+                "oracle_safe": 1592,
+                "coverage": 0.784,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.010841836734693877,
+                "eta": 0.9742462311557789,
+                "oracle_coverage": 0.796,
+                "regret": 0.00023989917276062377
+              },
+              {
+                "n": 2000,
+                "accepted": 1574,
+                "unsafe_accepted": 23,
+                "safe_accepted": 1551,
+                "oracle_safe": 1592,
+                "coverage": 0.787,
+                "joint_unsafe": 0.0115,
+                "conditional_unsafe": 0.014612452350698857,
+                "eta": 0.9742462311557789,
+                "oracle_coverage": 0.796,
+                "regret": 0.00025428429414632445
+              },
+              {
+                "n": 2000,
+                "accepted": 1557,
+                "unsafe_accepted": 16,
+                "safe_accepted": 1541,
+                "oracle_safe": 1592,
+                "coverage": 0.7785,
+                "joint_unsafe": 0.008,
+                "conditional_unsafe": 0.010276172125883108,
+                "eta": 0.967964824120603,
+                "oracle_coverage": 0.796,
+                "regret": 0.00029744792908273365
+              },
+              {
+                "n": 2000,
+                "accepted": 1547,
+                "unsafe_accepted": 13,
+                "safe_accepted": 1534,
+                "oracle_safe": 1592,
+                "coverage": 0.7735,
+                "joint_unsafe": 0.0065,
+                "conditional_unsafe": 0.008403361344537815,
+                "eta": 0.9635678391959799,
+                "oracle_coverage": 0.796,
+                "regret": 0.0003006075248820526
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7783,
+              "ci95": [
+                0.7587,
+                0.7977000000000001
+              ],
+              "numerator": 7783.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.010278812797121933,
+              "ci95": [
+                0.0057381402323394195,
+                0.015315350397126096
+              ],
+              "numerator": 80.0,
+              "denominator": 7783.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9677135678391959,
+              "ci95": [
+                0.9572746663023588,
+                0.9767852341227095
+              ],
+              "numerator": 7703.0,
+              "denominator": 7960.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0257,
+              "ci95": [
+                0.0185,
+                0.033900000000000007
+              ],
+              "numerator": 257.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 257.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "shift": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1537,
+                "unsafe_accepted": 11,
+                "safe_accepted": 1526,
+                "oracle_safe": 1592,
+                "coverage": 0.7685,
+                "joint_unsafe": 0.0055,
+                "conditional_unsafe": 0.0071567989590110605,
+                "eta": 0.9585427135678392,
+                "oracle_coverage": 0.796,
+                "regret": 0.000321221144291218
+              },
+              {
+                "n": 2000,
+                "accepted": 1568,
+                "unsafe_accepted": 17,
+                "safe_accepted": 1551,
+                "oracle_safe": 1592,
+                "coverage": 0.784,
+                "joint_unsafe": 0.0085,
+                "conditional_unsafe": 0.010841836734693877,
+                "eta": 0.9742462311557789,
+                "oracle_coverage": 0.796,
+                "regret": 0.00023989917276062377
+              },
+              {
+                "n": 2000,
+                "accepted": 1574,
+                "unsafe_accepted": 23,
+                "safe_accepted": 1551,
+                "oracle_safe": 1592,
+                "coverage": 0.787,
+                "joint_unsafe": 0.0115,
+                "conditional_unsafe": 0.014612452350698857,
+                "eta": 0.9742462311557789,
+                "oracle_coverage": 0.796,
+                "regret": 0.00025428429414632445
+              },
+              {
+                "n": 2000,
+                "accepted": 1557,
+                "unsafe_accepted": 16,
+                "safe_accepted": 1541,
+                "oracle_safe": 1592,
+                "coverage": 0.7785,
+                "joint_unsafe": 0.008,
+                "conditional_unsafe": 0.010276172125883108,
+                "eta": 0.967964824120603,
+                "oracle_coverage": 0.796,
+                "regret": 0.00029744792908273365
+              },
+              {
+                "n": 2000,
+                "accepted": 1547,
+                "unsafe_accepted": 13,
+                "safe_accepted": 1534,
+                "oracle_safe": 1592,
+                "coverage": 0.7735,
+                "joint_unsafe": 0.0065,
+                "conditional_unsafe": 0.008403361344537815,
+                "eta": 0.9635678391959799,
+                "oracle_coverage": 0.796,
+                "regret": 0.0003006075248820526
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7783,
+              "ci95": [
+                0.7587,
+                0.7977000000000001
+              ],
+              "numerator": 7783.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.010278812797121933,
+              "ci95": [
+                0.0057381402323394195,
+                0.015315350397126096
+              ],
+              "numerator": 80.0,
+              "denominator": 7783.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.9677135678391959,
+              "ci95": [
+                0.9572746663023588,
+                0.9767852341227095
+              ],
+              "numerator": 7703.0,
+              "denominator": 7960.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0257,
+              "ci95": [
+                0.0185,
+                0.033900000000000007
+              ],
+              "numerator": 257.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 257.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          },
+          "plic": {
+            "per_model": [
+              {
+                "n": 2000,
+                "accepted": 1562,
+                "unsafe_accepted": 16,
+                "safe_accepted": 1546,
+                "oracle_safe": 1592,
+                "coverage": 0.781,
+                "joint_unsafe": 0.008,
+                "conditional_unsafe": 0.010243277848911651,
+                "eta": 0.9711055276381909,
+                "oracle_coverage": 0.796,
+                "regret": 0.000290359254682242
+              },
+              {
+                "n": 2000,
+                "accepted": 1591,
+                "unsafe_accepted": 28,
+                "safe_accepted": 1563,
+                "oracle_safe": 1592,
+                "coverage": 0.7955,
+                "joint_unsafe": 0.014,
+                "conditional_unsafe": 0.01759899434318039,
+                "eta": 0.9817839195979899,
+                "oracle_coverage": 0.796,
+                "regret": 0.00019481604275668662
+              },
+              {
+                "n": 2000,
+                "accepted": 1597,
+                "unsafe_accepted": 34,
+                "safe_accepted": 1563,
+                "oracle_safe": 1592,
+                "coverage": 0.7985,
+                "joint_unsafe": 0.017,
+                "conditional_unsafe": 0.021289918597370068,
+                "eta": 0.9817839195979899,
+                "oracle_coverage": 0.796,
+                "regret": 0.00024878993746378257
+              },
+              {
+                "n": 2000,
+                "accepted": 1587,
+                "unsafe_accepted": 26,
+                "safe_accepted": 1561,
+                "oracle_safe": 1592,
+                "coverage": 0.7935,
+                "joint_unsafe": 0.013,
+                "conditional_unsafe": 0.01638311279143037,
+                "eta": 0.9805276381909548,
+                "oracle_coverage": 0.796,
+                "regret": 0.00024225514261604086
+              },
+              {
+                "n": 2000,
+                "accepted": 1572,
+                "unsafe_accepted": 19,
+                "safe_accepted": 1553,
+                "oracle_safe": 1592,
+                "coverage": 0.786,
+                "joint_unsafe": 0.0095,
+                "conditional_unsafe": 0.012086513994910942,
+                "eta": 0.9755025125628141,
+                "oracle_coverage": 0.796,
+                "regret": 0.00021699901848244607
+              }
+            ],
+            "acceptance": {
+              "mean": 0.7909,
+              "ci95": [
+                0.7714000000000001,
+                0.8096024999999999
+              ],
+              "numerator": 7909.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "conditional_unsafe": {
+              "mean": 0.01555190289543558,
+              "ci95": [
+                0.009626593494255611,
+                0.022311619286686613
+              ],
+              "numerator": 123.0,
+              "denominator": 7909.0,
+              "undefined": 0
+            },
+            "eta": {
+              "mean": 0.978140703517588,
+              "ci95": [
+                0.9699174447467603,
+                0.985162789229458
+              ],
+              "numerator": 7786.0,
+              "denominator": 7960.0,
+              "undefined": 0
+            },
+            "recovered_safe": {
+              "mean": 0.0083,
+              "ci95": [
+                0.0050999999999999995,
+                0.0119
+              ],
+              "numerator": 83.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "newly_lost_safe": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "net_safe_gain": {
+              "mean": 0.0083,
+              "ci95": [
+                0.0050999999999999995,
+                0.0119
+              ],
+              "numerator": 83.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "new_unsafe_accepts": {
+              "mean": 0.0043,
+              "ci95": [
+                0.002,
+                0.006900000000000001
+              ],
+              "numerator": 43.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "resolved_unsafe_accepts": {
+              "mean": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "numerator": 0.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "safe_opportunities_lost": {
+              "mean": 0.0174,
+              "ci95": [
+                0.0117975,
+                0.023802499999999983
+              ],
+              "numerator": 174.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "recovered_fraction_of_baseline_losses": {
+              "mean": 0.3229571984435798,
+              "ci95": [
+                0.22222222222222227,
+                0.4323205037067127
+              ],
+              "numerator": 83.0,
+              "denominator": 257.0,
+              "undefined": 0
+            },
+            "new_unsafe_same_action": {
+              "mean": 0.0043,
+              "ci95": [
+                0.002,
+                0.006900000000000001
+              ],
+              "numerator": 43.0,
+              "denominator": 10000.0,
+              "undefined": 0
+            },
+            "fixed_selection": {
+              "mean_cost_change": {
+                "mean": -0.0007931958102111852,
+                "ci95": [
+                  -0.0009055002033113824,
+                  -0.0006840891236516645
+                ],
+                "numerator": -7.931958102111851,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "safe_to_danger_label": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "danger_to_safe_label": {
+                "mean": 0.0126,
+                "ci95": [
+                  0.0088,
+                  0.016502499999999986
+                ],
+                "numerator": 126.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "recovered_safe": {
+                "mean": 0.0083,
+                "ci95": [
+                  0.0050999999999999995,
+                  0.0119
+                ],
+                "numerator": 83.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "newly_lost_safe": {
+                "mean": 0.0,
+                "ci95": [
+                  0.0,
+                  0.0
+                ],
+                "numerator": 0.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              },
+              "new_unsafe_accepts": {
+                "mean": 0.0043,
+                "ci95": [
+                  0.002,
+                  0.006900000000000001
+                ],
+                "numerator": 43.0,
+                "denominator": 10000.0,
+                "undefined": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

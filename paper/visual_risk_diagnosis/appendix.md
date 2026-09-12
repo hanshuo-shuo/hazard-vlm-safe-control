@@ -258,3 +258,164 @@ retain the distinct statistics. Initial figures are archived; later changes
 repair category colors and legends without changing scientific arrays or reports.
 All computation and plotting run on Quest. The one new confirmation is now
 consumed and will not be enlarged or relabelled as fresh evidence.
+
+## Appendix D. Retained earlier measurement, postprocessing and certification details
+
+The following material retains the earlier study structure and original section labels for provenance; it now supports the main mechanism rather than defining three equal paper themes.
+
+### 3.4 Earlier measurement and geometry evidence
+
+The historical interface pools a low-resolution property field along candidate
+footprints. We reconstruct direct 256 and 512 raster references from the saved
+continuous shapes and paths, holding the definition at spatial mean exposure.
+The qualification screen requires at most 1% dangerous-label disagreement and
+a 95th-percentile cost difference at most 0.002 between these references.
+
+All diagnostic splits pass: dangerous-label disagreement is at most 0.0972%,
+and the 95th-percentile cost difference is below 0.00076. This is empirical
+raster convergence, not an exact continuum integration guarantee. In contrast,
+historical low16 and direct-512 danger labels differ on approximately
+2.6%–3.3% of entries. Relative to the earlier low16 definition, these are not
+automatically incorrectly labeled examples. They are different discretizations
+of the intended cost. Their effects must be reported separately from changes
+to the predictor.
+
+| Consumed diagnostic split | Oracle feasible, low16 | Oracle feasible, direct 512 |
+|---|---:|---:|
+| IID | 76.17% | 79.72% |
+| New appearance | 76.33% | 80.78% |
+| Shape and appearance | 82.22% | 85.39% |
+
+These oracle values enumerate both image versions and all three nontrivial
+cards, giving 3,600 decisions for each 600-pair split. Acceptance diagnostics
+instead sample one actual version/card per independent scene; their denominators
+are reported separately. The high oracle supply rejects universal task
+infeasibility as the explanation for zero coverage on these data.
+
+To separate a prior geometry improvement from a source-raster change, we train
+a matched 2×2×5 design: balanced-anchor versus independent geometry, each with
+48 or 64 source rasterization. Within a geometry condition, continuous scenes,
+property assignment, candidate paths and 64×64 RGB are shared across the two
+source rasters. Sampling constraints operate on continuous geometry. Every
+model receives 800 training images, 24 epochs and exactly 960 optimizer updates;
+the final checkpoint is used without validation-based selection.
+
+Common-reference scoring uses the same 512-derived footprints and truth for
+every model. Native-reference results are retained in the supplement.
+
+| New-appearance contrast: balanced anchor minus independent | Regret reduction | Crossed seed/scene 95% interval |
+|---|---:|---|
+| Source raster 48 | 0.004870 | [0.003101, 0.006853] |
+| Source raster 64 | 0.008249 | [0.002850, 0.017690] |
+
+Both intervals exceed the predeclared 0.001 meaningful-effect threshold.
+The independent scheme's raster contrast interval lies within the registered
+±0.0005 equivalence band. The anchor scheme's much wider interval is
+inconclusive; its unfavorable seed is retained. Geometry jointly changes
+position, size, shape and rotation, so this comparison supports the geometry
+scheme and does not identify position alone as the causal factor.
+
+![Matched geometry and source-raster evidence](../../research/pro_decision_round_20260912/artifacts/final_report/e2_factorial.png)
+
+## 4. How much does postprocessing matter without retraining?
+
+The inherited inference recipe reduces the output logit bias by two after
+checkpoint selection. We compare the inherited output with restoration of that
+bias using the same weights and forward-pass logits. Image, path, card, truth
+reference and danger threshold are held fixed. Residual calibration is repeated
+for each postprocessing arm. A monotone pixel-probability transformation need
+not preserve ranking after spatial averaging, so actual selections are also
+recorded rather than assumed identical.
+
+On the consumed new-appearance diagnostic, unsafe rate among accepted decisions
+falls from 4.70% to 1.73%. Acceptance falls from 85.03% to 80.97%, and safe
+opportunity efficiency changes from 99.63% to 97.83%. This is a risk–acceptance
+tradeoff produced without learning new features. Boundary/interior deficits
+and an oracle replacement restricted to the boundary band are saved as
+privileged diagnostics, not deployable methods.
+
+![Fixed weights and postprocessing](../../research/pro_decision_round_20260912/artifacts/publication/e1_postprocessing.png)
+
+*E1: five historical checkpoints and consumed diagnostic data; these are not
+the E2 checkpoints or E3 certification/test banks.*
+
+Restoring the bias is not the sole explanation for every observed failure.
+In the fresh confirmation, the inherited −2 arm itself has an empirical unsafe
+rate of 2.85%, below 5%. That table does not give it the same certificate as a
+registered restored-output rule. Meanwhile, the restored model still cannot
+accept any action using the joint residual bound. We therefore distinguish
+one-sided postprocessing effects from the separate cost of protection scope.
+
+## 5. Does an unusable joint bound imply an unusable selector?
+
+### 5.1 A deterministic explanation for zero acceptance
+
+For the five historical E1 models on the consumed 300-scene calibration bank
+(not the E2 models or E3 certification bank), the restored-output
+maximum-positive-residual quantile is
+0.02797–0.03287 over the complete pair, 0.02201–0.02767 over the current four
+candidates, and 0.00501–0.00790 for the frozen selected action. Each scope uses
+300 independent scene scores; reducing scope does not manufacture more samples
+by flattening correlated entries.
+
+If estimated costs are nonnegative and q>τ, the rule
+min(1,estimated cost+q)≤τ necessarily rejects all candidates. This explains
+zero acceptance even before inspecting any appearance shift. The current-four
+quantiles also exceed τ: the difference is not merely the inclusion of
+unrealized paired versions and capability cards. Unselected candidates within
+the current decision matter as well. The selected-action bound is a mechanism
+diagnostic and does not itself certify conditional risk among accepted actions.
+
+### 5.2 Independent risk and usefulness confirmation
+
+This E3 experiment uses all five E2 independent-geometry/source-64 models and
+new calibration/test banks. It is not a within-model extension of E1 §5.1.
+
+We freeze the restored-output selector, resolve ties using stored independent
+uniform draws at tolerance 1e−9, and accept or reject only after selection.
+Rejection never causes reselection. Each independent synthetic scene contributes
+one image version and one A/C/D card. Source and labeled-target domains each
+provide 1,600 calibration scenes and 2,000 untouched test scenes.
+
+The 12-rule threshold bank is fixed before calibration and includes the original
+acceptance threshold 0.02. Exact one-sided binomial upper bounds use
+δ/(5 models × 2 domains × 12 rules)=0.05/120. We choose the certified rule with
+highest calibration acceptance. No valid rule means rejection and a failed
+certificate, not zero-risk success. Certificates are saved before test loading.
+This is an application of established selective-risk control [3].
+
+| E3 IID arm: five E2 models, new E3 banks | Acceptance | Unsafe among accepted | Safe opportunity efficiency η |
+|---|---:|---:|---:|
+| Inherited −2, fixed threshold | 81.87% | 2.85% | 99.18% |
+| **Restored output, fixed 0.02 threshold** | **78.58%** | **1.07%** | **96.93%** |
+| Restored output, pair residual upper bound | 0% | Undefined | 0% |
+| Restored output, selected certified rule | 81.29% | 2.51% | 98.82% |
+| Four-candidate oracle | 80.20% | 0% | 100% |
+
+**A more complex model is not required to pass this particular risk and
+usefulness screen.** The simple fixed-threshold baseline already has
+valid certificates for all five source models, with simultaneous calibration
+upper bounds between 1.66% and 2.54%. Its test η interval is [95.93%,97.82%],
+far above the predeclared 50% usefulness threshold. Selecting among rules is
+unnecessary to pass the screen. The selected-rule procedure gains about 1.88
+percentage points of opportunity efficiency while using more of the risk budget;
+it is not an improvement without cost.
+
+The selected-rule η interval is [97.96%,99.47%]. Crossed intervals retain shared
+scenes and model seeds and condition on the fixed calibration banks. The exact
+calibration procedure, rather than a bootstrap test interval, supplies the
+conditional-risk certificate. Five seeds provide limited information about
+training variability.
+
+![Acceptance, empirical conditional risk, and safe opportunities](../../research/pro_decision_round_20260912/artifacts/publication/e3_acceptance.png)
+
+*E3: the five preselected E2 independent-geometry/source-64 models, each with
+1,600 calibration and 2,000 test scenes per domain. E1 residual quantiles in
+§5.1 come from different checkpoints and data.*
+
+On new appearance, source-certified rules have empirical unsafe rate 3.58%
+and η=98.62%. This is a shift stress test, not an unknown-distribution guarantee.
+With independently labeled target calibration, the corresponding values are
+2.00% and 97.34%. We neither claim that adaptation is necessary on this particular
+test nor interpret successful source transfer as certified OOD safety. The
+certificates concern the registered mixture, not each subgroup or an episode.

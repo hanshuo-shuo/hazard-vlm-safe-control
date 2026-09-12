@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering\small
+\caption{First event satisfying the stated cancellation pattern, in scene/model order. The same reference-unsafe action is rejected before reconstruction and accepted after it ($\tau=.02$). This is a conditional illustration; all 43 newly unsafe learned events remain in the archive.}
+\label{tab:cancellation}
+\begin{tabular}{lrr}
+\toprule
+Quantity on the same action & Uniform & PLIC\\
+\midrule
+Reference cost & +0.024972 & +0.024972\\
+Target estimate & +0.031961 & +0.021431\\
+Learned estimate & +0.021279 & +0.016964\\
+Target-measurement cost error & +0.006989 & -0.003541\\
+Model-relative-to-target cost error & -0.010682 & -0.004467\\
+Total cost error & -0.003693 & -0.008008\\
+Decision & Reject & Accept (unsafe)\\
+\bottomrule
+\end{tabular}
+\end{table}

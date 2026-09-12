@@ -1,0 +1,23 @@
+{
+  "at_utc": "2026-09-12T22:16:58.128916+00:00",
+  "n": 2000,
+  "tracks": 6,
+  "source_hashes": {
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/logits_0.npz": "02f8560af5d0c58f5c6321a2ad948495fea81ecc6e2a956cbc3d73b149044fc0",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/logits_1.npz": "438d12c9ecad42d4a6a09ae4004cc90ca75efb37f2e1fa03e9c61851baf108f8",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/logits_2.npz": "8d9bce2fc814d5fb3ab5a48e12389a0f99ed42a80db50669d217dfd3bcda7aeb",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/logits_3.npz": "e6b9395922c17d0d578c9169a0f9104bbd11a6b1ff05063c2a0cde7801157927",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/logits_4.npz": "5c46b6206cb8f305cbb12598cc21070b18b802d4a417ea67a5b1d8802b8449fd",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/data.npz": "de1c931bdfdc5fbc97c817a50fbe27ae331bac9654ca849f7d8de00bd151d6c8",
+    "/projects/p33100/siosio/hazard_oracle_aggregation_20260912/confirmation/records.json": "acff54cab6a112fb6cd6d93875c7f81fb7d5c2b1f98cdcf1c54fe36c17028455"
+  },
+  "max_inverse_mass_error": 2.7755575615628914e-16,
+  "max_fine_mass_error": 3.3306690738754696e-16,
+  "gradient_fallback_cells": 34837,
+  "reconstructed_query_cells": 5047140,
+  "learned_uniform_vs_prior_max_abs": 3.3306690738754696e-16,
+  "learned_uniform_vs_prior_label_difference": 0,
+  "new_scenes": 0,
+  "new_training": 0,
+  "new_certificates": 0
+}

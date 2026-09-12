@@ -4,7 +4,9 @@ Updated: 2026-09-12.
 
 ## Current reading
 
-- [`ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：同源 oracle 分解、一次新确认及正文重排；当前最新论文证据；
+- [`SAME_INFORMATION_PROGRESS_2026-09-12.md`](SAME_INFORMATION_PROGRESS_2026-09-12.md)：唯一追加对照完成；机会恢复与新增危险、具体误差抵消事件、九页 ICLR 工作稿；当前入口；
+- [`../paper/visual_risk_diagnosis/iclr2027/README.md`](../paper/visual_risk_diagnosis/iclr2027/README.md)：可编译的匿名论文源码；
+- [`ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：保留的同源 oracle 分解与一次前瞻确认；
 
 - [`RELLIS_REVISION_PROGRESS_2026-09-12.md`](RELLIS_REVISION_PROGRESS_2026-09-12.md)：有预算上限的接口修订、240 原始扫描核查；独立误差证据仍不足，在新 48 帧前提前停止；
 - [`RELLIS_EXTERNAL_PROGRESS_2026-09-12.md`](RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)：完整诊断论文重写与首轮 24 帧真实数据几何资格检查；当前接口未过门槛，未进入外部训练；

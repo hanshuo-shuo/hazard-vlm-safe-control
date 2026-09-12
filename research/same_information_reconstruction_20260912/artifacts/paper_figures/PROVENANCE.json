@@ -1,0 +1,6 @@
+{
+  "at_utc": "2026-09-12T22:33:41.070671+00:00",
+  "source_sha256": "a8d3670379e3d177359d733f516f251eafe57660cb3fe246ed46899634796691",
+  "physical_width_inches": 5.5,
+  "note": "Plotting only; same frozen data. Task bars and contours use stored CPU replay fields from this appended analysis."
+}

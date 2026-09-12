@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "stage_manifest_entries_checked": {
+    "development": 2,
+    "appended": 2,
+    "report": 3,
+    "verification": 1,
+    "publication": 6,
+    "paper_figures": 7
+  },
+  "old_input_hashes_checked": 14,
+  "portable_build": {
+    "passed": true,
+    "pages": 13,
+    "main_text_pages": 9,
+    "all_page_text_and_110dpi_rasters_identical": true,
+    "binary_pdf_identity_claimed": false
+  },
+  "delivery_hashes": {
+    "perfect_coarse_predictions_iclr2027.pdf": "0716d4c96b688706656c37f8274159dd910ab6864deab5b7653a1bf1c625ece4",
+    "anonymous_manuscript_source.zip": "b93eb189a557c3512ae1e9b6e96410619ae6260a5553364d45cb62e08d22f39f"
+  }
+}

@@ -1,0 +1,275 @@
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+\usepackage{amsmath,amssymb,booktabs,graphicx,microtype,etoolbox}
+\usepackage{hyperref,url}
+\hypersetup{hidelinks,pdfauthor={},pdftitle={When Perfect Coarse Predictions Are Not Enough for Action Evaluation}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prb}{\mathbb{P}}
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\refcost}{c_{\mathrm{ref}}}
+\newcommand{\poolcost}{c_{\mathrm{pool}}}
+\newcommand{\targetcost}{c_{\mathrm{target}}}
+\title{When Perfect Coarse Predictions Are Not Enough for Action Evaluation}
+\author{Anonymous authors}
+% Change status words only for this internal draft; keep official style files,
+% dimensions, fonts and review line numbering unchanged.
+\makeatletter
+\patchcmd{\@maketitle}{Paper under double-blind review}{Working draft -- not submitted}{}{\errmessage{Draft status patch failed}}
+\makeatother
+% Official review style is preserved. This local draft has not been submitted.
+\begin{document}
+\maketitle
+\lhead{Working draft in ICLR 2027 format -- not submitted}
+\begin{abstract}
+Does accurately predicting a spatial supervision target validate the action
+measurement computed from it? We study a procedural visual task with two
+attribute fields, four candidate footprints, and a public exposure-to-cost law.
+A common-reference oracle decomposition separates supervision-fit error,
+source-raster difference, and the error of interpreting coarse attributes as
+uniform within cells. The last term is an elementary within-cell covariance,
+but its consequences for actual action acceptance require measurement.
+Discovery motivates one frozen 2,000-scene IID confirmation: the separately
+pooled oracle loses 63 safe opportunities, with 61 remaining under a finer-property
+check; perfect prediction of the actual supervision target still loses 54.
+At fixed model-selected actions, pooling changes 3.22\% of danger labels versus
+0.15\% for the numerical check. Observed changes are conservative and concentrate
+at overlapping boundaries with small cost margins. We then append one
+same-information comparison of uniform interpretation, a development-selected
+global shift, and an established area-preserving interface reconstruction.
+On the consumed bank, reconstruction recovers 44 of the target oracle's 54 lost
+opportunities but adds 16 unsafe accepts; the frozen global shift recovers six
+and adds three. Thus the current target--aggregation interface is a bottleneck,
+without proving an impossibility of coarse representations or a risk-free repair. The study
+distinguishes fitting a learning target from validating its downstream
+measurement, without proposing a new identity, reconstruction method, or safety
+certificate. Evidence is restricted to the stated synthetic task.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+Spatial predictions often enter a decision through a second computation: a map
+is integrated over a proposed action footprint and converted to a cost. Improving
+the predictor is useful only in relation to the quantity this computation should
+measure. If the target itself is a coarse spatial average, an accurate prediction
+can still be interpreted incorrectly inside each cell. A failure after perception
+therefore does not identify whether learning, spatial interpretation, or the
+decision rule is the appropriate object to change.
+
+Our motivating pipeline learned two visual attribute fields and evaluated four
+supplied actions with a known cost formula. Geometry repair improved ranking,
+but a joint residual bound still rejected every action. Earlier diagnostics
+separated output postprocessing from perception weights and showed that a simple
+fixed rule could pass an existing selective-risk screen. They did not explain
+what the spatial target preserved for action measurement. A low-resolution versus
+reference comparison was insufficient: it changed both attribute and footprint
+rasters, conflating the source of the difference.
+
+We address a narrower question: \emph{how can one distinguish failure to realize
+a supervision target from failure of the target's current aggregation to realize
+the intended task measurement?} We replace predictions by the exact supervision
+target, then by a coarse target derived from the same high-resolution reference,
+while keeping the action footprint fixed. Each replacement answers a different
+question. Perfect target prediction removes supervision-fit error but does not
+change the aggregation rule. Common-source pooling removes the source-raster
+difference but still assumes uniform within-cell occupancy. Direct integration
+retains the spatial coincidence between an attribute and the action.
+
+The resulting decision effect is primarily conservative in this task. In one
+prospective IID confirmation, the coarse oracle discards safe opportunities even
+after choosing its own action. On the learned model's fixed choices, all observed
+pooling label changes are reference-safe to pool-danger. The finding concerns
+lost usable actions, not an observed rise in unsafe acceptance from this term.
+Signed learning and measurement errors can partly cancel, so a near-zero mean
+error cannot establish that either component is accurate.
+
+Crucially, failure of a uniform-cell aggregator does not prove failure of the
+coarse representation for every decoder. Neighboring fractions can retain
+boundary information. We therefore add one established piecewise-linear
+interface reconstruction (PLIC) and a simple global shift, with the same coarse
+fields and action information. The comparison is explicitly retrospective on an
+already consumed bank; it does not replace the prior confirmation or authorize
+a third one. Its purpose is to determine the strength of the interpretation.
+
+Our contributions are (i) a common-reference oracle attribution separating
+learning, source-raster, and aggregation terms; (ii) measured decision effects
+and a prospective check of their direction and operating conditions in the normal
+generator; and (iii) one same-information control that tests whether changing
+spatial interpretation is more appropriate than treating the residual error as
+evidence of insufficient model capacity. The covariance identity, the general
+prediction--decision distinction, and PLIC are established ideas. The contribution
+is their use to identify and delimit an actual decision bottleneck.
+
+\section{Task, learning target, and decision objects}
+\label{sec:task}
+\paragraph{Visual task.}
+A top-down 64$\times $64 RGB image contains two disjoint patches assigned water
+and fragile-surface attributes. Water has wave texture and fragile regions have
+crack texture; appearance families vary color, background, and illumination.
+Each continuous scene has two rendered versions with exchanged attributes but
+identical shapes and paths (Figure~\ref{fig:task}). The normal generator samples
+freely positioned and rotated ellipses or boxes subject to fixed continuous
+in-frame and nonoverlap constraints. It does not reject scenes based on raster
+labels, cost, or candidate safety. This is a controlled visual task, not a
+natural-image or physical-hazard benchmark.
+
+Four polylines share start and goal points on opposite scene boundaries; each
+has two independently drawn interior waypoints. A swept radius of .05--.10 in
+normalized coordinates defines each footprint as a spatial union. Repeated
+traversal is not counted repeatedly. Candidate construction is independent of
+the attribute assignment and need not supply a safe action. All comparisons
+retain the same four paths, card, image version, tie variable, and danger
+threshold. No planner or new candidate is introduced.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/task_scene.png}
+\caption{Fixed first discovery scene and its exchanged-attribute version.
+Left: RGB and candidate centerlines. Middle: source 64-to 16 targets (cyan: water;
+magenta: fragile), footprint contours, and dashed predicted .5 contours. Right:
+direct 512 and stored predicted exposures for all four candidates. Model seed 0
+and scene index 0 were fixed independently of results. The display is
+illustrative, not an estimate of event frequency.}
+\label{fig:task}
+\end{figure}
+
+\paragraph{Learning setup.}
+The predictor is a randomly initialized ResNet-18~\citep{resnet} with four lateral 1$\times $1
+projections to 64 channels, bilinear top-down fusion, 3$\times $3 refinement, and
+a two-channel output at 16$\times $16. Sigmoid outputs fit area-pooled binary
+attribute masks using binary cross entropy plus soft Dice loss. Each fixed model
+uses 800 training images, one version per scene, 24 epochs, batch size 20, and
+960 AdamW updates (learning rate .001; weight decay .0001), with the final
+checkpoint rather than validation-based selection. Color/polarity/contrast
+augmentation preserves geometry. There are no high-resolution action-cost labels
+or candidate-conditioned inputs to this training. We retain all five previously
+fixed independent-geometry/source 64 checkpoints.
+
+\paragraph{Public cost and actual deployment unit.}
+Mean footprint exposures are $ e=(e_w,e_f)$. Cards A, C, and D define
+\begin{equation}
+g_A(e)=e_w,\qquad g_C(e)=e_w+e_f-e_we_f,\qquad g_D(e)=e_f.
+\label{eq:cost}
+\end{equation}
+The trivial zero-cost card B is excluded from deployment. Each independent scene
+draws one of the two image versions and one A/C/D card uniformly. The selector
+minimizes predicted cost; ties within $10^{-9}$ use a stored independent uniform
+draw. It chooses once, then accepts iff the estimate is at most $\tau=.02$.
+Rejection never triggers reselection. The direct 512 attribute--footprint integral
+and Eq.~\ref{eq:cost} define reference cost. It is a synthetic mean-exposure
+criterion, not collision probability, traction, or execution success.
+
+For acceptance $A$, reference cost $ c_\pi $ of the chosen action, and availability
+$O=\ind\{\min_a c_{\mathrm{ref},a}\leq\tau\}$, report
+\begin{equation}
+C=\Prb(A),\quad R=\frac{\Prb(A,c_\pi>\tau)}{\Prb(A)},\quad
+\eta=\frac{\Prb(A,c_\pi\leq\tau)}{\Prb(O=1)}.
+\label{eq:metrics}
+\end{equation}
+$R$ is undefined for zero acceptance. The opportunity denominator contains only
+the supplied four candidates; unsafe accepts never increase $\eta $. Scene-level
+safe loss is $\Prb(O=1)-\Prb(A,c_\pi\leq\tau)$. A 2.70 percentage-point loss
+over all scenes is different from a 3.39\% loss of available safe opportunities.
+
+\section{What the uniform-cell interpretation changes}
+\label{sec:mechanism}
+Partition the fine grid into coarse cells $B$ with area weights $ w_B$. For one
+binary property $P$ and footprint $F$, let $ p_B=\overline P_B$ and
+$ f_B=\overline F_B$, and let $D=\sum_B w_B f_B>0$. The direct and separately
+pooled exposures are
+\begin{equation}
+e_{\rm ref}=\frac{\sum_Bw_B\overline{PF}_B}{D},\qquad
+e_{\rm pool}=\frac{\sum_Bw_Bp_Bf_B}{D}.
+\end{equation}
+Subtracting gives the elementary identity
+\begin{equation}
+e_{\rm pool}-e_{\rm ref}
+=-\frac{\sum_Bw_B\operatorname{Cov}_B(P,F)}{D}.
+\label{eq:covariance}
+\end{equation}
+This covariance describes spatial coincidence within a cell, not correlations
+between training scenes. A half-occupied property and half-occupied footprint
+give exposure .5 from their means, whether their true overlap gives exposure
+zero or one. That example illustrates the operator; it is neither an empirical
+frequency estimate nor an impossibility proof for our restricted shape family.
+
+\paragraph{Uniform lifting clarifies the information claim.}
+Let $\Pi $ replace a field by its mean in every coarse cell. Since $\Pi P$ is
+constant there,
+\begin{equation}
+\int (\Pi P)(\Pi F)=\int (\Pi P)F.
+\label{eq:lift}
+\end{equation}
+Thus separate pooling is equivalent to uniform lifting of the coarse property
+followed by integration over the original footprint. A more detailed footprint
+or constant upsampling alone cannot repair the measurement. An alternative
+decoder could still use neighboring fractions to infer within-cell geometry.
+The established claim is therefore residual decision error of the \emph{current
+target--aggregation interface}, not an irreducible lower bound for every method
+that reads coarse attributes.
+
+\paragraph{Four levels under one footprint.}
+We compare direct 512 exposure, separately pooled 512 exposure, the actual
+source 64-to 16 target, and the learned field, always with the same F512 or its
+exact nonoverlapping 32$\times $32 block means. For a fixed candidate,
+\begin{align}
+\widehat e-e_{\rm ref}
+={}&(\widehat e-e_{\rm target 64})
+ +(e_{\rm target 64}-e_{\rm pool 512})
+ +(e_{\rm pool 512}-e_{\rm ref}).
+\label{eq:telescope}
+\end{align}
+These terms isolate supervision-fit error, source-raster difference, and
+aggregation error. We reapply Eq.~\ref{eq:cost} at every level before telescoping
+\emph{cost} differences. In particular, summing the two channel exposure errors
+does not give the nonlinear C cost error. Terms may oppose one another; their
+absolute magnitudes cannot be interpreted as additive shares of final error.
+
+We distinguish two analyses. \emph{Fixed selection} evaluates all levels at the
+original model-selected action, isolating measurement changes from action
+changes. \emph{Each-level reselection} lets each level choose once and accept,
+then evaluates the selected action against the same direct reference. The latter
+measures full decision consequences, including new failures outside the cases
+that the uniform oracle originally lost.
+
+\paragraph{Operating conditions and numerical scope.}
+The covariance is zero when either binary field is constant within every cell.
+For fractional occupancies, Cauchy--Schwarz yields the per-channel envelope
+$D^{-1}\sum_Bw_B\sqrt{p_B(1-p_B)f_B(1-f_B)}$; the sum of channel envelopes also
+bounds C's cost change because its partial derivatives lie in $[0,1]$.
+We use joint fractional occupancy and pooled cost margin $|\poolcost-\tau|\leq .005$
+as fixed diagnostic conditions. The envelope is an algebraic sensitivity bound,
+not a new deployable safety algorithm. Near-threshold fragility itself is not
+novel; the empirical question is its frequency and size in the stated generator.
+
+Our precision check rasterizes properties at 1024, averages them to 512, and keeps
+F512 fixed. It isolates property-raster sensitivity; it is not an exact continuum
+or footprint-accuracy guarantee. Earlier full 256/direct 512 comparisons are
+retained separately and are not attribution arms.
+
+\input{evidence.tex}
+\input{comparison.tex}
+\input{discussion.tex}
+\label{maintextend}
+\clearpage
+\typeout{FIRST-STATEMENTS-PAGE=\thepage}
+\section*{AI use statement}
+Generative AI tools assisted with research questions and hypotheses, experimental
+design, procedural-data and analysis implementation, mathematical exposition,
+interpretation, literature discovery, figures, and manuscript drafting and editing.
+Numeric results were produced by executable analysis, not inferred from generated
+prose. Independent computational checks are documented in the appendix. This is
+a working draft: human authors must review the AI-assisted contributions and
+finalize responsibility statements before submission; completed human review is
+not asserted here.
+\section*{Reproducibility statement}
+The appendix specifies data provenance, numerical definitions, fixed training,
+the retrospective status of the appended comparison, and verification procedures.
+Source freezes, results, and earlier negative outcomes are preserved internally.
+The present manuscript source contains no personal paths or development-repository
+links; an anonymous code supplement must still be finalized before submission.
+\bibliography{references}
+\bibliographystyle{iclr2027_conference}
+\clearpage
+\appendix
+\input{appendix.tex}
+\end{document}

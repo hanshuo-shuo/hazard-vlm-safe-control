@@ -1,0 +1,23 @@
+{
+  "at_utc": "2026-09-12T22:14:14.695284+00:00",
+  "n": 2000,
+  "tracks": 6,
+  "source_hashes": {
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_0/model.pt": "383cc488cf81771567c5fa37383b7c8d1d525cf81275a157bc26570bad45c827",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_1/model.pt": "62c2ea65bc87b44ccf1e378fd5baa8748097cd2086d507d2a02bcb22111e44bb",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_2/model.pt": "11c2f2b0e50ed8542def46cce5be5c976c2cd86a10a0edee3c5a470f47971fb6",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_3/model.pt": "25dc2fe2385377230f18286abd099a825bba3321621ceeece5d41dfbfefbea90",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_4/model.pt": "96752c7a09664386210b5a2bf2c53890ce2544d26bf7d0443ca469604da7af78",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/iid_test.npz": "bdd78a861d8ae92e7955d35e4102a9544e304c47b4519ba052af2ffb2140216c",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/iid_test.json": "a8664cdf708a18e43d91c7d220883a31f1953e1884e8305e5faa728b94202251"
+  },
+  "max_inverse_mass_error": 2.220446049250313e-16,
+  "max_fine_mass_error": 3.3306690738754696e-16,
+  "gradient_fallback_cells": 31736,
+  "reconstructed_query_cells": 5058521,
+  "learned_uniform_vs_prior_max_abs": 0.00016751695542710499,
+  "learned_uniform_vs_prior_label_difference": 7,
+  "new_scenes": 0,
+  "new_training": 0,
+  "new_certificates": 0
+}

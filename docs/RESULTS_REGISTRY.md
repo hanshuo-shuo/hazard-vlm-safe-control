@@ -39,6 +39,32 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — Final same-information comparison and nine-page manuscript
+
+- Status: **COMPLETED_RETROSPECTIVE_CONTROL / MIXED_BENEFIT_AND_HARM**. This
+  appended comparison is not a new confirmation or a risk certificate. Development
+  and appended banks each contain 2,000 already consumed scenes; no new training.
+- Perfect target64 input: PLIC recovers 44/54 lost safe opportunities, newly loses
+  none, and adds 16 unsafe accepts. The development-frozen scalar shift recovers
+  6 and adds 3. The coarse field contains structure beyond uniform interpretation;
+  the original loss is not an established representation-impossibility bound.
+- All five learned fields: 83 recovered, 0 new safe losses, 43 new unsafe accepts;
+  R 1.03% → 1.56%, eta 96.77% → 97.81%. Models share the same 2,000 scenes.
+  Fixed-selection and reselection totals agree on this bank; individual event IDs
+  are preserved. No earlier certificate transfers to the changed aggregators.
+- 25/43 newly unsafe learned events independently meet the specified same-action
+  error-cancellation pattern. Other harmful events remain in the complete archive.
+- The shift is fitted under a development unsafe-count constraint not applied to
+  PLIC. The full shift bank remains visible; matched-risk dominance is not established.
+- Six tests pass; independent verification checks 72,000 decisions and 65,536 fine
+  polygon areas. A pre-data roundoff test failure and unchanged-test repair are retained.
+- Official ICLR 2027 working draft: nine main pages, thirteen total; compiled and
+  rendered on Quest and inspected page by page. Author decisions and human review
+  remain pending; no OpenReview submission. This scientific round is closed.
+- Evidence: [`SAME_INFORMATION_PROGRESS_2026-09-12.md`](SAME_INFORMATION_PROGRESS_2026-09-12.md),
+  [`source and protocol`](../research/same_information_reconstruction_20260912/README.md),
+  [`manuscript source`](../paper/visual_risk_diagnosis/iclr2027/main.tex).
+
 ## 2026-09-12 — Common-footprint oracle attribution and prospective confirmation
 
 - Status: **SUPPORTED_WITH_EXACT_SCENE_DIRECTION_CHECK** in the fixed normal

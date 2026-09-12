@@ -1,0 +1,180 @@
+{
+  "target": {
+    "selected": {
+      "offset": 0.001,
+      "safe_accepted": 1550,
+      "unsafe_accepted": 1,
+      "eligible": true
+    },
+    "candidates": [
+      {
+        "offset": -0.02,
+        "safe_accepted": 1066,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.015,
+        "safe_accepted": 1340,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.01,
+        "safe_accepted": 1429,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.005,
+        "safe_accepted": 1494,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.002,
+        "safe_accepted": 1528,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.001,
+        "safe_accepted": 1537,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": 0.0,
+        "safe_accepted": 1544,
+        "unsafe_accepted": 1,
+        "eligible": true
+      },
+      {
+        "offset": 0.001,
+        "safe_accepted": 1550,
+        "unsafe_accepted": 1,
+        "eligible": true
+      },
+      {
+        "offset": 0.002,
+        "safe_accepted": 1558,
+        "unsafe_accepted": 4,
+        "eligible": false
+      },
+      {
+        "offset": 0.005,
+        "safe_accepted": 1578,
+        "unsafe_accepted": 17,
+        "eligible": false
+      },
+      {
+        "offset": 0.01,
+        "safe_accepted": 1598,
+        "unsafe_accepted": 33,
+        "eligible": false
+      },
+      {
+        "offset": 0.015,
+        "safe_accepted": 1601,
+        "unsafe_accepted": 54,
+        "eligible": false
+      },
+      {
+        "offset": 0.02,
+        "safe_accepted": 1601,
+        "unsafe_accepted": 85,
+        "eligible": false
+      }
+    ],
+    "baseline_unsafe_accepted": 1
+  },
+  "learned": {
+    "selected": {
+      "offset": 0.0,
+      "safe_accepted": 7774,
+      "unsafe_accepted": 84,
+      "eligible": true
+    },
+    "candidates": [
+      {
+        "offset": -0.02,
+        "safe_accepted": 0,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.015,
+        "safe_accepted": 6994,
+        "unsafe_accepted": 0,
+        "eligible": true
+      },
+      {
+        "offset": -0.01,
+        "safe_accepted": 7353,
+        "unsafe_accepted": 7,
+        "eligible": true
+      },
+      {
+        "offset": -0.005,
+        "safe_accepted": 7596,
+        "unsafe_accepted": 32,
+        "eligible": true
+      },
+      {
+        "offset": -0.002,
+        "safe_accepted": 7694,
+        "unsafe_accepted": 63,
+        "eligible": true
+      },
+      {
+        "offset": -0.001,
+        "safe_accepted": 7730,
+        "unsafe_accepted": 75,
+        "eligible": true
+      },
+      {
+        "offset": 0.0,
+        "safe_accepted": 7774,
+        "unsafe_accepted": 84,
+        "eligible": true
+      },
+      {
+        "offset": 0.001,
+        "safe_accepted": 7801,
+        "unsafe_accepted": 94,
+        "eligible": false
+      },
+      {
+        "offset": 0.002,
+        "safe_accepted": 7827,
+        "unsafe_accepted": 106,
+        "eligible": false
+      },
+      {
+        "offset": 0.005,
+        "safe_accepted": 7891,
+        "unsafe_accepted": 146,
+        "eligible": false
+      },
+      {
+        "offset": 0.01,
+        "safe_accepted": 7959,
+        "unsafe_accepted": 241,
+        "eligible": false
+      },
+      {
+        "offset": 0.015,
+        "safe_accepted": 7985,
+        "unsafe_accepted": 338,
+        "eligible": false
+      },
+      {
+        "offset": 0.02,
+        "safe_accepted": 7996,
+        "unsafe_accepted": 444,
+        "eligible": false
+      }
+    ],
+    "baseline_unsafe_accepted": 84
+  }
+}
