@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-09-12T20:56:26.526359+00:00",
+  "protocol_sha256": "7cc85a0c163e33f74cc946941a588cf774bc0da0bc4e4f2a5646e3c34cc53bf5",
+  "sources": {
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/confirm.py": "edcdc0b1a55e0b4d401c35b56b2e9a86768cd9b4c8c49e2465136519471b4535",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/decompose.py": "a2b59ec1e32a1cac1c50d76e138cf54e319bec6cdb006d90eb749a9dd0de7158",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/publication.py": "5959609d20c6a2e3c7599cc050ae31efb9ce2029d2a082f78470643e61cdf2d7",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/report.py": "711e874c80985e47631f66443a5ba99774d5870e9ce7a97ed741ed267e7ae199",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/test_decomposition.py": "f93a00e06fcf11d77f3d4c41e638d092eb77a5b3e6a81f73e76c6f958a77fdb5",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/verify.py": "85a6668988b39e96ac5464eaad3de9c4aeee7578eceaf735bf359fd8486ba104"
+  },
+  "checkpoints": {
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_0/model.pt": "383cc488cf81771567c5fa37383b7c8d1d525cf81275a157bc26570bad45c827",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_1/model.pt": "62c2ea65bc87b44ccf1e378fd5baa8748097cd2086d507d2a02bcb22111e44bb",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_2/model.pt": "11c2f2b0e50ed8542def46cce5be5c976c2cd86a10a0edee3c5a470f47971fb6",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_3/model.pt": "25dc2fe2385377230f18286abd099a825bba3321621ceeece5d41dfbfefbea90",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_4/model.pt": "96752c7a09664386210b5a2bf2c53890ce2544d26bf7d0443ca469604da7af78"
+  },
+  "new_records_generated": false
+}

@@ -4,11 +4,15 @@
 排序泛化改善没有转化为可用的风险接口。原始 C³-Safe 的 VLM 蒸馏与策略学习设想保留，
 本轮不以加入 VLM、关系头或 RL 模块作为贡献目标。
 
-最新推进（2026-09-12）：**Pro 批准的一次测量接口修订已完成前置审计并提前停止。**
-Quest 取得旧 24 帧附近的 240 扫描，24/24 中心扫描与发布 PLY 完全一致，固定逐点运动补偿
-原型已运行；独立配准、投影与地表误差范围仍未建立，因此没有打开新 48 帧或启动外部训练。
-两日预算尚未耗尽；这是预登记的不确定分支，不是 0/48 或机制迁移失败。
-首轮单扫描资格结果 0/24 原样保留，论文维持受控案例定位。
+最新推进（2026-09-12）：**同源 oracle 聚合误差分解与一次新 IID 确认完成。**
+固定同一 512 参考足迹，在已消费的 4,000 场景发现实际决策信号，再冻结 2,000 新场景验证。
+新确认中，完美 coarse oracle 丢失 63/2,000 安全机会，完美实际监督目标 oracle 仍丢失
+54/2,000；模型固定动作的池化标签变化 3.22%，同足迹数值敏感性 0.15%。保守方向和
+边界交叠/小裕度富集得到预先指定检验支持。没有新增训练、重做认证或搜索新数据集。
+论文主线转向“空间目标到动作暴露的接口误差”，不把基本协方差恒等式称为新理论。
+
+RELLIS 外部扩展保持关闭：240 扫描审计后提前停止，新 48 帧从未打开，不是 0/48。
+这部分已移入附录；当前证据仍限于受控合成任务，尚不是可直接提交的 ICLR 成稿。
 
 当前状态（2026-09-12）：**Pro 要求的三实验已全部在 Quest 完成**：五个旧模型无训练审计、
 20 个固定预算的几何×栅格模型，以及独立校准/测试的固定选择器认证。撤销 −2 后处理后的
@@ -22,7 +26,8 @@ Quest 取得旧 24 帧附近的 240 扫描，24/24 中心扫描与发布 PLY 完
 
 先读：
 
-- [`paper/visual_risk_diagnosis/manuscript.md`](paper/visual_risk_diagnosis/manuscript.md)：当前完整英文正文，按三个科学问题组织；
+- [`paper/visual_risk_diagnosis/manuscript.md`](paper/visual_risk_diagnosis/manuscript.md)：重写的英文正文，以空间目标到动作暴露为主线；
+- [`docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：当前 oracle 发现/新确认结果、停止边界与下一步；
 - [`docs/RELLIS_REVISION_PROGRESS_2026-09-12.md`](docs/RELLIS_REVISION_PROGRESS_2026-09-12.md)：一次有预算上限的修订、240 扫描证据和新样本前的停止决定；
 - [`docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md`](docs/RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)：RELLIS 几何资格结果、独立复核与停止决定；
 - [`docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)：最新三实验结果、固定基线认证与停止/收窄决定；

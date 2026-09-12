@@ -1,0 +1,13 @@
+{
+  "FREEZE.json": "aca2b0e470cf50b4ed3fedc8682b1e81e7804125efff479dc1b2c4c05b27a90c",
+  "HYPOTHESES.json": "9dc20076e927ad689f13342e979ffd89df37c0d1638cb3d9a98f7042569f2bd1",
+  "IDENTITY.json": "a5feb1513d9d24053e0485968d94a120ba1530a6e709c285eb0773856764730f",
+  "SUMMARY.json": "2d5a4a1c882c9f33de71d07407ac6ed9ac7d21ad10e217b1f2563d790d208b13",
+  "data.npz": "de1c931bdfdc5fbc97c817a50fbe27ae331bac9654ca849f7d8de00bd151d6c8",
+  "logits_0.npz": "02f8560af5d0c58f5c6321a2ad948495fea81ecc6e2a956cbc3d73b149044fc0",
+  "logits_1.npz": "438d12c9ecad42d4a6a09ae4004cc90ca75efb37f2e1fa03e9c61851baf108f8",
+  "logits_2.npz": "8d9bce2fc814d5fb3ab5a48e12389a0f99ed42a80db50669d217dfd3bcda7aeb",
+  "logits_3.npz": "e6b9395922c17d0d578c9169a0f9104bbd11a6b1ff05063c2a0cde7801157927",
+  "logits_4.npz": "5c46b6206cb8f305cbb12598cc21070b18b802d4a417ea67a5b1d8802b8449fd",
+  "records.json": "acff54cab6a112fb6cd6d93875c7f81fb7d5c2b1f98cdcf1c54fe36c17028455"
+}

@@ -4,6 +4,8 @@ Updated: 2026-09-12.
 
 ## Current reading
 
+- [`ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：同源 oracle 分解、一次新确认及正文重排；当前最新论文证据；
+
 - [`RELLIS_REVISION_PROGRESS_2026-09-12.md`](RELLIS_REVISION_PROGRESS_2026-09-12.md)：有预算上限的接口修订、240 原始扫描核查；独立误差证据仍不足，在新 48 帧前提前停止；
 - [`RELLIS_EXTERNAL_PROGRESS_2026-09-12.md`](RELLIS_EXTERNAL_PROGRESS_2026-09-12.md)：完整诊断论文重写与首轮 24 帧真实数据几何资格检查；当前接口未过门槛，未进入外部训练；
 - [`../paper/visual_risk_diagnosis/manuscript.md`](../paper/visual_risk_diagnosis/manuscript.md)：当前完整英文正文；

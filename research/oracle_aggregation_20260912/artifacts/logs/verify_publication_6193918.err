@@ -1,0 +1,11 @@
+test_block_axes_and_mass (test_decomposition.DecompositionTests) ... ok
+test_fixed_selection_cannot_silently_reselect (test_decomposition.DecompositionTests) ... ok
+test_identical_means_opposite_exposure (test_decomposition.DecompositionTests) ... ok
+test_no_joint_boundary_zero_covariance (test_decomposition.DecompositionTests) ... ok
+test_nonlinear_cost_telescopes_but_not_linear_exposure (test_decomposition.DecompositionTests) ... ok
+test_threshold_asymmetry_and_cancellation (test_decomposition.DecompositionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.125s
+
+OK

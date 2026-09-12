@@ -1,0 +1,30 @@
+{
+  "id": "ORACLE-AGGREGATION-DISCOVERY-20260912-v1",
+  "parent_commit": "00880e61bf074adedd85448268c1f13163a435f9",
+  "stage": "Discovery on already consumed data; no recertification",
+  "prior_root": "/projects/p33100/siosio/hazard_pro_decision_round_20260912",
+  "splits": ["iid_test", "target_test"],
+  "count_per_split": 2000,
+  "models": "All five previously fixed E2 independent geometry/source64 checkpoints; use stored E3 cost predictions, no training or model selection",
+  "tau": 0.02,
+  "reference_size": 512,
+  "coarse_size": 16,
+  "levels": ["reference512", "pool512", "target64", "restored", "minus2"],
+  "footprints": "All attribution levels use the identical 512 binary footprints or their exact non-overlapping 32x32 block means. Never substitute native source footprints.",
+  "cost": "Reapply g at each exposure level, including nonlinear C. Telescope signed cost differences, never sum absolute errors as attribution percentages.",
+  "deployment": "One original stored variant/card and tie uniform per independent scene. tau=.02 and argmin/tie atol=1e-9 unchanged.",
+  "fixed_selection": "For each of five restored models fix its actual action once; compare danger labels at each level on that action. Minus2 evaluated both on that fixed action and with its own reselection.",
+  "reselection": "Each level chooses once then accepts at .02; evaluate safety, regret and opportunity use against direct512. Reference oracle has one outcome per scene, not five independent replications.",
+  "numerical_check": "For every scene rasterize properties at 1024, pool to512 and integrate against the original fixed512 footprint. This checks property discretization with footprint fixed, not total continuum accuracy. Report old direct256 vs512 separately as a full-raster sensitivity check, never as an attribution arm.",
+  "diagnostic_conditions": {
+    "small_pooled_cost_margin": "abs(pool512_cost-.02)<=.005",
+    "boundary_overlap": "At least one relevant property and footprint both have strictly fractional occupancy in the same coarse cell",
+    "boundary_envelope": "Per channel sum sqrt(p(1-p)f(1-f))/sum(f); C bounded by sum of channel envelopes. Descriptive oracle feature, not an RGB-only deployable predictor.",
+    "direction": "Report signed covariance, signed cost error, false-safe and false-danger separately; no assumed positive direction.",
+    "cancellation": "Report signed means and L1 terms, and fraction where model error opposes net measurement error; absolute magnitudes do not identify causal shares."
+  },
+  "uncertainty": "Paired scene bootstrap (2000 draws); crossed seed/scene bootstrap for model-dependent statistics, preserving shared scenes. Discovery intervals only. Fixed seed 26120912.",
+  "figure_scene": "First chronological IID scene, seed index0, both variants and all four candidates, independent of results",
+  "budget": "One fixed discovery analysis, CPU only, at most 24 allocated CPU hours. No resolution sweep, dataset/model search or RELLIS reopening.",
+  "decision": "Assess substantive actual selected/accepted decision changes, their size relative to numerical sensitivity, and explanatory conditions. No automatic run-completed pass. Only substantive normal-distribution/no-shift evidence warrants a separately frozen new confirmation; otherwise close this mechanism expansion."
+}

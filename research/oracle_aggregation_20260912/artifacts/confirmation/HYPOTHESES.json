@@ -1,0 +1,36 @@
+{
+  "H1": {
+    "events": 61,
+    "scenes": 2000,
+    "estimate": 0.0305,
+    "lower": 0.022869370450990578,
+    "pass": true
+  },
+  "H2": {
+    "conservative_changes": 322,
+    "all_changes": 322,
+    "estimate": 1.0,
+    "lower": 1.0,
+    "pass": true
+  },
+  "H3": {
+    "small_events": 172,
+    "small_observations": 424,
+    "large_events": 150,
+    "large_observations": 4604,
+    "estimate": 0.3730800124584037,
+    "lower": 0.26058608863997296,
+    "pass": true
+  },
+  "undefined_bootstraps": 0,
+  "numerical_guard": {
+    "label_difference": 0.0010416666666666667,
+    "cost_difference_p95": 0.0005087961100425504,
+    "covariance_identity_max_abs": 5.0306980803327406e-17,
+    "pass": true
+  },
+  "one_sided_alpha_each": 0.016666666666666666,
+  "at_utc": "2026-09-12T21:00:24.962502+00:00",
+  "scope": "Prospective mechanism confirmation on normal synthetic IID; not cross-task transfer or a new safety certificate",
+  "decision": "SUPPORTED_FIXED_PREDICTION"
+}

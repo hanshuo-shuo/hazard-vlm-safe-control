@@ -1,6 +1,8 @@
-# From Visual Risk Scores to Action Acceptance: Diagnosing Measurement, Postprocessing, and Protection Scope
+# From Spatial Attribute Targets to Action Exposure: Diagnosing a Visual Risk Interface
 
-**Working manuscript, 12 September 2026.** Controlled-case evidence is complete.
+**Working manuscript, 12 September 2026.** Same-reference oracle discovery and
+one prospective IID confirmation are complete. This remains a controlled study,
+not a claim of universal prevalence or an ICLR-ready submission.
 The initial RELLIS-3D corridor construction does not pass its geometry qualification
 screen and contributes no confirmed external mechanism result. Authorship and submission venue are
 not assigned here. This draft supersedes the earlier method-centered narrative;
@@ -8,29 +10,28 @@ the original manuscript and frozen reports remain unchanged.
 
 ## Abstract
 
-A visual system can rank candidate actions accurately and still reject every
-action after uncertainty calibration. This outcome is often interpreted as
-insufficient perception or a need for more expressive risk learning. We study
-these explanations in an explicitly decomposed visual risk pipeline, separating
-spatial attributes, action footprints, and a public cost function. A controlled
-audit holds model weights fixed while varying output postprocessing, separates
-cost discretization from perception error, and compares protection of all
-candidates with the requirements of a fixed action selector. A matched
-geometry-by-raster experiment trains 20 models at equal budgets, followed by
-independent calibration and testing. Low-resolution and reference cost labels
-disagree on approximately 2.6%–3.3% of candidate entries. Removing an inherited
-logit shift reduces unsafe acceptance without retraining, while joint residual
-bounds continue to reject every action. On fresh synthetic IID data, the
-restored-output baseline at its original fixed threshold is certified under the
-registered simultaneous risk procedure; its empirical conditional unsafe rate
-is 1.07%, and it uses 96.93% of oracle-safe opportunities. Searching the registered
-acceptance rules increases opportunity use to 98.82% while increasing empirical
-unsafe rate to 2.51%. Thus additional rule selection is unnecessary to pass the
-study's research screen. The contribution is a reproducible diagnosis of mistaken
-attribution in this controlled case, not a new calibration algorithm or a
-robot-safety guarantee. A bounded real-image qualification study identifies
-insufficient evaluable support in the chosen corridor construction; cross-task
-mechanism transfer remains unestablished.
+Does accurate prediction of a spatial supervision target ensure accurate
+action-conditioned exposure? We investigate this question in a procedural visual
+risk task with two attribute fields, four candidate footprints and a public cost
+law. In our motivating pipeline, zero calibrated acceptance left perception,
+measurement, postprocessing and protection scope as competing explanations.
+We hold the reference footprint fixed and decompose signed cost error into
+model error relative to supervision, source-raster difference and separate-pooling
+error. The last term discards within-cell attribute–footprint covariance, even
+for perfect coarse attributes. Discovery on consumed data motivates one frozen
+2,000-scene IID confirmation without new training. The coarse oracle loses safe
+opportunities in 63 scenes; 61 remain under a finer-property check, with an exact
+one-sided lower bound of 2.29% of scenes. At fixed model-selected actions, pooling
+changes 3.22% of danger labels, all conservatively in the observed sample; changes
+concentrate at overlapping boundaries and small cost margins. Perfect prediction
+of the actual supervision target still loses 2.70 percentage points of safe
+acceptance. Signed model and measurement errors can partially cancel. Earlier
+matched training and independent risk certification distinguish genuine learning
+effects from this interface error: a simple restored-output rule was certified
+with empirical conditional unsafe rate 1.07% and safe opportunity use 96.93% on
+its separate test bank. The contribution is a tested attribution of decision
+error in this controlled task, not a new pooling identity or calibration method.
+Cross-task transfer and physical robot safety remain unestablished.
 
 ## 1. Introduction
 
@@ -50,17 +51,23 @@ outcomes irrelevant to the deployed selector. They imply different research
 decisions. Only some would motivate a more complex perceptual or learned cost
 model; none can be identified from a ranking score alone.
 
-We organize the investigation around three questions:
+The central question is whether the spatial supervision target retains the
+information needed by the action-exposure calculation. We use oracle
+interventions to separate this question from how well a model learned its target:
 
-1. **How much apparent risk change comes from changing the cost reference?**
+1. **Can perfect coarse attributes still change usable decisions under a fixed reference footprint?**
 2. **How much does output postprocessing change decisions with perception weights fixed?**
 3. **Does an unusable joint upper bound imply that the fixed selector cannot operate reliably?**
 
-The evidence establishes a controlled case in which these distinctions change
-the justified next step: retain the simple baseline and public formula instead
-of adding a learned relation module or policy learner. It does not establish
-that the same mechanisms dominate visual safety systems in general. The
-RELLIS-3D extension addresses that separate empirical question.
+The positive empirical finding is a spatial-interface error that survives
+perfect supervision-target prediction, affects actual decisions, and follows
+predictions tested on a new sample. This changes what a component-accuracy
+improvement would establish: it would not, by itself, validate the exposure
+measurement. Existing certification can nevertheless make an imperfect pipeline
+useful under a stated distribution and rule. These distinctions support retaining
+a simple model while diagnosing its measurement interface; they do not show that
+a richer model could never compensate. Cross-task transfer remains untested after
+the external measurement-interface qualification attempt was stopped.
 
 ## 2. Decision objects and the audit design
 
@@ -99,7 +106,47 @@ cost; ε=0.05 bounds the desired accepted-decision unsafe frequency; δ=0.05 is 
 family certification error budget; α=0.05 is the residual-bound miscoverage
 level. Conflating these quantities changes the claimed guarantee.
 
-### 2.2 Different guarantees answer different questions
+### 2.2 Visual task and learning setup
+
+The task is a top-down procedural image with two nonoverlapping patches,
+assigned water and fragile-surface properties. Appearance families render water
+with wave texture and fragile surfaces with crack texture while varying color,
+floor appearance and illumination. Each continuous scene supplies two images
+with the property assignments exchanged; shapes and candidate paths stay fixed.
+This is a controlled visual-attribute task, not a natural-image hazard detector.
+Four randomly drawn polylines share a start and goal on opposite sides of the
+scene, with two interior waypoints each. Their swept-radius masks define the
+spatial union to average over; repeated traversal of a pixel is not counted twice.
+Candidates are generated independently of property values and are not guaranteed
+to include a safe action.
+
+| Component | Fixed implementation and available supervision |
+|---|---|
+| Image | 64×64 RGB, two visible property patches, rendered from the source-64 fields |
+| Predictor | Randomly initialized ResNet-18; four lateral 1×1 projections to 64 channels, bilinear top-down fusion, 3×3 refinement and a two-channel 1×1 output |
+| Output / target | Two 16×16 sigmoid fields; area-pooled binary property masks from the training source raster |
+| Loss | Mean binary cross entropy with logits plus soft Dice loss, on spatial properties only |
+| Training | 800 images (one variant per scene), 24 epochs, batch 20, 960 AdamW steps, learning rate .001 and weight decay .0001; final checkpoint |
+| Augmentation | Saturation, polarity, contrast, per-channel gain, brightness and channel permutations; geometry unchanged |
+| Action input | Four supplied continuous polylines with radius .05–.10 in normalized scene coordinates; no learned planner |
+| Cost / supervision access | Public A/C/D formula; model learns property fields, without high-resolution action-cost labels or candidate-conditioned training |
+| Evaluation reference | Direct mean of property × footprint at 512; each coarse evaluation uses the same reference-derived footprint |
+
+The geometry experiment varies source-48 versus source-64 targets with identical
+RGB. The new oracle decomposition uses the five fixed source-64 models. High-
+resolution properties and oracle costs are privileged diagnostic information.
+
+![One complete scene and its swapped property version](../../research/oracle_aggregation_20260912/artifacts/publication_v3/task_scene.png)
+
+*Figure 1. The first IID discovery scene, fixed before result inspection, and
+model seed 0. Left: the two rendered versions and the four candidate centerlines.
+Middle: source64-to16 targets (cyan: water; magenta: fragile), coarse footprint
+contours and dashed predicted .5 contours. Right: direct512 exposures and stored
+model exposures for all candidates. Contours use a verified CPU replay; exposure
+markers use the original stored predictions. This example is illustrative, not
+selected for a favorable outcome.*
+
+### 2.3 Guarantee objects
 
 | Object | Score or event | What it protects |
 |---|---|---|
@@ -115,7 +162,7 @@ selective risk certification is evidence that conformal prediction is incorrect.
 Ordinary marginal coverage also does not automatically control conditional risk
 after acceptance.
 
-### 2.3 Evidence separation
+### 2.4 Evidence separation
 
 The no-training audit uses five previously frozen independent-geometry models
 and already consumed datasets; it is diagnostic. The geometry experiment uses
@@ -131,6 +178,177 @@ comparisons and later presentation refinements. No new relation head, VLM
 teacher, actor or critic is trained in this round.
 
 ## 3. How much risk change is a measurement change?
+
+### 3.1 What separate pooling discards
+
+For one property field P and footprint F, let a coarse cell B have weight w_B.
+Write cell means as p_B and f_B. Direct exposure and separate-pooling exposure
+use the same denominator D=∑_B w_B f_B:
+
+\[
+e_{\rm ref}=D^{-1}\sum_B w_B\overline{PF}_B,\qquad
+e_{\rm pool}=D^{-1}\sum_B w_Bp_Bf_B.
+\]
+
+Subtracting gives the elementary identity
+
+\[
+e_{\rm pool}-e_{\rm ref}
+=-D^{-1}\sum_B w_B\operatorname{Cov}_B(P,F).
+\]
+
+This is within-cell spatial covariance, not correlation across training scenes.
+It vanishes when either binary property or footprint is constant in each cell.
+With half-cell property and footprint occupancy, overlap and disjointness yield
+true exposures 1 and 0 respectively, whereas separate means give .5 in both
+cases. This illustration is not a frequency estimate or an impossibility result
+for the restricted procedural generator. A model with additional geometric
+information or useful shape priors might compensate for this error.
+
+For a fixed candidate we distinguish direct512 exposure, separately pooled512
+exposure, the actual source64-to16 supervision target under the common footprint,
+and the learned prediction under that footprint. Their signed differences obey
+
+\[
+\hat e-e_{\rm ref}=(\hat e-e_{\rm target64})
++(e_{\rm target64}-e_{\rm pool512})
++(e_{\rm pool512}-e_{\rm ref}).
+\]
+
+The three terms are model error relative to supervision, source-raster difference,
+and loss of within-cell spatial coincidence. We apply g separately at each level
+before telescoping cost differences; for C, adding channel exposure errors is
+not the nonlinear cost difference. Signed terms may cancel. Summing absolute
+terms cannot attribute a percentage of the final error to each component.
+
+The identity is basic mathematics. The empirical question is whether this loss
+changes actual selection and acceptance under the normal generator and restored
+outputs, beyond the reference's numerical sensitivity. Historical native/common
+tables cannot answer it because they changed the footprints as well as fields.
+
+### 3.2 Same-reference oracle decomposition on consumed data
+
+We reconstruct the two already consumed E3 test banks (2,000 scenes each) and
+use stored predictions from all five E2 independent/source-64 checkpoints. Each
+scene retains its original deployed variant, A/C/D card and tie variate. No new
+training, threshold tuning or recertification is performed. Every attribution
+arm uses the same 512 footprint or its exact 32×32 block averages.
+
+First we freeze each restored model's actual selected action and evaluate that
+action at every level. Separately pooled512 oracle fields change its danger
+label in 3.68% of model–scene decisions on IID and 3.83% on new appearance.
+All observed changes at these selected actions are reference-safe to pool-danger.
+Crossed model/scene discovery intervals are [2.89%,4.53%] and [3.03%,4.70%].
+They preserve correlation across the five models; there are 2,000 independent
+scenes per domain, not 10,000 independent trials.
+
+The precision check holds the footprint fixed, rasterizes the properties at
+1024 and pools them to 512 before integration. It changes the fixed-action
+reference label in 0.05% of IID decisions and none on new appearance. Pooling
+changes stable to this check remain 3.63% and 3.83%. This is a sensitivity check
+for property discretization conditional on the fixed footprint, not an exact
+continuum or footprint-accuracy guarantee.
+
+Then each level chooses and accepts independently at .02; direct512 always
+evaluates the chosen action's true cost. The coarse oracles still discard usable
+opportunities after this permitted reselection:
+
+| IID discovery: each level selects | Acceptance | Unsafe among accepted | Safe opportunity use η |
+|---|---:|---:|---:|
+| Direct512 oracle | 80.20% | 0% | 100% |
+| Separately pooled512 oracle | 76.60% | 0% observed | 95.51% |
+| Perfect source64 supervision-target oracle | 77.25% | 0.06% | 96.26% |
+| Restored learned model | 78.58% | 1.07% | 96.93% |
+
+The pooled oracle loses 3.60 percentage points of all-scene safe acceptance on
+IID and 3.85 on new appearance. Perfect prediction of the actual supervision
+target still loses 3.00 and 3.35 points. The learned model accepts more safe
+opportunities but also more unsafe actions: this is not an unconditional
+performance improvement over the oracle representation.
+
+Signed cost terms on fixed selected actions are +.001807 (pooling), −.000653
+(source raster), and −.000292 (model) on IID. On new appearance they are +.002060,
+−.000714 and −.001453, giving mean total error −.000108 despite mean absolute
+error .003102. Model and net measurement errors oppose one another in 31.52%
+and 32.49% of decisions. These signed cancellations preclude interpreting
+absolute component magnitudes as additive shares of decision error.
+
+Before opening these discovery results, we define a small margin as pooled cost
+within .005 of τ and boundary overlap as simultaneous fractional property and
+footprint occupancy in a coarse cell relevant to the card. Among overlapping
+selected actions, label-change rates are 37.84% versus 3.87% for small versus
+larger margins on IID; on new appearance they are 37.45% versus 4.45%. No change
+occurs without joint boundary overlap, as the covariance identity requires for
+binary fields. That zero is an algebraic check, not an independent discovery.
+The empirical concentration and conservative direction motivate a prospective
+test, rather than a claim that the elementary identity is novel theory.
+
+![Signed oracle decomposition and its decision consequences](../../research/oracle_aggregation_20260912/artifacts/publication_v3/oracle_discovery.png)
+
+*Discovery on consumed E3 test data, using the five E2 models. Fixed-selection
+label comparisons and each-level reselection metrics are distinct analyses.
+Exact per-model counts and signed exposure/channel decompositions are retained
+in the supplement.*
+
+### 3.3 One prospective confirmation of the predicted decision effect
+
+After discovery, we freeze a single new IID bank of 2,000 scenes, the five
+existing source-64 checkpoints, the original candidate generator and tie rule,
+and three predictions. There is no new training. Anonymous continuous shape
+and complete-scene identities have no exact overlap with the 10,200 E2/E3 scenes.
+This is new data under the same normal generator, not an external-task test.
+
+The predictions require (i) a stable-reference lost-opportunity probability
+above .01 for the pooled oracle; (ii) more than .90 of fixed-selected pooling
+label changes to be conservative; and (iii) more than .10 enrichment of label
+changes in small- versus larger-margin overlapping-boundary actions. Each
+one-sided claim uses γ=.05/3 (distinct from residual miscoverage α). The first uses an exact binomial bound; the third
+uses an approximate crossed model/scene bootstrap with five model seeds.
+
+A recorded strengthening after job submission but before any fresh outcome was
+inspected adds an exact scene-level check for direction: conditional on a scene
+having any selected-action change across the five models, every change in that
+scene must be conservative. This avoids treating a degenerate zero-counterexample
+bootstrap as proof of a population fraction of one. The original protocol and
+outputs remain available; Appendix C records the timing and different estimands.
+
+| Prospective prediction | Fresh observation | One-sided lower bound | Frozen criterion |
+|---|---|---:|---:|
+| Stable-reference lost safe opportunities | 61/2,000 scenes | 2.29% | >1% |
+| All selected-action changes conservative within a changed scene | 68/68 changed scenes | 94.16% | >90% |
+| Small-minus-larger margin label-change rate | 40.57% − 3.26% = 37.31 pp | 26.06 pp | >10 pp |
+
+The pooled oracle loses 63/2,000 safe opportunities before the precision
+restriction (3.15 pp); perfect source64 supervision-target prediction loses
+54/2,000 (2.70 pp). Direct512 accepts 1,592 safe scenes; the pooled oracle accepts
+1,529 with no unsafe outcome observed. The target oracle accepts 1,540, of which
+two are unsafe. These observed zero/two counts are not new risk certificates.
+The learned restored model has empirical unsafe rate 1.03% and η=96.77% in this
+new bank; the separately established E3 certificates are not recalibrated here.
+
+At fixed restored-model actions, 322/10,000 model–scene decisions change label
+under pooling (3.22%, descriptive crossed 95% interval [2.47%,4.02%]). The 10,000
+decisions share only 2,000 scenes. All observed changes are conservative; 312
+remain when the finer-property check agrees with the reference label. The same
+check changes only 15 fixed-action labels (0.15%). Across all nontrivial candidate
+entries its p95 cost difference is .000509, passing the frozen numerical screen.
+
+![Discovery and prospective oracle confirmation](../../research/oracle_aggregation_20260912/artifacts/final_publication/oracle_confirmation.png)
+
+*The last bank was generated after the hypothesis freeze. All arms use a common
+512 footprint; A permits each oracle to select anew, whereas B–C hold each
+restored model's selection fixed. C conditions on joint boundary overlap. Figure
+intervals are descriptive; the table uses the registered one-sided comparisons.*
+
+This supports the predicted mechanism in the normal procedural distribution.
+It does not isolate a universal direction of pooling error: the algebra permits
+both signs, and selection changes which spatial configurations are observed.
+It also does not establish a general information-theoretic impossibility for
+models receiving richer inputs. The practical conclusion is narrower: making
+this coarse supervision target exact does not remove its downstream decision
+error, so component fidelity alone is an inadequate diagnosis of the bottleneck.
+
+### 3.4 Earlier measurement and geometry evidence
 
 The historical interface pools a low-resolution property field along candidate
 footprints. We reconstruct direct 256 and 512 raster references from the saved
@@ -203,6 +421,9 @@ privileged diagnostics, not deployable methods.
 
 ![Fixed weights and postprocessing](../../research/pro_decision_round_20260912/artifacts/publication/e1_postprocessing.png)
 
+*E1: five historical checkpoints and consumed diagnostic data; these are not
+the E2 checkpoints or E3 certification/test banks.*
+
 Restoring the bias is not the sole explanation for every observed failure.
 In the fresh confirmation, the inherited −2 arm itself has an empirical unsafe
 rate of 2.85%, below 5%. That table does not give it the same certificate as a
@@ -214,7 +435,9 @@ one-sided postprocessing effects from the separate cost of protection scope.
 
 ### 5.1 A deterministic explanation for zero acceptance
 
-For the five restored models, the maximum-positive-residual quantile is
+For the five historical E1 models on the consumed 300-scene calibration bank
+(not the E2 models or E3 certification bank), the restored-output
+maximum-positive-residual quantile is
 0.02797–0.03287 over the complete pair, 0.02201–0.02767 over the current four
 candidates, and 0.00501–0.00790 for the frozen selected action. Each scope uses
 300 independent scene scores; reducing scope does not manufacture more samples
@@ -230,6 +453,9 @@ diagnostic and does not itself certify conditional risk among accepted actions.
 
 ### 5.2 Independent risk and usefulness confirmation
 
+This E3 experiment uses all five E2 independent-geometry/source-64 models and
+new calibration/test banks. It is not a within-model extension of E1 §5.1.
+
 We freeze the restored-output selector, resolve ties using stored independent
 uniform draws at tolerance 1e−9, and accept or reject only after selection.
 Rejection never causes reselection. Each independent synthetic scene contributes
@@ -243,7 +469,7 @@ highest calibration acceptance. No valid rule means rejection and a failed
 certificate, not zero-risk success. Certificates are saved before test loading.
 This is an application of established selective-risk control [3].
 
-| Fresh IID arm | Acceptance | Unsafe among accepted | Safe opportunity efficiency η |
+| E3 IID arm: five E2 models, new E3 banks | Acceptance | Unsafe among accepted | Safe opportunity efficiency η |
 |---|---:|---:|---:|
 | Inherited −2, fixed threshold | 81.87% | 2.85% | 99.18% |
 | **Restored output, fixed 0.02 threshold** | **78.58%** | **1.07%** | **96.93%** |
@@ -251,7 +477,8 @@ This is an application of established selective-risk control [3].
 | Restored output, selected certified rule | 81.29% | 2.51% | 98.82% |
 | Four-candidate oracle | 80.20% | 0% | 100% |
 
-**The simple fixed-threshold baseline is the central result.** It already has
+**A more complex model is not required to pass this particular risk and
+usefulness screen.** The simple fixed-threshold baseline already has
 valid certificates for all five source models, with simultaneous calibration
 upper bounds between 1.66% and 2.54%. Its test η interval is [95.93%,97.82%],
 far above the predeclared 50% usefulness threshold. Selecting among rules is
@@ -267,6 +494,10 @@ training variability.
 
 ![Acceptance, empirical conditional risk, and safe opportunities](../../research/pro_decision_round_20260912/artifacts/publication/e3_acceptance.png)
 
+*E3: the five preselected E2 independent-geometry/source-64 models, each with
+1,600 calibration and 2,000 test scenes per domain. E1 residual quantiles in
+§5.1 come from different checkpoints and data.*
+
 On new appearance, source-certified rules have empirical unsafe rate 3.58%
 and η=98.62%. This is a shift stress test, not an unknown-distribution guarantee.
 With independently labeled target calibration, the corresponding values are
@@ -274,167 +505,15 @@ With independently labeled target calibration, the corresponding values are
 test nor interpret successful source transfer as certified OOD safety. The
 certificates concern the registered mixture, not each subgroup or an episode.
 
-## 6. External validation: qualification before a mechanism claim
+## 6. External evidence boundary
 
-RELLIS-3D provides an external image-generation and annotation process [5].
-The proposed task is approval of four metric, visible corridor segments using
-predicted semantics and a public prohibited-class rule. It is not a collision
-experiment: compliant visible semantics do not establish traction, support,
-vehicle clearance, or physical feasibility.
-
-The extension first audits official timestamps, calibration, poses, label
-mapping and model provenance. A fixed small pilot must establish evaluable
-geometric support before training. Corridors have matched progress and width;
-semantic labels cannot select their geometry. Missing depth, occlusion,
-off-image regions and void labels remain unknown. A release checkpoint is not
-eligible merely because exact test filenames are absent from its training list:
-nearby observations and revisited locations must be checked.
-
-If continuous-cost qualification passes, the proposed six controls are normal segmentation plus the
-formula, one development-selected simple postprocessing rule, all-candidate
-residual protection, fixed-selector risk control, a no-RGB fixed/spatial prior,
-and human-label oracle evaluation. Only one prescribed coarse reference is
-compared with native labels. No artificial −2 shift or candidate-set inflation
-is allowed. Main results preserve natural frequencies and separately report
-all-compliant, mixed, no-compliant, and unevaluable scenes.
-
-Sequence frames will not be treated as independent Bernoulli trials. Route or
-spatial groups, including repeated visits, determine splits and uncertainty.
-The default external claim is empirical. A mechanism prediction will be locked
-after development and before calibration/test. If the normal baseline is
-already reliable, or geometry/perception dominates the result, the external
-study will narrow the claim instead of searching for a manufactured failure.
-
-### 6.1 Outcome of the bounded qualification pilot
-
-We freeze 24 timestamp-ordered, evenly spaced images from the official training
-list of sequence 00000, before inspecting their labels. Public archive byte
-ranges retrieve only the selected RGB, native labels and timestamp-matched PLY
-scans. All 24 triples are available within the prescribed 50 ms synchronization
-tolerance. Official calibration and the URDF transform chain determine a
-LiDAR-centred, body-oriented coordinate frame. The numerical projection agrees
-with an independent OpenCV implementation within 1.82×10⁻¹² pixels; this validates
-the implemented formula, not the accuracy of the physical calibration.
-
-Four fixed 1.2 m-wide corridor segments span 6–12 m longitudinal range at headings
-−12°, −4°, 4°, and 12°. Each has 720 equal-area samples. A nonsemantic local
-surface fit and explicit depth/occlusion checks mark unsupported samples unknown.
-The implemented screen uses 0.35 m nearest surface support, an 8-pixel projected
-depth bin and a 0.35 m foreground-depth margin. These are construction choices,
-not universal sensor-error guarantees. Full gravity alignment and independent
-registration-error bounds remain unverified.
-
-| Qualification outcome | Fixed pilot result |
-|---|---:|
-| Scenes with all four corridors at most 5% unknown | 0/24 |
-| Required minimum at the registered 80% screen | 20/24 |
-| Candidate unknown-area range | 45.97%–88.47% |
-| Optimistic all-four support ceiling, dropping depth/occlusion checks | 3/24 |
-
-The optimistic ceiling is a diagnostic, not an admissible acceptance rule.
-Sparse projected depth is the largest contributor to unknown support in the
-implemented screen. Even the ceiling remains below the pilot requirement. The
-result concerns this single-scan, surface-fit corridor interface; it is not
-evidence that RELLIS-3D cannot support a different validated geometric construction.
-Unknown-area cost intervals condition on the projection and do not measure
-physical calibration error or perceptual failure.
-
-Separately, metadata show that portions of the released validation and test
-lists are only 0.2 seconds from training frames within the same sequence.
-Released poses lack timestamps and sequence coordinate registration is not
-established by the metadata audit. The benchmark split therefore cannot simply
-be inherited as a spatial-independence certificate for this study. A training
-recipe and checkpoint would need a qualified grouped partition.
-
-We stop before external model training, mechanism selection, risk calibration
-or final-test evaluation. The result documents an evaluation-interface boundary
-and does not confirm transfer of the synthetic diagnosis. Six distinct geometry
-tests pass; an independent scalar replay verifies all 96 candidate counts and
-69,120 sampled labels. Any continued external experiment requires an explicit
-geometry and split revision with fresh qualification evidence.
-
-![Geometry qualification outcome](../../research/rellis_external_20260912/artifacts/publication/qualification_overview.png)
-
-### 6.2 Registered distinction between decision and cost qualification
-
-The pilot protocol described cost using evaluable ground area, whereas its
-implementation divided by the **full requested corridor area**. We retain the
-implemented denominator and explicitly correct the definition in a separately
-registered revision. The original pilot and its frozen protocol are preserved.
-Removing unknown area from the denominator would change the estimand and could
-make a small visible patch appear representative of a mostly unobserved corridor.
-
-For geometric realization θ, let bθ and uθ be the known-prohibited and unknown
-fractions of the full corridor. An empirical range Θ, if independently supported
-by development geometry checks, induces
-
-\[
-c_L=\min_{\theta\in\Theta}b_\theta,\qquad
-c_U=\max_{\theta\in\Theta}(b_\theta+u_\theta).
-\]
-
-A candidate is determinately compliant when cU≤0.02, determinately noncompliant
-when cL>0.02, and otherwise undetermined. For example, 1% known-prohibited area
-and 4% unknown area give [0.01,0.05], which cannot determine compliance despite
-meeting a 5% unknown-area screen. Conversely, 10% known-prohibited area already
-establishes noncompliance even with substantial unknown area. A narrower support
-interval is not automatically more accurate: timing, registration, gravity,
-surface and projection errors must also be assessed. These empirical intervals
-would remain conditional sensitivity analyses without a separate coverage proof.
-
-The revision is limited to two engineering working days, the consumed 24 frames
-and necessary neighbouring sensor data, a corrected single-scan construction and
-one motion-compensated window of at most one second and 11 scans. Time/pose and
-coordinate provenance, independent physical-error checks and spatial isolation
-are prerequisites to opening fresh qualification data. The planned fresh sample
-is 48 frames from at least 12 frozen spatial/route blocks, with all supporting
-scans included in the isolation audit. The decision screen requires at least
-39 frames with all four candidate labels determined, and at least eight mixed
-compliant/noncompliant scenes spanning four blocks. Knowing all four outcomes
-is a requirement for evaluating candidate selection, not a deployment requirement
-that all four actions be safe. At least 12 predetermined frames in six blocks
-require independent human geometry review; systematic false support that changes
-labels fails the screen regardless of average coverage.
-
-A binary-only continuation is registered in advance: if the decision conditions
-pass but p95 full cost-interval width exceeds 0.005, subsequent external research
-may address accepted danger rate and availability, but not continuous regret or
-residual-cost calibration. Missing samples and failed prerequisites remain in the
-record; uncertainty is a stopping outcome. No fresh-sample result, human-review
-completion or mechanism transfer is implied by this registration.
-
-### 6.3 Outcome of the bounded revision: a prerequisite stop
-
-The revision retrieves 240 timestamped raw Ouster scans, ten in each of the
-24 consumed development windows, together with IMU, odometry and transform
-records. The central raw scans match all released PLY x/y/z/t/ring fields in
-24/24 cases. The static LiDAR/body chain agrees numerically with the pinned
-URDF. Under the scan-order pose association supported by the linked export code,
-a fixed per-point motion-compensation prototype runs on all 24 development
-targets. Central-scan point times lie approximately 16–121 ms after the RGB
-filename timestamp; the per-frame p95 correction displacement is 0.101–0.337 m.
-These are timing and conditional correction measurements, not independently
-measured physical registration errors.
-
-Median end-scan nearest-neighbour consistency improves in 21/24 frames, with
-the median over frames changing from 0.132 m to 0.130 m. Those scans may have
-participated in upstream SLAM, and the linked Cartographer recipe already uses
-VectorNav IMU. Neither source can be repurposed as an independent pose-accuracy
-test. Independent Ouster specific-force observations are available, but dynamic
-acceleration and mounting/attitude error have not been separated into a justified
-gravity-error range. A release-specific timestamp/pose record, independent
-physical camera-alignment and surface/visibility error ranges, and complete
-support-aware spatial isolation also remain unestablished.
-
-We therefore take the preregistered uncertainty branch and stop **before**
-instantiating the new 48-frame qualification set. This is an early evidence-based
-stop within the two-day upper budget, not budget exhaustion or a 0/48 result.
-The new decision-information screen and continuous-cost precision screen are
-not evaluated. No independent human review on the uninstantiated set is claimed.
-The motion prototype is not promoted into an admissible corridor-reference
-interface; no external model or mechanism experiment follows. This outcome
-narrows the external evidence available for the controlled-case paper without
-supporting or refuting transfer of its mechanism diagnosis.
+An attempted real-image extension was stopped before mechanism evaluation
+because the proposed geometric reference lacked independently validated error
+bounds. It therefore supplies neither supporting nor refuting evidence for
+cross-task transfer. The initial 24-frame interface screen and the subsequent
+early prerequisite stop are documented in [Appendix A](appendix.md). The planned
+new 48-frame set was never instantiated; this is not a 0/48 mechanism result.
+The external extension is closed.
 
 ## 7. Related work and contribution boundary
 
@@ -465,15 +544,29 @@ does not inherit these closed-loop results. Concept bottlenecks and shortcut
 learning also predate our spatial decomposition and intervention-based
 diagnosis [6,7].
 
-The contribution is consequently an auditable empirical separation of several
-plausible failure explanations, with controls that determine when method
-expansion is unnecessary. Its external prevalence is a question for validation,
-not part of the established novelty claim.
+Smart "Predict, then Optimize" explicitly distinguishes prediction error from
+downstream decision error and develops a decision-aware loss and surrogate [8].
+We do not claim this general distinction. Our narrower investigation tests a
+specific spatial interface: separately pooled property and footprint fields can
+lose the within-cell coincidence required by the published exposure calculation,
+even when the supervised coarse property target is predicted perfectly.
+
+The contribution is a same-reference oracle attribution that predicts and
+confirms actual decision effects of a particular spatial measurement interface.
+The earlier geometry, postprocessing and risk-control experiments locate this
+effect among distinct learning and decision mechanisms. Neither the covariance
+identity nor decision-aware evaluation is new; the evidence concerns the
+measured effect and its operating conditions in the specified task. Its external
+prevalence remains outside the established claim.
 
 ## 8. Limitations, reproducibility, and conclusion
 
 The controlled task uses synthetic properties and a known cost law. Numerical
-reference stability is empirical. The four-candidate oracle is restricted,
+reference stability is empirical, and the finer-property comparison conditions
+on the same footprint. Oracle boundary/margin features use privileged labels
+and are not a deployable image-only detector. The direction check conditions on
+five fixed models; crossed bootstrap inference has only five training seeds.
+The four-candidate oracle is restricted,
 and no static acceptance result measures physical task completion. The
 geometry intervention changes multiple geometric factors. Diagnostic datasets
 have been consumed; fresh tests supply confirmation only for their frozen
@@ -481,24 +574,20 @@ protocols. Statistical certificates depend on the stated distribution and
 sampling assumptions. The external construction fails its initial observability
 screen and supplies no confirmed cross-task mechanism result.
 
-Independent verification checks 257 manifest-listed artifacts, reconstructs
-scalar choices and acceptance counts, and checks exact-binomial certificate
-p-values. CPU replay of 80 images across all 20 new checkpoints has 100% binary
-field agreement with stored GPU predictions; the maximum probability difference
-is 0.00635160, within the registered 0.01 tolerance. Sixteen distinct numerical
-and protocol tests pass. A separate identity audit finds 10,200 distinct
-continuous field and complete-scene geometries across the new banks after
-excluding IDs, seeds, appearance labels and candidate order.
+Reproduction details and independent numerical checks appear in
+[Appendix B](appendix.md); the frozen experiment reports are retained.
 
-In this controlled case, good ranking and zero calibrated acceptance coexist
-because they answer different questions. Holding weights and the target
-reference fixed identifies a substantial postprocessing effect; changing the
-cost discretization identifies a separate measurement effect; narrowing the
-protection requirement makes the actual decision problem explicit. The
-restored fixed-threshold baseline then satisfies the registered risk and
-usefulness screen using an existing certification procedure. This supports
-a diagnostic case study and a bounded external validation, not further
-complexity in the original learning pipeline.
+In this controlled case, making a spatial supervision target exact does not
+make the downstream exposure exact. A common-footprint oracle decomposition
+identifies a separate-pooling effect that changes usable decisions, predicts
+conservative boundary/margin failures, and survives one prospective confirmation.
+Learning and source-raster errors can offset part of this measurement bias,
+which makes aggregate accuracy an unreliable attribution tool. Earlier
+experiments show that geometric learning improvements, fixed postprocessing and
+the scope of risk protection also affect behavior. An imperfect component can
+still be useful under an established risk-control procedure; that does not
+validate every upstream measurement choice. Cross-task mechanism transfer
+remains unestablished, and the external extension is closed.
 
 ## References
 
@@ -509,8 +598,13 @@ complexity in the original learning pipeline.
 5. Peng Jiang, Philip Osteen, Maggie Wigness, and Srikanth Saripalli. *RELLIS-3D Dataset: Data, Benchmarks and Analysis.* [Paper](https://arxiv.org/abs/2011.12954), [official data and baseline implementation](https://github.com/unmannedlab/RELLIS-3D/tree/c17a118fcaed1559f03cc32cc3a91dedc557f8b8).
 6. Pang Wei Koh et al. *Concept Bottleneck Models.* ICML, 2020. [Primary paper](https://proceedings.mlr.press/v119/koh20a.html).
 7. Robert Geirhos et al. *Shortcut learning in deep neural networks.* Nature Machine Intelligence, 2020. [Primary article](https://www.nature.com/articles/s42256-020-00257-z).
+8. Adam N. Elmachtoub and Paul Grigas. *Smart "Predict, then Optimize".* [Primary paper](https://arxiv.org/abs/1710.08005v5).
 
 ## Supplement and artifact entry points
+
+- [New oracle study: protocols and reproduction](../../research/oracle_aggregation_20260912/README.md).
+- [Discovery and prospective confirmation tables](../../research/oracle_aggregation_20260912/artifacts/final_publication/TABLES.md).
+- [Supplementary scientific details](appendix.md).
 
 - [Frozen three-experiment protocol and reproduction](../../research/pro_decision_round_20260912/README.md).
 - [Detailed tables, certificates and supplementary figures](../../research/pro_decision_round_20260912/artifacts/publication/PAPER_ADDENDUM.md).

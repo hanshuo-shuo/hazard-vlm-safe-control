@@ -1,0 +1,17 @@
+{
+  "id": "ORACLE-AGGREGATION-CONFIRMATION-20260912-v1",
+  "reason": "Discovery found 3.60 pp oracle lost safe opportunities and 3.68% fixed-selected label changes on IID, versus 0.05% fixed-footprint numerical label sensitivity. This is the one conditional fresh confirmation authorized by Pro.",
+  "dataset": {"seed": 2612091301, "count": 2000, "geometry": "independent", "appearance": "same IID families as E2 training", "new_target_domain": false},
+  "fixed_assets": "All five E2 independent/source64 final checkpoints; restored sigmoid output only for primary predictions; original generator, 512 footprint, 16 representation, tau=.02, public formula, stored uniform tie rule, and one sampled variant/card per scene",
+  "training": false,
+  "selection": "No scene rejection based on rendered pixels, costs, margins, oracle feasibility or outcomes; only the existing continuous geometry sampler constraints",
+  "sample_integrity": "Freeze protocol/code/checkpoint hashes before generating records; audit anonymous shape and complete-scene identity against all E2/E3 records; reject a compromised study rather than replace a scene",
+  "H1": {"prediction": "Coarse oracle loses nontrivial safe opportunities even where the fixed-footprint precision check agrees that a safe candidate exists", "event": "direct512 and property1024/fixed512-footprint each have a safe supplied candidate, but pool512 selection/acceptance fails to yield a direct512-safe accepted action", "criterion": "one-sided exact binomial lower bound exceeds .01 of all scenes"},
+  "H2": {"prediction": "At fixed restored-model actions, pooling label changes are predominantly conservative", "event": "among pool512-vs-reference512 danger-label changes, fraction reference-safe/pool-danger", "criterion": "crossed model/scene bootstrap one-sided lower bound exceeds .90; undefined denominator is a failure"},
+  "H3": {"prediction": "Among selected actions with joint property/footprint boundary overlap, small pooled-cost margin enriches pooling label changes", "small_margin": "abs(pool512cost-.02)<=.005", "comparison": "small-margin flip rate minus larger-margin flip rate, both restricted to joint boundary overlap", "criterion": "crossed model/scene bootstrap one-sided lower bound exceeds .10; undefined stratum is a failure"},
+  "uncertainty": {"family_alpha": 0.05, "one_sided_alpha_each": 0.016666666666666666, "bootstrap_resamples": 5000, "bootstrap_seed": 2612091302, "scope": "H1 exact binomial under IID scenes; H2/H3 approximate crossed bootstrap over only five model seeds and shared scenes. These are mechanism comparisons, not a safety certificate."},
+  "secondary": "Full same-reference signed decomposition and fixed/reselected decision metrics, including minus2 as explicitly secondary; numeric precision and remaining unsafe model errors retained",
+  "numerical_guard": "same as discovery; identity residual<=1e-12; reference512 vs property1024 under fixed512 footprint dangerous-label changes<=1% and p95 absolute cost difference<=.002 across all A/C/D candidates. Empirical sensitivity, not exact continuum truth",
+  "decision": "Support the three-part normal-generator prediction only if numerical guard and all three criteria hold. Report each failure/uncertainty. No sample enlargement, third stage, model change or resolution search.",
+  "budget": "CPU inference only; no optimization. One 2000-scene bank, <=8 allocated CPU hours. RELLIS remains closed."
+}

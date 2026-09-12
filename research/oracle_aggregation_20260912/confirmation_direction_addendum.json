@@ -1,0 +1,9 @@
+{
+  "id": "CONFIRMATION-DIRECTION-BOUNDARY-CHECK-v1",
+  "timing": "Written after the one confirmation job was submitted, but before the analyst inspected any fresh confirmation outcome. The original protocol and running analysis remain unchanged.",
+  "reason": "Discovery has zero anti-conservative pooling flips. A percentile bootstrap can then give a degenerate lower limit of 1, which is not adequate evidence that the population fraction is exactly 1.",
+  "additional_required_check": "Collapse the five fixed models within each scene. Among scenes where at least one model-selected action has a pooling/reference label change, count a success only if every such change is reference-safe/pool-danger. Use an exact binomial one-sided lower limit at alpha=.05/3 and require it to exceed .90 before claiming the directional prediction supported.",
+  "estimand": "Probability that all five models' observed changes in a scene are conservative, conditional on at least one change, for this fixed model bank. Different from the original model/scene weighted fraction; stronger per-scene statement, no training-seed population guarantee.",
+  "multiplicity": "This is an additional requirement for the same H2 claim, not a fourth alternative route to success. Keep the original three claim-level alpha budgets and require both H2 checks.",
+  "no_changes": "No new data, models, thresholds, margins, resolutions, retraining or replacement. Preserve original HYPOTHESES.json and report the degeneracy if it occurs. A failure of the extra check narrows the conclusion rather than triggering more samples."
+}

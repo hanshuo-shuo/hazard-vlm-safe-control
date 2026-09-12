@@ -13,6 +13,47 @@
 - 不启动关系头、VLM 或 RL 扩展；不要改危险定义或反复消费已用测试来制造成功。
 - 当前没有本轮研究作业仍在运行；其他旧 pending 作业不属于本轮，不处理。
 
+## 最新一轮：oracle 分解与一次新确认（本轮完成）
+
+用户最新 Pro 意见：`research/oracle_aggregation_20260912/PRO_REVIEW.md`。
+明确关闭 RELLIS，转为同场景同512足迹 oracle 聚合误差分解；有信号才做一次新确认。
+本轮已完成发现与确认，无新训练、无新认证，下一步是科学主张评审和九页稿件。
+
+- 新 Quest 根：`/projects/p33100/siosio/hazard_oracle_aggregation_20260912`。
+- 本地源码、协议、精简结果：`research/oracle_aggregation_20260912/`。
+- 最新入口：`docs/ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`。
+- 正文：`paper/visual_risk_diagnosis/manuscript.md`；RELLIS细节现在位于 `appendix.md`。
+- 发现集：消费过的 E3 IID/新外观各2,000；五个 E2 independent64 模型的已存成本。
+  固定模型动作 pool512/ref512 标签变化3.68%/3.83%，同足迹属性精度检查0.05%/0。
+  各级重选，pool512丢失安全机会3.60pp/3.85pp，target64丢失3.00pp/3.35pp。
+- 一次新确认：新IID2,000，seed2612091301；原五checkpoint做CPU推理，无训练。
+  pool512 oracle接受1,529/2,000且观测危险0；ref512有1,592安全机会；
+  target64接受1,540其中2危险，丢失54安全机会(2.70pp)。pool512丢失63(3.15pp)，
+  数值检查仍保留安全候选的61个为H1，精确单侧下界2.2869% >1%。
+- 固定模型动作 pooling标签变化322/10,000(3.22%)，10,000共享2,000场景。
+  全观察为保守方向；更精细属性检查变15标签(.15%)，312池化变化仍稳定。
+  小裕度(≤.005)/大裕度边界组变化40.57%/3.26%，差37.308pp，下界26.0586pp。
+- 三主张单侧预算.05/3；H2原bootstrap因为无反例退化成下界1，不用于总体确定性。
+  **方向addendum在提交确认作业后、未看新结果前20:57:54UTC冻结**；
+  原HYPOTHESES在21:00:24UTC生成。加强要求：有变化场景内所有模型变化都保守，
+  68/68场景，精确下界94.1566% >90%。不同于model–scene加权比例，条件于固定模型bank。
+  最终 `SUPPORTED_WITH_EXACT_SCENE_DIRECTION_CHECK`。必须保留addendum时序和退化统计。
+- 六项不同测试；独立52,000+26,000决策、768+384块级成本，块级差0；旧输入/五模型不变。
+  新2,000与旧E2/E3全10,200匿名连续几何无完全重复；不是任意对称性证明。
+- 全部科学生成、推理、统计和出图在Quest，本地只编辑/读取/归档/看图/Git。
+- 科学图用 `artifacts/publication_v3/` 和 `artifacts/final_publication/`；早期图保留。
+- 任务完成作业：6193697发现、6193764报告、6193918复核+图、6194085新确认、
+  6194194新确认复核、6194323终图+表、6194540图例排版修复、6194655交付核查。
+  八个作业全部完成；最终37个stage manifest条目与14个旧输入核查通过，无新训练/认证。
+- 新确认经验模型危险1.03%、η96.77%，不要和原E3认证1.07%、η96.93%混为一批。
+- 当前窄主张：完美粗属性目标仍不能保证动作暴露准确；误差分解有实际且前瞻确认的决策后果。
+  基本协方差恒等式不是新理论，不声称所有低分辨率模型/关系头无能为力，外部迁移未建立。
+- 这一确认集已消费，不自动扩样/增加训练/重启RELLIS。论文尚需导师评估知识增量、
+  九页LaTeX稿、作者名单与匿名材料。`SUBMISSION_STATUS.md`记有官方截止和AI声明草稿。
+  没有发消息给导师，没有提交OpenReview。Git提交号以实际HEAD/push回执为准。
+
+## 以下为保留的前三轮历史证据
+
 ## 当前论文及最重要的结论
 
 先读 [完整英文初稿](../paper/visual_risk_diagnosis/manuscript.md)、
@@ -66,7 +107,7 @@ Quest 根目录：`/projects/p33100/siosio/hazard_rellis_external_20260912`。
 实现选择。0/24 首先否定当前接口的资格，不能证明 RELLIS 不可用、模型失败或原机制不能迁移。
 独立复核只确认所实现计算的一致性。不要把工程选择造成的问题升级为外部科学负结论。
 
-## 下一步研究决定
+## 上一轮 RELLIS 决定（已关闭）
 
 已收到 Pro 第三次反馈，见 `research/rellis_revision_20260912/PRO_REVIEW.md`。
 授权一次最多两日的测量接口修订，明确六项最低证据与不确定即停止。
@@ -74,7 +115,7 @@ Quest 根目录：`/projects/p33100/siosio/hazard_rellis_external_20260912`。
 `STOP_PREREQUISITES_UNCERTAIN`，**预算未耗尽，新 48 帧尚未选取或打开**。
 不要写成 0/48，也不要自动开启第三轮几何修订或外部训练。
 
-最新入口为 `docs/RELLIS_REVISION_PROGRESS_2026-09-12.md` 和正文 §6.2–6.3。
+历史入口为 `docs/RELLIS_REVISION_PROGRESS_2026-09-12.md`；论文详情已移至附录 A。
 Quest 根目录 `/projects/p33100/siosio/hazard_rellis_revision_20260912`。
 完整面积成本定义已另立新协议；原协议文字及第一次 0/24 结果保留。
 预登记二元门槛 39/48 全四候选可判定、八帧混合且分布于四块；连续成本另需 p95 宽度≤.005。
@@ -110,7 +151,7 @@ Test、Perceive with Confidence。正文已明确不把决策相关校准或无�
   本地完整归档副本在 ignored `results/c3_rellis_external_20260912/`。
 - RELLIS 派生图册保留作者署名与 CC BY-NC-SA 3.0 许可。原始科学 artifacts 及其 hash 不做
   展示性改写；图表另存 publication 目录。
-- 当前用户请求：根据 Pro 第三次反馈继续推进。新修订源码与精简证据在
+- 历史请求：根据 Pro 第三次反馈推进。该修订源码与精简证据在
   `research/rellis_revision_20260912/`，大原始传感器数据只在 Quest。
   本地 ignored 的 `results/c3_rellis_revision_20260912/` 仅保存报告/图表归档。
   提交哈希以实际 Git HEAD 和 push 回执为准；不要在摘要内猜测未来提交哈希。

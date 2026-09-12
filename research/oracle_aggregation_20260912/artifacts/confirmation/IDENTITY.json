@@ -1,0 +1,25 @@
+{
+  "prior_unique": [
+    10200,
+    10200
+  ],
+  "new_unique": [
+    2000,
+    2000
+  ],
+  "exact_overlap": 0,
+  "scope": "Anonymous patches/paths; not arbitrary geometric symmetry",
+  "prior_record_hashes": {
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/appearance.json": "4978af50717d285284d4c05a63bab05129ccb028fbc91431c76d5e0171f10eb7",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/balanced_anchor_train.json": "4c9ecfc56149be6b933333a4a6640fb01e4871c509b6aff76b51220fff0f2eef",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/balanced_anchor_validation.json": "24d30c7b59fbf01cdd045d567d41ca2ee480c37c501645686b0524f89cd53d6d",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/iid.json": "e926809b0b1df2ccec28f4b2a83ddd8d2116ef559a745c1a42fb48f4795758c5",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/independent_train.json": "ff91f23f1e1a4bf76490eec84eadbec6bb2048dca4f33eacb1338336582dd6ef",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_data/independent_validation.json": "35c90783eeec82b7ef1b769e71c2cf745d681553e5c75e8e6dab1be1d3352b7d",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/dev.json": "f2e8ba3e55b787d0929807477948b6ad82013d7767377cb06a3b2efcf16251cd",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/iid_calibration.json": "e162d66ecddfa19a451826abab1d3ebeab9baf1275900a5ad39af6a546d83bf9",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/iid_test.json": "a8664cdf708a18e43d91c7d220883a31f1953e1884e8305e5faa728b94202251",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/target_calibration.json": "a494546e8f535020e9e8d5883e4539b2980c19878d430041a1f7b04fcb22b928",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e3_data/target_test.json": "0a8285930a4a8b253341614c1ef9265cba51092d670949c89cd4d70561348433"
+  }
+}

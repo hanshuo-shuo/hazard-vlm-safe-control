@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T21:02:00.554613+00:00",
+  "artifact_hashes": 11,
+  "frozen_sources_unchanged": 6,
+  "checkpoint_hashes_unchanged": 5,
+  "scalar_decisions": 26000,
+  "blockwise_candidate_cost_checks": 384,
+  "block_cost_max_abs": 0.0,
+  "independent_beta_h1_lower": 0.022869370450989357,
+  "exact_scene_direction_check": {
+    "changed_scenes": 68,
+    "all_changes_conservative_scenes": 68,
+    "any_anti_conservative_change_scenes": 0,
+    "estimate": 1.0,
+    "exact_lower": 0.9415658898317245,
+    "pass": true,
+    "scope": "Fixed five-model bank; conditional on at least one selected-action label change in a scene",
+    "original_bootstrap_lower": 1.0,
+    "bootstrap_boundary_warning": true
+  },
+  "final_decision": "SUPPORTED_WITH_EXACT_SCENE_DIRECTION_CHECK"
+}

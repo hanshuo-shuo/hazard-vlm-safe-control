@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-09-12T21:04:54.041132+00:00",
+  "source_sha256": "0739ecd7437cf357009ac47c6cda4aca36833acd842c770813cf63a8fac9cd5f",
+  "input_sha256": {
+    "report/SUMMARY.json": "2ebbeab967a33b391d139be3b18b880c3b77d3cedcd4378bb174c7f84eb4e983",
+    "confirmation/SUMMARY.json": "2d5a4a1c882c9f33de71d07407ac6ed9ac7d21ad10e217b1f2563d790d208b13",
+    "confirmation/HYPOTHESES.json": "9dc20076e927ad689f13342e979ffd89df37c0d1638cb3d9a98f7042569f2bd1",
+    "confirmation_verification/VERIFICATION.json": "a12a78a78c04cfd44df28fd1b1403db0ab033c6029f8a2f7c933c479fc838648"
+  }
+}

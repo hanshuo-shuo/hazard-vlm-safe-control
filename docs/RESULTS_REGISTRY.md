@@ -39,6 +39,30 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — Common-footprint oracle attribution and prospective confirmation
+
+- Status: **SUPPORTED_WITH_EXACT_SCENE_DIRECTION_CHECK** in the fixed normal
+  synthetic distribution. Discovery uses consumed E3 IID/appearance banks
+  (2,000 each); confirmation uses one new2,000-scene IID bank. No training or new certification.
+- Fresh fixed-selected pooling label changes3.22%; fixed-footprint property
+  precision sensitivity0.15%. Pooled oracle loses63/2,000 safe opportunities;
+  actual supervision-target oracle loses54/2,000. Stable-reference loss61/2,000
+  has exact one-sided lower2.2869% >1%.
+- Fresh small/larger-margin boundary groups:40.57%/3.26% label changes; lower
+  enrichment26.0586pp >10pp. All68 changed scenes only conservative, exact lower94.1566% >90%.
+- Direction addendum recorded after job submission but before new outcomes;
+  original boundary-degenerate bootstrap is retained, not used as population certainty.
+  Three claim-level budgets .05/3; crossed inference limited by five model seeds.
+- Six tests; scalar replay52,000 discovery +26,000 confirmation decisions;
+  blockwise costs768+384, all zero difference; five fixed checkpoints unchanged.
+- Scientific boundaries: basic covariance identity and decision-aware evaluation
+  are not new. Conditional footprint sensitivity is not continuum truth.
+  No universal low-resolution impossibility, no cross-task or physical safety claim.
+  RELLIS remains closed, and this confirmation is now consumed.
+- [Progress](ORACLE_AGGREGATION_PROGRESS_2026-09-12.md),
+  [source/protocols](../research/oracle_aggregation_20260912/README.md),
+  [final verification](../research/oracle_aggregation_20260912/artifacts/confirmation_verification/VERIFICATION.json).
+
 ## 2026-09-12 — Bounded RELLIS measurement-interface revision
 
 - Registry scope: **PILOT_ONLY / STOP_PREREQUISITES_UNCERTAIN**. Early evidence-based

@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-09-12T21:04:46.139811+00:00",
+  "scene": "independent:26110303:0",
+  "selection": "first IID scene before inspecting results",
+  "checkpoint_sha256": "383cc488cf81771567c5fa37383b7c8d1d525cf81275a157bc26570bad45c827",
+  "cpu_replay_cost_max_abs": 1.2706927515260258e-05,
+  "exposure_markers": "stored E3 GPU predictions",
+  "contours": "CPU replay probability=.5",
+  "script_sha256": "4088a056d92da2f7fc6a4efc002d147966739737925f4ee90b95c72537102e96"
+}

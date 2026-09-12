@@ -5,6 +5,10 @@ The primary manuscript is [manuscript.md](manuscript.md).
 
 | Claim in the paper | Evidence | Scope and counter-evidence retained |
 |---|---|---|
+| Perfect coarse attributes can still change actual usable decisions | Common-footprint discovery on 4,000 consumed scenes; one fresh 2,000 IID bank: pooled oracle loses 63 safe opportunities, target64 oracle loses 54 | Fixed synthetic distribution, public formula and candidate family; no general impossibility or prevalence claim |
+| Pooling effects exceed fixed-footprint property sensitivity | Fresh fixed-selected label changes 3.22%; finer-property check 0.15%; 61/2,000 stable-reference lost opportunities, exact lower 2.29% | Conditional on the 512 footprint; no exact continuum guarantee |
+| Selected-action pooling flips are mainly conservative and enriched near overlapping boundaries with small margins | Fresh 68/68 changed scenes only conservative, exact lower 94.16%; small/larger margin rates 40.57%/3.26%, lower enrichment 26.06 pp | Direction addendum after job submission but before new outcomes; fixed-model scene estimand differs from degenerate bootstrap; only five model seeds |
+| Mean error can hide opposing model and measurement components | Signed terms telescope; discovery appearance mean total −.000108 with absolute .003102 | Not additive causal shares; learned model accepts more unsafe outcomes than target oracle |
 | Zero acceptance is not universal candidate infeasibility in the synthetic case | Exact four-candidate oracle; new-appearance feasibility 80.78% under direct 512 | Restricted candidate set; static synthetic cost, not physical path feasibility |
 | Measurement can change apparent risk without changing a model | 256/512 stability; low16/reference danger-label differences about 2.6%–3.3% | Different cost discretizations, not automatically wrong historical labels; candidate-entry denominator |
 | Output postprocessing changes accepted risk at fixed weights | Consumed new-appearance conditional unsafe 4.70% → 1.73% at common reference | Acceptance changes too; new E3 −2 arm itself has empirical 2.85% unsafe, so −2 is not a universal failure cause |
@@ -23,12 +27,15 @@ already explicit in [Egocentric Conformal Prediction](https://arxiv.org/html/250
 decision loss. [Learn then Test](https://arxiv.org/html/2110.01052v5) supplies the
 selective-risk framework used here. [Perceive with Confidence](https://arxiv.org/html/2403.08185v2)
 addresses learned perception and safe planning with closed-loop considerations.
-The manuscript positions the contribution as an empirical attribution study,
-not a new theory or control framework.
+[Smart Predict, then Optimize](https://arxiv.org/abs/1710.08005v5) already separates
+prediction and downstream decision error. The manuscript tests one spatial
+interface and its prospective decision consequences; neither this general
+distinction nor the elementary covariance identity is new.
 
 ## Artifact integrity
 
 The original [three-experiment report](../../research/pro_decision_round_20260912/artifacts/final_report/PAPER_ADDENDUM.md)
-and its manifests are preserved. The new manuscript only reorganizes the
-interpretation of these established results. The external study has its own
+and its manifests are preserved. The new manuscript adds separate oracle
+discovery and one prospective IID confirmation without rewriting old results
+or certificates. The external study has its own
 source, protocol, data-access record and computational jobs.

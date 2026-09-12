@@ -1,0 +1,8 @@
+{
+  "at_utc": "2026-09-12T20:45:28.218931+00:00",
+  "sources": {
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/decompose.py": "a2b59ec1e32a1cac1c50d76e138cf54e319bec6cdb006d90eb749a9dd0de7158",
+    "/gpfs/projects/p33100/siosio/hazard_oracle_aggregation_20260912/research/oracle_aggregation_20260912/protocol.json": "5b09f2bb772763ca9d324301ed79f3b15b20b936bc701d84000fcef6a2817457"
+  },
+  "already_consumed": true
+}
