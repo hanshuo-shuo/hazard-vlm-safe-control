@@ -1,0 +1,63 @@
+{
+  "schema_version": "exp01b-simulator-field-v1",
+  "seed": 20260830,
+  "image_size": 64,
+  "field_size": 16,
+  "splits": {
+    "train": {
+      "scene_seed": 1101,
+      "scene_count": 800,
+      "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"],
+      "risk_cards_seen": ["A", "B", "C"]
+    },
+    "validation": {
+      "scene_seed": 1201,
+      "scene_count": 100,
+      "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"],
+      "risk_cards_seen": ["A", "B", "C"]
+    },
+    "iid": {
+      "scene_seed": 1301,
+      "scene_count": 200,
+      "appearance_families": ["aqua_sand", "blue_slate", "teal_clay"],
+      "evaluation_cards": ["A", "B", "C", "D"]
+    },
+    "appearance_ood": {
+      "scene_seed": 1401,
+      "scene_count": 200,
+      "appearance_families": ["violet_night", "silver_neon"],
+      "evaluation_cards": ["A", "B", "C", "D"]
+    },
+    "joint_ood": {
+      "scene_seed": 1501,
+      "scene_count": 200,
+      "appearance_families": ["indigo_lime", "monochrome_wave"],
+      "evaluation_cards": ["A", "B", "C", "D"],
+      "primary_held_out_card": "D"
+    }
+  },
+  "appearance_contract": {
+    "iid_reuses_train_rendering_families": true,
+    "appearance_ood_families_disjoint_from_train": true,
+    "joint_ood_families_disjoint_from_train_and_appearance_ood": true,
+    "terrain_erasure_uses_renderer_before_compositing": true
+  },
+  "training": {
+    "encoder": "torchvision_resnet18_weights_none",
+    "decoder_output_stride": 4,
+    "loss": "binary_cross_entropy_plus_soft_dice",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "max_epochs": 24,
+    "patience": 6
+  },
+  "evaluation": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260831,
+    "false_safe_threshold": 0.02,
+    "dangerous_excess_margin": 0.01,
+    "erasure_scene_count_per_split": 100,
+    "irrelevant_swap_scene_count_per_split": 100
+  }
+}

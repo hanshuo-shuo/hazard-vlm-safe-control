@@ -4,6 +4,8 @@ Updated: 2026-09-12.
 
 ## Current reading
 
+- [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)：新增六模型配对实验、位置依赖的修复、公式对照与英文论文草稿；
+- [`../paper/compositional_visual_risk/manuscript.md`](../paper/compositional_visual_risk/manuscript.md)：完整英文研究草稿，明确保留开发诊断与正式证据的边界；
 - [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)：Quest 资源、真实 VLM 检查、当前标签问题及远端分支补充进展；
 - [`C3_QUEST_RESULTS_2026-09-12.json`](C3_QUEST_RESULTS_2026-09-12.json)：模型版本、作业、131 次调用和旧 Quest 结果的数值索引；
 - [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)：本轮已执行工作、实际结果、复现命令与下一步资源；

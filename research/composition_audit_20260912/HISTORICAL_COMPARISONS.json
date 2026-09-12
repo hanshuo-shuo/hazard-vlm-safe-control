@@ -1,0 +1,372 @@
+{
+  "reference_comparator_unmodified": true,
+  "scope": "development loop KEEP/DISCARD, not publication approval",
+  "verified_historical_array_count": 17,
+  "inputs": {
+    "ar03-calibrated-polarity": {
+      "results_sha256": "e01b65ace8a5ec3aca3bccf07db53f0fef97deea340792220ce904e7dbd07f6c",
+      "per_scene_metrics_sha256": "7525734464cfec51e1720974e2ab00d74249dbb668d1674dc54ac1af725aaafc"
+    },
+    "ar03-calibrated-polarity-confirm": {
+      "results_sha256": "b5894b84dba78640997b43712b5438937d975b732f69f6ea35894cf3ba3238dd",
+      "per_scene_metrics_sha256": "1ccfe6b77fff73d1c839480d01aa19bc3fb7434e11cd947a9a05a2fd5aa2c7a0"
+    },
+    "ar04-stronger-background-calibration": {
+      "results_sha256": "20cf62b8ecfaa71974c0d5108190da06fcae45508d347e3b89cdd6c06305f622",
+      "per_scene_metrics_sha256": "00e677e67bc9c2f81bc3dc4255d72e3686e9d49ec2074c0a7355c3eb5ab3eb2b"
+    },
+    "ar05-runtime-margin": {
+      "results_sha256": "eb21388f37b7b19200b678292e65132f59a9afc84f295f6e4f55cc18736284a3",
+      "per_scene_metrics_sha256": "e6767fb70c52a110c854a4cd30a06b78d8d934a5dee76a95fed78d5df9adc739"
+    },
+    "ar05-runtime-margin-confirm": {
+      "results_sha256": "559d7fecf2370282f99e41b3011434ea5467b6d503e2fb7faa49269618764341",
+      "per_scene_metrics_sha256": "8b595e66344899db340fa8d6fcef8af1b43915641a80e558016b842db2b535b7"
+    },
+    "ar06-linear-lr-scaling": {
+      "results_sha256": "3fec2c6ab892d4ebdf9a229a3ea259d723bf9b05033f6269f9504c4863e4e3af",
+      "per_scene_metrics_sha256": "84304424a6cb14932ec65c01fb992b6f032364d9936b05ee3c08d30e49594afe"
+    },
+    "ar07-exposure-consistent-loss-fix": {
+      "results_sha256": "8e7929b24e04875d131a60934f425da0a56ae7a2e973d5c5d5510d2a31b4827e",
+      "per_scene_metrics_sha256": "a5e599689c15d79600cfa3a245f6f1ef9d2b494ae633543be2cbfe80b37eb285"
+    },
+    "ar08-relative-exposure-loss": {
+      "results_sha256": "4f97278ff852a10dbebbe719d9f6dfb7383cf524bcc37969752073127fef680b",
+      "per_scene_metrics_sha256": "4def12ed4fe4a57db01cd4b180b1f15fefc5775a2c946c3d2ac235ef7a40b657"
+    },
+    "ar09-tail-weight-average": {
+      "results_sha256": "d9d8ea2d0caab0290f77fc56ef02dcd9226f7f932cd68451b2b60b8a2c8abbc1",
+      "per_scene_metrics_sha256": "b3cdd939d5c87d8d9c18afb5ecb5d4f2426f94e83035d0e1feeba0e08504415a"
+    },
+    "ar10-cosine-schedule": {
+      "results_sha256": "fe246c06ab233449682156124a33f82de56c04caebc0ca95d5bdffd00e82dccd",
+      "per_scene_metrics_sha256": "abf25688d60221bea462771f16f9da1247eec1e359baf54cccfe43049b37d62e"
+    },
+    "ar10-cosine-schedule-confirm": {
+      "results_sha256": "fca4d69036a09fadb6ec2e5337a14dff799f2026a2906035840db3777732e69d",
+      "per_scene_metrics_sha256": "fb8099bff6f10ec845dc65a82cb67a0e614c82f7980c827a61474402ddd80832"
+    },
+    "ar11-stronger-weight-decay": {
+      "results_sha256": "2f3f486b183c4441a0da7f75c1ff92f1a70d33c0f0bef45d7c5ad6bb67d07d5a",
+      "per_scene_metrics_sha256": "9a79ca0e32f9514c3ae91188be612098ad2312c4451481350d7a78865ca51892"
+    },
+    "ar12-polarity-balance": {
+      "results_sha256": "e061475447a06a7d197a30116bab1db4dc5641ee809a00ee8f86ab094349b8fc",
+      "per_scene_metrics_sha256": "1a4d7729b3ee8f3c79e8d8dfcf1fdb92fd6f0ab226c5ac0de64fa60f41c895f3"
+    },
+    "ar13-channel-permutation-balance": {
+      "results_sha256": "48eadc7fc12eb508036342099da83f461e107de3d637d9b44f0835c35a8f2844",
+      "per_scene_metrics_sha256": "927be5d6a15cf338b67ac359a9c6afb6a4eb09a472b60bfdd78c95fffcd15498"
+    },
+    "baseline-confirm-v2": {
+      "results_sha256": "c6de99a0a0820ebdc338fde220998e375c666c4c13250cf73041816867326a41",
+      "per_scene_metrics_sha256": "8727e4cd6e373f59f6e2918988116329fc7708098ef0bda3a739d3b66e23c339"
+    },
+    "baseline-quick-v2": {
+      "results_sha256": "0c4466e87d0bcaff03c582671dc51bae4fe79f6cc75929b43d16267823f1c5cf",
+      "per_scene_metrics_sha256": "7c2f1e4d6e15d9b62a34fca8cc7069d7adb71b294adf85957c4b0e8f8a818be0"
+    },
+    "baseline-smoke-v2": {
+      "results_sha256": "2e88820e0e02a01af9ab193ef12f8f2beb7ff5add26ba9f30501bfcc53868562",
+      "per_scene_metrics_sha256": "a51e48dca77819657c5f8e6344950d616de2ef6c7f95d4fd697c0d6e070836bf"
+    }
+  },
+  "comparisons": [
+    {
+      "schema_version": "exp01b-r2-comparison-v1",
+      "experiment_id": "EXP-01B-R2-DEV",
+      "status": "DISCARD",
+      "tier": "confirm",
+      "baseline_run_id": "baseline-confirm-v2",
+      "candidate_run_id": "ar03-calibrated-polarity-confirm",
+      "scientific_authority": false,
+      "checks": {
+        "primary": {
+          "baseline": 0.0074602331070935946,
+          "candidate": 0.0006913321954121959,
+          "reduction": 0.006768900911681398,
+          "minimum_required": 0.0
+        },
+        "non_regression": {
+          "appearance_false_safe": {
+            "regression": -0.34631313131313135,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_false_safe": {
+            "regression": -0.07541666666666667,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_pair_ranking": {
+            "regression": -0.16962962962962969,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_pair_ranking": {
+            "regression": -0.029444444444444495,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_field_miou": {
+            "regression": -0.7595616990308434,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_field_miou": {
+            "regression": -0.448262067345096,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_regret": {
+            "regression": -0.0021278683915063445,
+            "maximum": 0.0005,
+            "passed": true
+          },
+          "iid_regret": {
+            "regression": -1.5566777115974496e-05,
+            "maximum": 0.0005,
+            "passed": true
+          }
+        },
+        "shortcuts": {
+          "image_shuffle": {
+            "value": 0.3533333333333334,
+            "minimum": 0.1305555555555556,
+            "passed": true
+          },
+          "terrain_erasure": {
+            "value": 1.0,
+            "minimum": 0.95,
+            "passed": true
+          },
+          "irrelevant_swap": {
+            "value": 0.9825,
+            "minimum": 0.99,
+            "passed": false
+          }
+        },
+        "resources": {
+          "parameter_ratio": 1.0,
+          "parameter_ratio_max": 1.25,
+          "runtime_ratio": 1.4856315281622519,
+          "runtime_ratio_max": 1.5
+        },
+        "seed_win_fraction": 1.0,
+        "paired_primary_bootstrap": {
+          "mean_reduction": 0.006768900911681397,
+          "paired_scene_bootstrap_ci95": [
+            0.005787414755468464,
+            0.007804374858932437
+          ],
+          "scene_count": 200,
+          "model_seeds": [
+            20260830,
+            20260843,
+            20260871
+          ]
+        }
+      },
+      "reasons": [
+        "shortcut guard failed: irrelevant_swap"
+      ]
+    },
+    {
+      "schema_version": "exp01b-r2-comparison-v1",
+      "experiment_id": "EXP-01B-R2-DEV",
+      "status": "KEEP",
+      "tier": "confirm",
+      "baseline_run_id": "baseline-confirm-v2",
+      "candidate_run_id": "ar05-runtime-margin-confirm",
+      "scientific_authority": false,
+      "checks": {
+        "primary": {
+          "baseline": 0.0074602331070935946,
+          "candidate": 0.0005920026092199525,
+          "reduction": 0.006868230497873642,
+          "minimum_required": 0.0
+        },
+        "non_regression": {
+          "appearance_false_safe": {
+            "regression": -0.34381313131313135,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_false_safe": {
+            "regression": -0.07333333333333333,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_pair_ranking": {
+            "regression": -0.17277777777777792,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_pair_ranking": {
+            "regression": -0.029722222222222316,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_field_miou": {
+            "regression": -0.7626371427832314,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_field_miou": {
+            "regression": -0.440220594970825,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_regret": {
+            "regression": -0.0019531162027335738,
+            "maximum": 0.0005,
+            "passed": true
+          },
+          "iid_regret": {
+            "regression": -5.189575411562123e-05,
+            "maximum": 0.0005,
+            "passed": true
+          }
+        },
+        "shortcuts": {
+          "image_shuffle": {
+            "value": 0.360138888888889,
+            "minimum": 0.1305555555555556,
+            "passed": true
+          },
+          "terrain_erasure": {
+            "value": 1.0,
+            "minimum": 0.95,
+            "passed": true
+          },
+          "irrelevant_swap": {
+            "value": 0.99,
+            "minimum": 0.99,
+            "passed": true
+          }
+        },
+        "resources": {
+          "parameter_ratio": 1.0,
+          "parameter_ratio_max": 1.25,
+          "runtime_ratio": 1.3686602706354276,
+          "runtime_ratio_max": 1.5
+        },
+        "seed_win_fraction": 1.0,
+        "paired_primary_bootstrap": {
+          "mean_reduction": 0.006868230497873639,
+          "paired_scene_bootstrap_ci95": [
+            0.005896909412584796,
+            0.007894766183554466
+          ],
+          "scene_count": 200,
+          "model_seeds": [
+            20260830,
+            20260843,
+            20260871
+          ]
+        }
+      },
+      "reasons": []
+    },
+    {
+      "schema_version": "exp01b-r2-comparison-v1",
+      "experiment_id": "EXP-01B-R2-DEV",
+      "status": "DISCARD",
+      "tier": "confirm",
+      "baseline_run_id": "baseline-confirm-v2",
+      "candidate_run_id": "ar10-cosine-schedule-confirm",
+      "scientific_authority": false,
+      "checks": {
+        "primary": {
+          "baseline": 0.0074602331070935946,
+          "candidate": 0.0006001228965714205,
+          "reduction": 0.006860110210522174,
+          "minimum_required": 0.0
+        },
+        "non_regression": {
+          "appearance_false_safe": {
+            "regression": -0.34395202020202026,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_false_safe": {
+            "regression": -0.07250000000000001,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_pair_ranking": {
+            "regression": -0.17240740740740745,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "joint_pair_ranking": {
+            "regression": -0.03166666666666673,
+            "maximum": 0.01,
+            "passed": true
+          },
+          "appearance_field_miou": {
+            "regression": -0.7669898892532537,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_field_miou": {
+            "regression": -0.44183170616853173,
+            "maximum": 0.02,
+            "passed": true
+          },
+          "joint_regret": {
+            "regression": -0.002086227376014145,
+            "maximum": 0.0005,
+            "passed": true
+          },
+          "iid_regret": {
+            "regression": -5.179354171507629e-05,
+            "maximum": 0.0005,
+            "passed": true
+          }
+        },
+        "shortcuts": {
+          "image_shuffle": {
+            "value": 0.3595833333333335,
+            "minimum": 0.1305555555555556,
+            "passed": true
+          },
+          "terrain_erasure": {
+            "value": 1.0,
+            "minimum": 0.95,
+            "passed": true
+          },
+          "irrelevant_swap": {
+            "value": 0.9875,
+            "minimum": 0.99,
+            "passed": false
+          }
+        },
+        "resources": {
+          "parameter_ratio": 1.0,
+          "parameter_ratio_max": 1.25,
+          "runtime_ratio": 1.3902611972866243,
+          "runtime_ratio_max": 1.5
+        },
+        "seed_win_fraction": 1.0,
+        "paired_primary_bootstrap": {
+          "mean_reduction": 0.0068601102105221735,
+          "paired_scene_bootstrap_ci95": [
+            0.005886003137699736,
+            0.007893322380847698
+          ],
+          "scene_count": 200,
+          "model_seeds": [
+            20260830,
+            20260843,
+            20260871
+          ]
+        }
+      },
+      "reasons": [
+        "shortcut guard failed: irrelevant_swap"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Generated paper PDFs contain binary streams even when the header looks textual.
+output/pdf/*.pdf binary
+paper/compositional_visual_risk/figures/*.pdf binary

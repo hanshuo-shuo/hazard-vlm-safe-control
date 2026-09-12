@@ -1,0 +1,21 @@
+{
+  "schema_version": "exp01b-r2-protected-files-v1",
+  "note": "The autonomous loop must stop rather than refresh this manifest.",
+  "sha256": {
+    "autoresearch/exp01b_r2/config.json": "165e43396a2428018ccf3c4f9f93f1bdc480178066ee77c7e5194f932f50f103",
+    "autoresearch/exp01b_r2/prepare_dev.py": "49f8ec6e5014c82d5d864c505855f37b6223596f933a4cf9e5c394ff376e4bc6",
+    "autoresearch/exp01b_r2/evaluator.py": "d550a7e9d061190b89671c977b9882e5192a50c1e0670ee820910b6a39835ae2",
+    "autoresearch/exp01b_r2/compare_runs.py": "283a49ede19ddac835b33a15a43d21b94284b3bf626c35eb580589b4c39e1f08",
+    "autoresearch/exp01b_r2/run_dev.py": "5d9a1cbb647ad9ec2540a55682358d6a1e2b7b68d27217ea5655f9e65c858b39",
+    "autoresearch/exp01b_r2/integrity.py": "ce482444a3cb0ff1b4414365dc962a6f3546d4a746ebdb66de10b1301fd1a3af",
+    "autoresearch/exp01b_r2/program.md": "f0ce87759e5337b9b2e7aeaf06a8ccc0631e70ab1cfddaf4f6330abef4d0c271",
+    "setup/autoresearch_exp01b_quest.sbatch": "71eb5a732340451898c99df1065a94297ff356bef23c451fa1dd1a091c5c895a",
+    "evaluation/simulator_spatial_field.py": "d0f4db69224a5d08522480274cdcdf78128502d8cf067371866d68307986c872",
+    "evaluation/oracle_spatial_exposure.py": "466c13bd661fb7bab15570fdeb219b016f4694d9616e5e801fe8cee5c3e708e9",
+    "evaluation/oracle_spatial_decision.py": "22f59d6eb7cfe464da84683bd6dfa1207328decc9030d45fa2fed496e8d6b39f",
+    "configs/exp01b_splits.json": "99ab1d2b3b8e2b3943fcce2d8df96abba89c573988bbceea6b7482dabceb26aa",
+    "results/exp01ad_retrained_replication/checkpoints/dense_cost.pt": "8020f13bd2011467096b5fe06bc60c9ea01ce3ded8d9bfd0ce67ab746f79fe59",
+    "results/exp01ad_retrained_replication/checkpoints/factorized_no_cf.pt": "5212b97bfbd50a229717171da81c25e48da37f120637b60c0e421b5c47582407",
+    "results/exp01ad_retrained_replication/checkpoints/factorized_full.pt": "d4d871b51865d38ab0aacefe5f9f7ccfb3cfa56053920297a7fa81062f05e6d4"
+  }
+}

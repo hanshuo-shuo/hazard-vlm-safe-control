@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pages": 9,
+  "pdf_sha256": "6b99640feaec6b8fe54a0467641251b456dcd540181714b21b141d6cea0823c3",
+  "rendered_all_pages": true,
+  "missing_glyphs": [],
+  "out_of_margin_characters": [],
+  "unique_reference_links": 8,
+  "numeric_source": "research/composition_audit_20260912/SUMMARY.json",
+  "notes": [
+    "All nine pages visually reviewed at rendered resolution.",
+    "Pixel-output reproducibility is documented separately; paper metrics use frozen GPU predictions."
+  ]
+}

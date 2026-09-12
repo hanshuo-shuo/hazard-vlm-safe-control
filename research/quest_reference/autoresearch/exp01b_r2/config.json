@@ -1,0 +1,78 @@
+{
+  "schema_version": "exp01b-r2-autoresearch-v1",
+  "experiment_id": "EXP-01B-R2-DEV",
+  "artifact_status": "DEVELOPMENT_ONLY",
+  "scientific_authority": false,
+  "formal_holdout_available_to_loop": false,
+  "source_split_file": "configs/exp01b_splits.json",
+  "source_relation_checkpoints": {
+    "dense_cost": "results/exp01ad_retrained_replication/checkpoints/dense_cost.pt",
+    "factorized_no_cf": "results/exp01ad_retrained_replication/checkpoints/factorized_no_cf.pt",
+    "factorized_full": "results/exp01ad_retrained_replication/checkpoints/factorized_full.pt"
+  },
+  "tiers": {
+    "smoke": {
+      "train_scenes": 12,
+      "validation_scenes": 6,
+      "iid_scenes": 8,
+      "appearance_ood_scenes": 8,
+      "joint_ood_scenes": 8,
+      "model_seeds": [20260830],
+      "max_epochs": 1,
+      "max_train_seconds_per_seed": 120,
+      "shortcut_scenes": 4,
+      "bootstrap_resamples": 200
+    },
+    "quick": {
+      "train_scenes": 800,
+      "validation_scenes": 100,
+      "iid_scenes": 100,
+      "appearance_ood_scenes": 100,
+      "joint_ood_scenes": 100,
+      "model_seeds": [20260830],
+      "max_epochs": 8,
+      "max_train_seconds_per_seed": 600,
+      "shortcut_scenes": 32,
+      "bootstrap_resamples": 1000
+    },
+    "confirm": {
+      "train_scenes": 800,
+      "validation_scenes": 100,
+      "iid_scenes": 200,
+      "appearance_ood_scenes": 200,
+      "joint_ood_scenes": 200,
+      "model_seeds": [20260830, 20260843, 20260871],
+      "max_epochs": 24,
+      "max_train_seconds_per_seed": 1200,
+      "shortcut_scenes": 100,
+      "bootstrap_resamples": 10000
+    }
+  },
+  "objective": {
+    "primary_split": "appearance_ood",
+    "primary_arm": "factorized_no_cf",
+    "primary_metric": "regret",
+    "direction": "minimize",
+    "minimum_quick_improvement": 0.0001,
+    "confirm_requires_bootstrap_lower_bound_above_zero": true,
+    "confirm_seed_win_fraction_min": 0.6666666667
+  },
+  "guardrails": {
+    "false_safe_absolute_regression_max": 0.01,
+    "pair_ranking_absolute_regression_max": 0.01,
+    "field_miou_absolute_regression_max": 0.02,
+    "joint_ood_regret_absolute_regression_max": 0.0005,
+    "iid_regret_absolute_regression_max": 0.0005,
+    "image_shuffle_pair_delta_min": 0.10,
+    "image_shuffle_delta_regression_max": 0.05,
+    "terrain_erasure_positive_rate_min": 0.95,
+    "irrelevant_swap_accuracy_min": 0.99,
+    "parameter_multiplier_max": 1.25,
+    "runtime_multiplier_max": 1.50
+  },
+  "loop_limits": {
+    "maximum_attempts": 20,
+    "maximum_wall_hours": 12,
+    "stop_after_consecutive_non_keeps": 8
+  }
+}

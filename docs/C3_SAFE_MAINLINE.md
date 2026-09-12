@@ -19,6 +19,11 @@ semantic/physical critics 和 SAC actor 尚未运行，完整 Gate 0–2 均未�
 详见 [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)。本文件保留
 此分支的目标协议，尚未将不同分支的贡献定义或 gate 合并。
 
+同日后续完成属性位置交换与数据平衡诊断：普通 appearance mIoU 0.9454 的模型在交换后为 0，
+位置平衡后交换 mIoU 达到 0.9172，配对决策正确率为 85.33%。同感知输入下学习关系头与已知
+公式的主要 regret 相同，尚不支持 CF loss 的必要性。见 [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)。
+这些结果帮助修订待验证假设；下述目标矩阵与正式 gates 没有被降低，工作论文仍标为开发诊断。
+
 以下矩阵与阈值保留为正式方法的目标协议；开发检查与小数据对照不降低这些要求。
 当前执行细节（q95、圆形足迹、开发 seeds）单独冻结在
 `configs/c3_safe_foundation.json`，不把开发集冒充正式 held-out 集。

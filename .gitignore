@@ -32,3 +32,11 @@ data/
 # C3 development runs retain local datasets and exact source snapshots.
 # Reproduce them with scripts/*c3*.py; checked-in summaries live in docs/.
 /results/c3_*/
+
+# Three tiny, hash-verified reference heads make the composition audit executable.
+!research/quest_reference/results/exp01ad_retrained_replication/checkpoints/dense_cost.pt
+!research/quest_reference/results/exp01ad_retrained_replication/checkpoints/factorized_no_cf.pt
+!research/quest_reference/results/exp01ad_retrained_replication/checkpoints/factorized_full.pt
+
+# PDF render caches and intermediate QA scratch.
+/tmp/pdfs/

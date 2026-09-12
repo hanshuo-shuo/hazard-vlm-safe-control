@@ -1,0 +1,96 @@
+{
+  "experiment_id": "COMPOSITION-REPAIR-20260912",
+  "status": "FROZEN_BEFORE_REPAIR_EXECUTION",
+  "scope": "Adaptive post-discovery diagnostic, declared after first baseline seed; no formal holdout claim",
+  "reference_train_sha256": "838f49158b7c227fcd1ef27758c78e123b39d0c018b1613bb9d7415c9bff4844",
+  "model_seeds": [
+    20260912,
+    20260925,
+    20260953
+  ],
+  "train": {
+    "scene_seed": 1101,
+    "scene_count": 800,
+    "appearance_families": [
+      "aqua_sand",
+      "blue_slate",
+      "teal_clay"
+    ]
+  },
+  "validation": {
+    "scene_seed": 1201,
+    "scene_count": 100,
+    "appearance_families": [
+      "aqua_sand",
+      "blue_slate",
+      "teal_clay"
+    ]
+  },
+  "fresh_splits": {
+    "fresh_iid": {
+      "scene_seed": 2026091201,
+      "scene_count": 200,
+      "appearance_families": [
+        "aqua_sand",
+        "blue_slate",
+        "teal_clay"
+      ]
+    },
+    "fresh_appearance": {
+      "scene_seed": 2026091202,
+      "scene_count": 200,
+      "appearance_families": [
+        "violet_night",
+        "silver_neon"
+      ]
+    },
+    "fresh_joint": {
+      "scene_seed": 2026091203,
+      "scene_count": 200,
+      "appearance_families": [
+        "indigo_lime",
+        "monochrome_wave"
+      ]
+    }
+  },
+  "budget": {
+    "max_epochs": 24,
+    "max_train_seconds_per_seed": 1200
+  },
+  "intervention": "Swap both physical property channels before rendering. Keep candidate footprints, geometry, background render seed and card fixed. Randomly permute candidate order identically within each original/swapped pair. No twin examples enter training or validation.",
+  "arms": [
+    "cards_only",
+    "role_metadata_diagnostic",
+    "mean_field_no_rgb",
+    "dense_cost",
+    "factorized_no_cf",
+    "factorized_full",
+    "predicted_formula",
+    "oracle_formula",
+    "oracle_learned"
+  ],
+  "role_metadata_diagnostic": "Privileged diagnostic using training mean risk by generator role and card; not asserted to be an actual input to the learned methods.",
+  "mean_field_no_rgb": "Training mean spatial field pooled along each supplied candidate footprint, composed with public formula. No test RGB or truth.",
+  "primary": "Descriptive repair-versus-original changes on the already consumed original/swapped probes; scene-bootstrap intervals conditional on three fixed seeds. Original analytic-composition comparison is retained as secondary.",
+  "secondary": [
+    "all-card and D-only risk metrics",
+    "field IoU",
+    "false-safe eligible counts and micro rate",
+    "paired both-decisions-correct probability on unique-optimum-changing cards",
+    "original-to-swapped degradation",
+    "factorized_full versus factorized_no_cf"
+  ],
+  "uncertainty": "10000 paired scene bootstrap resamples, preserving original/swapped pairs and averaging the three training seeds first; conditional on these three seeds. Also report every seed.",
+  "bootstrap_seed": 2026091299,
+  "false_safe_threshold": 0.02,
+  "dangerous_excess_margin": 0.01,
+  "semantic_protocol": "Legacy two-property mean-exposure union cost only; do not pool with three-property q95 C3 data.",
+  "checkpoint_policy": "Export every newly trained visual checkpoint, exact prediction arrays, targets, candidate footprints, training history and source hashes. No best-seed selection.",
+  "stopping_rule": "Run each listed seed once with the captured recipe. No tuning on fresh probes. Failures are retained; reruns require a separate documented execution reason.",
+  "intervention_training": "Exactly 400/800 train and 50/100 validation scene property channels swapped before rerendering; selection seeds 2026091251/2026091252. Same geometry counts, model seeds, captured recipe and epoch limit.",
+  "fixed_controls": "No-RGB mean-field, cards and role-metadata controls remain fitted to the original reference training set for direct comparability. They are not refitted to balanced data.",
+  "source_sha256": {
+    "run_audit.py": "644bf1a6e804eae262fd9ef50368e5f578bb4f1cfa412a94913343befada0b46",
+    "run_balanced.py": "d26e6ee1c81803de4e8fa8f69bc65a4a583fd3e018e3b169b4dce0e29cb96b7b"
+  }
+}

@@ -30,11 +30,35 @@
 - Current development record: [`C3_FOUNDATION_PROGRESS.md`](C3_FOUNDATION_PROGRESS.md)
 - Checked-in numerical evidence: [`C3_FOUNDATION_RESULTS_2026-09-09.json`](C3_FOUNDATION_RESULTS_2026-09-09.json)
 - Latest Quest evidence: [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)
+- Latest component audit and paper: [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
 `VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
+
+## 2026-09-12 — Property-intervention audit, data repair, and working paper
+
+- Evidence class: **PILOT_ONLY / DEVELOPMENT_DIAGNOSTIC**; repair is adaptive after the first audit seed.
+- Frozen original protocol: `research/composition_audit_20260912/protocol.json`.
+- Separate repair protocol: `research/composition_audit_20260912/balanced_repair/protocol.json`.
+- New runs: three captured-recipe models and three data-repair models; all six checkpoints exported.
+- Scene count: 600 pairs / 1,200 unique images, shared across models; not six independent test sets.
+- Appearance field mIoU: original training 0.945350 on original layouts, 0 on swapped layouts.
+- Balanced-data repair: appearance paired correctness 0 → 0.853333; swapped mIoU 0 → 0.917155.
+- Tradeoff: original-layout mIoU 0.945350 → 0.832678; balanced false-safe 0.023093 → 0.029798.
+- Learned/no-CF, learned/CF and analytic composition have identical appearance regret on both training conditions.
+- New local VLM/provider calls: **0**; all six models use simulator supervision.
+- New source and summaries: `research/composition_audit_20260912/`; raw arrays/checkpoints: `results/c3_composition_audit_20260912/`.
+- Quest root: `/projects/p33100/siosio/hazard_composition_audit_20260912`; completed arrays 6161267 and 6161459.
+- Historical re-audit: all 15 protected hashes and 17 recorded scene-array hashes match. The unmodified
+  comparator yields AR05 KEEP, AR03/AR10 DISCARD for irrelevant-property guard failures.
+- Working paper: `paper/compositional_visual_risk/manuscript.md`; development status is explicit throughout.
+
+No old result has been overwritten or promoted. The copied source is the final AR13 recipe, not recovered
+AR03/AR05 model code or a reproduction of unavailable historical visual checkpoints. Role metadata is a
+privileged diagnostic control, not an established neural-input leak. Mean-exposure two-channel metrics
+must not be pooled with the local three-channel q95 C³-Safe protocol. Gate 0–2 remain unpassed.
 
 ## 2026-09-12 — Quest resources and real teacher diagnostics
 
