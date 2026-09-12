@@ -1,5 +1,14 @@
 # Current paper materials
 
+The latest round follows Pro's three-experiment decision protocol and supports
+simple postprocessing/measurement repair plus existing selective-risk control.
+The predeclared fixed restored-bias baseline already passes the screening gate;
+the result is not a new safety algorithm. Current materials:
+
+- [Latest English paper addendum](../../research/pro_decision_round_20260912/artifacts/publication/PAPER_ADDENDUM.md).
+- [Chinese research decision](../../docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md).
+- [Three-experiment protocol and reproduction](../../research/pro_decision_round_20260912/README.md).
+
 The working paper is being extended through a prospectively frozen follow-up.
 The original draft and PDF remain an identifiable record of the six-model
 adaptive diagnostic; their artifact manifest is preserved.

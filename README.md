@@ -1,20 +1,23 @@
-# C³-Safe: Capability–Constraint Counterfactual Semantic Safety Distillation
+# C³-Safe research: visual risk measurement and safe acceptance
 
-当前唯一继续开发的科学主线是 **C³-Safe**。它把 VLM 限定为训练期、action-free 的
-环境需求 teacher；测试时不加载 VLM，动作只由小型 constrained policy 输出。
+当前研究重点是**视觉风险的测量、后处理和安全接受**：按照 Pro 的三实验建议，判断为何
+排序泛化改善没有转化为可用的风险接口。原始 C³-Safe 的 VLM 蒸馏与策略学习设想保留，
+本轮不以加入 VLM、关系头或 RL 模块作为贡献目标。
 
-当前状态（2026-09-12）：**已从位置捷径诊断推进到 Quest 上的 15 模型、五种子随机布局确认实验；
-有效的 VLM 蒸馏与策略学习仍未运行。** 新外观/随机布局下，原始、左右平衡、独立随机布局
-训练的配对正确率为 0.89%、76.07%、97.77%；独立训练仍有 9.85% 危险候选漏报，保守校准
-在既定安全阈值下接受率为零。主要比较通过不等于 C³-Safe 安全 gate 通过。
+当前状态（2026-09-12）：**Pro 要求的三实验已全部在 Quest 完成**：五个旧模型无训练审计、
+20 个固定预算的几何×栅格模型，以及独立校准/测试的固定选择器认证。撤销 −2 后处理后的
+固定阈值基线已经得到统计认证；新 IID 测试接受危险率 1.07%，安全机会利用率 96.93%。
+整对残差上界仍零覆盖。当前结论支持简单修复和已有风险控制的恰当应用，不支持新安全算法主张。
 
-全部新计算放在 Quest，数值、源码冻结和权重均保留。此组件研究使用两通道/mean exposure，
-与三通道/q95 主线分开统计。此前基础实现、统一安全记账、两个环境的运动足迹检查和小 CNN
-对照仍保留；Qwen3-VL-8B 的 126 份真实标注仍全部 unknown-only。
+全部新计算放在 Quest，数值、源码冻结和权重均保留。本轮使用共同高分辨率 mean-exposure
+参考，不能与旧 low16 结果或三通道/q95 主线混算。此前的位置捷径审计、基础实现、安全记账、
+两个环境的运动足迹检查与小 CNN 对照仍保留；Qwen3-VL-8B 的 126 份真实标注仍全部 unknown-only。
 尚无 C³-Safe policy checkpoint、合格 teacher 监督集或 `VALIDATED` semantic-safety 结果。
 
 先读：
 
+- [`docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](docs/PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)：最新三实验结果、固定基线认证与停止/收窄决定；
+- [`research/pro_decision_round_20260912/README.md`](research/pro_decision_round_20260912/README.md)：冻结协议、Quest 复现与论文补充稿；
 - [`docs/C3_CONFIRMATION_PROGRESS_2026-09-12.md`](docs/C3_CONFIRMATION_PROGRESS_2026-09-12.md)：最新随机布局确认实验、风险校准失败模式与下一步；
 - [`paper/compositional_visual_risk/CURRENT.md`](paper/compositional_visual_risk/CURRENT.md)：论文草稿与本轮补充材料入口；
 - [`docs/C3_PAPER_PROGRESS_2026-09-12.md`](docs/C3_PAPER_PROGRESS_2026-09-12.md)：上一轮六模型配对审计和位置平衡修复；

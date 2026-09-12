@@ -1,0 +1,3690 @@
+{
+  "status": "COMPLETE",
+  "at_utc": "2026-09-12T16:33:30.105442+00:00",
+  "per_seed": [
+    {
+      "status": "COMPLETE",
+      "at_utc": "2026-09-12T16:31:59.591382+00:00",
+      "seed": 20261117,
+      "scenarios": {
+        "iid__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1618,
+              "unsafe_accepted": 37,
+              "safe_accepted": 1581,
+              "oracle_safe": 1604,
+              "coverage": 0.809,
+              "joint_unsafe": 0.0185,
+              "conditional_unsafe": 0.022867737948084055,
+              "eta": 0.9856608478802993,
+              "oracle_coverage": 0.802,
+              "regret": 0.00017066015514043874
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1551,
+              "unsafe_accepted": 9,
+              "safe_accepted": 1542,
+              "oracle_safe": 1604,
+              "coverage": 0.7755,
+              "joint_unsafe": 0.0045,
+              "conditional_unsafe": 0.005802707930367505,
+              "eta": 0.9613466334164589,
+              "oracle_coverage": 0.802,
+              "regret": 0.00019433045462610805
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1604,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.00019433045462610805
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1619,
+              "unsafe_accepted": 34,
+              "safe_accepted": 1585,
+              "oracle_safe": 1604,
+              "coverage": 0.8095,
+              "joint_unsafe": 0.017,
+              "conditional_unsafe": 0.021000617665225447,
+              "eta": 0.9881546134663342,
+              "oracle_coverage": 0.802,
+              "regret": 0.00019433045462610805
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1604,
+              "oracle_safe": 1604,
+              "coverage": 0.802,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1301,
+            "unsafe_accepted": 21,
+            "upper": 0.031363931910390525,
+            "certified": true
+          }
+        },
+        "target__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "distribution-shift stress test; no risk guarantee",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe_accepted": 60,
+              "safe_accepted": 1608,
+              "oracle_safe": 1632,
+              "coverage": 0.834,
+              "joint_unsafe": 0.03,
+              "conditional_unsafe": 0.03597122302158273,
+              "eta": 0.9852941176470589,
+              "oracle_coverage": 0.816,
+              "regret": 0.00029715070413568014
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe_accepted": 18,
+              "safe_accepted": 1562,
+              "oracle_safe": 1632,
+              "coverage": 0.79,
+              "joint_unsafe": 0.009,
+              "conditional_unsafe": 0.01139240506329114,
+              "eta": 0.9571078431372549,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1663,
+              "unsafe_accepted": 58,
+              "safe_accepted": 1605,
+              "oracle_safe": 1632,
+              "coverage": 0.8315,
+              "joint_unsafe": 0.029,
+              "conditional_unsafe": 0.03487672880336741,
+              "eta": 0.9834558823529411,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1301,
+            "unsafe_accepted": 21,
+            "upper": 0.031363931910390525,
+            "certified": true
+          }
+        },
+        "target__target_adapted": {
+          "certificate_domain": "target",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe_accepted": 60,
+              "safe_accepted": 1608,
+              "oracle_safe": 1632,
+              "coverage": 0.834,
+              "joint_unsafe": 0.03,
+              "conditional_unsafe": 0.03597122302158273,
+              "eta": 0.9852941176470589,
+              "oracle_coverage": 0.816,
+              "regret": 0.00029715070413568014
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe_accepted": 18,
+              "safe_accepted": 1562,
+              "oracle_safe": 1632,
+              "coverage": 0.79,
+              "joint_unsafe": 0.009,
+              "conditional_unsafe": 0.01139240506329114,
+              "eta": 0.9571078431372549,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe_accepted": 18,
+              "safe_accepted": 1562,
+              "oracle_safe": 1632,
+              "coverage": 0.79,
+              "joint_unsafe": 0.009,
+              "conditional_unsafe": 0.01139240506329114,
+              "eta": 0.9571078431372549,
+              "oracle_coverage": 0.816,
+              "regret": 0.0003191621568605489
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1245,
+            "unsafe_accepted": 16,
+            "upper": 0.027294467970448936,
+            "certified": true
+          }
+        }
+      }
+    },
+    {
+      "status": "COMPLETE",
+      "at_utc": "2026-09-12T16:31:59.561859+00:00",
+      "seed": 20261129,
+      "scenarios": {
+        "iid__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1650,
+              "unsafe_accepted": 54,
+              "safe_accepted": 1596,
+              "oracle_safe": 1604,
+              "coverage": 0.825,
+              "joint_unsafe": 0.027,
+              "conditional_unsafe": 0.03272727272727273,
+              "eta": 0.9950124688279302,
+              "oracle_coverage": 0.802,
+              "regret": 0.00017736551729183151
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe_accepted": 20,
+              "safe_accepted": 1564,
+              "oracle_safe": 1604,
+              "coverage": 0.792,
+              "joint_unsafe": 0.01,
+              "conditional_unsafe": 0.012626262626262626,
+              "eta": 0.9750623441396509,
+              "oracle_coverage": 0.802,
+              "regret": 0.00016098856251222277
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1604,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.00016098856251222277
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe_accepted": 20,
+              "safe_accepted": 1564,
+              "oracle_safe": 1604,
+              "coverage": 0.792,
+              "joint_unsafe": 0.01,
+              "conditional_unsafe": 0.012626262626262626,
+              "eta": 0.9750623441396509,
+              "oracle_coverage": 0.802,
+              "regret": 0.00016098856251222277
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1604,
+              "oracle_safe": 1604,
+              "coverage": 0.802,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1282,
+            "unsafe_accepted": 15,
+            "upper": 0.02542434036357327,
+            "certified": true
+          }
+        },
+        "target__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "distribution-shift stress test; no risk guarantee",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe_accepted": 74,
+              "safe_accepted": 1618,
+              "oracle_safe": 1632,
+              "coverage": 0.846,
+              "joint_unsafe": 0.037,
+              "conditional_unsafe": 0.04373522458628842,
+              "eta": 0.991421568627451,
+              "oracle_coverage": 0.816,
+              "regret": 0.00021090034694406628
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe_accepted": 29,
+              "safe_accepted": 1585,
+              "oracle_safe": 1632,
+              "coverage": 0.807,
+              "joint_unsafe": 0.0145,
+              "conditional_unsafe": 0.017967781908302356,
+              "eta": 0.9712009803921569,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe_accepted": 29,
+              "safe_accepted": 1585,
+              "oracle_safe": 1632,
+              "coverage": 0.807,
+              "joint_unsafe": 0.0145,
+              "conditional_unsafe": 0.017967781908302356,
+              "eta": 0.9712009803921569,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1282,
+            "unsafe_accepted": 15,
+            "upper": 0.02542434036357327,
+            "certified": true
+          }
+        },
+        "target__target_adapted": {
+          "certificate_domain": "target",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe_accepted": 74,
+              "safe_accepted": 1618,
+              "oracle_safe": 1632,
+              "coverage": 0.846,
+              "joint_unsafe": 0.037,
+              "conditional_unsafe": 0.04373522458628842,
+              "eta": 0.991421568627451,
+              "oracle_coverage": 0.816,
+              "regret": 0.00021090034694406628
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe_accepted": 29,
+              "safe_accepted": 1585,
+              "oracle_safe": 1632,
+              "coverage": 0.807,
+              "joint_unsafe": 0.0145,
+              "conditional_unsafe": 0.017967781908302356,
+              "eta": 0.9712009803921569,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe_accepted": 29,
+              "safe_accepted": 1585,
+              "oracle_safe": 1632,
+              "coverage": 0.807,
+              "joint_unsafe": 0.0145,
+              "conditional_unsafe": 0.017967781908302356,
+              "eta": 0.9712009803921569,
+              "oracle_coverage": 0.816,
+              "regret": 0.000283992139673899
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1271,
+            "unsafe_accepted": 30,
+            "upper": 0.041357965800274815,
+            "certified": true
+          }
+        }
+      }
+    },
+    {
+      "status": "COMPLETE",
+      "at_utc": "2026-09-12T16:31:59.535055+00:00",
+      "seed": 20261143,
+      "scenarios": {
+        "iid__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1642,
+              "unsafe_accepted": 48,
+              "safe_accepted": 1594,
+              "oracle_safe": 1604,
+              "coverage": 0.821,
+              "joint_unsafe": 0.024,
+              "conditional_unsafe": 0.029232643118148598,
+              "eta": 0.9937655860349127,
+              "oracle_coverage": 0.802,
+              "regret": 0.00017948209784795566
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe_accepted": 21,
+              "safe_accepted": 1563,
+              "oracle_safe": 1604,
+              "coverage": 0.792,
+              "joint_unsafe": 0.0105,
+              "conditional_unsafe": 0.013257575757575758,
+              "eta": 0.9744389027431422,
+              "oracle_coverage": 0.802,
+              "regret": 0.000146987845635838
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1604,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.000146987845635838
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1652,
+              "unsafe_accepted": 57,
+              "safe_accepted": 1595,
+              "oracle_safe": 1604,
+              "coverage": 0.826,
+              "joint_unsafe": 0.0285,
+              "conditional_unsafe": 0.03450363196125908,
+              "eta": 0.9943890274314214,
+              "oracle_coverage": 0.802,
+              "regret": 0.000146987845635838
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1604,
+              "oracle_safe": 1604,
+              "coverage": 0.802,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1324,
+            "unsafe_accepted": 40,
+            "upper": 0.04923710320272856,
+            "certified": true
+          }
+        },
+        "target__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "distribution-shift stress test; no risk guarantee",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe_accepted": 77,
+              "safe_accepted": 1623,
+              "oracle_safe": 1632,
+              "coverage": 0.85,
+              "joint_unsafe": 0.0385,
+              "conditional_unsafe": 0.045294117647058825,
+              "eta": 0.9944852941176471,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002902347928911428
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe_accepted": 31,
+              "safe_accepted": 1592,
+              "oracle_safe": 1632,
+              "coverage": 0.8115,
+              "joint_unsafe": 0.0155,
+              "conditional_unsafe": 0.019100431300061615,
+              "eta": 0.9754901960784313,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1703,
+              "unsafe_accepted": 80,
+              "safe_accepted": 1623,
+              "oracle_safe": 1632,
+              "coverage": 0.8515,
+              "joint_unsafe": 0.04,
+              "conditional_unsafe": 0.046975924838520255,
+              "eta": 0.9944852941176471,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1324,
+            "unsafe_accepted": 40,
+            "upper": 0.04923710320272856,
+            "certified": true
+          }
+        },
+        "target__target_adapted": {
+          "certificate_domain": "target",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe_accepted": 77,
+              "safe_accepted": 1623,
+              "oracle_safe": 1632,
+              "coverage": 0.85,
+              "joint_unsafe": 0.0385,
+              "conditional_unsafe": 0.045294117647058825,
+              "eta": 0.9944852941176471,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002902347928911428
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe_accepted": 31,
+              "safe_accepted": 1592,
+              "oracle_safe": 1632,
+              "coverage": 0.8115,
+              "joint_unsafe": 0.0155,
+              "conditional_unsafe": 0.019100431300061615,
+              "eta": 0.9754901960784313,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe_accepted": 31,
+              "safe_accepted": 1592,
+              "oracle_safe": 1632,
+              "coverage": 0.8115,
+              "joint_unsafe": 0.0155,
+              "conditional_unsafe": 0.019100431300061615,
+              "eta": 0.9754901960784313,
+              "oracle_coverage": 0.816,
+              "regret": 0.00033525227417995133
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1275,
+            "unsafe_accepted": 27,
+            "upper": 0.038195845216836194,
+            "certified": true
+          }
+        }
+      }
+    },
+    {
+      "status": "COMPLETE",
+      "at_utc": "2026-09-12T16:32:38.808084+00:00",
+      "seed": 20261157,
+      "scenarios": {
+        "iid__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1648,
+              "unsafe_accepted": 53,
+              "safe_accepted": 1595,
+              "oracle_safe": 1604,
+              "coverage": 0.824,
+              "joint_unsafe": 0.0265,
+              "conditional_unsafe": 0.03216019417475728,
+              "eta": 0.9943890274314214,
+              "oracle_coverage": 0.802,
+              "regret": 0.00020459473827413584
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1577,
+              "unsafe_accepted": 17,
+              "safe_accepted": 1560,
+              "oracle_safe": 1604,
+              "coverage": 0.7885,
+              "joint_unsafe": 0.0085,
+              "conditional_unsafe": 0.01077996195307546,
+              "eta": 0.972568578553616,
+              "oracle_coverage": 0.802,
+              "regret": 0.00015405410698776133
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1604,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.00015405410698776133
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1644,
+              "unsafe_accepted": 50,
+              "safe_accepted": 1594,
+              "oracle_safe": 1604,
+              "coverage": 0.822,
+              "joint_unsafe": 0.025,
+              "conditional_unsafe": 0.030413625304136254,
+              "eta": 0.9937655860349127,
+              "oracle_coverage": 0.802,
+              "regret": 0.00015405410698776133
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1604,
+              "oracle_safe": 1604,
+              "coverage": 0.802,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1321,
+            "unsafe_accepted": 37,
+            "upper": 0.046516524304738335,
+            "certified": true
+          }
+        },
+        "target__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "distribution-shift stress test; no risk guarantee",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe_accepted": 68,
+              "safe_accepted": 1625,
+              "oracle_safe": 1632,
+              "coverage": 0.8465,
+              "joint_unsafe": 0.034,
+              "conditional_unsafe": 0.04016538688718252,
+              "eta": 0.9957107843137255,
+              "oracle_coverage": 0.816,
+              "regret": 0.00022817295557404107
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe_accepted": 28,
+              "safe_accepted": 1593,
+              "oracle_safe": 1632,
+              "coverage": 0.8105,
+              "joint_unsafe": 0.014,
+              "conditional_unsafe": 0.01727328809376928,
+              "eta": 0.9761029411764706,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1699,
+              "unsafe_accepted": 76,
+              "safe_accepted": 1623,
+              "oracle_safe": 1632,
+              "coverage": 0.8495,
+              "joint_unsafe": 0.038,
+              "conditional_unsafe": 0.04473219540906415,
+              "eta": 0.9944852941176471,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1321,
+            "unsafe_accepted": 37,
+            "upper": 0.046516524304738335,
+            "certified": true
+          }
+        },
+        "target__target_adapted": {
+          "certificate_domain": "target",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe_accepted": 68,
+              "safe_accepted": 1625,
+              "oracle_safe": 1632,
+              "coverage": 0.8465,
+              "joint_unsafe": 0.034,
+              "conditional_unsafe": 0.04016538688718252,
+              "eta": 0.9957107843137255,
+              "oracle_coverage": 0.816,
+              "regret": 0.00022817295557404107
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe_accepted": 28,
+              "safe_accepted": 1593,
+              "oracle_safe": 1632,
+              "coverage": 0.8105,
+              "joint_unsafe": 0.014,
+              "conditional_unsafe": 0.01727328809376928,
+              "eta": 0.9761029411764706,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe_accepted": 28,
+              "safe_accepted": 1593,
+              "oracle_safe": 1632,
+              "coverage": 0.8105,
+              "joint_unsafe": 0.014,
+              "conditional_unsafe": 0.01727328809376928,
+              "eta": 0.9761029411764706,
+              "oracle_coverage": 0.816,
+              "regret": 0.00025287246367005847
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.02,
+            "accepted": 1275,
+            "unsafe_accepted": 28,
+            "upper": 0.03921126901794136,
+            "certified": true
+          }
+        }
+      }
+    },
+    {
+      "status": "COMPLETE",
+      "at_utc": "2026-09-12T16:32:38.822503+00:00",
+      "seed": 20261171,
+      "scenarios": {
+        "iid__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1629,
+              "unsafe_accepted": 41,
+              "safe_accepted": 1588,
+              "oracle_safe": 1604,
+              "coverage": 0.8145,
+              "joint_unsafe": 0.0205,
+              "conditional_unsafe": 0.025168815224063844,
+              "eta": 0.9900249376558603,
+              "oracle_coverage": 0.802,
+              "regret": 0.00013124434119464188
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1562,
+              "unsafe_accepted": 17,
+              "safe_accepted": 1545,
+              "oracle_safe": 1604,
+              "coverage": 0.781,
+              "joint_unsafe": 0.0085,
+              "conditional_unsafe": 0.01088348271446863,
+              "eta": 0.963216957605985,
+              "oracle_coverage": 0.802,
+              "regret": 0.0002026229820562374
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1604,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0002026229820562374
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1630,
+              "unsafe_accepted": 43,
+              "safe_accepted": 1587,
+              "oracle_safe": 1604,
+              "coverage": 0.815,
+              "joint_unsafe": 0.0215,
+              "conditional_unsafe": 0.02638036809815951,
+              "eta": 0.9894014962593516,
+              "oracle_coverage": 0.802,
+              "regret": 0.0002026229820562374
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1604,
+              "oracle_safe": 1604,
+              "coverage": 0.802,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.802,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1310,
+            "unsafe_accepted": 30,
+            "upper": 0.040137622108268496,
+            "certified": true
+          }
+        },
+        "target__source": {
+          "certificate_domain": "iid",
+          "claim_scope": "distribution-shift stress test; no risk guarantee",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe_accepted": 56,
+              "safe_accepted": 1617,
+              "oracle_safe": 1632,
+              "coverage": 0.8365,
+              "joint_unsafe": 0.028,
+              "conditional_unsafe": 0.03347280334728033,
+              "eta": 0.9908088235294118,
+              "oracle_coverage": 0.816,
+              "regret": 0.00023331286722030485
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe_accepted": 18,
+              "safe_accepted": 1575,
+              "oracle_safe": 1632,
+              "coverage": 0.7965,
+              "joint_unsafe": 0.009,
+              "conditional_unsafe": 0.011299435028248588,
+              "eta": 0.9650735294117647,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe_accepted": 56,
+              "safe_accepted": 1611,
+              "oracle_safe": 1632,
+              "coverage": 0.8335,
+              "joint_unsafe": 0.028,
+              "conditional_unsafe": 0.033593281343731254,
+              "eta": 0.9871323529411765,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1310,
+            "unsafe_accepted": 30,
+            "upper": 0.040137622108268496,
+            "certified": true
+          }
+        },
+        "target__target_adapted": {
+          "certificate_domain": "target",
+          "claim_scope": "matched-distribution certification",
+          "arms": {
+            "raw_minus2": {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe_accepted": 56,
+              "safe_accepted": 1617,
+              "oracle_safe": 1632,
+              "coverage": 0.8365,
+              "joint_unsafe": 0.028,
+              "conditional_unsafe": 0.03347280334728033,
+              "eta": 0.9908088235294118,
+              "oracle_coverage": 0.816,
+              "regret": 0.00023331286722030485
+            },
+            "raw_restored": {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe_accepted": 18,
+              "safe_accepted": 1575,
+              "oracle_safe": 1632,
+              "coverage": 0.7965,
+              "joint_unsafe": 0.009,
+              "conditional_unsafe": 0.011299435028248588,
+              "eta": 0.9650735294117647,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "pair_conformal_restored": {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe_accepted": 0,
+              "safe_accepted": 0,
+              "oracle_safe": 1632,
+              "coverage": 0.0,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": null,
+              "eta": 0.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "selective_certified": {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe_accepted": 56,
+              "safe_accepted": 1611,
+              "oracle_safe": 1632,
+              "coverage": 0.8335,
+              "joint_unsafe": 0.028,
+              "conditional_unsafe": 0.033593281343731254,
+              "eta": 0.9871323529411765,
+              "oracle_coverage": 0.816,
+              "regret": 0.0002664101583416072
+            },
+            "oracle": {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe_accepted": 0,
+              "safe_accepted": 1632,
+              "oracle_safe": 1632,
+              "coverage": 0.816,
+              "joint_unsafe": 0.0,
+              "conditional_unsafe": 0.0,
+              "eta": 1.0,
+              "oracle_coverage": 0.816,
+              "regret": 0.0
+            }
+          },
+          "selected_rule": {
+            "threshold": 0.03,
+            "accepted": 1304,
+            "unsafe_accepted": 40,
+            "upper": 0.04998470548513733,
+            "certified": true
+          }
+        }
+      }
+    }
+  ],
+  "certificates": [
+    {
+      "iid": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.03,
+          "accepted": 1301,
+          "unsafe_accepted": 21,
+          "upper": 0.031363931910390525,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1015,
+            "unsafe_accepted": 0,
+            "upper": 0.007638875354211948,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1046,
+            "unsafe_accepted": 0,
+            "upper": 0.0074133254795923885,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1110,
+            "unsafe_accepted": 1,
+            "upper": 0.009150359444969083,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1168,
+            "unsafe_accepted": 2,
+            "upper": 0.010455828429912545,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1218,
+            "unsafe_accepted": 4,
+            "upper": 0.013029702597673736,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1253,
+            "unsafe_accepted": 7,
+            "upper": 0.016603951610412143,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1301,
+            "unsafe_accepted": 21,
+            "upper": 0.031363931910390525,
+            "certified": true
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1341,
+            "unsafe_accepted": 54,
+            "upper": 0.06137496901539088,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1384,
+            "unsafe_accepted": 93,
+            "upper": 0.09254277109422855,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1461,
+            "unsafe_accepted": 170,
+            "upper": 0.14678396854549758,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1531,
+            "unsafe_accepted": 240,
+            "upper": 0.18986362090151535,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.030420026137644184,
+        "pair_q_minus2": 0.057043984854587226,
+        "at_utc": "2026-09-12T16:31:57.477416+00:00",
+        "calibration_domain": "iid",
+        "label_permission": "source"
+      },
+      "target": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.02,
+          "accepted": 1245,
+          "unsafe_accepted": 16,
+          "upper": 0.027294467970448936,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1007,
+            "unsafe_accepted": 0,
+            "upper": 0.00769932733266964,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1050,
+            "unsafe_accepted": 0,
+            "upper": 0.007385188781276744,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1103,
+            "unsafe_accepted": 1,
+            "upper": 0.009208188708734315,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1167,
+            "unsafe_accepted": 2,
+            "upper": 0.010464748625960241,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1214,
+            "unsafe_accepted": 10,
+            "upper": 0.02090837093429961,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1245,
+            "unsafe_accepted": 16,
+            "upper": 0.027294467970448936,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1297,
+            "unsafe_accepted": 40,
+            "upper": 0.05025175785229466,
+            "certified": false
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1344,
+            "unsafe_accepted": 77,
+            "upper": 0.08149413550156126,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1380,
+            "unsafe_accepted": 107,
+            "upper": 0.10438615048679686,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1477,
+            "unsafe_accepted": 201,
+            "upper": 0.16814875393765844,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1530,
+            "unsafe_accepted": 254,
+            "upper": 0.19980397178919268,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.041661761621045235,
+        "pair_q_minus2": 0.07239025988113823,
+        "at_utc": "2026-09-12T16:31:58.098230+00:00",
+        "calibration_domain": "target",
+        "label_permission": "labeled_target_adaptation"
+      }
+    },
+    {
+      "iid": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.02,
+          "accepted": 1282,
+          "unsafe_accepted": 15,
+          "upper": 0.02542434036357327,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1044,
+            "unsafe_accepted": 0,
+            "upper": 0.007427474379948536,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1071,
+            "unsafe_accepted": 0,
+            "upper": 0.0072409067100556845,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1135,
+            "unsafe_accepted": 1,
+            "upper": 0.008949625705692254,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1196,
+            "unsafe_accepted": 1,
+            "upper": 0.008494918869368437,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1243,
+            "unsafe_accepted": 7,
+            "upper": 0.01673678267884656,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1282,
+            "unsafe_accepted": 15,
+            "upper": 0.02542434036357327,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1329,
+            "unsafe_accepted": 43,
+            "upper": 0.051845724841658426,
+            "certified": false
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1368,
+            "unsafe_accepted": 78,
+            "upper": 0.08093462484882612,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1395,
+            "unsafe_accepted": 104,
+            "upper": 0.10083560299359727,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1476,
+            "unsafe_accepted": 185,
+            "upper": 0.1564518242004833,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1545,
+            "unsafe_accepted": 254,
+            "upper": 0.19790352663076866,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.03668548211844755,
+        "pair_q_minus2": 0.06415862804963722,
+        "at_utc": "2026-09-12T16:31:57.443615+00:00",
+        "calibration_domain": "iid",
+        "label_permission": "source"
+      },
+      "target": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.02,
+          "accepted": 1271,
+          "unsafe_accepted": 30,
+          "upper": 0.041357965800274815,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1046,
+            "unsafe_accepted": 1,
+            "upper": 0.009707769345380169,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1070,
+            "unsafe_accepted": 1,
+            "upper": 0.00949096008653339,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1121,
+            "unsafe_accepted": 2,
+            "upper": 0.010892202584423133,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1192,
+            "unsafe_accepted": 7,
+            "upper": 0.017448685473605355,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1233,
+            "unsafe_accepted": 15,
+            "upper": 0.026427389741566356,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1271,
+            "unsafe_accepted": 30,
+            "upper": 0.041357965800274815,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1324,
+            "unsafe_accepted": 62,
+            "upper": 0.0693812703008255,
+            "certified": false
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1370,
+            "unsafe_accepted": 101,
+            "upper": 0.1001550969807042,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1413,
+            "unsafe_accepted": 141,
+            "upper": 0.12901109011339712,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1499,
+            "unsafe_accepted": 226,
+            "upper": 0.1837815806421388,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1539,
+            "unsafe_accepted": 266,
+            "upper": 0.20700049624986988,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.0477686238317645,
+        "pair_q_minus2": 0.08027619794390062,
+        "at_utc": "2026-09-12T16:31:58.054119+00:00",
+        "calibration_domain": "target",
+        "label_permission": "labeled_target_adaptation"
+      }
+    },
+    {
+      "iid": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.03,
+          "accepted": 1324,
+          "unsafe_accepted": 40,
+          "upper": 0.04923710320272856,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1041,
+            "unsafe_accepted": 0,
+            "upper": 0.007448799286732467,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1074,
+            "unsafe_accepted": 0,
+            "upper": 0.007220753913776091,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1133,
+            "unsafe_accepted": 1,
+            "upper": 0.008965359736079016,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1194,
+            "unsafe_accepted": 2,
+            "upper": 0.010229125294946097,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1236,
+            "unsafe_accepted": 6,
+            "upper": 0.015541097909769954,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1267,
+            "unsafe_accepted": 9,
+            "upper": 0.018855441006397453,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1324,
+            "unsafe_accepted": 40,
+            "upper": 0.04923710320272856,
+            "certified": true
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1368,
+            "unsafe_accepted": 79,
+            "upper": 0.08178571546266092,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1396,
+            "unsafe_accepted": 106,
+            "upper": 0.10239348761917784,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1477,
+            "unsafe_accepted": 187,
+            "upper": 0.15782657658872684,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1546,
+            "unsafe_accepted": 256,
+            "upper": 0.19916391511534537,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.03701217463152798,
+        "pair_q_minus2": 0.06541845944838495,
+        "at_utc": "2026-09-12T16:31:57.447638+00:00",
+        "calibration_domain": "iid",
+        "label_permission": "source"
+      },
+      "target": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.02,
+          "accepted": 1275,
+          "unsafe_accepted": 27,
+          "upper": 0.038195845216836194,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1049,
+            "unsafe_accepted": 1,
+            "upper": 0.00968012802854954,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1082,
+            "unsafe_accepted": 1,
+            "upper": 0.009386146922096612,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1139,
+            "unsafe_accepted": 1,
+            "upper": 0.008918322741877913,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1200,
+            "unsafe_accepted": 6,
+            "upper": 0.016004743563243818,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1240,
+            "unsafe_accepted": 15,
+            "upper": 0.02627927869047841,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1275,
+            "unsafe_accepted": 27,
+            "upper": 0.038195845216836194,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1332,
+            "unsafe_accepted": 63,
+            "upper": 0.06986118180144618,
+            "certified": false
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1380,
+            "unsafe_accepted": 106,
+            "upper": 0.1035633060505172,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1423,
+            "unsafe_accepted": 148,
+            "upper": 0.13358178474910545,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1498,
+            "unsafe_accepted": 223,
+            "upper": 0.1817410772623768,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1546,
+            "unsafe_accepted": 271,
+            "upper": 0.2095359696291127,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.04716956693958102,
+        "pair_q_minus2": 0.07919752449293088,
+        "at_utc": "2026-09-12T16:31:58.060972+00:00",
+        "calibration_domain": "target",
+        "label_permission": "labeled_target_adaptation"
+      }
+    },
+    {
+      "iid": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.03,
+          "accepted": 1321,
+          "unsafe_accepted": 37,
+          "upper": 0.046516524304738335,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1037,
+            "unsafe_accepted": 0,
+            "upper": 0.007477423706531926,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1061,
+            "unsafe_accepted": 0,
+            "upper": 0.0073089027587428185,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1120,
+            "unsafe_accepted": 0,
+            "upper": 0.006925216559082984,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1181,
+            "unsafe_accepted": 0,
+            "upper": 0.006568698655141193,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1233,
+            "unsafe_accepted": 4,
+            "upper": 0.012871958379006973,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1267,
+            "unsafe_accepted": 12,
+            "upper": 0.022354117500842832,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1321,
+            "unsafe_accepted": 37,
+            "upper": 0.046516524304738335,
+            "certified": true
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1361,
+            "unsafe_accepted": 73,
+            "upper": 0.07705402801280381,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1392,
+            "unsafe_accepted": 102,
+            "upper": 0.09941364537126954,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1462,
+            "unsafe_accepted": 172,
+            "upper": 0.14818746860822604,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1540,
+            "unsafe_accepted": 250,
+            "upper": 0.19574884290866665,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.03346595108730885,
+        "pair_q_minus2": 0.06054044912250148,
+        "at_utc": "2026-09-12T16:32:36.887632+00:00",
+        "calibration_domain": "iid",
+        "label_permission": "source"
+      },
+      "target": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.02,
+          "accepted": 1275,
+          "unsafe_accepted": 28,
+          "upper": 0.03921126901794136,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1049,
+            "unsafe_accepted": 0,
+            "upper": 0.0073922029136852365,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1079,
+            "unsafe_accepted": 1,
+            "upper": 0.009412132582369488,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1130,
+            "unsafe_accepted": 2,
+            "upper": 0.010805844339857642,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1197,
+            "unsafe_accepted": 6,
+            "upper": 0.016044632530465775,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1241,
+            "unsafe_accepted": 15,
+            "upper": 0.02625825537867348,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1275,
+            "unsafe_accepted": 28,
+            "upper": 0.03921126901794136,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1327,
+            "unsafe_accepted": 58,
+            "upper": 0.06563259903824883,
+            "certified": false
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1372,
+            "unsafe_accepted": 97,
+            "upper": 0.09668168111583801,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1417,
+            "unsafe_accepted": 142,
+            "upper": 0.12943763506921363,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1507,
+            "unsafe_accepted": 231,
+            "upper": 0.18640140084561133,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1545,
+            "unsafe_accepted": 269,
+            "upper": 0.2082870723964969,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.04467997209657612,
+        "pair_q_minus2": 0.07745302338712394,
+        "at_utc": "2026-09-12T16:32:37.436038+00:00",
+        "calibration_domain": "target",
+        "label_permission": "labeled_target_adaptation"
+      }
+    },
+    {
+      "iid": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.03,
+          "accepted": 1310,
+          "unsafe_accepted": 30,
+          "upper": 0.040137622108268496,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1019,
+            "unsafe_accepted": 0,
+            "upper": 0.007609003954411946,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1056,
+            "unsafe_accepted": 0,
+            "upper": 0.007343381929910125,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1119,
+            "unsafe_accepted": 1,
+            "upper": 0.009077066281063029,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1172,
+            "unsafe_accepted": 1,
+            "upper": 0.008668194198524326,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1220,
+            "unsafe_accepted": 4,
+            "upper": 0.013008447017712699,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1256,
+            "unsafe_accepted": 7,
+            "upper": 0.016564512448097233,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1310,
+            "unsafe_accepted": 30,
+            "upper": 0.040137622108268496,
+            "certified": true
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1354,
+            "unsafe_accepted": 67,
+            "upper": 0.07223659858866929,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1384,
+            "unsafe_accepted": 94,
+            "upper": 0.09337193005703026,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1462,
+            "unsafe_accepted": 172,
+            "upper": 0.14818746860822604,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1531,
+            "unsafe_accepted": 241,
+            "upper": 0.19056570664214034,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.027545753261620454,
+        "pair_q_minus2": 0.05400240673993292,
+        "at_utc": "2026-09-12T16:32:36.907723+00:00",
+        "calibration_domain": "iid",
+        "label_permission": "source"
+      },
+      "target": {
+        "delta_per_rule": 0.0004166666666666667,
+        "epsilon": 0.05,
+        "family_size": 120,
+        "chosen": {
+          "threshold": 0.03,
+          "accepted": 1304,
+          "unsafe_accepted": 40,
+          "upper": 0.04998470548513733,
+          "certified": true
+        },
+        "candidate_rules": [
+          {
+            "threshold": 0.0,
+            "accepted": 0,
+            "unsafe_accepted": 0,
+            "upper": 1.0,
+            "certified": false
+          },
+          {
+            "threshold": 0.001,
+            "accepted": 1035,
+            "unsafe_accepted": 0,
+            "upper": 0.007491818573801763,
+            "certified": true
+          },
+          {
+            "threshold": 0.002,
+            "accepted": 1073,
+            "unsafe_accepted": 1,
+            "upper": 0.009464537952867787,
+            "certified": true
+          },
+          {
+            "threshold": 0.005,
+            "accepted": 1118,
+            "unsafe_accepted": 1,
+            "upper": 0.009085151932597995,
+            "certified": true
+          },
+          {
+            "threshold": 0.01,
+            "accepted": 1179,
+            "unsafe_accepted": 6,
+            "upper": 0.016288205124120714,
+            "certified": true
+          },
+          {
+            "threshold": 0.015,
+            "accepted": 1219,
+            "unsafe_accepted": 8,
+            "upper": 0.018341652772884187,
+            "certified": true
+          },
+          {
+            "threshold": 0.02,
+            "accepted": 1258,
+            "unsafe_accepted": 20,
+            "upper": 0.03135994721231021,
+            "certified": true
+          },
+          {
+            "threshold": 0.03,
+            "accepted": 1304,
+            "unsafe_accepted": 40,
+            "upper": 0.04998470548513733,
+            "certified": true
+          },
+          {
+            "threshold": 0.04,
+            "accepted": 1357,
+            "unsafe_accepted": 85,
+            "upper": 0.08756805799627312,
+            "certified": false
+          },
+          {
+            "threshold": 0.05,
+            "accepted": 1403,
+            "unsafe_accepted": 127,
+            "upper": 0.11877683806708869,
+            "certified": false
+          },
+          {
+            "threshold": 0.075,
+            "accepted": 1485,
+            "unsafe_accepted": 209,
+            "upper": 0.173105679632135,
+            "certified": false
+          },
+          {
+            "threshold": 0.1,
+            "accepted": 1534,
+            "unsafe_accepted": 258,
+            "upper": 0.20208550073423986,
+            "certified": false
+          }
+        ],
+        "pair_q_restored": 0.0364305030069636,
+        "pair_q_minus2": 0.06472619518576107,
+        "at_utc": "2026-09-12T16:32:37.455180+00:00",
+        "calibration_domain": "target",
+        "label_permission": "labeled_target_adaptation"
+      }
+    }
+  ],
+  "scenarios": {
+    "iid__source": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8187,
+            "ci95": [
+              0.8008000000000001,
+              0.8364
+            ],
+            "per_seed": [
+              0.809,
+              0.825,
+              0.821,
+              0.824,
+              0.8145
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0233,
+            "ci95": [
+              0.016799999999999995,
+              0.0305
+            ],
+            "per_seed": [
+              0.0185,
+              0.027,
+              0.024,
+              0.0265,
+              0.0205
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.028459753267375106,
+            "ci95": [
+              0.020555937829535634,
+              0.037254638724734175
+            ],
+            "per_seed": [
+              0.022867737948084055,
+              0.03272727272727273,
+              0.029232643118148598,
+              0.03216019417475728,
+              0.025168815224063844
+            ]
+          },
+          "eta": {
+            "mean": 0.9917705735660848,
+            "ci95": [
+              0.9859713384043488,
+              0.9960685467505402
+            ],
+            "per_seed": [
+              0.9856608478802993,
+              0.9950124688279302,
+              0.9937655860349127,
+              0.9943890274314214,
+              0.9900249376558603
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1618,
+              "unsafe": 37,
+              "safe": 1581,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1650,
+              "unsafe": 54,
+              "safe": 1596,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1642,
+              "unsafe": 48,
+              "safe": 1594,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1648,
+              "unsafe": 53,
+              "safe": 1595,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1629,
+              "unsafe": 41,
+              "safe": 1588,
+              "oracle": 1604
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.7858,
+            "ci95": [
+              0.7666,
+              0.8042999999999999
+            ],
+            "per_seed": [
+              0.7755,
+              0.792,
+              0.792,
+              0.7885,
+              0.781
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0084,
+            "ci95": [
+              0.0047,
+              0.0125
+            ],
+            "per_seed": [
+              0.0045,
+              0.01,
+              0.0105,
+              0.0085,
+              0.0085
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.010689742937134131,
+            "ci95": [
+              0.006030163735417776,
+              0.015958540066962797
+            ],
+            "per_seed": [
+              0.005802707930367505,
+              0.012626262626262626,
+              0.013257575757575758,
+              0.01077996195307546,
+              0.01088348271446863
+            ]
+          },
+          "eta": {
+            "mean": 0.9693266832917705,
+            "ci95": [
+              0.9592906224214209,
+              0.9782186930195219
+            ],
+            "per_seed": [
+              0.9613466334164589,
+              0.9750623441396509,
+              0.9744389027431422,
+              0.972568578553616,
+              0.963216957605985
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1551,
+              "unsafe": 9,
+              "safe": 1542,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 20,
+              "safe": 1564,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 21,
+              "safe": 1563,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1577,
+              "unsafe": 17,
+              "safe": 1560,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1562,
+              "unsafe": 17,
+              "safe": 1545,
+              "oracle": 1604
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8129,
+            "ci95": [
+              0.7927000000000001,
+              0.8324000000000001
+            ],
+            "per_seed": [
+              0.8095,
+              0.792,
+              0.826,
+              0.822,
+              0.815
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0204,
+            "ci95": [
+              0.012899999999999998,
+              0.028799999999999996
+            ],
+            "per_seed": [
+              0.017,
+              0.01,
+              0.0285,
+              0.025,
+              0.0215
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.025095337679911428,
+            "ci95": [
+              0.01605620727415261,
+              0.03510392332420043
+            ],
+            "per_seed": [
+              0.021000617665225447,
+              0.012626262626262626,
+              0.03450363196125908,
+              0.030413625304136254,
+              0.02638036809815951
+            ]
+          },
+          "eta": {
+            "mean": 0.9881546134663342,
+            "ci95": [
+              0.9796439634260122,
+              0.9946651345225768
+            ],
+            "per_seed": [
+              0.9881546134663342,
+              0.9750623441396509,
+              0.9943890274314214,
+              0.9937655860349127,
+              0.9894014962593516
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1619,
+              "unsafe": 34,
+              "safe": 1585,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 20,
+              "safe": 1564,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1652,
+              "unsafe": 57,
+              "safe": 1595,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1644,
+              "unsafe": 50,
+              "safe": 1594,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1630,
+              "unsafe": 43,
+              "safe": 1587,
+              "oracle": 1604
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.802,
+            "ci95": [
+              0.784,
+              0.82
+            ],
+            "per_seed": [
+              0.802,
+              0.802,
+              0.802,
+              0.802,
+              0.802
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": true,
+      "gate_pass": true
+    },
+    "target__source": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8426,
+            "ci95": [
+              0.8259000000000001,
+              0.8586
+            ],
+            "per_seed": [
+              0.834,
+              0.846,
+              0.85,
+              0.8465,
+              0.8365
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0335,
+            "ci95": [
+              0.025697499999999998,
+              0.0418
+            ],
+            "per_seed": [
+              0.03,
+              0.037,
+              0.0385,
+              0.034,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03975789223830999,
+            "ci95": [
+              0.03058427908718137,
+              0.049465163499699316
+            ],
+            "per_seed": [
+              0.03597122302158273,
+              0.04373522458628842,
+              0.045294117647058825,
+              0.04016538688718252,
+              0.03347280334728033
+            ]
+          },
+          "eta": {
+            "mean": 0.9915441176470589,
+            "ci95": [
+              0.986181256208404,
+              0.9957602736137111
+            ],
+            "per_seed": [
+              0.9852941176470589,
+              0.991421568627451,
+              0.9944852941176471,
+              0.9957107843137255,
+              0.9908088235294118
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe": 60,
+              "safe": 1608,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe": 74,
+              "safe": 1618,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe": 77,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe": 68,
+              "safe": 1625,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe": 56,
+              "safe": 1617,
+              "oracle": 1632
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.8031,
+            "ci95": [
+              0.7838974999999999,
+              0.8210999999999999
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.7965
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0124,
+            "ci95": [
+              0.007700000000000001,
+              0.017799999999999996
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.009
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.015440169343792803,
+            "ci95": [
+              0.009663901121790584,
+              0.022075578728036546
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.011299435028248588
+            ]
+          },
+          "eta": {
+            "mean": 0.9689950980392157,
+            "ci95": [
+              0.9585994989958404,
+              0.9783192730240067
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9650735294117647
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe": 18,
+              "safe": 1575,
+              "oracle": 1632
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8346,
+            "ci95": [
+              0.8132,
+              0.8541025
+            ],
+            "per_seed": [
+              0.8315,
+              0.807,
+              0.8515,
+              0.8495,
+              0.8335
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0299,
+            "ci95": [
+              0.0200975,
+              0.04070249999999996
+            ],
+            "per_seed": [
+              0.029,
+              0.0145,
+              0.04,
+              0.038,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03582554517133956,
+            "ci95": [
+              0.024336420129595214,
+              0.04836868394552997
+            ],
+            "per_seed": [
+              0.03487672880336741,
+              0.017967781908302356,
+              0.046975924838520255,
+              0.04473219540906415,
+              0.033593281343731254
+            ]
+          },
+          "eta": {
+            "mean": 0.9861519607843138,
+            "ci95": [
+              0.9762099616988744,
+              0.9939216203480328
+            ],
+            "per_seed": [
+              0.9834558823529411,
+              0.9712009803921569,
+              0.9944852941176471,
+              0.9944852941176471,
+              0.9871323529411765
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1663,
+              "unsafe": 58,
+              "safe": 1605,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1703,
+              "unsafe": 80,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1699,
+              "unsafe": 76,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe": 56,
+              "safe": 1611,
+              "oracle": 1632
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.816,
+            "ci95": [
+              0.799,
+              0.833
+            ],
+            "per_seed": [
+              0.816,
+              0.816,
+              0.816,
+              0.816,
+              0.816
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": false,
+      "gate_pass": false
+    },
+    "target__target_adapted": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8426,
+            "ci95": [
+              0.8259000000000001,
+              0.8586
+            ],
+            "per_seed": [
+              0.834,
+              0.846,
+              0.85,
+              0.8465,
+              0.8365
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0335,
+            "ci95": [
+              0.025697499999999998,
+              0.0418
+            ],
+            "per_seed": [
+              0.03,
+              0.037,
+              0.0385,
+              0.034,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03975789223830999,
+            "ci95": [
+              0.03058427908718137,
+              0.049465163499699316
+            ],
+            "per_seed": [
+              0.03597122302158273,
+              0.04373522458628842,
+              0.045294117647058825,
+              0.04016538688718252,
+              0.03347280334728033
+            ]
+          },
+          "eta": {
+            "mean": 0.9915441176470589,
+            "ci95": [
+              0.986181256208404,
+              0.9957602736137111
+            ],
+            "per_seed": [
+              0.9852941176470589,
+              0.991421568627451,
+              0.9944852941176471,
+              0.9957107843137255,
+              0.9908088235294118
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe": 60,
+              "safe": 1608,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe": 74,
+              "safe": 1618,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe": 77,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe": 68,
+              "safe": 1625,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe": 56,
+              "safe": 1617,
+              "oracle": 1632
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.8031,
+            "ci95": [
+              0.7838974999999999,
+              0.8210999999999999
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.7965
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0124,
+            "ci95": [
+              0.007700000000000001,
+              0.017799999999999996
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.009
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.015440169343792803,
+            "ci95": [
+              0.009663901121790584,
+              0.022075578728036546
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.011299435028248588
+            ]
+          },
+          "eta": {
+            "mean": 0.9689950980392157,
+            "ci95": [
+              0.9585994989958404,
+              0.9783192730240067
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9650735294117647
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe": 18,
+              "safe": 1575,
+              "oracle": 1632
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8105,
+            "ci95": [
+              0.7892,
+              0.8311
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.8335
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0162,
+            "ci95": [
+              0.009699999999999999,
+              0.024
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.01998766193707588,
+            "ci95": [
+              0.011983205448133277,
+              0.029268365533117697
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.033593281343731254
+            ]
+          },
+          "eta": {
+            "mean": 0.973406862745098,
+            "ci95": [
+              0.9620217315817106,
+              0.9836109034367935
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9871323529411765
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe": 56,
+              "safe": 1611,
+              "oracle": 1632
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.816,
+            "ci95": [
+              0.799,
+              0.833
+            ],
+            "per_seed": [
+              0.816,
+              0.816,
+              0.816,
+              0.816,
+              0.816
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": true,
+      "gate_pass": true
+    }
+  },
+  "primary_gate_pass": true
+}

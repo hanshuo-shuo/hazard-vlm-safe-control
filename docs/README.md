@@ -4,6 +4,8 @@ Updated: 2026-09-12.
 
 ## Current reading
 
+- [`PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)：最新 Pro 三实验推进，测量/后处理诊断、20 个匹配模型与独立风险认证；
+- [`../research/pro_decision_round_20260912/protocol.json`](../research/pro_decision_round_20260912/protocol.json)：本轮冻结的风险目标、数据分工和停止条件；
 - [`C3_CONFIRMATION_PROGRESS_2026-09-12.md`](C3_CONFIRMATION_PROGRESS_2026-09-12.md)：最新 15 模型随机布局确认实验、五种子统计、零覆盖校准瓶颈及下一步；
 - [`../paper/compositional_visual_risk/CURRENT.md`](../paper/compositional_visual_risk/CURRENT.md)：论文当前材料入口，区分原始草稿和确认实验 addendum；
 - [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)：新增六模型配对实验、位置依赖的修复、公式对照与英文论文草稿；
@@ -22,6 +24,7 @@ Updated: 2026-09-12.
 
 | Document | Authority |
 |---|---|
+| `../research/pro_decision_round_20260912/protocol.json` | 本轮三实验的执行定义与统计筛选；不等同于原 C³-Safe 正式方法 gate |
 | `C3_SAFE_MAINLINE.md` | C³-Safe 当前 protocol 和 go/no-go gates |
 | `../configs/c3_safe_mainline_manifest.json` | C³-Safe planned machine-readable scope |
 | `RESULTS_REGISTRY.md` | `VALIDATED` / `PILOT_ONLY` / `INVALIDATED` / `ARCHIVED` 状态 |

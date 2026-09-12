@@ -1,0 +1,69 @@
+{
+  "id": "PRO-THREE-EXPERIMENT-DECISION-20260912-v1",
+  "scope": "Measurement, postprocessing and fixed-selector safety acceptance. No new relation learning, VLM calls or RL.",
+  "prior_root": "/projects/p33100/siosio/hazard_independent_confirmation_20260912",
+  "tau": 0.02,
+  "epsilon": 0.05,
+  "delta_family": 0.05,
+  "conformal_alpha": 0.05,
+  "minimum_oracle_feasibility": 0.50,
+  "minimum_eta": 0.50,
+  "reference_size": 512,
+  "reference_check_size": 256,
+  "reference_gate": {"maximum_danger_label_disagreement": 0.01, "maximum_cost_difference_p95": 0.002},
+  "measurement_warning_flip_rate": 0.02,
+  "reference_definition": "Same spatial union-of-swept-footprint mean exposure at 512, without intermediate area pooling. 256 is a resolution check. Not contact, q95 or physical damage probability.",
+  "e1": {
+    "models": "All five frozen independent-geometry checkpoints from prior study; no training",
+    "splits": ["calibration", "random_iid", "random_appearance", "shape_appearance"],
+    "postprocessing": ["inherited_minus2", "restored_zero"],
+    "units": ["pair_24_entries", "current_four_candidates", "fixed_selected_action"],
+    "boundary_diagnostic": "One 16x16 pixel morphological band around each target support; oracle replaces only band values as a privileged mechanism diagnostic.",
+    "simple_fix_flag": "Restored-zero raw acceptance has conditional unsafe <=0.05 and eta>=0.5 on both consumed IID and appearance datasets under common reference. Diagnostic only; do not invent a novel safety mechanism if true."
+  },
+  "model_seeds": [20261117, 20261129, 20261143, 20261157, 20261171],
+  "e2": {
+    "geometry": ["balanced_anchor", "independent"],
+    "source_rasters": [48, 64],
+    "train": {"seed": 26110101, "count": 800},
+    "validation": {"seed": 26110102, "count": 100},
+    "tests": {"iid": {"seed": 26110201, "count": 400}, "appearance": {"seed": 26110202, "count": 400}},
+    "training": {"epochs": 24, "batch_size": 20, "optimizer_steps": 960, "checkpoint": "final step 960; no early stopping or validation selection", "lr": 0.001, "weight_decay": 0.0001, "maximum_seconds": 1200},
+    "primary_postprocessing": "restored_zero",
+    "secondary_postprocessing": "inherited_minus2",
+    "geometry_sampling": "Continuous geometry and property assignment frozen before rasterization. Anchor uses randomized left/right properties in legacy-like ellipses; independent uses freely located/rotated ellipses and boxes. Continuous bounding-circle nonoverlap/in-frame checks, never raster-based rejection. Same anonymous independent path sampler in both conditions. This is a geometry-scheme contrast, not isolation of position alone.",
+    "rendering": "Same 64x64 RGB bytes within each geometry scene across both training source rasters. Output fields always 16x16. Candidate paths and property assignments fixed across source rasters.",
+    "primary_scoring": "All arms use identical 512-derived area-pooled query footprints and direct 512 mean-exposure truth; also report native source-pooled fields/footprints and 256 reference.",
+    "primary_contrast": "Balanced-anchor minus independent mean A/C/D regret on fresh appearance under common reference, separately for each source raster.",
+    "minimum_meaningful_regret_reduction": 0.001,
+    "equivalence_regret_margin": 0.0005,
+    "decision": "Geometry claim supported only if both crossed 95% interval lower endpoints exceed 0.001. Resolution contrasts entirely within +/-0.0005 count as practically equivalent; overlapping zero is inconclusive. No grid/checkpoint search."
+  },
+  "e3": {
+    "component": "All five independent-geometry / source-64 final checkpoints from E2, chosen a priori; no winning-seed/model selection",
+    "main_selector": "Restored-zero formula; choose minimum predicted cost with ties at 1e-9 resolved by one stored independent uniform variate; choose once, then accept/reject; no reselection",
+    "deployment": "Each independent scene samples one image variant with probability 1/2 and one card uniformly from A/C/D; one Bernoulli safety outcome per scene for certification",
+    "dev": {"seed": 26110301, "count": 400},
+    "iid_calibration": {"seed": 26110302, "count": 1600},
+    "iid_test": {"seed": 26110303, "count": 2000},
+    "target_calibration": {"seed": 26110304, "count": 1600},
+    "target_test": {"seed": 26110305, "count": 2000},
+    "acceptance_thresholds": [0.0, 0.001, 0.002, 0.005, 0.01, 0.015, 0.02, 0.03, 0.04, 0.05, 0.075, 0.1],
+    "certification": "Finite threshold bank uses one-sided exact Clopper-Pearson bounds with Bonferroni delta=0.05/(5 models*2 calibration domains*12 rules). Select highest-coverage certified rule; ties choose smallest threshold. No rule certification if accepted count is zero. Thresholds change acceptance only; truth danger remains cost>0.02.",
+    "freeze": "Persist selector/rule bank and checkpoint hashes after development and before calibration. Persist certificates before opening final test data. Source-certified rules on target test are shift stress tests; target-certified rules use explicitly labeled target adaptation.",
+    "arms": ["raw_minus2", "raw_restored", "pair_conformal_restored", "selective_certified", "oracle"],
+    "primary_gate": "Every IID model has a valid <=5% certificate under the family correction AND crossed seed/scene 95% lower bound on safe acceptance efficiency eta>=0.50. Test risk is reported separately. No zero-shot target guarantee.",
+    "eta": "P(accepted AND actual selected cost<=0.02)/P(at least one supplied candidate cost<=0.02). Unsafe accepts never count toward eta."
+  },
+  "appearance": {
+    "train": ["aqua_sand", "blue_slate", "teal_clay"],
+    "target": ["copper_lilac_v2", "olive_azure_v2"],
+    "specs": {
+      "copper_lilac_v2": {"floor": [150, 140, 160], "water": [202, 116, 52], "fragile": [110, 80, 201], "wave": 7, "crack": 9, "light": 1.04},
+      "olive_azure_v2": {"floor": [112, 127, 88], "water": [180, 176, 70], "fragile": [54, 150, 213], "wave": 6, "crack": 8, "light": 0.84}
+    }
+  },
+  "bootstrap": {"seed": 26110401, "resamples": 5000, "unit": "Independently resample paired model seeds and scenes, preserving all condition/variant/card dependence; E3 uses one deployed decision per scene"},
+  "stopping": ["If reference resolution gate fails, stop before training/confirmation and repair measurement precision", "If oracle feasibility is below 0.5, stop policy-certification expansion", "If simple postprocessing meets diagnostic safety/usefulness, report a simple repair rather than new mechanism; keep it as E3 strong baseline", "After the frozen 20-run factorial and one final certification test, report failure/inconclusive without expanding architectures, thresholds or test reuse"],
+  "execution": "All numerical work in Quest Slurm allocations. New immutable outputs; preserve historical sources and results. No outside messages, VLM calls or RL jobs."
+}

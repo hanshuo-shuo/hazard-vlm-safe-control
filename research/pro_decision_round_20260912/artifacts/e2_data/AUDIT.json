@@ -1,0 +1,71 @@
+{
+  "cross_split_overlap": 0,
+  "datasets": {
+    "balanced_anchor_train": {
+      "scenes": 800,
+      "rgb_sha256": "249553809f449aa4ec47205b69189f2f15ddfa99d1d3836755db16f1449ffd01",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": true,
+      "source_target_difference_mean": 0.001421220600605011
+    },
+    "balanced_anchor_validation": {
+      "scenes": 100,
+      "rgb_sha256": "951f79e538ab4a12b626cd7b2cd4eb89a9f943eb6531b0c65e2f9829b18eba60",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": true,
+      "source_target_difference_mean": 0.001430935226380825
+    },
+    "independent_train": {
+      "scenes": 800,
+      "rgb_sha256": "b6200e500b2aa6f91651829dcada63032dfd6c31c8f1373c12420429780fef87",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": true,
+      "source_target_difference_mean": 0.002270338125526905
+    },
+    "independent_validation": {
+      "scenes": 100,
+      "rgb_sha256": "571f28b6bbc9feab57fccf24695dda3a9c044808a5cd60ed5e98273b2e660304",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": true,
+      "source_target_difference_mean": 0.002305501140654087
+    },
+    "iid": {
+      "scenes": 400,
+      "rgb_sha256": "eb7c78f45d2ab69bd27ee762c4e6ead3f0bd58c184157d415f71cf43a5d354ad",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": false,
+      "source_target_difference_mean": 0.0023091635666787624,
+      "reference": {
+        "label_flip_rate": 0.0004166666666666667,
+        "cost_difference_p95": 0.0007648252344274027,
+        "maximum_cost_difference": 0.004939904062497225,
+        "label_flip_count": 4,
+        "entries": 9600,
+        "pass": true
+      },
+      "native_truth_label_flip_vs_reference": {
+        "48": 0.024583333333333332,
+        "64": 0.027291666666666665
+      }
+    },
+    "appearance": {
+      "scenes": 400,
+      "rgb_sha256": "782fab3776fcf13ba6c8f387555bddb109017d2c95dac0fb2e732d40a9061235",
+      "same_rgb_for_both_source_rasters": true,
+      "training_uses_only_variant_zero": false,
+      "source_target_difference_mean": 0.0022528076078742743,
+      "reference": {
+        "label_flip_rate": 0.0010416666666666667,
+        "cost_difference_p95": 0.0007296990018980792,
+        "maximum_cost_difference": 0.008036738606510024,
+        "label_flip_count": 10,
+        "entries": 9600,
+        "pass": true
+      },
+      "native_truth_label_flip_vs_reference": {
+        "48": 0.026458333333333334,
+        "64": 0.024583333333333332
+      }
+    }
+  }
+}

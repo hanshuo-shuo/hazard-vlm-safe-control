@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T16:56:43.727019+00:00",
+  "source_sha256": "fdcfc2798b11a2eab8667a152b217adc4745c85f9800592754ada1c69c468c08",
+  "groups": {
+    "e2_data/appearance": 400,
+    "e2_data/balanced_anchor_train": 800,
+    "e2_data/balanced_anchor_validation": 100,
+    "e2_data/iid": 400,
+    "e2_data/independent_train": 800,
+    "e2_data/independent_validation": 100,
+    "e3_data/dev": 400,
+    "e3_data/iid_calibration": 1600,
+    "e3_data/iid_test": 2000,
+    "e3_data/target_calibration": 1600,
+    "e3_data/target_test": 2000
+  },
+  "unique_field_geometries": 10200,
+  "unique_complete_scene_geometries": 10200,
+  "overlaps": [],
+  "excluded_from_identity": [
+    "scene_id",
+    "seed",
+    "render_seed",
+    "family",
+    "property_assignment",
+    "source_raster",
+    "candidate_order"
+  ],
+  "scope": "Exact stored continuous geometry, with anonymous patch/path order. No claim of equivalence under arbitrary geometric symmetries."
+}

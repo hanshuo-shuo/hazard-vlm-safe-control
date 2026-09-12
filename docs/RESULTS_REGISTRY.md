@@ -32,11 +32,45 @@
 - Latest Quest evidence: [`C3_QUEST_PROGRESS_2026-09-12.md`](C3_QUEST_PROGRESS_2026-09-12.md)
 - Latest component audit and paper: [`C3_PAPER_PROGRESS_2026-09-12.md`](C3_PAPER_PROGRESS_2026-09-12.md)
 - Latest prospective component follow-up: [`C3_CONFIRMATION_PROGRESS_2026-09-12.md`](C3_CONFIRMATION_PROGRESS_2026-09-12.md)
+- Latest Pro-directed decision round: [`PRO_DECISION_ROUND_PROGRESS_2026-09-12.md`](PRO_DECISION_ROUND_PROGRESS_2026-09-12.md)
 
 The old pilot numbers below are not inherited as C³-Safe baselines. A new result may enter
 `VALIDATED` only after the C³-Safe Gate 0–2 checks, complete provenance, and an independent
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
+
+## 2026-09-12 — Pro-directed measurement and fixed-selector acceptance round
+
+- Registry status remains **PILOT_ONLY relative to the original C3-Safe method gates**.
+  The registered synthetic static screening comparisons and matched-distribution risk certificates
+  pass; these are distinct from C3-Safe policy validation or robot-episode guarantees.
+- E1: five old checkpoints, no training. Same weights with inherited -2 versus restored logits;
+  independent oracle/reference reconstruction, residual scopes and boundary diagnostics.
+  Restored logits already pass the consumed-data diagnostic safety/usefulness screen.
+- Old new-appearance oracle feasibility: 2748/3600 (76.33%) under low16, 2908/3600 (80.78%)
+  under direct 512 mean-exposure truth. Low16/reference label differences cannot count as model gains.
+- E2: 2 geometry schemes × 2 source rasters × 5 seeds, identical RGB across source rasters,
+  exactly 960 updates and final checkpoints. Geometry regret reductions on new appearance are
+  0.004870 at source 48 and 0.008249 at source 64; both predeclared effect tests pass.
+  Raster equivalence is supported only for the independent scheme; anchor-layout uncertainty is retained.
+- E3: independent calibration/test scenes, one deployed decision per scene, 120-rule family
+  correction for exact-binomial selective-risk certification; no flattening of correlated candidates.
+- IID selective rule: conditional unsafe 2.51%, eta 98.82%, eta interval [97.96%, 99.47%].
+  The simpler predeclared restored-bias/fixed-0.02 rule also certifies all five models: test unsafe
+  1.07%, eta 96.93%, eta interval [95.93%, 97.82%]. Threshold search is not necessary to pass.
+- Pair-max residual bounds remain zero coverage; conditional risk is undefined.
+  Source-to-new-appearance is a stress test, and target calibration uses explicit target labels.
+- Decision: retain measurement/postprocessing/decision-unit evidence and stop new-algorithm
+  expansion of the original VLM/learned-public-relation/RL narrative. Independent-task or physical
+  outcome evidence is needed before broader methods claims.
+- Quest root: `/projects/p33100/siosio/hazard_pro_decision_round_20260912`.
+  E1 jobs 6182576/6182577/6182578; E2 6182711/6182712/6182713;
+  E3 6182821/6182822/6182824; independent verification/report 6182974, all completed.
+- Sixteen distinct tests passed. Independent verification checks 257 manifest-listed files,
+  scalar decision/acceptance metrics and binomial certificate p-values; all 20 new checkpoints
+  replay 80 fixed CPU images with 100% binary agreement (maximum probability difference 0.00635160).
+- Full arrays and weights stay on Quest; compact evidence and publication artifacts are under
+  `research/pro_decision_round_20260912/artifacts/`. New VLM calls, relation-head training and RL: zero.
 
 ## 2026-09-12 — Independent geometry, five-seed confirmation, and risk calibration
 

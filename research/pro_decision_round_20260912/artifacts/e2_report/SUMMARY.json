@@ -1,0 +1,3369 @@
+{
+  "status": "COMPLETE",
+  "at_utc": "2026-09-12T16:23:45.505349+00:00",
+  "per_seed": {
+    "balanced_anchor_48": [
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:16.701511+00:00",
+        "geometry": "balanced_anchor",
+        "source": 48,
+        "seed": 20261117,
+        "checkpoint_sha256": "7cd1981b04291ab7d17d93fb317386e801e0d8d03be9d7f4d1cb7e04aa2d6869",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "a156f23ff66e5c63c1099f30b765460bd6fa761440bcdcb9f3c63c59252cbe76",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.012757958145420108,
+                "false_safe": 0.2472432804962095,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 356,
+                  "unsafe_accepted": 84,
+                  "safe_accepted": 272,
+                  "oracle_safe": 298,
+                  "coverage": 0.89,
+                  "joint_unsafe": 0.21,
+                  "conditional_unsafe": 0.23595505617977527,
+                  "eta": 0.912751677852349,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.014991993014355089
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.011777887075736532,
+                "false_safe": 0.2630968169761273,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 355,
+                  "unsafe_accepted": 88,
+                  "safe_accepted": 267,
+                  "oracle_safe": 289,
+                  "coverage": 0.8875,
+                  "joint_unsafe": 0.22,
+                  "conditional_unsafe": 0.24788732394366197,
+                  "eta": 0.9238754325259516,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.013811047809269408
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.013413221947922528,
+                "false_safe": 0.3452791178497588,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 93,
+                  "safe_accepted": 273,
+                  "oracle_safe": 298,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.2325,
+                  "conditional_unsafe": 0.2540983606557377,
+                  "eta": 0.9161073825503355,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.01499036809788385
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.01225035570954236,
+                "false_safe": 0.3610742705570292,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 365,
+                  "unsafe_accepted": 97,
+                  "safe_accepted": 268,
+                  "oracle_safe": 289,
+                  "coverage": 0.9125,
+                  "joint_unsafe": 0.2425,
+                  "conditional_unsafe": 0.26575342465753427,
+                  "eta": 0.9273356401384083,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.01450300814724638
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.005305182357245626,
+                "false_safe": 0.14879453040662108,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 348,
+                  "unsafe_accepted": 50,
+                  "safe_accepted": 298,
+                  "oracle_safe": 319,
+                  "coverage": 0.87,
+                  "joint_unsafe": 0.125,
+                  "conditional_unsafe": 0.14367816091954022,
+                  "eta": 0.9341692789968652,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.004800686951676108
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005238520649948,
+                "false_safe": 0.16666666666666666,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 347,
+                  "unsafe_accepted": 56,
+                  "safe_accepted": 291,
+                  "oracle_safe": 309,
+                  "coverage": 0.8675,
+                  "joint_unsafe": 0.14,
+                  "conditional_unsafe": 0.16138328530259366,
+                  "eta": 0.941747572815534,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.004931661919868036
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0057579401745309865,
+                "false_safe": 0.25764663548038863,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 63,
+                  "safe_accepted": 303,
+                  "oracle_safe": 319,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.1575,
+                  "conditional_unsafe": 0.1721311475409836,
+                  "eta": 0.9498432601880877,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.005465184331227288
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00573600669574224,
+                "false_safe": 0.2751897860593513,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 72,
+                  "safe_accepted": 294,
+                  "oracle_safe": 309,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.18,
+                  "conditional_unsafe": 0.19672131147540983,
+                  "eta": 0.9514563106796117,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00525417217753446
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:16.790707+00:00",
+        "geometry": "balanced_anchor",
+        "source": 48,
+        "seed": 20261129,
+        "checkpoint_sha256": "09ac0c93d4a6386244090f719aeb5578ccd81ffc007cb810a6346d3be68f6cc2",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "a156f23ff66e5c63c1099f30b765460bd6fa761440bcdcb9f3c63c59252cbe76",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.005493533182270554,
+                "false_safe": 0.20106822880771882,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 352,
+                  "unsafe_accepted": 60,
+                  "safe_accepted": 292,
+                  "oracle_safe": 298,
+                  "coverage": 0.88,
+                  "joint_unsafe": 0.15,
+                  "conditional_unsafe": 0.17045454545454544,
+                  "eta": 0.9798657718120806,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006102831702390503
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0052725523440821246,
+                "false_safe": 0.22148541114058357,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 352,
+                  "unsafe_accepted": 70,
+                  "safe_accepted": 282,
+                  "oracle_safe": 289,
+                  "coverage": 0.88,
+                  "joint_unsafe": 0.175,
+                  "conditional_unsafe": 0.19886363636363635,
+                  "eta": 0.9757785467128027,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.005702656028373047
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.006597761837626218,
+                "false_safe": 0.2991040661612681,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 364,
+                  "unsafe_accepted": 70,
+                  "safe_accepted": 294,
+                  "oracle_safe": 298,
+                  "coverage": 0.91,
+                  "joint_unsafe": 0.175,
+                  "conditional_unsafe": 0.19230769230769232,
+                  "eta": 0.9865771812080537,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006442265657841253
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.006227534036242908,
+                "false_safe": 0.3168103448275862,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 363,
+                  "unsafe_accepted": 80,
+                  "safe_accepted": 283,
+                  "oracle_safe": 289,
+                  "coverage": 0.9075,
+                  "joint_unsafe": 0.2,
+                  "conditional_unsafe": 0.22038567493112948,
+                  "eta": 0.9792387543252595,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.006231461025364631
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.003352446339045396,
+                "false_safe": 0.1781216264843469,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 351,
+                  "unsafe_accepted": 42,
+                  "safe_accepted": 309,
+                  "oracle_safe": 319,
+                  "coverage": 0.8775,
+                  "joint_unsafe": 0.105,
+                  "conditional_unsafe": 0.11965811965811966,
+                  "eta": 0.9686520376175548,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.002880475895768127
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0032120969505446684,
+                "false_safe": 0.1972049689440994,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 351,
+                  "unsafe_accepted": 55,
+                  "safe_accepted": 296,
+                  "oracle_safe": 309,
+                  "coverage": 0.8775,
+                  "joint_unsafe": 0.1375,
+                  "conditional_unsafe": 0.15669515669515668,
+                  "eta": 0.9579288025889967,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0030058680896025225
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0038743562498694453,
+                "false_safe": 0.2707808564231738,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 363,
+                  "unsafe_accepted": 51,
+                  "safe_accepted": 312,
+                  "oracle_safe": 319,
+                  "coverage": 0.9075,
+                  "joint_unsafe": 0.1275,
+                  "conditional_unsafe": 0.14049586776859505,
+                  "eta": 0.9780564263322884,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.003131469063657293
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00372102890032888,
+                "false_safe": 0.29554865424430643,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 360,
+                  "unsafe_accepted": 63,
+                  "safe_accepted": 297,
+                  "oracle_safe": 309,
+                  "coverage": 0.9,
+                  "joint_unsafe": 0.1575,
+                  "conditional_unsafe": 0.175,
+                  "eta": 0.9611650485436893,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0032994243814230906
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:31.714722+00:00",
+        "geometry": "balanced_anchor",
+        "source": 48,
+        "seed": 20261143,
+        "checkpoint_sha256": "187ae1e180358ea45c328076f38d278afa401e820c6a2082aca00402a945f80f",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "a156f23ff66e5c63c1099f30b765460bd6fa761440bcdcb9f3c63c59252cbe76",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.007751448748436712,
+                "false_safe": 0.22898001378359753,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 350,
+                  "unsafe_accepted": 66,
+                  "safe_accepted": 284,
+                  "oracle_safe": 298,
+                  "coverage": 0.875,
+                  "joint_unsafe": 0.165,
+                  "conditional_unsafe": 0.18857142857142858,
+                  "eta": 0.9530201342281879,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.009377849860894752
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.007049116134416893,
+                "false_safe": 0.2495026525198939,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 349,
+                  "unsafe_accepted": 72,
+                  "safe_accepted": 277,
+                  "oracle_safe": 289,
+                  "coverage": 0.8725,
+                  "joint_unsafe": 0.18,
+                  "conditional_unsafe": 0.20630372492836677,
+                  "eta": 0.9584775086505191,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.008216598533608805
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.008668349326698386,
+                "false_safe": 0.34097174362508614,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 367,
+                  "unsafe_accepted": 81,
+                  "safe_accepted": 286,
+                  "oracle_safe": 298,
+                  "coverage": 0.9175,
+                  "joint_unsafe": 0.2025,
+                  "conditional_unsafe": 0.22070844686648503,
+                  "eta": 0.959731543624161,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.010019373495559454
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.007863520153184977,
+                "false_safe": 0.35842175066313,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 365,
+                  "unsafe_accepted": 87,
+                  "safe_accepted": 278,
+                  "oracle_safe": 289,
+                  "coverage": 0.9125,
+                  "joint_unsafe": 0.2175,
+                  "conditional_unsafe": 0.23835616438356164,
+                  "eta": 0.9619377162629758,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.008678037013292573
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.006184675691261073,
+                "false_safe": 0.24271320618927672,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 359,
+                  "unsafe_accepted": 54,
+                  "safe_accepted": 305,
+                  "oracle_safe": 319,
+                  "coverage": 0.8975,
+                  "joint_unsafe": 0.135,
+                  "conditional_unsafe": 0.15041782729805014,
+                  "eta": 0.9561128526645768,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00611183831075598
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.006030722349480624,
+                "false_safe": 0.2608695652173913,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 359,
+                  "unsafe_accepted": 66,
+                  "safe_accepted": 293,
+                  "oracle_safe": 309,
+                  "coverage": 0.8975,
+                  "joint_unsafe": 0.165,
+                  "conditional_unsafe": 0.18384401114206128,
+                  "eta": 0.948220064724919,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.006038981783790205
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.006984986140837976,
+                "false_safe": 0.36038143216984525,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 375,
+                  "unsafe_accepted": 69,
+                  "safe_accepted": 306,
+                  "oracle_safe": 319,
+                  "coverage": 0.9375,
+                  "joint_unsafe": 0.1725,
+                  "conditional_unsafe": 0.184,
+                  "eta": 0.9592476489028213,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.006711192387393667
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0064874866678577385,
+                "false_safe": 0.3812974465148378,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 374,
+                  "unsafe_accepted": 81,
+                  "safe_accepted": 293,
+                  "oracle_safe": 309,
+                  "coverage": 0.935,
+                  "joint_unsafe": 0.2025,
+                  "conditional_unsafe": 0.21657754010695188,
+                  "eta": 0.948220064724919,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.006747799643451682
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:37.253650+00:00",
+        "geometry": "balanced_anchor",
+        "source": 48,
+        "seed": 20261157,
+        "checkpoint_sha256": "8ccab0e0d479eb1b0863fc6e888654f906ec0b9c18f2032ee7a463803c75cda5",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "a156f23ff66e5c63c1099f30b765460bd6fa761440bcdcb9f3c63c59252cbe76",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.007786656298102479,
+                "false_safe": 0.18073742246726396,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 341,
+                  "unsafe_accepted": 60,
+                  "safe_accepted": 281,
+                  "oracle_safe": 298,
+                  "coverage": 0.8525,
+                  "joint_unsafe": 0.15,
+                  "conditional_unsafe": 0.17595307917888564,
+                  "eta": 0.9429530201342282,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.008555530009307368
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.007200923729991005,
+                "false_safe": 0.1944628647214854,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 67,
+                  "safe_accepted": 273,
+                  "oracle_safe": 289,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.1675,
+                  "conditional_unsafe": 0.19705882352941176,
+                  "eta": 0.9446366782006921,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.008810101203009589
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.009227478905458409,
+                "false_safe": 0.32012405237767055,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 82,
+                  "safe_accepted": 284,
+                  "oracle_safe": 298,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.205,
+                  "conditional_unsafe": 0.22404371584699453,
+                  "eta": 0.9530201342281879,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.010128798878215068
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.008185711602554921,
+                "false_safe": 0.3348806366047745,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 364,
+                  "unsafe_accepted": 90,
+                  "safe_accepted": 274,
+                  "oracle_safe": 289,
+                  "coverage": 0.91,
+                  "joint_unsafe": 0.225,
+                  "conditional_unsafe": 0.24725274725274726,
+                  "eta": 0.9480968858131488,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00929437385366048
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.008013693789123642,
+                "false_safe": 0.2128463476070529,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 342,
+                  "unsafe_accepted": 59,
+                  "safe_accepted": 283,
+                  "oracle_safe": 319,
+                  "coverage": 0.855,
+                  "joint_unsafe": 0.1475,
+                  "conditional_unsafe": 0.17251461988304093,
+                  "eta": 0.8871473354231975,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.009693245891215462
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.007419865750735448,
+                "false_safe": 0.22688060731538992,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 338,
+                  "unsafe_accepted": 64,
+                  "safe_accepted": 274,
+                  "oracle_safe": 309,
+                  "coverage": 0.845,
+                  "joint_unsafe": 0.16,
+                  "conditional_unsafe": 0.1893491124260355,
+                  "eta": 0.8867313915857605,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.009307253438562124
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.008846405510577473,
+                "false_safe": 0.33195394026628283,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 77,
+                  "safe_accepted": 289,
+                  "oracle_safe": 319,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.1925,
+                  "conditional_unsafe": 0.2103825136612022,
+                  "eta": 0.9059561128526645,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.010365897858917436
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.008109848132586724,
+                "false_safe": 0.347135955831608,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 87,
+                  "safe_accepted": 279,
+                  "oracle_safe": 309,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.2175,
+                  "conditional_unsafe": 0.23770491803278687,
+                  "eta": 0.9029126213592233,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.009725351812333827
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:37.685266+00:00",
+        "geometry": "balanced_anchor",
+        "source": 48,
+        "seed": 20261171,
+        "checkpoint_sha256": "b11846c1d02962263cbbcb7a2f5579f79b208a72457d907609cd5c3a9d7b3469",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "a156f23ff66e5c63c1099f30b765460bd6fa761440bcdcb9f3c63c59252cbe76",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.005552127530209505,
+                "false_safe": 0.14645072363886974,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 50,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.125,
+                  "conditional_unsafe": 0.14705882352941177,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006301291770728492
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005186466907018932,
+                "false_safe": 0.16412466843501325,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 58,
+                  "safe_accepted": 282,
+                  "oracle_safe": 289,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.145,
+                  "conditional_unsafe": 0.17058823529411765,
+                  "eta": 0.9757785467128027,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.0063343473628196525
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0063106484479766856,
+                "false_safe": 0.2351826326671261,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 355,
+                  "unsafe_accepted": 65,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.8875,
+                  "joint_unsafe": 0.1625,
+                  "conditional_unsafe": 0.18309859154929578,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00689910572859038
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005758364611861731,
+                "false_safe": 0.25862068965517243,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 355,
+                  "unsafe_accepted": 73,
+                  "safe_accepted": 282,
+                  "oracle_safe": 289,
+                  "coverage": 0.8875,
+                  "joint_unsafe": 0.1825,
+                  "conditional_unsafe": 0.2056338028169014,
+                  "eta": 0.9757785467128027,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.0063577119200796985
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0029150506963865996,
+                "false_safe": 0.1302626844188557,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 351,
+                  "unsafe_accepted": 42,
+                  "safe_accepted": 309,
+                  "oracle_safe": 319,
+                  "coverage": 0.8775,
+                  "joint_unsafe": 0.105,
+                  "conditional_unsafe": 0.11965811965811966,
+                  "eta": 0.9686520376175548,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0034950254547994096
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.002960397282721412,
+                "false_safe": 0.15200138026224982,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 350,
+                  "unsafe_accepted": 51,
+                  "safe_accepted": 299,
+                  "oracle_safe": 309,
+                  "coverage": 0.875,
+                  "joint_unsafe": 0.1275,
+                  "conditional_unsafe": 0.1457142857142857,
+                  "eta": 0.9676375404530745,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.003528854966409411
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0033117919338039176,
+                "false_safe": 0.2094278517452321,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 363,
+                  "unsafe_accepted": 52,
+                  "safe_accepted": 311,
+                  "oracle_safe": 319,
+                  "coverage": 0.9075,
+                  "joint_unsafe": 0.13,
+                  "conditional_unsafe": 0.14325068870523416,
+                  "eta": 0.9749216300940439,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0038028819798480006
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0031182607892384457,
+                "false_safe": 0.23222912353347136,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 363,
+                  "unsafe_accepted": 62,
+                  "safe_accepted": 301,
+                  "oracle_safe": 309,
+                  "coverage": 0.9075,
+                  "joint_unsafe": 0.155,
+                  "conditional_unsafe": 0.17079889807162535,
+                  "eta": 0.9741100323624595,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0034740392476090855
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "balanced_anchor_64": [
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:54.082375+00:00",
+        "geometry": "balanced_anchor",
+        "source": 64,
+        "seed": 20261117,
+        "checkpoint_sha256": "3356b8799954494c6f9a4decb1d04fb2104f75862d4a3b62286162b1c1898762",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "00173be08195d269b6ac2085da89a3dc946035034f476fa731ef1ebd7bbe8def",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00963912067038701,
+                "false_safe": 0.43487250172294967,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 378,
+                  "unsafe_accepted": 91,
+                  "safe_accepted": 287,
+                  "oracle_safe": 298,
+                  "coverage": 0.945,
+                  "joint_unsafe": 0.2275,
+                  "conditional_unsafe": 0.24074074074074073,
+                  "eta": 0.9630872483221476,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.010121425675195148
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.009189753389661583,
+                "false_safe": 0.4474380165289256,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 376,
+                  "unsafe_accepted": 100,
+                  "safe_accepted": 276,
+                  "oracle_safe": 290,
+                  "coverage": 0.94,
+                  "joint_unsafe": 0.25,
+                  "conditional_unsafe": 0.26595744680851063,
+                  "eta": 0.9517241379310345,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.009761297720822449
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.010556119420190682,
+                "false_safe": 0.6435217091660923,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 391,
+                  "unsafe_accepted": 105,
+                  "safe_accepted": 286,
+                  "oracle_safe": 298,
+                  "coverage": 0.9775,
+                  "joint_unsafe": 0.2625,
+                  "conditional_unsafe": 0.26854219948849106,
+                  "eta": 0.959731543624161,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.011249381984600912
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.009636632356749789,
+                "false_safe": 0.6515702479338843,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 391,
+                  "unsafe_accepted": 115,
+                  "safe_accepted": 276,
+                  "oracle_safe": 290,
+                  "coverage": 0.9775,
+                  "joint_unsafe": 0.2875,
+                  "conditional_unsafe": 0.29411764705882354,
+                  "eta": 0.9517241379310345,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.010335447587788933
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.026740874700848963,
+                "false_safe": 0.5433609211946744,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 367,
+                  "unsafe_accepted": 139,
+                  "safe_accepted": 228,
+                  "oracle_safe": 319,
+                  "coverage": 0.9175,
+                  "joint_unsafe": 0.3475,
+                  "conditional_unsafe": 0.3787465940054496,
+                  "eta": 0.7147335423197492,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.028765721192087174
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.025752491711757024,
+                "false_safe": 0.5516407599309153,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 148,
+                  "safe_accepted": 218,
+                  "oracle_safe": 309,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.37,
+                  "conditional_unsafe": 0.40437158469945356,
+                  "eta": 0.7055016181229773,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.026794879147374277
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.02707380575723934,
+                "false_safe": 0.6763224181360201,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 379,
+                  "unsafe_accepted": 149,
+                  "safe_accepted": 230,
+                  "oracle_safe": 319,
+                  "coverage": 0.9475,
+                  "joint_unsafe": 0.3725,
+                  "conditional_unsafe": 0.39313984168865435,
+                  "eta": 0.7210031347962382,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.02892856513978354
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.026074671430797638,
+                "false_safe": 0.6808290155440414,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 378,
+                  "unsafe_accepted": 159,
+                  "safe_accepted": 219,
+                  "oracle_safe": 309,
+                  "coverage": 0.945,
+                  "joint_unsafe": 0.3975,
+                  "conditional_unsafe": 0.42063492063492064,
+                  "eta": 0.7087378640776699,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.026965009105289296
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:57.906751+00:00",
+        "geometry": "balanced_anchor",
+        "source": 64,
+        "seed": 20261129,
+        "checkpoint_sha256": "692b80b9b0d3662750a84cae5fdab84cfbadcc3f164c7339f2116eacb2d22cd6",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "00173be08195d269b6ac2085da89a3dc946035034f476fa731ef1ebd7bbe8def",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00925401185374079,
+                "false_safe": 0.2723983459682977,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 357,
+                  "unsafe_accepted": 71,
+                  "safe_accepted": 286,
+                  "oracle_safe": 298,
+                  "coverage": 0.8925,
+                  "joint_unsafe": 0.1775,
+                  "conditional_unsafe": 0.19887955182072828,
+                  "eta": 0.959731543624161,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.008085214572053617
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00846912337929258,
+                "false_safe": 0.29107438016528925,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 355,
+                  "unsafe_accepted": 76,
+                  "safe_accepted": 279,
+                  "oracle_safe": 290,
+                  "coverage": 0.8875,
+                  "joint_unsafe": 0.19,
+                  "conditional_unsafe": 0.2140845070422535,
+                  "eta": 0.9620689655172414,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.007641616436329326
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.010223426970510686,
+                "false_safe": 0.46485182632667127,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 377,
+                  "unsafe_accepted": 90,
+                  "safe_accepted": 287,
+                  "oracle_safe": 298,
+                  "coverage": 0.9425,
+                  "joint_unsafe": 0.225,
+                  "conditional_unsafe": 0.23872679045092837,
+                  "eta": 0.9630872483221476,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.009444647101209045
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.009558063984389855,
+                "false_safe": 0.47520661157024796,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 378,
+                  "unsafe_accepted": 99,
+                  "safe_accepted": 279,
+                  "oracle_safe": 290,
+                  "coverage": 0.945,
+                  "joint_unsafe": 0.2475,
+                  "conditional_unsafe": 0.2619047619047619,
+                  "eta": 0.9620689655172414,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.008654039795107267
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.005923671521887726,
+                "false_safe": 0.2333573227779777,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 356,
+                  "unsafe_accepted": 56,
+                  "safe_accepted": 300,
+                  "oracle_safe": 319,
+                  "coverage": 0.89,
+                  "joint_unsafe": 0.14,
+                  "conditional_unsafe": 0.15730337078651685,
+                  "eta": 0.9404388714733543,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0055955954490539426
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005705087036401385,
+                "false_safe": 0.24870466321243523,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 356,
+                  "unsafe_accepted": 66,
+                  "safe_accepted": 290,
+                  "oracle_safe": 309,
+                  "coverage": 0.89,
+                  "joint_unsafe": 0.165,
+                  "conditional_unsafe": 0.1853932584269663,
+                  "eta": 0.9385113268608414,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0052060473878944745
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.006595808681269158,
+                "false_safe": 0.3911478949262325,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 374,
+                  "unsafe_accepted": 72,
+                  "safe_accepted": 302,
+                  "oracle_safe": 319,
+                  "coverage": 0.935,
+                  "joint_unsafe": 0.18,
+                  "conditional_unsafe": 0.1925133689839572,
+                  "eta": 0.9467084639498433,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.006663115108330573
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.006307923212525739,
+                "false_safe": 0.4067357512953368,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 373,
+                  "unsafe_accepted": 83,
+                  "safe_accepted": 290,
+                  "oracle_safe": 309,
+                  "coverage": 0.9325,
+                  "joint_unsafe": 0.2075,
+                  "conditional_unsafe": 0.2225201072386059,
+                  "eta": 0.9385113268608414,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00617140383975736
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:20:58.420848+00:00",
+        "geometry": "balanced_anchor",
+        "source": 64,
+        "seed": 20261143,
+        "checkpoint_sha256": "f4b07781617eb113d041f0ec74004e09a22988f0711280be2854d1620a0d8ec6",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "00173be08195d269b6ac2085da89a3dc946035034f476fa731ef1ebd7bbe8def",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0055997789156042345,
+                "false_safe": 0.15764989662301862,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 50,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.125,
+                  "conditional_unsafe": 0.14705882352941177,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.005878198779328912
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005250354904934602,
+                "false_safe": 0.1768595041322314,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 336,
+                  "unsafe_accepted": 52,
+                  "safe_accepted": 284,
+                  "oracle_safe": 290,
+                  "coverage": 0.84,
+                  "joint_unsafe": 0.13,
+                  "conditional_unsafe": 0.15476190476190477,
+                  "eta": 0.9793103448275862,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.0061546844491926446
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.006403213542095212,
+                "false_safe": 0.25155065472088217,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 354,
+                  "unsafe_accepted": 62,
+                  "safe_accepted": 292,
+                  "oracle_safe": 298,
+                  "coverage": 0.885,
+                  "joint_unsafe": 0.155,
+                  "conditional_unsafe": 0.1751412429378531,
+                  "eta": 0.9798657718120806,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006291346800399588
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005813926646574157,
+                "false_safe": 0.2730578512396694,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 353,
+                  "unsafe_accepted": 66,
+                  "safe_accepted": 287,
+                  "oracle_safe": 290,
+                  "coverage": 0.8825,
+                  "joint_unsafe": 0.165,
+                  "conditional_unsafe": 0.18696883852691218,
+                  "eta": 0.9896551724137931,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.006171042920103839
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0033979900474926006,
+                "false_safe": 0.1412378553436488,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 354,
+                  "unsafe_accepted": 44,
+                  "safe_accepted": 310,
+                  "oracle_safe": 319,
+                  "coverage": 0.885,
+                  "joint_unsafe": 0.11,
+                  "conditional_unsafe": 0.12429378531073447,
+                  "eta": 0.9717868338557993,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0034630508031429884
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.003349001670760874,
+                "false_safe": 0.1625215889464594,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 354,
+                  "unsafe_accepted": 52,
+                  "safe_accepted": 302,
+                  "oracle_safe": 309,
+                  "coverage": 0.885,
+                  "joint_unsafe": 0.13,
+                  "conditional_unsafe": 0.14689265536723164,
+                  "eta": 0.9773462783171522,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.003309287771707915
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0042479211327738796,
+                "false_safe": 0.2311982727599856,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 365,
+                  "unsafe_accepted": 54,
+                  "safe_accepted": 311,
+                  "oracle_safe": 319,
+                  "coverage": 0.9125,
+                  "joint_unsafe": 0.135,
+                  "conditional_unsafe": 0.14794520547945206,
+                  "eta": 0.9749216300940439,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0030755775870331676
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.003802757520787136,
+                "false_safe": 0.25630397236614855,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 366,
+                  "unsafe_accepted": 65,
+                  "safe_accepted": 301,
+                  "oracle_safe": 309,
+                  "coverage": 0.915,
+                  "joint_unsafe": 0.1625,
+                  "conditional_unsafe": 0.17759562841530055,
+                  "eta": 0.9741100323624595,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0028766350345838286
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:17.855090+00:00",
+        "geometry": "balanced_anchor",
+        "source": 64,
+        "seed": 20261157,
+        "checkpoint_sha256": "44c9035b9c7f23c8562e07f477cf8e2baecc3bfa2f2e5a19d55e5d5eae469f84",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "00173be08195d269b6ac2085da89a3dc946035034f476fa731ef1ebd7bbe8def",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00622329121105597,
+                "false_safe": 0.13128876636802206,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 335,
+                  "unsafe_accepted": 47,
+                  "safe_accepted": 288,
+                  "oracle_safe": 298,
+                  "coverage": 0.8375,
+                  "joint_unsafe": 0.1175,
+                  "conditional_unsafe": 0.14029850746268657,
+                  "eta": 0.9664429530201343,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006752094364665237
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.006041104681532945,
+                "false_safe": 0.15024793388429752,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 333,
+                  "unsafe_accepted": 53,
+                  "safe_accepted": 280,
+                  "oracle_safe": 290,
+                  "coverage": 0.8325,
+                  "joint_unsafe": 0.1325,
+                  "conditional_unsafe": 0.15915915915915915,
+                  "eta": 0.9655172413793104,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00675834643930898
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.007085636335108991,
+                "false_safe": 0.23862853204686424,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 351,
+                  "unsafe_accepted": 59,
+                  "safe_accepted": 292,
+                  "oracle_safe": 298,
+                  "coverage": 0.8775,
+                  "joint_unsafe": 0.1475,
+                  "conditional_unsafe": 0.16809116809116809,
+                  "eta": 0.9798657718120806,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.007564540477588125
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.006756197856655142,
+                "false_safe": 0.2608264462809917,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 351,
+                  "unsafe_accepted": 69,
+                  "safe_accepted": 282,
+                  "oracle_safe": 290,
+                  "coverage": 0.8775,
+                  "joint_unsafe": 0.1725,
+                  "conditional_unsafe": 0.19658119658119658,
+                  "eta": 0.9724137931034482,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.007425271954527985
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0034186679418678253,
+                "false_safe": 0.11029147175242893,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 39,
+                  "safe_accepted": 301,
+                  "oracle_safe": 319,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.0975,
+                  "conditional_unsafe": 0.11470588235294117,
+                  "eta": 0.9435736677115988,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0037733473819936193
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0033234171460444994,
+                "false_safe": 0.1293609671848014,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 342,
+                  "unsafe_accepted": 49,
+                  "safe_accepted": 293,
+                  "oracle_safe": 309,
+                  "coverage": 0.855,
+                  "joint_unsafe": 0.1225,
+                  "conditional_unsafe": 0.14327485380116958,
+                  "eta": 0.948220064724919,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0039512492474922615
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00409303321477875,
+                "false_safe": 0.2108672184238935,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 362,
+                  "unsafe_accepted": 53,
+                  "safe_accepted": 309,
+                  "oracle_safe": 319,
+                  "coverage": 0.905,
+                  "joint_unsafe": 0.1325,
+                  "conditional_unsafe": 0.1464088397790055,
+                  "eta": 0.9686520376175548,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.004088207099923379
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0038182278824895636,
+                "false_safe": 0.23298791018998272,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 359,
+                  "unsafe_accepted": 60,
+                  "safe_accepted": 299,
+                  "oracle_safe": 309,
+                  "coverage": 0.8975,
+                  "joint_unsafe": 0.15,
+                  "conditional_unsafe": 0.1671309192200557,
+                  "eta": 0.9676375404530745,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.003449380552066341
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:17.568844+00:00",
+        "geometry": "balanced_anchor",
+        "source": 64,
+        "seed": 20261171,
+        "checkpoint_sha256": "61868b649e73f4fea4d3d032f683869a28d4822b976ece3a998fc63c2507f675",
+        "rgb_training_sha256": "92abe1ed52397b15465226331befeeca174bba39dbb5d9b805f9b5065d8d5563",
+        "target_training_sha256": "00173be08195d269b6ac2085da89a3dc946035034f476fa731ef1ebd7bbe8def",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.004981297597455284,
+                "false_safe": 0.14283252929014473,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 336,
+                  "unsafe_accepted": 45,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.84,
+                  "joint_unsafe": 0.1125,
+                  "conditional_unsafe": 0.13392857142857142,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0066006433951149935
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.004678362000588874,
+                "false_safe": 0.16330578512396693,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 335,
+                  "unsafe_accepted": 51,
+                  "safe_accepted": 284,
+                  "oracle_safe": 290,
+                  "coverage": 0.8375,
+                  "joint_unsafe": 0.1275,
+                  "conditional_unsafe": 0.15223880597014924,
+                  "eta": 0.9793103448275862,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.006473205208507509
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0056821037554938905,
+                "false_safe": 0.22329427980702962,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 352,
+                  "unsafe_accepted": 61,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.88,
+                  "joint_unsafe": 0.1525,
+                  "conditional_unsafe": 0.17329545454545456,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.006242603239358051
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.005336742272068571,
+                "false_safe": 0.24727272727272728,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 350,
+                  "unsafe_accepted": 66,
+                  "safe_accepted": 284,
+                  "oracle_safe": 290,
+                  "coverage": 0.875,
+                  "joint_unsafe": 0.165,
+                  "conditional_unsafe": 0.18857142857142858,
+                  "eta": 0.9793103448275862,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.006038640969910896
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0030331059308114695,
+                "false_safe": 0.14087801367398345,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 347,
+                  "unsafe_accepted": 38,
+                  "safe_accepted": 309,
+                  "oracle_safe": 319,
+                  "coverage": 0.8675,
+                  "joint_unsafe": 0.095,
+                  "conditional_unsafe": 0.10951008645533142,
+                  "eta": 0.9686520376175548,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0022939433382413287
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.002906230486676949,
+                "false_safe": 0.16027633851468048,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 348,
+                  "unsafe_accepted": 49,
+                  "safe_accepted": 299,
+                  "oracle_safe": 309,
+                  "coverage": 0.87,
+                  "joint_unsafe": 0.1225,
+                  "conditional_unsafe": 0.14080459770114942,
+                  "eta": 0.9676375404530745,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.002093650160081166
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0034313575438038335,
+                "false_safe": 0.22256207268801728,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 364,
+                  "unsafe_accepted": 51,
+                  "safe_accepted": 313,
+                  "oracle_safe": 319,
+                  "coverage": 0.91,
+                  "joint_unsafe": 0.1275,
+                  "conditional_unsafe": 0.1401098901098901,
+                  "eta": 0.9811912225705329,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.002665979862406863
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0034123160542401006,
+                "false_safe": 0.2474956822107081,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 364,
+                  "unsafe_accepted": 61,
+                  "safe_accepted": 303,
+                  "oracle_safe": 309,
+                  "coverage": 0.91,
+                  "joint_unsafe": 0.1525,
+                  "conditional_unsafe": 0.16758241758241757,
+                  "eta": 0.9805825242718447,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.002740130964660867
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "independent_48": [
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:19.238697+00:00",
+        "geometry": "independent",
+        "source": 48,
+        "seed": 20261117,
+        "checkpoint_sha256": "b161c377cb6ac0bb3f8ab6f7e9b7394f0af6c38f09f5ace422e79f1a1dfe8955",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "d4ce55907c7623363957b0195ba6a71b80fe72cfb9ce7feb6a254f94b91529ad",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00034429609365553045,
+                "false_safe": 0.013094417643004824,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 300,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.75,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.03,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0004636118260170141
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002855370484749669,
+                "false_safe": 0.028680371352785144,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 299,
+                  "unsafe_accepted": 12,
+                  "safe_accepted": 287,
+                  "oracle_safe": 289,
+                  "coverage": 0.7475,
+                  "joint_unsafe": 0.03,
+                  "conditional_unsafe": 0.04013377926421405,
+                  "eta": 0.9930795847750865,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00034750655691297394
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00028372718461636116,
+                "false_safe": 0.04066161268090972,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 314,
+                  "unsafe_accepted": 18,
+                  "safe_accepted": 296,
+                  "oracle_safe": 298,
+                  "coverage": 0.785,
+                  "joint_unsafe": 0.045,
+                  "conditional_unsafe": 0.05732484076433121,
+                  "eta": 0.9932885906040269,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00025734844539050466
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002881770104609051,
+                "false_safe": 0.07145225464190981,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 313,
+                  "unsafe_accepted": 24,
+                  "safe_accepted": 289,
+                  "oracle_safe": 289,
+                  "coverage": 0.7825,
+                  "joint_unsafe": 0.06,
+                  "conditional_unsafe": 0.07667731629392971,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00017314306136174168
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00028873724089232216,
+                "false_safe": 0.02518891687657431,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 322,
+                  "unsafe_accepted": 10,
+                  "safe_accepted": 312,
+                  "oracle_safe": 319,
+                  "coverage": 0.805,
+                  "joint_unsafe": 0.025,
+                  "conditional_unsafe": 0.031055900621118012,
+                  "eta": 0.9780564263322884,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00010173737976190735
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002605166462984876,
+                "false_safe": 0.041407867494824016,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 316,
+                  "unsafe_accepted": 12,
+                  "safe_accepted": 304,
+                  "oracle_safe": 309,
+                  "coverage": 0.79,
+                  "joint_unsafe": 0.03,
+                  "conditional_unsafe": 0.0379746835443038,
+                  "eta": 0.9838187702265372,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00025339430611425536
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00030876816454819425,
+                "false_safe": 0.061712846347607056,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 337,
+                  "unsafe_accepted": 20,
+                  "safe_accepted": 317,
+                  "oracle_safe": 319,
+                  "coverage": 0.8425,
+                  "joint_unsafe": 0.05,
+                  "conditional_unsafe": 0.05934718100890208,
+                  "eta": 0.9937304075235109,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00030189530184522313
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00036711988157677215,
+                "false_safe": 0.09817115251897861,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 338,
+                  "unsafe_accepted": 30,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.845,
+                  "joint_unsafe": 0.075,
+                  "conditional_unsafe": 0.08875739644970414,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00048225165291988905
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:36.573325+00:00",
+        "geometry": "independent",
+        "source": 48,
+        "seed": 20261129,
+        "checkpoint_sha256": "eb4175f03cc64242fa388f66751fb578be815bfff25c35b760e702232aa165eb",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "d4ce55907c7623363957b0195ba6a71b80fe72cfb9ce7feb6a254f94b91529ad",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00031325700754353405,
+                "false_safe": 0.016023432115782218,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 299,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.7475,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.030100334448160536,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0004569207344345826
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002671593299905297,
+                "false_safe": 0.03398541114058355,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 12,
+                  "safe_accepted": 286,
+                  "oracle_safe": 289,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.03,
+                  "conditional_unsafe": 0.040268456375838924,
+                  "eta": 0.9896193771626297,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00038756789705458633
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00027345849197928486,
+                "false_safe": 0.044279807029634737,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 313,
+                  "unsafe_accepted": 18,
+                  "safe_accepted": 295,
+                  "oracle_safe": 298,
+                  "coverage": 0.7825,
+                  "joint_unsafe": 0.045,
+                  "conditional_unsafe": 0.05750798722044728,
+                  "eta": 0.9899328859060402,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00019017208455464614
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00027319216979163513,
+                "false_safe": 0.07476790450928382,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 311,
+                  "unsafe_accepted": 22,
+                  "safe_accepted": 289,
+                  "oracle_safe": 289,
+                  "coverage": 0.7775,
+                  "joint_unsafe": 0.055,
+                  "conditional_unsafe": 0.0707395498392283,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00024626078693737013
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.000296795892056405,
+                "false_safe": 0.032025908600215904,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 327,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 314,
+                  "oracle_safe": 319,
+                  "coverage": 0.8175,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.039755351681957186,
+                  "eta": 0.9843260188087775,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00035269370050649516
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00033006942952595707,
+                "false_safe": 0.05331262939958592,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 324,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.81,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05246913580246913,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0003246551905678688
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00030441348210994654,
+                "false_safe": 0.07520690896005758,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 343,
+                  "unsafe_accepted": 26,
+                  "safe_accepted": 317,
+                  "oracle_safe": 319,
+                  "coverage": 0.8575,
+                  "joint_unsafe": 0.065,
+                  "conditional_unsafe": 0.07580174927113703,
+                  "eta": 0.9937304075235109,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0004560546799839061
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00042674164653948494,
+                "false_safe": 0.10955831608005522,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 340,
+                  "unsafe_accepted": 32,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.85,
+                  "joint_unsafe": 0.08,
+                  "conditional_unsafe": 0.09411764705882353,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0005336936802503754
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:37.630598+00:00",
+        "geometry": "independent",
+        "source": 48,
+        "seed": 20261143,
+        "checkpoint_sha256": "62d437cac7fbdefda06892e76fadf1e625112040ef29d6455f3cb85fc46f9162",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "d4ce55907c7623363957b0195ba6a71b80fe72cfb9ce7feb6a254f94b91529ad",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0002386469698773037,
+                "false_safe": 0.011543762922122674,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 297,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.7425,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.02356902356902357,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003190431752864614
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002221120315088526,
+                "false_safe": 0.023209549071618037,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 296,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 287,
+                  "oracle_safe": 289,
+                  "coverage": 0.74,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.030405405405405407,
+                  "eta": 0.9930795847750865,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00020659982869111645
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0003111155811474406,
+                "false_safe": 0.03273604410751206,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 311,
+                  "unsafe_accepted": 15,
+                  "safe_accepted": 296,
+                  "oracle_safe": 298,
+                  "coverage": 0.7775,
+                  "joint_unsafe": 0.0375,
+                  "conditional_unsafe": 0.04823151125401929,
+                  "eta": 0.9932885906040269,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00022594856333364437
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00025314866338768606,
+                "false_safe": 0.059847480106100796,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 310,
+                  "unsafe_accepted": 21,
+                  "safe_accepted": 289,
+                  "oracle_safe": 289,
+                  "coverage": 0.775,
+                  "joint_unsafe": 0.0525,
+                  "conditional_unsafe": 0.06774193548387097,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00023837314020272134
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00026061133858277353,
+                "false_safe": 0.022490104354084203,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 322,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 315,
+                  "oracle_safe": 319,
+                  "coverage": 0.805,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.021739130434782608,
+                  "eta": 0.987460815047022,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00020306775254313517
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00024753431027001985,
+                "false_safe": 0.041235334713595584,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 320,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.8,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.040625,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00024908991602898284
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00031877308447279427,
+                "false_safe": 0.05379632961496941,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 337,
+                  "unsafe_accepted": 19,
+                  "safe_accepted": 318,
+                  "oracle_safe": 319,
+                  "coverage": 0.8425,
+                  "joint_unsafe": 0.0475,
+                  "conditional_unsafe": 0.05637982195845697,
+                  "eta": 0.9968652037617555,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00044335120227902386
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0003745561826216039,
+                "false_safe": 0.08764665286404417,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 336,
+                  "unsafe_accepted": 27,
+                  "safe_accepted": 309,
+                  "oracle_safe": 309,
+                  "coverage": 0.84,
+                  "joint_unsafe": 0.0675,
+                  "conditional_unsafe": 0.08035714285714286,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00038107188337863627
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:21:44.006387+00:00",
+        "geometry": "independent",
+        "source": 48,
+        "seed": 20261157,
+        "checkpoint_sha256": "ae75e783955abab0298faa3f72f5f98ff7ab218a994e9f72a9eeff39d2bfd1fe",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "d4ce55907c7623363957b0195ba6a71b80fe72cfb9ce7feb6a254f94b91529ad",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0002930834608459385,
+                "false_safe": 0.01636802205375603,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 300,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.75,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.03,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003947849728809639
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00025142391814470997,
+                "false_safe": 0.03249336870026525,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 11,
+                  "safe_accepted": 287,
+                  "oracle_safe": 289,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.0275,
+                  "conditional_unsafe": 0.03691275167785235,
+                  "eta": 0.9930795847750865,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.00021867653307432075
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0002968163264618015,
+                "false_safe": 0.046691936595451414,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 312,
+                  "unsafe_accepted": 16,
+                  "safe_accepted": 296,
+                  "oracle_safe": 298,
+                  "coverage": 0.78,
+                  "joint_unsafe": 0.04,
+                  "conditional_unsafe": 0.05128205128205128,
+                  "eta": 0.9932885906040269,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00018633295448076883
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00026318254157490655,
+                "false_safe": 0.07509946949602123,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 310,
+                  "unsafe_accepted": 21,
+                  "safe_accepted": 289,
+                  "oracle_safe": 289,
+                  "coverage": 0.775,
+                  "joint_unsafe": 0.0525,
+                  "conditional_unsafe": 0.06774193548387097,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.0001544337296092965
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00026837427356958814,
+                "false_safe": 0.026088521050737674,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 322,
+                  "unsafe_accepted": 6,
+                  "safe_accepted": 316,
+                  "oracle_safe": 319,
+                  "coverage": 0.805,
+                  "joint_unsafe": 0.015,
+                  "conditional_unsafe": 0.018633540372670808,
+                  "eta": 0.9905956112852664,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00026880015155737394
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002623665361259372,
+                "false_safe": 0.04296066252587992,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 319,
+                  "unsafe_accepted": 11,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.7975,
+                  "joint_unsafe": 0.0275,
+                  "conditional_unsafe": 0.034482758620689655,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00017433842630804107
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00035031496404316307,
+                "false_safe": 0.06711047139258726,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 339,
+                  "unsafe_accepted": 21,
+                  "safe_accepted": 318,
+                  "oracle_safe": 319,
+                  "coverage": 0.8475,
+                  "joint_unsafe": 0.0525,
+                  "conditional_unsafe": 0.061946902654867256,
+                  "eta": 0.9968652037617555,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00038344940983645796
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0004188622075714538,
+                "false_safe": 0.09730848861283643,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 338,
+                  "unsafe_accepted": 29,
+                  "safe_accepted": 309,
+                  "oracle_safe": 309,
+                  "coverage": 0.845,
+                  "joint_unsafe": 0.0725,
+                  "conditional_unsafe": 0.08579881656804733,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00029635075067114327
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:01.538026+00:00",
+        "geometry": "independent",
+        "source": 48,
+        "seed": 20261171,
+        "checkpoint_sha256": "f94a39e9e90585025fd25bf3fe4108144b93c0a4e88360b7227d4ec04f8d8d14",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "d4ce55907c7623363957b0195ba6a71b80fe72cfb9ce7feb6a254f94b91529ad",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00028227243969607634,
+                "false_safe": 0.010854583046175051,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 296,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 289,
+                  "oracle_safe": 298,
+                  "coverage": 0.74,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.02364864864864865,
+                  "eta": 0.9697986577181208,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003806086041627124
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002293794093132138,
+                "false_safe": 0.023706896551724137,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 295,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 286,
+                  "oracle_safe": 289,
+                  "coverage": 0.7375,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.030508474576271188,
+                  "eta": 0.9896193771626297,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.0002628437640800248
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0003216477806173858,
+                "false_safe": 0.031874569262577535,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 307,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 294,
+                  "oracle_safe": 298,
+                  "coverage": 0.7675,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.04234527687296417,
+                  "eta": 0.9865771812080537,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00042521690448431943
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00027013347923836225,
+                "false_safe": 0.05935013262599469,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 306,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 289,
+                  "oracle_safe": 289,
+                  "coverage": 0.765,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05555555555555555,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7225,
+                  "regret": 0.0002785583063404233
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00030826837695146976,
+                "false_safe": 0.01583303346527528,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 315,
+                  "unsafe_accepted": 5,
+                  "safe_accepted": 310,
+                  "oracle_safe": 319,
+                  "coverage": 0.7875,
+                  "joint_unsafe": 0.0125,
+                  "conditional_unsafe": 0.015873015873015872,
+                  "eta": 0.9717868338557993,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00018134371784626124
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002027007173787132,
+                "false_safe": 0.02881297446514838,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 312,
+                  "unsafe_accepted": 6,
+                  "safe_accepted": 306,
+                  "oracle_safe": 309,
+                  "coverage": 0.78,
+                  "joint_unsafe": 0.015,
+                  "conditional_unsafe": 0.019230769230769232,
+                  "eta": 0.9902912621359223,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0001817747819557335
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.000312251774051871,
+                "false_safe": 0.042281396185678305,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 333,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 316,
+                  "oracle_safe": 319,
+                  "coverage": 0.8325,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05105105105105105,
+                  "eta": 0.9905956112852664,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.000376978850564017
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002773999422912452,
+                "false_safe": 0.07211870255348517,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 331,
+                  "unsafe_accepted": 24,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.8275,
+                  "joint_unsafe": 0.06,
+                  "conditional_unsafe": 0.07250755287009064,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00017781104692251104
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "independent_64": [
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:01.573655+00:00",
+        "geometry": "independent",
+        "source": 64,
+        "seed": 20261117,
+        "checkpoint_sha256": "383cc488cf81771567c5fa37383b7c8d1d525cf81275a157bc26570bad45c827",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "cbbd3da758a892e8896a892e70a354599e17ae66232bb72627f50f492a0afeb1",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00038335017414730494,
+                "false_safe": 0.009131633356305995,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 294,
+                  "unsafe_accepted": 4,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.735,
+                  "joint_unsafe": 0.01,
+                  "conditional_unsafe": 0.013605442176870748,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0005666903163308633
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00028944958934917954,
+                "false_safe": 0.018016528925619835,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 294,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 287,
+                  "oracle_safe": 290,
+                  "coverage": 0.735,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.023809523809523808,
+                  "eta": 0.9896551724137931,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00029879136109639917
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00022942214712799128,
+                "false_safe": 0.029117849758787045,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 307,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 294,
+                  "oracle_safe": 298,
+                  "coverage": 0.7675,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.04234527687296417,
+                  "eta": 0.9865771812080537,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00020054851551515158
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002290133099092405,
+                "false_safe": 0.05702479338842975,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 307,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 290,
+                  "oracle_safe": 290,
+                  "coverage": 0.7675,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05537459283387622,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00018400909858155265
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0003000430632470177,
+                "false_safe": 0.009715725080964376,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 309,
+                  "unsafe_accepted": 2,
+                  "safe_accepted": 307,
+                  "oracle_safe": 319,
+                  "coverage": 0.7725,
+                  "joint_unsafe": 0.005,
+                  "conditional_unsafe": 0.006472491909385114,
+                  "eta": 0.9623824451410659,
+                  "oracle_coverage": 0.7975,
+                  "regret": 7.540042082740316e-05
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00030364864752650903,
+                "false_safe": 0.023316062176165803,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 306,
+                  "unsafe_accepted": 2,
+                  "safe_accepted": 304,
+                  "oracle_safe": 309,
+                  "coverage": 0.765,
+                  "joint_unsafe": 0.005,
+                  "conditional_unsafe": 0.006535947712418301,
+                  "eta": 0.9838187702265372,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00016769889362641322
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0002665909235885805,
+                "false_safe": 0.04354084202950702,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 333,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 316,
+                  "oracle_safe": 319,
+                  "coverage": 0.8325,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05105105105105105,
+                  "eta": 0.9905956112852664,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0001355654966217116
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002893414530464951,
+                "false_safe": 0.0692573402417962,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 326,
+                  "unsafe_accepted": 18,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.815,
+                  "joint_unsafe": 0.045,
+                  "conditional_unsafe": 0.05521472392638037,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0002132016046165114
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:37.330099+00:00",
+        "geometry": "independent",
+        "source": 64,
+        "seed": 20261129,
+        "checkpoint_sha256": "62c2ea65bc87b44ccf1e378fd5baa8748097cd2086d507d2a02bcb22111e44bb",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "cbbd3da758a892e8896a892e70a354599e17ae66232bb72627f50f492a0afeb1",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.000262676523208781,
+                "false_safe": 0.01171605789110958,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.02348993288590604,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00032939057754958074
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00017934440214406025,
+                "false_safe": 0.032231404958677684,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 11,
+                  "safe_accepted": 287,
+                  "oracle_safe": 290,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.0275,
+                  "conditional_unsafe": 0.03691275167785235,
+                  "eta": 0.9896551724137931,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00018430799253347764
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.000245117916442564,
+                "false_safe": 0.03859407305306685,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 315,
+                  "unsafe_accepted": 18,
+                  "safe_accepted": 297,
+                  "oracle_safe": 298,
+                  "coverage": 0.7875,
+                  "joint_unsafe": 0.045,
+                  "conditional_unsafe": 0.05714285714285714,
+                  "eta": 0.9966442953020134,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003121068992048089
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00019053852350740054,
+                "false_safe": 0.07008264462809917,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 314,
+                  "unsafe_accepted": 24,
+                  "safe_accepted": 290,
+                  "oracle_safe": 290,
+                  "coverage": 0.785,
+                  "joint_unsafe": 0.06,
+                  "conditional_unsafe": 0.07643312101910828,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00022491178573751298
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0002644088571596951,
+                "false_safe": 0.024649154372076286,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 320,
+                  "unsafe_accepted": 8,
+                  "safe_accepted": 312,
+                  "oracle_safe": 319,
+                  "coverage": 0.8,
+                  "joint_unsafe": 0.02,
+                  "conditional_unsafe": 0.025,
+                  "eta": 0.9780564263322884,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00020866310153573844
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00026539665296303883,
+                "false_safe": 0.04369602763385147,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 318,
+                  "unsafe_accepted": 11,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.795,
+                  "joint_unsafe": 0.0275,
+                  "conditional_unsafe": 0.03459119496855346,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0002498721719051802
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0003739648015934786,
+                "false_safe": 0.056854983807124865,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 335,
+                  "unsafe_accepted": 20,
+                  "safe_accepted": 315,
+                  "oracle_safe": 319,
+                  "coverage": 0.8375,
+                  "joint_unsafe": 0.05,
+                  "conditional_unsafe": 0.05970149253731343,
+                  "eta": 0.987460815047022,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.0006175757709563673
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0003685844713417433,
+                "false_safe": 0.08929188255613126,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 333,
+                  "unsafe_accepted": 25,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.8325,
+                  "joint_unsafe": 0.0625,
+                  "conditional_unsafe": 0.07507507507507508,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0004215894857382832
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:37.323009+00:00",
+        "geometry": "independent",
+        "source": 64,
+        "seed": 20261143,
+        "checkpoint_sha256": "11c2f2b0e50ed8542def46cce5be5c976c2cd86a10a0edee3c5a470f47971fb6",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "cbbd3da758a892e8896a892e70a354599e17ae66232bb72627f50f492a0afeb1",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00024058998116054662,
+                "false_safe": 0.012922122674017919,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.02348993288590604,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.000326855973152494
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00018168029917338356,
+                "false_safe": 0.0315702479338843,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 10,
+                  "safe_accepted": 288,
+                  "oracle_safe": 290,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.025,
+                  "conditional_unsafe": 0.03355704697986577,
+                  "eta": 0.993103448275862,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00019627402482833839
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00025917860468493444,
+                "false_safe": 0.03962784286698828,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 311,
+                  "unsafe_accepted": 15,
+                  "safe_accepted": 296,
+                  "oracle_safe": 298,
+                  "coverage": 0.7775,
+                  "joint_unsafe": 0.0375,
+                  "conditional_unsafe": 0.04823151125401929,
+                  "eta": 0.9932885906040269,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003631078741984603
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00019573646017425575,
+                "false_safe": 0.07173553719008265,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 311,
+                  "unsafe_accepted": 21,
+                  "safe_accepted": 290,
+                  "oracle_safe": 290,
+                  "coverage": 0.7775,
+                  "joint_unsafe": 0.0525,
+                  "conditional_unsafe": 0.06752411575562701,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00027385683949274084
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00020100281300125801,
+                "false_safe": 0.02374955019791292,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 323,
+                  "unsafe_accepted": 8,
+                  "safe_accepted": 315,
+                  "oracle_safe": 319,
+                  "coverage": 0.8075,
+                  "joint_unsafe": 0.02,
+                  "conditional_unsafe": 0.02476780185758514,
+                  "eta": 0.987460815047022,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00015320801097352127
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00021890678070463445,
+                "false_safe": 0.041105354058721934,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 319,
+                  "unsafe_accepted": 11,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.7975,
+                  "joint_unsafe": 0.0275,
+                  "conditional_unsafe": 0.034482758620689655,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0001451882108707681
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0002797407199711357,
+                "false_safe": 0.060813242173443686,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 343,
+                  "unsafe_accepted": 24,
+                  "safe_accepted": 319,
+                  "oracle_safe": 319,
+                  "coverage": 0.8575,
+                  "joint_unsafe": 0.06,
+                  "conditional_unsafe": 0.06997084548104957,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00022756661700424133
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00031532321361111047,
+                "false_safe": 0.092573402417962,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 341,
+                  "unsafe_accepted": 32,
+                  "safe_accepted": 309,
+                  "oracle_safe": 309,
+                  "coverage": 0.8525,
+                  "joint_unsafe": 0.08,
+                  "conditional_unsafe": 0.093841642228739,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.0003259659231436402
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:37.387117+00:00",
+        "geometry": "independent",
+        "source": 64,
+        "seed": 20261157,
+        "checkpoint_sha256": "25dc2fe2385377230f18286abd099a825bba3321621ceeece5d41dfbfefbea90",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "cbbd3da758a892e8896a892e70a354599e17ae66232bb72627f50f492a0afeb1",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.00029668576413002,
+                "false_safe": 0.009820813232253619,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 297,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 290,
+                  "oracle_safe": 298,
+                  "coverage": 0.7425,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.02356902356902357,
+                  "eta": 0.9731543624161074,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.00032021247690382893
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00018808225537439538,
+                "false_safe": 0.027107438016528925,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 298,
+                  "unsafe_accepted": 10,
+                  "safe_accepted": 288,
+                  "oracle_safe": 290,
+                  "coverage": 0.745,
+                  "joint_unsafe": 0.025,
+                  "conditional_unsafe": 0.03355704697986577,
+                  "eta": 0.993103448275862,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00019924315553342
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00026954345955388195,
+                "false_safe": 0.03514817367332874,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 310,
+                  "unsafe_accepted": 14,
+                  "safe_accepted": 296,
+                  "oracle_safe": 298,
+                  "coverage": 0.775,
+                  "joint_unsafe": 0.035,
+                  "conditional_unsafe": 0.04516129032258064,
+                  "eta": 0.9932885906040269,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0003096991654313529
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00020449610808335244,
+                "false_safe": 0.0687603305785124,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 310,
+                  "unsafe_accepted": 20,
+                  "safe_accepted": 290,
+                  "oracle_safe": 290,
+                  "coverage": 0.775,
+                  "joint_unsafe": 0.05,
+                  "conditional_unsafe": 0.06451612903225806,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00016948683265285722
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0002514431359743215,
+                "false_safe": 0.02087081684059014,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 321,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 314,
+                  "oracle_safe": 319,
+                  "coverage": 0.8025,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.021806853582554516,
+                  "eta": 0.9843260188087775,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00023306666092880722
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00021005015842279166,
+                "false_safe": 0.0386873920552677,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 320,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.8,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.040625,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00020822574386629412
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.0003370031774181373,
+                "false_safe": 0.05577545879812882,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 337,
+                  "unsafe_accepted": 19,
+                  "safe_accepted": 318,
+                  "oracle_safe": 319,
+                  "coverage": 0.8425,
+                  "joint_unsafe": 0.0475,
+                  "conditional_unsafe": 0.05637982195845697,
+                  "eta": 0.9968652037617555,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00033823260093625773
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.000313120662518897,
+                "false_safe": 0.08911917098445596,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 332,
+                  "unsafe_accepted": 23,
+                  "safe_accepted": 309,
+                  "oracle_safe": 309,
+                  "coverage": 0.83,
+                  "joint_unsafe": 0.0575,
+                  "conditional_unsafe": 0.06927710843373494,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00029123901633370234
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "status": "COMPLETE",
+        "at_utc": "2026-09-12T16:22:59.383021+00:00",
+        "geometry": "independent",
+        "source": 64,
+        "seed": 20261171,
+        "checkpoint_sha256": "96752c7a09664386210b5a2bf2c53890ce2544d26bf7d0443ca469604da7af78",
+        "rgb_training_sha256": "866f96581feec6ffc4e6d3043c15539625e252554a202bf2dff7b722d99442db",
+        "target_training_sha256": "cbbd3da758a892e8896a892e70a354599e17ae66232bb72627f50f492a0afeb1",
+        "splits": {
+          "iid": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0003251157395063667,
+                "false_safe": 0.007925568573397657,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 297,
+                  "unsafe_accepted": 6,
+                  "safe_accepted": 291,
+                  "oracle_safe": 298,
+                  "coverage": 0.7425,
+                  "joint_unsafe": 0.015,
+                  "conditional_unsafe": 0.020202020202020204,
+                  "eta": 0.9765100671140939,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.000520289908532124
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00020535359443341208,
+                "false_safe": 0.021322314049586778,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 295,
+                  "unsafe_accepted": 9,
+                  "safe_accepted": 286,
+                  "oracle_safe": 290,
+                  "coverage": 0.7375,
+                  "joint_unsafe": 0.0225,
+                  "conditional_unsafe": 0.030508474576271188,
+                  "eta": 0.9862068965517241,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.0002008936871441874
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00028878466758643637,
+                "false_safe": 0.028773259820813232,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 307,
+                  "unsafe_accepted": 13,
+                  "safe_accepted": 294,
+                  "oracle_safe": 298,
+                  "coverage": 0.7675,
+                  "joint_unsafe": 0.0325,
+                  "conditional_unsafe": 0.04234527687296417,
+                  "eta": 0.9865771812080537,
+                  "oracle_coverage": 0.745,
+                  "regret": 0.0004250992877900578
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00019454530292479678,
+                "false_safe": 0.056363636363636366,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 305,
+                  "unsafe_accepted": 15,
+                  "safe_accepted": 290,
+                  "oracle_safe": 290,
+                  "coverage": 0.7625,
+                  "joint_unsafe": 0.0375,
+                  "conditional_unsafe": 0.04918032786885246,
+                  "eta": 1.0,
+                  "oracle_coverage": 0.725,
+                  "regret": 0.00017815322259636036
+                }
+              }
+            }
+          },
+          "appearance": {
+            "restored_zero": {
+              "common": {
+                "mean_acd_regret": 0.0002510630259035673,
+                "false_safe": 0.01439366678661389,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 316,
+                  "unsafe_accepted": 4,
+                  "safe_accepted": 312,
+                  "oracle_safe": 319,
+                  "coverage": 0.79,
+                  "joint_unsafe": 0.01,
+                  "conditional_unsafe": 0.012658227848101266,
+                  "eta": 0.9780564263322884,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00018097649223954395
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.00013998211468539804,
+                "false_safe": 0.02677029360967185,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 314,
+                  "unsafe_accepted": 7,
+                  "safe_accepted": 307,
+                  "oracle_safe": 309,
+                  "coverage": 0.785,
+                  "joint_unsafe": 0.0175,
+                  "conditional_unsafe": 0.022292993630573247,
+                  "eta": 0.9935275080906149,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00015212685279922153
+                }
+              }
+            },
+            "inherited_minus2": {
+              "common": {
+                "mean_acd_regret": 0.00028966665129293647,
+                "false_safe": 0.041021950341849585,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 333,
+                  "unsafe_accepted": 17,
+                  "safe_accepted": 316,
+                  "oracle_safe": 319,
+                  "coverage": 0.8325,
+                  "joint_unsafe": 0.0425,
+                  "conditional_unsafe": 0.05105105105105105,
+                  "eta": 0.9905956112852664,
+                  "oracle_coverage": 0.7975,
+                  "regret": 0.00033656692990570366
+                }
+              },
+              "native": {
+                "mean_acd_regret": 0.0002504876401043053,
+                "false_safe": 0.06977547495682211,
+                "deployment": {
+                  "n": 400,
+                  "accepted": 329,
+                  "unsafe_accepted": 21,
+                  "safe_accepted": 308,
+                  "oracle_safe": 309,
+                  "coverage": 0.8225,
+                  "joint_unsafe": 0.0525,
+                  "conditional_unsafe": 0.06382978723404255,
+                  "eta": 0.9967637540453075,
+                  "oracle_coverage": 0.7725,
+                  "regret": 0.00030919937484192813
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "contrasts": {
+    "iid": {
+      "geometry_at_48": {
+        "mean": 0.007574033586564196,
+        "ci95": [
+          0.0051552982883493045,
+          0.010516272475544802
+        ],
+        "per_seed": [
+          0.012413662051764576,
+          0.0051802761747270195,
+          0.007512801778559409,
+          0.0074935728372565414,
+          0.005269855090513429
+        ],
+        "meaningful_geometry_advantage": true
+      },
+      "geometry_at_64": {
+        "mean": 0.0068378164132180536,
+        "ci95": [
+          0.004809140932686492,
+          0.009140678171055515
+        ],
+        "per_seed": [
+          0.009255770496239707,
+          0.008991335330532006,
+          0.005359188934443687,
+          0.00592660544692595,
+          0.0046561818579489165
+        ],
+        "meaningful_geometry_advantage": true
+      },
+      "raster_48_minus_64_balanced_anchor": {
+        "mean": 0.0007288447312392143,
+        "ci95": [
+          -0.001695823823333567,
+          0.0027436638140041322
+        ],
+        "per_seed": [
+          0.003118837475033095,
+          -0.0037604786714702343,
+          0.002151669832832479,
+          0.0015633650870465093,
+          0.000570829932754222
+        ],
+        "within_equivalence_band": false
+      },
+      "raster_48_minus_64_independent": {
+        "mean": -7.372442106927218e-06,
+        "ci95": [
+          -6.754850831718878e-05,
+          4.711918280687669e-05
+        ],
+        "per_seed": [
+          -3.9054080491774415e-05,
+          5.058048433475304e-05,
+          -1.943011283242907e-06,
+          -3.6023032840814455e-06,
+          -4.2843299810290366e-05
+        ],
+        "within_equivalence_band": true
+      },
+      "interaction": {
+        "mean": 0.0007362171733461413,
+        "ci95": [
+          -0.0017309633414332654,
+          0.0027546259385165237
+        ],
+        "per_seed": [
+          0.0031578915555248695,
+          -0.0038110591558049873,
+          0.0021536128441157214,
+          0.0015669673903305908,
+          0.0006136732325645125
+        ]
+      }
+    },
+    "appearance": {
+      "geometry_at_48": {
+        "mean": 0.0048696523502019555,
+        "ci95": [
+          0.0031010582267533265,
+          0.006853163529752301
+        ],
+        "per_seed": [
+          0.005016445116353305,
+          0.003055650446988991,
+          0.0059240643526782995,
+          0.007745319515554055,
+          0.0026067823194351296
+        ],
+        "meaningful_geometry_advantage": true
+      },
+      "geometry_at_64": {
+        "mean": 0.008249269849524545,
+        "ci95": [
+          0.002849779743273507,
+          0.017689859420334145
+        ],
+        "per_seed": [
+          0.02644083163760195,
+          0.0056592626647280295,
+          0.003196987234491343,
+          0.0031672248058935036,
+          0.0027820429049079014
+        ],
+        "meaningful_geometry_advantage": true
+      },
+      "raster_48_minus_64_balanced_anchor": {
+        "mean": -0.0033486522539692494,
+        "ci95": [
+          -0.012681342497004151,
+          0.0030194085760025333
+        ],
+        "per_seed": [
+          -0.021435692343603336,
+          -0.0025712251828423293,
+          0.002786685643768472,
+          0.004595025847255817,
+          -0.00011805523442486912
+        ],
+        "within_equivalence_band": false
+      },
+      "raster_48_minus_64_independent": {
+        "mean": 3.09652453533398e-05,
+        "ci95": [
+          -3.265463828812039e-05,
+          9.41854495709089e-05
+        ],
+        "per_seed": [
+          -1.1305822354695568e-05,
+          3.238703489670989e-05,
+          5.960852558151549e-05,
+          1.6931137595266718e-05,
+          5.720535104790246e-05
+        ],
+        "within_equivalence_band": true
+      },
+      "interaction": {
+        "mean": -0.003379617499322589,
+        "ci95": [
+          -0.012945999716732048,
+          0.003022162724031081
+        ],
+        "per_seed": [
+          -0.02142438652124864,
+          -0.00260361221773904,
+          0.002727077118186956,
+          0.00457809470966055,
+          -0.00017526058547277166
+        ]
+      }
+    }
+  },
+  "geometry_primary_pass": true
+}

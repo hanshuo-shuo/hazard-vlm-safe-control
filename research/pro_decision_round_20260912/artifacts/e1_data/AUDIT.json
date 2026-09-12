@@ -1,0 +1,50 @@
+{
+  "calibration": {
+    "source_sha256": "c2d07dce99536db10d950fa4dcc546399ff00ac641b78ceddd70bbb67bd62e3d",
+    "reference": {
+      "label_flip_rate": 0.0,
+      "cost_difference_p95": 0.0006987737125860264,
+      "maximum_cost_difference": 0.003872539989623988,
+      "label_flip_count": 0,
+      "entries": 7200,
+      "pass": true
+    },
+    "low16_vs_reference_flip": 0.02861111111111111
+  },
+  "random_iid": {
+    "source_sha256": "c25ba15344cce78797f8b5c8560f6e0fa0eb972176fcf75c5b66700a82c26b22",
+    "reference": {
+      "label_flip_rate": 0.0008333333333333334,
+      "cost_difference_p95": 0.0007372847643582203,
+      "maximum_cost_difference": 0.004851040201238832,
+      "label_flip_count": 12,
+      "entries": 14400,
+      "pass": true
+    },
+    "low16_vs_reference_flip": 0.026111111111111113
+  },
+  "random_appearance": {
+    "source_sha256": "b878b7f7922346c9eeac5e76f7227778f64286c2fa3eee9eaecc7f2a0fbf514f",
+    "reference": {
+      "label_flip_rate": 0.0009722222222222222,
+      "cost_difference_p95": 0.0007554109592385372,
+      "maximum_cost_difference": 0.004404847968815656,
+      "label_flip_count": 14,
+      "entries": 14400,
+      "pass": true
+    },
+    "low16_vs_reference_flip": 0.03305555555555555
+  },
+  "shape_appearance": {
+    "source_sha256": "180d98472448125073d37eef80a11a8b9955e1864d88d6395e6d2f93136bbba9",
+    "reference": {
+      "label_flip_rate": 0.0004166666666666667,
+      "cost_difference_p95": 0.0006680661327309667,
+      "maximum_cost_difference": 0.004300073780317437,
+      "label_flip_count": 6,
+      "entries": 14400,
+      "pass": true
+    },
+    "low16_vs_reference_flip": 0.027777777777777776
+  }
+}

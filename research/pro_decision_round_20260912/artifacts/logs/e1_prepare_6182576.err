@@ -1,0 +1,17 @@
+test_actual_deployment_excludes_trivial_card (__main__.RoundTests) ... ok
+test_boundary_band_not_entire_interior (__main__.RoundTests) ... ok
+test_continuous_identity_and_rgb_raster_invariance (__main__.RoundTests) ... ok
+test_cp_nonzero_against_exact_polynomial (__main__.RoundTests) ... ok
+test_cp_zero_count_resolution (__main__.RoundTests) ... ok
+test_crossed_ratio_constant (__main__.RoundTests) ... ok
+test_eta_does_not_count_unsafe_accepts (__main__.RoundTests) ... ok
+test_formula_matches_reference (__main__.RoundTests) ... ok
+test_nested_scores_per_scene_not_flattened (__main__.RoundTests) ... ok
+test_reference_mean_against_direct_boolean_sum (__main__.RoundTests) ... ok
+test_source_syntax (__main__.RoundTests) ... ok
+test_tie_selection_uniform_and_repeatable (__main__.RoundTests) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.311s
+
+OK

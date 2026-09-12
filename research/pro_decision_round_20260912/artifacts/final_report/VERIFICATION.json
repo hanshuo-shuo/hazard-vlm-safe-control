@@ -1,0 +1,554 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-12T16:35:38.148177+00:00",
+  "verified_manifest_files": 257,
+  "verifier_sha256": "e9b8e81464886c4b58330607c403e7ea9fc71131f85d07f9e44c0fe5ddc444f9",
+  "e1_models": 5,
+  "e2_checkpoints": 20,
+  "cpu_replayed_images": 80,
+  "e3_certification_models": 5,
+  "certified_rule_pvalues": [
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.001,
+      "binomial_pvalue": 2.451655070590053e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.002,
+      "binomial_pvalue": 4.9990920326758935e-24
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.005,
+      "binomial_pvalue": 1.1146594738693599e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.01,
+      "binomial_pvalue": 1.86761090139283e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.015,
+      "binomial_pvalue": 5.497407846222838e-22
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.4469838210773145e-19
+    },
+    {
+      "seed_index": 0,
+      "domain": "iid",
+      "threshold": 0.03,
+      "binomial_pvalue": 8.782962356445881e-11
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.001,
+      "binomial_pvalue": 3.695477189067501e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.002,
+      "binomial_pvalue": 4.071791704939719e-24
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.005,
+      "binomial_pvalue": 1.5862655394006798e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.01,
+      "binomial_pvalue": 1.9625947112312862e-23
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.015,
+      "binomial_pvalue": 3.222990018223948e-16
+    },
+    {
+      "seed_index": 0,
+      "domain": "target",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.2200545528571142e-12
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.001,
+      "binomial_pvalue": 5.539160147009301e-24
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.002,
+      "binomial_pvalue": 1.3866960049407264e-24
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.005,
+      "binomial_pvalue": 3.1604157009768407e-24
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.01,
+      "binomial_pvalue": 1.4563125845870277e-25
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.015,
+      "binomial_pvalue": 2.286721914104822e-19
+    },
+    {
+      "seed_index": 1,
+      "domain": "iid",
+      "threshold": 0.02,
+      "binomial_pvalue": 6.834400845360492e-14
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.001,
+      "binomial_pvalue": 2.8021226393683304e-22
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.002,
+      "binomial_pvalue": 8.366271187703331e-23
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.005,
+      "binomial_pvalue": 1.9194640662775393e-22
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.01,
+      "binomial_pvalue": 2.343156928632652e-18
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.015,
+      "binomial_pvalue": 4.740143334882879e-13
+    },
+    {
+      "seed_index": 1,
+      "domain": "target",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.35570280970868e-06
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.001,
+      "binomial_pvalue": 6.4606037579930626e-24
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.002,
+      "binomial_pvalue": 1.188918487236055e-24
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.005,
+      "binomial_pvalue": 3.4957765954625566e-24
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.01,
+      "binomial_pvalue": 5.1395273108793275e-24
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.015,
+      "binomial_pvalue": 3.348343143607537e-20
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.02,
+      "binomial_pvalue": 4.809825054000794e-18
+    },
+    {
+      "seed_index": 2,
+      "domain": "iid",
+      "threshold": 0.03,
+      "binomial_pvalue": 0.0002693589380872398
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.001,
+      "binomial_pvalue": 2.4092374187676566e-22
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.002,
+      "binomial_pvalue": 4.570614999695901e-23
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.005,
+      "binomial_pvalue": 2.5831009696089103e-24
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.01,
+      "binomial_pvalue": 1.7819155242939653e-19
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.015,
+      "binomial_pvalue": 3.5993784266839975e-13
+    },
+    {
+      "seed_index": 2,
+      "domain": "target",
+      "threshold": 0.02,
+      "binomial_pvalue": 9.661312966621799e-08
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.001,
+      "binomial_pvalue": 7.931926560407687e-24
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.002,
+      "binomial_pvalue": 2.316035497500235e-24
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.005,
+      "binomial_pvalue": 1.1231504191208536e-25
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.01,
+      "binomial_pvalue": 4.915614833895813e-27
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.015,
+      "binomial_pvalue": 2.672759598603204e-22
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.1125920814953573e-15
+    },
+    {
+      "seed_index": 3,
+      "domain": "iid",
+      "threshold": 0.03,
+      "binomial_pvalue": 5.027828060329709e-05
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.001,
+      "binomial_pvalue": 4.286096531515494e-24
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.002,
+      "binomial_pvalue": 5.316414646882772e-23
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.005,
+      "binomial_pvalue": 1.2289205076376454e-22
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.01,
+      "binomial_pvalue": 2.0478168130315137e-19
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.015,
+      "binomial_pvalue": 3.46043337252661e-13
+    },
+    {
+      "seed_index": 3,
+      "domain": "target",
+      "threshold": 0.02,
+      "binomial_pvalue": 2.3242850033937961e-07
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.001,
+      "binomial_pvalue": 1.996888377839789e-23
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.002,
+      "binomial_pvalue": 2.9931410626153293e-24
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.005,
+      "binomial_pvalue": 7.081136714457238e-24
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.01,
+      "binomial_pvalue": 4.889039646206819e-25
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.015,
+      "binomial_pvalue": 4.993589554575e-22
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.261252374699005e-19
+    },
+    {
+      "seed_index": 4,
+      "domain": "iid",
+      "threshold": 0.03,
+      "binomial_pvalue": 4.4827107838564327e-07
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.001,
+      "binomial_pvalue": 8.788838294080541e-24
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.002,
+      "binomial_pvalue": 7.192792177627549e-23
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.005,
+      "binomial_pvalue": 7.447278183644327e-24
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.01,
+      "binomial_pvalue": 4.713888028476969e-19
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.015,
+      "binomial_pvalue": 5.55492329515738e-18
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.02,
+      "binomial_pvalue": 1.2526022008396978e-10
+    },
+    {
+      "seed_index": 4,
+      "domain": "target",
+      "threshold": 0.03,
+      "binomial_pvalue": 0.0004131285386670652
+    }
+  ],
+  "checkpoint_replays": [
+    {
+      "geometry": "balanced_anchor",
+      "source": 48,
+      "seed": 20261117,
+      "max_probability_difference": 0.0018114149570465088,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 48,
+      "seed": 20261129,
+      "max_probability_difference": 0.0016678571701049805,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 48,
+      "seed": 20261143,
+      "max_probability_difference": 0.001635730266571045,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 48,
+      "seed": 20261157,
+      "max_probability_difference": 0.0024066567420959473,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 48,
+      "seed": 20261171,
+      "max_probability_difference": 0.001999408006668091,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 64,
+      "seed": 20261117,
+      "max_probability_difference": 0.001545727252960205,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 64,
+      "seed": 20261129,
+      "max_probability_difference": 0.006351590156555176,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 64,
+      "seed": 20261143,
+      "max_probability_difference": 0.0016802549362182617,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 64,
+      "seed": 20261157,
+      "max_probability_difference": 0.005650997161865234,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "balanced_anchor",
+      "source": 64,
+      "seed": 20261171,
+      "max_probability_difference": 0.003013134002685547,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 48,
+      "seed": 20261117,
+      "max_probability_difference": 0.001538306474685669,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 48,
+      "seed": 20261129,
+      "max_probability_difference": 0.0014152079820632935,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 48,
+      "seed": 20261143,
+      "max_probability_difference": 0.0011104941368103027,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 48,
+      "seed": 20261157,
+      "max_probability_difference": 0.0009530186653137207,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 48,
+      "seed": 20261171,
+      "max_probability_difference": 0.0016071498394012451,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 64,
+      "seed": 20261117,
+      "max_probability_difference": 0.0021015405654907227,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 64,
+      "seed": 20261129,
+      "max_probability_difference": 0.001190871000289917,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 64,
+      "seed": 20261143,
+      "max_probability_difference": 0.0015248656272888184,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 64,
+      "seed": 20261157,
+      "max_probability_difference": 0.0015430450439453125,
+      "binary_agreement": 1.0
+    },
+    {
+      "geometry": "independent",
+      "source": 64,
+      "seed": 20261171,
+      "max_probability_difference": 0.0014300346374511719,
+      "binary_agreement": 1.0
+    }
+  ],
+  "independent_checks": [
+    "scalar tie choices",
+    "mean exposures and public formula",
+    "regret and false-safe counts",
+    "calibration n/k and exact binomial p-values",
+    "selected rule consistency",
+    "accepted safety/eta numerators",
+    "checkpoint replay",
+    "source and artifact hashes"
+  ]
+}

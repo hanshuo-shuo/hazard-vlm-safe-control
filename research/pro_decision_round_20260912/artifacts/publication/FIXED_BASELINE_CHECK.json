@@ -1,0 +1,121 @@
+{
+  "at_utc": "2026-09-12T16:46:45.993433+00:00",
+  "predeclared_control": true,
+  "new_threshold_selected": false,
+  "new_predictions_or_tests": false,
+  "parent_certificate_summary_sha256": "c1d5f8bc9f6becda2e6da19ca1e9466d8b6d6235923dcc6d4f9a2355f30ed5cd",
+  "checks": {
+    "iid": {
+      "fixed_threshold": 0.02,
+      "rules": [
+        {
+          "threshold": 0.02,
+          "accepted": 1253,
+          "unsafe_accepted": 7,
+          "upper": 0.016603951610412143,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1282,
+          "unsafe_accepted": 15,
+          "upper": 0.02542434036357327,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1267,
+          "unsafe_accepted": 9,
+          "upper": 0.018855441006397453,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1267,
+          "unsafe_accepted": 12,
+          "upper": 0.022354117500842832,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1256,
+          "unsafe_accepted": 7,
+          "upper": 0.016564512448097233,
+          "certified": true
+        }
+      ],
+      "all_five_certified": true,
+      "eta": {
+        "mean": 0.9693266832917705,
+        "ci95": [
+          0.9592906224214209,
+          0.9782186930195219
+        ],
+        "per_seed": [
+          0.9613466334164589,
+          0.9750623441396509,
+          0.9744389027431422,
+          0.972568578553616,
+          0.963216957605985
+        ]
+      },
+      "baseline_screen_pass": true
+    },
+    "target": {
+      "fixed_threshold": 0.02,
+      "rules": [
+        {
+          "threshold": 0.02,
+          "accepted": 1245,
+          "unsafe_accepted": 16,
+          "upper": 0.027294467970448936,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1271,
+          "unsafe_accepted": 30,
+          "upper": 0.041357965800274815,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1275,
+          "unsafe_accepted": 27,
+          "upper": 0.038195845216836194,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1275,
+          "unsafe_accepted": 28,
+          "upper": 0.03921126901794136,
+          "certified": true
+        },
+        {
+          "threshold": 0.02,
+          "accepted": 1258,
+          "unsafe_accepted": 20,
+          "upper": 0.03135994721231021,
+          "certified": true
+        }
+      ],
+      "all_five_certified": true,
+      "eta": {
+        "mean": 0.9689950980392157,
+        "ci95": [
+          0.9585994989958404,
+          0.9783192730240067
+        ],
+        "per_seed": [
+          0.9571078431372549,
+          0.9712009803921569,
+          0.9754901960784313,
+          0.9761029411764706,
+          0.9650735294117647
+        ]
+      },
+      "baseline_screen_pass": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+E1 verified 0
+E1 verified 1
+E1 verified 2
+E1 verified 3
+E1 verified 4
+E2 verified balanced_anchor 48 0 0.0018114149570465088
+E2 verified balanced_anchor 48 1 0.0016678571701049805
+E2 verified balanced_anchor 48 2 0.001635730266571045
+E2 verified balanced_anchor 48 3 0.0024066567420959473
+E2 verified balanced_anchor 48 4 0.001999408006668091
+E2 verified balanced_anchor 64 0 0.001545727252960205
+E2 verified balanced_anchor 64 1 0.006351590156555176
+E2 verified balanced_anchor 64 2 0.0016802549362182617
+E2 verified balanced_anchor 64 3 0.005650997161865234
+E2 verified balanced_anchor 64 4 0.003013134002685547
+E2 verified independent 48 0 0.001538306474685669
+E2 verified independent 48 1 0.0014152079820632935
+E2 verified independent 48 2 0.0011104941368103027
+E2 verified independent 48 3 0.0009530186653137207
+E2 verified independent 48 4 0.0016071498394012451
+E2 verified independent 64 0 0.0021015405654907227
+E2 verified independent 64 1 0.001190871000289917
+E2 verified independent 64 2 0.0015248656272888184
+E2 verified independent 64 3 0.0015430450439453125
+E2 verified independent 64 4 0.0014300346374511719
+E3 verified 0
+E3 verified 1
+E3 verified 2
+E3 verified 3
+E3 verified 4
+{
+  "simple_postprocessing_fix": true,
+  "measurement_interface_warning": true,
+  "geometry_effect_supported": true,
+  "iid_selective_gate_pass": true,
+  "target_adaptation_gate_pass": true,
+  "new_algorithm_claim_supported": false,
+  "vlm_or_rl_expansion_authorized_by_results": false,
+  "research_decision": "Keep a measurement/postprocessing/selection-unit diagnostic study. No novel calibration or public-relation learning claim; require independent-task evidence before further method expansion."
+}

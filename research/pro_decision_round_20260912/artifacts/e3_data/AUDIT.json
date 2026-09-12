@@ -1,0 +1,70 @@
+{
+  "cross_split_overlap": 0,
+  "datasets": {
+    "dev": {
+      "scenes": 400,
+      "reference": {
+        "label_flip_rate": 0.00020833333333333335,
+        "cost_difference_p95": 0.0007465711225600717,
+        "maximum_cost_difference": 0.003304510396220678,
+        "label_flip_count": 2,
+        "entries": 9600,
+        "pass": true
+      },
+      "one_certification_decision_per_scene": true,
+      "unique_rgb": 800
+    },
+    "iid_calibration": {
+      "scenes": 1600,
+      "reference": {
+        "label_flip_rate": 0.0004166666666666667,
+        "cost_difference_p95": 0.0006791852811882303,
+        "maximum_cost_difference": 0.01156872572136669,
+        "label_flip_count": 16,
+        "entries": 38400,
+        "pass": true
+      },
+      "one_certification_decision_per_scene": true,
+      "unique_rgb": 3200
+    },
+    "iid_test": {
+      "scenes": 2000,
+      "reference": {
+        "label_flip_rate": 0.0008333333333333334,
+        "cost_difference_p95": 0.0006952521915798683,
+        "maximum_cost_difference": 0.007351561591950051,
+        "label_flip_count": 40,
+        "entries": 48000,
+        "pass": true
+      },
+      "one_certification_decision_per_scene": true,
+      "unique_rgb": 4000
+    },
+    "target_calibration": {
+      "scenes": 1600,
+      "reference": {
+        "label_flip_rate": 0.0005208333333333333,
+        "cost_difference_p95": 0.0007067103960456584,
+        "maximum_cost_difference": 0.004204987653154954,
+        "label_flip_count": 20,
+        "entries": 38400,
+        "pass": true
+      },
+      "one_certification_decision_per_scene": true,
+      "unique_rgb": 3200
+    },
+    "target_test": {
+      "scenes": 2000,
+      "reference": {
+        "label_flip_rate": 0.0004583333333333333,
+        "cost_difference_p95": 0.0007234071202258662,
+        "maximum_cost_difference": 0.00529732704270186,
+        "label_flip_count": 22,
+        "entries": 48000,
+        "pass": true
+      },
+      "one_certification_decision_per_scene": true,
+      "unique_rgb": 4000
+    }
+  }
+}

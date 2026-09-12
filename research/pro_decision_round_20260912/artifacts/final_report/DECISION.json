@@ -1,0 +1,2006 @@
+{
+  "at_utc": "2026-09-12T16:35:59.284058+00:00",
+  "decisions": {
+    "simple_postprocessing_fix": true,
+    "measurement_interface_warning": true,
+    "geometry_effect_supported": true,
+    "iid_selective_gate_pass": true,
+    "target_adaptation_gate_pass": true,
+    "new_algorithm_claim_supported": false,
+    "vlm_or_rl_expansion_authorized_by_results": false,
+    "research_decision": "Keep a measurement/postprocessing/selection-unit diagnostic study. No novel calibration or public-relation learning claim; require independent-task evidence before further method expansion."
+  },
+  "e1": {
+    "random_iid__low16__inherited_minus2": {
+      "coverage": 0.8023333333333333,
+      "conditional_unsafe": 0.04860822600747819,
+      "eta": 1.0,
+      "oracle_coverage": 0.7633333333333333,
+      "accepted": 2407,
+      "unsafe": 117,
+      "safe": 2290,
+      "oracle": 2290,
+      "model_decisions": 3000
+    },
+    "random_iid__low16__restored_zero": {
+      "coverage": 0.7676666666666667,
+      "conditional_unsafe": 0.019539730785931395,
+      "eta": 0.9860262008733625,
+      "oracle_coverage": 0.7633333333333333,
+      "accepted": 2303,
+      "unsafe": 45,
+      "safe": 2258,
+      "oracle": 2290,
+      "model_decisions": 3000
+    },
+    "random_iid__reference__inherited_minus2": {
+      "coverage": 0.8023333333333333,
+      "conditional_unsafe": 0.019941836310760283,
+      "eta": 0.9870292887029288,
+      "oracle_coverage": 0.7966666666666666,
+      "accepted": 2407,
+      "unsafe": 48,
+      "safe": 2359,
+      "oracle": 2390,
+      "model_decisions": 3000
+    },
+    "random_iid__reference__restored_zero": {
+      "coverage": 0.7676666666666667,
+      "conditional_unsafe": 0.0021710811984368217,
+      "eta": 0.9615062761506277,
+      "oracle_coverage": 0.7966666666666666,
+      "accepted": 2303,
+      "unsafe": 5,
+      "safe": 2298,
+      "oracle": 2390,
+      "model_decisions": 3000
+    },
+    "random_appearance__low16__inherited_minus2": {
+      "coverage": 0.8503333333333334,
+      "conditional_unsafe": 0.0897687181497452,
+      "eta": 0.9965665236051502,
+      "oracle_coverage": 0.7766666666666666,
+      "accepted": 2551,
+      "unsafe": 229,
+      "safe": 2322,
+      "oracle": 2330,
+      "model_decisions": 3000
+    },
+    "random_appearance__low16__restored_zero": {
+      "coverage": 0.8096666666666666,
+      "conditional_unsafe": 0.04363935776039522,
+      "eta": 0.9969957081545064,
+      "oracle_coverage": 0.7766666666666666,
+      "accepted": 2429,
+      "unsafe": 106,
+      "safe": 2323,
+      "oracle": 2330,
+      "model_decisions": 3000
+    },
+    "random_appearance__reference__inherited_minus2": {
+      "coverage": 0.8503333333333334,
+      "conditional_unsafe": 0.047040376323010585,
+      "eta": 0.9963114754098361,
+      "oracle_coverage": 0.8133333333333334,
+      "accepted": 2551,
+      "unsafe": 120,
+      "safe": 2431,
+      "oracle": 2440,
+      "model_decisions": 3000
+    },
+    "random_appearance__reference__restored_zero": {
+      "coverage": 0.8096666666666666,
+      "conditional_unsafe": 0.01729106628242075,
+      "eta": 0.9782786885245902,
+      "oracle_coverage": 0.8133333333333334,
+      "accepted": 2429,
+      "unsafe": 42,
+      "safe": 2387,
+      "oracle": 2440,
+      "model_decisions": 3000
+    },
+    "shape_appearance__low16__inherited_minus2": {
+      "coverage": 0.8816666666666667,
+      "conditional_unsafe": 0.06843100189035917,
+      "eta": 0.9975708502024292,
+      "oracle_coverage": 0.8233333333333334,
+      "accepted": 2645,
+      "unsafe": 181,
+      "safe": 2464,
+      "oracle": 2470,
+      "model_decisions": 3000
+    },
+    "shape_appearance__low16__restored_zero": {
+      "coverage": 0.8376666666666667,
+      "conditional_unsafe": 0.02586549940310386,
+      "eta": 0.9910931174089069,
+      "oracle_coverage": 0.8233333333333334,
+      "accepted": 2513,
+      "unsafe": 65,
+      "safe": 2448,
+      "oracle": 2470,
+      "model_decisions": 3000
+    },
+    "shape_appearance__reference__inherited_minus2": {
+      "coverage": 0.8816666666666667,
+      "conditional_unsafe": 0.038185255198487714,
+      "eta": 0.99375,
+      "oracle_coverage": 0.8533333333333334,
+      "accepted": 2645,
+      "unsafe": 101,
+      "safe": 2544,
+      "oracle": 2560,
+      "model_decisions": 3000
+    },
+    "shape_appearance__reference__restored_zero": {
+      "coverage": 0.8376666666666667,
+      "conditional_unsafe": 0.010744130521289296,
+      "eta": 0.97109375,
+      "oracle_coverage": 0.8533333333333334,
+      "accepted": 2513,
+      "unsafe": 27,
+      "safe": 2486,
+      "oracle": 2560,
+      "model_decisions": 3000
+    }
+  },
+  "exact_oracle": {
+    "random_iid": {
+      "low16": {
+        "safe_decisions": 2742,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.7616666666666667,
+        "margin_ge_005_coverage": 0.7394444444444445
+      },
+      "reference": {
+        "safe_decisions": 2870,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.7972222222222223,
+        "margin_ge_005_coverage": 0.7761111111111111
+      }
+    },
+    "random_appearance": {
+      "low16": {
+        "safe_decisions": 2748,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.7633333333333333,
+        "margin_ge_005_coverage": 0.7411111111111112
+      },
+      "reference": {
+        "safe_decisions": 2908,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.8077777777777778,
+        "margin_ge_005_coverage": 0.7838888888888889
+      }
+    },
+    "shape_appearance": {
+      "low16": {
+        "safe_decisions": 2960,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.8222222222222222,
+        "margin_ge_005_coverage": 0.7988888888888889
+      },
+      "reference": {
+        "safe_decisions": 3074,
+        "total_variant_card_decisions": 3600,
+        "coverage": 0.8538888888888889,
+        "margin_ge_005_coverage": 0.8366666666666667
+      }
+    }
+  },
+  "e2": {
+    "balanced_anchor_48": {
+      "iid": {
+        "common": {
+          "regret": 0.007868344780887871,
+          "false_safe": 0.2008959338387319,
+          "deployment": {
+            "coverage": 0.8695,
+            "conditional_unsafe": 0.18401380103507764,
+            "eta": 0.9523489932885906,
+            "oracle_coverage": 0.745,
+            "accepted": 1739,
+            "unsafe": 320,
+            "safe": 1419,
+            "oracle": 1490,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.007297389238249097,
+          "false_safe": 0.2185344827586207,
+          "deployment": {
+            "coverage": 0.868,
+            "conditional_unsafe": 0.20449308755760368,
+            "eta": 0.9557093425605536,
+            "oracle_coverage": 0.7225,
+            "accepted": 1736,
+            "unsafe": 355,
+            "safe": 1381,
+            "oracle": 1445,
+            "model_decisions": 2000
+          }
+        }
+      },
+      "appearance": {
+        "common": {
+          "regret": 0.005154209774612468,
+          "false_safe": 0.18254767902123065,
+          "deployment": {
+            "coverage": 0.8755,
+            "conditional_unsafe": 0.14106225014277557,
+            "eta": 0.9429467084639498,
+            "oracle_coverage": 0.7975,
+            "accepted": 1751,
+            "unsafe": 247,
+            "safe": 1504,
+            "oracle": 1595,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.004972320596686031,
+          "false_safe": 0.20072463768115942,
+          "deployment": {
+            "coverage": 0.8725,
+            "conditional_unsafe": 0.1673352435530086,
+            "eta": 0.940453074433657,
+            "oracle_coverage": 0.7725,
+            "accepted": 1745,
+            "unsafe": 292,
+            "safe": 1453,
+            "oracle": 1545,
+            "model_decisions": 2000
+          }
+        }
+      }
+    },
+    "balanced_anchor_64": {
+      "iid": {
+        "common": {
+          "regret": 0.007139500049648658,
+          "false_safe": 0.22780840799448657,
+          "deployment": {
+            "coverage": 0.873,
+            "conditional_unsafe": 0.17411225658648338,
+            "eta": 0.9677852348993289,
+            "oracle_coverage": 0.745,
+            "accepted": 1746,
+            "unsafe": 304,
+            "safe": 1442,
+            "oracle": 1490,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.006725739671202116,
+          "false_safe": 0.24578512396694213,
+          "deployment": {
+            "coverage": 0.8675,
+            "conditional_unsafe": 0.19135446685878962,
+            "eta": 0.9675862068965517,
+            "oracle_coverage": 0.725,
+            "accepted": 1735,
+            "unsafe": 332,
+            "safe": 1403,
+            "oracle": 1450,
+            "model_decisions": 2000
+          }
+        }
+      },
+      "appearance": {
+        "common": {
+          "regret": 0.008502862028581719,
+          "false_safe": 0.23382511694854272,
+          "deployment": {
+            "coverage": 0.882,
+            "conditional_unsafe": 0.17913832199546487,
+            "eta": 0.9078369905956113,
+            "oracle_coverage": 0.7975,
+            "accepted": 1764,
+            "unsafe": 316,
+            "safe": 1448,
+            "oracle": 1595,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.008207245610328148,
+          "false_safe": 0.2505008635578584,
+          "deployment": {
+            "coverage": 0.883,
+            "conditional_unsafe": 0.20611551528878821,
+            "eta": 0.9074433656957929,
+            "oracle_coverage": 0.7725,
+            "accepted": 1766,
+            "unsafe": 364,
+            "safe": 1402,
+            "oracle": 1545,
+            "model_decisions": 2000
+          }
+        }
+      }
+    },
+    "independent_48": {
+      "iid": {
+        "common": {
+          "regret": 0.0002943111943236766,
+          "false_safe": 0.013576843556168162,
+          "deployment": {
+            "coverage": 0.746,
+            "conditional_unsafe": 0.027479892761394103,
+            "eta": 0.9738255033557047,
+            "oracle_coverage": 0.745,
+            "accepted": 1492,
+            "unsafe": 41,
+            "safe": 1451,
+            "oracle": 1490,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.0002511223474864546,
+          "false_safe": 0.028415119363395226,
+          "deployment": {
+            "coverage": 0.743,
+            "conditional_unsafe": 0.03566621803499327,
+            "eta": 0.9916955017301038,
+            "oracle_coverage": 0.7225,
+            "accepted": 1486,
+            "unsafe": 53,
+            "safe": 1433,
+            "oracle": 1445,
+            "model_decisions": 2000
+          }
+        }
+      },
+      "appearance": {
+        "common": {
+          "regret": 0.0002845574244105118,
+          "false_safe": 0.024325296869377476,
+          "deployment": {
+            "coverage": 0.804,
+            "conditional_unsafe": 0.025497512437810944,
+            "eta": 0.9824451410658307,
+            "oracle_coverage": 0.7975,
+            "accepted": 1608,
+            "unsafe": 41,
+            "safe": 1567,
+            "oracle": 1595,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.00026063752791982296,
+          "false_safe": 0.04154589371980676,
+          "deployment": {
+            "coverage": 0.7955,
+            "conditional_unsafe": 0.03708359522313011,
+            "eta": 0.9915857605177993,
+            "oracle_coverage": 0.7725,
+            "accepted": 1591,
+            "unsafe": 59,
+            "safe": 1532,
+            "oracle": 1545,
+            "model_decisions": 2000
+          }
+        }
+      }
+    },
+    "independent_64": {
+      "iid": {
+        "common": {
+          "regret": 0.0003016836364306039,
+          "false_safe": 0.010303239145416953,
+          "deployment": {
+            "coverage": 0.742,
+            "conditional_unsafe": 0.020889487870619946,
+            "eta": 0.9751677852348993,
+            "oracle_coverage": 0.745,
+            "accepted": 1484,
+            "unsafe": 31,
+            "safe": 1453,
+            "oracle": 1490,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.00020878202809488617,
+          "false_safe": 0.026049586776859507,
+          "deployment": {
+            "coverage": 0.7415,
+            "conditional_unsafe": 0.03169251517194875,
+            "eta": 0.9903448275862069,
+            "oracle_coverage": 0.725,
+            "accepted": 1483,
+            "unsafe": 47,
+            "safe": 1436,
+            "oracle": 1450,
+            "model_decisions": 2000
+          }
+        }
+      },
+      "appearance": {
+        "common": {
+          "regret": 0.00025359217905717194,
+          "false_safe": 0.01867578265563152,
+          "deployment": {
+            "coverage": 0.7945,
+            "conditional_unsafe": 0.01825047199496539,
+            "eta": 0.9780564263322884,
+            "oracle_coverage": 0.7975,
+            "accepted": 1589,
+            "unsafe": 29,
+            "safe": 1560,
+            "oracle": 1595,
+            "model_decisions": 2000
+          }
+        },
+        "native": {
+          "regret": 0.0002275968708604744,
+          "false_safe": 0.034715025906735746,
+          "deployment": {
+            "coverage": 0.7885,
+            "conditional_unsafe": 0.027901077996195307,
+            "eta": 0.9922330097087378,
+            "oracle_coverage": 0.7725,
+            "accepted": 1577,
+            "unsafe": 44,
+            "safe": 1533,
+            "oracle": 1545,
+            "model_decisions": 2000
+          }
+        }
+      }
+    }
+  },
+  "e3": {
+    "iid__source": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8187,
+            "ci95": [
+              0.8008000000000001,
+              0.8364
+            ],
+            "per_seed": [
+              0.809,
+              0.825,
+              0.821,
+              0.824,
+              0.8145
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0233,
+            "ci95": [
+              0.016799999999999995,
+              0.0305
+            ],
+            "per_seed": [
+              0.0185,
+              0.027,
+              0.024,
+              0.0265,
+              0.0205
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.028459753267375106,
+            "ci95": [
+              0.020555937829535634,
+              0.037254638724734175
+            ],
+            "per_seed": [
+              0.022867737948084055,
+              0.03272727272727273,
+              0.029232643118148598,
+              0.03216019417475728,
+              0.025168815224063844
+            ]
+          },
+          "eta": {
+            "mean": 0.9917705735660848,
+            "ci95": [
+              0.9859713384043488,
+              0.9960685467505402
+            ],
+            "per_seed": [
+              0.9856608478802993,
+              0.9950124688279302,
+              0.9937655860349127,
+              0.9943890274314214,
+              0.9900249376558603
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1618,
+              "unsafe": 37,
+              "safe": 1581,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1650,
+              "unsafe": 54,
+              "safe": 1596,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1642,
+              "unsafe": 48,
+              "safe": 1594,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1648,
+              "unsafe": 53,
+              "safe": 1595,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1629,
+              "unsafe": 41,
+              "safe": 1588,
+              "oracle": 1604
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.7858,
+            "ci95": [
+              0.7666,
+              0.8042999999999999
+            ],
+            "per_seed": [
+              0.7755,
+              0.792,
+              0.792,
+              0.7885,
+              0.781
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0084,
+            "ci95": [
+              0.0047,
+              0.0125
+            ],
+            "per_seed": [
+              0.0045,
+              0.01,
+              0.0105,
+              0.0085,
+              0.0085
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.010689742937134131,
+            "ci95": [
+              0.006030163735417776,
+              0.015958540066962797
+            ],
+            "per_seed": [
+              0.005802707930367505,
+              0.012626262626262626,
+              0.013257575757575758,
+              0.01077996195307546,
+              0.01088348271446863
+            ]
+          },
+          "eta": {
+            "mean": 0.9693266832917705,
+            "ci95": [
+              0.9592906224214209,
+              0.9782186930195219
+            ],
+            "per_seed": [
+              0.9613466334164589,
+              0.9750623441396509,
+              0.9744389027431422,
+              0.972568578553616,
+              0.963216957605985
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1551,
+              "unsafe": 9,
+              "safe": 1542,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 20,
+              "safe": 1564,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 21,
+              "safe": 1563,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1577,
+              "unsafe": 17,
+              "safe": 1560,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1562,
+              "unsafe": 17,
+              "safe": 1545,
+              "oracle": 1604
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1604
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8129,
+            "ci95": [
+              0.7927000000000001,
+              0.8324000000000001
+            ],
+            "per_seed": [
+              0.8095,
+              0.792,
+              0.826,
+              0.822,
+              0.815
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0204,
+            "ci95": [
+              0.012899999999999998,
+              0.028799999999999996
+            ],
+            "per_seed": [
+              0.017,
+              0.01,
+              0.0285,
+              0.025,
+              0.0215
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.025095337679911428,
+            "ci95": [
+              0.01605620727415261,
+              0.03510392332420043
+            ],
+            "per_seed": [
+              0.021000617665225447,
+              0.012626262626262626,
+              0.03450363196125908,
+              0.030413625304136254,
+              0.02638036809815951
+            ]
+          },
+          "eta": {
+            "mean": 0.9881546134663342,
+            "ci95": [
+              0.9796439634260122,
+              0.9946651345225768
+            ],
+            "per_seed": [
+              0.9881546134663342,
+              0.9750623441396509,
+              0.9943890274314214,
+              0.9937655860349127,
+              0.9894014962593516
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1619,
+              "unsafe": 34,
+              "safe": 1585,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1584,
+              "unsafe": 20,
+              "safe": 1564,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1652,
+              "unsafe": 57,
+              "safe": 1595,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1644,
+              "unsafe": 50,
+              "safe": 1594,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1630,
+              "unsafe": 43,
+              "safe": 1587,
+              "oracle": 1604
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.802,
+            "ci95": [
+              0.784,
+              0.82
+            ],
+            "per_seed": [
+              0.802,
+              0.802,
+              0.802,
+              0.802,
+              0.802
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.802,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            },
+            {
+              "n": 2000,
+              "accepted": 1604,
+              "unsafe": 0,
+              "safe": 1604,
+              "oracle": 1604
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": true,
+      "gate_pass": true
+    },
+    "target__source": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8426,
+            "ci95": [
+              0.8259000000000001,
+              0.8586
+            ],
+            "per_seed": [
+              0.834,
+              0.846,
+              0.85,
+              0.8465,
+              0.8365
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0335,
+            "ci95": [
+              0.025697499999999998,
+              0.0418
+            ],
+            "per_seed": [
+              0.03,
+              0.037,
+              0.0385,
+              0.034,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03975789223830999,
+            "ci95": [
+              0.03058427908718137,
+              0.049465163499699316
+            ],
+            "per_seed": [
+              0.03597122302158273,
+              0.04373522458628842,
+              0.045294117647058825,
+              0.04016538688718252,
+              0.03347280334728033
+            ]
+          },
+          "eta": {
+            "mean": 0.9915441176470589,
+            "ci95": [
+              0.986181256208404,
+              0.9957602736137111
+            ],
+            "per_seed": [
+              0.9852941176470589,
+              0.991421568627451,
+              0.9944852941176471,
+              0.9957107843137255,
+              0.9908088235294118
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe": 60,
+              "safe": 1608,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe": 74,
+              "safe": 1618,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe": 77,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe": 68,
+              "safe": 1625,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe": 56,
+              "safe": 1617,
+              "oracle": 1632
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.8031,
+            "ci95": [
+              0.7838974999999999,
+              0.8210999999999999
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.7965
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0124,
+            "ci95": [
+              0.007700000000000001,
+              0.017799999999999996
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.009
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.015440169343792803,
+            "ci95": [
+              0.009663901121790584,
+              0.022075578728036546
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.011299435028248588
+            ]
+          },
+          "eta": {
+            "mean": 0.9689950980392157,
+            "ci95": [
+              0.9585994989958404,
+              0.9783192730240067
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9650735294117647
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe": 18,
+              "safe": 1575,
+              "oracle": 1632
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8346,
+            "ci95": [
+              0.8132,
+              0.8541025
+            ],
+            "per_seed": [
+              0.8315,
+              0.807,
+              0.8515,
+              0.8495,
+              0.8335
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0299,
+            "ci95": [
+              0.0200975,
+              0.04070249999999996
+            ],
+            "per_seed": [
+              0.029,
+              0.0145,
+              0.04,
+              0.038,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03582554517133956,
+            "ci95": [
+              0.024336420129595214,
+              0.04836868394552997
+            ],
+            "per_seed": [
+              0.03487672880336741,
+              0.017967781908302356,
+              0.046975924838520255,
+              0.04473219540906415,
+              0.033593281343731254
+            ]
+          },
+          "eta": {
+            "mean": 0.9861519607843138,
+            "ci95": [
+              0.9762099616988744,
+              0.9939216203480328
+            ],
+            "per_seed": [
+              0.9834558823529411,
+              0.9712009803921569,
+              0.9944852941176471,
+              0.9944852941176471,
+              0.9871323529411765
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1663,
+              "unsafe": 58,
+              "safe": 1605,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1703,
+              "unsafe": 80,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1699,
+              "unsafe": 76,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe": 56,
+              "safe": 1611,
+              "oracle": 1632
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.816,
+            "ci95": [
+              0.799,
+              0.833
+            ],
+            "per_seed": [
+              0.816,
+              0.816,
+              0.816,
+              0.816,
+              0.816
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": false,
+      "gate_pass": false
+    },
+    "target__target_adapted": {
+      "arms": {
+        "raw_minus2": {
+          "coverage": {
+            "mean": 0.8426,
+            "ci95": [
+              0.8259000000000001,
+              0.8586
+            ],
+            "per_seed": [
+              0.834,
+              0.846,
+              0.85,
+              0.8465,
+              0.8365
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0335,
+            "ci95": [
+              0.025697499999999998,
+              0.0418
+            ],
+            "per_seed": [
+              0.03,
+              0.037,
+              0.0385,
+              0.034,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.03975789223830999,
+            "ci95": [
+              0.03058427908718137,
+              0.049465163499699316
+            ],
+            "per_seed": [
+              0.03597122302158273,
+              0.04373522458628842,
+              0.045294117647058825,
+              0.04016538688718252,
+              0.03347280334728033
+            ]
+          },
+          "eta": {
+            "mean": 0.9915441176470589,
+            "ci95": [
+              0.986181256208404,
+              0.9957602736137111
+            ],
+            "per_seed": [
+              0.9852941176470589,
+              0.991421568627451,
+              0.9944852941176471,
+              0.9957107843137255,
+              0.9908088235294118
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1668,
+              "unsafe": 60,
+              "safe": 1608,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1692,
+              "unsafe": 74,
+              "safe": 1618,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1700,
+              "unsafe": 77,
+              "safe": 1623,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1693,
+              "unsafe": 68,
+              "safe": 1625,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1673,
+              "unsafe": 56,
+              "safe": 1617,
+              "oracle": 1632
+            }
+          ]
+        },
+        "raw_restored": {
+          "coverage": {
+            "mean": 0.8031,
+            "ci95": [
+              0.7838974999999999,
+              0.8210999999999999
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.7965
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0124,
+            "ci95": [
+              0.007700000000000001,
+              0.017799999999999996
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.009
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.015440169343792803,
+            "ci95": [
+              0.009663901121790584,
+              0.022075578728036546
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.011299435028248588
+            ]
+          },
+          "eta": {
+            "mean": 0.9689950980392157,
+            "ci95": [
+              0.9585994989958404,
+              0.9783192730240067
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9650735294117647
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1593,
+              "unsafe": 18,
+              "safe": 1575,
+              "oracle": 1632
+            }
+          ]
+        },
+        "pair_conformal_restored": {
+          "coverage": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": null,
+            "ci95": null,
+            "undefined_resamples": 5000
+          },
+          "eta": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 0,
+              "unsafe": 0,
+              "safe": 0,
+              "oracle": 1632
+            }
+          ]
+        },
+        "selective_certified": {
+          "coverage": {
+            "mean": 0.8105,
+            "ci95": [
+              0.7892,
+              0.8311
+            ],
+            "per_seed": [
+              0.79,
+              0.807,
+              0.8115,
+              0.8105,
+              0.8335
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0162,
+            "ci95": [
+              0.009699999999999999,
+              0.024
+            ],
+            "per_seed": [
+              0.009,
+              0.0145,
+              0.0155,
+              0.014,
+              0.028
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.01998766193707588,
+            "ci95": [
+              0.011983205448133277,
+              0.029268365533117697
+            ],
+            "per_seed": [
+              0.01139240506329114,
+              0.017967781908302356,
+              0.019100431300061615,
+              0.01727328809376928,
+              0.033593281343731254
+            ]
+          },
+          "eta": {
+            "mean": 0.973406862745098,
+            "ci95": [
+              0.9620217315817106,
+              0.9836109034367935
+            ],
+            "per_seed": [
+              0.9571078431372549,
+              0.9712009803921569,
+              0.9754901960784313,
+              0.9761029411764706,
+              0.9871323529411765
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1580,
+              "unsafe": 18,
+              "safe": 1562,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1614,
+              "unsafe": 29,
+              "safe": 1585,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1623,
+              "unsafe": 31,
+              "safe": 1592,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1621,
+              "unsafe": 28,
+              "safe": 1593,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1667,
+              "unsafe": 56,
+              "safe": 1611,
+              "oracle": 1632
+            }
+          ]
+        },
+        "oracle": {
+          "coverage": {
+            "mean": 0.816,
+            "ci95": [
+              0.799,
+              0.833
+            ],
+            "per_seed": [
+              0.816,
+              0.816,
+              0.816,
+              0.816,
+              0.816
+            ]
+          },
+          "joint_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "conditional_unsafe": {
+            "mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "eta": {
+            "mean": 1.0,
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "per_seed": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "oracle_coverage": 0.816,
+          "per_seed_counts": [
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            },
+            {
+              "n": 2000,
+              "accepted": 1632,
+              "unsafe": 0,
+              "safe": 1632,
+              "oracle": 1632
+            }
+          ]
+        }
+      },
+      "all_models_have_certificate": true,
+      "matched_distribution": true,
+      "gate_pass": true
+    }
+  },
+  "test_pointwise_binomial_upper95": {
+    "iid__source": {
+      "raw_minus2": [
+        0.0299748656040383,
+        0.04088278971219041,
+        0.03703417866177546,
+        0.04026186960982166,
+        0.03253379976411805
+      ],
+      "raw_restored": [
+        0.010103979931096022,
+        0.01829469816757359,
+        0.019035440016880397,
+        0.016125851876304102,
+        0.016280286567213004
+      ],
+      "pair_conformal_restored": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "selective_certified": [
+        0.027861462084311592,
+        0.01829469816757359,
+        0.04283583211178443,
+        0.03833950592261316,
+        0.03388740054342354
+      ],
+      "oracle": [
+        0.0018659205139736378,
+        0.0018659205139736378,
+        0.0018659205139736378,
+        0.0018659205139736378,
+        0.0018659205139736378
+      ]
+    },
+    "target__source": {
+      "raw_minus2": [
+        0.044404610311958886,
+        0.052818074258919406,
+        0.05448789245366236,
+        0.048925819396660145,
+        0.04164193140181782
+      ],
+      "raw_restored": [
+        0.016847021483017185,
+        0.02441857908318082,
+        0.02569169775204651,
+        0.023606198860087645,
+        0.01670991465464961
+      ],
+      "pair_conformal_restored": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "selective_certified": [
+        0.04321555764537747,
+        0.02441857908318082,
+        0.056302813714944396,
+        0.0538807572547702,
+        0.041791175404533094
+      ],
+      "oracle": [
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305
+      ]
+    },
+    "target__target_adapted": {
+      "raw_minus2": [
+        0.044404610311958886,
+        0.052818074258919406,
+        0.05448789245366236,
+        0.048925819396660145,
+        0.04164193140181782
+      ],
+      "raw_restored": [
+        0.016847021483017185,
+        0.02441857908318082,
+        0.02569169775204651,
+        0.023606198860087645,
+        0.01670991465464961
+      ],
+      "pair_conformal_restored": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "selective_certified": [
+        0.016847021483017185,
+        0.02441857908318082,
+        0.02569169775204651,
+        0.023606198860087645,
+        0.041791175404533094
+      ],
+      "oracle": [
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305,
+        0.0018339365451596305
+      ]
+    }
+  }
+}

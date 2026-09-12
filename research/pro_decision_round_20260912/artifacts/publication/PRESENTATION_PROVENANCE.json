@@ -1,0 +1,6 @@
+{
+  "at_utc": "2026-09-12T16:46:48.363900+00:00",
+  "script_sha256": "d1e8e5a67c85882b3b51c35ba67176c17cda680fb37d74f02796ee89944e16ff",
+  "parent_report_manifest_sha256": "c5027c6217bb0eae6284177c2cc8b0409384c388f04452ffd2138988f2f867f4",
+  "changes": "Make the 5% risk line visible on comparable axes, add eta headroom, and expose the already-certified fixed baseline. No numerical experiments changed."
+}
