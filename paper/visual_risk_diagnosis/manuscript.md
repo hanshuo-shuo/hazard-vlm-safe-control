@@ -1,8 +1,9 @@
 # When Perfect Coarse Predictions Are Not Enough for Action Evaluation
 
 **Working manuscript, 12 September 2026.** Same-reference oracle discovery,
-one prospective IID confirmation and the final retrospective same-information
-comparison are complete. The ICLR 2027 LaTeX working draft has nine main-text
+one prospective IID confirmation, the same-information intervention, and the
+final full-threshold comparison are complete. The continuation screen fails;
+this version is positioned as a controlled diagnostic case study. The ICLR 2027 LaTeX working draft has nine main-text
 pages; it has not been submitted. This remains a controlled study,
 not a claim of universal prevalence.
 The initial RELLIS-3D corridor construction does not pass its geometry qualification
@@ -13,32 +14,25 @@ the original manuscript and frozen reports remain unchanged.
 
 ## Abstract
 
-Does accurate prediction of a spatial supervision target ensure accurate
-action-conditioned exposure? We investigate this question in a procedural visual
-risk task with two attribute fields, four candidate footprints and a public cost
-law. In our motivating pipeline, zero calibrated acceptance left perception,
-measurement, postprocessing and protection scope as competing explanations.
-We hold the reference footprint fixed and decompose signed cost error into
-model error relative to supervision, source-raster difference and separate-pooling
-error. The last term discards within-cell attribute–footprint covariance, even
-for perfect coarse attributes. Discovery on consumed data motivates one frozen
-2,000-scene IID confirmation without new training. The coarse oracle loses safe
-opportunities in 63 scenes; 61 remain under a finer-property check, with an exact
-one-sided lower bound of 2.29% of scenes. At fixed model-selected actions, pooling
-changes 3.22% of danger labels, all conservatively in the observed sample; changes
-concentrate at overlapping boundaries and small cost margins. Perfect prediction
-of the actual supervision target still loses 54/2,000 safe opportunities (2.70
-percentage points of all scenes; 3.39% of available safe opportunities), a
-supplementary decomposition result rather than the primary H1 endpoint. An
-appended same-information PLIC comparison recovers 44 of these losses but adds
-16 unsafe accepts; the frozen global shift recovers six and adds three. Signed
-model and measurement errors can partially cancel. Earlier
-matched training and independent risk certification distinguish genuine learning
-effects from this interface error: a simple restored-output rule was certified
-with empirical conditional unsafe rate 1.07% and safe opportunity use 96.93% on
-its separate test bank. The contribution is a tested attribution of decision
-error in this controlled task, not a new pooling identity or calibration method.
-Cross-task transfer and physical robot safety remain unestablished.
+We present a controlled diagnosis of a learned spatial-decision pipeline with two
+attribute fields, four candidate footprints, and a public exposure-to-cost law.
+Common-reference oracle replacements distinguish supervision-fit, source-raster,
+and uniform-cell aggregation errors. One prospective 2,000-scene IID confirmation
+finds 61 numerically stable safe-opportunity losses under separate pooling;
+perfect prediction of the actual coarse target still loses 54 opportunities.
+At fixed model-selected actions, pooling changes 3.22% of danger labels versus
+0.15% for a fixed-footprint numerical check. Observed changes are conservative
+and concentrate at overlapping boundaries and small margins. Retrospective
+interventions then test the interpretation of this loss. An established
+area-preserving reconstruction recovers 44 target-oracle opportunities but adds
+16 unsafe accepts. Complete score-threshold families under identical empirical
+risk ceilings give clearer gains for exact targets than for learned fields.
+At a 1% ceiling, learned safe-opportunity use improves by .45 percentage points,
+with a descriptive 95% interval [-.13,1.49]; a stable learned advantage across
+the examined range is not established. Harmful events also show that smaller
+component errors can accompany worse total underestimation. The evidence
+supports a case-specific attribution of learning and measurement failures while
+separating local measurement changes from risk-constrained decision improvement.
 
 ## 1. Introduction
 
@@ -60,11 +54,14 @@ model; none can be identified from a ranking score alone.
 
 The main question is how to distinguish a learner's failure to realize its
 supervision target from the target's current aggregation failing to realize the
-intended action measurement. The paper makes three connected contributions:
+intended action measurement. The paper has two contributions:
 
-1. **Common-reference oracle attribution:** separate model, source-raster and aggregation terms without changing the footprint.
-2. **Normal-distribution mechanism evidence:** measure actual decision consequences and prospectively check direction and boundary/margin conditions.
-3. **One same-information control:** compare an established area-preserving reconstruction with uniform interpretation and a development-selected global shift, reporting new harms as well as recovery.
+1. **Common-reference pipeline diagnosis:** attribute fixed-pipeline cost errors to supervision fit, source rasterization and spatial aggregation.
+2. **Controlled mechanism and decision evidence:** measure residual losses, prospectively check their operating conditions, and use same-information interventions to delimit the interpretation and document interactions with learned errors.
+
+The reconstruction is an explanatory intervention within this evidence, not a
+separate validated decoder-selection contribution. General task-sufficiency
+conditions and a rule for choosing decoders remain open.
 
 The positive empirical finding is a spatial-interface error that survives
 perfect supervision-target prediction, affects actual decisions, and follows
@@ -366,74 +363,91 @@ models receiving richer inputs. The practical conclusion is narrower: making
 this coarse supervision target exact does not remove its downstream decision
 error, so component fidelity alone is an inadequate diagnosis of the bottleneck.
 
-## 4. A single same-information reconstruction control
+## 4. Same-information interventions and their limits
 
-A uniform-cell aggregator failing does not prove that every decoder of the coarse
-field must fail. We therefore lock one Parker–Youngs PLIC reconstruction and one
-global cost shift using the consumed IID discovery bank, then run them on the
-already consumed 2,000-scene confirmation bank. This is **appended baseline
-analysis**, not another untouched confirmation. No new scene, training, model or
-resolution is introduced.
+The consumed IID discovery and appended banks each contain 2,000 scenes. Perfect
+source64-to16 fractions and all five existing learned fields receive the same
+F512 action information. One fixed Parker–Youngs PLIC reconstruction estimates
+normals from the coarse 3×3 neighborhood, conserves each cell fraction, and
+integrates exact fine-square fractions. It receives no true property geometry,
+fine property labels, or oracle normals. Zero-gradient cells stay uniform.
 
-The primary input is the actual perfect target64 coarse field; the secondary
-input is all five existing restored model fields. Every arm has the same coarse
-field and the same F512 action geometry. The PLIC routine receives only those
-inputs. It estimates a local normal from a fixed weighted 3×3 coarse gradient,
-then solves for a half-plane with exactly the original cell fraction. Exact
-fractional fine-square areas are integrated against F512. Zero-gradient cells
-stay uniform. It never reads high-resolution property masks, true ellipse/box
-parameters or oracle normals. This is the established first-order Parker–Youngs
-method described in [9], not a new method or second-order ELVIRA implementation.
+At the original .02 acceptance threshold, target PLIC recovers 44/54 safe
+opportunities but adds 16 unsafe accepts; learned PLIC recovers 83 model–scene
+opportunities and adds 43 unsafe accepts. No previously accepted safe opportunity
+is newly lost on this bank. Conditional unsafe frequency rises .13%→1.13% for
+targets and 1.03%→1.56% for learned fields. The original frozen scalar shift
+recovers six target cases with three new unsafe accepts, and its shared learned
+shift is zero. Its development unsafe-count constraint was not imposed on PLIC;
+these selected points do not compare the capacity of the whole score families.
 
-The global shift subtracts one scalar after the public cost formula; selection
-remains the uniform argmin because translation preserves ranking. A fixed
-13-value bank is evaluated only on discovery. We maximize safe accepts subject
-to no increase in observed unsafe count over uniform; ties prefer the smallest
-absolute offset. The frozen target offset is .001 and the shared learned offset
-is zero. This development constraint is not a safety certificate.
+The newly accepted subsets have unsafe fractions 16/(44+16)=26.7% and
+43/(83+43)=34.1%. These are retrospective subset descriptions, not risk among all
+accepts or violations of the earlier 5% requirement. Large existing safe counts
+can coexist with much higher danger among marginal additions.
 
-| Input track | Interpretation | Recovered safe | Newly lost safe | Newly unsafe accepts | Unsafe among accepted | η |
-|---|---|---:|---:|---:|---:|---:|
-| Perfect target, 2,000 scenes | Uniform | 0 | 0 | 0 | 0.13% | 96.61% |
-| | Global shift | 6 | 0 | 3 | 0.32% | 96.98% |
-| | PLIC | 44 | 0 | 16 | 1.13% | 99.37% |
-| Five models, shared 2,000 scenes | Uniform | 0 | 0 | 0 | 1.03% | 96.77% |
-| | Global shift | 0 | 0 | 0 | 1.03% | 96.77% |
-| | PLIC | 83 | 0 | 43 | 1.56% | 97.81% |
+### 4.1 Complete threshold families under identical empirical risk ceilings
 
-Learned counts sum 10,000 model–scene decisions sharing only 2,000 independent
-scenes. PLIC recovers 44/54 target-oracle losses, but introduces 16 unsafe accepts;
-total unsafe count rises from 2 to 18. The learned safe gain is .83 percentage
-points of model–scene decisions (descriptive crossed 95% interval [.51,1.19] pp),
-with .43 pp newly unsafe ([.20,.69] pp). No new safe losses or resolved unsafe
-accepts occur on this appended bank. Fixed-selection analysis gives the same
-recovery/new-danger totals here; action identities are retained to avoid
-confusing aggregate equality with an assertion that every choice is unchanged.
+Any global shift of a score is equivalent to an acceptance-threshold change.
+The final analysis scans every distinct score of both operators, with exact ties
+entering together. Truth remains reference cost >.02. The primary comparison
+fixes the uniform-selected action and its truth; the secondary allows each
+operator's selector to choose once. The pooled learned curve uses one shared
+threshold across all five models, and all individual-model curves are retained.
 
-![Recoveries and new unsafe accepts](../../research/same_information_reconstruction_20260912/artifacts/publication/same_information_tradeoff.png)
+For each ceiling, both operators maximize safe accepts among all thresholds with
+empirical conditional unsafe frequency below that ceiling. Ties prefer fewer
+unsafe accepts, then a smaller threshold. Conditional risk can be nonmonotonic,
+so the complete family is scanned. Reject-all has undefined risk. These are
+outcome-selected empirical envelopes on consumed labels, not out-of-sample
+operating rules or certificates. Discrete attained risks can differ even under
+the same ceiling; no randomization interpolates an exact risk match.
 
-*Already consumed confirmation data, with fixed implementation and offsets.
-The shift has an empirical development unsafe-count constraint; PLIC does not.
-The selected points therefore do not form a matched-risk comparison.*
+| Input, appended bank | Risk ceiling | Uniform η | PLIC η | Difference (pp) | Descriptive 95% interval (pp) |
+|---|---:|---:|---:|---:|---|
+| Perfect target | 1% | 98.43% | 99.31% | +.88 | [.31,1.82] |
+| Learned | 1% | 96.66% | 97.11% | +.45 | [−.13,1.49] |
+| Learned | 2% | 97.83% | 98.13% | +.30 | [−.19,.66] |
+| Learned | 3% | 98.71% | 98.83% | +.13 | [−.22,.50] |
+| Learned | 5% | 99.36% | 99.54% | +.18 | [.00,.38] |
 
-For 25 of the 43 newly unsafe learned PLIC decisions, the action stays unchanged,
-model and target-measurement errors originally oppose each other, target-measurement
-absolute error improves, and total absolute error worsens. The first matching
-scene/model event has true cost .024972, target estimates .031961→.021431 and
-learned estimates .021279→.016964. Target-measurement error changes +.006989→−.003541;
-model-relative error changes −.010682→−.004467. Both absolute components improve
-in this example, but their earlier cancellation disappears and an unsafe action
-is accepted. The other 18 newly unsafe events remain in the report; this pattern
-is not asserted as the exclusive cause.
+![Complete-family empirical risk comparison](../../research/matched_risk_revision_20260912/artifacts/verification_publication/matched_risk.png)
 
-The result shows usable spatial structure remains in the coarse field. It does
-not establish a risk-free repair or universal dominance of reconstruction over
-scalar calibration. The full discovery offset bank is disclosed: larger shifts
-recover more at higher risk. At target offset .005, discovery gives 1,578 safe
-and 17 unsafe accepts; PLIC gives 1,600 safe and 16 unsafe. These are development
-comparisons only; no second offset is chosen on appended outcomes. All old
-certificates cease to apply to a changed aggregation/acceptance rule. We close
-this baseline experiment without generating a third mechanism confirmation.
+*Primary fixed-action analysis. Upper panels show empirical envelopes; lower
+panels show PLIC-minus-uniform differences. Both banks are consumed. Pointwise
+paired bootstrap intervals preserve shared scenes and resample model indices
+in the learned track; they do not remove selection optimism or provide a
+simultaneous risk guarantee.*
+
+Exact-target gains are clearer at low risk ceilings. Learned point estimates
+are positive at all eight displayed ceilings, but intervals cross zero at every
+.5–4% ceiling on both banks. Neither equivalence nor a stable learned advantage
+is established. Complete raw paths, all eight ceilings, reselected analyses,
+per-model curves and development-selected thresholds applied unchanged to the
+consumed appended bank are preserved in the full report.
+
+The operational continuation screen was fixed before reading the full curves,
+while acknowledging prior use of both banks. It required at least three
+consecutive ceilings spanning one percentage point within .5–3%, with a learned
+η gain of at least .5 pp, positive interval lower bound, and positive differences
+for at least four models, on both banks. No point meets all conditions. This is
+a work-stopping convention, not a preregistered scientific test. We stop without
+new scenes or operators. The outcome supports the controlled-case positioning.
+
+### 4.2 Retrospective cancellation pattern
+
+Among 43 newly unsafe learned PLIC decisions, 25 retain the action, start with
+opposed model and measurement errors, improve absolute measurement error, and
+worsen total absolute error. The first matching event has true cost .024972;
+target estimates .031961→.021431 and learned estimates .021279→.016964. Both
+absolute error components improve while prior opposition disappears and an
+unsafe action is accepted. All events, including the other 18, remain recorded.
+
+This is conditional on newly unsafe outcomes. It does not estimate failure
+among all initially opposed-error actions, establish causal shares, or validate
+a predictor. Changing the operator changes both terms, so this is not a pair of
+independent module interventions. Local measurement improvement and end-to-end
+decision improvement must therefore be evaluated separately in this case.
 
 ## 5. Supporting learning and decision-rule controls
 
@@ -470,64 +484,32 @@ early prerequisite stop are documented in [Appendix A](appendix.md). The planned
 new 48-frame set was never instantiated; this is not a 0/48 mechanism result.
 The external extension is closed.
 
-## 7. Related work and contribution boundary
+## 7. Related work and the remaining diagnostic question
 
-Volume-of-fluid reconstruction recovers interfaces from neighboring cell
-fractions. Pilliod and Puckett [9] compare first- and second-order methods,
-including the Parker–Youngs reconstruction used here. This is the direct reason
-not to equate uniform-cell failure with a general coarse-representation limit.
-Our evaluation concerns action queries and noisy learned fractions, not interface
-advection; neither the reconstruction idea nor its algorithm is new.
+VOF reconstruction [9] estimates material interfaces from neighboring cell
+fractions. Pilliod and Puckett compare reconstruction accuracy, including the
+first-order Parker–Youngs method. This establishes why uniform-cell failure
+cannot identify the limits of every decoder. Our remaining question is what
+happens when that intervention acts on learned fractions and thresholded action
+queries. The exact-target and learned curves separate those outcomes in this
+case; they do not characterize the whole VOF family.
 
-Lambda-Field [10] studies occupancy representations for path-risk integration.
-Its collision-risk definition differs from our mean-exposure law, but map/risk
-compatibility is established prior work. Task-based quantization [11] likewise
-optimizes limited representations for a downstream objective rather than generic
-signal recovery. The present claim is the specific measured and prospectively
-checked target–aggregation mechanism, together with its same-information control.
+Lambda-Field [10] constructs an occupancy representation and path-risk
+calculation consistent with its collision-event model. Our mean-exposure law
+is different and held fixed. We ask how to attribute a given pipeline's error
+to learning, source rasterization and aggregation under a common footprint.
+This is a diagnostic protocol and case, not a new physical-risk representation
+or evidence that Lambda-Field suffers the measured error.
 
-Egocentric conformal prediction already explains how safety-irrelevant forecast
-errors can produce conservative or immobilized navigation. It constructs
-state-dependent scores and integrates them with MPC; its formulation assumes
-accurate obstacle-position perception [1]. We therefore do not claim that
-decision relevance or freezing from irrelevant errors is new. Our different
-object is the attribution of behavior to spatial visual perception,
-postprocessing, cost measurement, and the scope of a static acceptance rule.
-
-Conformal Decision Theory directly controls decision loss, without first
-constructing prediction sets, including online guarantees for average realized
-loss under its conditions [2]. This differs from our IID certificate for
-conditional unsafe frequency after acceptance. We claim neither the move from
-prediction to decision nor a new general decision-calibration theory.
-
-Learn then Test supplies a framework for selecting rules under simultaneous
-risk control, including selective classification [3]. Our finite-bank
-exact-binomial construction applies that established framework. The fact that
-an already registered fixed rule suffices is evidence for simplifying the
-pipeline, not an argument for renaming the procedure.
-
-Perceive with Confidence studies learned perception combined with safe planning,
-including the effect of planning on visited states and assurances in new
-environments under its assumptions [4]. Our static synthetic certification
-does not inherit these closed-loop results. Concept bottlenecks and shortcut
-learning also predate our spatial decomposition and intervention-based
-diagnosis [6,7].
-
-Smart "Predict, then Optimize" explicitly distinguishes prediction error from
-downstream decision error and develops a decision-aware loss and surrogate [8].
-We do not claim this general distinction. Our narrower investigation tests a
-specific spatial interface: separately pooled property and footprint fields can
-lose the within-cell coincidence required by the published exposure calculation,
-even when the supervised coarse property target is predicted perfectly.
-
-The contribution is a same-reference oracle attribution that predicts and
-confirms actual decision effects of a particular spatial measurement interface,
-with one retrospective same-information control limiting an irreducibility claim.
-The earlier geometry, postprocessing and risk-control experiments locate this
-effect among distinct learning and decision mechanisms. Neither the covariance
-identity nor decision-aware evaluation is new; the evidence concerns the
-measured effect and its operating conditions in the specified task. Its external
-prevalence remains outside the established claim.
+Task-based quantization [11] studies downstream estimation under limited-rate
+representation and joint-design constraints; Smart Predict, then Optimize [8]
+relates prediction and decision loss. Our continuous coarse fractions are spatial
+averages, not the same finite-bit quantization model. We isolate a specific
+spatial error and its interaction with learned errors under fixed queries.
+General task-sufficiency conditions and a validated decoder-choice principle
+remain open. Egocentric Conformal Prediction [1], Conformal Decision Theory [2]
+and Learn then Test [3] likewise motivate distinguishing the validity of the
+measurement from the object protected by the statistical guarantee.
 
 ## 8. Limitations, reproducibility, and conclusion
 
@@ -560,7 +542,11 @@ experiments show that geometric learning improvements, fixed postprocessing and
 the scope of risk protection also affect behavior. An imperfect component can
 still be useful under an established risk-control procedure; that does not
 validate every upstream measurement choice. Cross-task mechanism transfer
-remains unestablished, and the external extension is closed.
+remains unestablished, and the external extension is closed. Complete threshold
+families under identical empirical risk ceilings give clearer exact-target
+gains, but no stable learned advantage across the inspected range. The final
+continuation screen fails. This supports a controlled diagnostic case study;
+it does not establish a generally useful decoder-selection principle.
 
 ## References
 
@@ -580,6 +566,7 @@ remains unestablished, and the external extension is closed.
 ## Supplement and artifact entry points
 
 - [Nine-page ICLR-format manuscript source](iclr2027/main.tex) and [appendix](iclr2027/appendix.tex).
+- [Final full-threshold comparison, raw curves and stop decision](../../research/matched_risk_revision_20260912/README.md).
 - [Same-information control: protocol, full events, freezes and verification](../../research/same_information_reconstruction_20260912/README.md).
 - [New oracle study: protocols and reproduction](../../research/oracle_aggregation_20260912/README.md).
 - [Discovery and prospective confirmation tables](../../research/oracle_aggregation_20260912/artifacts/final_publication/TABLES.md).

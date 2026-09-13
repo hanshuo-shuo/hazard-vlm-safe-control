@@ -11,8 +11,10 @@ The primary manuscript is [manuscript.md](manuscript.md).
 | Mean error can hide opposing model and measurement components | Signed terms telescope; discovery appearance mean total −.000108 with absolute .003102 | Not additive causal shares; learned model accepts more unsafe outcomes than target oracle |
 | The uniform-cell loss is not an irreducible limit of the coarse information | Same-information PLIC recovers 44/54 target safe opportunities; frozen scalar shift recovers 6 | Appended analysis on the consumed bank; PLIC adds 16 unsafe accepts and shift adds 3; no third confirmation |
 | Improving the spatial interpretation can introduce harmful learned decisions | Five-model PLIC recovers 83 model–scene decisions and adds 43 unsafe accepts; R rises 1.03% to 1.56% | Five models share 2,000 scenes; no inherited certificate; all-scene gains and harms reported |
-| Loss of opposing errors explains a specific subset of harmful changes | Independently checked: 25/43 newly unsafe learned events keep the action, improve absolute measurement error, but worsen absolute total error | All 43 events retained; conditional illustrative example, not an exclusive explanation |
-| PLIC dominates global correction at matched risk | **Not established** | The selected shift has a development unsafe-count constraint that PLIC does not; full shift bank retained; no refitting on appended outcomes |
+| Component improvement can coexist with worse total error and a harmful decision | Independently checked: 25/43 newly unsafe learned events keep the action, improve absolute measurement error, but worsen absolute total error | Outcome-conditioned pattern; both error terms change. Not causal shares or a predictor; denominator among all initially opposed-error actions is not evaluated |
+| PLIC has a stable learned advantage over the full scalar-threshold family | **Not established** | Identical empirical ceilings on complete threshold families: learned appended delta eta +.45 pp at 1%, interval [−.13,1.49]; +.30 pp at 2%, [−.19,.66]. Positive estimates retained; no equivalence claim |
+| Perfect-target reconstruction gains transfer directly to learned fields | **Not established** | At 1% empirical ceiling, appended target gain +.88 pp [.31,1.82] versus learned +.45 pp [−.13,1.49]. Consumed-bank, outcome-selected envelopes; no new certificate or general nontransfer theorem |
+| Overall risk describes marginal newly accepted decisions | **Not established** | At unchanged .02 score threshold, newly accepted unsafe fractions are 26.7% target and 34.1% learned. These are retrospective subset descriptions, distinct from all-accepted risk and the prior 5% requirement |
 | Zero acceptance is not universal candidate infeasibility in the synthetic case | Exact four-candidate oracle; new-appearance feasibility 80.78% under direct 512 | Restricted candidate set; static synthetic cost, not physical path feasibility |
 | Measurement can change apparent risk without changing a model | 256/512 stability; low16/reference danger-label differences about 2.6%–3.3% | Different cost discretizations, not automatically wrong historical labels; candidate-entry denominator |
 | Output postprocessing changes accepted risk at fixed weights | Consumed new-appearance conditional unsafe 4.70% → 1.73% at common reference | Acceptance changes too; new E3 −2 arm itself has empirical 2.85% unsafe, so −2 is not a universal failure cause |
@@ -52,4 +54,8 @@ discovery and one prospective IID confirmation without rewriting old results
 or certificates. One later same-information comparison is explicitly retrospective
 on the consumed confirmation bank; its original source/operator freezes and full
 development shift bank are preserved. The external study has its own
-source, protocol, data-access record and computational jobs.
+source, protocol, data-access record and computational jobs. The final complete-
+threshold analysis reuses those same arrays, treats both operators identically,
+and fails its operational continuation screen. It creates no independent data.
+Current positioning is a controlled diagnostic case study with two contributions;
+venue-level knowledge value remains a separate human research judgment.

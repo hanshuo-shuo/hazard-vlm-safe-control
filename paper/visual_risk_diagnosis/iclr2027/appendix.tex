@@ -67,7 +67,7 @@ preserves each coarse cell's original mass. Cells where a footprint is entirely
 zero or one need no fine calculation: the integral is fixed by conserved mass.
 All fractions, including small learned probabilities, are retained. A mixed
 cell whose gradient L1 norm is at most $10^{-12}$ stays uniform. This is an
-explicit fallback, not a inferred true boundary.
+explicit fallback, not an inferred true boundary.
 
 On the appended bank, the maximum analytic inverse-area discrepancy is
 $2.78\times 10^{-16}$ and the maximum sum-of-fine-areas discrepancy is
@@ -94,9 +94,10 @@ The entire development bank is retained. At target offset .005, development has
 Fixed PLIC has 1,600 safe and 16 unsafe accepts on development. The selected .001
 shift has 1,550 safe and one unsafe accept. Larger shifts therefore can recover
 more opportunities, and the selected point must not be interpreted as the
-capacity of the whole shift family. No alternative offset is chosen using the
-appended outcomes. The different risk levels preclude claiming a matched-risk
-deployment advantage from the reported selected points.
+capacity of the whole shift family. That initial control selected no additional
+operating offset on appended outcomes. A subsequent analysis scans complete
+threshold families on consumed labels (Appendix~\ref{app:matched}); it does not
+retroactively change the original frozen offsets or certificates.
 
 \begin{table}[h]
 \centering\small
@@ -133,6 +134,12 @@ scene 264, model index 1, exchanged version, card D, action 0. In it, both $|m|$
 and $|l|$ decrease yet total underestimation grows, as detailed in the main text.
 This is a transparent conditional illustration; it was not chosen to estimate
 the population frequency of such cases.
+
+The 25/43 denominator is conditional on newly unsafe outcomes. We have not
+estimated failure rates among all originally opposed-error actions, nor compared
+them against actions matched for safety margin and correction magnitude.
+Replacing the operator changes both $m$ and $l$; the decomposition is path-dependent
+and does not isolate independent causal interventions on two modules.
 
 \section{Prospective direction check and its addendum}
 \label{app:direction}
@@ -202,4 +209,53 @@ Independent appended verification replays 72,000 decisions and 65,536 fine-squar
 areas with polygon clipping. The maximum polygon difference is
 $3.33\times10^{-16}$; the constant-lift identity differs by at most
 $3.71\times10^{-14}$. It also verifies all 25 specified cancellation-pattern
-events among the 43 new unsafe learned accepts. All computation runs on the cluster; frozen inputs and outputs are preserved.
+events among the 43 new unsafe learned accepts. The full-threshold analysis adds
+four tests for nonmonotone conditional risk, tied scores, weighted resampling,
+and the original selector tie rule. Original-array scalar decisions and each
+threshold's safe/unsafe counts are independently checked. All computation runs
+on the cluster; frozen inputs and outputs are preserved.
+
+\section{Full-threshold comparison and stopping rule}
+\label{app:matched}
+Both consumed banks retain 2,000 scenes, six input tracks (one exact target and
+five learned fields), the same two operators, and the same truth threshold .02.
+The primary analysis fixes the uniform-selected action; the secondary allows
+each operator's original selector to choose once. Scores are accepted with
+$s\le t$ for every distinct $t$, with exact score ties entering together.
+A single learned threshold is shared across the five fixed models. Complete
+raw curves, per-model curves and reselected-policy analyses are retained.
+
+For each empirical risk ceiling, maximize safe accepts over all eligible
+thresholds; ties minimize unsafe accepts, then threshold. Conditional risk need
+not be monotonic, so a first-crossing rule would be incorrect. No fractional
+acceptance interpolates between attainable points. Thus ``same risk'' refers
+to identical ceilings and selection procedures; achieved empirical risks may
+differ due to discrete decisions. Reject-all has undefined conditional risk.
+
+The displayed ceilings are .5, 1, 1.5, 2, 2.5, 3, 4 and 5 percent. Bootstrap
+intervals use 1,000 paired draws (seed 2612091501), resampling scenes for exact
+targets and model indices plus shared scenes for the learned track. The
+envelope is reoptimized in every draw. These are pointwise descriptive
+percentile intervals on outcome-selected curves; resampling does not remove
+selection optimism or establish simultaneous coverage. Five training seeds
+limit the precision of training-distribution comparisons.
+
+\input{matched_table.tex}
+
+The operational continuation screen was recorded before reading the complete
+curves, after both banks had already been consumed. For fixed-action learned
+fields, it required at least three consecutive ceilings between .5 and 3 percent,
+spanning at least one percentage point. At every such point on both banks,
+PLIC-minus-uniform opportunity use had to be at least .5 percentage point,
+the pointwise interval lower endpoint had to exceed zero, and at least four of
+five individual-model differences had to be positive. This is a stopping
+convention for further work, not a preregistered scientific significance test.
+No point satisfies the joint requirements; no independent follow-up bank is generated.
+
+For an additional accounting view, both operators select thresholds on development
+at the same listed ceilings, then apply them unchanged to the consumed appended
+bank. The actual risk can exceed the development ceiling. This transfer view
+does not restore an independent test or supply a certificate. The absence of
+stable learned separation establishes neither equality of the operators nor
+the absence of recoverable spatial structure. Exact-target improvements and
+positive learned point estimates are retained alongside the uncertainty.

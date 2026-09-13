@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scalar_score_replays": 96000,
+  "exact_threshold_rows_verified": 166414,
+  "source_and_input_hashes_unchanged": true,
+  "method": "Scalar action choices from original arrays; every threshold count independently checked by binary search in separately sorted safe and unsafe score lists; all envelope optima checked by full family scan",
+  "scope": "No independent data, causal validation, or risk certificate"
+}

@@ -1,11 +1,13 @@
 # Internal submission status — 12 September 2026
 
-Target under consideration: ICLR 2027. This is not a submission receipt or a
-claim that the draft is ready for acceptance. The oracle decomposition, its one
-prospective confirmation, and the final retrospective same-information comparison
-are complete. The official-format working manuscript has nine main-text pages
-and thirteen total pages. All final pages were rendered on Quest and visually
-inspected. RELLIS and this additional experiment are closed.
+Current positioning: **controlled diagnostic case study**. The strict review of
+`41182b0` did not recommend ICLR main-conference acceptance and identified knowledge
+increment and technical-choice evidence as the main gaps. The final complete-
+threshold comparison does not establish a stable learned advantage under identical
+empirical risk ceilings; its continuation screen fails. No new samples are generated.
+The official-format working manuscript has nine main-text pages and fourteen total
+pages. This is a revised working draft, not a submission receipt or a statement of
+ICLR readiness. RELLIS and experimental expansion remain closed.
 
 Official requirements were checked on 12 September 2026:
 
@@ -23,8 +25,9 @@ remain responsible for the paper.
 
 Remaining decisions and deliverables:
 
-1. Assess the completed mechanism evidence with the advisor; do not equate
-   computational rigor or a positive check with sufficient novelty for ICLR.
+1. Discuss the controlled-case contribution and suitable venue with the advisor.
+   The final comparison does not resolve the strict review's knowledge-increment
+   objection. Do not continue extra experiments merely to retain an ICLR label.
 2. Human authors must settle author list, advisor participation, OpenReview
    profiles and reviewing eligibility before the abstract deadline.
 3. Review the completed nine-page LaTeX manuscript and its gains/harms comparison.

@@ -39,6 +39,29 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — Complete threshold families and controlled-case revision
+
+- Status: **RETROSPECTIVE_EMPIRICAL_FRONTIERS / STOP_NO_NEW_SCENES**.
+  Identical risk ceilings and selection procedures for both existing operators;
+  original truth remains reference cost >.02. Fixed-action primary, reselected
+  policy secondary; full raw curves and all five models retained.
+- Two consumed 2,000-scene banks only. Shared-threshold learned pooling preserves
+  scene dependence. Outcome-selected empirical envelopes are not risk certificates.
+- Appended target eta gain at 1% ceiling: +.88 pp [.31,1.82]. Learned gain:
+  +.45 pp [−.13,1.49]; at2%, +.30 pp [−.19,.66]; at5%, +.18 pp [.00,.38].
+  Learned point estimates favor PLIC at all eight ceilings on both banks, but
+  intervals cross zero throughout .5--4%. No stable learned advantage established;
+  no equivalence, inferiority or scalar-only explanation claimed.
+- Fixed operational continuation screen fails at every point. No independent
+  follow-up bank, new model, operator, subgroup search or recalibration is run.
+- Four tests pass; 96,000 original-array score replays and 166,414 raw threshold
+  rows independently verified. Complete threshold optima and frozen hashes pass.
+- Paper now has two contributions; same-information intervention is a core
+  explanatory control. Error cancellation is retrospective and outcome-conditioned,
+  not a causal share or predictor. Current positioning: controlled diagnostic
+  case study, not established ICLR main-conference maturity.
+- Record: [`MATCHED_RISK_REVISION_2026-09-12.md`](MATCHED_RISK_REVISION_2026-09-12.md).
+
 ## 2026-09-12 — Final same-information comparison and nine-page manuscript
 
 - Status: **COMPLETED_RETROSPECTIVE_CONTROL / MIXED_BENEFIT_AND_HARM**. This

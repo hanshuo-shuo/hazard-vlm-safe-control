@@ -1,0 +1,27 @@
+{
+  "id": "MATCHED-EMPIRICAL-RISK-REVISION-20260912-v1",
+  "parent_commit": "41182b03113f2f2ecf71d2a95475d12f6ba941b8",
+  "input_root": "/projects/p33100/siosio/hazard_same_information_reconstruction_20260912",
+  "scope": "One retrospective full-threshold comparison of the two existing score operators on consumed arrays. No new model, operator, field, scene, risk definition or certificate.",
+  "banks": ["development", "appended"],
+  "truth_danger_threshold": 0.02,
+  "primary": "Fixed uniform-selected action, with the original independent tie variable and absolute tie tolerance 1e-9. Compare both scores on exactly that action and truth.",
+  "secondary": "Each operator selects its own action once, before thresholding. Rejection never triggers a new choice.",
+  "tracks": "Perfect target64-to16 (one track) and all five existing learned fields. Learned primary curve uses one shared threshold across all five models; also retain all five individual-model curves.",
+  "threshold_family": "Every distinct score, accepting score<=threshold; equal scores enter together. Include reject-all with undefined conditional risk. No interpolation or randomized partial ties. Any global shift of the uniform score is covered by this entire threshold family.",
+  "risk": "Unsafe accepted / all accepted; truth remains c_ref>.02. Conditional risk can be nonmonotonic along a threshold curve: scan every eligible threshold, not only until the first crossing.",
+  "efficiency": "Safe accepted / scenes with at least one reference-safe candidate. Availability is fixed across operators, and is repeated across five models without treating model-scene entries as independent.",
+  "frontier": "For each empirical risk ceiling, maximize safe-accepted count among all thresholds meeting it; ties prefer fewer unsafe accepts then the smaller threshold. Optimize both operators identically on the same consumed bank. This is an outcome-selected empirical envelope, not an out-of-sample operating rule or a risk guarantee.",
+  "risk_budgets": [0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.05],
+  "raw_curves": "Preserve every empirical threshold point for both banks, both selectors, pooled tracks and each individual learned model, including harms and unfavorable ranges. Plot both complete raw paths and empirical envelopes.",
+  "uncertainty": "1000 paired bootstrap draws, seed 2612091501. Target resamples scenes; pooled learned resamples five model indices and shared scene indices. Recompute each envelope in each draw. Pointwise descriptive percentile intervals; they do not correct outcome-selection optimism or provide simultaneous guarantees.",
+  "development_transfer": "Select thresholds on development at every listed risk ceiling using the same maximization for each operator; apply those exact thresholds on the consumed appended bank and report actual risk and efficiency, without calling that bank independent or certified.",
+  "continuation_gate": {
+    "purpose": "A newly fixed operational stopping rule before reading these full curves, not a preregistered scientific hypothesis; both banks were already consumed.",
+    "required": "In the primary fixed-action learned track, at least three consecutive listed risk ceilings between .005 and .03 (span at least .01) must, on BOTH banks, have PLIC-minus-uniform efficiency>=.005 (0.5 percentage point), pointwise paired bootstrap lower>0, and positive individual-model envelope differences for at least four of five models. Five seeds limit interpretation even if this gate passes.",
+    "failure": "Stop experimental expansion and revise as a controlled diagnostic case study. Oracle-only separation, isolated risk points, or uncertainty do not trigger fresh data.",
+    "success": "At most one development-fixed operating point may be evaluated independently after a separate frozen protocol. Pick the middle point of the longest qualifying run, lower point on ties. No model or operator search; one unsupported or uncertain independent result also stops. This gate does not establish ICLR-level novelty."
+  },
+  "cancellation": "Keep 25/43 as a retrospective outcome-conditioned event pattern. Both error terms change; do not claim causal shares, independent module interventions, or a deployable predictor. No subgroup search is authorized.",
+  "budget": "One CPU analysis allocation <=30 minutes, 4 cores; independent arithmetic verification and plotting <=20 minutes. Document builds separate. No third bank unless the fixed continuation gate passes."
+}

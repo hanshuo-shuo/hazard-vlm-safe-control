@@ -1,111 +1,100 @@
-\section{One same-information reconstruction control}
+\section{Same-information interventions and their limits}
 \label{sec:comparison}
-The preceding replacement fixes learning error but retains the aggregator.
-We now test whether a different interpretation can exploit information already
-present in neighboring coarse values. Development uses the consumed 2,000-scene
-IID discovery bank. One implementation and two scalar offsets are fixed before
-evaluating the already consumed 2,000-scene confirmation bank. This is an
-\emph{appended baseline analysis}, not a new untouched confirmation. There is
-no new training, dataset, resolution search, or risk certification.
+The oracle replacement fixes learning error while retaining the aggregator.
+We now intervene on spatial interpretation. Development uses the consumed
+2,000-scene IID discovery bank; evaluation appends to the already consumed
+2,000-scene confirmation bank. All five learned models remain fixed.
 
-\paragraph{Three treatments with identical action access.}
-The primary track uses the perfect actual target 64 field; the secondary track
-uses all five existing restored model fields. Uniform interpretation computes
-the original exposure. All three treatments may access exactly the same F512,
-so PLIC is not given better action geometry. The global shift subtracts one
-constant after Eq.~\ref{eq:cost}. Its argmin is the original uniform argmin,
-since translation preserves ranking; no clipping-induced ties are introduced.
-From a fixed 13-value offset bank, development maximizes safe-accepted count
-subject to no increase in observed unsafe-accepted count relative to uniform.
-Ties favor the smallest absolute offset. The selected offset is .001 for the
-target track and zero shared across the five learned models.
+\paragraph{Inputs and first comparison.}
+Perfect target 64 and learned fields are examined separately. Uniform
+integration and the established Parker--Youngs PLIC reconstruction
+\citep{pilliod2004} receive identical coarse fields and F512 footprints.
+PLIC estimates a cell normal from a fixed weighted $3\times3$ coarse gradient
+and analytically places a half-plane matching the original fraction. Empty and
+full cells remain unchanged; gradient L1 norm at most $10^{-12}$ retains uniform
+occupancy. Exact fine-square fractions are integrated against F512. The routine
+receives no true patch parameters, fine property masks, or oracle normals.
+Appendix~\ref{app:shift} records the original scalar-offset comparison: its
+ development unsafe-count constraint was not imposed on PLIC. That selected
+ offset is insufficient to represent the entire scalar-adjustment family.
 
-The only spatial alternative is the established Parker--Youngs PLIC construction
-\citep{pilliod2004}. A fixed weighted 3$\times $3 gradient with center weight 2
-estimates a cell's outward normal. A straight half-plane then matches the cell's
-original fraction by analytic square-area inversion. Empty/full cells remain
-unchanged; cells with gradient L1 norm at most $10^{-12}$ retain uniform occupancy
-rather than an invented orientation. Exact line-cut fractions of fine pixel
-squares are integrated against F512. Coarse predictions are neither thresholded
-nor denoised. The reconstruction routine accepts only the coarse field and
-footprints, never true patch parameters, fine property masks, reference costs,
-or oracle boundary normals. It is a first-order PLIC baseline, not the
-second-order ELVIRA method or a newly proposed algorithm.
+At the unchanged acceptance threshold .02, PLIC recovers 44 of the perfect
+ target's 54 lost safe opportunities and introduces 16 unsafe accepts, with no
+ new safe losses. Conditional unsafe frequency rises from .13\% to 1.13\% and
+ opportunity use from 96.61\% to 99.37\%. For learned fields, it recovers 83
+ model--scene decisions and adds 43 unsafe accepts: $R$ rises from 1.03\% to
+ 1.56\% and $\eta$ from 96.77\% to 97.81\%. These gains and harms survive fixing
+ the uniform-selected action in aggregate; individual action changes remain recorded.
 
-\paragraph{Full-scene gains and harms.}
-Table~\ref{tab:appended} reports every scene, including no-safe-candidate cases,
-and both recovered and newly harmed decisions. PLIC recovers 44 of the target
-oracle's 54 lost opportunities without newly losing a previously accepted safe
-one. However, it introduces 16 unsafe accepts: total unsafe count rises from 2
-to 18. Safe opportunity efficiency rises from 96.61\% to 99.37\%, while empirical
-unsafe frequency among accepted rises from .13\% to 1.13\%. The frozen shift
-recovers six opportunities and introduces three unsafe accepts.
+The newly accepted subsets have unsafe fractions $16/(44+16)=26.7\%$ for
+ perfect targets and $43/(83+43)=34.1\%$ for learned fields. These retrospective
+ subset descriptions are distinct from risk among all accepts and from the
+ earlier 5\% requirement. They show how large existing safe-acceptance counts
+ can coexist with much higher danger in marginally added decisions.
 
-\begin{table}[t]
-\centering\small
-\caption{Appended full-scene comparison relative to uniform interpretation.
-Target counts use 2,000 scenes. Learned counts aggregate five models sharing
-those scenes and are not 10,000 independent trials. ``New unsafe'' counts newly
-unsafe accepted decisions; no previously unsafe accepts are resolved on this bank.}
-\label{tab:appended}
-\begin{tabular}{llrrrrr}
-\toprule
-Input & Interpretation & Recovered & New safe loss & New unsafe & $R$ & $\eta $\\
-\midrule
-Target 64 & Uniform &0&0&0&.13\%&96.61\%\\
- & Global shift &6&0&3&.32\%&96.98\%\\
- & PLIC &44&0&16&1.13\%&99.37\%\\
-\midrule
-Five models & Uniform &0&0&0&1.03\%&96.77\%\\
- & Global shift &0&0&0&1.03\%&96.77\%\\
- & PLIC &83&0&43&1.56\%&97.81\%\\
-\bottomrule
-\end{tabular}
-\end{table}
+\paragraph{Identical empirical risk ceilings.}
+A global translation of the uniform score is equivalent to changing its
+ acceptance threshold. We therefore compare both complete threshold families,
+ including every distinct score with tied scores entering together. The true
+ danger definition remains $\refcost>.02$. The primary analysis fixes the
+ uniform-selected action and truth for both scores. Each-operator selection is
+ a secondary analysis. All five learned models share a scalar threshold in the
+ pooled comparison; each model's curve is also retained.
 
-The learned track also has a mixed outcome. PLIC recovers 83 safe model--scene
-decisions and adds 43 unsafe accepts, with no new safe loss observed. Net safe
-acceptance increases .83 pp (descriptive crossed 95\% interval [.51,1.19] pp), while
-new unsafe acceptance increases .43 pp ([.20,.69] pp). The target track's net safe
-gain is 2.20 pp ([1.60,2.85] pp). The selected learned shift is zero and changes no
-outcome. Fixed-selection analysis yields the same recovery and new-unsafe totals
-on this appended bank, so those totals are not explained solely by permission
-to reselect; the event archive retains action identities and individual changes.
+At a ceiling $\beta$, each score uses exactly the same rule: maximize safe
+ acceptance among all thresholds with empirical $R\le\beta$; ties prefer fewer
+ unsafe accepts, then the smaller threshold. Every prefix is examined because
+ conditional risk need not grow monotonically with threshold. Reject-all has
+ undefined risk. Figure~\ref{fig:matched} shows the resulting empirical envelopes;
+ the full raw paths are preserved. Outcome labels select these points on each
+ consumed bank. They characterize observed score discrimination, not deployable
+ thresholds with guaranteed risk. No randomization interpolates an exact risk match.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{figures/same_information_tradeoff.png}
-\caption{Opportunity recovery and newly unsafe acceptance must be read together.
-PLIC uses the same coarse field and action information as uniform integration.
-No new safe losses were observed, but both input tracks add unsafe accepts.
-The offset was fitted under a development unsafe-count constraint that was not
-imposed on PLIC; these selected points are not a matched-risk comparison.}
-\label{fig:appended}
+\includegraphics[width=\linewidth]{figures/matched_risk.png}
+\caption{Fixed-action comparisons under identical empirical risk ceilings.
+A--B: maximum observed safe-opportunity use over each complete threshold family;
+ colors identify the scores and line styles the two consumed banks.
+C--D: PLIC-minus-uniform differences; gray dashed denotes development and
+ purple solid appended results. Shading gives pointwise descriptive paired
+ bootstrap intervals, with shared scenes and model resampling in the learned
+ track. These outcome-selected envelopes do not establish out-of-sample risk.}
+\label{fig:matched}
 \end{figure}
 
-\paragraph{A concrete cancellation failure.}
-For 25 of the 43 newly unsafe learned decisions, the action stays unchanged,
-baseline model and target-measurement errors have opposite signs, target-measurement
-absolute error decreases under PLIC, and total absolute error increases. These
-conditions are checked on each event, not inferred from aggregate means. For
-the first such event in scene/model order, Table~\ref{tab:cancellation} shows
-that both component absolute cost errors improve, yet their earlier
-opposition disappears and the total underestimation worsens. All 43 events,
-including the 18 not meeting this joint pattern, are retained. The example
-supports a particular failure mechanism, not a claim that cancellation explains
-every harmful change.
+Exact-target gains are clearest at low risk ceilings. At $\beta=1\%$, appended
+ $\eta$ is 98.43\% for uniform scores and 99.31\% for PLIC, a .88 pp difference
+ with descriptive interval [.31,1.82]. On learned fields the corresponding values
+ are 96.66\% and 97.11\%, a .45 pp difference [-.13,1.49]. At 2\% the learned
+ difference is .30 pp [-.19,.66]; at 5\% it is .18 pp [.00,.38]. Learned point
+ estimates are positive at all eight listed ceilings, but intervals cross zero
+ throughout .5--4\%, on both banks. This does not establish equivalence or that
+ all recovery is a scalar effect. It does not establish a stable learned advantage
+ over scalar threshold adjustment either.
+
+A continuation screen was fixed before computing these full curves, while
+ acknowledging that both banks were already consumed. It required a nontrivial
+ positive learned difference across a contiguous risk range, uncertainty support,
+ and consistency across models and banks (Appendix~\ref{app:matched}). It fails.
+ No additional scene, model, or reconstruction is evaluated. Development-selected
+ thresholds applied unchanged to the consumed appended bank are also retained;
+ their actual risks, rather than their development ceilings, describe that transfer.
+
+\paragraph{A retrospective cancellation pattern.}
+Among the 43 newly unsafe learned decisions at threshold .02, 25 keep the
+ action, start with opposing model-relative and target-measurement errors,
+ improve absolute measurement error, and worsen absolute total error.
+Table~\ref{tab:cancellation} gives the first matching event in scene/model order.
+Both component absolute errors decrease in this example while total
+ underestimation grows. All 43 events, including the other 18, are retained.
 
 \input{case_table.tex}
 
-\paragraph{What this comparison establishes.}
-The recovery demonstrates that the current coarse field contains spatial
-structure usable by another interpretation; the original residual loss cannot
-simply be called irreducible representation error. It does not demonstrate a
-risk-free repair or universal superiority over scalar calibration. The chosen
-offset is constrained not to add development unsafe outcomes, whereas PLIC is
-not. The full development shift curve is therefore disclosed in
-Appendix~\ref{app:shift}: larger offsets recover more opportunities at higher
-risk. We do not tune another offset on the appended bank. The conclusion is to
-separate supervision fidelity, spatial interpretation, and acceptance calibration,
-and to re-evaluate the latter after changing the former. No earlier certificate
-is inherited by either modified rule.
+This is an outcome-conditioned pattern, not the probability of failure among
+ all initially opposed-error actions. Changing the aggregator changes both
+ error terms; they are not independently intervened modules. The evidence
+ establishes deterministic event-level coexistence of component improvement
+ and decision harm, without identifying causal shares or a predictor of future
+ failure. Together, these controls restrict the repair interpretation of the
+ original target--aggregation loss. Modified scores inherit no earlier risk certificate.

@@ -1,0 +1,41 @@
+{
+  "pdf_sha256": "78748a2518113aa270f3cd586b359e1a11cb346f5235b7d058e7d54773e4f44f",
+  "pages": 14,
+  "main_text_pages": 9,
+  "first_statements_page": 10,
+  "page_characters": [
+    4011,
+    4631,
+    2434,
+    4807,
+    3115,
+    4882,
+    2202,
+    4543,
+    2066,
+    3544,
+    4183,
+    3879,
+    4774,
+    3845
+  ],
+  "metadata": {
+    "format": "PDF 1.7",
+    "title": "When Perfect Coarse Predictions Are Not Enough for Action Evaluation",
+    "author": "",
+    "subject": "",
+    "keywords": "",
+    "creator": "LaTeX with hyperref",
+    "producer": "pdfTeX-1.40.29",
+    "creationDate": "D:20260912203322-05'00'",
+    "modDate": "D:20260912203322-05'00'",
+    "trapped": "",
+    "encryption": null
+  },
+  "personal_identifier_hits": [],
+  "text_outside_page": [],
+  "overfull_boxes": [],
+  "undefined_warnings": [],
+  "renderer": "1.26.7",
+  "visual_review": "Pending manual inspection of all rendered PNGs"
+}

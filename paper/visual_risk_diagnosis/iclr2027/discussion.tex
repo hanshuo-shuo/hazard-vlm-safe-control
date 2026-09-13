@@ -44,31 +44,37 @@ success shows that an imperfect pipeline can be useful under a specified rule
 and distribution. It neither validates its measurement interface nor supplies
 certificates for modified aggregation.
 
-\paragraph{Spatial reconstruction and task-specific representations.}
-Volume-of-fluid reconstruction estimates an interface from grid-cell fractions.
-\citet{pilliod2004} compare first- and second-order methods, including the
-Parker--Youngs gradient reconstruction used here. That literature supplies both
-a baseline and the reason not to equate uniform-cell failure with representation
-impossibility. Our task has noisy learned fractions, swept action queries and
-thresholded decisions, rather than interface advection; we do not introduce a
-new reconstruction scheme or claim second-order accuracy for this baseline.
+\paragraph{Reconstruction accuracy and learned acceptance.}
+Volume-of-fluid methods recover material interfaces from cell fractions;
+\citet{pilliod2004} compare reconstruction accuracy, including the first-order
+Parker--Youngs method. Their setting establishes that neighboring fractions
+can support a better spatial interpretation. Our remaining question is what
+that intervention does after replacing exact fractions with learned ones and
+passing the resulting scores through action acceptance. The exact-target and
+learned threshold curves separate these two empirical outcomes in one task;
+they do not characterize the VOF method family.
 
-Lambda-Field studies the compatibility of occupancy representations and path-risk
-integration~\citep{lambda2019}. Its collision-risk construction differs from our
-public mean-exposure cost, but representation-dependent path risk is established
-prior work. Task-based quantization likewise studies limited representations
-in terms of a downstream objective rather than signal recovery alone
-\citep{shlezinger2019}. Smart Predict, then Optimize explicitly separates
-prediction and decision losses~\citep{spo}. Our narrower contribution is a
-same-reference empirical attribution with actual acceptance effects, prospective
-operating-condition evidence, and a same-information alternative interpretation.
+\paragraph{Consistent risk representations and error attribution.}
+Lambda-Field constructs an occupancy representation and path-risk computation
+consistent with its collision-event model~\citep{lambda2019}. Our exposure law
+is different and held fixed. The remaining diagnostic question is how much of
+a given pipeline's cost error comes from fitting the target, rasterizing its
+source, or aggregating it. Common-footprint oracle replacements answer this
+within the case. They neither test Lambda-Field under its own risk definition
+nor supply a new physical-risk representation.
 
-Egocentric Conformal Prediction already addresses conservatism from safety-
-irrelevant prediction errors~\citep{egocentric}. Conformal Decision Theory
-calibrates decision loss directly~\citep{cdt}. Neither decision relevance nor
-moving beyond prediction-set calibration is a novelty claim here. We use these
-distinctions to keep measurement validity and the object of a statistical
-guarantee separate.
+\paragraph{Task-oriented design and fixed-pipeline diagnosis.}
+Task-based quantization studies downstream estimation with limited-rate
+representations and joint designs~\citep{shlezinger2019}; Smart Predict, then
+Optimize relates prediction to decision loss~\citep{spo}. Our coarse fractions
+are spatial averages, not that finite-bit quantization model. We isolate a
+specific spatial error and its interaction with learned errors under fixed
+action queries. The empirical contribution is an attributable case with
+observed gains and harms, not a task-sufficiency theorem or decoder-choice rule.
+Egocentric Conformal Prediction and Conformal Decision Theory address
+decision-relevant uncertainty and loss~\citep{egocentric,cdt}. Their perspective
+also motivates keeping the validity of a measurement separate from the object
+protected by a risk-control procedure.
 
 \section{Limitations and conclusion}
 \label{sec:limitations}
@@ -88,11 +94,12 @@ in the appendix; the planned new 48-frame set was never instantiated. It supplie
 neither supporting nor refuting evidence for cross-task transfer. The extension
 remains closed; no VLM, RL or external experiment is added.
 
-Accurately realizing a coarse supervision target does not, by itself, validate
-the action measurement implemented by its current aggregation rule. In this
-controlled task, common-reference oracle replacements isolate a primarily
-conservative aggregation effect with material opportunity loss and predictable
-operating conditions. Distinguishing spatial interpretation from the underlying
-information avoids an unsupported impossibility claim. The appropriate technical
-choice is determined by what is recovered and what new errors are introduced,
-not by component fit or recovered failures alone.
+This controlled case separates learning error from residual measurement error
+under a fixed spatial target and cost law. The latter has actual conservative
+decision consequences that survive a prospective numerical check. Same-information
+reconstruction recovers some opportunities but adds danger; its clearer exact-target
+gains do not establish a stable learned advantage across equal empirical risk
+ceilings. Event-level error opposition explains individual transitions without
+providing a causal share or prospective diagnostic. The resulting knowledge is
+a pipeline attribution and its measured boundaries. A general principle for
+choosing spatial decoders remains beyond the evidence.

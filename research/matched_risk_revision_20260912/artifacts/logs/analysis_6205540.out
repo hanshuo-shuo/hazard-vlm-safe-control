@@ -1,0 +1,185 @@
+completed curves development 2026-09-13T01:16:16.945998+00:00
+completed curves appended 2026-09-13T01:16:22.947733+00:00
+{
+  "points": [
+    {
+      "beta": 0.005,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.0059850374064838174,
+          "ci95": [
+            -0.004851487699693537,
+            0.017261058029854386
+          ],
+          "positive_models": 5
+        },
+        "appended": {
+          "delta_eta": 0.004522613065326642,
+          "ci95": [
+            -0.004824096063979685,
+            0.020600317491744555
+          ],
+          "positive_models": 5
+        }
+      }
+    },
+    {
+      "beta": 0.01,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.006234413965087282,
+          "ci95": [
+            -0.0017381319658689776,
+            0.01530829238198075
+          ],
+          "positive_models": 5
+        },
+        "appended": {
+          "delta_eta": 0.004522613065326642,
+          "ci95": [
+            -0.0012656518010291937,
+            0.014875364747634042
+          ],
+          "positive_models": 5
+        }
+      }
+    },
+    {
+      "beta": 0.015,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.004738154613466383,
+          "ci95": [
+            -0.00099269514821006,
+            0.00980135886067782
+          ],
+          "positive_models": 4
+        },
+        "appended": {
+          "delta_eta": 0.005402010050251316,
+          "ci95": [
+            -0.0003864864714316794,
+            0.008435051483015878
+          ],
+          "positive_models": 5
+        }
+      }
+    },
+    {
+      "beta": 0.02,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.001995012468827939,
+          "ci95": [
+            -0.00138770148031421,
+            0.006514617104702251
+          ],
+          "positive_models": 5
+        },
+        "appended": {
+          "delta_eta": 0.0030150753768843908,
+          "ci95": [
+            -0.0018706470640723672,
+            0.0066228498939111214
+          ],
+          "positive_models": 4
+        }
+      }
+    },
+    {
+      "beta": 0.025,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.0007481296758105049,
+          "ci95": [
+            -0.001614105767700405,
+            0.004815412186379941
+          ],
+          "positive_models": 5
+        },
+        "appended": {
+          "delta_eta": 0.00012562814070349315,
+          "ci95": [
+            -0.002484549303173622,
+            0.00452909053974928
+          ],
+          "positive_models": 3
+        }
+      }
+    },
+    {
+      "beta": 0.03,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.0006234413965088281,
+          "ci95": [
+            -0.0016191826078271938,
+            0.0034956850470328565
+          ],
+          "positive_models": 2
+        },
+        "appended": {
+          "delta_eta": 0.0012562814070352646,
+          "ci95": [
+            -0.0021508454403677685,
+            0.005026432471957331
+          ],
+          "positive_models": 4
+        }
+      }
+    },
+    {
+      "beta": 0.04,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.0011221945137156464,
+          "ci95": [
+            -0.00037442240489347635,
+            0.0026025545468434746
+          ],
+          "positive_models": 4
+        },
+        "appended": {
+          "delta_eta": 0.0018844221105527303,
+          "ci95": [
+            -0.00012319499025231496,
+            0.004756318122071906
+          ],
+          "positive_models": 5
+        }
+      }
+    },
+    {
+      "beta": 0.05,
+      "passed": false,
+      "banks": {
+        "development": {
+          "delta_eta": 0.00037406483790514145,
+          "ci95": [
+            -0.00024412280899976103,
+            0.0021305267886697647
+          ],
+          "positive_models": 4
+        },
+        "appended": {
+          "delta_eta": 0.0017587939698492372,
+          "ci95": [
+            0.0,
+            0.0037859690463664603
+          ],
+          "positive_models": 5
+        }
+      }
+    }
+  ],
+  "qualified_runs": [],
+  "decision": "STOP_NO_NEW_SCENES",
+  "note": "Operational stopping screen on consumed data, not a confirmatory test or a venue recommendation"
+}

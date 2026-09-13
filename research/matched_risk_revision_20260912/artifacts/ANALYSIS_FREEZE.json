@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-09-13T01:16:10.853483+00:00",
+  "scope": "Before reading full threshold curves; consumed data remain retrospective",
+  "files": {
+    "analyze.py": "ce248fde3713eee4019415dcc34842ca4c34e7dba269933f065f96a878740f4d",
+    "analyze.sbatch": "8bd78c9368a1fbb7aaf635c2fb140c1463a9518e0ea3376dee3e2c65e3a3097a",
+    "test_curves.py": "5d98b326c5b6e42820178fd5e0ffe38d4088dcd7ac546232f772940f88b10575",
+    "PRO_REVIEW.md": "cbdc0f6ea7bdf067acc25679db980086de9ba650d63aaa6bc3a581fd870a7fa5",
+    "protocol.json": "2114ecce99f9bcc24cbaa8e57ab3c699dbf8562ef2d62f4d913b1fa7681db415"
+  }
+}
