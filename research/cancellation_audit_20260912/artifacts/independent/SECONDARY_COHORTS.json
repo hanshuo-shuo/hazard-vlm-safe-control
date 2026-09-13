@@ -1,0 +1,4084 @@
+{
+  "cohorts": {
+    "all": {
+      "flagged": {
+        "n": 3141,
+        "new_harms": 47,
+        "harm_rate": 0.014963387456224133,
+        "new_accepts": 91,
+        "old_pattern": 680,
+        "both_components_improve": 2269,
+        "both_improve_total_worsens": 578
+      },
+      "positive_m_negative_l": {
+        "n": 2546,
+        "new_harms": 46,
+        "harm_rate": 0.018067556952081697,
+        "new_accepts": 89,
+        "old_pattern": 487,
+        "both_components_improve": 2011,
+        "both_improve_total_worsens": 441
+      },
+      "negative_m_positive_l": {
+        "n": 595,
+        "new_harms": 1,
+        "harm_rate": 0.0016806722689075631,
+        "new_accepts": 2,
+        "old_pattern": 193,
+        "both_components_improve": 258,
+        "both_improve_total_worsens": 137
+      },
+      "unflagged": {
+        "n": 6859,
+        "new_harms": 3,
+        "harm_rate": 0.00043738154249890656,
+        "new_accepts": 44,
+        "old_pattern": 0,
+        "both_components_improve": 226,
+        "both_improve_total_worsens": 0
+      }
+    },
+    "original_rejected": {
+      "flagged": {
+        "n": 1085,
+        "new_harms": 47,
+        "harm_rate": 0.04331797235023042,
+        "new_accepts": 91,
+        "old_pattern": 360,
+        "both_components_improve": 499,
+        "both_improve_total_worsens": 279
+      },
+      "positive_m_negative_l": {
+        "n": 505,
+        "new_harms": 46,
+        "harm_rate": 0.09108910891089109,
+        "new_accepts": 89,
+        "old_pattern": 167,
+        "both_components_improve": 241,
+        "both_improve_total_worsens": 142
+      },
+      "negative_m_positive_l": {
+        "n": 580,
+        "new_harms": 1,
+        "harm_rate": 0.0017241379310344827,
+        "new_accepts": 2,
+        "old_pattern": 193,
+        "both_components_improve": 258,
+        "both_improve_total_worsens": 137
+      },
+      "unflagged": {
+        "n": 1171,
+        "new_harms": 3,
+        "harm_rate": 0.0025619128949615714,
+        "new_accepts": 44,
+        "old_pattern": 0,
+        "both_components_improve": 45,
+        "both_improve_total_worsens": 0
+      }
+    },
+    "newly_accepted": {
+      "flagged": {
+        "n": 91,
+        "new_harms": 47,
+        "harm_rate": 0.5164835164835165,
+        "new_accepts": 91,
+        "old_pattern": 29,
+        "both_components_improve": 42,
+        "both_improve_total_worsens": 24
+      },
+      "positive_m_negative_l": {
+        "n": 89,
+        "new_harms": 46,
+        "harm_rate": 0.5168539325842697,
+        "new_accepts": 89,
+        "old_pattern": 29,
+        "both_components_improve": 42,
+        "both_improve_total_worsens": 24
+      },
+      "negative_m_positive_l": {
+        "n": 2,
+        "new_harms": 1,
+        "harm_rate": 0.5,
+        "new_accepts": 2,
+        "old_pattern": 0,
+        "both_components_improve": 0,
+        "both_improve_total_worsens": 0
+      },
+      "unflagged": {
+        "n": 44,
+        "new_harms": 3,
+        "harm_rate": 0.06818181818181818,
+        "new_accepts": 44,
+        "old_pattern": 0,
+        "both_components_improve": 1,
+        "both_improve_total_worsens": 0
+      }
+    }
+  },
+  "overlap_standardization": {
+    "risk_unflagged": 0.0035460992907801418,
+    "risk_flagged": 0.01702127659574468,
+    "difference": 0.01347517730496454,
+    "overlapping_strata": 247,
+    "overlap_weight": 705.0,
+    "support_unflagged": 0.8257899231426131,
+    "support_flagged": 0.8304147465437788,
+    "cells": [
+      {
+        "stratum": 7,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 28,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 35,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 36,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 37,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 39,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 42,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 43,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 44,
+        "unflagged": 3,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 45,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 52,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 57,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 58,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 65,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 67,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 71,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 72,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 77,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 78,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 79,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 81,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 84,
+        "unflagged": 5,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 85,
+        "unflagged": 4,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 86,
+        "unflagged": 2,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 87,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 91,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 92,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 93,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 94,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 217,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 224,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 231,
+        "unflagged": 6,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 233,
+        "unflagged": 4,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 238,
+        "unflagged": 9,
+        "flagged": 19,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 9.0
+      },
+      {
+        "stratum": 239,
+        "unflagged": 7,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 240,
+        "unflagged": 13,
+        "flagged": 14,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 13.0
+      },
+      {
+        "stratum": 241,
+        "unflagged": 1,
+        "flagged": 12,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 242,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 246,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 1,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 247,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 248,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 254,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 255,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 256,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 259,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 260,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 261,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 262,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 263,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 266,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 267,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 268,
+        "unflagged": 3,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 269,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 273,
+        "unflagged": 4,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 274,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 275,
+        "unflagged": 7,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 276,
+        "unflagged": 4,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 277,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 280,
+        "unflagged": 10,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 281,
+        "unflagged": 6,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 282,
+        "unflagged": 14,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 283,
+        "unflagged": 10,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 284,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 287,
+        "unflagged": 18,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 288,
+        "unflagged": 11,
+        "flagged": 8,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 8.0
+      },
+      {
+        "stratum": 289,
+        "unflagged": 10,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 290,
+        "unflagged": 5,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 291,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 329,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 330,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 331,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 336,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 337,
+        "unflagged": 0,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 338,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 339,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 345,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 346,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 359,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 364,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 366,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 367,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 371,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 372,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 373,
+        "unflagged": 5,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 374,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 378,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 379,
+        "unflagged": 6,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 380,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 385,
+        "unflagged": 3,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 386,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 406,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 413,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 420,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 422,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 427,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 428,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 429,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 430,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 434,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 435,
+        "unflagged": 4,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 436,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 437,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 444,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 456,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 457,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 458,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 459,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 463,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 464,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 469,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 470,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 471,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 476,
+        "unflagged": 2,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 477,
+        "unflagged": 3,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 478,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 479,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 483,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 484,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 485,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 486,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 609,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 616,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 617,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 623,
+        "unflagged": 6,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 624,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 625,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 626,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 630,
+        "unflagged": 16,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 631,
+        "unflagged": 9,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 632,
+        "unflagged": 4,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 633,
+        "unflagged": 7,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 634,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 638,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 639,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 640,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 644,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 645,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 646,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 647,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 651,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 652,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 653,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 654,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 658,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 659,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 660,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 661,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 2.0
+      },
+      {
+        "stratum": 665,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 666,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 667,
+        "unflagged": 4,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 668,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 669,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 1,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 672,
+        "unflagged": 13,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 673,
+        "unflagged": 5,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 674,
+        "unflagged": 18,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 675,
+        "unflagged": 3,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 676,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 679,
+        "unflagged": 6,
+        "flagged": 12,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 680,
+        "unflagged": 13,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 681,
+        "unflagged": 11,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 682,
+        "unflagged": 3,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 683,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 714,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 721,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 728,
+        "unflagged": 3,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 729,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 730,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 731,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 735,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 738,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 744,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 746,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 749,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 750,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 751,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 753,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 756,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 757,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 758,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 759,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 763,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 764,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 765,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 770,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 771,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 772,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 777,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 778,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 779,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 798,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 812,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 819,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 820,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 821,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 823,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 826,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 827,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 828,
+        "unflagged": 5,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 829,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 830,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 834,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 842,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 848,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 849,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 851,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 855,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 856,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 861,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 862,
+        "unflagged": 4,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 863,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 866,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 868,
+        "unflagged": 1,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 869,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 870,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 871,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 875,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 876,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 877,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 878,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1001,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1008,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1015,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1016,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1017,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1018,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1019,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1022,
+        "unflagged": 11,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 1023,
+        "unflagged": 13,
+        "flagged": 9,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 9.0
+      },
+      {
+        "stratum": 1024,
+        "unflagged": 5,
+        "flagged": 13,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 1025,
+        "unflagged": 8,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1026,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1031,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1032,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1036,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1038,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1040,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1043,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1044,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1046,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1047,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1050,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1051,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1052,
+        "unflagged": 5,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 1053,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1054,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1057,
+        "unflagged": 6,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1058,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1059,
+        "unflagged": 3,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1060,
+        "unflagged": 1,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1061,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1064,
+        "unflagged": 8,
+        "flagged": 14,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 8.0
+      },
+      {
+        "stratum": 1065,
+        "unflagged": 13,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 1066,
+        "unflagged": 11,
+        "flagged": 15,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 1067,
+        "unflagged": 4,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1071,
+        "unflagged": 14,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 1072,
+        "unflagged": 9,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 1073,
+        "unflagged": 11,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 1074,
+        "unflagged": 6,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1075,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1106,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1113,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1114,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1115,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1120,
+        "unflagged": 2,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1121,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1122,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1123,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1128,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1129,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1134,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1141,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1143,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1145,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1148,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1149,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1151,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1155,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1156,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1157,
+        "unflagged": 5,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1162,
+        "unflagged": 5,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1163,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1164,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1169,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1170,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1171,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1190,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1204,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1205,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1211,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1212,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1213,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1215,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1218,
+        "unflagged": 4,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1219,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1220,
+        "unflagged": 5,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1221,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1222,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1233,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1234,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1240,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1243,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1247,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1248,
+        "unflagged": 3,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1253,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1254,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1255,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1260,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1261,
+        "unflagged": 2,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1262,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1263,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1267,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1268,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1269,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1270,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1393,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1400,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1401,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1407,
+        "unflagged": 5,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1408,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1409,
+        "unflagged": 3,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1411,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1414,
+        "unflagged": 9,
+        "flagged": 12,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 9.0
+      },
+      {
+        "stratum": 1415,
+        "unflagged": 13,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1416,
+        "unflagged": 8,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 8.0
+      },
+      {
+        "stratum": 1417,
+        "unflagged": 6,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1418,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1422,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 2,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1423,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1424,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 1,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1428,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1429,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1430,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1432,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1435,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1436,
+        "unflagged": 4,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1437,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1438,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1439,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1442,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1443,
+        "unflagged": 3,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1444,
+        "unflagged": 0,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1445,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1446,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1449,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1450,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1451,
+        "unflagged": 7,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1452,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1453,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1456,
+        "unflagged": 8,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 8.0
+      },
+      {
+        "stratum": 1457,
+        "unflagged": 14,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1458,
+        "unflagged": 17,
+        "flagged": 8,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 8.0
+      },
+      {
+        "stratum": 1459,
+        "unflagged": 5,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 5.0
+      },
+      {
+        "stratum": 1460,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1463,
+        "unflagged": 13,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 1464,
+        "unflagged": 9,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1465,
+        "unflagged": 14,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 1466,
+        "unflagged": 3,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1467,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1492,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1498,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1505,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1506,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1512,
+        "unflagged": 2,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1513,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1514,
+        "unflagged": 0,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1521,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1522,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1528,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1529,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1533,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1534,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1535,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1536,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1540,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1541,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1542,
+        "unflagged": 4,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1547,
+        "unflagged": 4,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1548,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1549,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1554,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1555,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1556,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1561,
+        "unflagged": 1,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1575,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1596,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1603,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1604,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1605,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1607,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1610,
+        "unflagged": 1,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1611,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1612,
+        "unflagged": 3,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 3.0
+      },
+      {
+        "stratum": 1613,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1620,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1626,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1632,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1633,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1634,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1639,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1640,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1641,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1645,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1646,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1647,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1648,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1649,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1652,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1653,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1654,
+        "unflagged": 6,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1655,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1659,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1660,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1661,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1662,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1792,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1793,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1794,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1799,
+        "unflagged": 5,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1800,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1801,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1802,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1806,
+        "unflagged": 11,
+        "flagged": 11,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 1807,
+        "unflagged": 6,
+        "flagged": 13,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1808,
+        "unflagged": 7,
+        "flagged": 12,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 1809,
+        "unflagged": 9,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 9.0
+      },
+      {
+        "stratum": 1810,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1817,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1821,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1822,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1823,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1827,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1828,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1829,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1830,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1831,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1834,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1835,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1836,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1837,
+        "unflagged": 2,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1838,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1841,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1842,
+        "unflagged": 5,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1843,
+        "unflagged": 4,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1844,
+        "unflagged": 1,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1845,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1848,
+        "unflagged": 10,
+        "flagged": 7,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 7.0
+      },
+      {
+        "stratum": 1849,
+        "unflagged": 12,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 1850,
+        "unflagged": 12,
+        "flagged": 9,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 9.0
+      },
+      {
+        "stratum": 1851,
+        "unflagged": 8,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1852,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1855,
+        "unflagged": 11,
+        "flagged": 10,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 10.0
+      },
+      {
+        "stratum": 1856,
+        "unflagged": 17,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 4.0
+      },
+      {
+        "stratum": 1857,
+        "unflagged": 11,
+        "flagged": 13,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 11.0
+      },
+      {
+        "stratum": 1858,
+        "unflagged": 6,
+        "flagged": 6,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 6.0
+      },
+      {
+        "stratum": 1859,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1884,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1890,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1897,
+        "unflagged": 1,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1898,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1904,
+        "unflagged": 1,
+        "flagged": 5,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1905,
+        "unflagged": 0,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1906,
+        "unflagged": 1,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1907,
+        "unflagged": 0,
+        "flagged": 3,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1912,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1913,
+        "unflagged": 0,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1914,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1925,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1926,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1927,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1928,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1932,
+        "unflagged": 1,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1933,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1934,
+        "unflagged": 3,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1935,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 1,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1939,
+        "unflagged": 2,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 1.0
+      },
+      {
+        "stratum": 1940,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1941,
+        "unflagged": 3,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1942,
+        "unflagged": 1,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1946,
+        "unflagged": 3,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1947,
+        "unflagged": 2,
+        "flagged": 2,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1948,
+        "unflagged": 2,
+        "flagged": 0,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      },
+      {
+        "stratum": 1953,
+        "unflagged": 2,
+        "flagged": 4,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 2.0
+      },
+      {
+        "stratum": 1954,
+        "unflagged": 0,
+        "flagged": 1,
+        "unflagged_harm": 0,
+        "flagged_harm": 0,
+        "weight": 0.0
+      }
+    ],
+    "predicted_margin": {
+      "raw_unflagged_flagged": [
+        0.04935287223792357,
+        0.055704786595736654
+      ],
+      "overlap_unflagged_flagged": [
+        0.05739136791231485,
+        0.05869597928906502
+      ]
+    },
+    "absolute_correction": {
+      "raw_unflagged_flagged": [
+        0.002686977934680959,
+        0.003210792182868252
+      ],
+      "overlap_unflagged_flagged": [
+        0.002727972182272555,
+        0.0027884017967107727
+      ]
+    },
+    "pointwise_scene_ci95": [
+      0.0,
+      0.020065075520960946
+    ],
+    "undefined_draws": 0
+  },
+  "unadjusted_rejected_risk_difference_ci95": [
+    0.023639266950828762,
+    0.06040242758631652
+  ],
+  "hybrids": {
+    "q00": {
+      "accepted": 7744,
+      "safe": 7656,
+      "unsafe": 88,
+      "new_harms": 0,
+      "risk": 0.011363636363636364,
+      "eta": 0.9685009487666034,
+      "mae": 0.003166580313312152,
+      "outside_unit_interval": 0
+    },
+    "q10": {
+      "accepted": 8025,
+      "safe": 7833,
+      "unsafe": 192,
+      "new_harms": 107,
+      "risk": 0.023925233644859812,
+      "eta": 0.9908918406072106,
+      "mae": 0.0029249038595027563,
+      "outside_unit_interval": 1726
+    },
+    "q01": {
+      "accepted": 7541,
+      "safe": 7470,
+      "unsafe": 71,
+      "new_harms": 0,
+      "risk": 0.009415196923484949,
+      "eta": 0.9449715370018975,
+      "mae": 0.004340871704206651,
+      "outside_unit_interval": 0
+    },
+    "q11": {
+      "accepted": 7878,
+      "safe": 7741,
+      "unsafe": 137,
+      "new_harms": 50,
+      "risk": 0.01739020055851739,
+      "eta": 0.9792536369386464,
+      "mae": 0.0027974703496779947,
+      "outside_unit_interval": 0
+    }
+  },
+  "hybrid_event_account": {
+    "full_new_harms": 50,
+    "also_harm_under_measurement_only": 49,
+    "also_harm_under_model_residual_only": 0,
+    "requires_both_scalar_changes": 1,
+    "measurement_only_new_harms_removed_by_full": 58,
+    "signed_threshold_interaction_sum": -38,
+    "positive_interaction_entries": 20,
+    "negative_interaction_entries": 58
+  },
+  "full_pattern_denominators": {
+    "all_entries": 10000,
+    "flagged": 3141,
+    "old_pattern_all": 680,
+    "old_pattern_new_harm": 26,
+    "both_improve_all": 2495,
+    "both_improve_worse_all": 578,
+    "both_improve_new_harm": 23,
+    "identity_max": 1.0408340855860843e-17
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "at_utc": "2026-09-13T02:01:37.282579+00:00",
+  "sources": {
+    "test_audit.py": "98105eb5a67051afdf8a4d12fc62514909e9f652c64e5be0dc28fa3a78acd09a",
+    "protocol.json": "c2385f0124d4f50441579b9831abf2fb33fef5a64887bf496094e6e20303422e",
+    "audit.sbatch": "ba0f9fb2be442ba73f3ef0b486a05932f3f7f2b40f906d8eaf3cce02d2f60f57",
+    "audit.py": "cd3fe15de04a1ade7594e86888f1d39e75a31ce60457c9f12def70ebce49c8ab"
+  },
+  "scope": "Newly requested full-cohort audit on already consumed data; prior stop remains unchanged"
+}

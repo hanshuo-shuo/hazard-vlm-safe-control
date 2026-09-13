@@ -1,0 +1,6 @@
+{
+  "at_utc": "2026-09-13T02:21:03.958608+00:00",
+  "sha256": "06da7cdc7c43b1e78adc8666c82e53ea20967396d8a6aaa7ea994a30857c0ad5",
+  "plic_computed": false,
+  "note": "Oracle flag frozen before PLIC outputs; still requires reference labels"
+}

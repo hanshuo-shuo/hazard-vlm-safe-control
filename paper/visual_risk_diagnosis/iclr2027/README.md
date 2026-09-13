@@ -31,10 +31,16 @@ development offset bank and harmful reconstruction outcomes are retained in the
 research archive. The manuscript does not claim representation impossibility,
 universal transfer, or a risk-free repair.
 
-The final retrospective comparison applies identical empirical risk ceilings to
+The retrospective comparison applies identical empirical risk ceilings to
 complete threshold families. It finds clearer exact-target gains, but does not
 establish a stable learned advantage across the inspected range. The operational
-continuation screen fails and no further scene is generated. The paper is
+continuation screen fails and generates no score-superiority follow-up. A later
+separate input-field by aggregator question is frozen and tested on one new
+2,000-scene bank: the reconstruction's safe-accept gain is attenuated by 2.16
+percentage points with learned input (one-sided upper bound -1.64 pp). The old
+stop and its negative comparison are preserved. Full-cohort error opposition
+remains an oracle diagnostic, while actual four-cell module interventions are
+distinguished from non-deployable algebraic residual hybrids. The paper is
 positioned as a controlled diagnostic case study with two contributions; the
 reconstruction is an explanatory intervention, not an independently validated
 decoder-selection contribution. Venue suitability remains a human research judgment.

@@ -77,24 +77,41 @@ A continuation screen was fixed before computing these full curves, while
  acknowledging that both banks were already consumed. It required a nontrivial
  positive learned difference across a contiguous risk range, uncertainty support,
  and consistency across models and banks (Appendix~\ref{app:matched}). It fails.
- No additional scene, model, or reconstruction is evaluated. Development-selected
+ That score-superiority screen triggers no additional sample bank. Development-selected
  thresholds applied unchanged to the consumed appended bank are also retained;
  their actual risks, rather than their development ceilings, describe that transfer.
 
-\paragraph{A retrospective cancellation pattern.}
-Among the 43 newly unsafe learned decisions at threshold .02, 25 keep the
- action, start with opposing model-relative and target-measurement errors,
- improve absolute measurement error, and worsen absolute total error.
-Table~\ref{tab:cancellation} gives the first matching event in scene/model order.
-Both component absolute errors decrease in this example while total
- underestimation grows. All 43 events, including the other 18, are retained.
+\paragraph{Full-cohort cancellation audit.}
+The original pattern covers 25 of 43 newly unsafe learned decisions. Extending
+to all 10,000 appended entries, 2,335 improve both absolute residual components;
+580 of those worsen total absolute error, and 25 become newly unsafe. Among
+originally rejected actions, baseline error opposition flags 1,025 entries,
+38 of which become unsafe accepts; the unflagged count is 5/1,192. After fixed
+model/card and coarsened margin/correction standardization, the harm-rate
+difference is 1.66 pp [.34,2.33] on this bank but .35 pp [-.36,1.15] on
+development. These consumed-bank associations are not uniformly conclusive.
+The flag uses reference labels, so even a positive association is an oracle
+diagnostic. It does not validate a deployment predictor or a causal fraction.
 
-\input{case_table.tex}
+\paragraph{Actual input-by-operator intervention.}
+Two residual terms changing together motivates a direct four-cell intervention:
+target versus learned input, each passed through uniform versus PLIC aggregation.
+All four scores were actually computed from the two valid fields and operators.
+We fix the original learned-uniform action and reference. For safe-accept
+indicator $S$, define
+\[
+I=[S(q_1)-S(q_0)]-[S(t_1)-S(t_0)],
+\]
+where $q$ denotes learned and $t$ target input, with subscripts for the operator.
+On the consumed development/appended banks, mean $I$ is -1.88/-1.45 pp of all
+model--scene entries: learned inputs attenuate the reconstruction's opportunity
+gain. These actual interface interventions differ from algebraically holding
+one residual fixed (Appendix~\ref{app:fullcohort}); they do not make the residual
+terms independent physical modules.
 
-This is an outcome-conditioned pattern, not the probability of failure among
- all initially opposed-error actions. Changing the aggregator changes both
- error terms; they are not independently intervened modules. The evidence
- establishes deterministic event-level coexistence of component improvement
- and decision harm, without identifying causal shares or a predictor of future
- failure. Together, these controls restrict the repair interpretation of the
- original target--aggregation loss. Modified scores inherit no earlier risk certificate.
+We then freeze a separate prediction:
+$\mathbb E[I]<-.005$ on one new 2,000-scene IID bank. The five models stay fixed;
+inference averages their contrasts within each independent scene. This test
+addresses input-dependent operator response, leaving the earlier failure to
+establish score superiority unchanged.
+\input{intervention_results.tex}

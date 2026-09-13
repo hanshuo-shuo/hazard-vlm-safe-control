@@ -1,0 +1,18 @@
+# Independent secondary input-by-operator factorial
+
+Pre-specified secondary factorial results; descriptive, not additional confirmed hypotheses. Aggregate intervals reuse the primary paired-scene draws, no model-population claim.
+
+| Group | Safe-accept interaction (pp) | Unsafe-accept interaction (pp) | Signed-cost interaction | Absolute-error interaction |
+|---|---:|---:|---:|---:|
+| all | -2.160 | -0.470 | +0.001130 | +0.001110 |
+| model_0 | -2.250 | -0.800 | +0.001041 | +0.001016 |
+| model_1 | -2.400 | -0.200 | +0.001180 | +0.001231 |
+| model_2 | -2.200 | -0.350 | +0.001164 | +0.001154 |
+| model_3 | -1.900 | -0.400 | +0.001153 | +0.001141 |
+| model_4 | -2.050 | -0.600 | +0.001111 | +0.001010 |
+| card_A | -1.510 | -0.555 | +0.000681 | +0.000645 |
+| card_C | -3.796 | -0.672 | +0.002030 | +0.002009 |
+| card_D | -1.111 | -0.180 | +0.000642 | +0.000638 |
+
+All four cell counts, accepted risks, eta and errors for every model and card are in the JSON. Per-model/card values are descriptive; only the frozen aggregate safe-accept primary has confirmatory status.
+

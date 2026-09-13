@@ -1,0 +1,22 @@
+{
+  "target_uniform": {
+    "safe": 7567,
+    "unsafe": 0,
+    "accepted": 7567
+  },
+  "target_plic": {
+    "safe": 7868,
+    "unsafe": 96,
+    "accepted": 7964
+  },
+  "learned_uniform": {
+    "safe": 7656,
+    "unsafe": 88,
+    "accepted": 7744
+  },
+  "learned_plic": {
+    "safe": 7741,
+    "unsafe": 137,
+    "accepted": 7878
+  }
+}

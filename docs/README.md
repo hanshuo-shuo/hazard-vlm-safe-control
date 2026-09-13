@@ -4,7 +4,8 @@ Updated: 2026-09-12.
 
 ## Current reading
 
-- [`MATCHED_RISK_REVISION_2026-09-12.md`](MATCHED_RISK_REVISION_2026-09-12.md)：当前入口；完整阈值族公平比较、学习优势未建立、停止扩样与受控案例定位；
+- [`CANCELLATION_PROGRESS_2026-09-12.md`](CANCELLATION_PROGRESS_2026-09-12.md)：当前入口；补齐全体分母、区分代数与实际干预，独立验证输入—聚合器响应差异；
+- [`MATCHED_RISK_REVISION_2026-09-12.md`](MATCHED_RISK_REVISION_2026-09-12.md)：保留的完整阈值族公平比较、学习优势未建立及其停止决定；
 - [`SAME_INFORMATION_PROGRESS_2026-09-12.md`](SAME_INFORMATION_PROGRESS_2026-09-12.md)：保留的上一轮记录；机会恢复与新增危险、具体误差抵消事件；
 - [`../paper/visual_risk_diagnosis/iclr2027/README.md`](../paper/visual_risk_diagnosis/iclr2027/README.md)：可编译的匿名论文源码；
 - [`ORACLE_AGGREGATION_PROGRESS_2026-09-12.md`](ORACLE_AGGREGATION_PROGRESS_2026-09-12.md)：保留的同源 oracle 分解与一次前瞻确认；

@@ -48,11 +48,12 @@ certificates for modified aggregation.
 Volume-of-fluid methods recover material interfaces from cell fractions;
 \citet{pilliod2004} compare reconstruction accuracy, including the first-order
 Parker--Youngs method. Their setting establishes that neighboring fractions
-can support a better spatial interpretation. Our remaining question is what
-that intervention does after replacing exact fractions with learned ones and
-passing the resulting scores through action acceptance. The exact-target and
-learned threshold curves separate these two empirical outcomes in one task;
-they do not characterize the VOF method family.
+can support a better spatial interpretation. Our remaining question is how the
+intervention's response changes after replacing exact fractions with learned
+ones. A fixed-action four-cell intervention and a separately frozen independent
+test measure attenuation of its safe-accept gain in this task. The result
+concerns actual acceptance and input-dependent operator response; it does not
+characterize the VOF method family.
 
 \paragraph{Consistent risk representations and error attribution.}
 Lambda-Field constructs an occupancy representation and path-risk computation
@@ -81,8 +82,9 @@ protected by a risk-control procedure.
 The task is synthetic, uses a known cost law, and restricts actions to four
 candidates. Numerical checks condition on a fixed footprint and do not prove
 continuum accuracy. Oracle boundary features are privileged diagnostics. The
-prospective confirmation concerns the original mechanism; the added reconstruction
-and shift are retrospective comparisons on consumed data. Five model seeds limit
+first prospective confirmation concerns the original mechanism; full-threshold
+and initial reconstruction comparisons are retrospective. A separate independent
+test concerns only the later input-by-operator contrast. Five model seeds limit
 training-distribution inference. A single first-order PLIC baseline cannot
 characterize every same-information decoder, and successful oracle-input repair
 would not by itself establish safe learned-model deployment.
@@ -99,7 +101,10 @@ under a fixed spatial target and cost law. The latter has actual conservative
 decision consequences that survive a prospective numerical check. Same-information
 reconstruction recovers some opportunities but adds danger; its clearer exact-target
 gains do not establish a stable learned advantage across equal empirical risk
-ceilings. Event-level error opposition explains individual transitions without
-providing a causal share or prospective diagnostic. The resulting knowledge is
-a pipeline attribution and its measured boundaries. A general principle for
-choosing spatial decoders remains beyond the evidence.
+ceilings. A separate independent intervention confirms that reconstruction's
+safe-accept gain is attenuated on learned fields, at fixed actions and score
+threshold. Full-cohort opposition remains an oracle-conditioned association,
+and scalar residual hybrids are distinct from actual module interventions.
+The resulting knowledge is a pipeline attribution with a tested input--operator
+interaction. A general deployment principle for choosing spatial decoders
+remains beyond the evidence.

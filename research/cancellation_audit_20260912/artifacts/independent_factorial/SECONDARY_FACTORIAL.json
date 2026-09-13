@@ -1,0 +1,546 @@
+{
+  "input_sha256": "5fc2939e9136d4bce66972aafb48837a5b5cb76b57f47f30879d5315ccd5eaf0",
+  "source_sha256": "0240569b741ab3206c0a061696f117cb5c2bce335e762daeadeb2e091edeaa74",
+  "scope": "Pre-specified secondary factorial results; descriptive, not additional confirmed hypotheses. Aggregate intervals reuse the primary paired-scene draws, no model-population claim.",
+  "groups": {
+    "all": {
+      "cells": {
+        "target_uniform": {
+          "n": 10000,
+          "accepted": 7567,
+          "safe": 7567,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9572422517394055,
+          "mean_cost": 0.01785509866258877,
+          "mae": 0.0025619921431426365
+        },
+        "target_plic": {
+          "n": 10000,
+          "accepted": 7964,
+          "safe": 7868,
+          "unsafe": 96,
+          "conditional_unsafe": 0.012054244098442994,
+          "eta": 0.9953194180898166,
+          "mean_cost": 0.01598181680739694,
+          "mae": 0.001082696931512562
+        },
+        "learned_uniform": {
+          "n": 10000,
+          "accepted": 7744,
+          "safe": 7656,
+          "unsafe": 88,
+          "conditional_unsafe": 0.011363636363636364,
+          "eta": 0.9685009487666034,
+          "mean_cost": 0.017430064598884062,
+          "mae": 0.003166580313312152
+        },
+        "learned_plic": {
+          "n": 10000,
+          "accepted": 7878,
+          "safe": 7741,
+          "unsafe": 137,
+          "conditional_unsafe": 0.01739020055851739,
+          "eta": 0.9792536369386464,
+          "mean_cost": 0.016686615026280063,
+          "mae": 0.0027974703496779947
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0011298322825878287,
+          "pointwise_scene_ci95": [
+            0.000993713987616026,
+            0.001265906682170781
+          ]
+        },
+        "absolute_error": {
+          "mean": 0.001110185247995917,
+          "pointwise_scene_ci95": [
+            0.0009703447029020748,
+            0.0012463391991622058
+          ]
+        },
+        "safe": {
+          "mean": -0.0216,
+          "pointwise_scene_ci95": [
+            -0.028300000000000002,
+            -0.015497500000000034
+          ]
+        },
+        "unsafe": {
+          "mean": -0.0047,
+          "pointwise_scene_ci95": [
+            -0.009,
+            -0.0006000000000000001
+          ]
+        }
+      }
+    },
+    "model_0": {
+      "cells": {
+        "target_uniform": {
+          "n": 2000,
+          "accepted": 1514,
+          "safe": 1514,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9576217583807717,
+          "mean_cost": 0.017839053501486575,
+          "mae": 0.002560410471348548
+        },
+        "target_plic": {
+          "n": 2000,
+          "accepted": 1595,
+          "safe": 1575,
+          "unsafe": 20,
+          "conditional_unsafe": 0.012539184952978056,
+          "eta": 0.9962049335863378,
+          "mean_cost": 0.01597756468346093,
+          "mae": 0.0010578404992527871
+        },
+        "learned_uniform": {
+          "n": 2000,
+          "accepted": 1541,
+          "safe": 1524,
+          "unsafe": 17,
+          "conditional_unsafe": 0.011031797534068787,
+          "eta": 0.9639468690702088,
+          "mean_cost": 0.018371154547078817,
+          "mae": 0.0034343681326347584
+        },
+        "learned_plic": {
+          "n": 2000,
+          "accepted": 1561,
+          "safe": 1540,
+          "unsafe": 21,
+          "conditional_unsafe": 0.013452914798206279,
+          "eta": 0.9740670461733081,
+          "mean_cost": 0.017551050070497492,
+          "mae": 0.002947615225087833
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0010413843414443212
+        },
+        "absolute_error": {
+          "mean": 0.0010158170645488353
+        },
+        "safe": {
+          "mean": -0.0225
+        },
+        "unsafe": {
+          "mean": -0.008
+        }
+      }
+    },
+    "model_1": {
+      "cells": {
+        "target_uniform": {
+          "n": 2000,
+          "accepted": 1513,
+          "safe": 1513,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.956989247311828,
+          "mean_cost": 0.017874204332169664,
+          "mae": 0.0025722394990708225
+        },
+        "target_plic": {
+          "n": 2000,
+          "accepted": 1592,
+          "safe": 1573,
+          "unsafe": 19,
+          "conditional_unsafe": 0.01193467336683417,
+          "eta": 0.9949399114484504,
+          "mean_cost": 0.015986690747997353,
+          "mae": 0.0010984251470133228
+        },
+        "learned_uniform": {
+          "n": 2000,
+          "accepted": 1560,
+          "safe": 1541,
+          "unsafe": 19,
+          "conditional_unsafe": 0.01217948717948718,
+          "eta": 0.9746995572422518,
+          "mean_cost": 0.016576151183894872,
+          "mae": 0.0030400251902210824
+        },
+        "learned_plic": {
+          "n": 2000,
+          "accepted": 1587,
+          "safe": 1553,
+          "unsafe": 34,
+          "conditional_unsafe": 0.02142407057340895,
+          "eta": 0.9822896900695762,
+          "mean_cost": 0.01586840041515573,
+          "mae": 0.0027968325456868195
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0011797628154331696
+        },
+        "absolute_error": {
+          "mean": 0.001230621707523237
+        },
+        "safe": {
+          "mean": -0.024
+        },
+        "unsafe": {
+          "mean": -0.002
+        }
+      }
+    },
+    "model_2": {
+      "cells": {
+        "target_uniform": {
+          "n": 2000,
+          "accepted": 1513,
+          "safe": 1513,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.956989247311828,
+          "mean_cost": 0.017866895208680473,
+          "mae": 0.0025538377749295105
+        },
+        "target_plic": {
+          "n": 2000,
+          "accepted": 1592,
+          "safe": 1573,
+          "unsafe": 19,
+          "conditional_unsafe": 0.01193467336683417,
+          "eta": 0.9949399114484504,
+          "mean_cost": 0.015983729509385577,
+          "mae": 0.0010928354400517382
+        },
+        "learned_uniform": {
+          "n": 2000,
+          "accepted": 1556,
+          "safe": 1536,
+          "unsafe": 20,
+          "conditional_unsafe": 0.012853470437017995,
+          "eta": 0.9715370018975332,
+          "mean_cost": 0.016816082798207177,
+          "mae": 0.003083984570106727
+        },
+        "learned_plic": {
+          "n": 2000,
+          "accepted": 1584,
+          "safe": 1552,
+          "unsafe": 32,
+          "conditional_unsafe": 0.020202020202020204,
+          "eta": 0.9816571790006325,
+          "mean_cost": 0.016096874973231833,
+          "mae": 0.0027765224082294078
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0011639578743195492
+        },
+        "absolute_error": {
+          "mean": 0.0011535401730004523
+        },
+        "safe": {
+          "mean": -0.022
+        },
+        "unsafe": {
+          "mean": -0.0035
+        }
+      }
+    },
+    "model_3": {
+      "cells": {
+        "target_uniform": {
+          "n": 2000,
+          "accepted": 1514,
+          "safe": 1514,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9576217583807717,
+          "mean_cost": 0.017872006505439055,
+          "mae": 0.0025742031499938083
+        },
+        "target_plic": {
+          "n": 2000,
+          "accepted": 1593,
+          "safe": 1574,
+          "unsafe": 19,
+          "conditional_unsafe": 0.011927181418706842,
+          "eta": 0.9955724225173941,
+          "mean_cost": 0.01601214458809501,
+          "mae": 0.0010909923208778133
+        },
+        "learned_uniform": {
+          "n": 2000,
+          "accepted": 1546,
+          "safe": 1528,
+          "unsafe": 18,
+          "conditional_unsafe": 0.01164294954721863,
+          "eta": 0.9664769133459835,
+          "mean_cost": 0.01719632260434051,
+          "mae": 0.003090330847180457
+        },
+        "learned_plic": {
+          "n": 2000,
+          "accepted": 1579,
+          "safe": 1550,
+          "unsafe": 29,
+          "conditional_unsafe": 0.01836605446485117,
+          "eta": 0.9803921568627451,
+          "mean_cost": 0.01648960833766818,
+          "mae": 0.002747659268041629
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.001153147650671711
+        },
+        "absolute_error": {
+          "mean": 0.0011405392499771664
+        },
+        "safe": {
+          "mean": -0.019
+        },
+        "unsafe": {
+          "mean": -0.004
+        }
+      }
+    },
+    "model_4": {
+      "cells": {
+        "target_uniform": {
+          "n": 2000,
+          "accepted": 1513,
+          "safe": 1513,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.956989247311828,
+          "mean_cost": 0.017823333765168058,
+          "mae": 0.002549269820370493
+        },
+        "target_plic": {
+          "n": 2000,
+          "accepted": 1592,
+          "safe": 1573,
+          "unsafe": 19,
+          "conditional_unsafe": 0.01193467336683417,
+          "eta": 0.9949399114484504,
+          "mean_cost": 0.015948954508045832,
+          "mae": 0.0010733912503671488
+        },
+        "learned_uniform": {
+          "n": 2000,
+          "accepted": 1541,
+          "safe": 1527,
+          "unsafe": 14,
+          "conditional_unsafe": 0.009085009733939001,
+          "eta": 0.9658444022770398,
+          "mean_cost": 0.01819061186089892,
+          "mae": 0.003184192826417734
+        },
+        "learned_plic": {
+          "n": 2000,
+          "accepted": 1567,
+          "safe": 1546,
+          "unsafe": 21,
+          "conditional_unsafe": 0.013401403956604978,
+          "eta": 0.9778621125869703,
+          "mean_cost": 0.017427141334847084,
+          "mae": 0.002718722301344284
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0011109087310703933
+        },
+        "absolute_error": {
+          "mean": 0.0010104080449298942
+        },
+        "safe": {
+          "mean": -0.0205
+        },
+        "unsafe": {
+          "mean": -0.006
+        }
+      }
+    },
+    "card_A": {
+      "cells": {
+        "target_uniform": {
+          "n": 3245,
+          "accepted": 2805,
+          "safe": 2805,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9756521739130435,
+          "mean_cost": 0.00896846672416206,
+          "mae": 0.0014795789046530426
+        },
+        "target_plic": {
+          "n": 3245,
+          "accepted": 2895,
+          "safe": 2870,
+          "unsafe": 25,
+          "conditional_unsafe": 0.008635578583765112,
+          "eta": 0.9982608695652174,
+          "mean_cost": 0.007831805381006238,
+          "mae": 0.0006710932231636188
+        },
+        "learned_uniform": {
+          "n": 3245,
+          "accepted": 2853,
+          "safe": 2823,
+          "unsafe": 30,
+          "conditional_unsafe": 0.010515247108307046,
+          "eta": 0.9819130434782609,
+          "mean_cost": 0.008545441712849905,
+          "mae": 0.0017872775839009943
+        },
+        "learned_plic": {
+          "n": 3245,
+          "accepted": 2876,
+          "safe": 2839,
+          "unsafe": 37,
+          "conditional_unsafe": 0.01286509040333797,
+          "eta": 0.9874782608695652,
+          "mean_cost": 0.008089300607799168,
+          "mae": 0.0016240349591993422
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0006805202381050847
+        },
+        "absolute_error": {
+          "mean": 0.0006452430567877723
+        },
+        "safe": {
+          "mean": -0.01510015408320493
+        },
+        "unsafe": {
+          "mean": -0.005546995377503852
+        }
+      }
+    },
+    "card_C": {
+      "cells": {
+        "target_uniform": {
+          "n": 3425,
+          "accepted": 1800,
+          "safe": 1800,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9,
+          "mean_cost": 0.036757751069405646,
+          "mae": 0.004778505793862242
+        },
+        "target_plic": {
+          "n": 3425,
+          "accepted": 2031,
+          "safe": 1980,
+          "unsafe": 51,
+          "conditional_unsafe": 0.025110782865583457,
+          "eta": 0.99,
+          "mean_cost": 0.03342040133886858,
+          "mae": 0.0020497352769040795
+        },
+        "learned_uniform": {
+          "n": 3425,
+          "accepted": 1901,
+          "safe": 1865,
+          "unsafe": 36,
+          "conditional_unsafe": 0.01893740136770121,
+          "eta": 0.9325,
+          "mean_cost": 0.036081825898600296,
+          "mae": 0.0060965196499933524
+        },
+        "learned_plic": {
+          "n": 3425,
+          "accepted": 1979,
+          "safe": 1915,
+          "unsafe": 64,
+          "conditional_unsafe": 0.03233956543708944,
+          "eta": 0.9575,
+          "mean_cost": 0.03477460170563926,
+          "mae": 0.00537717374705053
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0020301255375760286
+        },
+        "absolute_error": {
+          "mean": 0.0020094246140153413
+        },
+        "safe": {
+          "mean": -0.03795620437956204
+        },
+        "unsafe": {
+          "mean": -0.006715328467153284
+        }
+      }
+    },
+    "card_D": {
+      "cells": {
+        "target_uniform": {
+          "n": 3330,
+          "accepted": 2962,
+          "safe": 2962,
+          "unsafe": 0,
+          "conditional_unsafe": 0.0,
+          "eta": 0.9775577557755776,
+          "mean_cost": 0.007072977385365598,
+          "mae": 0.0013370286912459631
+        },
+        "target_plic": {
+          "n": 3330,
+          "accepted": 3038,
+          "safe": 3018,
+          "unsafe": 20,
+          "conditional_unsafe": 0.0065832784726793945,
+          "eta": 0.996039603960396,
+          "mean_cost": 0.005987713221315099,
+          "mae": 0.0004891677124814426
+        },
+        "learned_uniform": {
+          "n": 3330,
+          "accepted": 2990,
+          "safe": 2968,
+          "unsafe": 22,
+          "conditional_unsafe": 0.007357859531772575,
+          "eta": 0.9795379537953796,
+          "mean_cost": 0.006904034212593589,
+          "mae": 0.001497149421061731
+        },
+        "learned_plic": {
+          "n": 3330,
+          "accepted": 3023,
+          "safe": 2987,
+          "unsafe": 36,
+          "conditional_unsafe": 0.011908699966920278,
+          "eta": 0.9858085808580858,
+          "mean_cost": 0.006460468152756119,
+          "mae": 0.0012876546458048099
+        }
+      },
+      "interactions": {
+        "cost": {
+          "mean": 0.0006416981042130301
+        },
+        "absolute_error": {
+          "mean": 0.0006383662035075996
+        },
+        "safe": {
+          "mean": -0.011111111111111112
+        },
+        "unsafe": {
+          "mean": -0.0018018018018018018
+        }
+      }
+    }
+  },
+  "partition_counts_and_primary_verified": true
+}

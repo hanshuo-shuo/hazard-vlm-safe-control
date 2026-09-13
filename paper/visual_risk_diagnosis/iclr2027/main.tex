@@ -33,15 +33,14 @@ changes are conservative and concentrate at overlapping boundaries with small
 margins. Retrospective interventions then test the interpretation of this loss.
 An established area-preserving reconstruction recovers 44 target-oracle
 opportunities but adds 16 unsafe accepts. Comparing the complete threshold
-families of uniform and reconstructed scores under identical empirical risk
-ceilings gives clearer gains for exact targets than for learned fields. At a
-1\% ceiling, learned safe-opportunity use improves by .45 percentage points,
-with a descriptive 95\% interval of [-.13,1.49]; a stable learned advantage
-across the examined risk range is not established. Individual harmful events
-also show that smaller component errors can accompany worse total
-underestimation. The evidence supports a case-specific attribution of learning
-and measurement failures, while separating local measurement changes from
-risk-constrained decision improvement.
+families under identical empirical risk ceilings does not establish a stable
+learned advantage. Full-cohort and four-cell interventions then distinguish
+residual-error accounting from actual input-dependent operator response.
+\input{intervention_abstract.tex}
+The evidence supports a case-specific attribution of learning and measurement
+failures: oracle reconstruction benefits do not transfer unchanged to learned
+inputs, and local measurement changes must be separated from risk-constrained
+decision improvement.
 \end{abstract}
 
 \section{Introduction}
@@ -93,7 +92,7 @@ The paper has two contributions: (i) a common-reference diagnostic structure
 that attributes a fixed pipeline's cost errors to supervision fit, source
 rasterization, and spatial aggregation; and (ii) controlled evidence of the
 resulting decision losses, their prospectively checked operating conditions,
-and their interaction with learned errors. The same-information intervention is
+and a separately confirmed input-by-operator interaction. The same-information intervention is
 a core explanatory control within this evidence, rather than an independent
 decoder-selection method. The contribution is the audit structure and the
 measured case; general task-sufficiency conditions and a validated rule for

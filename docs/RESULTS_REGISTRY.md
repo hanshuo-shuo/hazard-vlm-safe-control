@@ -39,6 +39,32 @@ The old pilot numbers below are not inherited as C³-Safe baselines. A new resul
 artifact record. A manifest or run marked `COMPLETE` only means execution completed; it does
 not mean the scientific result is valid.
 
+## 2026-09-12 — Full-cohort accounting and independent input–operator interaction
+
+- Status: **SUPPORTED_FIXED_INPUT_OPERATOR_INTERACTION** for the separately
+  frozen computational prediction; not C³-Safe semantic-safety validation.
+- A renewed user request follows the old matched-risk stop. Full-cohort auditing
+  and a subsequent actual input-field by aggregator factorial produce a distinct
+  hypothesis. The prior superiority screen remains failed.
+- One independent2,000-scene bank, seed2612091701; unchanged generator, five fixed
+  models, two fixed operators, no training. At the same learned-uniform-selected
+  action, safe-accept gain is3.01pp for target input versus.85pp for learned input.
+  Interaction−2.16pp, predeclared one-sided bootstrap upper−1.64pp <−.5pp.
+  Fixed-footprint finer-property check:−2.07pp, upper−1.55pp. Numerical guard passes.
+- Source/protocol/checkpoints frozen before generation; no exact anonymous identity
+  overlap with12,200 old scenes. Original scores and oracle flags saved before PLIC.
+- Full opposed-error denominators and coarsened controls retained on all three
+  banks. Standardized harm association is not consistently separated from zero,
+  and the flag requires reference labels. No deployable warning or causal share.
+- Scalar hybrids show measurement-only113 new harms versus full43 on the consumed
+  appended bank;71 removed by the model-relative change, one new joint crossing.
+  Out-of-range hybrids are not admissible methods. Actual four-cell operator
+  interventions are reported separately.
+- Four tests;20,000 consumed/10,000 independent scalar record checks;100,000/50,000
+  original score comparisons;80 CPU image replays. Primary bootstrap, sensitivity,
+  reference and PLIC replay pass. Study closed after this one independent bank.
+- Record: [`CANCELLATION_PROGRESS_2026-09-12.md`](CANCELLATION_PROGRESS_2026-09-12.md).
+
 ## 2026-09-12 — Complete threshold families and controlled-case revision
 
 - Status: **RETROSPECTIVE_EMPIRICAL_FRONTIERS / STOP_NO_NEW_SCENES**.

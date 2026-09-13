@@ -2,8 +2,10 @@
 
 **Working manuscript, 12 September 2026.** Same-reference oracle discovery,
 one prospective IID confirmation, the same-information intervention, and the
-final full-threshold comparison are complete. The continuation screen fails;
-this version is positioned as a controlled diagnostic case study. The ICLR 2027 LaTeX working draft has nine main-text
+full-threshold comparison and a later separately frozen input-by-operator test
+are complete. The score-superiority continuation screen remains failed; the new
+interaction prediction is supported on its own independent bank. This version
+remains a controlled diagnostic case study. The ICLR 2027 LaTeX working draft has nine main-text
 pages; it has not been submitted. This remains a controlled study,
 not a claim of universal prevalence.
 The initial RELLIS-3D corridor construction does not pass its geometry qualification
@@ -27,12 +29,15 @@ interventions then test the interpretation of this loss. An established
 area-preserving reconstruction recovers 44 target-oracle opportunities but adds
 16 unsafe accepts. Complete score-threshold families under identical empirical
 risk ceilings give clearer gains for exact targets than for learned fields.
-At a 1% ceiling, learned safe-opportunity use improves by .45 percentage points,
-with a descriptive 95% interval [-.13,1.49]; a stable learned advantage across
-the examined range is not established. Harmful events also show that smaller
-component errors can accompany worse total underestimation. The evidence
-supports a case-specific attribution of learning and measurement failures while
-separating local measurement changes from risk-constrained decision improvement.
+The complete threshold comparison does not establish stable learned superiority.
+A later actual input-field by aggregator intervention freezes a separate
+prediction: the reconstruction's safe-accept gain is attenuated with learned
+rather than exact-target input. On one independent 2,000-scene bank, the contrast
+is −2.16 percentage points of all scenes, with one-sided 95% upper bound −1.64,
+supporting the fixed prediction. Full-cohort accounting distinguishes oracle
+associations and algebraic residual substitutions from actual module interventions.
+The evidence supports a case-specific attribution and a tested input–operator
+interaction, while leaving deployment prediction and general decoder selection open.
 
 ## 1. Introduction
 
@@ -57,7 +62,7 @@ supervision target from the target's current aggregation failing to realize the
 intended action measurement. The paper has two contributions:
 
 1. **Common-reference pipeline diagnosis:** attribute fixed-pipeline cost errors to supervision fit, source rasterization and spatial aggregation.
-2. **Controlled mechanism and decision evidence:** measure residual losses, prospectively check their operating conditions, and use same-information interventions to delimit the interpretation and document interactions with learned errors.
+2. **Controlled mechanism and decision evidence:** measure residual losses, prospectively check their operating conditions, and use same-information interventions, including a separately frozen independent input-by-operator test, to delimit repair interpretation.
 
 The reconstruction is an explanatory intervention within this evidence, not a
 separate validated decoder-selection contribution. General task-sufficiency
@@ -431,23 +436,71 @@ while acknowledging prior use of both banks. It required at least three
 consecutive ceilings spanning one percentage point within .5–3%, with a learned
 η gain of at least .5 pp, positive interval lower bound, and positive differences
 for at least four models, on both banks. No point meets all conditions. This is
-a work-stopping convention, not a preregistered scientific test. We stop without
-new scenes or operators. The outcome supports the controlled-case positioning.
+a work-stopping convention, not a preregistered scientific test. That comparison
+produces no score-superiority follow-up. The later independent intervention
+question below is separately frozen and does not change this stopping decision.
 
-### 4.2 Retrospective cancellation pattern
+### 4.2 Full-cohort accounting
 
-Among 43 newly unsafe learned PLIC decisions, 25 retain the action, start with
-opposed model and measurement errors, improve absolute measurement error, and
-worsen total absolute error. The first matching event has true cost .024972;
-target estimates .031961→.021431 and learned estimates .021279→.016964. Both
-absolute error components improve while prior opposition disappears and an
-unsafe action is accepted. All events, including the other 18, remain recorded.
+The original 25/43 pattern is conditional on newly unsafe outcomes. On all
+10,000 appended model–scene entries, 2,335 improve both absolute residual
+components; 580 of these worsen total absolute error, and 25 become newly
+unsafe. This separates a continuous-error event from a threshold crossing.
 
-This is conditional on newly unsafe outcomes. It does not estimate failure
-among all initially opposed-error actions, establish causal shares, or validate
-a predictor. Changing the operator changes both terms, so this is not a pair of
-independent module interventions. Local measurement improvement and end-to-end
-decision improvement must therefore be evaluated separately in this case.
+Among original rejections, opposition flags 1,025 cases, with 38 newly unsafe;
+the unflagged count is 5/1,192. Fixed model/card/direction and coarsened predicted
+margin/correction standardization gives a 1.66 pp harm-rate difference [.34,2.33]
+on the consumed appended bank, versus .35 pp [−.36,1.15] on development. In the
+later independent secondary analysis it is 1.35 pp [.00,2.01], with counts
+47/1,085 versus 3/1,171. All definitions and bins were fixed before that bank.
+These results do not establish a uniformly conclusive association, a causal
+share or a deployment predictor: the opposition flag requires reference labels.
+
+Algebraic scores holding one residual fixed sharpen the accounting. On the
+consumed appended bank, replacing only the measurement residual gives 113 newly
+unsafe accepts, replacing only the model-relative residual gives zero, and full
+PLIC gives 43. The model-relative change removes 71 of the measurement-only
+new harms, while one full new harm requires both changes. Of those hybrid
+measurement-only scores, 1,655 leave [0,1]; they are not admissible module outputs
+or candidate methods. This distinction prevents scalar bookkeeping from being
+presented as independent physical-module causation.
+
+### 4.3 Actual input-field × aggregator intervention and one independent prediction
+
+The four scores t0/t1 (target uniform/PLIC) and q0/q1 (learned uniform/PLIC) are
+actual outputs of the two unchanged operators applied to the two valid fields.
+All use the same original learned-uniform-selected action, card and reference.
+For safe-accept indicator S, the interaction is
+
+I = [S(q1) − S(q0)] − [S(t1) − S(t0)].
+
+The consumed development/appended interactions are −1.88/−1.45 percentage
+points of all model–scene entries. A later, separately frozen protocol tests
+E[I] < −.005 on one new 2,000-scene bank, averaging the five fixed models within
+each independent scene. Protocol, code and checkpoint hashes precede generation;
+exact anonymous identity checks find no overlap with the earlier 12,200 scenes.
+Baseline scores and oracle flags are saved before PLIC computation.
+
+| Actual input and aggregator, independent bank | Accepted | Safe accepted | Unsafe accepted |
+|---|---:|---:|---:|
+| Target uniform | 7,567 | 7,567 | 0 |
+| Target PLIC | 7,964 | 7,868 | 96 |
+| Learned uniform | 7,744 | 7,656 | 88 |
+| Learned PLIC | 7,878 | 7,741 | 137 |
+
+The PLIC safe-accept gain is 3.01 pp with target input and .85 pp with learned
+input. Their interaction is **−2.16 pp**, with one-sided 95% bootstrap upper
+bound **−1.64 pp**, below the frozen −.5 pp criterion. The finer-property/fixed-
+footprint sensitivity gives −2.07 pp, upper −1.55 pp; numerical label disagreement
+is .04583%, and p95 cost difference .000512. The single independent prediction
+is supported, conditional on this fixed model bank and generator.
+
+This is a computational input–operator interaction at fixed actions and score
+threshold, not an equal-risk deployment advantage or a generally useful decoder
+rule. It leaves the earlier failed score-superiority screen unchanged. No further
+bank follows this test. Independent replay verifies 10,000 scalar records,
+50,000 score values, the primary bootstrap, reference/PLIC recomputation and
+80 fixed-model image predictions.
 
 ## 5. Supporting learning and decision-rule controls
 
@@ -544,8 +597,10 @@ still be useful under an established risk-control procedure; that does not
 validate every upstream measurement choice. Cross-task mechanism transfer
 remains unestablished, and the external extension is closed. Complete threshold
 families under identical empirical risk ceilings give clearer exact-target
-gains, but no stable learned advantage across the inspected range. The final
-continuation screen fails. This supports a controlled diagnostic case study;
+gains, but no stable learned advantage across the inspected range. The earlier
+score-superiority continuation screen fails. A later independently confirmed
+input–operator interaction adds a precise computational response prediction.
+This supports a controlled diagnostic case study;
 it does not establish a generally useful decoder-selection principle.
 
 ## References
@@ -566,6 +621,7 @@ it does not establish a generally useful decoder-selection principle.
 ## Supplement and artifact entry points
 
 - [Nine-page ICLR-format manuscript source](iclr2027/main.tex) and [appendix](iclr2027/appendix.tex).
+- [Full-cohort accounting and independent input–operator test](../../research/cancellation_audit_20260912/README.md).
 - [Final full-threshold comparison, raw curves and stop decision](../../research/matched_risk_revision_20260912/README.md).
 - [Same-information control: protocol, full events, freezes and verification](../../research/same_information_reconstruction_20260912/README.md).
 - [New oracle study: protocols and reproduction](../../research/oracle_aggregation_20260912/README.md).

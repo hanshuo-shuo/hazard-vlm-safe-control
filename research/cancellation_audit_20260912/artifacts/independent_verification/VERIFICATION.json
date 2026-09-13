@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scalar_records": 10000,
+  "original_score_comparisons": 50000,
+  "frozen_baseline_flags": 3141,
+  "bootstrap_primary_and_sensitivity_reproduced": true,
+  "reference_recomputed_scenes": 8,
+  "reference_max_abs": 0.0,
+  "PLIC_replay_max_abs": 0.0,
+  "CPU_model_replay_images": 80,
+  "CPU_field_max_abs": 0.0,
+  "source_and_checkpoint_hashes_unchanged": true
+}

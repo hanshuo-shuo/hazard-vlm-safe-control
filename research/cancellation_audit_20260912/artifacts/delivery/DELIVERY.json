@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "at_utc": "2026-09-13T02:40:06.755434+00:00",
+  "main_text_pages": 9,
+  "total_pages": 16,
+  "visual_review": {
+    "pdf_sha256": "7b79d8eaa6d38f5724212429e60bed8637af992a0f193d1d99f1030cf1d5e165",
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "reviewer": "Codex page-by-page visual inspection, not completed human author review",
+    "result": "No clipping, overlap or unreadable figure/table content observed"
+  },
+  "stage_manifest_entries": {
+    "audit": 3,
+    "verification_publication": 5,
+    "independent": 14,
+    "independent_verification": 6
+  },
+  "source_inputs_checkpoints_and_style_unchanged": true,
+  "freeze_identity_baseline_and_result_order_verified": true,
+  "exact_geometry_overlap": 0,
+  "manuscript_files": {
+    "main.tex": "b2d73a592b95fd843dd3870160df74ece249d7a3e186fd32bb7b13061f5c0336",
+    "evidence.tex": "38080ac00e80e4f1a6e9796b929f1e9a5886a66b649087fb217d7ace75741b56",
+    "comparison.tex": "679779e91f7b7ca52e102cec897383b32f23943cb218311a167446e24dd9a486",
+    "discussion.tex": "43657f4dd05a003fb727fbb5d7d6dd192d1c9d4f9100bf76232c2049a9530bca",
+    "appendix.tex": "5450d68b4122a79c193d2fdc2003c5b31799fe4f8a5880b3acfe6a4a284eda5b",
+    "case_table.tex": "6500736972ad8909c8c3ddbeb391c39251aead9f3c06d44e59210be2ebe1dfb3",
+    "matched_table.tex": "f9d62f21892c64e14710a9e61d16d66f6ecc8d183ab0dfb9b5b14e23078ba809",
+    "independent_cells.tex": "23dad7bedd34514ae6f8fa0664fab14a50c6640e56ae18ddc822386004eb9387",
+    "intervention_results.tex": "3d2f82be73736f4e43462e059b6aaff10c8a2385274867119cabf85d97e2f00e",
+    "intervention_abstract.tex": "1df9dcdd25d3f80616ebfb1cec7f904c4fde3a3d43f392cf82019ba2952d01b0",
+    "references.bib": "9ca7a601facb9902b2ec4b109870718df9dd5118b3b3edfceafa2896f6c54538",
+    "iclr2027_conference.sty": "797deef41724e93761426ac0cbcca46279a91cc650dd1f0ce76a4f08d2098ea6",
+    "iclr2027_conference.bst": "2d67552db7ed38ccfccb5957b52f95656e25c249724761d3cf5f7922ad1844c5",
+    "fancyhdr.sty": "b56ec4434b9f4607529a4b23dc68ad8d4b94f1f631c8cddaf7da78140d53a5ea",
+    "natbib.sty": "88bc70c0e48461934cab5b2accef06b74a8b3ac45ad03ccd3f2a6b7e0d6d530d",
+    "math_commands.tex": "90473c4d0542070db244cea73ef962d6cddc5b2a746757e6a40ddf5fdfb90ba9",
+    "build.sh": "e1caf85a0a75e62efbc0e3df186dc109f131fa41ecde513f317f23278caf26a8",
+    "README.md": "6ac8eb486aae8a93dde76df2764cca143fb9430545c303ce30c94ac46e0d58a1",
+    "figures/task_scene.png": "4fe13d9d99c622aebd110b879936d1605c7e942b554f1e54bb62378081d074c0",
+    "figures/oracle_confirmation.png": "1a02d3874d884d49dca97bd4e2db5e1993086b75f8772fe11aba751d4ea8371c",
+    "figures/same_information_tradeoff.png": "4724b9ebf2e6eed304c371cef368373547b340b819200b0fd01c369ec01e7bdf",
+    "figures/matched_risk.png": "32bd9c2e43438d7f8b9067e6cba001b3ad098eac6772e481b28d215f74459813"
+  },
+  "portable_build_all_pages_text_and_raster_identical": true,
+  "delivery_hashes": {
+    "perfect_coarse_predictions_iclr2027.pdf": "7b79d8eaa6d38f5724212429e60bed8637af992a0f193d1d99f1030cf1d5e165",
+    "anonymous_manuscript_source.zip": "e6b32483c14627d81ab792ccc8f495ecc4c58dfd6b3dc698d64dcbfd7a2ae4bd"
+  },
+  "scope": "One independently supported computational interaction. Earlier score-superiority stop unchanged; oracle flag not a deployment predictor. Source ZIP contains manuscript only. No submission or advisor message."
+}

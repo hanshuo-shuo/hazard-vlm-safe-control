@@ -1,0 +1,17 @@
+{
+  "at_utc": "2026-09-13T02:17:06.832162+00:00",
+  "new_records_generated": false,
+  "protocol_sha256": "193fbc2cd2b512b2e1c78d3754a9461c1225ddd1d568bc0a675f414e621459cf",
+  "script_sha256": "172d51b5e8da2acaaeedaf8217ed0fb57551cf6118f16b8990e89d399096b4ba",
+  "imported_project_files": {},
+  "checkpoint_hashes": {
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_0/model.pt": "383cc488cf81771567c5fa37383b7c8d1d525cf81275a157bc26570bad45c827",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_1/model.pt": "62c2ea65bc87b44ccf1e378fd5baa8748097cd2086d507d2a02bcb22111e44bb",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_2/model.pt": "11c2f2b0e50ed8542def46cce5be5c976c2cd86a10a0edee3c5a470f47971fb6",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_3/model.pt": "25dc2fe2385377230f18286abd099a825bba3321621ceeece5d41dfbfefbea90",
+    "/projects/p33100/siosio/hazard_pro_decision_round_20260912/e2_runs/independent_64/seed_4/model.pt": "96752c7a09664386210b5a2bf2c53890ce2544d26bf7d0443ca469604da7af78"
+  },
+  "old_generator_protocol_sha256": "cedff6b87e78d5355c31cc3282a307cebc4a15305535ba0f0933b5dee95d9630",
+  "numpy": "1.23.5",
+  "torch": "2.5.1+cu124"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "FULL-COHORT-CANCELLATION-AUDIT-20260912-v1",
+  "parent_commit": "b96e36e5c0a293e69d8342a0333e39d4bc323fc7",
+  "authorization": "New user request after the matched-risk stop asks to continue addressing Pro's outstanding doubts. This separately scoped diagnostic audit does not change the prior STOP_NO_NEW_SCENES decision or claim its gate passed.",
+  "question": "Does the reported cancellation pattern describe the whole at-risk population, and what do algebraic single-term substitutions reveal? Distinguish outcome-conditioned examples, oracle associations, deployable prediction and independent module causation.",
+  "input_root": "/projects/p33100/siosio/hazard_same_information_reconstruction_20260912",
+  "banks": ["development", "appended"],
+  "assets": "Existing two consumed 2000-scene banks, five learned models, uniform and PLIC scores only. No training, new perceptual model, alternative reconstruction, grid, risk threshold, scene or subgroup search.",
+  "unit": "One uniform-selected action per model and scene, original image variant/card and tie uniform, tie tolerance 1e-9. Five fixed models share scenes. Target and reference scores are evaluated at that same learned-model action, never at their own selectors.",
+  "definitions": {
+    "truth": "r=c_ref; unsafe iff r>.02",
+    "scores": "q0=learned uniform; q1=learned PLIC; t0=actual target uniform; t1=actual target PLIC, all on the fixed action",
+    "errors": "m0=t0-r, l0=q0-t0, m1=t1-r, l1=q1-t1",
+    "baseline_flag": "C0=(m0*l0 < -1e-18). This flag uses reference labels; it is an oracle diagnostic, not an observable deployment feature.",
+    "directions": "Report C0 with m0>0/l0<0, C0 with m0<0/l0>0, and not flagged, with no choice of a favorable direction after outcomes.",
+    "at_risk": "Original rejection q0>.02, defined before PLIC acceptance. Also report every full-population denominator, original accepted cases and new-accept subsets.",
+    "harm": "H=(r>.02)&(q0>.02)&(q1<=.02). This is newly unsafe acceptance on a fixed action, not increased physical risk of that unchanged action.",
+    "old_pattern": "C0 plus |m1|<|m0|-1e-12 and |q1-r|>|q0-r|+1e-12. Report its prevalence among all records, among baseline flags and among new harms; separately report both component absolute errors improving. Do not equate old outcome-conditioned 25/43 with P(H|C0)."
+  },
+  "standardization": {
+    "cohort": "All original rejections, C0 versus not flagged. New harm is the outcome. No restriction using true safety, future harm or the improvement conditions.",
+    "strata": "Exact model index, card and correction direction (q1-q0<0 versus >=0); coarsened original predicted rejection margin q0-.02 and absolute score correction |q1-q0|.",
+    "bin_inner_edges": [0.001,0.002,0.005,0.01,0.02,0.05],
+    "edges": "Fixed left-closed bins [0,.001),...,[.05,infinity); equality enters the higher bin. Bins fixed before reading this audit, not fitted to outcomes.",
+    "weight": "Within cells containing both flagged and unflagged cases, weight the two cell-specific harm rates equally by min(n_flag,n_unflag). Report matched-support fractions and residual within-bin covariate imbalance. Empty support gives undefined estimates.",
+    "interpretation": "Descriptive overlap-standardized association, not exact continuous matching or a causal effect. The correction is operator-dependent, and C0 contains true reference cost. No true margin is smuggled into an allegedly label-free predictor."
+  },
+  "hybrids": {
+    "q00": "r+m0+l0=q0",
+    "q10": "r+m1+l0=q0+(t1-t0)",
+    "q01": "r+m0+l1=q1-(t1-t0)",
+    "q11": "r+m1+l1=q1",
+    "purpose": "Hold one scalar residual term fixed while substituting the other; evaluate all four scores at .02 on the same action and truth. Record full safe/unsafe counts, new harms, errors, out-of-range hybrid scores and threshold interaction. These oracle hybrid scores are algebraic diagnostic interventions, not independently manipulated physical or learned modules; do not clip them or call them deployable methods.",
+    "cancellation_identity": "k=|m|+|l|-|m+l|. Delta absolute total error = Delta(sum absolute components) - Delta k. Verify numerically; this is an elementary identity, not new theory or an estimated causal share."
+  },
+  "uncertainty": "1000 paired scene bootstrap draws, seed2612091601, keeping the five-model bank fixed and shared scene weights. Recompute overlap weights in each draw. Pointwise descriptive intervals on consumed banks; no confirmatory p-values, model-population guarantee or new certificate.",
+  "progression": "First complete this audit on existing arrays. No new scene is authorized by this protocol. Even a positive oracle association does not establish deployable prediction. A further prospective question requires an explicit, non-tautological pre-outcome condition and separate frozen protocol; neither new data nor stronger claims follow automatically from a favorable table.",
+  "budget": "One <=20 minute CPU analysis allocation plus <=15 minute independent check/publication allocation. Preserve all branches and outcomes."
+}

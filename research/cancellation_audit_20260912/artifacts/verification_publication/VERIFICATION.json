@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scalar_records": 20000,
+  "original_score_comparisons": 100000,
+  "full_csv_rows": 20000,
+  "independent_standardization_strata": {
+    "development": 474,
+    "appended": 483
+  },
+  "max_identity_error": 1.5612511283791264e-17,
+  "source_and_inputs_unchanged": true,
+  "scope": "Independent numerical check, not human review or causal identification"
+}

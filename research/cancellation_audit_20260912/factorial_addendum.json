@@ -1,0 +1,11 @@
+{
+  "id": "INPUT-OPERATOR-FACTORIAL-20260912-v1",
+  "timing": "Added after the full-cohort/hybrid audit, before computing this four-cell factorial summary. All data remain previously consumed; no retrospective preregistration claim.",
+  "reason": "Algebraic residual hybrids do not implement independent module interventions. Use the already stored four actual operator outputs to distinguish this limitation from an executable computational input-by-operator intervention.",
+  "axes": "Input field: actual perfect coarse target versus fixed learned coarse field. Aggregator: unchanged uniform versus fixed PLIC. Both input fields are valid original fields and each aggregator actually ran on both. Action, card, reference and threshold remain fixed.",
+  "cells": {"target_uniform":"t0", "target_plic":"t1", "learned_uniform":"q0", "learned_plic":"q1"},
+  "interaction": "For signed cost, absolute cost error, safe-accept and unsafe-accept indicators: (learned_PLIC-learned_uniform)-(target_PLIC-target_uniform). Unsafe indicators use all model-scene entries as denominator, not conditional-risk ratios. Risk and eta remain descriptive cell summaries.",
+  "scope": "A controlled computational intervention using an oracle input replacement. It is not an independent causal intervention on the two residual terms, a real-world causal effect, or a deployable predictor. No new operator, field, model, data or training is generated.",
+  "reporting": "Report every cell and every interaction, both banks, all five models and all three legal cards; no selection of a favorable interaction, card, seed or outcome. Fixed-model paired scene bootstrap, 1000 draws seed2612091602, pointwise descriptive intervals.",
+  "decision": "No automatic independent sample bank. Report whether this resolves a precise interpretation issue; do not equate additional diagnostics with ICLR-level novelty."
+}

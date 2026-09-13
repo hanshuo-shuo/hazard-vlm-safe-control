@@ -1,0 +1,54 @@
+# Full-cohort cancellation audit
+
+Both banks are consumed. Five fixed models share 2,000 scenes per bank. The baseline opposition flag uses reference labels; all associations are oracle diagnostics.
+
+| Bank | Originally rejected flagged: harm/n | Unflagged: harm/n | Raw rates | Overlap-standardized difference (pp) | Pointwise 95% interval (pp) |
+|---|---:|---:|---|---:|---|
+| development | 21/1085 | 5/1057 | 1.935% / 0.473% | +0.345 | [-0.360,+1.150] |
+| appended | 38/1025 | 5/1192 | 3.707% / 0.419% | +1.657 | [+0.342,+2.329] |
+
+## Full-population improvement denominators
+
+| Bank | All records | Originally opposed | Both components improve | Both improve but total error worsens | Among these, newly unsafe |
+|---|---:|---:|---:|---:|---:|
+| development | 10000 | 3153 | 2544 | 617 (24.25%) | 12 |
+| appended | 10000 | 2960 | 2335 | 580 (24.84%) | 25 |
+
+## Algebraic hybrids (not physical module interventions)
+
+| Bank | Score | Safe accepted | Unsafe accepted | New harms | Outside [0,1] |
+|---|---|---:|---:|---:|---:|
+| development | q00 | 7774 | 84 | 0 | 0 |
+| development | q10 | 7954 | 161 | 77 | 1755 |
+| development | q01 | 7562 | 56 | 0 | 0 |
+| development | q11 | 7867 | 110 | 26 | 0 |
+| appended | q00 | 7703 | 80 | 0 | 0 |
+| appended | q10 | 7868 | 193 | 113 | 1655 |
+| appended | q01 | 7517 | 53 | 0 | 0 |
+| appended | q11 | 7786 | 123 | 43 | 0 |
+
+## Actual input-field × aggregator intervention
+
+| Bank | Input and aggregator | Safe accepted | Unsafe accepted | Eta | MAE |
+|---|---|---:|---:|---:|---:|
+| development | target_uniform | 7713 | 5 | 96.172% | 0.002503 |
+| development | target_plic | 7994 | 78 | 99.676% | 0.000972 |
+| development | learned_uniform | 7774 | 84 | 96.933% | 0.002911 |
+| development | learned_plic | 7867 | 110 | 98.092% | 0.002502 |
+| appended | target_uniform | 7678 | 10 | 96.457% | 0.002584 |
+| appended | target_plic | 7906 | 89 | 99.322% | 0.001062 |
+| appended | learned_uniform | 7703 | 80 | 96.771% | 0.003256 |
+| appended | learned_plic | 7786 | 123 | 97.814% | 0.002826 |
+
+| Bank | Interaction: learned operator effect minus target operator effect | Mean | Pointwise 95% interval |
+|---|---|---:|---|
+| development | cost | +0.001055 | [0.0009278709959858336, 0.0011787480215016493] |
+| development | absolute_error | +0.001123 | [0.0009954858167558114, 0.0012552512290942633] |
+| development | safe | -0.018800 | [-0.025302500000000002, -0.012600000000000002] |
+| development | unsafe | -0.004700 | [-0.008399999999999998, -0.0012] |
+| appended | cost | +0.001202 | [0.0010718535121292962, 0.0013389413970458436] |
+| appended | absolute_error | +0.001092 | [0.0009600698513816441, 0.0012219014613770076] |
+| appended | safe | -0.014500 | [-0.0202025, -0.008700000000000001] |
+| appended | unsafe | -0.003600 | [-0.0078, 0.0007024999999999977] |
+
+The actual four-cell intervention does not make the residual terms independently manipulable modules. Hybrids are un-clipped scalar diagnostics and may be outside [0,1]. No outcome-defined subgroup is promoted to a deployment predictor.

@@ -1,11 +1,16 @@
 # Internal submission status — 12 September 2026
 
-Current positioning: **controlled diagnostic case study**. The strict review of
+Current positioning: **controlled diagnostic case study with an independently
+tested input-by-operator interaction**. The strict review of
 `41182b0` did not recommend ICLR main-conference acceptance and identified knowledge
 increment and technical-choice evidence as the main gaps. The final complete-
 threshold comparison does not establish a stable learned advantage under identical
-empirical risk ceilings; its continuation screen fails. No new samples are generated.
-The official-format working manuscript has nine main-text pages and fourteen total
+empirical risk ceilings; its continuation screen fails. A later renewed research
+request leads to a separately frozen computational interaction test on one new
+2,000-scene bank. It supports attenuation of the reconstruction's safe-accept
+gain with learned input: −2.16 pp, one-sided upper −1.64 pp. This does not reverse
+the earlier score-superiority result or validate a deployment predictor.
+The official-format working manuscript has nine main-text pages and sixteen total
 pages. This is a revised working draft, not a submission receipt or a statement of
 ICLR readiness. RELLIS and experimental expansion remain closed.
 
@@ -26,8 +31,9 @@ remain responsible for the paper.
 Remaining decisions and deliverables:
 
 1. Discuss the controlled-case contribution and suitable venue with the advisor.
-   The final comparison does not resolve the strict review's knowledge-increment
-   objection. Do not continue extra experiments merely to retain an ICLR label.
+   The new independent interaction strengthens the mechanism evidence, but does
+   not automatically resolve the strict review's knowledge-increment objection.
+   Do not continue extra experiments merely to retain an ICLR label.
 2. Human authors must settle author list, advisor participation, OpenReview
    profiles and reviewing eligibility before the abstract deadline.
 3. Review the completed nine-page LaTeX manuscript and its gains/harms comparison.

@@ -135,11 +135,13 @@ and $|l|$ decrease yet total underestimation grows, as detailed in the main text
 This is a transparent conditional illustration; it was not chosen to estimate
 the population frequency of such cases.
 
-The 25/43 denominator is conditional on newly unsafe outcomes. We have not
-estimated failure rates among all originally opposed-error actions, nor compared
-them against actions matched for safety margin and correction magnitude.
-Replacing the operator changes both $m$ and $l$; the decomposition is path-dependent
-and does not isolate independent causal interventions on two modules.
+\input{case_table.tex}
+
+The original 25/43 denominator is conditional on newly unsafe outcomes. The later
+full-cohort audit below supplies all baseline-opposition denominators and a
+coarsened comparison by predicted margin and correction magnitude. Replacing
+the operator changes both $m$ and $l$; the decomposition is path-dependent and
+does not isolate independent causal interventions on these residual terms.
 
 \section{Prospective direction check and its addendum}
 \label{app:direction}
@@ -250,7 +252,9 @@ PLIC-minus-uniform opportunity use had to be at least .5 percentage point,
 the pointwise interval lower endpoint had to exceed zero, and at least four of
 five individual-model differences had to be positive. This is a stopping
 convention for further work, not a preregistered scientific significance test.
-No point satisfies the joint requirements; no independent follow-up bank is generated.
+No point satisfies the joint requirements; that screen produces no independent
+score-superiority follow-up. A later, separately frozen input-by-operator
+question is described below; it does not change this stopping decision.
 
 For an additional accounting view, both operators select thresholds on development
 at the same listed ceilings, then apply them unchanged to the consumed appended
@@ -259,3 +263,110 @@ does not restore an independent test or supply a certificate. The absence of
 stable learned separation establishes neither equality of the operators nor
 the absence of recoverable spatial structure. Exact-target improvements and
 positive learned point estimates are retained alongside the uncertainty.
+
+\section{Full-cohort accounting and actual interface interventions}
+\label{app:fullcohort}
+The full-cohort audit was requested after completion of the empirical-risk
+comparison. Both of its initial banks remain consumed. For each of five models,
+we fix the learned-uniform-selected action, variant, card and reference r.
+Let $t_0,t_1$ be the target-field uniform/PLIC scores and $q_0,q_1$ their learned
+counterparts at that action. Define $m_j=t_j-r$ and $l_j=q_j-t_j$.
+Baseline opposition is $m_0l_0<-10^{-18}$. The at-risk cohort is original
+rejection $q_0>.02$, not a subset selected using future harm. Newly unsafe
+acceptance is $1[r>.02]1[q_0>.02]1[q_1\le.02]$.
+
+We report every original-opposition denominator, both sign directions, the
+unflagged remainder, original rejections and newly accepted subsets. Among all
+10,000 entries, both component absolute errors improve in 2,544 development
+and 2,335 appended cases. Total absolute error worsens in 617/2,544 (24.25\%)
+and 580/2,335 (24.84\%), respectively; only 12 and 25 become newly unsafe.
+This distinguishes a continuous-error event from an actual threshold crossing.
+
+\begin{table}[h]
+\centering\small
+\caption{Originally rejected actions: full oracle-flag denominators and coarsened overlap standardization. Intervals are descriptive, pointwise paired-scene intervals in percentage points of the matched-support population.}
+\begin{tabular}{lrrll}
+\toprule
+Bank & Flagged harm/n & Unflagged harm/n & Adjusted difference & 95\% interval\\
+\midrule
+Development &21/1085&5/1057&+.35 pp&[-.36,1.15]\\
+Consumed appended &38/1025&5/1192&+1.66 pp&[.34,2.33]\\
+Independent, secondary &47/1085&3/1171&+1.35 pp&[.00,2.01]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Standardization uses exact model/card/correction direction and fixed bins for
+predicted rejection margin and absolute score correction, with inner edges
+$.001,.002,.005,.01,.02,.05$. Equality enters the upper bin. In cells containing
+both groups, weight both cell-specific rates by the smaller group size.
+Development common support covers 84.98\% of flagged and 85.05\% of unflagged
+rejections; appended support covers 87.02\% and 83.89\%. This is coarsened
+standardization, with residual within-bin imbalance, not exact matching or a
+causal effect. The flag requires reference labels and the correction is
+operator-dependent. One thousand shared-scene bootstrap draws keep the five
+models fixed (seed 2612091601); undefined draws are retained as failures of
+estimation. The independent secondary analysis uses the same definitions and
+bins without fitting, but does not create another confirmatory claim.
+
+\paragraph{Residual hybrids and the actual factorial.}
+Scalar hybrids $q_{10}=r+m_1+l_0=q_0+t_1-t_0$ and
+$q_{01}=r+m_0+l_1=q_1-t_1+t_0$ hold one residual term fixed. On the consumed
+appended bank, measurement-only substitution produces 113 newly unsafe accepts;
+model-relative-only substitution produces zero, and full PLIC produces 43.
+Of the full 43, 42 also occur under measurement-only substitution and one
+requires both scalar changes; the model-relative change removes 71 of the
+measurement-only newly unsafe cases. These are diagnostic score substitutions:
+1,655 measurement-only scores leave [0,1], so they are not admissible
+predictor/aggregator outputs. We do not clip them or compare them as deployable
+methods. The exact identity for $k=|m|+|l|-|m+l|$ is
+\[
+\Delta |m+l|=\Delta(|m|+|l|)-\Delta k.
+\]
+It is accounting, not a novel theorem or an estimated causal fraction.
+
+In contrast, $t_0,t_1,q_0,q_1$ are all actually evaluated outputs of two valid
+fields passed through two unchanged operators. This input-field by aggregator
+intervention holds action and truth fixed. It tests a computational module
+response, while leaving the two residual terms dependent. For each metric,
+its interaction is the learned operator effect minus the target operator effect.
+All signed-cost, absolute-error, safe-accept and unsafe-accept interactions,
+all models and all three cards are retained; no favorable card or metric is
+selected after inspection.
+
+\section{One independent input-by-operator prediction}
+\label{app:interactionconfirmation}
+After the consumed-bank factorial results, a separate protocol freezes one new
+2,000-scene normal-IID bank, geometry seed 2612091701. The source files and all
+five checkpoint hashes are recorded before generation. Anonymous exact patch
+and complete-scene identities are checked against all earlier E2/E3 and original
+oracle-confirmation records; an overlap aborts rather than replaces a scene.
+There is no new training. The original generator, RGB rendering, source64
+coarse targets, F512, PLIC, public cost, score threshold and tie rule remain fixed.
+Uniform baseline scores, actions and oracle opposition flags are saved before
+PLIC is computed. The flags still require reference labels.
+
+For $S(s,r)=1[s\le.02]1[r\le.02]$, the per-scene primary contrast averages
+$S(q_1,r)-S(q_0,r)-S(t_1,r)+S(t_0,r)$ over the five fixed models. We predict its
+population mean is below $-.005$. Support requires the one-sided 95\% percentile
+upper bound from 5,000 paired-scene bootstrap draws (seed 2612091702) to be below
+$-.005$, both for the direct512 reference and the finer-property sensitivity
+check. This is one predeclared approximate test conditional on the model bank;
+it is not an exact bound, multiple independent model samples, or a safety certificate.
+
+The observed interaction is -2.16 pp, with upper bound -1.64 pp. Under
+property1024/fixed512-footprint costs it is -2.07 pp, upper bound -1.55 pp.
+All-candidate label disagreement is .04583\%, and p95 cost difference is .000512,
+within the frozen 1\%/.002 numerical screen. This is reference sensitivity, not
+proof of continuum correctness. No further bank follows either success or failure.
+
+\input{independent_cells.tex}
+
+Four audit tests pass. Independent scalar checks replay 20,000 consumed records
+(100,000 score values), every stored cohort denominator and standardization cell.
+The new bank adds 10,000 scalar records, 50,000 score comparisons, reproduction
+of the primary bootstrap and sensitivity test, eight recomputed reference scenes
+and PLIC replays, and 80 fixed-checkpoint RGB inference replays. Reference,
+PLIC and CPU field discrepancies in these replays are zero. All numerical work,
+inference, statistical analysis, plotting and manuscript compilation run on the
+research cluster. The data-use sequence and prior stopping decisions remain explicit.
